@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <ALBBSDK/ALBBSDK.h>
 #import <ALBBHTTPDNS/Httpdns.h>
 
 @interface ViewController ()
@@ -25,6 +26,16 @@ id<ALBBHttpdnsServiceProtocol> httpdns;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    [[ALBBSDK sharedInstance] asyncInit:@"23219835"
+                              appSecret:@"f88b70bbb623e5be9f39e2e47e79cb6c"
+                                       :^{
+                                           NSLog(@"init success!");
+                                       } failedCallback:^(NSError *error) {
+                                           NSLog(@"init failed, error: %@", error);
+                                       }];
+
+    [NSThread sleepForTimeInterval:3];
+
     // httpdns的初始化应当尽早进行
     [self initHttpdns];
 
@@ -33,16 +44,7 @@ id<ALBBHttpdnsServiceProtocol> httpdns;
 
 // 自实现基于AK/SK的鉴权，不依赖DPA平台的安全组件
 - (void)initHttpdns {
-    id<HttpdnsCredentialProvider> credential = [[HttpdnsCustomSignerCredentialProvider alloc] initWithSignerBlock:^NSString *(NSString *stringToSign) { NSString *signature = [NSString stringWithFormat:@"HTTPDNS %@:%@",
-                               testAk,
-                               [HttpdnsUtil Base64HMACSha1Sign:[stringToSign dataUsingEncoding:NSUTF8StringEncoding] withKey:testSk]];
-        HttpdnsLogDebug(@"signer sign: %@\nto%@", stringToSign, signature);
-        return signature;
-    }];
-
     httpdns = [HttpDnsServiceProvider getService];
-    [httpdns setAppId:testAppid];
-    [httpdns setCredentialProvider:credential];
 
     NSArray * hosts = @[@"www.taobao.com", @"www.aliyun.com"];
     [httpdns setPreResolveHosts:hosts];
