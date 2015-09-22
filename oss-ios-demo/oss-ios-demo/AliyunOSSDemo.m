@@ -163,9 +163,9 @@ static dispatch_queue_t queue4demo;
     create.xOssACL = @"public-read";
     create.location = @"oss-cn-hangzhou";
 
-    BFTask * createTask = [client createBucket:create];
+    OSSTask * createTask = [client createBucket:create];
 
-    [createTask continueWithBlock:^id(BFTask *task) {
+    [createTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             NSLog(@"create bucket success!");
         } else {
@@ -179,9 +179,9 @@ static dispatch_queue_t queue4demo;
     OSSDeleteBucketRequest * delete = [OSSDeleteBucketRequest new];
     delete.bucketName = @"<bucketName>";
 
-    BFTask * deleteTask = [client deleteBucket:delete];
+    OSSTask * deleteTask = [client deleteBucket:delete];
 
-    [deleteTask continueWithBlock:^id(BFTask *task) {
+    [deleteTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             NSLog(@"delete bucket success!");
         } else {
@@ -198,9 +198,9 @@ static dispatch_queue_t queue4demo;
     getBucket.prefix = @"";
 
 
-    BFTask * getBucketTask = [client getBucket:getBucket];
+    OSSTask * getBucketTask = [client getBucket:getBucket];
 
-    [getBucketTask continueWithBlock:^id(BFTask *task) {
+    [getBucketTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             OSSGetBucketResult * result = task.result;
             NSLog(@"get bucket success!");
@@ -233,9 +233,9 @@ static dispatch_queue_t queue4demo;
     put.contentEncoding = @"";
     put.contentDisposition = @"";
 
-    BFTask * putTask = [client putObject:put];
+    OSSTask * putTask = [client putObject:put];
 
-    [putTask continueWithBlock:^id(BFTask *task) {
+    [putTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             NSLog(@"upload object success!");
         } else {
@@ -264,7 +264,7 @@ static dispatch_queue_t queue4demo;
     put.contentEncoding = @"";
     put.contentDisposition = @"";
 
-    BFTask * putTask = [client putObject:put];
+    OSSTask * putTask = [client putObject:put];
 
     [putTask waitUntilFinished]; // 阻塞直到上传完成
 
@@ -288,9 +288,9 @@ static dispatch_queue_t queue4demo;
     NSString * docDir = [self getDocumentDirectory];
     // request.downloadToFileURL = [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:@"downloadfile"]];
 
-    BFTask * getTask = [client getObject:request];
+    OSSTask * getTask = [client getObject:request];
 
-    [getTask continueWithBlock:^id(BFTask *task) {
+    [getTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             NSLog(@"download object success!");
             OSSGetObjectResult * getResult = task.result;
@@ -315,7 +315,7 @@ static dispatch_queue_t queue4demo;
     // NSString * docDir = [self getDocumentDirectory];
     // request.downloadToFileURL = [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:@"downloadfile"]];
 
-    BFTask * getTask = [client getObject:request];
+    OSSTask * getTask = [client getObject:request];
 
     [getTask waitUntilFinished];
 
@@ -332,9 +332,9 @@ static dispatch_queue_t queue4demo;
     head.bucketName = @"android-test";
     head.objectKey = @"file1m";
 
-    BFTask * headTask = [client headObject:head];
+    OSSTask * headTask = [client headObject:head];
 
-    [headTask continueWithBlock:^id(BFTask *task) {
+    [headTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             OSSHeadObjectResult * headResult = task.result;
             NSLog(@"all response header: %@", headResult.httpResponseHeaderFields);
@@ -353,9 +353,9 @@ static dispatch_queue_t queue4demo;
     delete.bucketName = @"android-test";
     delete.objectKey = @"file1m";
 
-    BFTask * deleteTask = [client deleteObject:delete];
+    OSSTask * deleteTask = [client deleteObject:delete];
 
-    [deleteTask continueWithBlock:^id(BFTask *task) {
+    [deleteTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             NSLog(@"delete success !");
         } else {
@@ -379,7 +379,7 @@ static dispatch_queue_t queue4demo;
     init.contentType = @"application/octet-stream";
     init.objectMeta = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"value1", @"x-oss-meta-name1", nil];
 
-    BFTask * initTask = [client multipartUploadInit:init];
+    OSSTask * initTask = [client multipartUploadInit:init];
 
     [initTask waitUntilFinished];
 
@@ -402,7 +402,7 @@ static dispatch_queue_t queue4demo;
         NSString * docDir = [self getDocumentDirectory];
         uploadPart.uploadPartFileURL = [NSURL URLWithString:[docDir stringByAppendingPathComponent:@"file1m"]];
 
-        BFTask * uploadPartTask = [client uploadPart:uploadPart];
+        OSSTask * uploadPartTask = [client uploadPart:uploadPart];
 
         [uploadPartTask waitUntilFinished];
 
@@ -422,7 +422,7 @@ static dispatch_queue_t queue4demo;
     complete.uploadId = uploadId;
     complete.partInfos = partInfos;
 
-    BFTask * completeTask = [client completeMultipartUpload:complete];
+    OSSTask * completeTask = [client completeMultipartUpload:complete];
 
     [completeTask waitUntilFinished];
 
@@ -440,9 +440,9 @@ static dispatch_queue_t queue4demo;
     listParts.objectKey = @"file3m";
     listParts.uploadId = @"265B84D863B64C80BA552959B8B207F0";
 
-    BFTask * listPartTask = [client listParts:listParts];
+    OSSTask * listPartTask = [client listParts:listParts];
 
-    [listPartTask continueWithBlock:^id(BFTask *task) {
+    [listPartTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
             NSLog(@"list part result success!");
             OSSListPartsResult * listPartResult = task.result;

@@ -12,6 +12,8 @@
 @class BFTask;
 @class OSSSyncMutableDictionary;
 
+typedef BFTask OSSTask;
+
 /**
  * enum request retry type
  */
@@ -69,7 +71,6 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, strong) NSURL * uploadingFileURL;
 
 @property (nonatomic, assign) int64_t payloadTotalBytesWritten;
-@property (nonatomic, assign) int64_t payloadTotalBytesSent;
 
 @property (nonatomic, assign) BOOL isBackgroundUploadTask;
 
@@ -86,7 +87,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, copy) OSSNetworkingCompletionHandlerBlock completionHandler;
 @property (nonatomic, copy) OSSNetworkingOnRecieveDataBlock onRecieveData;
 
-- (BFTask *)buildInternalHttpRequest;
+- (OSSTask *)buildInternalHttpRequest;
 - (void)reset;
 - (void)cancel;
 @end
@@ -117,7 +118,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
                     headerParams:(NSMutableDictionary *)headerParams
                           querys:(NSMutableDictionary *)querys;
 
-- (BFTask *)validateRequestParamsInOperationType:(OSSOperationType)operType;
+- (OSSTask *)validateRequestParamsInOperationType:(OSSOperationType)operType;
 @end
 
 /**
@@ -131,5 +132,5 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, strong) BFExecutor * taskExecutor;
 
 - (instancetype)initWithConfiguration:(OSSNetworkingConfiguration *)configuration;
-- (BFTask *)sendRequest:(OSSNetworkingRequestDelegate *)request;
+- (OSSTask *)sendRequest:(OSSNetworkingRequestDelegate *)request;
 @end
