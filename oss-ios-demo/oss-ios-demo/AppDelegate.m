@@ -7,17 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import "AliyunOSSDemo.h"
 
 @interface AppDelegate ()
-
 @end
+
+AliyunOSSDemo * demo;
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    demo = [AliyunOSSDemo new];
+    [demo runDemo];
     return YES;
+}
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler {
+    NSLog(@"application - handler event handler");
+    [demo setHandler:completionHandler];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

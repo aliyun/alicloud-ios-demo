@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		210289381BA9240300C2A6BA /* AliyunOSSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 210289371BA9240300C2A6BA /* AliyunOSSDemo.m */; };
-		21A3BF2E1BB15BB500F46988 /* AliyunOSSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BF2C1BB15BB500F46988 /* AliyunOSSiOS.framework */; settings = {ASSET_TAGS = (); }; };
-		21A3BF2F1BB15BB500F46988 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BF2D1BB15BB500F46988 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		2133FFD11BB8FC890062739E /* AliyunOSSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2133FFD01BB8FC890062739E /* AliyunOSSiOS.framework */; settings = {ASSET_TAGS = (); }; };
+		21A3BF331BB1837500F46988 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BF311BB1837500F46988 /* Bolts.framework */; };
 		21F02EBF1BA6AC8800D13D12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02EBE1BA6AC8800D13D12 /* main.m */; };
 		21F02EC21BA6AC8800D13D12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02EC11BA6AC8800D13D12 /* AppDelegate.m */; };
 		21F02EC51BA6AC8800D13D12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02EC41BA6AC8800D13D12 /* ViewController.m */; };
@@ -32,8 +32,8 @@
 /* Begin PBXFileReference section */
 		210289361BA9240300C2A6BA /* AliyunOSSDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunOSSDemo.h; sourceTree = "<group>"; };
 		210289371BA9240300C2A6BA /* AliyunOSSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunOSSDemo.m; sourceTree = "<group>"; };
-		21A3BF2C1BB15BB500F46988 /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
-		21A3BF2D1BB15BB500F46988 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		2133FFD01BB8FC890062739E /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
+		21A3BF311BB1837500F46988 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		21F02EB91BA6AC8800D13D12 /* oss-ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "oss-ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02EBD1BA6AC8800D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02EBE1BA6AC8800D13D12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,8 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A3BF2E1BB15BB500F46988 /* AliyunOSSiOS.framework in Frameworks */,
-				21A3BF2F1BB15BB500F46988 /* Bolts.framework in Frameworks */,
+				2133FFD11BB8FC890062739E /* AliyunOSSiOS.framework in Frameworks */,
+				21A3BF331BB1837500F46988 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,8 +72,8 @@
 		21F02EB01BA6AC8800D13D12 = {
 			isa = PBXGroup;
 			children = (
-				21A3BF2C1BB15BB500F46988 /* AliyunOSSiOS.framework */,
-				21A3BF2D1BB15BB500F46988 /* Bolts.framework */,
+				2133FFD01BB8FC890062739E /* AliyunOSSiOS.framework */,
+				21A3BF311BB1837500F46988 /* Bolts.framework */,
 				21F02EBB1BA6AC8800D13D12 /* oss-ios-demo */,
 				21F02ED51BA6AC8800D13D12 /* oss-ios-demoTests */,
 				21F02EBA1BA6AC8800D13D12 /* Products */,

@@ -21,7 +21,13 @@ static dispatch_queue_t queue4demo;
 
 @implementation AliyunOSSDemo
 
+- (void)setHandler:(void(^)())handler {
+    client.networking.backgroundSessionCompletionHandler = handler;
+}
+
 - (void)runDemo {
+
+    [OSSLog enableLog];
 
     [self initLocalFile];
 
@@ -29,13 +35,19 @@ static dispatch_queue_t queue4demo;
 
     // start to run demo
 
-    [self listObjectsInBucket];
+    // [self listObjectsInBucket];
+
+    // [self uploadObjectAsync];
 
     // [self uploadObjectSync];
 
+    // [self downloadObjectAsync];
+
+    // [self downloadObjectSync];
+
     // [self multipartUpload];
 
-    // [self headObject];
+    [self headObject];
 
     // [self listParts];
 
@@ -148,7 +160,7 @@ static dispatch_queue_t queue4demo;
 
     OSSClientConfiguration * conf = [OSSClientConfiguration new];
     conf.maxRetryCount = 3;
-    conf.enableBackgroundTransmitService = NO; // 是否开启后台传输服务
+    conf.enableBackgroundTransmitService = NO; // 是否开启后台传输服务，目前，开启后，只对上传任务有效
     conf.timeoutIntervalForRequest = 15;
     conf.timeoutIntervalForResource = 24 * 60 * 60;
 
@@ -294,7 +306,7 @@ static dispatch_queue_t queue4demo;
         if (!task.error) {
             NSLog(@"download object success!");
             OSSGetObjectResult * getResult = task.result;
-            NSLog(@"download dota length: %ld", [getResult.downloadedData length]);
+            NSLog(@"download dota length: %u", [getResult.downloadedData length]);
         } else {
             NSLog(@"download object failed, error: %@" ,task.error);
         }
@@ -321,7 +333,7 @@ static dispatch_queue_t queue4demo;
 
     if (!getTask.error) {
         OSSGetObjectResult * result = getTask.result;
-        NSLog(@"download data length: %ld", [result.downloadedData length]);
+        NSLog(@"download data length: %u", [result.downloadedData length]);
     } else {
         NSLog(@"download data error: %@", getTask.error);
     }
