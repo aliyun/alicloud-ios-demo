@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:httpdns_ios_demo"
+      name = "httpdns_ios_demo">
+      <FileRef
+         location = "group:ALBB.bundle">
+      </FileRef>
+      <Group
+         location = "group:ALBBRpcSDK.framework"
+         name = "ALBBRpcSDK.framework">
+         <FileRef
+            location = "group:ALBBRpcSDK">
+         </FileRef>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:ALBBRpcEnvironment.h">
+            </FileRef>
+            <FileRef
+               location = "group:ALBBRpcProtocol.h">
+            </FileRef>
+            <FileRef
+               location = "group:ALBBRpcSDK.h">
+            </FileRef>
+            <FileRef
+               location = "group:CCPRequestOperation.h">
+            </FileRef>
+            <FileRef
+               location = "group:CCPURLRequest.h">
+            </FileRef>
+            <FileRef
+               location = "group:CCPURLResponse.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:ALBBSDK.framework"
+         name = "ALBBSDK.framework">
+         <FileRef
+            location = "group:ALBBSDK">
+         </FileRef>
+         <FileRef
+            location = "group:ALBBSDK-Info.plist">
+         </FileRef>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:ALBBSDK.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:ALBBSessionSDK.framework"
+         name = "ALBBSessionSDK.framework">
+         <FileRef
+            location = "group:ALBBSessionSDK">
+         </FileRef>
+         <FileRef
+            location = "group:ALBBSessionSDK-Info.plist">
+         </FileRef>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:ALBBSessionService.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:ALBBTDSSDK.framework"
+         name = "ALBBTDSSDK.framework">
+         <FileRef
+            location = "group:ALBBTDSSDK">
+         </FileRef>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:FederationToken.h">
+            </FileRef>
+            <FileRef
+               location = "group:TDSArgs.h">
+            </FileRef>
+            <FileRef
+               location = "group:TDSClient.h">
+            </FileRef>
+            <FileRef
+               location = "group:TDSLog.h">
+            </FileRef>
+            <FileRef
+               location = "group:TDSService.h">
+            </FileRef>
+            <FileRef
+               location = "group:TDSServiceProvider.h">
+            </FileRef>
+            <FileRef
+               location = "group:TDSTool.h">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:DpaUtil.framework"
+         name = "DpaUtil.framework">
+         <Group
+            location = "group:_CodeSignature"
+            name = "_CodeSignature">
+            <FileRef
+               location = "group:CodeDirectory">
+            </FileRef>
+            <FileRef
+               location = "group:CodeRequirements">
+            </FileRef>
+            <FileRef
+               location = "group:CodeResources">
+            </FileRef>
+            <FileRef
+               location = "group:CodeSignature">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:DpaUtil">
+         </FileRef>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:HTTPDNSMini.h">
+            </FileRef>
+            <FileRef
+               location = "group:HTTPDNSOrigin.h">
+            </FileRef>
+            <FileRef
+               location = "group:HTTPDNSTools.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:httpdns_ios_demo"
+         name = "httpdns_ios_demo">
+         <FileRef
+            location = "group:AppDelegate.h">
+         </FileRef>
+         <FileRef
+            location = "group:AppDelegate.m">
+         </FileRef>
+         <Group
+            location = "group:Base.lproj"
+            name = "Base.lproj">
+            <FileRef
+               location = "group:LaunchScreen.xib">
+            </FileRef>
+            <FileRef
+               location = "group:Main.storyboard">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Images.xcassets"
+            name = "Images.xcassets">
+            <Group
+               location = "group:AppIcon.appiconset"
+               name = "AppIcon.appiconset">
+               <FileRef
+                  location = "group:Contents.json">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:main.m">
+         </FileRef>
+         <FileRef
+            location = "group:ViewController.h">
+         </FileRef>
+         <FileRef
+            location = "group:ViewController.m">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:httpdns_ios_demo.xcodeproj">
+      </FileRef>
+      <Group
+         location = "group:httpdns_ios_demoTests"
+         name = "httpdns_ios_demoTests">
+         <FileRef
+            location = "group:httpdns_ios_demoTests.m">
+         </FileRef>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:UTDID.framework"
+         name = "UTDID.framework">
+         <FileRef
+            location = "group:Headers">
+         </FileRef>
+         <FileRef
+            location = "group:Resources">
+         </FileRef>
+         <FileRef
+            location = "group:UTDID">
+         </FileRef>
+         <Group
+            location = "group:Versions"
+            name = "Versions">
+            <Group
+               location = "group:A"
+               name = "A">
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:AidProtocol.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTDevice.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Resources"
+                  name = "Resources">
+                  <Group
+                     location = "group:en.lproj"
+                     name = "en.lproj">
+                     <FileRef
+                        location = "group:InfoPlist.strings">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:Info.plist">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:UTDID">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:Current">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:UTMini.framework"
+         name = "UTMini.framework">
+         <FileRef
+            location = "group:Headers">
+         </FileRef>
+         <FileRef
+            location = "group:Resources">
+         </FileRef>
+         <FileRef
+            location = "group:UTMini">
+         </FileRef>
+         <Group
+            location = "group:Versions"
+            name = "Versions">
+            <Group
+               location = "group:4.3.1"
+               name = "4.3.1">
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <FileRef
+                     location = "group:UTAnalytics.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTBaseRequestAuthentication.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTCustomHitBuilder.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTHitBuilder.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTHybridHelper.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTICrashCaughtListener.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTIRequestAuthentication.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTMCLogFieldsSchema.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTMCTeamWork.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTOirginalCustomHitBuilder.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTPageHitBuilder.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTPlugin.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTSecuritySDKRequestAuthentication.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTTeamWork.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UTTracker.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Resources"
+                  name = "Resources">
+                  <Group
+                     location = "group:en.lproj"
+                     name = "en.lproj">
+                     <FileRef
+                        location = "group:InfoPlist.strings">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:Info.plist">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:UTMini">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:Current">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
+   <Group
+      location = "group:oss-ios-demo"
+      name = "oss-ios-demo">
+      <Group
+         location = "group:AliyunOSSiOS.framework"
+         name = "AliyunOSSiOS.framework">
+         <FileRef
+            location = "group:AliyunOSSiOS">
+         </FileRef>
+         <FileRef
+            location = "group:AliyunOSSiOS-Info.plist">
+         </FileRef>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:OSSClient.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSCompat.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSHTTPDNSCacheTable.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSHTTPDNSMini.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSHTTPDNSOrigin.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSHTTPDNSTools.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSLog.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSModel.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSNetworking.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSService.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSUtil.h">
+            </FileRef>
+            <FileRef
+               location = "group:OSSXMLDictionary.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Bolts.framework"
+         name = "Bolts.framework">
+         <FileRef
+            location = "group:Bolts">
+         </FileRef>
+         <Group
+            location = "group:Headers"
+            name = "Headers">
+            <FileRef
+               location = "group:BFAppLink.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkNavigation.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkResolving.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkReturnToRefererController.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkReturnToRefererView.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFAppLinkTarget.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFCancellationToken.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFCancellationTokenRegistration.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFCancellationTokenSource.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFDefines.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFExecutor.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFMeasurementEvent.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFTask.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFTaskCompletionSource.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFURL.h">
+            </FileRef>
+            <FileRef
+               location = "group:BFWebViewAppLinkResolver.h">
+            </FileRef>
+            <FileRef
+               location = "group:Bolts.h">
+            </FileRef>
+            <FileRef
+               location = "group:BoltsVersion.h">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <Group
+            location = "group:Modules"
+            name = "Modules">
+            <FileRef
+               location = "group:module.modulemap">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:oss-ios-demo"
+         name = "oss-ios-demo">
+         <FileRef
+            location = "group:AliyunOSSDemo.h">
+         </FileRef>
+         <FileRef
+            location = "group:AliyunOSSDemo.m">
+         </FileRef>
+         <FileRef
+            location = "group:AppDelegate.h">
+         </FileRef>
+         <FileRef
+            location = "group:AppDelegate.m">
+         </FileRef>
+         <Group
+            location = "group:Base.lproj"
+            name = "Base.lproj">
+            <FileRef
+               location = "group:LaunchScreen.xib">
+            </FileRef>
+            <FileRef
+               location = "group:Main.storyboard">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:httpdns"
+            name = "httpdns">
+         </Group>
+         <Group
+            location = "group:Images.xcassets"
+            name = "Images.xcassets">
+            <Group
+               location = "group:AppIcon.appiconset"
+               name = "AppIcon.appiconset">
+               <FileRef
+                  location = "group:Contents.json">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:main.m">
+         </FileRef>
+         <FileRef
+            location = "group:ViewController.h">
+         </FileRef>
+         <FileRef
+            location = "group:ViewController.m">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:oss-ios-demo.xcodeproj">
+      </FileRef>
+      <Group
+         location = "group:oss-ios-demoTests"
+         name = "oss-ios-demoTests">
+         <FileRef
+            location = "group:Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:oss_ios_demoTests.m">
+         </FileRef>
+      </Group>
+   </Group>
+</Workspace>
