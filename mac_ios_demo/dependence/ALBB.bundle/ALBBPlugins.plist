@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cloudapi</key>
+	<dict>
+		<key>pluginName</key>
+		<string>ALBBCloudApiPluginAdapter</string>
+		<key>dependOn</key>
+		<string></string>
+	</dict>
+	<key>cloudpush</key>
+	<dict>
+		<key>dependOn</key>
+		<string></string>
+		<key>pluginName</key>
+		<string>ALBBCloudPushPlugin</string>
+	</dict>
+	<key>mas</key>
+	<dict>
+		<key>dependOn</key>
+		<string></string>
+		<key>pluginName</key>
+		<string>ALBBMASPlugin</string>
+	</dict>
+	<key>tds</key>
+	<dict>
+		<key>dependOn</key>
+		<string></string>
+		<key>pluginName</key>
+		<string>ALBBTDSPlugin</string>
+	</dict>
+	<key>oss</key>
+	<dict>
+		<key>dependOn</key>
+		<string></string>
+		<key>pluginName</key>
+		<string>ALBBOSSPlugin</string>
+	</dict>
+	<key>httpdns</key>
+	<dict>
+		<key>dependOn</key>
+		<string></string>
+		<key>pluginName</key>
+		<string>ALBBHTTPDNSPlugin</string>
+	</dict>
+</dict>
+</plist>
