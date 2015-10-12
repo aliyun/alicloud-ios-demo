@@ -306,7 +306,7 @@ static dispatch_queue_t queue4demo;
         if (!task.error) {
             NSLog(@"download object success!");
             OSSGetObjectResult * getResult = task.result;
-            NSLog(@"download dota length: %u", [getResult.downloadedData length]);
+            NSLog(@"download dota length: %lu", [getResult.downloadedData length]);
         } else {
             NSLog(@"download object failed, error: %@" ,task.error);
         }
@@ -333,7 +333,7 @@ static dispatch_queue_t queue4demo;
 
     if (!getTask.error) {
         OSSGetObjectResult * result = getTask.result;
-        NSLog(@"download data length: %u", [result.downloadedData length]);
+        NSLog(@"download data length: %lu", [result.downloadedData length]);
     } else {
         NSLog(@"download data error: %@", getTask.error);
     }

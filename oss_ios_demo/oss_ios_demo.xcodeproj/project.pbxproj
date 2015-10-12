@@ -25,7 +25,7 @@
 			containerPortal = 21F02EB11BA6AC8800D13D12 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 21F02EB81BA6AC8800D13D12;
-			remoteInfo = "oss_ios_demo";
+			remoteInfo = oss_ios_demo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -34,7 +34,7 @@
 		210289371BA9240300C2A6BA /* AliyunOSSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunOSSDemo.m; sourceTree = "<group>"; };
 		2133FFD01BB8FC890062739E /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
 		21A3BF311BB1837500F46988 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		21F02EB91BA6AC8800D13D12 /* oss_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "oss_ios_demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F02EB91BA6AC8800D13D12 /* oss_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oss_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02EBD1BA6AC8800D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02EBE1BA6AC8800D13D12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21F02EC01BA6AC8800D13D12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		21F02EC71BA6AC8800D13D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21F02EC91BA6AC8800D13D12 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		21F02ECC1BA6AC8800D13D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		21F02ED21BA6AC8800D13D12 /* oss_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "oss_ios_demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F02ED21BA6AC8800D13D12 /* oss_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = oss_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02ED71BA6AC8800D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02ED81BA6AC8800D13D12 /* oss_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = oss_ios_demoTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +103,7 @@
 				21F02ECB1BA6AC8800D13D12 /* LaunchScreen.xib */,
 				21F02EBC1BA6AC8800D13D12 /* Supporting Files */,
 			);
-			path = "oss_ios_demo";
+			path = oss_ios_demo;
 			sourceTree = "<group>";
 		};
 		21F02EBC1BA6AC8800D13D12 /* Supporting Files */ = {
@@ -121,7 +121,7 @@
 				21F02ED81BA6AC8800D13D12 /* oss_ios_demoTests.m */,
 				21F02ED61BA6AC8800D13D12 /* Supporting Files */,
 			);
-			path = "oss_ios_demoTests";
+			path = oss_ios_demoTests;
 			sourceTree = "<group>";
 		};
 		21F02ED61BA6AC8800D13D12 /* Supporting Files */ = {
@@ -147,8 +147,8 @@
 			);
 			dependencies = (
 			);
-			name = "oss_ios_demo";
-			productName = "oss_ios_demo";
+			name = oss_ios_demo;
+			productName = oss_ios_demo;
 			productReference = 21F02EB91BA6AC8800D13D12 /* oss_ios_demo.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -165,8 +165,8 @@
 			dependencies = (
 				21F02ED41BA6AC8800D13D12 /* PBXTargetDependency */,
 			);
-			name = "oss_ios_demoTests";
-			productName = "oss_ios_demoTests";
+			name = oss_ios_demoTests;
+			productName = oss_ios_demoTests;
 			productReference = 21F02ED21BA6AC8800D13D12 /* oss_ios_demoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -176,7 +176,7 @@
 		21F02EB11BA6AC8800D13D12 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = zhouzhuo;
 				TargetAttributes = {
 					21F02EB81BA6AC8800D13D12 = {
@@ -298,6 +298,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -367,9 +368,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "oss_ios_demo/Info.plist";
+				INFOPLIST_FILE = oss_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -382,9 +384,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "oss_ios_demo/Info.plist";
+				INFOPLIST_FILE = oss_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -401,8 +404,9 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "oss_ios_demoTests/Info.plist";
+				INFOPLIST_FILE = oss_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oss_ios_demo.app/oss_ios_demo";
 			};
@@ -416,8 +420,9 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "oss_ios_demoTests/Info.plist";
+				INFOPLIST_FILE = oss_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oss_ios_demo.app/oss_ios_demo";
 			};
