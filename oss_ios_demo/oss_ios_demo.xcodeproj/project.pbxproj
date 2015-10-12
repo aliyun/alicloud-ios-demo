@@ -25,7 +25,7 @@
 			containerPortal = 21F02EB11BA6AC8800D13D12 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 21F02EB81BA6AC8800D13D12;
-			remoteInfo = "oss-ios-demo";
+			remoteInfo = oss_ios_demo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -34,7 +34,7 @@
 		210289371BA9240300C2A6BA /* AliyunOSSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunOSSDemo.m; sourceTree = "<group>"; };
 		2133FFD01BB8FC890062739E /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
 		21A3BF311BB1837500F46988 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		21F02EB91BA6AC8800D13D12 /* oss-ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "oss-ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F02EB91BA6AC8800D13D12 /* oss_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oss_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02EBD1BA6AC8800D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02EBE1BA6AC8800D13D12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21F02EC01BA6AC8800D13D12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		21F02EC71BA6AC8800D13D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21F02EC91BA6AC8800D13D12 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		21F02ECC1BA6AC8800D13D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		21F02ED21BA6AC8800D13D12 /* oss-ios-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "oss-ios-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F02ED21BA6AC8800D13D12 /* oss_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = oss_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02ED71BA6AC8800D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02ED81BA6AC8800D13D12 /* oss_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = oss_ios_demoTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,8 +74,8 @@
 			children = (
 				2133FFD01BB8FC890062739E /* AliyunOSSiOS.framework */,
 				21A3BF311BB1837500F46988 /* Bolts.framework */,
-				21F02EBB1BA6AC8800D13D12 /* oss-ios-demo */,
-				21F02ED51BA6AC8800D13D12 /* oss-ios-demoTests */,
+				21F02EBB1BA6AC8800D13D12 /* oss_ios_demo */,
+				21F02ED51BA6AC8800D13D12 /* oss_ios_demoTests */,
 				21F02EBA1BA6AC8800D13D12 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,13 +83,13 @@
 		21F02EBA1BA6AC8800D13D12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21F02EB91BA6AC8800D13D12 /* oss-ios-demo.app */,
-				21F02ED21BA6AC8800D13D12 /* oss-ios-demoTests.xctest */,
+				21F02EB91BA6AC8800D13D12 /* oss_ios_demo.app */,
+				21F02ED21BA6AC8800D13D12 /* oss_ios_demoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21F02EBB1BA6AC8800D13D12 /* oss-ios-demo */ = {
+		21F02EBB1BA6AC8800D13D12 /* oss_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
 				210289361BA9240300C2A6BA /* AliyunOSSDemo.h */,
@@ -103,7 +103,7 @@
 				21F02ECB1BA6AC8800D13D12 /* LaunchScreen.xib */,
 				21F02EBC1BA6AC8800D13D12 /* Supporting Files */,
 			);
-			path = "oss-ios-demo";
+			path = oss_ios_demo;
 			sourceTree = "<group>";
 		};
 		21F02EBC1BA6AC8800D13D12 /* Supporting Files */ = {
@@ -115,13 +115,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		21F02ED51BA6AC8800D13D12 /* oss-ios-demoTests */ = {
+		21F02ED51BA6AC8800D13D12 /* oss_ios_demoTests */ = {
 			isa = PBXGroup;
 			children = (
 				21F02ED81BA6AC8800D13D12 /* oss_ios_demoTests.m */,
 				21F02ED61BA6AC8800D13D12 /* Supporting Files */,
 			);
-			path = "oss-ios-demoTests";
+			path = oss_ios_demoTests;
 			sourceTree = "<group>";
 		};
 		21F02ED61BA6AC8800D13D12 /* Supporting Files */ = {
@@ -135,9 +135,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21F02EB81BA6AC8800D13D12 /* oss-ios-demo */ = {
+		21F02EB81BA6AC8800D13D12 /* oss_ios_demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F02EDC1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss-ios-demo" */;
+			buildConfigurationList = 21F02EDC1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss_ios_demo" */;
 			buildPhases = (
 				21F02EB51BA6AC8800D13D12 /* Sources */,
 				21F02EB61BA6AC8800D13D12 /* Frameworks */,
@@ -147,14 +147,14 @@
 			);
 			dependencies = (
 			);
-			name = "oss-ios-demo";
-			productName = "oss-ios-demo";
-			productReference = 21F02EB91BA6AC8800D13D12 /* oss-ios-demo.app */;
+			name = oss_ios_demo;
+			productName = oss_ios_demo;
+			productReference = 21F02EB91BA6AC8800D13D12 /* oss_ios_demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		21F02ED11BA6AC8800D13D12 /* oss-ios-demoTests */ = {
+		21F02ED11BA6AC8800D13D12 /* oss_ios_demoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F02EDF1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss-ios-demoTests" */;
+			buildConfigurationList = 21F02EDF1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss_ios_demoTests" */;
 			buildPhases = (
 				21F02ECE1BA6AC8800D13D12 /* Sources */,
 				21F02ECF1BA6AC8800D13D12 /* Frameworks */,
@@ -165,9 +165,9 @@
 			dependencies = (
 				21F02ED41BA6AC8800D13D12 /* PBXTargetDependency */,
 			);
-			name = "oss-ios-demoTests";
-			productName = "oss-ios-demoTests";
-			productReference = 21F02ED21BA6AC8800D13D12 /* oss-ios-demoTests.xctest */;
+			name = oss_ios_demoTests;
+			productName = oss_ios_demoTests;
+			productReference = 21F02ED21BA6AC8800D13D12 /* oss_ios_demoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 		21F02EB11BA6AC8800D13D12 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = zhouzhuo;
 				TargetAttributes = {
 					21F02EB81BA6AC8800D13D12 = {
@@ -188,7 +188,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 21F02EB41BA6AC8800D13D12 /* Build configuration list for PBXProject "oss-ios-demo" */;
+			buildConfigurationList = 21F02EB41BA6AC8800D13D12 /* Build configuration list for PBXProject "oss_ios_demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -201,8 +201,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21F02EB81BA6AC8800D13D12 /* oss-ios-demo */,
-				21F02ED11BA6AC8800D13D12 /* oss-ios-demoTests */,
+				21F02EB81BA6AC8800D13D12 /* oss_ios_demo */,
+				21F02ED11BA6AC8800D13D12 /* oss_ios_demoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +252,7 @@
 /* Begin PBXTargetDependency section */
 		21F02ED41BA6AC8800D13D12 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21F02EB81BA6AC8800D13D12 /* oss-ios-demo */;
+			target = 21F02EB81BA6AC8800D13D12 /* oss_ios_demo */;
 			targetProxy = 21F02ED31BA6AC8800D13D12 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -298,6 +298,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -367,9 +368,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "oss-ios-demo/Info.plist";
+				INFOPLIST_FILE = oss_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -382,9 +384,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "oss-ios-demo/Info.plist";
+				INFOPLIST_FILE = oss_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -401,10 +404,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "oss-ios-demoTests/Info.plist";
+				INFOPLIST_FILE = oss_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oss-ios-demo.app/oss-ios-demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oss_ios_demo.app/oss_ios_demo";
 			};
 			name = Debug;
 		};
@@ -416,17 +420,18 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "oss-ios-demoTests/Info.plist";
+				INFOPLIST_FILE = oss_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba.sdk.ios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oss-ios-demo.app/oss-ios-demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oss_ios_demo.app/oss_ios_demo";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21F02EB41BA6AC8800D13D12 /* Build configuration list for PBXProject "oss-ios-demo" */ = {
+		21F02EB41BA6AC8800D13D12 /* Build configuration list for PBXProject "oss_ios_demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F02EDA1BA6AC8800D13D12 /* Debug */,
@@ -435,7 +440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F02EDC1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss-ios-demo" */ = {
+		21F02EDC1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss_ios_demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F02EDD1BA6AC8800D13D12 /* Debug */,
@@ -444,7 +449,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F02EDF1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss-ios-demoTests" */ = {
+		21F02EDF1BA6AC8800D13D12 /* Build configuration list for PBXNativeTarget "oss_ios_demoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F02EE01BA6AC8800D13D12 /* Debug */,

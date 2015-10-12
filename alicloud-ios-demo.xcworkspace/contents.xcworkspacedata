@@ -8,6 +8,6 @@
       location = "group:httpdns_ios_demo/httpdns_ios_demo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:oss-ios-demo/oss-ios-demo.xcodeproj">
+      location = "group:oss_ios_demo/oss_ios_demo.xcodeproj">
    </FileRef>
 </Workspace>
