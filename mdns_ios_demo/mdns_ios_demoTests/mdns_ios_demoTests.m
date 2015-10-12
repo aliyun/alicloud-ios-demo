@@ -1,6 +1,6 @@
 //
-//  httpdns_ios_demoTests.m
-//  httpdns_ios_demoTests
+//  mdns_ios_demoTests.m
+//  mdns_ios_demoTests
 //
 //  Created by zhouzhuo on 9/14/15.
 //  Copyright (c) 2015 zhouzhuo. All rights reserved.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface httpdns_ios_demoTests : XCTestCase
+@interface mdns_ios_demoTests : XCTestCase
 
 @end
 
-@implementation httpdns_ios_demoTests
+@implementation mdns_ios_demoTests
 
 - (void)setUp {
     [super setUp];

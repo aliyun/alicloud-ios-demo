@@ -1,6 +1,6 @@
 ## dpa-demo-ios
 
-### httpdns_ios_demo
+### mdns_ios_demo
 
 运行demo前请在`ViewController.m`文件中填入您的账号信息：
 

@@ -27,7 +27,7 @@
 		21F02E0E1BA686C200D13D12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F02E0C1BA686C200D13D12 /* Main.storyboard */; };
 		21F02E101BA686C200D13D12 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F02E0F1BA686C200D13D12 /* Images.xcassets */; };
 		21F02E131BA686C200D13D12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F02E111BA686C200D13D12 /* LaunchScreen.xib */; };
-		21F02E1F1BA686C200D13D12 /* httpdns_ios_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02E1E1BA686C200D13D12 /* httpdns_ios_demoTests.m */; };
+		21F02E1F1BA686C200D13D12 /* mdns_ios_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02E1E1BA686C200D13D12 /* mdns_ios_demoTests.m */; };
 		21F57AA21BCBA199001BE8CD /* ALBBHTTPDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,7 @@
 			containerPortal = 21F02DF71BA686C200D13D12 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 21F02DFE1BA686C200D13D12;
-			remoteInfo = httpdns_ios_demo;
+			remoteInfo = mdns_ios_demo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -56,7 +56,7 @@
 		21A3BEE91BAFE9EE00F46988 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		21A3BEEB1BAFE9F700F46988 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		21A3BEED1BAFEA0400F46988 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
-		21F02DFF1BA686C200D13D12 /* httpdns_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = httpdns_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F02DFF1BA686C200D13D12 /* mdns_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mdns_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02E031BA686C200D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02E041BA686C200D13D12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21F02E061BA686C200D13D12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,9 +66,9 @@
 		21F02E0D1BA686C200D13D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21F02E0F1BA686C200D13D12 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		21F02E121BA686C200D13D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		21F02E181BA686C200D13D12 /* httpdns_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F02E181BA686C200D13D12 /* mdns_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mdns_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02E1D1BA686C200D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21F02E1E1BA686C200D13D12 /* httpdns_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = httpdns_ios_demoTests.m; sourceTree = "<group>"; };
+		21F02E1E1BA686C200D13D12 /* mdns_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mdns_ios_demoTests.m; sourceTree = "<group>"; };
 		21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBHTTPDNS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				21A3BED01BAFE9AA00F46988 /* framework */,
-				21F02E011BA686C200D13D12 /* httpdns_ios_demo */,
-				21F02E1B1BA686C200D13D12 /* httpdns_ios_demoTests */,
+				21F02E011BA686C200D13D12 /* mdns_ios_demo */,
+				21F02E1B1BA686C200D13D12 /* mdns_ios_demoTests */,
 				21F02E001BA686C200D13D12 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,13 +139,13 @@
 		21F02E001BA686C200D13D12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21F02DFF1BA686C200D13D12 /* httpdns_ios_demo.app */,
-				21F02E181BA686C200D13D12 /* httpdns_ios_demoTests.xctest */,
+				21F02DFF1BA686C200D13D12 /* mdns_ios_demo.app */,
+				21F02E181BA686C200D13D12 /* mdns_ios_demoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21F02E011BA686C200D13D12 /* httpdns_ios_demo */ = {
+		21F02E011BA686C200D13D12 /* mdns_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
 				21F02E061BA686C200D13D12 /* AppDelegate.h */,
@@ -157,7 +157,7 @@
 				21F02E111BA686C200D13D12 /* LaunchScreen.xib */,
 				21F02E021BA686C200D13D12 /* Supporting Files */,
 			);
-			path = httpdns_ios_demo;
+			path = mdns_ios_demo;
 			sourceTree = "<group>";
 		};
 		21F02E021BA686C200D13D12 /* Supporting Files */ = {
@@ -169,13 +169,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		21F02E1B1BA686C200D13D12 /* httpdns_ios_demoTests */ = {
+		21F02E1B1BA686C200D13D12 /* mdns_ios_demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				21F02E1E1BA686C200D13D12 /* httpdns_ios_demoTests.m */,
+				21F02E1E1BA686C200D13D12 /* mdns_ios_demoTests.m */,
 				21F02E1C1BA686C200D13D12 /* Supporting Files */,
 			);
-			path = httpdns_ios_demoTests;
+			path = mdns_ios_demoTests;
 			sourceTree = "<group>";
 		};
 		21F02E1C1BA686C200D13D12 /* Supporting Files */ = {
@@ -189,9 +189,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21F02DFE1BA686C200D13D12 /* httpdns_ios_demo */ = {
+		21F02DFE1BA686C200D13D12 /* mdns_ios_demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F02E221BA686C200D13D12 /* Build configuration list for PBXNativeTarget "httpdns_ios_demo" */;
+			buildConfigurationList = 21F02E221BA686C200D13D12 /* Build configuration list for PBXNativeTarget "mdns_ios_demo" */;
 			buildPhases = (
 				21F02DFB1BA686C200D13D12 /* Sources */,
 				21F02DFC1BA686C200D13D12 /* Frameworks */,
@@ -201,14 +201,14 @@
 			);
 			dependencies = (
 			);
-			name = httpdns_ios_demo;
-			productName = httpdns_ios_demo;
-			productReference = 21F02DFF1BA686C200D13D12 /* httpdns_ios_demo.app */;
+			name = mdns_ios_demo;
+			productName = mdns_ios_demo;
+			productReference = 21F02DFF1BA686C200D13D12 /* mdns_ios_demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		21F02E171BA686C200D13D12 /* httpdns_ios_demoTests */ = {
+		21F02E171BA686C200D13D12 /* mdns_ios_demoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F02E251BA686C200D13D12 /* Build configuration list for PBXNativeTarget "httpdns_ios_demoTests" */;
+			buildConfigurationList = 21F02E251BA686C200D13D12 /* Build configuration list for PBXNativeTarget "mdns_ios_demoTests" */;
 			buildPhases = (
 				21F02E141BA686C200D13D12 /* Sources */,
 				21F02E151BA686C200D13D12 /* Frameworks */,
@@ -219,9 +219,9 @@
 			dependencies = (
 				21F02E1A1BA686C200D13D12 /* PBXTargetDependency */,
 			);
-			name = httpdns_ios_demoTests;
-			productName = httpdns_ios_demoTests;
-			productReference = 21F02E181BA686C200D13D12 /* httpdns_ios_demoTests.xctest */;
+			name = mdns_ios_demoTests;
+			productName = mdns_ios_demoTests;
+			productReference = 21F02E181BA686C200D13D12 /* mdns_ios_demoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -242,7 +242,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 21F02DFA1BA686C200D13D12 /* Build configuration list for PBXProject "httpdns_ios_demo" */;
+			buildConfigurationList = 21F02DFA1BA686C200D13D12 /* Build configuration list for PBXProject "mdns_ios_demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -255,8 +255,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21F02DFE1BA686C200D13D12 /* httpdns_ios_demo */,
-				21F02E171BA686C200D13D12 /* httpdns_ios_demoTests */,
+				21F02DFE1BA686C200D13D12 /* mdns_ios_demo */,
+				21F02E171BA686C200D13D12 /* mdns_ios_demoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F02E1F1BA686C200D13D12 /* httpdns_ios_demoTests.m in Sources */,
+				21F02E1F1BA686C200D13D12 /* mdns_ios_demoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +306,7 @@
 /* Begin PBXTargetDependency section */
 		21F02E1A1BA686C200D13D12 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21F02DFE1BA686C200D13D12 /* httpdns_ios_demo */;
+			target = 21F02DFE1BA686C200D13D12 /* mdns_ios_demo */;
 			targetProxy = 21F02E191BA686C200D13D12 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -421,7 +421,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = httpdns_ios_demo/Info.plist;
+				INFOPLIST_FILE = mdns_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -435,7 +435,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = httpdns_ios_demo/Info.plist;
+				INFOPLIST_FILE = mdns_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -453,10 +453,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = httpdns_ios_demoTests/Info.plist;
+				INFOPLIST_FILE = mdns_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/httpdns_ios_demo.app/httpdns_ios_demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mdns_ios_demo.app/mdns_ios_demo";
 			};
 			name = Debug;
 		};
@@ -468,17 +468,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = httpdns_ios_demoTests/Info.plist;
+				INFOPLIST_FILE = mdns_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/httpdns_ios_demo.app/httpdns_ios_demo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mdns_ios_demo.app/mdns_ios_demo";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21F02DFA1BA686C200D13D12 /* Build configuration list for PBXProject "httpdns_ios_demo" */ = {
+		21F02DFA1BA686C200D13D12 /* Build configuration list for PBXProject "mdns_ios_demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F02E201BA686C200D13D12 /* Debug */,
@@ -487,7 +487,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F02E221BA686C200D13D12 /* Build configuration list for PBXNativeTarget "httpdns_ios_demo" */ = {
+		21F02E221BA686C200D13D12 /* Build configuration list for PBXNativeTarget "mdns_ios_demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F02E231BA686C200D13D12 /* Debug */,
@@ -496,7 +496,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F02E251BA686C200D13D12 /* Build configuration list for PBXNativeTarget "httpdns_ios_demoTests" */ = {
+		21F02E251BA686C200D13D12 /* Build configuration list for PBXNativeTarget "mdns_ios_demoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F02E261BA686C200D13D12 /* Debug */,
