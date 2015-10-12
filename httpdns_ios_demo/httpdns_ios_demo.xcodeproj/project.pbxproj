@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		21A3BEDA1BAFE9B800F46988 /* ALBB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21A3BED11BAFE9B800F46988 /* ALBB.bundle */; settings = {ASSET_TAGS = (); }; };
-		21A3BEDB1BAFE9B800F46988 /* ALBBHTTPDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED21BAFE9B800F46988 /* ALBBHTTPDNS.framework */; settings = {ASSET_TAGS = (); }; };
 		21A3BEDC1BAFE9B800F46988 /* ALBBRpcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED31BAFE9B800F46988 /* ALBBRpcSDK.framework */; settings = {ASSET_TAGS = (); }; };
 		21A3BEDD1BAFE9B800F46988 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED41BAFE9B800F46988 /* ALBBSDK.framework */; settings = {ASSET_TAGS = (); }; };
 		21A3BEDE1BAFE9B800F46988 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED51BAFE9B800F46988 /* ALBBSessionSDK.framework */; settings = {ASSET_TAGS = (); }; };
@@ -29,6 +28,7 @@
 		21F02E101BA686C200D13D12 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F02E0F1BA686C200D13D12 /* Images.xcassets */; };
 		21F02E131BA686C200D13D12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F02E111BA686C200D13D12 /* LaunchScreen.xib */; };
 		21F02E1F1BA686C200D13D12 /* httpdns_ios_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02E1E1BA686C200D13D12 /* httpdns_ios_demoTests.m */; };
+		21F57AA21BCBA199001BE8CD /* ALBBHTTPDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 
 /* Begin PBXFileReference section */
 		21A3BED11BAFE9B800F46988 /* ALBB.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALBB.bundle; sourceTree = "<group>"; };
-		21A3BED21BAFE9B800F46988 /* ALBBHTTPDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBHTTPDNS.framework; sourceTree = "<group>"; };
 		21A3BED31BAFE9B800F46988 /* ALBBRpcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBRpcSDK.framework; sourceTree = "<group>"; };
 		21A3BED41BAFE9B800F46988 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSDK.framework; sourceTree = "<group>"; };
 		21A3BED51BAFE9B800F46988 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSessionSDK.framework; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		21F02E181BA686C200D13D12 /* httpdns_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02E1D1BA686C200D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02E1E1BA686C200D13D12 /* httpdns_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = httpdns_ios_demoTests.m; sourceTree = "<group>"; };
+		21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBHTTPDNS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 				21A3BEE61BAFE9DE00F46988 /* CoreLocation.framework in Frameworks */,
 				21A3BEE41BAFE9D800F46988 /* CoreTelephony.framework in Frameworks */,
 				21A3BEDC1BAFE9B800F46988 /* ALBBRpcSDK.framework in Frameworks */,
-				21A3BEDB1BAFE9B800F46988 /* ALBBHTTPDNS.framework in Frameworks */,
+				21F57AA21BCBA199001BE8CD /* ALBBHTTPDNS.framework in Frameworks */,
 				21A3BEE21BAFE9B800F46988 /* UTMini.framework in Frameworks */,
 				21A3BEE01BAFE9B800F46988 /* DpaUtil.framework in Frameworks */,
 				21A3BEDF1BAFE9B800F46988 /* ALBBTDSSDK.framework in Frameworks */,
@@ -107,6 +107,7 @@
 		21A3BED01BAFE9AA00F46988 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */,
 				21A3BEED1BAFEA0400F46988 /* libz.1.dylib */,
 				21A3BEEB1BAFE9F700F46988 /* CFNetwork.framework */,
 				21A3BEE91BAFE9EE00F46988 /* Security.framework */,
@@ -114,7 +115,6 @@
 				21A3BEE51BAFE9DE00F46988 /* CoreLocation.framework */,
 				21A3BEE31BAFE9D800F46988 /* CoreTelephony.framework */,
 				21A3BED11BAFE9B800F46988 /* ALBB.bundle */,
-				21A3BED21BAFE9B800F46988 /* ALBBHTTPDNS.framework */,
 				21A3BED31BAFE9B800F46988 /* ALBBRpcSDK.framework */,
 				21A3BED41BAFE9B800F46988 /* ALBBSDK.framework */,
 				21A3BED51BAFE9B800F46988 /* ALBBSessionSDK.framework */,
