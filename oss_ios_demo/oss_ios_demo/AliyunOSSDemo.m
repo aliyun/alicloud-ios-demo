@@ -377,6 +377,30 @@ static dispatch_queue_t queue4demo;
     }];
 }
 
+- (void)signAccessObjectURL {
+    NSString * constrainURL = nil;
+    NSString * publicURL = nil;
+
+    // sign constrain url
+    OSSTask * task = [client presignConstrainURLWithBucketName:@"<bucket name>"
+                                                 withObjectKey:@"<object key>"
+                                        withExpirationInterval:60 * 30];
+    if (!task.error) {
+        constrainURL = task.result;
+    } else {
+        NSLog(@"error: %@", task.error);
+    }
+
+    // sign public url
+    task = [client presignPublicURLWithBucketName:@"<bucket name>"
+                                    withObjectKey:@"<object key>"];
+    if (!task.error) {
+        constrainURL = task.result;
+    } else {
+        NSLog(@"sign url error: %@", task.error);
+    }
+}
+
 - (void)multipartUpload {
 
     __block NSString * uploadId = nil;
