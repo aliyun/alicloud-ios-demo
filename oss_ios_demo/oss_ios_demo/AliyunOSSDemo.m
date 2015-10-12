@@ -1,6 +1,6 @@
 //
 //  oss_ios_demo.m
-//  oss-ios-demo
+//  oss_ios_demo
 //
 //  Created by zhouzhuo on 9/16/15.
 //  Copyright (c) 2015 zhouzhuo. All rights reserved.
@@ -306,7 +306,7 @@ static dispatch_queue_t queue4demo;
         if (!task.error) {
             NSLog(@"download object success!");
             OSSGetObjectResult * getResult = task.result;
-            NSLog(@"download dota length: %u", [getResult.downloadedData length]);
+            NSLog(@"download dota length: %lu", [getResult.downloadedData length]);
         } else {
             NSLog(@"download object failed, error: %@" ,task.error);
         }
@@ -333,7 +333,7 @@ static dispatch_queue_t queue4demo;
 
     if (!getTask.error) {
         OSSGetObjectResult * result = getTask.result;
-        NSLog(@"download data length: %u", [result.downloadedData length]);
+        NSLog(@"download data length: %lu", [result.downloadedData length]);
     } else {
         NSLog(@"download data error: %@", getTask.error);
     }
@@ -375,6 +375,30 @@ static dispatch_queue_t queue4demo;
         }
         return nil;
     }];
+}
+
+- (void)signAccessObjectURL {
+    NSString * constrainURL = nil;
+    NSString * publicURL = nil;
+
+    // sign constrain url
+    OSSTask * task = [client presignConstrainURLWithBucketName:@"<bucket name>"
+                                                 withObjectKey:@"<object key>"
+                                        withExpirationInterval:60 * 30];
+    if (!task.error) {
+        constrainURL = task.result;
+    } else {
+        NSLog(@"error: %@", task.error);
+    }
+
+    // sign public url
+    task = [client presignPublicURLWithBucketName:@"<bucket name>"
+                                    withObjectKey:@"<object key>"];
+    if (!task.error) {
+        constrainURL = task.result;
+    } else {
+        NSLog(@"sign url error: %@", task.error);
+    }
 }
 
 - (void)multipartUpload {

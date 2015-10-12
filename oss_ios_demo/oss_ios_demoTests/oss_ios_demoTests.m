@@ -1,6 +1,6 @@
 //
 //  oss_ios_demoTests.m
-//  oss-ios-demoTests
+//  oss_ios_demoTests
 //
 //  Created by zhouzhuo on 9/14/15.
 //  Copyright (c) 2015 zhouzhuo. All rights reserved.
