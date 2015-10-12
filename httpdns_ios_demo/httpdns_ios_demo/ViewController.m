@@ -14,9 +14,8 @@
 
 @end
 
-NSString * testAk = @"********";
-NSString * testSk = @"**********";
-NSString * testAppid = @"************";
+NSString * testAppKey = @"**********";
+NSString * testAppSecret = @"*************************";
 
 id<ALBBHttpdnsServiceProtocol> httpdns;
 
@@ -26,8 +25,9 @@ id<ALBBHttpdnsServiceProtocol> httpdns;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [[ALBBSDK sharedInstance] asyncInit:@"23219835"
-                              appSecret:@"f88b70bbb623e5be9f39e2e47e79cb6c"
+    // 先初始化ALBBSDK，应当尽早进行
+    [[ALBBSDK sharedInstance] asyncInit:testAppKey
+                              appSecret:testAppSecret
                                        :^{
                                            NSLog(@"init success!");
                                        } failedCallback:^(NSError *error) {
@@ -36,13 +36,13 @@ id<ALBBHttpdnsServiceProtocol> httpdns;
 
     [NSThread sleepForTimeInterval:3];
 
-    // httpdns的初始化应当尽早进行
+    // 然后初始化MDNS
     [self initHttpdns];
 
+    // 具体使用示例
     [self parsingHostByHttpdnsAndRequest:@"http://www.taobao.com"];
 }
 
-// 自实现基于AK/SK的鉴权，不依赖DPA平台的安全组件
 - (void)initHttpdns {
     httpdns = [HttpDnsServiceProvider getService];
 
