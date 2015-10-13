@@ -1,15 +1,12 @@
 //
 //  AppDelegate.m
-//  man_ios_demo
+//  mdns_ios_demo
 //
-//  Created by nanpo.yhl on 15/10/10.
-//  Copyright (c) 2015年 com.aliyun.mobile. All rights reserved.
+//  Created by zhouzhuo on 9/14/15.
+//  Copyright (c) 2015 zhouzhuo. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
-#import <ALBBSDK/ALBBSDK.h>
-#import <AlicloudMobileAnalitics/ALBBMAN.h>
 
 @interface AppDelegate ()
 
@@ -20,16 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    [[ALBBSDK sharedInstance] asyncInit:@"your_AppKey"
-                              appSecret:@"your_AppSecret" :^{
-                                  NSLog(@"onesdk init succeed");
-                              }
-                         failedCallback:^(NSError *error) {
-                             NSLog(@"error is %@", error);
-                         }];
-    [ALBBMANLog enableLog];
-//    [ALBBMANCompression disableCompression];
     return YES;
 }
 

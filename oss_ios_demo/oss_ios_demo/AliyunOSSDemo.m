@@ -10,8 +10,8 @@
 #import <AliyunOSSiOS/OSSService.h>
 #import <AliyunOSSiOS/OSSCompat.h>
 
-NSString * const AccessKey = @"<your access key>";
-NSString * const SecretKey = @"<your secret key>";
+NSString * const AccessKey = @"**************";
+NSString * const SecretKey = @"**************";
 NSString * const endPoint = @"http://oss-cn-hangzhou.aliyuncs.com";
 NSString * const multipartUploadKey = @"multipartUploadObject";
 

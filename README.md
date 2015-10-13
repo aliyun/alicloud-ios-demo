@@ -1,11 +1,19 @@
 ## dpa-demo-ios
 
-### httpdns-ios-demo
+### mdns_ios_demo
 
-运行Demo前请前在`ViewController.m`文件中填入您的账号信息：
+运行demo前请在`ViewController.m`文件中填入您的账号信息：
 
 ```
-NSString * testAk = @"*********";
-NSString * testSk = @"**********";
-NSString * testAppid = @"**********";
+NSString * testAppKey = @"*********";
+NSString * testAppSecret = @"**************";
+```
+
+### oss_ios_demo
+
+运行demo前请在`AliyunOSSDemo.m`文件中填入您的账号信息（仅用于测试，其他鉴权模式参考demo中的credential实现）：
+
+```
+NSString * const AccessKey = @"**************";
+NSString * const SecretKey = @"**************";
 ```
