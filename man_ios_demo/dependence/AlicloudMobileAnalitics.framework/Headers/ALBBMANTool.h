@@ -11,9 +11,19 @@
 @interface ALBBMANTool : NSObject
 
 + (long long)currentTimeInMillis;
+
+
 + (BOOL)isNotNilOrEmpty:(NSString *)str;
+
+
 + (BOOL)isLegalHost:(NSString *)host;
+
+
 + (BOOL)isLegalIP:(NSString *)ip;
+
+
 + (BOOL)isLegalPerformanceName:(NSString *)performanceName;
 
+
++ (void)commitEvent:(NSString *)eventId property:(NSMutableDictionary *)tempProperty;
 @end

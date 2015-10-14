@@ -23,8 +23,9 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [_bulider requestEndWithBytes:_mutableData.length];
-    [_bulider build];
-    [_bulider send];
+    
+    ALBBMANTracker* tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
+    [tracker send:[_bulider build]];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error

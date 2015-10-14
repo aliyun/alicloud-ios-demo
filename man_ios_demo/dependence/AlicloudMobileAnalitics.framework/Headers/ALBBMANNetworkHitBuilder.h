@@ -14,10 +14,12 @@
 
 -(instancetype)initWithHost:(NSString*)host method:(NSString*)method;
 
-///*
-// * 用户可以自行设置属性，但是不要包含“/Host/Method/EVENTID/PAGE/ARG1/ARG2/ARG3/ARGS”
-// */
-//-(void)setproperties:(NSMutableDictionary*)properties;
+/*
+ * 用户可以自行设置属性，但是不要包含“/Host/Method/EVENTID/PAGE/ARG1/ARG2/ARG3/ARGS/COMPRESS”
+ */
+- (void)setProperty:(NSString *) pKey value:(NSString *) pValue;
+
+-(void)setproperties:(NSMutableDictionary *)properties;
 
 /*
  * 请求开始的点
@@ -41,9 +43,5 @@
 /*
  * 构造需要发送的
  */
--(void)build;
-
-
--(void)send;
-
+-(NSDictionary*)build;
 @end

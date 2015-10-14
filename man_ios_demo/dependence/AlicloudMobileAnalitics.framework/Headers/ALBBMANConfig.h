@@ -94,3 +94,5 @@ extern NSString * const ARG3;
 
 extern NSString * const ARG2;
 
+extern NSString * const COMPRESSFLAGS;
+

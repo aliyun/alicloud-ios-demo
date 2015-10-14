@@ -21,8 +21,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[ALBBSDK sharedInstance] asyncInit:@"your_AppKey"
-                              appSecret:@"your_AppSecret" :^{
+    NSString* testAppKey = @"********";
+    NSString* testAppSecret = @"********";
+    
+    [[ALBBSDK sharedInstance] asyncInit:testAppKey
+                              appSecret:testAppSecret :^{
                                   NSLog(@"onesdk init succeed");
                               }
                          failedCallback:^(NSError *error) {

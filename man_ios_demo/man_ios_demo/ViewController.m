@@ -61,11 +61,10 @@
         [bulider requestEndWithBytes:data.length];
     }
     
-    // 组装数据
-    [bulider build];
+    // 组装数据,上传数据
     
-    // 上报数据
-    [bulider send];
+    ALBBMANTracker* tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
+    [tracker send:[bulider build]];
 }
 
 -(void)asyncRequest
@@ -79,9 +78,9 @@
     client.mutableData = [[NSMutableData alloc] init];
     
     [client.bulider requestStart];
+    
     client.connection = [[NSURLConnection alloc] initWithRequest:client.request delegate:client];
 }
-
 
 -(void)userRegister
 {
@@ -97,19 +96,22 @@
     [builder hitStart];
     
     /*
-     * init
+     * works
      */
     sleep(1);
     
     
     [builder hitEnd];
     
-    [builder send];
+    [builder setProperty:@"Page" value:@"Home"];
+    
+    ALBBMANTracker* tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
+    [tracker send:[builder build]];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+   
     [self synRequest];
     
     [self asyncRequest];
