@@ -17,3 +17,12 @@ NSString * testAppSecret = @"**************";
 NSString * const AccessKey = @"**************";
 NSString * const SecretKey = @"**************";
 ```
+
+### man_ios_demo
+运行demo前请在`AppDelegate.m`文件中填入您的账号信息：
+
+```
+NSString * testAppKey = @"*********";
+NSString * testAppSecret = @"**************";
+```
+
