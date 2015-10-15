@@ -26,7 +26,7 @@
         NSData* data = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:&response
                                                          error:nil];
-        NSLog(@"response %@, data length %ld",response,[data length]);
+        NSLog(@"response %@, data length %ld",response,(unsigned long)[data length]);
     }
 }
 
