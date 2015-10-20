@@ -8,14 +8,14 @@
 
 #import "ViewController.h"
 #import <ALBBSDK/ALBBSDK.h>
-#import <ALBBHTTPDNS/Httpdns.h>
+#import <AlicloudMobileDNS/Httpdns.h>
 
 @interface ViewController ()
 
 @end
 
-NSString * testAppKey = @"************";
-NSString * testAppSecret = @"****************";
+NSString * testAppKey = @"*************";
+NSString * testAppSecret = @"******************";
 
 id<ALBBHttpdnsServiceProtocol> httpdns;
 
@@ -40,10 +40,11 @@ id<ALBBHttpdnsServiceProtocol> httpdns;
     [self initHttpdns];
 
     // 具体使用示例
-    [self parsingHostByHttpdnsAndRequest:@"http://www.taobao.com"];
+    // [self parsingHostByHttpdnsAndRequest:@"http://www.taobao.com"];
 }
 
 - (void)initHttpdns {
+    [HttpdnsLog enbaleLog];
     httpdns = [HttpDnsServiceProvider getService];
 
     NSArray * hosts = @[@"www.taobao.com", @"www.aliyun.com"];

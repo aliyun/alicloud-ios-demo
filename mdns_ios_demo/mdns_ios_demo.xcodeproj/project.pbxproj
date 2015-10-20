@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21A3BEDA1BAFE9B800F46988 /* ALBB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21A3BED11BAFE9B800F46988 /* ALBB.bundle */; settings = {ASSET_TAGS = (); }; };
-		21A3BEDC1BAFE9B800F46988 /* ALBBRpcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED31BAFE9B800F46988 /* ALBBRpcSDK.framework */; settings = {ASSET_TAGS = (); }; };
-		21A3BEDD1BAFE9B800F46988 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED41BAFE9B800F46988 /* ALBBSDK.framework */; settings = {ASSET_TAGS = (); }; };
-		21A3BEDE1BAFE9B800F46988 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED51BAFE9B800F46988 /* ALBBSessionSDK.framework */; settings = {ASSET_TAGS = (); }; };
-		21A3BEDF1BAFE9B800F46988 /* ALBBTDSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED61BAFE9B800F46988 /* ALBBTDSSDK.framework */; settings = {ASSET_TAGS = (); }; };
-		21A3BEE01BAFE9B800F46988 /* DpaUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED71BAFE9B800F46988 /* DpaUtil.framework */; settings = {ASSET_TAGS = (); }; };
-		21A3BEE11BAFE9B800F46988 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED81BAFE9B800F46988 /* UTDID.framework */; settings = {ASSET_TAGS = (); }; };
-		21A3BEE21BAFE9B800F46988 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BED91BAFE9B800F46988 /* UTMini.framework */; settings = {ASSET_TAGS = (); }; };
+		2176B6701BD5D28E00089297 /* ALBBMAS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B6651BD5D28E00089297 /* ALBBMAS.framework */; };
+		2176B6711BD5D28E00089297 /* ALBBRpcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B6661BD5D28E00089297 /* ALBBRpcSDK.framework */; };
+		2176B6721BD5D28E00089297 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B6671BD5D28E00089297 /* ALBBSDK.framework */; };
+		2176B6731BD5D28E00089297 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B6681BD5D28E00089297 /* ALBBSessionSDK.framework */; };
+		2176B6741BD5D28E00089297 /* AlicloudMobileDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B6691BD5D28E00089297 /* AlicloudMobileDNS.framework */; };
+		2176B6751BD5D28E00089297 /* AlicloudMobileTokenDistribution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B66A1BD5D28E00089297 /* AlicloudMobileTokenDistribution.framework */; };
+		2176B6761BD5D28E00089297 /* AlicloudObjectStorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B66B1BD5D28E00089297 /* AlicloudObjectStorageService.framework */; };
+		2176B6771BD5D28E00089297 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B66C1BD5D28E00089297 /* Bolts.framework */; };
+		2176B6781BD5D28E00089297 /* DpaUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B66D1BD5D28E00089297 /* DpaUtil.framework */; };
+		2176B6791BD5D28E00089297 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B66E1BD5D28E00089297 /* UTDID.framework */; };
+		2176B67A1BD5D28E00089297 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2176B66F1BD5D28E00089297 /* UTMini.framework */; };
+		2176B67C1BD5D2A200089297 /* ALBB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2176B67B1BD5D2A200089297 /* ALBB.bundle */; };
 		21A3BEE41BAFE9D800F46988 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BEE31BAFE9D800F46988 /* CoreTelephony.framework */; };
 		21A3BEE61BAFE9DE00F46988 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BEE51BAFE9DE00F46988 /* CoreLocation.framework */; };
 		21A3BEE81BAFE9E500F46988 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A3BEE71BAFE9E500F46988 /* SystemConfiguration.framework */; };
@@ -28,7 +32,6 @@
 		21F02E101BA686C200D13D12 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F02E0F1BA686C200D13D12 /* Images.xcassets */; };
 		21F02E131BA686C200D13D12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F02E111BA686C200D13D12 /* LaunchScreen.xib */; };
 		21F02E1F1BA686C200D13D12 /* mdns_ios_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02E1E1BA686C200D13D12 /* mdns_ios_demoTests.m */; };
-		21F57AA21BCBA199001BE8CD /* ALBBHTTPDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,14 +45,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21A3BED11BAFE9B800F46988 /* ALBB.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALBB.bundle; sourceTree = "<group>"; };
-		21A3BED31BAFE9B800F46988 /* ALBBRpcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBRpcSDK.framework; sourceTree = "<group>"; };
-		21A3BED41BAFE9B800F46988 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSDK.framework; sourceTree = "<group>"; };
-		21A3BED51BAFE9B800F46988 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSessionSDK.framework; sourceTree = "<group>"; };
-		21A3BED61BAFE9B800F46988 /* ALBBTDSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBTDSSDK.framework; sourceTree = "<group>"; };
-		21A3BED71BAFE9B800F46988 /* DpaUtil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DpaUtil.framework; sourceTree = "<group>"; };
-		21A3BED81BAFE9B800F46988 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
-		21A3BED91BAFE9B800F46988 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		2176B6651BD5D28E00089297 /* ALBBMAS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBMAS.framework; path = dependency/ALBBMAS.framework; sourceTree = "<group>"; };
+		2176B6661BD5D28E00089297 /* ALBBRpcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBRpcSDK.framework; path = dependency/ALBBRpcSDK.framework; sourceTree = "<group>"; };
+		2176B6671BD5D28E00089297 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSDK.framework; path = dependency/ALBBSDK.framework; sourceTree = "<group>"; };
+		2176B6681BD5D28E00089297 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSessionSDK.framework; path = dependency/ALBBSessionSDK.framework; sourceTree = "<group>"; };
+		2176B6691BD5D28E00089297 /* AlicloudMobileDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudMobileDNS.framework; path = dependency/AlicloudMobileDNS.framework; sourceTree = "<group>"; };
+		2176B66A1BD5D28E00089297 /* AlicloudMobileTokenDistribution.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudMobileTokenDistribution.framework; path = dependency/AlicloudMobileTokenDistribution.framework; sourceTree = "<group>"; };
+		2176B66B1BD5D28E00089297 /* AlicloudObjectStorageService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudObjectStorageService.framework; path = dependency/AlicloudObjectStorageService.framework; sourceTree = "<group>"; };
+		2176B66C1BD5D28E00089297 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = dependency/Bolts.framework; sourceTree = "<group>"; };
+		2176B66D1BD5D28E00089297 /* DpaUtil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DpaUtil.framework; path = dependency/DpaUtil.framework; sourceTree = "<group>"; };
+		2176B66E1BD5D28E00089297 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = dependency/UTDID.framework; sourceTree = "<group>"; };
+		2176B66F1BD5D28E00089297 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTMini.framework; path = dependency/UTMini.framework; sourceTree = "<group>"; };
+		2176B67B1BD5D2A200089297 /* ALBB.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ALBB.bundle; path = dependency/ALBB.bundle; sourceTree = "<group>"; };
 		21A3BEE31BAFE9D800F46988 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		21A3BEE51BAFE9DE00F46988 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		21A3BEE71BAFE9E500F46988 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -69,7 +76,6 @@
 		21F02E181BA686C200D13D12 /* mdns_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mdns_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02E1D1BA686C200D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02E1E1BA686C200D13D12 /* mdns_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mdns_ios_demoTests.m; sourceTree = "<group>"; };
-		21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBHTTPDNS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,20 +83,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2176B6701BD5D28E00089297 /* ALBBMAS.framework in Frameworks */,
+				2176B6711BD5D28E00089297 /* ALBBRpcSDK.framework in Frameworks */,
+				2176B6721BD5D28E00089297 /* ALBBSDK.framework in Frameworks */,
+				2176B6731BD5D28E00089297 /* ALBBSessionSDK.framework in Frameworks */,
+				2176B6741BD5D28E00089297 /* AlicloudMobileDNS.framework in Frameworks */,
+				2176B6751BD5D28E00089297 /* AlicloudMobileTokenDistribution.framework in Frameworks */,
+				2176B6761BD5D28E00089297 /* AlicloudObjectStorageService.framework in Frameworks */,
+				2176B6771BD5D28E00089297 /* Bolts.framework in Frameworks */,
+				2176B6781BD5D28E00089297 /* DpaUtil.framework in Frameworks */,
+				2176B6791BD5D28E00089297 /* UTDID.framework in Frameworks */,
+				2176B67A1BD5D28E00089297 /* UTMini.framework in Frameworks */,
 				21A3BEEE1BAFEA0400F46988 /* libz.1.dylib in Frameworks */,
 				21A3BEEC1BAFE9F700F46988 /* CFNetwork.framework in Frameworks */,
 				21A3BEEA1BAFE9EE00F46988 /* Security.framework in Frameworks */,
 				21A3BEE81BAFE9E500F46988 /* SystemConfiguration.framework in Frameworks */,
 				21A3BEE61BAFE9DE00F46988 /* CoreLocation.framework in Frameworks */,
 				21A3BEE41BAFE9D800F46988 /* CoreTelephony.framework in Frameworks */,
-				21A3BEDC1BAFE9B800F46988 /* ALBBRpcSDK.framework in Frameworks */,
-				21F57AA21BCBA199001BE8CD /* ALBBHTTPDNS.framework in Frameworks */,
-				21A3BEE21BAFE9B800F46988 /* UTMini.framework in Frameworks */,
-				21A3BEE01BAFE9B800F46988 /* DpaUtil.framework in Frameworks */,
-				21A3BEDF1BAFE9B800F46988 /* ALBBTDSSDK.framework in Frameworks */,
-				21A3BEDD1BAFE9B800F46988 /* ALBBSDK.framework in Frameworks */,
-				21A3BEE11BAFE9B800F46988 /* UTDID.framework in Frameworks */,
-				21A3BEDE1BAFE9B800F46988 /* ALBBSessionSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,32 +113,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21A3BED01BAFE9AA00F46988 /* framework */ = {
+		2176B67D1BD5D90700089297 /* dependency */ = {
 			isa = PBXGroup;
 			children = (
-				21F57AA11BCBA199001BE8CD /* ALBBHTTPDNS.framework */,
+				2176B67B1BD5D2A200089297 /* ALBB.bundle */,
+				2176B6651BD5D28E00089297 /* ALBBMAS.framework */,
+				2176B6661BD5D28E00089297 /* ALBBRpcSDK.framework */,
+				2176B6671BD5D28E00089297 /* ALBBSDK.framework */,
+				2176B6681BD5D28E00089297 /* ALBBSessionSDK.framework */,
+				2176B6691BD5D28E00089297 /* AlicloudMobileDNS.framework */,
+				2176B66A1BD5D28E00089297 /* AlicloudMobileTokenDistribution.framework */,
+				2176B66B1BD5D28E00089297 /* AlicloudObjectStorageService.framework */,
+				2176B66C1BD5D28E00089297 /* Bolts.framework */,
+				2176B66D1BD5D28E00089297 /* DpaUtil.framework */,
+				2176B66E1BD5D28E00089297 /* UTDID.framework */,
+				2176B66F1BD5D28E00089297 /* UTMini.framework */,
 				21A3BEED1BAFEA0400F46988 /* libz.1.dylib */,
 				21A3BEEB1BAFE9F700F46988 /* CFNetwork.framework */,
 				21A3BEE91BAFE9EE00F46988 /* Security.framework */,
 				21A3BEE71BAFE9E500F46988 /* SystemConfiguration.framework */,
 				21A3BEE51BAFE9DE00F46988 /* CoreLocation.framework */,
 				21A3BEE31BAFE9D800F46988 /* CoreTelephony.framework */,
-				21A3BED11BAFE9B800F46988 /* ALBB.bundle */,
-				21A3BED31BAFE9B800F46988 /* ALBBRpcSDK.framework */,
-				21A3BED41BAFE9B800F46988 /* ALBBSDK.framework */,
-				21A3BED51BAFE9B800F46988 /* ALBBSessionSDK.framework */,
-				21A3BED61BAFE9B800F46988 /* ALBBTDSSDK.framework */,
-				21A3BED71BAFE9B800F46988 /* DpaUtil.framework */,
-				21A3BED81BAFE9B800F46988 /* UTDID.framework */,
-				21A3BED91BAFE9B800F46988 /* UTMini.framework */,
 			);
-			name = framework;
+			name = dependency;
 			sourceTree = "<group>";
 		};
 		21F02DF61BA686C200D13D12 = {
 			isa = PBXGroup;
 			children = (
-				21A3BED01BAFE9AA00F46988 /* framework */,
+				2176B67D1BD5D90700089297 /* dependency */,
 				21F02E011BA686C200D13D12 /* mdns_ios_demo */,
 				21F02E1B1BA686C200D13D12 /* mdns_ios_demoTests */,
 				21F02E001BA686C200D13D12 /* Products */,
@@ -266,7 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A3BEDA1BAFE9B800F46988 /* ALBB.bundle in Resources */,
+				2176B67C1BD5D2A200089297 /* ALBB.bundle in Resources */,
 				21F02E0E1BA686C200D13D12 /* Main.storyboard in Resources */,
 				21F02E131BA686C200D13D12 /* LaunchScreen.xib in Resources */,
 				21F02E101BA686C200D13D12 /* Images.xcassets in Resources */,
@@ -417,12 +429,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/dependency",
 				);
 				INFOPLIST_FILE = mdns_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -431,12 +446,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/dependency",
 				);
 				INFOPLIST_FILE = mdns_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
