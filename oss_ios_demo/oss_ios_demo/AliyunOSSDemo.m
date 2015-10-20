@@ -37,7 +37,7 @@ static dispatch_queue_t queue4demo;
 
     // [self listObjectsInBucket];
 
-    // [self uploadObjectAsync];
+    [self uploadObjectAsync];
 
     // [self uploadObjectSync];
 
@@ -45,9 +45,11 @@ static dispatch_queue_t queue4demo;
 
     // [self downloadObjectSync];
 
+    // [self signAccessObjectURL];
+
     // [self multipartUpload];
 
-    [self headObject];
+    // [self headObject];
 
     // [self listParts];
 
@@ -143,6 +145,7 @@ static dispatch_queue_t queue4demo;
         [sessionTask resume];
         [tcs.task waitUntilFinished];
         if (tcs.task.error) {
+            NSLog(@"get token error: %@", tcs.task.error);
             return nil;
         } else {
             NSDictionary * object = [NSJSONSerialization JSONObjectWithData:tcs.task.result
@@ -153,6 +156,7 @@ static dispatch_queue_t queue4demo;
             token.tSecretKey = [object objectForKey:@"accessKeySecret"];
             token.tToken = [object objectForKey:@"securityToken"];
             token.expirationTimeInMilliSecond = [[object objectForKey:@"expiration"] longLongValue];
+            NSLog(@"get token: %@", token);
             return token;
         }
     }];
@@ -160,11 +164,11 @@ static dispatch_queue_t queue4demo;
 
     OSSClientConfiguration * conf = [OSSClientConfiguration new];
     conf.maxRetryCount = 3;
-    conf.enableBackgroundTransmitService = NO; // 是否开启后台传输服务，目前，开启后，只对上传任务有效
+    conf.enableBackgroundTransmitService = YES; // 是否开启后台传输服务，目前，开启后，只对上传任务有效
     conf.timeoutIntervalForRequest = 15;
     conf.timeoutIntervalForResource = 24 * 60 * 60;
 
-    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential clientConfiguration:conf];
+    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential2 clientConfiguration:conf];
 }
 
 #pragma mark work with normal interface
@@ -248,6 +252,7 @@ static dispatch_queue_t queue4demo;
     OSSTask * putTask = [client putObject:put];
 
     [putTask continueWithBlock:^id(OSSTask *task) {
+        NSLog(@"objectKey: %@", put.objectKey);
         if (!task.error) {
             NSLog(@"upload object success!");
         } else {
@@ -513,7 +518,7 @@ static dispatch_queue_t queue4demo;
 - (void)oldPutObjectStyle {
 
     NSString * doctDir = [self getDocumentDirectory];
-    NSString * filePath = [doctDir stringByAppendingPathComponent:@"file1m"];
+    NSString * filePath = [doctDir stringByAppendingPathComponent:@"file10m"];
 
     NSDictionary * objectMeta = @{@"x-oss-meta-name1": @"value1"};
 
@@ -521,7 +526,7 @@ static dispatch_queue_t queue4demo;
                              withContentType:@"application/octet-stream"
                               withObjectMeta:objectMeta
                                 toBucketName:@"android-test"
-                                 toObjectKey:@"file1m"
+                                 toObjectKey:@"file10m"
                                  onCompleted:^(BOOL isSuccess, NSError * error) {
                                        if (error) {
                                            NSLog(@"upload object failed, erorr: %@", error);
