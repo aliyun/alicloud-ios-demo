@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import <ALBBSDK/ALBBSDK.h>
-#import <AlicloudMoblieAcceleration/ALBBMAC.h>
+#import <AlicloudMobileAcceleration/ALBBMAC.h>
 
 
 @interface AppDelegate ()
@@ -30,7 +30,7 @@
                                   NSLog(@"onesdk init succeed");
                               }
                          failedCallback:^(NSError *error) {
-                             NSLog(@"error is %@", error);
+                                  NSLog(@"error is %@", error);
                          }];
     
     [ALBBMAC asynInit];
