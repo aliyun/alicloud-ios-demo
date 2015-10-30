@@ -8,9 +8,6 @@
 
 #import <XCTest/XCTest.h>
 
-#include "HttpDNS.h"
-#import "NetworkManager.h"
-
 @interface httpdns_restful_demoTests : XCTestCase
 
 @end
@@ -25,16 +22,6 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-}
-
--(void)testSingleHost {
-    HttpDNS* instance = [HttpDNS instance];
-    
-    NSString* ip = [instance getIpByHost:@"gw.alicdn.com"];
-    
-    NSLog(@" ip %@", ip);
-    
-    NSString* netSting = [[NetworkManager instance] currentWifiSsid];
 }
 
 - (void)testExample {
