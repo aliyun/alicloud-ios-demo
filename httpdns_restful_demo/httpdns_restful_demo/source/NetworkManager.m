@@ -184,5 +184,28 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 }
 
 
++ (BOOL) configureProxies
+{
+    NSDictionary *proxySettings = CFBridgingRelease(CFNetworkCopySystemProxySettings());
+    
+    NSArray *proxies = nil;
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://api.m.taobao.com"];
+    
+    proxies = CFBridgingRelease(CFNetworkCopyProxiesForURL((__bridge CFURLRef)url,
+                                                           (__bridge CFDictionaryRef)proxySettings));
+    if (proxies > 0)
+    {
+        NSDictionary *settings = [proxies objectAtIndex:0];
+        NSString* host = [settings objectForKey:(NSString *)kCFProxyHostNameKey];
+        NSString* port = [settings objectForKey:(NSString *)kCFProxyPortNumberKey];
+        
+        if (host || port)
+        {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 @end
