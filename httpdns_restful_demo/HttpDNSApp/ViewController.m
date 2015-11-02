@@ -28,11 +28,16 @@
     NSURL* url = [NSURL URLWithString:@"http://www.taobao.com/"];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString* ip = [[HttpDNS instance] getIpByHost:url.host];
-    if (ip) {
-        NSString* newUrl = [NSString stringWithFormat:@"%@://%@%@",url.scheme,ip,url.path];
-        request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-        [request setValue:url.host forHTTPHeaderField:@"host"];
+    /*
+     * 代理情况下,不做替换
+     */
+    if(![NetworkManager configureProxies]) {
+        NSString* ip = [[HttpDNS instance] getIpByHost:url.host];
+        if (ip) {
+            NSString* newUrl = [NSString stringWithFormat:@"%@://%@%@",url.scheme,ip,url.path];
+            request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+            [request setValue:url.host forHTTPHeaderField:@"host"];
+        }
     }
     
     NSHTTPURLResponse* response;
