@@ -38,3 +38,5 @@ NSString * testAppKey = @"*********";
 NSString * testAppSecret = @"**************";
 ```
 
+### httpdns_restful_demo
+httpdns_restful_demo中, HttpDNSApp里面有使用case。
