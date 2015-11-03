@@ -33,7 +33,8 @@ static dispatch_queue_t queue4demo;
 
     [self initOSSClient];
 
-    // start to run demo
+
+    /*************** start to run demo ***************/
 
     // [self listObjectsInBucket];
 
@@ -52,6 +53,8 @@ static dispatch_queue_t queue4demo;
     // [self headObject];
 
     // [self listParts];
+
+    // [self resumableUpload];
 
     // [self oldPutObjectStyle];
 
@@ -82,7 +85,7 @@ static dispatch_queue_t queue4demo;
 
     NSMutableData * basePart = [NSMutableData dataWithCapacity:1024];
     for (int i = 0; i < 1024/4; i++) {
-        u_int32_t randomBit = i; // arc4random();
+        u_int32_t randomBit = arc4random();
         [basePart appendBytes:(void*)&randomBit length:4];
     }
 
@@ -125,12 +128,12 @@ static dispatch_queue_t queue4demo;
     // 假设访问业务服务器的获取token服务时，返回的数据格式如下：
     // {"accessKeyId":"STS.iA645eTOXEqP3cg3VeHf",
     // "accessKeySecret":"rV3VQrpFQ4BsyHSAvi5NVLpPIVffDJv4LojUBZCf",
-    // "expiration":1441593388000,
+    // "expiration":"2015-11-03T09:52:59Z[;",
     // "federatedUser":"335450541522398178:alice-001",
     // "requestId":"C0E01B94-332E-4582-87F9-B857C807EE52",
     // "securityToken":"CAES7QIIARKAAZPlqaN9ILiQZPS+JDkS/GSZN45RLx4YS/p3OgaUC+oJl3XSlbJ7StKpQp1Q3KtZVCeAKAYY6HYSFOa6rU0bltFXAPyW+jvlijGKLezJs0AcIvP5a4ki6yHWovkbPYNnFSOhOmCGMmXKIkhrRSHMGYJRj8AIUvICAbDhzryeNHvUGhhTVFMuaUE2NDVlVE9YRXFQM2NnM1ZlSGYiEjMzNTQ1MDU0MTUyMjM5ODE3OCoJYWxpY2UtMDAxMOG/g7v6KToGUnNhTUQ1QloKATEaVQoFQWxsb3cSHwoMQWN0aW9uRXF1YWxzEgZBY3Rpb24aBwoFb3NzOioSKwoOUmVzb3VyY2VFcXVhbHMSCFJlc291cmNlGg8KDWFjczpvc3M6KjoqOipKEDEwNzI2MDc4NDc4NjM4ODhSAFoPQXNzdW1lZFJvbGVVc2VyYABqEjMzNTQ1MDU0MTUyMjM5ODE3OHIHeHljLTAwMQ=="}
     id<OSSCredentialProvider> credential2 = [[OSSFederationCredentialProvider alloc] initWithFederationTokenGetter:^OSSFederationToken * {
-        NSURL * url = [NSURL URLWithString:@"http://10.1.39.15:8080/distribute-token.json"];
+        NSURL * url = [NSURL URLWithString:@"http://localhost:8080/distribute-token.json"];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         BFTaskCompletionSource * tcs = [BFTaskCompletionSource taskCompletionSource];
         NSURLSession * session = [NSURLSession sharedSession];
@@ -155,7 +158,7 @@ static dispatch_queue_t queue4demo;
             token.tAccessKey = [object objectForKey:@"accessKeyId"];
             token.tSecretKey = [object objectForKey:@"accessKeySecret"];
             token.tToken = [object objectForKey:@"securityToken"];
-            token.expirationTimeInMilliSecond = [[object objectForKey:@"expiration"] longLongValue];
+            token.expirationTimeInGMTFormat = [object objectForKey:@"expiration"];
             NSLog(@"get token: %@", token);
             return token;
         }
@@ -302,7 +305,7 @@ static dispatch_queue_t queue4demo;
     request.downloadProgress = ^(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite) {
         NSLog(@"%lld, %lld, %lld", bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);
     };
-    NSString * docDir = [self getDocumentDirectory];
+    // NSString * docDir = [self getDocumentDirectory];
     // request.downloadToFileURL = [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:@"downloadfile"]];
 
     OSSTask * getTask = [client getObject:request];
@@ -400,7 +403,7 @@ static dispatch_queue_t queue4demo;
     task = [client presignPublicURLWithBucketName:@"<bucket name>"
                                     withObjectKey:@"<object key>"];
     if (!task.error) {
-        constrainURL = task.result;
+        publicURL = task.result;
     } else {
         NSLog(@"sign url error: %@", task.error);
     }
@@ -492,6 +495,88 @@ static dispatch_queue_t queue4demo;
             }
         } else {
             NSLog(@"list part result error: %@", task.error);
+        }
+        return nil;
+    }];
+}
+
+- (void)resumableUpload {
+    __block NSString * recordKey;
+
+    NSString * docDir = [self getDocumentDirectory];
+    NSString * filePath = [docDir stringByAppendingPathComponent:@"file1m"];
+    NSString * bucketName = @"android-test";
+    NSString * objectKey = @"uploadKey";
+
+
+    [[[[[[OSSTask taskWithResult:nil] continueWithBlock:^id(OSSTask *task) {
+        // 为该文件构造一个唯一的记录键
+        NSURL * fileURL = [NSURL fileURLWithPath:filePath];
+        NSDate * lastModified;
+        NSError * error;
+        [fileURL getResourceValue:&lastModified forKey:NSURLContentModificationDateKey error:&error];
+        if (error) {
+            return [OSSTask taskWithError:error];
+        }
+        recordKey = [NSString stringWithFormat:@"%@-%@-%@-%@", bucketName, objectKey, [OSSUtil getRelativePath:filePath], lastModified];
+        // 通过记录键查看本地是否保存有未完成的UploadId
+        NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+        return [OSSTask taskWithResult:[userDefault objectForKey:recordKey]];
+    }] continueWithSuccessBlock:^id(OSSTask *task) {
+        if (!task.result) {
+            // 如果本地尚无记录，调用初始化UploadId接口获取
+            OSSInitMultipartUploadRequest * initMultipart = [OSSInitMultipartUploadRequest new];
+            initMultipart.bucketName = bucketName;
+            initMultipart.objectKey = objectKey;
+            initMultipart.contentType = @"application/octet-stream";
+            return [client multipartUploadInit:initMultipart];
+        }
+        OSSLogVerbose(@"An resumable task for uploadid: %@", task.result);
+        return task;
+    }] continueWithSuccessBlock:^id(OSSTask *task) {
+        NSString * uploadId = nil;
+
+        if (task.error) {
+            return task;
+        }
+
+        if ([task.result isKindOfClass:[OSSInitMultipartUploadResult class]]) {
+            uploadId = ((OSSInitMultipartUploadResult *)task.result).uploadId;
+        } else {
+            uploadId = task.result;
+        }
+
+        if (!uploadId) {
+            return [OSSTask taskWithError:[NSError errorWithDomain:OSSClientErrorDomain
+                                                             code:OSSClientErrorCodeNilUploadid
+                                                         userInfo:@{OSSErrorMessageTOKEN: @"Can't get an upload id"}]];
+        }
+        // 将“记录键：UploadId”持久化到本地存储
+        NSUserDefaults * userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setObject:uploadId forKey:recordKey];
+        [userDefault synchronize];
+        return [OSSTask taskWithResult:uploadId];
+    }] continueWithSuccessBlock:^id(OSSTask *task) {
+        // 持有UploadId上传文件
+        OSSResumableUploadRequest * resumableUpload = [OSSResumableUploadRequest new];
+        resumableUpload.bucketName = bucketName;
+        resumableUpload.objectKey = objectKey;
+        resumableUpload.uploadId = task.result;
+        resumableUpload.uploadingFileURL = [NSURL fileURLWithPath:filePath];
+        resumableUpload.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
+            NSLog(@"%lld %lld %lld", bytesSent, totalBytesSent, totalBytesExpectedToSend);
+        };
+        return [client resumableUpload:resumableUpload];
+    }] continueWithBlock:^id(OSSTask *task) {
+        if (task.error) {
+            if ([task.error.domain isEqualToString:OSSClientErrorDomain] && task.error.code == OSSClientErrorCodeCannotResumeUpload) {
+                // 如果续传失败且无法恢复，需要删除本地记录的UploadId，然后重启任务
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:recordKey];
+            }
+        } else {
+            NSLog(@"upload completed!");
+            // 上传成功，删除本地保存的UploadId
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:recordKey];
         }
         return nil;
     }];
