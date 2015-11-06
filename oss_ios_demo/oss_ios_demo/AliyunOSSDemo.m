@@ -135,7 +135,7 @@ static dispatch_queue_t queue4demo;
     id<OSSCredentialProvider> credential2 = [[OSSFederationCredentialProvider alloc] initWithFederationTokenGetter:^OSSFederationToken * {
         NSURL * url = [NSURL URLWithString:@"http://localhost:8080/distribute-token.json"];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
-        BFTaskCompletionSource * tcs = [BFTaskCompletionSource taskCompletionSource];
+        OSSTaskCompletionSource * tcs = [OSSTaskCompletionSource taskCompletionSource];
         NSURLSession * session = [NSURLSession sharedSession];
         NSURLSessionTask * sessionTask = [session dataTaskWithRequest:request
                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
