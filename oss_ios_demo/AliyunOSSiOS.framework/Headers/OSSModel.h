@@ -32,7 +32,8 @@ extern NSString * const OSSDisplayNameXMLTOKEN;
 extern NSString * const OSSBucketsXMLTOKEN;
 extern NSString * const OSSAccessControlListXMLTOKEN;
 extern NSString * const OSSGrantXMLTOKEN;
-extern NSString * const OSSIDXMLTOKEN;
+extern NSString * const OSSBucketXMLTOKEN;
+extern NSString * const OSSCreationDate;
 extern NSString * const OSSPrefixXMLTOKEN;
 extern NSString * const OSSUploadIdXMLTOKEN;
 extern NSString * const OSSLocationXMLTOKEN;
@@ -966,7 +967,7 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 /**
  上传进度回调
  */
-@property (nonatomic, copy) OSSNetworkingDownloadProgressBlock uploadPartProgress;
+@property (nonatomic, copy) OSSNetworkingUploadProgressBlock uploadPartProgress;
 @end
 
 /**

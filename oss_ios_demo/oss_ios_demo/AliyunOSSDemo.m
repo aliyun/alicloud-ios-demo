@@ -10,8 +10,8 @@
 #import <AliyunOSSiOS/OSSService.h>
 #import <AliyunOSSiOS/OSSCompat.h>
 
-NSString * const AccessKey = @"**************";
-NSString * const SecretKey = @"**************";
+NSString * const AccessKey = @"************";
+NSString * const SecretKey = @"**********************";
 NSString * const endPoint = @"http://oss-cn-hangzhou.aliyuncs.com";
 NSString * const multipartUploadKey = @"multipartUploadObject";
 
@@ -166,12 +166,11 @@ static dispatch_queue_t queue4demo;
 
 
     OSSClientConfiguration * conf = [OSSClientConfiguration new];
-    conf.maxRetryCount = 3;
-    conf.enableBackgroundTransmitService = YES; // 是否开启后台传输服务，目前，开启后，只对上传任务有效
-    conf.timeoutIntervalForRequest = 15;
+    conf.maxRetryCount = 2;
+    conf.timeoutIntervalForRequest = 30;
     conf.timeoutIntervalForResource = 24 * 60 * 60;
 
-    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential2 clientConfiguration:conf];
+    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential clientConfiguration:conf];
 }
 
 #pragma mark work with normal interface
@@ -295,6 +294,44 @@ static dispatch_queue_t queue4demo;
     }
 }
 
+// 追加上传
+
+- (void)appendObject {
+    OSSAppendObjectRequest * append = [OSSAppendObjectRequest new];
+
+    // 必填字段
+    append.bucketName = @"android-test";
+    append.objectKey = @"file1m";
+    append.appendPosition = 0; // 指定从何处进行追加
+    NSString * docDir = [self getDocumentDirectory];
+    append.uploadingFileURL = [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:@"file1m"]];
+
+    // 可选字段
+    append.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
+        NSLog(@"%lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
+    };
+    // append.contentType = @"";
+    // append.contentMd5 = @"";
+    // append.contentEncoding = @"";
+    // append.contentDisposition = @"";
+
+    OSSTask * appendTask = [client appendObject:append];
+
+    [appendTask continueWithBlock:^id(OSSTask *task) {
+        NSLog(@"objectKey: %@", append.objectKey);
+        if (!task.error) {
+            NSLog(@"append object success!");
+            OSSAppendObjectResult * result = task.result;
+            NSString * etag = result.eTag;
+            long nextPosition = result.xOssNextAppendPosition;
+        } else {
+            NSLog(@"append object failed, error: %@" , task.error);
+        }
+        return nil;
+    }];
+}
+
+// 异步下载
 - (void)downloadObjectAsync {
     OSSGetObjectRequest * request = [OSSGetObjectRequest new];
     // required
@@ -322,6 +359,7 @@ static dispatch_queue_t queue4demo;
     }];
 }
 
+// 同步下载
 - (void)downloadObjectSync {
     OSSGetObjectRequest * request = [OSSGetObjectRequest new];
     // required
@@ -347,6 +385,7 @@ static dispatch_queue_t queue4demo;
     }
 }
 
+// 获取meta
 - (void)headObject {
     OSSHeadObjectRequest * head = [OSSHeadObjectRequest new];
     head.bucketName = @"android-test";
@@ -368,6 +407,7 @@ static dispatch_queue_t queue4demo;
     }];
 }
 
+// 删除Object
 - (void)deleteObject {
     OSSDeleteObjectRequest * delete = [OSSDeleteObjectRequest new];
     delete.bucketName = @"android-test";
@@ -385,6 +425,7 @@ static dispatch_queue_t queue4demo;
     }];
 }
 
+// 签名URL授予第三方访问
 - (void)signAccessObjectURL {
     NSString * constrainURL = nil;
     NSString * publicURL = nil;
@@ -409,6 +450,7 @@ static dispatch_queue_t queue4demo;
     }
 }
 
+// 分块上传
 - (void)multipartUpload {
 
     __block NSString * uploadId = nil;
@@ -478,6 +520,7 @@ static dispatch_queue_t queue4demo;
     }
 }
 
+// 罗列分块
 - (void)listParts {
     OSSListPartsRequest * listParts = [OSSListPartsRequest new];
     listParts.bucketName = @"android-test";
@@ -500,6 +543,7 @@ static dispatch_queue_t queue4demo;
     }];
 }
 
+// 断点续传
 - (void)resumableUpload {
     __block NSString * recordKey;
 
