@@ -21,10 +21,6 @@ static dispatch_queue_t queue4demo;
 
 @implementation AliyunOSSDemo
 
-- (void)setHandler:(void(^)())handler {
-    client.networking.backgroundSessionCompletionHandler = handler;
-}
-
 - (void)runDemo {
 
     [OSSLog enableLog];
@@ -38,13 +34,15 @@ static dispatch_queue_t queue4demo;
 
     // [self listObjectsInBucket];
 
-    [self uploadObjectAsync];
+    // [self uploadObjectAsync];
 
     // [self uploadObjectSync];
 
     // [self downloadObjectAsync];
 
     // [self downloadObjectSync];
+
+    [self copyObjectAsync];
 
     // [self signAccessObjectURL];
 
@@ -170,7 +168,7 @@ static dispatch_queue_t queue4demo;
     conf.timeoutIntervalForRequest = 30;
     conf.timeoutIntervalForResource = 24 * 60 * 60;
 
-    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential clientConfiguration:conf];
+    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential2 clientConfiguration:conf];
 }
 
 #pragma mark work with normal interface
@@ -420,6 +418,25 @@ static dispatch_queue_t queue4demo;
             NSLog(@"delete success !");
         } else {
             NSLog(@"delete erorr, error: %@", task.error);
+        }
+        return nil;
+    }];
+}
+
+// 复制Object
+- (void)copyObjectAsync {
+    OSSCopyObjectRequest * copy = [OSSCopyObjectRequest new];
+    copy.bucketName = @"android-test"; // 复制到哪个bucket
+    copy.objectKey = @"file_copy_to"; // 复制为哪个object
+    copy.sourceCopyFrom = [NSString stringWithFormat:@"/%@/%@", @"android-test", @"file1m"]; // 从哪里复制
+
+    OSSTask * copyTask = [client copyObject:copy];
+
+    [copyTask continueWithBlock:^id(OSSTask *task) {
+        if (!task.error) {
+            NSLog(@"copy success!");
+        } else {
+            NSLog(@"copy error, error: %@", task.error);
         }
         return nil;
     }];

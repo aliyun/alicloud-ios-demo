@@ -26,7 +26,6 @@ AliyunOSSDemo * demo;
 
 - (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler {
     NSLog(@"application - handler event handler");
-    [demo setHandler:completionHandler];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

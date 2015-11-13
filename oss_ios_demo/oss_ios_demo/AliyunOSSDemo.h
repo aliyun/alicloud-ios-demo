@@ -11,7 +11,6 @@
 
 @interface AliyunOSSDemo : NSObject
 
-- (void)setHandler:(void(^)())handler;
 - (void)runDemo;
 
 @end
