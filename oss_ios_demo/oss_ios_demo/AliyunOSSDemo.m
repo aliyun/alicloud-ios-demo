@@ -30,29 +30,43 @@ static dispatch_queue_t queue4demo;
     [self initOSSClient];
 
 
-    /*************** start to run demo ***************/
+    /*************** 以下每个方法调用代表一个功能的演示，取消注释即可运行 ***************/
 
+    // 罗列Bucket中的Object
     // [self listObjectsInBucket];
 
+    // 异步上传文件
     // [self uploadObjectAsync];
 
+    // 同步上传文件
     // [self uploadObjectSync];
 
+    // 异步下载文件
     // [self downloadObjectAsync];
 
+    // 同步下载文件
     // [self downloadObjectSync];
 
+    // 复制文件
     [self copyObjectAsync];
 
+    // 签名Obejct的URL以授权第三方访问
     // [self signAccessObjectURL];
 
+    // 分块上传的完整流程
     // [self multipartUpload];
 
+    // 只获取Object的Meta信息
     // [self headObject];
 
+    // 罗列已经上传的分块
     // [self listParts];
 
+    // 自行管理UploadId的分块上传
     // [self resumableUpload];
+
+
+/************* 旧版本风格接口，不再建议使用 *************/
 
     // [self oldPutObjectStyle];
 
