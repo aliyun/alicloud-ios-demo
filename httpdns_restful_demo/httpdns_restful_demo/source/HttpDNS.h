@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HttpDNSDegradationDelegate.h"
 
 @class HttpDNSOrigin;
 
@@ -34,5 +35,9 @@
  * 里面都是NSString的类型IP地址
  */
 -(NSArray*)getIpsByHost:(NSString*)host;
+
+@property (nonatomic, weak) id<HttpDNSDegradationDelegate> delegate;
+
+-(void)setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)delegate;
 
 @end
