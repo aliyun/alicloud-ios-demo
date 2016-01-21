@@ -8,9 +8,6 @@
       location = "group:mac_ios_demo/mac_ios_demo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:mdns_ios_demo/mdns_ios_demo.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:oss_ios_demo/oss_ios_demo.xcodeproj">
    </FileRef>
    <FileRef

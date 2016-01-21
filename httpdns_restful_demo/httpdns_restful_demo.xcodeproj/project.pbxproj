@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F7F2791E1BE24EA50094EF7D /* httpdns_restful_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */; settings = {ASSET_TAGS = (); }; };
+		F7F2791E1BE24EA50094EF7D /* httpdns_restful_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */; };
 		F7F279231BE24EA50094EF7D /* httpdns_restful_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279221BE24EA50094EF7D /* httpdns_restful_demoTests.m */; };
-		F7F279301BE24FCA0094EF7D /* HttpDNS.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F2792E1BE24FCA0094EF7D /* HttpDNS.h */; settings = {ASSET_TAGS = (); }; };
-		F7F279311BE24FCA0094EF7D /* HttpDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F2792F1BE24FCA0094EF7D /* HttpDNS.m */; settings = {ASSET_TAGS = (); }; };
-		F7F279341BE250590094EF7D /* HttpDNSOrigin.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F279321BE250590094EF7D /* HttpDNSOrigin.h */; settings = {ASSET_TAGS = (); }; };
-		F7F279351BE250590094EF7D /* HttpDNSOrigin.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279331BE250590094EF7D /* HttpDNSOrigin.m */; settings = {ASSET_TAGS = (); }; };
-		F7F279381BE271AC0094EF7D /* NetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F279361BE271AC0094EF7D /* NetworkManager.h */; settings = {ASSET_TAGS = (); }; };
-		F7F279391BE271AC0094EF7D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279371BE271AC0094EF7D /* NetworkManager.m */; settings = {ASSET_TAGS = (); }; };
+		F7F279301BE24FCA0094EF7D /* HttpDNS.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F2792E1BE24FCA0094EF7D /* HttpDNS.h */; };
+		F7F279311BE24FCA0094EF7D /* HttpDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F2792F1BE24FCA0094EF7D /* HttpDNS.m */; };
+		F7F279341BE250590094EF7D /* HttpDNSOrigin.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F279321BE250590094EF7D /* HttpDNSOrigin.h */; };
+		F7F279351BE250590094EF7D /* HttpDNSOrigin.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279331BE250590094EF7D /* HttpDNSOrigin.m */; };
+		F7F279381BE271AC0094EF7D /* NetworkManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F279361BE271AC0094EF7D /* NetworkManager.h */; };
+		F7F279391BE271AC0094EF7D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279371BE271AC0094EF7D /* NetworkManager.m */; };
 		F7F279421BE27E660094EF7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279411BE27E660094EF7D /* main.m */; };
 		F7F279451BE27E660094EF7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279441BE27E660094EF7D /* AppDelegate.m */; };
 		F7F279481BE27E660094EF7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279471BE27E660094EF7D /* ViewController.m */; };
@@ -28,8 +28,8 @@
 		F7F2797A1BE280810094EF7D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279741BE280560094EF7D /* CoreTelephony.framework */; };
 		F7F2797B1BE280870094EF7D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279761BE280630094EF7D /* SystemConfiguration.framework */; };
 		F7F2797C1BE2808D0094EF7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279781BE2806D0094EF7D /* UIKit.framework */; };
-		F7F2797F1BE3401B0094EF7D /* HttpDNSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F2797D1BE3401A0094EF7D /* HttpDNSLog.h */; settings = {ASSET_TAGS = (); }; };
-		F7F279801BE3401B0094EF7D /* HttpDNSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F2797E1BE3401B0094EF7D /* HttpDNSLog.m */; settings = {ASSET_TAGS = (); }; };
+		F7F2797F1BE3401B0094EF7D /* HttpDNSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F2797D1BE3401A0094EF7D /* HttpDNSLog.h */; };
+		F7F279801BE3401B0094EF7D /* HttpDNSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F2797E1BE3401B0094EF7D /* HttpDNSLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		946A9EFD1C50CFA000D5C1C8 /* HttpDNSDegradationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpDNSDegradationDelegate.h; sourceTree = "<group>"; };
 		F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = httpdns_restful_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F279181BE24EA50094EF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7F2791D1BE24EA50094EF7D /* httpdns_restful_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_restful_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +164,7 @@
 				F7F279331BE250590094EF7D /* HttpDNSOrigin.m */,
 				F7F279361BE271AC0094EF7D /* NetworkManager.h */,
 				F7F279371BE271AC0094EF7D /* NetworkManager.m */,
+				946A9EFD1C50CFA000D5C1C8 /* HttpDNSDegradationDelegate.h */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -595,6 +597,7 @@
 				F7F2796A1BE27E670094EF7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
