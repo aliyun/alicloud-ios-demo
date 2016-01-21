@@ -11,7 +11,8 @@
 #import "HttpDNSLog.h"
 
 static BOOL isExpiredIpAvailable = YES;
-static NSString* defaultServerIP = @"140.205.143.143";
+static NSString* defaultServerIP = @"203.107.1.1";
+static NSString* defaultAccountID = @"100000";
 static int defaultHostTTL = 30;
 
 @implementation HttpDNS
@@ -19,6 +20,7 @@ static int defaultHostTTL = 30;
     NSMutableDictionary* _hostManager;
     NSOperationQueue* _operationQueue;
     NSString* _serverIP;
+    NSString* _accountID;
 }
 
 -(id)init {
@@ -27,6 +29,7 @@ static int defaultHostTTL = 30;
         _operationQueue = NSOperationQueue.new;
         _operationQueue.maxConcurrentOperationCount = 4;
         _serverIP = defaultServerIP;
+        _accountID = defaultAccountID;
     }
     return self;
 }
@@ -55,7 +58,7 @@ static int defaultHostTTL = 30;
 
 -(HttpDNSOrigin*)fetch:(NSString*)host {
     HttpDNSOrigin* origin = Nil;
-    NSURL* resolveUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/d?host=%@",_serverIP,host]];
+    NSURL* resolveUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/d?host=%@",_serverIP,_accountID,host]];
     NSHTTPURLResponse* response;
     NSError* error;
     
@@ -129,6 +132,10 @@ static int defaultHostTTL = 30;
 }
 
 -(NSString*)getIpByHost:(NSString *)host {
+    if ([self.delegate shouldDegradeHTTPDNS:host]) {
+        return Nil;
+    }
+    
     if (host.length <= 0) {
         return Nil;
     }
@@ -139,6 +146,10 @@ static int defaultHostTTL = 30;
 }
 
 -(NSArray*)getIpsByHost:(NSString *)host {
+    if ([self.delegate shouldDegradeHTTPDNS:host]) {
+        return Nil;
+    }
+
     if (host.length <= 0) {
         return Nil;
     }
@@ -146,6 +157,10 @@ static int defaultHostTTL = 30;
     HttpDNSOrigin* origin = [self query:host];
     
     return origin.getIps;
+}
+
+-(void)setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)delegate {
+    _delegate = delegate;
 }
 
 @end
