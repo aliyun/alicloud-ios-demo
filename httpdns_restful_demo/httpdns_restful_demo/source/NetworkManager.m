@@ -46,7 +46,7 @@ static dispatch_queue_t reachabilityQueue;
 }
 
 +(NetworkManager*)instance {
-    static NetworkManager* _instance = Nil;
+    static NetworkManager* _instance = nil;
     @synchronized(self) {
         _instance = [[NetworkManager alloc] init];
     }
