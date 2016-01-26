@@ -26,7 +26,7 @@
 
 -(NSString*)getIp
 {
-    return _ips ? [_ips objectAtIndex:0] : Nil;
+    return _ips ? [_ips objectAtIndex:0] : nil;
 }
 
 
