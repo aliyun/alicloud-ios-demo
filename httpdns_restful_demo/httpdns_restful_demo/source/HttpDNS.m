@@ -35,7 +35,7 @@ static int defaultHostTTL = 30;
 }
 
 +(HttpDNS*)instance {
-    static HttpDNS* _instance = Nil;
+    static HttpDNS* _instance = nil;
     @synchronized(self) {
         if (!_instance) {
             _instance = [[HttpDNS alloc] init];
@@ -57,7 +57,7 @@ static int defaultHostTTL = 30;
 
 
 -(HttpDNSOrigin*)fetch:(NSString*)host {
-    HttpDNSOrigin* origin = Nil;
+    HttpDNSOrigin* origin = nil;
     NSURL* resolveUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@/d?host=%@",_serverIP,_accountID,host]];
     NSHTTPURLResponse* response;
     NSError* error;
@@ -74,7 +74,7 @@ static int defaultHostTTL = 30;
     
     if(error) {
         [HttpDNSLog log:@"fetch - error %@", error];
-        return Nil;
+        return nil;
     }
     
     [HttpDNSLog log:@"fetch - response statusCode %ld",(long)response.statusCode];
@@ -109,7 +109,7 @@ static int defaultHostTTL = 30;
 }
 
 -(HttpDNSOrigin*)query:(NSString*)host {
-    HttpDNSOrigin* origin = Nil;
+    HttpDNSOrigin* origin = nil;
     
     @synchronized(self) {
         origin = _hostManager[host];
@@ -133,11 +133,11 @@ static int defaultHostTTL = 30;
 
 -(NSString*)getIpByHost:(NSString *)host {
     if ([self.delegate shouldDegradeHTTPDNS:host]) {
-        return Nil;
+        return nil;
     }
     
     if (host.length <= 0) {
-        return Nil;
+        return nil;
     }
     
     HttpDNSOrigin* origin = [self query:host];
@@ -147,11 +147,11 @@ static int defaultHostTTL = 30;
 
 -(NSArray*)getIpsByHost:(NSString *)host {
     if ([self.delegate shouldDegradeHTTPDNS:host]) {
-        return Nil;
+        return nil;
     }
 
     if (host.length <= 0) {
-        return Nil;
+        return nil;
     }
     
     HttpDNSOrigin* origin = [self query:host];
