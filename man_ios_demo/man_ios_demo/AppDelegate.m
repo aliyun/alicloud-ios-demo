@@ -17,22 +17,24 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString* testAppKey = @"********";
-    NSString* testAppSecret = @"********";
+    NSString *testAppKey = @"********";
+    NSString *testAppSecret = @"********";
     
+    // OneSDK初始化
     [[ALBBSDK sharedInstance] asyncInit:testAppKey
                               appSecret:testAppSecret :^{
-                                  NSLog(@"onesdk init succeed");
+                                  NSLog(@"OneSDK init success.");
                               }
                          failedCallback:^(NSError *error) {
-                             NSLog(@"error is %@", error);
+                             NSLog(@"Init error is %@.", error);
                          }];
+    // 打开调试日志
     [ALBBMANLog enableLog];
-//    [ALBBMANCompression disableCompression];
+    // 关闭日志聚合
+    //[ALBBMANCompression disableCompression];
     return YES;
 }
 
