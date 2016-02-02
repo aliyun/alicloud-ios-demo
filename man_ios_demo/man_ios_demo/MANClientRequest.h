@@ -11,9 +11,9 @@
 
 @interface MANClientRequest : NSObject
 
-@property(nonatomic,strong)NSMutableURLRequest* request;
-@property(nonatomic,strong)NSURLConnection* connection;
-@property(nonatomic,strong)NSMutableData* mutableData;
-@property(nonatomic,strong)ALBBMANNetworkHitBuilder* bulider;
+@property(nonatomic,strong)NSMutableURLRequest *request;
+@property(nonatomic,strong)NSURLConnection *connection;
+@property(nonatomic,strong)NSMutableData *mutableData;
+@property(nonatomic,strong)ALBBMANNetworkHitBuilder *bulider;
 
 @end
