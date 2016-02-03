@@ -33,8 +33,6 @@
                          }];
     // 打开调试日志
     [ALBBMANLog enableLog];
-    // 关闭日志聚合
-    //[ALBBMANCompression disableCompression];
     return YES;
 }
 

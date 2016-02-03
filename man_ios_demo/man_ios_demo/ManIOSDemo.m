@@ -69,8 +69,8 @@
         [self customHit];
         [self customPerfHit];
         [self syncNetworkHit];
-        [self asyncNetworkHit];
     });
+    [self asyncNetworkHit];
 }
 
 /**
@@ -143,8 +143,8 @@
     [customPerfBuilder hitEnd];
     // 设置扩展参数
     [customPerfBuilder setProperty:@"Page" value:@"Home"];
-    ALBBMANTracker *traker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
     // 组装日志并发送
+    ALBBMANTracker *traker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
     [traker send:[customPerfBuilder build]];
 }
 
@@ -168,9 +168,9 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (error) {
         // 自定义网络异常，见文档5.1.2
-        ALBBMANNetworkError *networkError = [[ALBBMANNetworkError alloc] initWithErrorCode:[NSString stringWithFormat:@"%ld",(long)error.code]];
+        ALBBMANNetworkError *networkError = [[ALBBMANNetworkError alloc] initWithErrorCode:@"1001"];
         // 自定义网络异常附加信息
-        [networkError setValue:@"1.2.3.4" forKey:@"IP"];
+        [networkError setProperty:@"IP" value:@"1.2.3.4"];
         [bulider requestEndWithError:networkError];
     }
     if (response.statusCode >= 400 && response.statusCode < 600) {
@@ -182,7 +182,7 @@
             networkError = [ALBBMANNetworkError ErrorWithHttpException5];
         }
         // 默认网络异常附加信息
-        [networkError setValue:@"1.2.3.4" forKey:@"IP"];
+        [networkError setProperty:@"IP" value:@"1.2.3.4"];
         [bulider requestEndWithError:networkError];
     }
     else {
@@ -200,7 +200,7 @@
  */
 - (void)asyncNetworkHit {
     MANClientRequest *client = [[MANClientRequest alloc] init];
-    NSURL *URL = [NSURL URLWithString:@"http://www.taobaobao.com/"];
+    NSURL *URL = [NSURL URLWithString:@"http://www.aliyun.com/"];
     client.request = [[NSMutableURLRequest alloc] initWithURL:URL
                                                   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                               timeoutInterval:30];
