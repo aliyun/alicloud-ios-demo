@@ -20,6 +20,10 @@
 
 - (void)initWithAppKey:(NSString *)appKey;
 
+- (void)setAppVersion:(NSString *) pAppVersion;
+
+- (void)setChannel:(NSString *) pChannel;
+
 - (void)updateUserAccount:(NSString *) pNick userid:(NSString *) pUserId;
 
 - (void)userRegister:(NSString *) pUsernick;

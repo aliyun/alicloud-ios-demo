@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A3091621C5F83E200C7401A /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091611C5F83E200C7401A /* BaseUIViewController.m */; };
 		4A3091671C5F865300C7401A /* TestUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091661C5F865300C7401A /* TestUIViewController.m */; };
+		4A34F4DC1C63382A0010B472 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A34F4DB1C63382A0010B472 /* AlicloudMobileAnalitics.framework */; };
 		4ADB84EC1C5E572900E85A3D /* ManIOSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */; };
 		F7590ADE1BC8DD77009C8B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590ADD1BC8DD77009C8B08 /* main.m */; };
 		F7590AE11BC8DD77009C8B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590AE01BC8DD77009C8B08 /* AppDelegate.m */; };
@@ -28,7 +29,6 @@
 		F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */; };
 		F7590B171BC8E200009C8B08 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B161BC8E200009C8B08 /* libz.dylib */; };
 		F7590B1A1BC8E97A009C8B08 /* MANClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590B191BC8E97A009C8B08 /* MANClientRequest.m */; };
-		F7EA0C2C1BCDFF8F0096F356 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7EA0C2B1BCDFF8F0096F356 /* AlicloudMobileAnalitics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,7 @@
 		4A3091631C5F83FD00C7401A /* BaseUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseUIViewController.h; sourceTree = "<group>"; };
 		4A3091661C5F865300C7401A /* TestUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUIViewController.m; sourceTree = "<group>"; };
 		4A3091681C5F866400C7401A /* TestUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIViewController.h; sourceTree = "<group>"; };
+		4A34F4DB1C63382A0010B472 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
 		4ADB84EA1C5E571200E85A3D /* ManIOSDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManIOSDemo.h; sourceTree = "<group>"; };
 		4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManIOSDemo.m; sourceTree = "<group>"; };
 		F7590AD81BC8DD77009C8B08 /* man_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = man_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +74,6 @@
 		F7590B161BC8E200009C8B08 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F7590B181BC8E97A009C8B08 /* MANClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANClientRequest.h; sourceTree = "<group>"; };
 		F7590B191BC8E97A009C8B08 /* MANClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANClientRequest.m; sourceTree = "<group>"; };
-		F7EA0C2B1BCDFF8F0096F356 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7EA0C2C1BCDFF8F0096F356 /* AlicloudMobileAnalitics.framework in Frameworks */,
+				4A34F4DC1C63382A0010B472 /* AlicloudMobileAnalitics.framework in Frameworks */,
 				F7590B171BC8E200009C8B08 /* libz.dylib in Frameworks */,
 				F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */,
 				F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */,
@@ -178,7 +178,7 @@
 		F7590B011BC8E115009C8B08 /* dependence */ = {
 			isa = PBXGroup;
 			children = (
-				F7EA0C2B1BCDFF8F0096F356 /* AlicloudMobileAnalitics.framework */,
+				4A34F4DB1C63382A0010B472 /* AlicloudMobileAnalitics.framework */,
 				F7590B021BC8E1BC009C8B08 /* ALBB.bundle */,
 				F7590B031BC8E1BC009C8B08 /* ALBBRpcSDK.framework */,
 				F7590B041BC8E1BC009C8B08 /* ALBBSDK.framework */,
@@ -429,6 +429,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependence",
+					"$(PROJECT_DIR)/dependence/ALBB.bundle",
 				);
 				INFOPLIST_FILE = man_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -446,6 +447,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependence",
+					"$(PROJECT_DIR)/dependence/ALBB.bundle",
 				);
 				INFOPLIST_FILE = man_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
