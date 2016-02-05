@@ -12,7 +12,7 @@
 #import "MANClientRequest.h"
 
 /**
- *Crash回调实例
+ * Crash回调实例
  */
 @interface TestCrashCaught : NSObject <ALBBMANICrashCaughtListener>
 
@@ -52,6 +52,12 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        ALBBMANAnalytics *analytics = [ALBBMANAnalytics getInstance];
+        // appVersion默认从Info.list的CFBundleShortVersionString字段获取，如果没有指定，可在此设定
+        // 如果上述两个地方都没有设定，appVersion为"-"
+        [analytics setAppVersion:@"2.3.1"];
+        // 设置渠道（用以标记该app的分发渠道名称），如果不关心可以不设置即不调用该接口，渠道设置将影响控制台【渠道分析】栏目的报表展现
+        [analytics setChannel:@"50"];
     }
     return self;
 }
@@ -104,6 +110,8 @@
     [pageHitBuilder setProperty:@"pagePropertyKey1" value:@"pagePropertyValue1"];
     [pageHitBuilder setProperty:@"pagePropertyKey2" value:@"pagePropertyValue2"];
     ALBBMANTracker *tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
+    // 获取指定id的ALBBMANTracker
+    // ALBBMANTracker *pageTracker = [[ALBBMANAnalytics getInstance] getTracker:@"Page"];
     // 组装日志并发送
     [tracker send:[pageHitBuilder build]];
 }
@@ -120,10 +128,16 @@
     [customBuilder setEventPage:@"test_Page"];
     // 设置自定义事件持续时间
     [customBuilder setDurationOnEvent:12345];
-    // 设置自定义事件扩展参数
+    // 设置自定义事件扩展参数方式1
     [customBuilder setProperty:@"ckey0" value:@"value0"];
     [customBuilder setProperty:@"ckey1" value:@"value1"];
     [customBuilder setProperty:@"ckey2" value:@"value2"];
+    // 设置自定义事件扩展参数方式2
+    // NSMutableDictionary *properties = [NSMutableDictionary dictionary];
+    // [properties setObject:@"value0" forKey:@"ckey0"];
+    // [properties setObject:@"value1" forKey:@"ckey1"];
+    // [properties setObject:@"value2" forKey:@"ckey2"];
+    // [customBuilder setProperties:properties];
     ALBBMANTracker *traker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
     // 组装日志并发送
     NSDictionary *dic = [customBuilder build];
@@ -136,11 +150,13 @@
  */
 - (void)customPerfHit {
     ALBBMANCustomPerformanceHitBuilder *customPerfBuilder = [[ALBBMANCustomPerformanceHitBuilder alloc] init:@"HomeActivityInit"];
-    // 自定义性能事件开始
+    // 记录事件时间方式1，自定义性能事件开始
     [customPerfBuilder hitStart];
     [self timeConsume:1234];
     // 自定义性能事件结束
     [customPerfBuilder hitEnd];
+    // 设置定义性能事件持续时间，方式2
+    // [customPerfBuilder setDurationIntervalInMillis:1234];
     // 设置扩展参数
     [customPerfBuilder setProperty:@"Page" value:@"Home"];
     // 组装日志并发送

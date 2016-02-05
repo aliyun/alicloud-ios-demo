@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import "TestUiViewController.h"
 
 @implementation TestUIViewController
@@ -26,6 +27,10 @@
     [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
+    // 设置页面事件扩展参数
+    ALBBMANTracker *pageTraker = [[ALBBMANAnalytics getInstance] getTracker:@"Page"];
+    NSDictionary *properties = [NSDictionary dictionaryWithObject:@"pageValue" forKey:@"pageKey"];
+    [pageTraker updatePageProperties:self properties:properties];
 }
 
 // 返回
