@@ -29,5 +29,8 @@ NSString * testAppKey = @"*********";
 NSString * testAppSecret = @"**************";
 ```
 
+### httpdns_ios_demo
+httpdns_ios_demo给出了HTTPDNS iOS SDK的使用示例。
+
 ### httpdns_restful_demo
-httpdns_restful_demo给出了HTTPDNS服务的使用示例。
+httpdns_restful_demo给出了HTTPDNS RESTful API的使用示例。
