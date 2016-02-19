@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:httpdns_ios_demo/httpdns_ios_demo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:man_ios_demo/man_ios_demo.xcodeproj">
    </FileRef>
    <FileRef
