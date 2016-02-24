@@ -27,10 +27,10 @@
     
     [[ALBBSDK sharedInstance] asyncInit:testAppKey
                               appSecret:testAppSecret :^{
-                                  NSLog(@"onesdk init succeed");
+                                  NSLog(@"OneSDK init succeed");
                               }
                          failedCallback:^(NSError *error) {
-                                  NSLog(@"error is %@", error);
+                                  NSLog(@"OneSDK init failed: %@", error);
                          }];
     
     [ALBBMAC asynInit];
