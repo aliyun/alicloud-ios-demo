@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "NetworkManager.h"
-#import <AlicloudMobileDNS/Httpdns.h>
+#import <AlicloudHttpDNS/Httpdns.h>
 
 @interface ViewController ()
 
