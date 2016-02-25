@@ -127,16 +127,17 @@
 
 - (void) updateLabelsByRtSum:(int)rtSum successCount:(int)successCount failureCount:(int)failureCount {
     int averageRt = (successCount != 0 ? rtSum / successCount : 0);
+    int totalCount = successCount + failureCount;
     if (!_isMACEnabled) {
         [self.nativeRt setText:[NSString stringWithFormat:@"%d ms", averageRt]];
         [self.nativeSuccess setText:[NSString stringWithFormat:@"%d", successCount]];
         [self.nativeFailure setText:[NSString stringWithFormat:@"%d", failureCount]];
-        [self.nativeTotal setText:[NSString stringWithFormat:@"%d", successCount + failureCount]];
+        [self.nativeTotal setText:[NSString stringWithFormat:@"%d", totalCount]];
     } else {
         [self.macRt setText:[NSString stringWithFormat:@"%d ms", averageRt]];
         [self.macSuccess setText:[NSString stringWithFormat:@"%d", successCount]];
         [self.macFailure setText:[NSString stringWithFormat:@"%d", failureCount]];
-        [self.macTotal setText:[NSString stringWithFormat:@"%d", TOTAL_REQUESTS_NUM]];
+        [self.macTotal setText:[NSString stringWithFormat:@"%d", totalCount]];
     }
 }
 
