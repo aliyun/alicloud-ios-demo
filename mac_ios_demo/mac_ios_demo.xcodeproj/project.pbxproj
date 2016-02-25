@@ -225,7 +225,6 @@
 				TargetAttributes = {
 					F7590A761BC79346009C8B08 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = HE6RFKB37U;
 					};
 					F7590A8F1BC79346009C8B08 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -414,6 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -434,6 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
