@@ -34,7 +34,7 @@
                          }];
     
     [ALBBMAC asynInit];
-    [ALBBMAC turnOnDebug];
+    //[ALBBMAC turnOnDebug];
     return YES;
 }
 
