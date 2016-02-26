@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:httpdns_restful_demo.xcodeproj">
+      location = "self:httpdns_api_demo.xcodeproj">
    </FileRef>
 </Workspace>
