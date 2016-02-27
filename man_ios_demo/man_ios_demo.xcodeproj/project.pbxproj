@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A3091621C5F83E200C7401A /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091611C5F83E200C7401A /* BaseUIViewController.m */; };
 		4A3091671C5F865300C7401A /* TestUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091661C5F865300C7401A /* TestUIViewController.m */; };
-		4A34F4DC1C63382A0010B472 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A34F4DB1C63382A0010B472 /* AlicloudMobileAnalitics.framework */; };
+		4AAEA77A1C813A2900FC0946 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAEA7791C813A2900FC0946 /* AlicloudMobileAnalitics.framework */; };
 		4ADB84EC1C5E572900E85A3D /* ManIOSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */; };
 		F7590ADE1BC8DD77009C8B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590ADD1BC8DD77009C8B08 /* main.m */; };
 		F7590AE11BC8DD77009C8B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590AE01BC8DD77009C8B08 /* AppDelegate.m */; };
@@ -46,7 +46,7 @@
 		4A3091631C5F83FD00C7401A /* BaseUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseUIViewController.h; sourceTree = "<group>"; };
 		4A3091661C5F865300C7401A /* TestUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUIViewController.m; sourceTree = "<group>"; };
 		4A3091681C5F866400C7401A /* TestUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIViewController.h; sourceTree = "<group>"; };
-		4A34F4DB1C63382A0010B472 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
+		4AAEA7791C813A2900FC0946 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
 		4ADB84EA1C5E571200E85A3D /* ManIOSDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManIOSDemo.h; sourceTree = "<group>"; };
 		4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManIOSDemo.m; sourceTree = "<group>"; };
 		F7590AD81BC8DD77009C8B08 /* man_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = man_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A34F4DC1C63382A0010B472 /* AlicloudMobileAnalitics.framework in Frameworks */,
+				4AAEA77A1C813A2900FC0946 /* AlicloudMobileAnalitics.framework in Frameworks */,
 				F7590B171BC8E200009C8B08 /* libz.dylib in Frameworks */,
 				F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */,
 				F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */,
@@ -178,7 +178,7 @@
 		F7590B011BC8E115009C8B08 /* dependence */ = {
 			isa = PBXGroup;
 			children = (
-				4A34F4DB1C63382A0010B472 /* AlicloudMobileAnalitics.framework */,
+				4AAEA7791C813A2900FC0946 /* AlicloudMobileAnalitics.framework */,
 				F7590B021BC8E1BC009C8B08 /* ALBB.bundle */,
 				F7590B031BC8E1BC009C8B08 /* ALBBRpcSDK.framework */,
 				F7590B041BC8E1BC009C8B08 /* ALBBSDK.framework */,
