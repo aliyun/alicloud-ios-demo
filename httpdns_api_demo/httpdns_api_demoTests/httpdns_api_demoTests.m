@@ -1,6 +1,6 @@
 //
-//  httpdns_restful_demoTests.m
-//  httpdns_restful_demoTests
+//  httpdns_api_demoTests.m
+//  httpdns_api_demoTests
 //
 //  Created by nanpo.yhl on 15/10/29.
 //  Copyright © 2015年 com.aliyun.mobile. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface httpdns_restful_demoTests : XCTestCase
+@interface httpdns_api_demoTests : XCTestCase
 
 @end
 
-@implementation httpdns_restful_demoTests
+@implementation httpdns_api_demoTests
 
 - (void)setUp {
     [super setUp];

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F7F2791E1BE24EA50094EF7D /* httpdns_restful_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */; };
-		F7F279231BE24EA50094EF7D /* httpdns_restful_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279221BE24EA50094EF7D /* httpdns_restful_demoTests.m */; };
+		F7F2791E1BE24EA50094EF7D /* httpdns_api_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */; };
+		F7F279231BE24EA50094EF7D /* httpdns_api_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279221BE24EA50094EF7D /* httpdns_api_demoTests.m */; };
 		F7F279301BE24FCA0094EF7D /* HttpDNS.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F2792E1BE24FCA0094EF7D /* HttpDNS.h */; };
 		F7F279311BE24FCA0094EF7D /* HttpDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F2792F1BE24FCA0094EF7D /* HttpDNS.m */; };
 		F7F279341BE250590094EF7D /* HttpDNSOrigin.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F279321BE250590094EF7D /* HttpDNSOrigin.h */; };
@@ -21,7 +21,7 @@
 		F7F2794B1BE27E660094EF7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F279491BE27E660094EF7D /* Main.storyboard */; };
 		F7F2794D1BE27E660094EF7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7F2794C1BE27E660094EF7D /* Assets.xcassets */; };
 		F7F279501BE27E660094EF7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F2794E1BE27E660094EF7D /* LaunchScreen.storyboard */; };
-		F7F279731BE27F3D0094EF7D /* httpdns_restful_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */; };
+		F7F279731BE27F3D0094EF7D /* httpdns_api_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */; };
 		F7F279751BE280560094EF7D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279741BE280560094EF7D /* CoreTelephony.framework */; };
 		F7F279771BE280630094EF7D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279761BE280630094EF7D /* SystemConfiguration.framework */; };
 		F7F279791BE2806D0094EF7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279781BE2806D0094EF7D /* UIKit.framework */; };
@@ -38,23 +38,23 @@
 			containerPortal = F7F2790A1BE24EA50094EF7D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F7F279121BE24EA50094EF7D;
-			remoteInfo = httpdns_restful_demo;
+			remoteInfo = httpdns_api_demo;
 		};
 		F7F279711BE27E7F0094EF7D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7F2790A1BE24EA50094EF7D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F7F279121BE24EA50094EF7D;
-			remoteInfo = httpdns_restful_demo;
+			remoteInfo = httpdns_api_demo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		946A9EFD1C50CFA000D5C1C8 /* HttpDNSDegradationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpDNSDegradationDelegate.h; sourceTree = "<group>"; };
-		F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = httpdns_restful_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = httpdns_api_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F279181BE24EA50094EF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7F2791D1BE24EA50094EF7D /* httpdns_restful_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_restful_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7F279221BE24EA50094EF7D /* httpdns_restful_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = httpdns_restful_demoTests.m; sourceTree = "<group>"; };
+		F7F2791D1BE24EA50094EF7D /* httpdns_api_demo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_api_demo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F279221BE24EA50094EF7D /* httpdns_api_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = httpdns_api_demoTests.m; sourceTree = "<group>"; };
 		F7F279241BE24EA50094EF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7F2792E1BE24FCA0094EF7D /* HttpDNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpDNS.h; sourceTree = "<group>"; };
 		F7F2792F1BE24FCA0094EF7D /* HttpDNS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpDNS.m; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F2791E1BE24EA50094EF7D /* httpdns_restful_demo.framework in Frameworks */,
+				F7F2791E1BE24EA50094EF7D /* httpdns_api_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +105,7 @@
 				F7F2797C1BE2808D0094EF7D /* UIKit.framework in Frameworks */,
 				F7F2797B1BE280870094EF7D /* SystemConfiguration.framework in Frameworks */,
 				F7F2797A1BE280810094EF7D /* CoreTelephony.framework in Frameworks */,
-				F7F279731BE27F3D0094EF7D /* httpdns_restful_demo.framework in Frameworks */,
+				F7F279731BE27F3D0094EF7D /* httpdns_api_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,8 +118,8 @@
 				F7F279781BE2806D0094EF7D /* UIKit.framework */,
 				F7F279761BE280630094EF7D /* SystemConfiguration.framework */,
 				F7F279741BE280560094EF7D /* CoreTelephony.framework */,
-				F7F279151BE24EA50094EF7D /* httpdns_restful_demo */,
-				F7F279211BE24EA50094EF7D /* httpdns_restful_demoTests */,
+				F7F279151BE24EA50094EF7D /* httpdns_api_demo */,
+				F7F279211BE24EA50094EF7D /* httpdns_api_demoTests */,
 				F7F2793F1BE27E660094EF7D /* HttpDNSApp */,
 				F7F279141BE24EA50094EF7D /* Products */,
 			);
@@ -128,29 +128,29 @@
 		F7F279141BE24EA50094EF7D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */,
-				F7F2791D1BE24EA50094EF7D /* httpdns_restful_demoTests.xctest */,
+				F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */,
+				F7F2791D1BE24EA50094EF7D /* httpdns_api_demo.xctest */,
 				F7F2793E1BE27E660094EF7D /* HttpDNSApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F7F279151BE24EA50094EF7D /* httpdns_restful_demo */ = {
+		F7F279151BE24EA50094EF7D /* httpdns_api_demo */ = {
 			isa = PBXGroup;
 			children = (
 				F7F2792D1BE24F9C0094EF7D /* source */,
 				F7F279181BE24EA50094EF7D /* Info.plist */,
 			);
-			path = httpdns_restful_demo;
+			path = httpdns_api_demo;
 			sourceTree = "<group>";
 		};
-		F7F279211BE24EA50094EF7D /* httpdns_restful_demoTests */ = {
+		F7F279211BE24EA50094EF7D /* httpdns_api_demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				F7F279221BE24EA50094EF7D /* httpdns_restful_demoTests.m */,
+				F7F279221BE24EA50094EF7D /* httpdns_api_demoTests.m */,
 				F7F279241BE24EA50094EF7D /* Info.plist */,
 			);
-			path = httpdns_restful_demoTests;
+			path = httpdns_api_demoTests;
 			sourceTree = "<group>";
 		};
 		F7F2792D1BE24F9C0094EF7D /* source */ = {
@@ -210,9 +210,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		F7F279121BE24EA50094EF7D /* httpdns_restful_demo */ = {
+		F7F279121BE24EA50094EF7D /* httpdns_api_demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7F279271BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_restful_demo" */;
+			buildConfigurationList = F7F279271BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_api_demo" */;
 			buildPhases = (
 				F7F2790E1BE24EA50094EF7D /* Sources */,
 				F7F2790F1BE24EA50094EF7D /* Frameworks */,
@@ -223,14 +223,14 @@
 			);
 			dependencies = (
 			);
-			name = httpdns_restful_demo;
-			productName = httpdns_restful_demo;
-			productReference = F7F279131BE24EA50094EF7D /* httpdns_restful_demo.framework */;
+			name = httpdns_api_demo;
+			productName = httpdns_api_demo;
+			productReference = F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F7F2791C1BE24EA50094EF7D /* httpdns_restful_demoTests */ = {
+		F7F2791C1BE24EA50094EF7D /* httpdns_api_demoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7F2792A1BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_restful_demoTests" */;
+			buildConfigurationList = F7F2792A1BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_api_demoTests" */;
 			buildPhases = (
 				F7F279191BE24EA50094EF7D /* Sources */,
 				F7F2791A1BE24EA50094EF7D /* Frameworks */,
@@ -241,9 +241,9 @@
 			dependencies = (
 				F7F279201BE24EA50094EF7D /* PBXTargetDependency */,
 			);
-			name = httpdns_restful_demoTests;
-			productName = httpdns_restful_demoTests;
-			productReference = F7F2791D1BE24EA50094EF7D /* httpdns_restful_demoTests.xctest */;
+			name = httpdns_api_demoTests;
+			productName = httpdns_api_demoTests;
+			productReference = F7F2791D1BE24EA50094EF7D /* httpdns_api_demo.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		F7F2793D1BE27E660094EF7D /* HttpDNSApp */ = {
@@ -285,7 +285,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F7F2790D1BE24EA50094EF7D /* Build configuration list for PBXProject "httpdns_restful_demo" */;
+			buildConfigurationList = F7F2790D1BE24EA50094EF7D /* Build configuration list for PBXProject "httpdns_api_demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -298,8 +298,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F7F279121BE24EA50094EF7D /* httpdns_restful_demo */,
-				F7F2791C1BE24EA50094EF7D /* httpdns_restful_demoTests */,
+				F7F279121BE24EA50094EF7D /* httpdns_api_demo */,
+				F7F2791C1BE24EA50094EF7D /* httpdns_api_demoTests */,
 				F7F2793D1BE27E660094EF7D /* HttpDNSApp */,
 			);
 		};
@@ -348,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F279231BE24EA50094EF7D /* httpdns_restful_demoTests.m in Sources */,
+				F7F279231BE24EA50094EF7D /* httpdns_api_demoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,12 +367,12 @@
 /* Begin PBXTargetDependency section */
 		F7F279201BE24EA50094EF7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F7F279121BE24EA50094EF7D /* httpdns_restful_demo */;
+			target = F7F279121BE24EA50094EF7D /* httpdns_api_demo */;
 			targetProxy = F7F2791F1BE24EA50094EF7D /* PBXContainerItemProxy */;
 		};
 		F7F279721BE27E7F0094EF7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F7F279121BE24EA50094EF7D /* httpdns_restful_demo */;
+			target = F7F279121BE24EA50094EF7D /* httpdns_api_demo */;
 			targetProxy = F7F279711BE27E7F0094EF7D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -492,12 +492,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = httpdns_restful_demo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/httpdns_api_demo/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-restful-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-api-demo";
+				PRODUCT_NAME = httpdns_api_demo;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -509,12 +509,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = httpdns_restful_demo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/httpdns_api_demo/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-restful-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-api-demo";
+				PRODUCT_NAME = httpdns_api_demo;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -522,20 +522,20 @@
 		F7F2792B1BE24EA50094EF7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = httpdns_restful_demoTests/Info.plist;
+				INFOPLIST_FILE = httpdns_api_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-restful-demoTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-api-demoTests";
+				PRODUCT_NAME = httpdns_api_demo;
 			};
 			name = Debug;
 		};
 		F7F2792C1BE24EA50094EF7D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = httpdns_restful_demoTests/Info.plist;
+				INFOPLIST_FILE = httpdns_api_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-restful-demoTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.httpdns-api-demoTests";
+				PRODUCT_NAME = httpdns_api_demo;
 			};
 			name = Release;
 		};
@@ -570,7 +570,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F7F2790D1BE24EA50094EF7D /* Build configuration list for PBXProject "httpdns_restful_demo" */ = {
+		F7F2790D1BE24EA50094EF7D /* Build configuration list for PBXProject "httpdns_api_demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7F279251BE24EA50094EF7D /* Debug */,
@@ -579,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7F279271BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_restful_demo" */ = {
+		F7F279271BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_api_demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7F279281BE24EA50094EF7D /* Debug */,
@@ -588,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7F2792A1BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_restful_demoTests" */ = {
+		F7F2792A1BE24EA50094EF7D /* Build configuration list for PBXNativeTarget "httpdns_api_demoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7F2792B1BE24EA50094EF7D /* Debug */,
