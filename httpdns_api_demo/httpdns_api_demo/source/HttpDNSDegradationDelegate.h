@@ -1,6 +1,6 @@
 //
 //  HttpDNSDegradationDelegate.h
-//  httpdns_restful_demo
+//  httpdns_api_demo
 //
 //  Created by ryan on 21/1/2016.
 //  Copyright © 2016 com.aliyun.mobile. All rights reserved.
