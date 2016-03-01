@@ -14,10 +14,6 @@ extern NSString * const NETWORK_PAGE_LOAD_PERFORMANCE;
 
 extern NSString * const NETWORK_ERROR;
 
-extern NSString * const SDK_VERSION_VALUE;
-
-extern NSString * const SDK_VERSION_KEY;
-
 extern long long const ILLEGAL_TIME;
 
 extern NSString * const NETWORK_REQUEST_PERFORMANCE_LABEL;
@@ -45,12 +41,6 @@ extern int const REPORT_TIME_INTERVAL;
 extern NSString * const ERR_MSG;
 
 extern int const MAX_HANDLE_NUM;
-
-
-
-extern NSString * const SDK_VERSION_VALUE;
-
-extern NSString * const SDK_VERSION_KEY;
 
 extern NSString * const PERFORMANCE;
 
