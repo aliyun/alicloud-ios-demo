@@ -69,6 +69,8 @@
 
 - (void)oneTest {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 等待SDK异步初始化完成
+        [NSThread sleepForTimeInterval:1];
         [self crashHandler];
         [self userRegister];
         [self pageHit];
