@@ -13,15 +13,13 @@
 @implementation BaseUIViewController
 
 - (void)viewDidAppear:(BOOL)animated {
-    ALBBMANTracker *tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
     // 进入页面
-    [tracker pageAppear:self];
+    [[ALBBMANPageHitHelper getInstance] pageAppear:self];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    ALBBMANTracker *tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
     // 离开页面
-    [tracker pageDisAppear:self];
+    [[ALBBMANPageHitHelper getInstance] pageDisAppear:self];
 }
 
 @end

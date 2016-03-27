@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		4A3091621C5F83E200C7401A /* BaseUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091611C5F83E200C7401A /* BaseUIViewController.m */; };
 		4A3091671C5F865300C7401A /* TestUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091661C5F865300C7401A /* TestUIViewController.m */; };
-		4AA8AD9A1C8597D600A8936B /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA8AD991C8597D600A8936B /* AlicloudMobileAnalitics.framework */; };
+		4A362CBE1CA7EC8B005D95F7 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A362CBD1CA7EC8B005D95F7 /* UTMini.framework */; };
+		4A362CC61CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A362CC51CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework */; };
+		4A77BDFD1CA8AF0800C18615 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A77BDFB1CA80A1F00C18615 /* libz.tbd */; };
 		4ADB84EC1C5E572900E85A3D /* ManIOSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */; };
 		F7590ADE1BC8DD77009C8B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590ADD1BC8DD77009C8B08 /* main.m */; };
 		F7590AE11BC8DD77009C8B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590AE01BC8DD77009C8B08 /* AppDelegate.m */; };
@@ -18,16 +20,9 @@
 		F7590AE91BC8DD77009C8B08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7590AE81BC8DD77009C8B08 /* Images.xcassets */; };
 		F7590AEC1BC8DD77009C8B08 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7590AEA1BC8DD77009C8B08 /* LaunchScreen.xib */; };
 		F7590AF81BC8DD77009C8B08 /* man_ios_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590AF71BC8DD77009C8B08 /* man_ios_demoTests.m */; };
-		F7590B0A1BC8E1BC009C8B08 /* ALBB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7590B021BC8E1BC009C8B08 /* ALBB.bundle */; };
-		F7590B0B1BC8E1BC009C8B08 /* ALBBRpcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B031BC8E1BC009C8B08 /* ALBBRpcSDK.framework */; };
-		F7590B0C1BC8E1BC009C8B08 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B041BC8E1BC009C8B08 /* ALBBSDK.framework */; };
-		F7590B0D1BC8E1BC009C8B08 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B051BC8E1BC009C8B08 /* ALBBSessionSDK.framework */; };
-		F7590B0F1BC8E1BD009C8B08 /* DpaUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B071BC8E1BC009C8B08 /* DpaUtil.framework */; };
 		F7590B101BC8E1BD009C8B08 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B081BC8E1BC009C8B08 /* UTDID.framework */; };
-		F7590B111BC8E1BD009C8B08 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B091BC8E1BC009C8B08 /* UTMini.framework */; };
 		F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */; };
 		F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */; };
-		F7590B171BC8E200009C8B08 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B161BC8E200009C8B08 /* libz.dylib */; };
 		F7590B1A1BC8E97A009C8B08 /* MANClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590B191BC8E97A009C8B08 /* MANClientRequest.m */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +41,9 @@
 		4A3091631C5F83FD00C7401A /* BaseUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseUIViewController.h; sourceTree = "<group>"; };
 		4A3091661C5F865300C7401A /* TestUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUIViewController.m; sourceTree = "<group>"; };
 		4A3091681C5F866400C7401A /* TestUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIViewController.h; sourceTree = "<group>"; };
-		4AA8AD991C8597D600A8936B /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
+		4A362CBD1CA7EC8B005D95F7 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		4A362CC51CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
+		4A77BDFB1CA80A1F00C18615 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4ADB84EA1C5E571200E85A3D /* ManIOSDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManIOSDemo.h; sourceTree = "<group>"; };
 		4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManIOSDemo.m; sourceTree = "<group>"; };
 		F7590AD81BC8DD77009C8B08 /* man_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = man_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,16 +59,9 @@
 		F7590AF11BC8DD77009C8B08 /* man_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = man_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7590AF61BC8DD77009C8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7590AF71BC8DD77009C8B08 /* man_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = man_ios_demoTests.m; sourceTree = "<group>"; };
-		F7590B021BC8E1BC009C8B08 /* ALBB.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALBB.bundle; sourceTree = "<group>"; };
-		F7590B031BC8E1BC009C8B08 /* ALBBRpcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBRpcSDK.framework; sourceTree = "<group>"; };
-		F7590B041BC8E1BC009C8B08 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSDK.framework; sourceTree = "<group>"; };
-		F7590B051BC8E1BC009C8B08 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSessionSDK.framework; sourceTree = "<group>"; };
-		F7590B071BC8E1BC009C8B08 /* DpaUtil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DpaUtil.framework; sourceTree = "<group>"; };
 		F7590B081BC8E1BC009C8B08 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
-		F7590B091BC8E1BC009C8B08 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
 		F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		F7590B161BC8E200009C8B08 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F7590B181BC8E97A009C8B08 /* MANClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANClientRequest.h; sourceTree = "<group>"; };
 		F7590B191BC8E97A009C8B08 /* MANClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANClientRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,15 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AA8AD9A1C8597D600A8936B /* AlicloudMobileAnalitics.framework in Frameworks */,
-				F7590B171BC8E200009C8B08 /* libz.dylib in Frameworks */,
+				4A77BDFD1CA8AF0800C18615 /* libz.tbd in Frameworks */,
 				F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */,
+				4A362CC61CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework in Frameworks */,
 				F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */,
-				F7590B0C1BC8E1BC009C8B08 /* ALBBSDK.framework in Frameworks */,
-				F7590B0D1BC8E1BC009C8B08 /* ALBBSessionSDK.framework in Frameworks */,
-				F7590B111BC8E1BD009C8B08 /* UTMini.framework in Frameworks */,
-				F7590B0F1BC8E1BD009C8B08 /* DpaUtil.framework in Frameworks */,
-				F7590B0B1BC8E1BC009C8B08 /* ALBBRpcSDK.framework in Frameworks */,
+				4A362CBE1CA7EC8B005D95F7 /* UTMini.framework in Frameworks */,
 				F7590B101BC8E1BD009C8B08 /* UTDID.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,7 +93,7 @@
 		F7590ACF1BC8DD77009C8B08 = {
 			isa = PBXGroup;
 			children = (
-				F7590B161BC8E200009C8B08 /* libz.dylib */,
+				4A77BDFB1CA80A1F00C18615 /* libz.tbd */,
 				F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */,
 				F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */,
 				F7590B011BC8E115009C8B08 /* dependence */,
@@ -178,14 +164,9 @@
 		F7590B011BC8E115009C8B08 /* dependence */ = {
 			isa = PBXGroup;
 			children = (
-				4AA8AD991C8597D600A8936B /* AlicloudMobileAnalitics.framework */,
-				F7590B021BC8E1BC009C8B08 /* ALBB.bundle */,
-				F7590B031BC8E1BC009C8B08 /* ALBBRpcSDK.framework */,
-				F7590B041BC8E1BC009C8B08 /* ALBBSDK.framework */,
-				F7590B051BC8E1BC009C8B08 /* ALBBSessionSDK.framework */,
-				F7590B071BC8E1BC009C8B08 /* DpaUtil.framework */,
+				4A362CC51CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework */,
+				4A362CBD1CA7EC8B005D95F7 /* UTMini.framework */,
 				F7590B081BC8E1BC009C8B08 /* UTDID.framework */,
-				F7590B091BC8E1BC009C8B08 /* UTMini.framework */,
 			);
 			path = dependence;
 			sourceTree = "<group>";
@@ -270,7 +251,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7590B0A1BC8E1BC009C8B08 /* ALBB.bundle in Resources */,
 				F7590AE71BC8DD77009C8B08 /* Main.storyboard in Resources */,
 				F7590AEC1BC8DD77009C8B08 /* LaunchScreen.xib in Resources */,
 				F7590AE91BC8DD77009C8B08 /* Images.xcassets in Resources */,

@@ -69,8 +69,6 @@
 
 - (void)oneTest {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        // 等待SDK异步初始化完成
-        [NSThread sleepForTimeInterval:1];
         [self crashHandler];
         [self userRegister];
         [self pageHit];
@@ -91,8 +89,6 @@
     [analytics userRegister:@"userNick"];
     // 用户登录埋点
     [analytics updateUserAccount:@"userNick" userid:@"userId"];
-    // 用户注销埋点
-    [analytics updateUserAccount:@"" userid:@""];
 }
 
 /**
@@ -100,7 +96,7 @@
     页面埋点，见文档4.2
  */
 - (void)pageHit {
-    // 产生页面日志的另一种方法
+    // 页面事件埋点的另一种方法
     ALBBMANPageHitBuilder *pageHitBuilder = [[ALBBMANPageHitBuilder alloc] init];
     // 设置页面refer
     [pageHitBuilder setReferPage:@"pageRefer"];

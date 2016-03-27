@@ -20,6 +20,8 @@
 
 - (void)initWithAppKey:(NSString *)appKey;
 
+- (void)turnOnDebug;
+
 - (void)setAppVersion:(NSString *) pAppVersion;
 
 - (void)setChannel:(NSString *) pChannel;
@@ -34,8 +36,8 @@
 
 - (void)setRequestAuthentication:(id<ALBBMANIRequestAuthentication> ) pRequestAuth;
 
-- (void)turnOffCrashHandler;
+- (void)setCrashCaughtListener:(id<ALBBMANICrashCaughtListener>)aListener;
 
-- (void)setCrashCaughtListener:(id<ALBBMANICrashCaughtListener>) aListener;
+- (void)turnOffCrashHandler;
 
 @end
