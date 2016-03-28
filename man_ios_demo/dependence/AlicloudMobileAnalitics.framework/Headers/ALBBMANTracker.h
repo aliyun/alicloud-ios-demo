@@ -21,10 +21,4 @@
 
 -(void) send:(NSDictionary *) pLogDict;
 
--(void) pageAppear:(UIViewController *) pViewController;
-
--(void) pageDisAppear:(UIViewController *) pViewController;
-
--(void) updatePageProperties:(UIViewController *) pViewController properties:(NSDictionary *) pProperties;
-
 @end

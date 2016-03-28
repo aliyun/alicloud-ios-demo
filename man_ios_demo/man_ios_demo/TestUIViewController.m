@@ -28,9 +28,8 @@
     [self.view addSubview:button];
     
     // 设置页面事件扩展参数
-    ALBBMANTracker *pageTraker = [[ALBBMANAnalytics getInstance] getTracker:@"Page"];
     NSDictionary *properties = [NSDictionary dictionaryWithObject:@"pageValue" forKey:@"pageKey"];
-    [pageTraker updatePageProperties:self properties:properties];
+    [[ALBBMANPageHitHelper getInstance] updatePageProperties:self properties:properties];
 }
 
 // 返回
