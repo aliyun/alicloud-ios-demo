@@ -1,7 +1,7 @@
 /*
  * Network Apaptation Layer for Tnet Library.
  *
- * Copyright (c) Bin Yang <lingming.yb@alibaba-inc.com>
+ * Copyright (c) Bin Yang
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modifica-
