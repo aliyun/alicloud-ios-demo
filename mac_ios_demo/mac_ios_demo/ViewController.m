@@ -18,16 +18,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSURL* URL = [NSURL URLWithString:@"http://cas.xxyycc.com/mbaas/test"];
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:URL
-                                                                cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30];
-    for (int i = 0; i < 10; i ++) {
+    // 本demo仅给出基本网络操作的使用示例。事实上初始化MAC后对网络的操作兼容传统的Native库网络操作。
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSURL* URL = [NSURL URLWithString:@"http://cas.xxyycc.com/mac/test?mac-header=true"];
         NSHTTPURLResponse* response;
-        NSData* data = [NSURLConnection sendSynchronousRequest:request
+        NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:URL
+                                                                    cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30];
+        NSData* data;
+        // GET请求示例
+        // 首请求用于SDK自适应学习加速域名，会走Native网络库逻辑
+        data = [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:&response
                                                          error:nil];
-        NSLog(@"response %@, data length %ld",response,(unsigned long)[data length]);
-    }
+        NSLog(@"response status code: %zd, data length: %ld",response.statusCode,(unsigned long)[data length]);
+        sleep(5);
+        // 第二个请求开始会走移动加速逻辑
+        data = [NSURLConnection sendSynchronousRequest:request
+                                     returningResponse:&response
+                                                 error:nil];
+        NSLog(@"response status code: %zd, data length: %ld",response.statusCode,(unsigned long)[data length]);
+        // POST请求示例
+        NSData* uploadData = [@"Hello, world!" dataUsingEncoding:NSUTF8StringEncoding];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:uploadData];
+        data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:nil];
+        NSLog(@"response status code: %zd, data length: %ld",response.statusCode,(unsigned long)[data length]);
+    });
 }
 
 - (void)didReceiveMemoryWarning {
