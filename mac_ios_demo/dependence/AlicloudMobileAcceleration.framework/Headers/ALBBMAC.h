@@ -16,6 +16,8 @@
 
 +(void)restart;
 
-+(void)turnOnDebug;
++(void)setLogEnabled:(BOOL)enable;
+
++ (void)setDegradtion:(BOOL)degradation;
 
 @end

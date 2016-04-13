@@ -1,0 +1,6 @@
+framework module AlicloudMobileAcceleration {
+  umbrella header "AlicloudMobileAcceleration.h"
+
+  export *
+  module * { export * }
+}

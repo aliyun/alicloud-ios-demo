@@ -21,8 +21,7 @@ NSString * testAppSecret = @"**************";
 ```
 
 ### mac_ios_demo
-mac_ios_demo给出了数据分析服务（Mobile Accelerator） iOS SDK的使用示例。
-运行demo前请在`AppDelegate.m`文件中填入您的账号信息：
+mac_ios_demo给出了移动加速服务（Mobile Accelerator） iOS SDK的使用示例。
 
 ```
 NSString * testAppKey = @"*********";

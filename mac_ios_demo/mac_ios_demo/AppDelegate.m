@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-
-#import <ALBBSDK/ALBBSDK.h>
 #import <AlicloudMobileAcceleration/ALBBMAC.h>
 
 
@@ -21,20 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    NSString* testAppKey = @"********";
-    NSString* testAppSecret = @"********";
-    
-    [[ALBBSDK sharedInstance] asyncInit:testAppKey
-                              appSecret:testAppSecret :^{
-                                  NSLog(@"onesdk init succeed");
-                              }
-                         failedCallback:^(NSError *error) {
-                                  NSLog(@"error is %@", error);
-                         }];
-    
+    // 初始化移动加速服务
     [ALBBMAC asynInit];
-    [ALBBMAC turnOnDebug];
+    // 调试使用，正式上线请关闭log
+    [ALBBMAC setLogEnabled:YES];
     return YES;
 }
 
