@@ -23,11 +23,6 @@ NSString * testAppSecret = @"**************";
 ### mac_ios_demo
 mac_ios_demo给出了移动加速服务（Mobile Accelerator） iOS SDK的使用示例。
 
-```
-NSString * testAppKey = @"*********";
-NSString * testAppSecret = @"**************";
-```
-
 ### httpdns_ios_demo
 httpdns_ios_demo给出了HTTPDNS iOS SDK的使用示例。
 
