@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5707F9A11B28186F00D29DA5 /* ALBB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5707F99A1B28186E00D29DA5 /* ALBB.bundle */; };
-		5707F9A21B28186F00D29DA5 /* ALBBRpcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99B1B28186E00D29DA5 /* ALBBRpcSDK.framework */; };
 		5707F9A31B28186F00D29DA5 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99C1B28186E00D29DA5 /* ALBBSDK.framework */; };
 		5707F9A41B28186F00D29DA5 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */; };
 		5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		5707F99A1B28186E00D29DA5 /* ALBB.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ALBB.bundle; path = lib/ALBB.bundle; sourceTree = "<group>"; };
-		5707F99B1B28186E00D29DA5 /* ALBBRpcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBRpcSDK.framework; path = lib/ALBBRpcSDK.framework; sourceTree = "<group>"; };
 		5707F99C1B28186E00D29DA5 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSDK.framework; path = lib/ALBBSDK.framework; sourceTree = "<group>"; };
 		5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSessionSDK.framework; path = lib/ALBBSessionSDK.framework; sourceTree = "<group>"; };
 		5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = lib/CloudPushSDK.framework; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */,
-				5707F9A21B28186F00D29DA5 /* ALBBRpcSDK.framework in Frameworks */,
 				C96D707F1ACC490300B3D76B /* CoreGraphics.framework in Frameworks */,
 				5707F9A71B28186F00D29DA5 /* UTMini.framework in Frameworks */,
 				C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */,
@@ -247,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				5707F99A1B28186E00D29DA5 /* ALBB.bundle */,
-				5707F99B1B28186E00D29DA5 /* ALBBRpcSDK.framework */,
 				5707F99C1B28186E00D29DA5 /* ALBBSDK.framework */,
 				5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */,
 				5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */,
@@ -484,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mpush_ios_demo/Frameworks",
@@ -508,6 +505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mpush_ios_demo/Frameworks",

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-
+#define CLOUDPUSH_IOS_SDK_VERSION   @"1.4.2"
 
 typedef enum{
     CCPSDKEnvironmentDaily,  //测试环境
@@ -54,6 +54,13 @@ typedef void (^initChannelFailCallback)(NSError *error);
  *  @return
  */
 +(NSString *) getDeviceId;
+
+
+
+/**
+ * 通道是否打开
+ */
+-(BOOL) isChannelOpened;
 
 /**
  *  用户通过通知打开应用，检查lanchOptions，主要用来发送统计回执
