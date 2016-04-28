@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cloudpush</key>
+	<dict>
+		<key>dependOn</key>
+		<string></string>
+		<key>pluginName</key>
+		<string>ALBBCloudPushPlugin</string>
+	</dict>
+	<key>mas</key>
+	<dict>
+		<key>dependOn</key>
+		<string></string>
+		<key>pluginName</key>
+		<string>ALBBMASPlugin</string>
+	</dict>
+</dict>
+</plist>

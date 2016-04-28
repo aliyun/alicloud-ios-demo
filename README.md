@@ -28,3 +28,12 @@ httpdns_ios_demo给出了HTTPDNS iOS SDK的使用示例。
 
 ### httpdns_api_demo
 httpdns_api_demo给出了HTTPDNS API的使用示例。
+
+### mpush_ios_demo
+mpush_ios_demo给出了移动推送服务（Mobile Push）iOS SDK的使用示例。
+
+运行demo前请在`AppDelegate.m`文件中填入您的账号信息：
+
+```
+[[ALBBSDK sharedInstance] asyncInit:@"********" appSecret:@"********" :^{
+```
