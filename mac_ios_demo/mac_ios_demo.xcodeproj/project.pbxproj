@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		941054301CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9410542F1CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework */; };
+		94AE71C01CDB9C6A00EE4BBF /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AE71BF1CDB9C6A00EE4BBF /* UTDID.framework */; };
 		F7590A7D1BC79346009C8B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590A7C1BC79346009C8B08 /* main.m */; };
 		F7590A801BC79346009C8B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590A7F1BC79346009C8B08 /* AppDelegate.m */; };
 		F7590A831BC79346009C8B08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590A821BC79346009C8B08 /* ViewController.m */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		9410542F1CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudMobileAcceleration.framework; path = dependence/AlicloudMobileAcceleration.framework; sourceTree = "<group>"; };
+		94AE71BF1CDB9C6A00EE4BBF /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = dependence/UTDID.framework; sourceTree = "<group>"; };
 		F7590A771BC79346009C8B08 /* mac_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mac_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7590A7B1BC79346009C8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7590A7C1BC79346009C8B08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AE71C01CDB9C6A00EE4BBF /* UTDID.framework in Frameworks */,
 				941054301CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework in Frameworks */,
 				F7590AC21BC79514009C8B08 /* CoreTelephony.framework in Frameworks */,
 				F7590AC11BC7950A009C8B08 /* SystemConfiguration.framework in Frameworks */,
@@ -75,6 +78,7 @@
 		F7590A6E1BC79346009C8B08 = {
 			isa = PBXGroup;
 			children = (
+				94AE71BF1CDB9C6A00EE4BBF /* UTDID.framework */,
 				9410542F1CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework */,
 				F7590AB71BC7948D009C8B08 /* libz.dylib */,
 				F7590AB51BC79485009C8B08 /* SystemConfiguration.framework */,

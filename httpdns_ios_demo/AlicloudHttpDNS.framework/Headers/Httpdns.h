@@ -17,7 +17,7 @@
  * under the License.
  */
 
-#define HTTPDNS_IOS_SDK_VERSION 1.0.0
+#define HTTPDNS_IOS_SDK_VERSION 1.0.1
 
 #import <Foundation/Foundation.h>
 #import "HttpdnsServiceProvider.h"
