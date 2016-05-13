@@ -86,14 +86,14 @@
     [CloudPushSDK registerDevice:deviceToken];
 }
 
-// 通知统计回调
+// App处于启动状态时，通知打开回调
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
-    /// app open
-    
     NSLog(@"收到通知一条~");
     // 打印自定义参数
     NSLog(@"自定义参数为 ： %@",userInfo);
-    
+    // iOS badge 清0
+    application.applicationIconBadgeNumber = 0;
+    // 通知打开回执上报
     [CloudPushSDK handleReceiveRemoteNotification:userInfo];
 }
 
@@ -119,7 +119,8 @@
     // 同时监听网络连接
     [self listenerOnChannelOpened];
     [self registerMsgReceive];
-   
+    // 点击通知将App从关闭状态启动时，将通知打开回执上报
+    [CloudPushSDK handleReceiveRemoteNotification:launchOptions];
     return YES;
 }
 
