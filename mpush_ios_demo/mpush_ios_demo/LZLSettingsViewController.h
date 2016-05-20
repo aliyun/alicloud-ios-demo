@@ -11,7 +11,4 @@
 
 @interface LZLSettingsViewController : UIViewController <UITextFieldDelegate>
 
-// 用户按下Return隐藏软键盘
-- (IBAction)TextField_DidEndOnExit:(id)sender;
-
 @end
