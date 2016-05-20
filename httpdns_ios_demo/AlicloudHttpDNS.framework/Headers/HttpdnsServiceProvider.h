@@ -32,7 +32,11 @@
 
 - (NSString *)getIpByHost:(NSString *)host;
 
+- (NSString *)getIpByHostInURLFormat:(NSString *)host;
+
 - (NSString *)getIpByHostAsync:(NSString *)host;
+
+- (NSString *)getIpByHostAsyncInURLFormat:(NSString *)host;
 
 - (void)setExpiredIPEnabled:(BOOL)enable;
 
