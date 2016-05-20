@@ -215,7 +215,6 @@ static char UIScrollViewPullToRefreshView;
 }
 
 #pragma mark - Scroll View
-
 - (void)resetScrollViewContentInset {
     UIEdgeInsets currentInsets = self.scrollView.contentInset;
     currentInsets.top = self.originalTopInset;
@@ -241,7 +240,6 @@ static char UIScrollViewPullToRefreshView;
 }
 
 #pragma mark - Observing
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"contentOffset"])
         [self scrollViewDidScroll:[[change valueForKey:NSKeyValueChangeNewKey] CGPointValue]];
@@ -252,7 +250,7 @@ static char UIScrollViewPullToRefreshView;
         yOrigin = -KoaPullToRefreshViewHeight;
         self.frame = CGRectMake(0, yOrigin, self.bounds.size.width, KoaPullToRefreshViewHeight);
     }
-    else if([keyPath isEqualToString:@"frame"])
+    else if ([keyPath isEqualToString:@"frame"])
         [self layoutSubviews];
 }
 
@@ -294,7 +292,6 @@ static char UIScrollViewPullToRefreshView;
 
 
 #pragma mark - Getters
-
 - (UILabel *)titleLabel {
     if(!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 210, 20)];
@@ -336,7 +333,6 @@ static char UIScrollViewPullToRefreshView;
 }
 
 #pragma mark - Setters
-
 - (void)setTitle:(NSString *)title forState:(KoaPullToRefreshState)state {
     if(!title)
         title = @"";
@@ -355,21 +351,17 @@ static char UIScrollViewPullToRefreshView;
     self.loaderLabel.textColor = newTextColor;
 }
 
-- (void)setTextFont:(UIFont *)font
-{
+- (void)setTextFont:(UIFont *)font {
     [self.titleLabel setFont:font];
 }
 
-- (void)setFontAwesomeIcon:(NSString *)fontAwesomeIcon
-{
+- (void)setFontAwesomeIcon:(NSString *)fontAwesomeIcon {
     _fontAwesomeIcon = fontAwesomeIcon;
     _loaderLabel.text = [NSString fontAwesomeIconStringForIconIdentifier:self.fontAwesomeIcon];
 }
 
-#pragma mark -
-
+#pragma mark Animate
 - (void)startAnimating{
-    
     //Show loader
     self.state = KoaPullToRefreshStateTriggered;
     [self layoutSubviews];
@@ -378,9 +370,9 @@ static char UIScrollViewPullToRefreshView;
         [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, -self.frame.size.height) animated:YES];
         self.wasTriggeredByUser = NO;
     }
-    else
+    else {
         self.wasTriggeredByUser = YES;
-
+    }
     self.state = KoaPullToRefreshStateLoading;
 }
 

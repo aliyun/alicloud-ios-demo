@@ -11,8 +11,16 @@
 @implementation MsgToolBox
 
 + (void) showAlert:(NSString *)title content:(NSString *)content {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"已阅" otherButtonTitles:nil, nil];
-    [alertView show];
+    // 保证在主线程上执行
+    if ([NSThread isMainThread]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"已阅" otherButtonTitles:nil, nil];
+        [alertView show];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"已阅" otherButtonTitles:nil, nil];
+            [alertView show];
+        });
+    }
 }
 
 @end

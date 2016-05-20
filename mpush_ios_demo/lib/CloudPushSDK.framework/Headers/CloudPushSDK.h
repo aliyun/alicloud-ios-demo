@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define CLOUDPUSH_IOS_SDK_VERSION   @"1.4.3"
+#define CLOUDPUSH_IOS_SDK_VERSION   @"1.5.0"
 
 typedef enum{
     CCPSDKEnvironmentDaily,     // 测试环境
@@ -48,69 +48,67 @@ typedef void (^initChannelFailCallback)(NSError *error);
 + (void)turnOnDebug;
 
 /**
- *  设置环境变量
+ *	@brief	获取本机的deviceId (以设备为粒度推送时，deviceId为设备的标识)
  *
- *  @param env
- */
-+ (void)setEnvironment:(CCPSDKEnvironmentEnum)env;
-
-
-/**
- *  得到本机的deviceId
- *
- *  @return
+ *	@return
  */
 + (NSString *)getDeviceId;
 
 /**
- * 通道是否打开
+ *	@brief	返回SDK版本
+ *
+ *	@return
  */
-- (BOOL)isChannelOpened;
++ (NSString *)getVersion;
 
 /**
- *  用户通过通知打开应用，检查lanchOptions，主要用来发送统计回执
+ *	@brief	返回推送通道的状态
  *
- *  @param launchOptions
+ *	@return
+ */
++ (BOOL)isChannelOpened;
+
+/**
+ *	@brief	返回推送通知ACK到服务器 (该通知为App处于关闭状态时接收，点击后启动App)
+ *
+ *	@param 	launchOptions 	
  */
 + (void)handleLaunching:(NSDictionary *)launchOptions;
 
 /**
- *  处理苹果anps 推送下来的消息，主要是用来统计回执
+ *	@brief	返回推送通知ACK到服务器 (该通知为App处于开启状态时接收)
  *
- *  @param userInfo
+ *	@param 	userInfo 	
  */
 + (void)handleReceiveRemoteNotification:(NSDictionary *)userInfo;
 
-/**
- * 设置账号
- */
-+ (void)bindAccount:(NSString *)account withCallback:(CCPOperateResult)callback;
 
 /**
- *  去除账号绑定
+ *	@brief	绑定账号
  *
- *  @param account 账号
+ *	@param 	account     账号名
+ *	@param 	callback    回调
+ */
++ (void)bindAccount:(NSString *)account
+       withCallback:(CCPOperateResult)callback;
+
+/**
+ *	@brief	解绑账号
+ *
+ *	@param 	account     账号名
+ *	@param 	callback    回调
  */
 + (void)unbindAccount:(NSString *)account
-        withCallback:(CCPOperateResult)callback;
+         withCallback:(CCPOperateResult)callback;
 
 /**
- *  对外提供 json 序化列的方法
+ *	@brief	设置消息可接收的时间，比如08：00 --- 23：00
  *
- *  @param dict
- *
- *  @return
- */
-+ (NSString *)toJson:(NSDictionary * )dict;
-
-
-/**
- * 得到推送的当前版本
- **/
-+ (NSString *)getVersion;
-
-/**
- * 设置消息可接收的时间，比如08：00 --- 23：00
+ *	@param 	startH      起始小时
+ *	@param 	startMS     起始分钟
+ *	@param 	endH        结束小时
+ *	@param 	endMS       结束分钟
+ *	@param 	callback 	回调
  */
 + (void)setAcceptTime:(UInt32)startH
               startMS:(UInt32)startMS
@@ -129,21 +127,35 @@ typedef void (^initChannelFailCallback)(NSError *error);
 + (void)removeTag:(NSString *)tag withCallback:(CCPOperateResult)callback;
 
 /**
- *  获取苹果apns的deviceToken，只有证书配置正确，且用户同意的情况下，才有值
+ *	@brief	获取APNs返回的deviceToken
  *
- *  @param deviceToken
- *
- *  @return
+ *	@return
  */
 + (NSString *)getApnsDeviceToken;
 
 /**
- *  向阿里云推送注册该设备的deviceToken，便于发送Push消息
+ *  @brief  向阿里云推送注册该设备的deviceToken，用户推送通知
  *
- *  @param deviceToken 苹果apns 服务器推送下来的 deviceToken
+ *  @param  deviceToken 苹果APNs服务器推送下来的deviceToken
  *
  *  @return
  */
 + (void)registerDevice:(NSData *)deviceToken;
+
+/**
+ *	@brief	Json转换方法 (建议用户不要使用)
+ *
+ *	@param 	dict
+ *
+ *	@return
+ */
++ (NSString *)toJson:(NSDictionary * )dict;
+
+/**
+ *	@brief	设置环境变量 (用户不要调用)
+ *
+ *	@param 	env
+ */
++ (void)setEnvironment:(CCPSDKEnvironmentEnum)env;
 
 @end

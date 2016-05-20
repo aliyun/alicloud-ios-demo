@@ -6,10 +6,13 @@
 //  Copyright (c) 2014年 ___SONGJUN___. All rights reserved.
 //
 
+#define UT_IOS_SDK_VERSION  @"4.3.1.1"
+
 #import <Foundation/Foundation.h>
 #import "UTTracker.h"
 #import "UTIRequestAuthentication.h"
 #import "UTICrashCaughtListener.h"
+
 @interface UTAnalytics : NSObject
 
 +(UTAnalytics *) getInstance;
