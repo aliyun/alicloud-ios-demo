@@ -17,6 +17,17 @@
 
 @implementation LZLSettingsViewController
 
+// 点击背景，键盘隐藏
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+// 点击键盘return，键盘隐藏
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma mark 用户按下绑定账号按钮
 - (IBAction)userBindAccount:(id)sender {
     if (self.userAccount.text.length > 0) {
@@ -26,8 +37,8 @@
                 NSLog(@"==================> 绑定账号成功");
                 
                 // 切回主线程，防止crash
+                [MsgToolBox showAlert:@"温馨提示" content:@"账号绑定成功！"];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [MsgToolBox showAlert:@"温馨提示" content:@"账号绑定成功！"];
                     [self userAccount].text = @"";
                 });
                
@@ -56,8 +67,8 @@
                 NSLog(@"==================> 解绑账号成功");
                 
                 // 切回主线程，防止crash
+                [MsgToolBox showAlert:@"温馨提示" content:@"账号解绑成功！"];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [MsgToolBox showAlert:@"温馨提示" content:@"账号解绑成功！"];
                     [self userAccount].text = @"";
                 });
                 
@@ -84,8 +95,8 @@
                 NSLog(@"==================> 绑定标签成功");
                 
                 // 切回主线程，防止crash
+                [MsgToolBox showAlert:@"温馨提示" content:@"标签绑定成功！"];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [MsgToolBox showAlert:@"温馨提示" content:@"标签绑定成功！"];
                     [self userLabel].text = @"";
                 });
             } else {
@@ -107,8 +118,8 @@
                 NSLog(@"==================> 删除标签成功");
                 
                 // 切回主线程，防止crash
+                [MsgToolBox showAlert:@"温馨提示" content:@"标签删除成功！"];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [MsgToolBox showAlert:@"温馨提示" content:@"标签删除成功！"];
                     [self userLabel].text = @"";
                 });
             } else {

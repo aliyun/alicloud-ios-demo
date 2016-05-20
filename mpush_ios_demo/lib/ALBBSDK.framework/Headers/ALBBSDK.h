@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define ALBB_SDK_VERSION  @"1.1.0"
+#define ALBB_SDK_VERSION  @"1.2.0"
 
 typedef void (^initSuccessCallback)();
 typedef void (^initFailedCallback)(NSError *error);

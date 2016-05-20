@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define ALBB_SESSION_SDK_VERSION  @"1.2.1"
+#define ALBB_SESSION_SDK_VERSION  @"1.3.0"
 
 typedef void (^initSessionSuccessCallback)();
 typedef void (^initSessionFailCallback)(NSError *error);
@@ -19,16 +19,16 @@ typedef void (^CompletionBlock)(BOOL success);
 
 +(ALBBSessionService *) sharedInstance;
 
-- (void) initSession:(initSessionSuccessCallback) successCallback
-     failureCallback:(initSessionSuccessCallback) failedCallback;
+- (void) initSession:(initSessionSuccessCallback)successCallback
+     failureCallback:(initSessionSuccessCallback)failedCallback;
 
+- (NSString *)reloadConfigFromRemote;
 
-- (NSString *) refleshSession;
+- (NSString *)refleshSession;
 
-- (NSString *) getSessionId;
+- (NSString *)getSessionId;
 
-
-- (NSString *) getSessionId:(NSString *) appkey
-                      error:(NSError **) error;
+- (NSString *)getSessionId:(NSString *)appkey
+                      error:(NSError **)error;
 
 @end

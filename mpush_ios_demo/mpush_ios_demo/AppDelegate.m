@@ -15,43 +15,116 @@
 
 @implementation AppDelegate
 
-// ====================================== SDK Method. ==================================
-#pragma mark 初始化服务
-- (void)init_tae{
-    
-    //sdk初始化
-    [[ALBBSDK sharedInstance] setALBBSDKEnvironment:ALBBSDKEnvironmentRelease];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 向苹果注册推送，获取deviceToken并上报
+    [self registerAPNS:application];
+    // 初始化SDK
+    [self initCloudPush];
+    // 监听推送通道打开动作
+    [self listenerOnChannelOpened];
+    // 监听推送消息到来
+    [self registerMessageReceive];
+    // 点击通知将App从关闭状态启动时，将通知打开回执上报
+    [CloudPushSDK handleLaunching:launchOptions];
+    return YES;
+}
+
+#pragma mark APNs Register
+/**
+ *	@brief	注册苹果推送，获取deviceToken用于推送
+ *
+ *	@param 	application
+ */
+- (void)registerAPNS:(UIApplication *)application {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        // iOS 8 Notifications
+        [application registerUserNotificationSettings:
+         [UIUserNotificationSettings settingsForTypes:
+          (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
+                                           categories:nil]];
+        [application registerForRemoteNotifications];
+    }
+    else {
+        // iOS < 8 Notifications
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    }
+}
+
+/*
+ *  苹果推送注册成功回调，将苹果返回的deviceToken上传到CloudPush服务器
+ */
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [CloudPushSDK registerDevice:deviceToken];
+}
+
+/*
+ *  苹果推送注册失败回调
+ */
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"didFailToRegisterForRemoteNotificationsWithError %@", error);
+}
+
+#pragma mark SDK Init
+- (void)initCloudPush {
+    // SDK初始化
     [[ALBBSDK sharedInstance] asyncInit:@"********" appSecret:@"********" :^{
-        NSLog(@"init one sdk success %@", [CloudPushSDK getDeviceId]);
-    }failedCallback:^(NSError *error){
-        NSLog(@"error is %@", error);
+        NSLog(@"Init Cloud Push success, deviceID: %@", [CloudPushSDK getDeviceId]);
+    }failedCallback:^(NSError *error) {
+        NSLog(@"Init Cloud Push failed, error is: %@", error);
     }];
 }
 
-- (void) listenerOnChannelOpened {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onChannelOpened:) name:@"CCPDidChannelConnectedSuccess" object:nil]; // 注册
+#pragma mark Notification Open
+/*
+ *  App处于启动状态时，通知打开回调
+ */
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
+    NSLog(@"Receive one notification.");
+    // 打印自定义参数
+    NSLog(@"Notification content is：%@", userInfo);
+    // iOS badge 清0
+    application.applicationIconBadgeNumber = 0;
+    // 通知打开回执上报
+    [CloudPushSDK handleReceiveRemoteNotification:userInfo];
 }
 
-#pragma mark 注册苹果的推送
--(void) registerAPNS :(UIApplication *)application :(NSDictionary *)launchOptions{
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-    {
-        // iOS 8 Notifications
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
-        [application registerForRemoteNotifications];
-    }
-    else
-    {
-        // iOS < 8 Notifications
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
-    }
-    [CloudPushSDK handleLaunching:launchOptions]; // 作为 apns 消息统计
+#pragma mark Channel Opened
+/**
+ *	@brief	注册推送通道打开监听
+ */
+- (void)listenerOnChannelOpened {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onChannelOpened:)
+                                                 name:@"CCPDidChannelConnectedSuccess"
+                                               object:nil];
 }
-#pragma mark 注册接收CloudChannel推送下来的消息
-- (void) registerMsgReceive {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageReceived:) name:@"CCPDidReceiveMessageNotification" object:nil]; // 注册
+
+/**
+ *	@brief	推送通道打开回调
+ *
+ *	@param 	notification
+ */
+- (void)onChannelOpened:(NSNotification *)notification {
+    [MsgToolBox showAlert:@"温馨提示" content:@"消息通道建立成功"];
 }
-// 推送下来的消息抵达的处理示例
+
+#pragma mark Receive Message
+/**
+ *	@brief	注册推送消息到来监听
+ */
+- (void)registerMessageReceive {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onMessageReceived:)
+                                                 name:@"CCPDidReceiveMessageNotification"
+                                               object:nil];
+}
+
+/**
+ *	@brief	处理到来推送消息
+ *
+ *	@param 	notification
+ */
 - (void)onMessageReceived:(NSNotification *)notification {
     NSData *data = [notification object];
     NSString *message = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
@@ -60,9 +133,7 @@
     tempVO.messageContent = message;
     tempVO.isRead = 0;
     
-    // 报警提示
-    if(![NSThread isMainThread])
-    {
+    if(![NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(tempVO.messageContent != nil) {
                 [self insertPushMessage:tempVO];
@@ -80,57 +151,8 @@
     [dao insert:model];
 }
 
-#pragma marker 注册deviceToken
-// 苹果推送服务回调，注册 deviceToken
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    [CloudPushSDK registerDevice:deviceToken];
-}
-
-// App处于启动状态时，通知打开回调
-- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
-    NSLog(@"收到通知一条~");
-    // 打印自定义参数
-    NSLog(@"自定义参数为 ： %@",userInfo);
-    // iOS badge 清0
-    application.applicationIconBadgeNumber = 0;
-    // 通知打开回执上报
-    [CloudPushSDK handleReceiveRemoteNotification:userInfo];
-}
-
-//--------------------------------------------------------------------------------
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
-//--------------------------------------------------------------------------------
-{
-    NSLog(@"didFailToRegisterForRemoteNotificationsWithError %@", error);
-}
-
-// ====================================== SDK Method. =====================================
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    NSLog(@"完成APP初始化");
-    // 打印自定义参数
-    NSLog(@"自定义参数为 ： %@",launchOptions);
-    
-    [self registerAPNS:application :launchOptions];
-    [self init_tae];
-    
-    // 同时监听网络连接
-    [self listenerOnChannelOpened];
-    [self registerMsgReceive];
-    // 点击通知将App从关闭状态启动时，将通知打开回执上报
-    [CloudPushSDK handleReceiveRemoteNotification:launchOptions];
-    return YES;
-}
-
-#pragma mark 推送下来的消息抵达的处理示例
-- (void)onChannelOpened:(NSNotification *)notification {
-    [MsgToolBox showAlert:@"温馨提示" content:@"消息通道建立成功"];
-}
-
 #pragma mark 禁止横屏
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -146,8 +168,7 @@
     [self saveContext];
 }
 
-#pragma mark - Core Data stack
-
+#pragma mark - Core Data Stack
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -169,9 +190,7 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
-    
     // Create the coordinator and store
-    
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"UserExperienceDemo.sqlite"];
     NSError *error = nil;
@@ -186,7 +205,6 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
     return _persistentStoreCoordinator;
 }
 
@@ -194,7 +212,6 @@
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
-    
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (!coordinator) {
         return nil;
@@ -205,7 +222,6 @@
 }
 
 #pragma mark - Core Data Saving support
-
 - (void)saveContext {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {

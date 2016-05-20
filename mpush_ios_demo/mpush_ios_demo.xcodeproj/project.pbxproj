@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */; };
+		4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554E01CEEC7E900F64F49 /* libresolv.tbd */; };
 		5707F9A11B28186F00D29DA5 /* ALBB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5707F99A1B28186E00D29DA5 /* ALBB.bundle */; };
 		5707F9A31B28186F00D29DA5 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99C1B28186E00D29DA5 /* ALBBSDK.framework */; };
 		5707F9A41B28186F00D29DA5 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = lib/AlicloudUtils.framework; sourceTree = "<group>"; };
+		4A9554E01CEEC7E900F64F49 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		5707F99A1B28186E00D29DA5 /* ALBB.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ALBB.bundle; path = lib/ALBB.bundle; sourceTree = "<group>"; };
 		5707F99C1B28186E00D29DA5 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSDK.framework; path = lib/ALBBSDK.framework; sourceTree = "<group>"; };
 		5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSessionSDK.framework; path = lib/ALBBSessionSDK.framework; sourceTree = "<group>"; };
@@ -98,18 +102,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */,
-				C96D707F1ACC490300B3D76B /* CoreGraphics.framework in Frameworks */,
-				5707F9A71B28186F00D29DA5 /* UTMini.framework in Frameworks */,
-				C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */,
-				C93E19C11ACBD45E00A90F3B /* libsqlite3.dylib in Frameworks */,
-				5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */,
-				C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */,
-				5707F9A31B28186F00D29DA5 /* ALBBSDK.framework in Frameworks */,
-				C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */,
 				C95EFDFE1ACA98D20082CF70 /* libz.dylib in Frameworks */,
+				4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */,
+				C93E19C11ACBD45E00A90F3B /* libsqlite3.dylib in Frameworks */,
+				C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */,
+				C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */,
 				C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */,
+				C96D707F1ACC490300B3D76B /* CoreGraphics.framework in Frameworks */,
+				C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */,
+				5707F9A31B28186F00D29DA5 /* ALBBSDK.framework in Frameworks */,
 				5707F9A41B28186F00D29DA5 /* ALBBSessionSDK.framework in Frameworks */,
+				5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */,
+				4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */,
+				5707F9A71B28186F00D29DA5 /* UTMini.framework in Frameworks */,
+				5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +125,8 @@
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A9554E01CEEC7E900F64F49 /* libresolv.tbd */,
+				4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */,
 				C9102D131ACED5B70094FCEC /* FontAwesome+iOS */,
 				C9102D1F1ACED5B70094FCEC /* KoaPullToRefresh */,
 				C96D707E1ACC490300B3D76B /* CoreGraphics.framework */,
@@ -321,7 +329,6 @@
 				TargetAttributes = {
 					C99E765A1AC96B8B000BC567 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 352B835V69;
 					};
 				};
 			};
@@ -488,7 +495,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -513,7 +520,7 @@
 					"$(PROJECT_DIR)/lib",
 				);
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alibaba.qa.UserExperienceDemo1;
