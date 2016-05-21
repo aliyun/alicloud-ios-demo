@@ -11,6 +11,8 @@
 		4A3091671C5F865300C7401A /* TestUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091661C5F865300C7401A /* TestUIViewController.m */; };
 		4A362CBE1CA7EC8B005D95F7 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A362CBD1CA7EC8B005D95F7 /* UTMini.framework */; };
 		4A362CC61CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A362CC51CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework */; };
+		4A50183D1CF01E7C0055433B /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A50183C1CF01E7C0055433B /* AlicloudUtils.framework */; };
+		4A50183F1CF01E8A0055433B /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A50183E1CF01E8A0055433B /* libresolv.tbd */; };
 		4A77BDFD1CA8AF0800C18615 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A77BDFB1CA80A1F00C18615 /* libz.tbd */; };
 		4ADB84EC1C5E572900E85A3D /* ManIOSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */; };
 		F7590ADE1BC8DD77009C8B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590ADD1BC8DD77009C8B08 /* main.m */; };
@@ -43,6 +45,8 @@
 		4A3091681C5F866400C7401A /* TestUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIViewController.h; sourceTree = "<group>"; };
 		4A362CBD1CA7EC8B005D95F7 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
 		4A362CC51CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
+		4A50183C1CF01E7C0055433B /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudUtils.framework; sourceTree = "<group>"; };
+		4A50183E1CF01E8A0055433B /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		4A77BDFB1CA80A1F00C18615 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4ADB84EA1C5E571200E85A3D /* ManIOSDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManIOSDemo.h; sourceTree = "<group>"; };
 		4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManIOSDemo.m; sourceTree = "<group>"; };
@@ -72,9 +76,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A77BDFD1CA8AF0800C18615 /* libz.tbd in Frameworks */,
+				4A50183F1CF01E8A0055433B /* libresolv.tbd in Frameworks */,
 				F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */,
-				4A362CC61CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework in Frameworks */,
 				F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */,
+				4A362CC61CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework in Frameworks */,
+				4A50183D1CF01E7C0055433B /* AlicloudUtils.framework in Frameworks */,
 				4A362CBE1CA7EC8B005D95F7 /* UTMini.framework in Frameworks */,
 				F7590B101BC8E1BD009C8B08 /* UTDID.framework in Frameworks */,
 			);
@@ -93,9 +99,6 @@
 		F7590ACF1BC8DD77009C8B08 = {
 			isa = PBXGroup;
 			children = (
-				4A77BDFB1CA80A1F00C18615 /* libz.tbd */,
-				F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */,
-				F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */,
 				F7590B011BC8E115009C8B08 /* dependence */,
 				F7590ADA1BC8DD77009C8B08 /* man_ios_demo */,
 				F7590AF41BC8DD77009C8B08 /* man_ios_demoTests */,
@@ -164,6 +167,11 @@
 		F7590B011BC8E115009C8B08 /* dependence */ = {
 			isa = PBXGroup;
 			children = (
+				4A77BDFB1CA80A1F00C18615 /* libz.tbd */,
+				4A50183E1CF01E8A0055433B /* libresolv.tbd */,
+				4A50183C1CF01E7C0055433B /* AlicloudUtils.framework */,
+				F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */,
+				F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */,
 				4A362CC51CA7EF75005D95F7 /* AlicloudMobileAnalitics.framework */,
 				4A362CBD1CA7EC8B005D95F7 /* UTMini.framework */,
 				F7590B081BC8E1BC009C8B08 /* UTDID.framework */,
