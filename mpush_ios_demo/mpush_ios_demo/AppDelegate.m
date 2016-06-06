@@ -126,6 +126,7 @@
  *	@param 	notification
  */
 - (void)onMessageReceived:(NSNotification *)notification {
+    NSLog(@"Receive one message!");
     NSData *data = [notification object];
     NSString *message = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
