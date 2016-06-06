@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "NetworkManager.h"
-#import <AlicloudHttpDNS/Httpdns.h>
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
 @interface ViewController ()
 
@@ -26,7 +26,7 @@ static HttpDnsService *httpdns;
     httpdns = [HttpDnsService sharedInstance];
     
     // 设置AccoutID
-    [httpdns setAccountID:100000];
+    [httpdns setAccountID:139450];
     
     // 为HTTPDNS服务设置降级机制
     [httpdns setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
@@ -38,7 +38,7 @@ static HttpDnsService *httpdns;
     // 异步网络请求
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        NSString *originalUrl = @"http://www.aliyun.com/";
+        NSString *originalUrl = @"http://www.apple.com/";
         NSURL* url = [NSURL URLWithString:originalUrl];
         NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
         // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
@@ -60,8 +60,13 @@ static HttpDnsService *httpdns;
             }
         }
         NSHTTPURLResponse* response;
-        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSLog(@"Response: %@",response);
+        NSError *error;
+        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (error != nil) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"Response: %@",response);
+        }
         
         // 允许返回过期的IP
         [httpdns setExpiredIPEnabled:YES];
@@ -78,8 +83,13 @@ static HttpDnsService *httpdns;
                 [request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }
-        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSLog(@"Response: %@",response);
+        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (error != nil) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"Response: %@",response);
+        }
+
         
         // 测试黑名单中的域名
         ip = [httpdns getIpByHostAsyncInURLFormat:@"www.taobao.com"];
