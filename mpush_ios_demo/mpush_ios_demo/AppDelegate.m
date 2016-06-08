@@ -81,8 +81,17 @@
  */
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
     NSLog(@"Receive one notification.");
-    // 打印自定义参数
-    NSLog(@"Notification content is：%@", userInfo);
+    // 取得APNS通知内容
+    NSDictionary *aps = [userInfo valueForKey:@"aps"];
+    // 内容
+    NSString *content = [aps valueForKey:@"alert"];
+    // badge数量
+    NSInteger badge = [[aps valueForKey:@"badge"] integerValue];
+    // 播放声音
+    NSString *sound = [aps valueForKey:@"sound"];
+    // 取得Extras字段内容
+    NSString *Extras = [userInfo valueForKey:@"Extras"]; //服务端中Extras字段，key是自己定义的
+    NSLog(@"content = [%@], badge = [%d], sound = [%@], Extras = [%@]", content, badge, sound, Extras);
     // iOS badge 清0
     application.applicationIconBadgeNumber = 0;
     // 通知打开回执上报
