@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5767C651D04781E00765B8C /* NSURLConnection+HttpsExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C5767C631D04781E00765B8C /* NSURLConnection+HttpsExtension.h */; };
+		C5767C661D04781E00765B8C /* NSURLConnection+HttpsExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C5767C641D04781E00765B8C /* NSURLConnection+HttpsExtension.m */; };
 		F7F2791E1BE24EA50094EF7D /* httpdns_api_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */; };
 		F7F279231BE24EA50094EF7D /* httpdns_api_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279221BE24EA50094EF7D /* httpdns_api_demoTests.m */; };
 		F7F279301BE24FCA0094EF7D /* HttpDNS.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F2792E1BE24FCA0094EF7D /* HttpDNS.h */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		946A9EFD1C50CFA000D5C1C8 /* HttpDNSDegradationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpDNSDegradationDelegate.h; sourceTree = "<group>"; };
+		C5767C631D04781E00765B8C /* NSURLConnection+HttpsExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+HttpsExtension.h"; sourceTree = "<group>"; };
+		C5767C641D04781E00765B8C /* NSURLConnection+HttpsExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+HttpsExtension.m"; sourceTree = "<group>"; };
 		F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = httpdns_api_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F279181BE24EA50094EF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7F2791D1BE24EA50094EF7D /* httpdns_api_demo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_api_demo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +169,8 @@
 				F7F279361BE271AC0094EF7D /* NetworkManager.h */,
 				F7F279371BE271AC0094EF7D /* NetworkManager.m */,
 				946A9EFD1C50CFA000D5C1C8 /* HttpDNSDegradationDelegate.h */,
+				C5767C631D04781E00765B8C /* NSURLConnection+HttpsExtension.h */,
+				C5767C641D04781E00765B8C /* NSURLConnection+HttpsExtension.m */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			files = (
 				F7F279381BE271AC0094EF7D /* NetworkManager.h in Headers */,
 				F7F2797F1BE3401B0094EF7D /* HttpDNSLog.h in Headers */,
+				C5767C651D04781E00765B8C /* NSURLConnection+HttpsExtension.h in Headers */,
 				F7F279341BE250590094EF7D /* HttpDNSOrigin.h in Headers */,
 				F7F279301BE24FCA0094EF7D /* HttpDNS.h in Headers */,
 			);
@@ -339,6 +346,7 @@
 			files = (
 				F7F279311BE24FCA0094EF7D /* HttpDNS.m in Sources */,
 				F7F279391BE271AC0094EF7D /* NetworkManager.m in Sources */,
+				C5767C661D04781E00765B8C /* NSURLConnection+HttpsExtension.m in Sources */,
 				F7F279801BE3401B0094EF7D /* HttpDNSLog.m in Sources */,
 				F7F279351BE250590094EF7D /* HttpDNSOrigin.m in Sources */,
 			);

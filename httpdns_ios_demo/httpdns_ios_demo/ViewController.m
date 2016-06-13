@@ -26,7 +26,7 @@ static HttpDnsService *httpdns;
     httpdns = [HttpDnsService sharedInstance];
     
     // 设置AccoutID
-    [httpdns setAccountID:100000];
+    [httpdns setAccountID:139450];
     
     // 为HTTPDNS服务设置降级机制
     [httpdns setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
@@ -39,7 +39,7 @@ static HttpDnsService *httpdns;
     // 异步网络请求
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        NSString *originalUrl = @"http://www.aliyun.com/";
+        NSString *originalUrl = @"https://dou.bz/23o8PS";
         NSURL* url = [NSURL URLWithString:originalUrl];
         NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
         // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
