@@ -145,6 +145,8 @@
             }
         }
         [self startRequest];
+    }else{
+        [self.client URLProtocol:self didLoadData:responseData];
     }
 //    NSLog(@"response is: %@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
 }
@@ -208,6 +210,7 @@
         [_inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         [_inputStream setDelegate:nil];
         [_inputStream close];
+        //通知nsurlconnection发生错误了
         NSError *underlyingError = CFBridgingRelease(CFReadStreamCopyError((CFReadStreamRef)_inputStream));
         [self.client URLProtocol:self didFailWithError:underlyingError];
     }else if(eventCode==NSStreamEventEndEncountered){
