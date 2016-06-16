@@ -30,6 +30,8 @@
     // 为HTTPDNS服务设置降级机制
     [[HttpDNS instance] setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
     NSString *originalUrl = @"https://dou.bz/23o8PS";
+//    NSString* originalUrl=@"https://book.douban.com/annual2015/#2";
+//    NSString* originalUrl=@"https://www.aliyun.com";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSString* ip = [[HttpDNS instance] getIpByHost:url.host];
@@ -40,13 +42,6 @@
         if (NSNotFound != hostFirstRange.location) {
             NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-            NSMutableData* mutableData=[NSMutableData dataWithLength:100];
-            NSInputStream* instream=[NSInputStream inputStreamWithData:mutableData];
-            NSDictionary *sslSettings =[NSDictionary dictionaryWithObjectsAndKeys:url.host,(__bridge id)kCFStreamSSLPeerName, nil];
-            [instream setProperty:sslSettings forKey:(__bridge NSString*)kCFStreamPropertySSLSettings];
-            [instream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-            [instream open];
-            [self.request setHTTPBodyStream:instream];
             [self.request setValue:url.host forHTTPHeaderField:@"host"];
         }
     }
@@ -157,7 +152,7 @@
     return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
 }
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-//    NSLog(@"receive data:%@",data);
+    NSLog(@"receive data:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     NSLog(@"receive response:%@",response);
