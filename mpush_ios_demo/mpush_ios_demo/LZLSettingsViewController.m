@@ -32,8 +32,8 @@
 - (IBAction)userBindAccount:(id)sender {
     if (self.userAccount.text.length > 0) {
         //用户按下按钮&&输入了准备绑定的帐户名称
-        [CloudPushSDK bindAccount:self.userAccount.text withCallback:^(BOOL status) {
-            if (status) {
+        [CloudPushSDK bindAccount:self.userAccount.text withCallback:^(CloudPushCallbackResult *res) {
+            if (res.success) {
                 NSLog(@"==================> 绑定账号成功");
                 
                 // 切回主线程，防止crash
@@ -41,17 +41,17 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self userAccount].text = @"";
                 });
-               
+
                 //持久化已绑定的数据
                 NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
                 [userDefaultes setObject:self.userAccount.text forKey:@"bindAccount"];
                 [userDefaultes synchronize];
-                
             } else {
                 NSLog(@"==================> 绑定账号失败");
-                [MsgToolBox showAlert:@"温馨提示" content:@"账号绑定失败！"];
+                [MsgToolBox showAlert:@"温馨提示" content:[NSString stringWithFormat:@"账号绑定失败, error: %@", res.error]];
             }
         }];
+
         [self.userAccount resignFirstResponder];
     } else {
         [MsgToolBox showAlert:@"温馨提示" content:@"请输入帐户名！"];
@@ -62,8 +62,8 @@
 - (IBAction)antiBindAccount:(id)sender {
     if (self.userAccount.text.length > 0) {
         //用户按下按钮&&输入了准备绑定的帐户名称
-        [CloudPushSDK unbindAccount:self.userAccount.text withCallback:^(BOOL status) {
-            if (status) {
+        [CloudPushSDK unbindAccount:^(CloudPushCallbackResult *res) {
+            if (res.success) {
                 NSLog(@"==================> 解绑账号成功");
                 
                 // 切回主线程，防止crash
@@ -78,7 +78,7 @@
                 
             } else {
                 NSLog(@"==================> 解绑账号失败");
-                [MsgToolBox showAlert:@"温馨提示" content:@"账号解绑失败！"];
+                [MsgToolBox showAlert:@"温馨提示" content:[NSString stringWithFormat:@"账号解绑失败, error: %@", res.error]];
             }
         }];
         [self.userAccount resignFirstResponder];
@@ -90,8 +90,8 @@
 // User bind tag.
 - (IBAction)userBindTag:(id)sender {
     if (self.userLabel.text.length > 0) {
-            [CloudPushSDK addTag:self.userLabel.text withCallback:^(BOOL status) {
-            if (status) {
+            [CloudPushSDK addTag:self.userLabel.text withCallback:^(CloudPushCallbackResult *res) {
+            if (res.success) {
                 NSLog(@"==================> 绑定标签成功");
                 
                 // 切回主线程，防止crash
@@ -101,7 +101,7 @@
                 });
             } else {
                 NSLog(@"==================> 绑定标签失败");
-                [MsgToolBox showAlert:@"温馨提示" content:@"标签绑定失败！"];
+                [MsgToolBox showAlert:@"温馨提示" content:[NSString stringWithFormat:@"标签绑定失败, error: %@", res.error]];
             }
         }];
         [self.userLabel resignFirstResponder];
@@ -113,8 +113,8 @@
 // User Anti-bind tag.
 - (IBAction)userAntiBindTag:(id)sender {
     if (self.userLabel.text.length > 0) {
-        [CloudPushSDK removeTag:self.userLabel.text withCallback:^(BOOL status) {
-            if (status) {
+        [CloudPushSDK removeTag:self.userLabel.text withCallback:^(CloudPushCallbackResult *res) {
+            if (res.success) {
                 NSLog(@"==================> 删除标签成功");
                 
                 // 切回主线程，防止crash
@@ -124,7 +124,7 @@
                 });
             } else {
                 NSLog(@"==================> 绑定删除失败");
-                [MsgToolBox showAlert:@"温馨提示" content:@"标签删除失败！"];
+                [MsgToolBox showAlert:@"温馨提示" content:[NSString stringWithFormat:@"标签解绑失败, error: %@", res.error]];
             }
         }];
         [self.userLabel resignFirstResponder];
