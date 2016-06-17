@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define ALBB_SESSION_SDK_VERSION  @"1.3.0"
+#define ALBB_SESSION_SDK_VERSION  @"1.4.0"
 
 typedef void (^initSessionSuccessCallback)();
 typedef void (^initSessionFailCallback)(NSError *error);
@@ -17,10 +17,10 @@ typedef void (^CompletionBlock)(BOOL success);
 
 @interface ALBBSessionService : NSObject
 
-+(ALBBSessionService *) sharedInstance;
++ (ALBBSessionService *)sharedInstance;
 
-- (void) initSession:(initSessionSuccessCallback)successCallback
-     failureCallback:(initSessionSuccessCallback)failedCallback;
+- (void)initSession:(initSessionSuccessCallback)successCallback
+    failureCallback:(initSessionSuccessCallback)failedCallback;
 
 - (NSString *)reloadConfigFromRemote;
 
@@ -30,5 +30,7 @@ typedef void (^CompletionBlock)(BOOL success);
 
 - (NSString *)getSessionId:(NSString *)appkey
                       error:(NSError **)error;
+
+- (void)setEnvironmentNum:(int)envNum;
 
 @end
