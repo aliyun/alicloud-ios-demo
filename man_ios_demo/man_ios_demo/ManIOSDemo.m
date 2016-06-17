@@ -11,23 +11,6 @@
 #import "ManIOSDemo.h"
 #import "MANClientRequest.h"
 
-/**
- * Crash回调实例
- */
-@interface TestCrashCaught : NSObject <ALBBMANICrashCaughtListener>
-
-@end
-
-@implementation TestCrashCaught
-// Crash回调方法
-- (NSDictionary *) onCrashCaught:(NSString *)pCrashReason CallStack:(NSString *)callStack{
-    NSMutableDictionary *ltmpDict = [NSMutableDictionary dictionary];
-    [ltmpDict setObject:callStack forKey:pCrashReason];
-    return ltmpDict;
-}
-
-@end
-
 @implementation ManIOSDemo
 
 + (instancetype)getInstance {
@@ -58,6 +41,9 @@
         [man setAppVersion:@"2.3.1"];
         // 设置渠道（用以标记该app的分发渠道名称），如果不关心可以不设置即不调用该接口，渠道设置将影响控制台【渠道分析】栏目的报表展现
         [man setChannel:@"50"];
+        // 新版Crash捕获上报默认打开，可通过以下接口将其关闭（v1.1.0以上支持）
+        // 关于新版Crash，见文档5.4
+        // [man turnOffCrashHandler];
     }
     return self;
 }
@@ -69,7 +55,6 @@
 
 - (void)oneTest {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [self crashHandler];
         [self userRegister];
         [self pageHit];
         [self customHit];
@@ -223,19 +208,6 @@
     // 开始打点
     [client.bulider requestStart];
     client.connection = [[NSURLConnection alloc] initWithRequest:client.request delegate:client];
-}
-
-/**
- *	@brief	
-    crashHandler关闭和回调设置，见文档5.3
- */
-- (void)crashHandler {
-    ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
-    // 设置crash回调方法
-    TestCrashCaught *crashCaught = [[TestCrashCaught alloc] init];
-    [man setCrashCaughtListener:crashCaught];
-    // 关闭crashHandler
-    [man turnOffCrashHandler];
 }
 
 @end

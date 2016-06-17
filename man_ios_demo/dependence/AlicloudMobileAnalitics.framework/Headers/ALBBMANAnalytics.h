@@ -36,8 +36,6 @@
 
 - (void)setRequestAuthentication:(id<ALBBMANIRequestAuthentication> ) pRequestAuth;
 
-- (void)setCrashCaughtListener:(id<ALBBMANICrashCaughtListener>)aListener;
-
 - (void)turnOffCrashHandler;
 
 @end

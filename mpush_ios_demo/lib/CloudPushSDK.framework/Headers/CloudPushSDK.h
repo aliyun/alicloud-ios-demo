@@ -6,9 +6,10 @@
 //  Copyright (c) 2014年 alibaba. All rights reserved.
 //
 
+#import "CloudPushCallbackResult.h"
 #import <Foundation/Foundation.h>
 
-#define CLOUDPUSH_IOS_SDK_VERSION   @"1.5.0"
+#define CLOUDPUSH_IOS_SDK_VERSION   @"1.6.0"
 
 typedef enum{
     CCPSDKEnvironmentDaily,     // 测试环境
@@ -17,10 +18,7 @@ typedef enum{
     CCPSDKEnvironmentRelease    // 线上环境
 } CCPSDKEnvironmentEnum;
 
-
-typedef void (^CCPOperateResult)(BOOL success);
-typedef void (^initChannelSuccessCallback)();
-typedef void (^initChannelFailCallback)(NSError *error);
+typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
 
 @protocol CloudPushSDKServiceDelegate <NSObject>
 
@@ -29,80 +27,78 @@ typedef void (^initChannelFailCallback)(NSError *error);
 @end
 
 @interface CloudPushSDK : NSObject<CloudPushSDKServiceDelegate>
+
 @property (strong, nonatomic) id<CloudPushSDKServiceDelegate> delegate;
 
 /**
- *	@brief	OneSDK插件方式初始化入口
+ *	Push SDK初始化
  *
- *	@param 	sucessCallback 	成功回调
- *	@param 	failedCallback 	失败回调
- *	@param 	account         未指定account，传入nil
+ *	@param 	appKey          appKey
+ *	@param 	appSecret       appSecret
+ *	@param 	callback        回调
  */
-+ (void)asyncInit:(initChannelSuccessCallback)sucessCallback
-  failedCallback:(initChannelFailCallback)failedCallback
-         account:(NSString *)account;
++ (void)asyncInit:(NSString *)appKey
+        appSecret:(NSString *)appSecret
+         callback:(CallbackHandler)callback;
 
 /**
- *	@brief	打开调试日志
+ *	打开调试日志
  */
 + (void)turnOnDebug;
 
 /**
- *	@brief	获取本机的deviceId (以设备为粒度推送时，deviceId为设备的标识)
+ *	获取本机的deviceId (以设备为粒度推送时，deviceId为设备的标识)
  *
  *	@return
  */
 + (NSString *)getDeviceId;
 
 /**
- *	@brief	返回SDK版本
+ *	返回SDK版本
  *
  *	@return
  */
 + (NSString *)getVersion;
 
 /**
- *	@brief	返回推送通道的状态
+ *	返回推送通道的状态
  *
  *	@return
  */
 + (BOOL)isChannelOpened;
 
 /**
- *	@brief	返回推送通知ACK到服务器 (该通知为App处于关闭状态时接收，点击后启动App)
+ *	返回推送通知ACK到服务器 (该通知为App处于关闭状态时接收，点击后启动App)
  *
  *	@param 	launchOptions 	
  */
 + (void)handleLaunching:(NSDictionary *)launchOptions;
 
 /**
- *	@brief	返回推送通知ACK到服务器 (该通知为App处于开启状态时接收)
+ *	返回推送通知ACK到服务器 (该通知为App处于开启状态时接收)
  *
  *	@param 	userInfo 	
  */
 + (void)handleReceiveRemoteNotification:(NSDictionary *)userInfo;
 
-
 /**
- *	@brief	绑定账号
+ *	绑定账号
  *
  *	@param 	account     账号名
  *	@param 	callback    回调
  */
 + (void)bindAccount:(NSString *)account
-       withCallback:(CCPOperateResult)callback;
+       withCallback:(CallbackHandler)callback;
 
 /**
- *	@brief	解绑账号
+ *	解绑账号
  *
- *	@param 	account     账号名
  *	@param 	callback    回调
  */
-+ (void)unbindAccount:(NSString *)account
-         withCallback:(CCPOperateResult)callback;
++ (void)unbindAccount:(CallbackHandler)callback;
 
 /**
- *	@brief	设置消息可接收的时间，比如08：00 --- 23：00
+ *	设置消息可接收的时间，比如08：00 --- 23：00
  *
  *	@param 	startH      起始小时
  *	@param 	startMS     起始分钟
@@ -114,27 +110,33 @@ typedef void (^initChannelFailCallback)(NSError *error);
               startMS:(UInt32)startMS
                  endH:(UInt32)endH
                 endMS:(UInt32)endMS
-         withCallback:(CCPOperateResult)callback;
+         withCallback:(CallbackHandler)callback;
 
 /**
- * 增加自定义的tag, 目前只支持12个自定义的tag
+ *  增加自定义的tag, 目前只支持12个自定义的tag
+ *
+ *  @param tag      tag
+ *  @param callback 回调
  */
-+ (void)addTag:(NSString *)tag withCallback:(CCPOperateResult)callback;
++ (void)addTag:(NSString *)tag withCallback:(CallbackHandler)callback;
 
 /**
- * 删除自定义的tag, 目前只支持12个自定义的tag
+ *  删除自定义的tag, 目前只支持12个自定义的tag
+ *
+ *  @param tag      tag
+ *  @param callback 回调
  */
-+ (void)removeTag:(NSString *)tag withCallback:(CCPOperateResult)callback;
++ (void)removeTag:(NSString *)tag withCallback:(CallbackHandler)callback;
 
 /**
- *	@brief	获取APNs返回的deviceToken
+ *	获取APNs返回的deviceToken
  *
  *	@return
  */
 + (NSString *)getApnsDeviceToken;
 
 /**
- *  @brief  向阿里云推送注册该设备的deviceToken，用户推送通知
+ *  向阿里云推送注册该设备的deviceToken，用户推送通知
  *
  *  @param  deviceToken 苹果APNs服务器推送下来的deviceToken
  *
@@ -143,7 +145,7 @@ typedef void (^initChannelFailCallback)(NSError *error);
 + (void)registerDevice:(NSData *)deviceToken;
 
 /**
- *	@brief	Json转换方法 (建议用户不要使用)
+ *	Json转换方法 (建议用户不要使用)
  *
  *	@param 	dict
  *
@@ -152,7 +154,7 @@ typedef void (^initChannelFailCallback)(NSError *error);
 + (NSString *)toJson:(NSDictionary * )dict;
 
 /**
- *	@brief	设置环境变量 (用户不要调用)
+ *	设置环境变量 (用户不要调用)
  *
  *	@param 	env
  */
