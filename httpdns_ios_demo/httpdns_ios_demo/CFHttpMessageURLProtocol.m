@@ -155,7 +155,7 @@
     }else if(myErrCode>=300&&myErrCode<400){
         //返回码为3xx，需要重定向请求，继续访问重定向页面
         NSURLResponse* response=[[NSURLResponse alloc] initWithURL:curRequest.URL MIMEType:headDict[@"Content-Type"] expectedContentLength:[headDict[@"Content-Length"] integerValue] textEncodingName:@"UTF8"];
-        [self.client URLProtocol:self wasRedirectedToRequest:curRequest redirectResponse:response];
+//        [self.client URLProtocol:self wasRedirectedToRequest:curRequest redirectResponse:response];
         responseData=[NSMutableData data];
         // 为HTTPDNS服务设置降级机制
         [[HttpDnsService sharedInstance] setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];

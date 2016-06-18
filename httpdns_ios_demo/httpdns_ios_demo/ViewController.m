@@ -35,11 +35,11 @@ static HttpDnsService *httpdns;
     NSArray *preResolveHosts = @[@"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com"];
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
-//    __weak ViewController* weakself=self;
-    // 异步网络请求
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
-        NSString *originalUrl = @"https://dou.bz/23o8PS";
+    // 异步网络请求
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString *originalUrl = @"http://www.aliyun.com";
         NSURL* url = [NSURL URLWithString:originalUrl];
         NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
         // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
@@ -60,38 +60,51 @@ static HttpDnsService *httpdns;
                 [request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }
-//        NSHTTPURLResponse* response;
-//        NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-//        NSLog(@"Response: %@",response);
-//        NSLog(@"Data: %@",data);
-    //只能用代理方法请求，不能用sendSynchronousRequesst，而且不能放在block中
-        NSURLConnection* conn=[NSURLConnection connectionWithRequest:request delegate:self];
-        [conn start];
+        NSHTTPURLResponse* response;
+        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
         // 允许返回过期的IP
-//        [httpdns setExpiredIPEnabled:YES];
-//        // 异步接口获取IP
-//        ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
-//        if (ip) {
-//            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-//            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
-//            NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
-//            if (NSNotFound != hostFirstRange.location) {
-//                NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-//                NSLog(@"New URL: %@", newUrl);
-//                request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-//                [request setValue:url.host forHTTPHeaderField:@"host"];
-//            }
-//        }
-//        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-//        NSLog(@"Response: %@",response);
-//        NSLog(@"Data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-//        
-//        // 测试黑名单中的域名
-//        ip = [httpdns getIpByHostAsyncInURLFormat:@"www.taobao.com"];
-//        if (!ip) {
-//            NSLog(@"由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
-//        }
-//    });
+        [httpdns setExpiredIPEnabled:YES];
+        // 异步接口获取IP
+        ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
+        if (ip) {
+            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
+            NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
+            if (NSNotFound != hostFirstRange.location) {
+                NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+                NSLog(@"New URL: %@", newUrl);
+                request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                [request setValue:url.host forHTTPHeaderField:@"host"];
+            }
+        }
+        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSLog(@"Response: %@",response);
+        NSLog(@"Data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        
+        // 测试黑名单中的域名
+        ip = [httpdns getIpByHostAsyncInURLFormat:@"www.taobao.com"];
+        if (!ip) {
+            NSLog(@"由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
+        }
+    });
+    
+    //使用SNI场景
+    NSString *originalUrl = @"https://dou.bz/23o8PS";
+    NSURL* url = [NSURL URLWithString:originalUrl];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
+    // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+    if (ip) {
+        NSLog(@"Get IP from HTTPDNS Successfully!");
+        NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
+        if (NSNotFound != hostFirstRange.location) {
+            NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+            request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+            [request setValue:url.host forHTTPHeaderField:@"host"];
+        }
+    }
+    
+    [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,14 +137,6 @@ static HttpDnsService *httpdns;
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     NSLog(@"receive response:%@",response);
-}
-
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    NSLog(@"fail happen");
-}
-
--(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    NSLog(@"finished loading");
 }
 
 @end
