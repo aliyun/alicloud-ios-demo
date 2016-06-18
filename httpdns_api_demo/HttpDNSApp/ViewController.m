@@ -46,8 +46,7 @@
         }
     }
     
-    NSURLConnection* connection=[[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
-    
+    [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
 }
 
 - (void)didReceiveMemoryWarning {

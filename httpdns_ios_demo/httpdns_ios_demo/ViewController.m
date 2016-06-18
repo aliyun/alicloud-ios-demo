@@ -10,7 +10,7 @@
 #import "NetworkManager.h"
 #import <AlicloudHttpDNS/Httpdns.h>
 
-@interface ViewController ()
+@interface ViewController ()<NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 
 @end
 
@@ -35,10 +35,10 @@ static HttpDnsService *httpdns;
     NSArray *preResolveHosts = @[@"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com"];
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
-    
+//    __weak ViewController* weakself=self;
     // 异步网络请求
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    
         NSString *originalUrl = @"https://dou.bz/23o8PS";
         NSURL* url = [NSURL URLWithString:originalUrl];
         NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -60,34 +60,38 @@ static HttpDnsService *httpdns;
                 [request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }
-        NSHTTPURLResponse* response;
-        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSLog(@"Response: %@",response);
-        
+//        NSHTTPURLResponse* response;
+//        NSData* data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+//        NSLog(@"Response: %@",response);
+//        NSLog(@"Data: %@",data);
+    //只能用代理方法请求，不能用sendSynchronousRequesst，而且不能放在block中
+        NSURLConnection* conn=[NSURLConnection connectionWithRequest:request delegate:self];
+        [conn start];
         // 允许返回过期的IP
-        [httpdns setExpiredIPEnabled:YES];
-        // 异步接口获取IP
-        ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
-        if (ip) {
-            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
-            NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
-            if (NSNotFound != hostFirstRange.location) {
-                NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                NSLog(@"New URL: %@", newUrl);
-                request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-                [request setValue:url.host forHTTPHeaderField:@"host"];
-            }
-        }
-        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSLog(@"Response: %@",response);
-        
-        // 测试黑名单中的域名
-        ip = [httpdns getIpByHostAsyncInURLFormat:@"www.taobao.com"];
-        if (!ip) {
-            NSLog(@"由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
-        }
-    });
+//        [httpdns setExpiredIPEnabled:YES];
+//        // 异步接口获取IP
+//        ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
+//        if (ip) {
+//            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+//            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
+//            NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
+//            if (NSNotFound != hostFirstRange.location) {
+//                NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+//                NSLog(@"New URL: %@", newUrl);
+//                request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+//                [request setValue:url.host forHTTPHeaderField:@"host"];
+//            }
+//        }
+//        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+//        NSLog(@"Response: %@",response);
+//        NSLog(@"Data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//        
+//        // 测试黑名单中的域名
+//        ip = [httpdns getIpByHostAsyncInURLFormat:@"www.taobao.com"];
+//        if (!ip) {
+//            NSLog(@"由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
+//        }
+//    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,5 +119,19 @@ static HttpDnsService *httpdns;
     return NO;
 }
 
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    NSLog(@"receive data:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+}
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    NSLog(@"receive response:%@",response);
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    NSLog(@"fail happen");
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSLog(@"finished loading");
+}
 
 @end
