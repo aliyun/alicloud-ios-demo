@@ -32,14 +32,20 @@
 
 - (NSString *)getIpByHost:(NSString *)host;
 
+- (NSArray *)getIpsByHost:(NSString *)host;
+
 - (NSString *)getIpByHostInURLFormat:(NSString *)host;
 
 - (NSString *)getIpByHostAsync:(NSString *)host;
+
+- (NSArray *)getIpsByHostAsync:(NSString *)host;
 
 - (NSString *)getIpByHostAsyncInURLFormat:(NSString *)host;
 
 - (void)setExpiredIPEnabled:(BOOL)enable;
 
 - (void)setLogEnabled:(BOOL)enable;
+
+- (void)setPreResolveAfterNetworkChanged:(BOOL)enable;
 
 @end
