@@ -20,6 +20,7 @@
 		947191F01CEDAAA500E13DE9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */; };
 		94AE71BE1CDB9C3100EE4BBF /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AE71BD1CDB9C3100EE4BBF /* UTDID.framework */; };
 		E2552B8C1C7F167A00D46C32 /* AlicloudHttpDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */; };
+		F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */; };
 		F7F97DFC1D152A0D00646D3F /* CFHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		94AE71BD1CDB9C3100EE4BBF /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
 		E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudHttpDNS.framework; sourceTree = "<group>"; };
+		F7624EE51D1B7EC1004F8718 /* HTTPSSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSSceneViewController.h; sourceTree = "<group>"; };
+		F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSSceneViewController.m; sourceTree = "<group>"; };
 		F7F97DFA1D152A0D00646D3F /* CFHttpMessageURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHttpMessageURLProtocol.h; sourceTree = "<group>"; };
 		F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFHttpMessageURLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +104,8 @@
 				942188EA1C59011B00696D6E /* Supporting Files */,
 				942189031C5903F600696D6E /* NetworkManager.h */,
 				942189041C59041100696D6E /* NetworkManager.m */,
+				F7624EE51D1B7EC1004F8718 /* HTTPSSceneViewController.h */,
+				F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */,
 			);
 			path = httpdns_ios_demo;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				942188F21C59011B00696D6E /* ViewController.m in Sources */,
 				942188EF1C59011B00696D6E /* AppDelegate.m in Sources */,
 				942188EC1C59011B00696D6E /* main.m in Sources */,
+				F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
