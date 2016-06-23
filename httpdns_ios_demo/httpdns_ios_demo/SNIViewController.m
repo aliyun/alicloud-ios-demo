@@ -38,8 +38,8 @@ static HttpDnsService *httpdns;
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
     
-//    NSString *originalUrl = @"https://dou.bz/23o8PS";
-    NSString* originalUrl = @"https://www.aliyun.com";
+    NSString *originalUrl = @"https://dou.bz/23o8PS";
+//    NSString* originalUrl = @"https://www.aliyun.com";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];

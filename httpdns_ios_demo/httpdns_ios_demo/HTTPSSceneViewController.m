@@ -34,9 +34,10 @@ static HttpDnsService *httpdns;
     NSArray *preResolveHosts = @[@"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com"];
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
-    
-    //不需要SNI设置的URL，证书验证没错
-    NSString* originalUrl = @"https://www.aliyun.com";
+    //需要设置SNI的URL，证书验证将出错
+    NSString *originalUrl = @"https://dou.bz/23o8PS";
+    //不需要设置SNI的URL，证书验证没错
+//    NSString* originalUrl = @"https://www.aliyun.com";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
