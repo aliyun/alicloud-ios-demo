@@ -9,6 +9,7 @@
 #import "HTTPSSceneViewController.h"
 #import "NetworkManager.h"
 #import <AlicloudHttpDNS/Httpdns.h>
+#import "CFHttpMessageURLProtocol.h"
 
 @interface HTTPSSceneViewController ()<NSURLConnectionDelegate,NSURLSessionTaskDelegate,NSURLConnectionDataDelegate,NSURLSessionDataDelegate>
 @property (nonatomic, strong) NSMutableURLRequest* request;
@@ -34,10 +35,8 @@ static HttpDnsService *httpdns;
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
     
-    //需要SNI设置的URL，证书验证将会出错
-    NSString *originalUrl = @"https://dou.bz/23o8PS";
     //不需要SNI设置的URL，证书验证没错
-//    NSString* originalUrl = @"https://www.aliyun.com";
+    NSString* originalUrl = @"https://www.aliyun.com";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
@@ -159,6 +158,10 @@ static HttpDnsService *httpdns;
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
     NSLog(@"data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+}
+
+-(NSURLRequest*)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response{
+    return request;
 }
 
 #pragma mark - NSURLSessionTaskDelegate

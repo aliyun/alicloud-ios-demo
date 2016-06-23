@@ -88,23 +88,6 @@ static HttpDnsService *httpdns;
         }
     });
     
-    //使用SNI场景
-    NSString *originalUrl = @"https://dou.bz/23o8PS";
-    NSURL* url = [NSURL URLWithString:originalUrl];
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
-    // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-    if (ip) {
-        NSLog(@"Get IP from HTTPDNS Successfully!");
-        NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
-        if (NSNotFound != hostFirstRange.location) {
-            NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-            request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-            [request setValue:url.host forHTTPHeaderField:@"host"];
-        }
-    }
-    
-    [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -132,11 +115,5 @@ static HttpDnsService *httpdns;
     return NO;
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    NSLog(@"receive data:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-}
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    NSLog(@"receive response:%@",response);
-}
 
 @end
