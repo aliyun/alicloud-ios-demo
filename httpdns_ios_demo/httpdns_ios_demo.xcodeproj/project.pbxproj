@@ -20,6 +20,8 @@
 		947191F01CEDAAA500E13DE9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */; };
 		94AE71BE1CDB9C3100EE4BBF /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AE71BD1CDB9C3100EE4BBF /* UTDID.framework */; };
 		E2552B8C1C7F167A00D46C32 /* AlicloudHttpDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */; };
+		F7211AA21D1E6020004DD699 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7211AA11D1E6020004DD699 /* WebViewController.m */; };
+		F7211AA51D1E64CE004DD699 /* WebViewURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F7211AA41D1E64CE004DD699 /* WebViewURLProtocol.m */; };
 		F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */; };
 		F775BD5E1D1BAC8D00217FF0 /* SNIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F775BD5D1D1BAC8D00217FF0 /* SNIViewController.m */; };
 		F7F97DFC1D152A0D00646D3F /* CFHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */; };
@@ -44,6 +46,10 @@
 		947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		94AE71BD1CDB9C3100EE4BBF /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
 		E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudHttpDNS.framework; sourceTree = "<group>"; };
+		F7211AA01D1E6020004DD699 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		F7211AA11D1E6020004DD699 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		F7211AA31D1E64CE004DD699 /* WebViewURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewURLProtocol.h; sourceTree = "<group>"; };
+		F7211AA41D1E64CE004DD699 /* WebViewURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewURLProtocol.m; sourceTree = "<group>"; };
 		F7624EE51D1B7EC1004F8718 /* HTTPSSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSSceneViewController.h; sourceTree = "<group>"; };
 		F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSSceneViewController.m; sourceTree = "<group>"; };
 		F775BD5C1D1BAC8D00217FF0 /* SNIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNIViewController.h; sourceTree = "<group>"; };
@@ -111,6 +117,10 @@
 				F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */,
 				F775BD5C1D1BAC8D00217FF0 /* SNIViewController.h */,
 				F775BD5D1D1BAC8D00217FF0 /* SNIViewController.m */,
+				F7211AA01D1E6020004DD699 /* WebViewController.h */,
+				F7211AA11D1E6020004DD699 /* WebViewController.m */,
+				F7211AA31D1E64CE004DD699 /* WebViewURLProtocol.h */,
+				F7211AA41D1E64CE004DD699 /* WebViewURLProtocol.m */,
 			);
 			path = httpdns_ios_demo;
 			sourceTree = "<group>";
@@ -196,6 +206,8 @@
 				F7F97DFC1D152A0D00646D3F /* CFHttpMessageURLProtocol.m in Sources */,
 				942189051C59041100696D6E /* NetworkManager.m in Sources */,
 				942188F21C59011B00696D6E /* ViewController.m in Sources */,
+				F7211AA51D1E64CE004DD699 /* WebViewURLProtocol.m in Sources */,
+				F7211AA21D1E6020004DD699 /* WebViewController.m in Sources */,
 				942188EF1C59011B00696D6E /* AppDelegate.m in Sources */,
 				942188EC1C59011B00696D6E /* main.m in Sources */,
 				F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */,

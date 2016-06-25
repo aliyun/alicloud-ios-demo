@@ -42,8 +42,11 @@
     
     NSString * url = request.URL.absoluteString;
     
+    NSMutableURLRequest* mutableReq = [request mutableCopy];
+    bool isWebView = [[mutableReq valueForHTTPHeaderField:@"reqtype"]  isEqual: @"webview"];
+    
     // 如果url已http或https开头，则进行拦截处理，否则不处理
-    if ([url hasPrefix:@"https"]) {
+    if ([url hasPrefix:@"https"] || isWebView) {
         return YES;
     }
     return NO;

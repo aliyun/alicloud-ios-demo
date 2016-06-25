@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CFHttpMessageURLProtocol.h"
+#import "WebViewURLProtocol.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //SNI场景设置
-    [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
+    [NSURLProtocol registerClass:[WebViewURLProtocol class]];
+//    [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
     return YES;
 }
 

@@ -39,7 +39,7 @@ static HttpDnsService *httpdns;
     [httpdns setPreResolveHosts:preResolveHosts];
     
     NSString *originalUrl = @"https://dou.bz/23o8PS";
-//    NSString* originalUrl = @"https://www.aliyun.com";
+//    NSString* originalUrl = @"https://www.apple.com";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
