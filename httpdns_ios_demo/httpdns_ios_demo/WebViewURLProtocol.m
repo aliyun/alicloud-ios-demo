@@ -75,6 +75,7 @@
         
     }
     return [mutableReq copy];
+//    return request;
 }
 /**
  *  开始加载，在该方法中，加载一个请求
@@ -129,12 +130,14 @@
     if (!host) {
         host = self.request.URL.host;
     }
-//    [_inputStream setProperty:NSStreamSocketSecurityLevelNegotiatedSSL forKey:NSStreamSocketSecurityLevelKey];
-//    NSDictionary *sslProperties = [[NSDictionary alloc] initWithObjectsAndKeys:
-//                                   host,(__bridge id)kCFStreamSSLPeerName,
-//                                   (id)kCFBooleanFalse, (id)kCFStreamSSLValidatesCertificateChain,
-//                                   nil];
-//    [_inputStream setProperty:sslProperties forKey:(__bridge_transfer NSString*)kCFStreamPropertySSLSettings];
+    if ([self.request.URL.absoluteString hasPrefix:@"https"]) {
+        [inputStream setProperty:NSStreamSocketSecurityLevelNegotiatedSSL forKey:NSStreamSocketSecurityLevelKey];
+        NSDictionary *sslProperties = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                       host,(__bridge id)kCFStreamSSLPeerName,
+                                       (id)kCFBooleanFalse, (id)kCFStreamSSLValidatesCertificateChain,
+                                       nil];
+        [inputStream setProperty:sslProperties forKey:(__bridge_transfer NSString*)kCFStreamPropertySSLSettings];
+    }
     [inputStream setDelegate:self];
     
     //将请求放入当前runloop的事件队列
@@ -219,37 +222,48 @@
         
         //验证证书
         //        NSArray *certs = [_inputStream propertyForKey: (__bridge NSString *)kCFStreamPropertySSLPeerCertificates];
-//        SecTrustRef trust = (__bridge SecTrustRef)[_inputStream propertyForKey: (__bridge NSString *)kCFStreamPropertySSLPeerTrust];
-//        NSNumber *alreadyAdded = [_inputStream propertyForKey: kAnchorAlreadyAdded];
-//        if (!alreadyAdded || ![alreadyAdded boolValue]) {
-//            [_inputStream setProperty: [NSNumber numberWithBool: YES] forKey: kAnchorAlreadyAdded];
-//        }
-//        SecTrustResultType res = kSecTrustResultInvalid;
-//        NSMutableArray *policies = [NSMutableArray array];
-//        NSString* domain=[[self.request allHTTPHeaderFields] valueForKey:@"host"];
-//        if (domain) {
-//            [policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
-//        } else {
-//            [policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
-//        }
-//        /*
-//         * 绑定校验策略到服务端的证书上
-//         */
-//        SecTrustSetPolicies(trust, (__bridge CFArrayRef)policies);
-//        if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
-//            [_inputStream removeFromRunLoop: [NSRunLoop currentRunLoop] forMode: NSRunLoopCommonModes];
-//            [_inputStream setDelegate: nil];
-//            [_inputStream close];
-//        }
-//        if (res != kSecTrustResultProceed && res != kSecTrustResultUnspecified) {
-//            /* The host is not trusted. */
-//            /* Tear down the input stream. */
-//            [_inputStream removeFromRunLoop: [NSRunLoop currentRunLoop] forMode: NSRunLoopCommonModes];
-//            [_inputStream setDelegate: nil];
-//            [_inputStream close];
-//            
-//        } else {
-            // Host is trusted.  Handle the data callback normally.
+        if ([self.request.URL.absoluteString hasPrefix:@"https"]) {
+            SecTrustRef trust = (__bridge SecTrustRef)[aStream propertyForKey: (__bridge NSString *)kCFStreamPropertySSLPeerTrust];
+            NSNumber *alreadyAdded = [aStream propertyForKey: kAnchorAlreadyAdded];
+            if (!alreadyAdded || ![alreadyAdded boolValue]) {
+                [aStream setProperty: [NSNumber numberWithBool: YES] forKey: kAnchorAlreadyAdded];
+            }
+            SecTrustResultType res = kSecTrustResultInvalid;
+            NSMutableArray *policies = [NSMutableArray array];
+            NSString* domain=[[self.request allHTTPHeaderFields] valueForKey:@"host"];
+            if (domain) {
+                [policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
+            } else {
+                [policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
+            }
+            /*
+             * 绑定校验策略到服务端的证书上
+             */
+            SecTrustSetPolicies(trust, (__bridge CFArrayRef)policies);
+            if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
+                [aStream removeFromRunLoop: [NSRunLoop currentRunLoop] forMode: NSRunLoopCommonModes];
+                [aStream setDelegate: nil];
+                [aStream close];
+            }
+            if (res != kSecTrustResultProceed && res != kSecTrustResultUnspecified) {
+                /* The host is not trusted. */
+                /* Tear down the input stream. */
+                [aStream removeFromRunLoop: [NSRunLoop currentRunLoop] forMode: NSRunLoopCommonModes];
+                [aStream setDelegate: nil];
+                [aStream close];
+                
+            } else {
+                // Host is trusted.  Handle the data callback normally.
+                UInt8 buffer[2048];
+                //回调读取数据时，读取的都是body的内容，response header自动被封装处理好的。
+                NSInputStream* inputstream = (NSInputStream*)aStream;
+                CFIndex length = [inputstream read:buffer maxLength:sizeof(buffer)];
+                NSData* data=[[NSData alloc] initWithBytes:buffer length:length];
+                
+                [self.client URLProtocol:self didLoadData:data];
+                //            [responseData appendBytes:buffer length:length];
+            }
+        }else{
             UInt8 buffer[2048];
             //回调读取数据时，读取的都是body的内容，response header自动被封装处理好的。
             NSInputStream* inputstream = (NSInputStream*)aStream;
@@ -257,8 +271,7 @@
             NSData* data=[[NSData alloc] initWithBytes:buffer length:length];
             
             [self.client URLProtocol:self didLoadData:data];
-            //            [responseData appendBytes:buffer length:length];
-//        }
+        }
     }else if(eventCode == NSStreamEventErrorOccurred){
         [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         [aStream setDelegate:nil];

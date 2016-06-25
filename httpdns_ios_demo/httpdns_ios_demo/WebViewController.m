@@ -40,7 +40,7 @@ static HttpDnsService *httpdns;
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.webView];
-    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.aliyun.com"]];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.apple.com"]];
     [req addValue:@"webview" forHTTPHeaderField:@"reqtype"];
 //    self.webView.delegate = self;
     [self.webView loadRequest:req];
