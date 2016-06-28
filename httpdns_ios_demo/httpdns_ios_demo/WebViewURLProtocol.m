@@ -13,8 +13,7 @@
 #define protocolKey @"CFHttpMessagePropertyKey"
 #define kAnchorAlreadyAdded @"AnchorAlreadyAdded"
 
-@interface WebViewURLProtocol()<NSStreamDelegate,HttpDNSDegradationDelegate>{
-}
+@interface WebViewURLProtocol()<NSStreamDelegate,HttpDNSDegradationDelegate>
 
 @end
 
@@ -36,9 +35,11 @@
     }
     
     NSMutableURLRequest* mutableReq = [request mutableCopy];
+    //假设原始的请求头部没有host信息，只有使用IP替换后的请求才有
+    NSString* host=[mutableReq valueForHTTPHeaderField:@"host"];
     
-    // 假设只拦截css的请求
-    if (mutableReq && [[mutableReq.HTTPMethod lowercaseString] isEqualToString:@"get"] && [request.URL.absoluteString hasSuffix:@".css"]) {
+    // 假设只拦截原始请求中css的请求
+    if (mutableReq && !host && [[mutableReq.HTTPMethod lowercaseString] isEqualToString:@"get"] && [mutableReq.URL.absoluteString hasSuffix:@".css"]) {
         return YES;
     }
     return NO;
@@ -71,11 +72,12 @@
             NSLog(@"New URL: %@", newUrl);
             mutableReq = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
             [mutableReq setValue:url.host forHTTPHeaderField:@"host"];
+            //添加originalUrl保存原始URL
+            [mutableReq addValue:originalUrl forHTTPHeaderField:@"originalUrl"];
         }
         
     }
     return [mutableReq copy];
-//    return request;
 }
 /**
  *  开始加载，在该方法中，加载一个请求
@@ -84,7 +86,7 @@
     NSMutableURLRequest * request = [self.request mutableCopy];
     // 表示该请求已经被处理，防止无限循环
     [NSURLProtocol setProperty:@(YES) forKey:protocolKey inRequest:request];
-//    curRequest=request;
+    //    curRequest=request;
     [self startRequest];
 }
 /**
@@ -108,7 +110,6 @@
     if (self.request.HTTPBody) {
         bodyData = (__bridge_retained CFDataRef)self.request.HTTPBody;
     }
-    //    CFDataRef bodyData=CFStringCreateExternalRepresentation(kCFAllocatorDefault, requestBody, kCFStringEncodingUTF8, 0);
     
     CFStringRef url = (__bridge CFStringRef)[self.request.URL absoluteString];
     CFURLRef requestURL = CFURLCreateWithString(kCFAllocatorDefault, url, NULL);
@@ -130,9 +131,12 @@
     if (!host) {
         host = self.request.URL.host;
     }
+    
     if ([self.request.URL.absoluteString hasPrefix:@"https"]) {
+        //https请求设置证书
         [inputStream setProperty:NSStreamSocketSecurityLevelNegotiatedSSL forKey:NSStreamSocketSecurityLevelKey];
         NSDictionary *sslProperties = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                       [NSNumber numberWithBool:YES], kCFStreamSSLAllowsExpiredCertificates,
                                        host,(__bridge id)kCFStreamSSLPeerName,
                                        (id)kCFBooleanFalse, (id)kCFStreamSSLValidatesCertificateChain,
                                        nil];
@@ -169,36 +173,37 @@
     [inputStream close];
     
     if (myErrCode >= 200 && myErrCode < 300) {
-        
+//        NSLog(@"data: %@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
         //返回码为2xx，直接通知client
         [self.client URLProtocolDidFinishLoading:self];
         
     }else if(myErrCode >= 300 && myErrCode < 400){
         //返回码为3xx，需要重定向请求，继续访问重定向页面
-//        NSString* location=headDict[@"Location"];
-//        NSURL* url=[[NSURL alloc] initWithString:location];
-//        curRequest=[[NSMutableURLRequest alloc] initWithURL:url];
-//        
-//        /***********重定向通知client处理或内部处理*************/
-//        //client处理
-//        //        NSURLResponse* response=[[NSURLResponse alloc] initWithURL:curRequest.URL MIMEType:headDict[@"Content-Type"] expectedContentLength:[headDict[@"Content-Length"] integerValue] textEncodingName:@"UTF8"];
-//        //        [self.client URLProtocol:self wasRedirectedToRequest:curRequest redirectResponse:response];
-//        
-//        //内部处理，将url中的host通过HTTPDNS转换为IP
-//        NSString* ip=[[HttpDnsService sharedInstance] getIpByHost:url.host];
-//        // 为HTTPDNS服务设置降级机制
-//        [[HttpDnsService sharedInstance] setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
-//        
-//        if (ip) {
-//            NSLog(@"Get IP from HTTPDNS Successfully!");
-//            NSRange hostFirstRange = [location rangeOfString: url.host];
-//            if (NSNotFound != hostFirstRange.location) {
-//                NSString* newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-//                curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-//                [curRequest setValue:url.host forHTTPHeaderField:@"host"];
-//            }
-//        }
-//        [self startRequest];
+        NSString* location=headDict[@"Location"];
+        NSURL* url=[[NSURL alloc] initWithString:location];
+        NSMutableURLRequest* newRequest=[[NSMutableURLRequest alloc] initWithURL:url];
+        
+        /***********重定向通知client处理或内部处理*************/
+        //client处理
+        CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
+        NSURLResponse* response=[[NSHTTPURLResponse alloc] initWithURL:self.request.URL statusCode:myErrCode HTTPVersion:(__bridge NSString*)httpVersion headerFields:headDict];
+        [self.client URLProtocol:self wasRedirectedToRequest:newRequest redirectResponse:response];
+        
+        //内部处理，将url中的host通过HTTPDNS转换为IP
+        //        NSString* ip=[[HttpDnsService sharedInstance] getIpByHost:url.host];
+        //        // 为HTTPDNS服务设置降级机制
+        //        [[HttpDnsService sharedInstance] setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
+        //
+        //        if (ip) {
+        //            NSLog(@"Get IP from HTTPDNS Successfully!");
+        //            NSRange hostFirstRange = [location rangeOfString: url.host];
+        //            if (NSNotFound != hostFirstRange.location) {
+        //                NSString* newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+        //                curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+        //                [curRequest setValue:url.host forHTTPHeaderField:@"host"];
+        //            }
+        //        }
+        //        [self startRequest];
     }else{
         //其他情况，直接返回响应信息给client
         [self.client URLProtocolDidFinishLoading:self];
@@ -217,7 +222,8 @@
         CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
         //获取响应头部的状态码
         CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
-        NSHTTPURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:self.request.URL statusCode:myErrCode HTTPVersion:(__bridge NSString*)httpVersion headerFields:headDict];
+        //此处返回的Response中的URL必须是原始的URL，不然会影响WebView后续请求
+        NSHTTPURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:[self.request.allHTTPHeaderFields valueForKey:@"originalUrl"]] statusCode:myErrCode HTTPVersion:(__bridge NSString*)httpVersion headerFields:headDict];
         [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
         
         //验证证书
@@ -236,6 +242,7 @@
             } else {
                 [policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
             }
+            
             /*
              * 绑定校验策略到服务端的证书上
              */
@@ -261,7 +268,6 @@
                 NSData* data=[[NSData alloc] initWithBytes:buffer length:length];
                 
                 [self.client URLProtocol:self didLoadData:data];
-                //            [responseData appendBytes:buffer length:length];
             }
         }else{
             UInt8 buffer[2048];
@@ -304,4 +310,5 @@
     
     return NO;
 }
+
 @end

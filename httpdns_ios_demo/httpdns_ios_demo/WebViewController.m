@@ -40,7 +40,7 @@ static HttpDnsService *httpdns;
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.webView];
-    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.apple.com"]];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.apple.com"]];
     [req addValue:@"webview" forHTTPHeaderField:@"reqtype"];
 //    self.webView.delegate = self;
     [self.webView loadRequest:req];
@@ -53,7 +53,7 @@ static HttpDnsService *httpdns;
 
 #pragma mark UIWebViewDelegate
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    // 假设我们对所有css文件的网络请求进行httpdns解析
+    // 假设我们对所有css文件的网络请求进行httpdns解析，这里只会拦截初始的请求，页面内的图片，js，css请求将不会询问该方法
     NSMutableURLRequest* mutableReq = [request mutableCopy];
     if (![mutableReq valueForHTTPHeaderField:@"authenticated"]) {
         NSURL* url = [NSURL URLWithString:request.URL.absoluteString];
@@ -71,9 +71,14 @@ static HttpDnsService *httpdns;
         }
         _connection = [NSURLConnection connectionWithRequest:_failRequest delegate:self];
         [_connection start];
+        [webView stopLoading];
         return NO;
     }else
         return YES;
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    NSLog(@"error: %@",error);
 }
 
 #pragma mark NSURLConnectionDelegate

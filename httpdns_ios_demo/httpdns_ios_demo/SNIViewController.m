@@ -38,8 +38,8 @@ static HttpDnsService *httpdns;
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
     
-    NSString *originalUrl = @"https://dou.bz/23o8PS";
-//    NSString* originalUrl = @"https://www.apple.com";
+//    NSString *originalUrl = @"https://dou.bz/23o8PS";
+    NSString* originalUrl = @"https://www.apple.com/ac/globalnav/2.0/en_US/styles/ac-globalnav.built.css";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
