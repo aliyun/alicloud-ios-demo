@@ -24,6 +24,7 @@
 		F7211AA51D1E64CE004DD699 /* WebViewURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F7211AA41D1E64CE004DD699 /* WebViewURLProtocol.m */; };
 		F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */; };
 		F775BD5E1D1BAC8D00217FF0 /* SNIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F775BD5D1D1BAC8D00217FF0 /* SNIViewController.m */; };
+		F77F1DCF1D23A1A300A48D1D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77F1DCE1D23A1A300A48D1D /* WebKit.framework */; };
 		F7F97DFC1D152A0D00646D3F /* CFHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSSceneViewController.m; sourceTree = "<group>"; };
 		F775BD5C1D1BAC8D00217FF0 /* SNIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNIViewController.h; sourceTree = "<group>"; };
 		F775BD5D1D1BAC8D00217FF0 /* SNIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNIViewController.m; sourceTree = "<group>"; };
+		F77F1DCE1D23A1A300A48D1D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F7F97DFA1D152A0D00646D3F /* CFHttpMessageURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHttpMessageURLProtocol.h; sourceTree = "<group>"; };
 		F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFHttpMessageURLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77F1DCF1D23A1A300A48D1D /* WebKit.framework in Frameworks */,
 				947191F01CEDAAA500E13DE9 /* CoreTelephony.framework in Frameworks */,
 				947191EE1CEDAA9E00E13DE9 /* SystemConfiguration.framework in Frameworks */,
 				947191EC1CEDAA9700E13DE9 /* libresolv.tbd in Frameworks */,
@@ -78,6 +81,7 @@
 		942188DE1C59011B00696D6E = {
 			isa = PBXGroup;
 			children = (
+				F77F1DCE1D23A1A300A48D1D /* WebKit.framework */,
 				947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */,
 				947191ED1CEDAA9E00E13DE9 /* SystemConfiguration.framework */,
 				947191EB1CEDAA9700E13DE9 /* libresolv.tbd */,

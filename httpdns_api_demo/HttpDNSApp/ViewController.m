@@ -11,12 +11,10 @@
 
 #import "NetworkManager.h"
 #import "HttpDNSLog.h"
-//#import "NSURLConnection+HttpsExtension.h"
 #import "HttpDNS.h"
-#import <objc/runtime.h>
 
-@interface ViewController ()<NSURLConnectionDelegate,NSURLConnectionDataDelegate>
-@property(strong,nonatomic)NSMutableURLRequest* request;
+@interface ViewController ()
+
 @end
 
 @implementation ViewController
@@ -29,11 +27,10 @@
     [HttpDNSLog turnOnDebug];
     // 为HTTPDNS服务设置降级机制
     [[HttpDNS instance] setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
-    NSString *originalUrl = @"https://dou.bz/23o8PS";
-//    NSString* originalUrl=@"https://book.douban.com/annual2015/#2";
-//    NSString* originalUrl=@"https://www.aliyun.com";
+    NSString *originalUrl = @"http://www.aliyun.com/";
     NSURL* url = [NSURL URLWithString:originalUrl];
-    self.request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
     NSString* ip = [[HttpDNS instance] getIpByHost:url.host];
     // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
     if (ip) {
@@ -41,12 +38,14 @@
         NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
         if (NSNotFound != hostFirstRange.location) {
             NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-            self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-            [self.request setValue:url.host forHTTPHeaderField:@"host"];
+            request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+            [request setValue:url.host forHTTPHeaderField:@"host"];
         }
     }
-    
-    [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
+
+    NSHTTPURLResponse* response;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSLog(@"response %@",response);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,10 +73,4 @@
     return NO;
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    NSLog(@"receive data:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-}
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    NSLog(@"receive response:%@",response);
-}
 @end

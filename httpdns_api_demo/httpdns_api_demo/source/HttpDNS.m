@@ -12,7 +12,7 @@
 
 static BOOL isExpiredIpAvailable = YES;
 static NSString* defaultServerIP = @"203.107.1.1";
-static NSString* defaultAccountID = @"139450";
+static NSString* defaultAccountID = @"100000";
 static int defaultHostTTL = 30;
 
 @implementation HttpDNS

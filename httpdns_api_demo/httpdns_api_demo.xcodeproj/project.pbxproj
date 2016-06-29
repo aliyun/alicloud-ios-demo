@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5767C651D04781E00765B8C /* NSURLConnection+HttpsExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C5767C631D04781E00765B8C /* NSURLConnection+HttpsExtension.h */; };
-		C5767C661D04781E00765B8C /* NSURLConnection+HttpsExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C5767C641D04781E00765B8C /* NSURLConnection+HttpsExtension.m */; };
-		F780478E1D124283000E4B52 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F780478D1D124283000E4B52 /* CFNetwork.framework */; };
-		F7BF49AF1D100AA0007BB0BF /* MyCFHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BF49AE1D100AA0007BB0BF /* MyCFHttpMessageURLProtocol.m */; };
 		F7F2791E1BE24EA50094EF7D /* httpdns_api_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */; };
 		F7F279231BE24EA50094EF7D /* httpdns_api_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F279221BE24EA50094EF7D /* httpdns_api_demoTests.m */; };
 		F7F279301BE24FCA0094EF7D /* HttpDNS.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F2792E1BE24FCA0094EF7D /* HttpDNS.h */; };
@@ -55,11 +51,6 @@
 
 /* Begin PBXFileReference section */
 		946A9EFD1C50CFA000D5C1C8 /* HttpDNSDegradationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpDNSDegradationDelegate.h; sourceTree = "<group>"; };
-		C5767C631D04781E00765B8C /* NSURLConnection+HttpsExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+HttpsExtension.h"; sourceTree = "<group>"; };
-		C5767C641D04781E00765B8C /* NSURLConnection+HttpsExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+HttpsExtension.m"; sourceTree = "<group>"; };
-		F780478D1D124283000E4B52 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		F7BF49AD1D100AA0007BB0BF /* MyCFHttpMessageURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCFHttpMessageURLProtocol.h; path = httpdns_api_demo/source/MyCFHttpMessageURLProtocol.h; sourceTree = SOURCE_ROOT; };
-		F7BF49AE1D100AA0007BB0BF /* MyCFHttpMessageURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCFHttpMessageURLProtocol.m; path = httpdns_api_demo/source/MyCFHttpMessageURLProtocol.m; sourceTree = SOURCE_ROOT; };
 		F7F279131BE24EA50094EF7D /* httpdns_api_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = httpdns_api_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F279181BE24EA50094EF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7F2791D1BE24EA50094EF7D /* httpdns_api_demo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_api_demo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F780478E1D124283000E4B52 /* CFNetwork.framework in Frameworks */,
 				F7F279791BE2806D0094EF7D /* UIKit.framework in Frameworks */,
 				F7F279771BE280630094EF7D /* SystemConfiguration.framework in Frameworks */,
 				F7F279751BE280560094EF7D /* CoreTelephony.framework in Frameworks */,
@@ -125,7 +115,6 @@
 		F7F279091BE24EA50094EF7D = {
 			isa = PBXGroup;
 			children = (
-				F780478D1D124283000E4B52 /* CFNetwork.framework */,
 				F7F279781BE2806D0094EF7D /* UIKit.framework */,
 				F7F279761BE280630094EF7D /* SystemConfiguration.framework */,
 				F7F279741BE280560094EF7D /* CoreTelephony.framework */,
@@ -176,8 +165,6 @@
 				F7F279361BE271AC0094EF7D /* NetworkManager.h */,
 				F7F279371BE271AC0094EF7D /* NetworkManager.m */,
 				946A9EFD1C50CFA000D5C1C8 /* HttpDNSDegradationDelegate.h */,
-				C5767C631D04781E00765B8C /* NSURLConnection+HttpsExtension.h */,
-				C5767C641D04781E00765B8C /* NSURLConnection+HttpsExtension.m */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -185,8 +172,6 @@
 		F7F2793F1BE27E660094EF7D /* HttpDNSApp */ = {
 			isa = PBXGroup;
 			children = (
-				F7BF49AD1D100AA0007BB0BF /* MyCFHttpMessageURLProtocol.h */,
-				F7BF49AE1D100AA0007BB0BF /* MyCFHttpMessageURLProtocol.m */,
 				F7F279431BE27E660094EF7D /* AppDelegate.h */,
 				F7F279441BE27E660094EF7D /* AppDelegate.m */,
 				F7F279461BE27E660094EF7D /* ViewController.h */,
@@ -217,7 +202,6 @@
 			files = (
 				F7F279381BE271AC0094EF7D /* NetworkManager.h in Headers */,
 				F7F2797F1BE3401B0094EF7D /* HttpDNSLog.h in Headers */,
-				C5767C651D04781E00765B8C /* NSURLConnection+HttpsExtension.h in Headers */,
 				F7F279341BE250590094EF7D /* HttpDNSOrigin.h in Headers */,
 				F7F279301BE24FCA0094EF7D /* HttpDNS.h in Headers */,
 			);
@@ -355,7 +339,6 @@
 			files = (
 				F7F279311BE24FCA0094EF7D /* HttpDNS.m in Sources */,
 				F7F279391BE271AC0094EF7D /* NetworkManager.m in Sources */,
-				C5767C661D04781E00765B8C /* NSURLConnection+HttpsExtension.m in Sources */,
 				F7F279801BE3401B0094EF7D /* HttpDNSLog.m in Sources */,
 				F7F279351BE250590094EF7D /* HttpDNSOrigin.m in Sources */,
 			);
@@ -373,7 +356,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7BF49AF1D100AA0007BB0BF /* MyCFHttpMessageURLProtocol.m in Sources */,
 				F7F279481BE27E660094EF7D /* ViewController.m in Sources */,
 				F7F279451BE27E660094EF7D /* AppDelegate.m in Sources */,
 				F7F279421BE27E660094EF7D /* main.m in Sources */,
