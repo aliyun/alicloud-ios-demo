@@ -205,7 +205,7 @@
         }
         SecTrustResultType res = kSecTrustResultInvalid;
         NSMutableArray *policies = [NSMutableArray array];
-        NSString* domain=[[self.request allHTTPHeaderFields] valueForKey:@"host"];
+        NSString* domain=[[curRequest allHTTPHeaderFields] valueForKey:@"host"];
         if (domain) {
             [policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
         } else {
