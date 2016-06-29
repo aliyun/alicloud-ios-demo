@@ -15,7 +15,6 @@
 @property (nonatomic, strong) NSMutableURLRequest* request;
 @end
 
-static HttpDnsService *httpdns;
 @implementation HTTPSSceneViewController
 
 - (void)viewDidLoad {
@@ -23,21 +22,9 @@ static HttpDnsService *httpdns;
     // Do any additional setup after loading the view.
     
     //初始化httpdns实例
-    httpdns = [HttpDnsService sharedInstance];
-    // 设置AccoutID
-    [httpdns setAccountID:139450];
-    
-    // 为HTTPDNS服务设置降级机制
-    [httpdns setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
-    
-    //edited
-    NSArray *preResolveHosts = @[@"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com"];
-    // 设置预解析域名列表
-    [httpdns setPreResolveHosts:preResolveHosts];
-    //需要设置SNI的URL，证书验证将出错
-    NSString *originalUrl = @"https://dou.bz/23o8PS";
-    //不需要设置SNI的URL，证书验证没错
-//    NSString* originalUrl = @"https://www.aliyun.com";
+    HttpDnsService* httpdns = [HttpDnsService sharedInstance];
+
+    NSString* originalUrl = @"https://www.aliyun.com";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
@@ -194,25 +181,6 @@ static HttpDnsService *httpdns;
     completionHandler(disposition,credential);
 }
 
-/*
- * 降级过滤器，您可以自己定义HTTPDNS降级机制
- */
-- (BOOL)shouldDegradeHTTPDNS:(NSString *)hostName {
-    NSLog(@"Enters Degradation filter.");
-    // 根据HTTPDNS使用说明，存在网络代理情况下需降级为Local DNS
-    if ([NetworkManager configureProxies]) {
-        NSLog(@"Proxy was set. Degrade!");
-        return YES;
-    }
-    
-    // 假设您禁止"www.taobao.com"域名通过HTTPDNS进行解析
-    if ([hostName isEqualToString:@"www.taobao.com"]) {
-        NSLog(@"The host is in blacklist. Degrade!");
-        return YES;
-    }
-    
-    return NO;
-}
 /*
  #pragma mark - Navigation
  

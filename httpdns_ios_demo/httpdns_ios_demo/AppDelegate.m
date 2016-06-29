@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "CFHttpMessageURLProtocol.h"
 #import "WebViewURLProtocol.h"
+#import <AlicloudHttpDNS/Httpdns.h>
+#import "NetworkManager.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +25,19 @@
     [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
     //WebView场景设置
 //    [NSURLProtocol registerClass:[WebViewURLProtocol class]];
+    
+    //初始化HTTPDNS
+    HttpDnsService* httpdns = [HttpDnsService sharedInstance];
+    
+    // 设置AccoutID
+    [httpdns setAccountID:139450];
+    // 为HTTPDNS服务设置降级机制
+    [httpdns setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
+    
+    //edited
+    NSArray *preResolveHosts = @[@"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com"];
+    // 设置预解析域名列表
+    [httpdns setPreResolveHosts:preResolveHosts];
     return YES;
 }
 
@@ -46,6 +61,26 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+/*
+ * 降级过滤器，您可以自己定义HTTPDNS降级机制
+ */
+- (BOOL)shouldDegradeHTTPDNS:(NSString *)hostName {
+    NSLog(@"Enters Degradation filter.");
+    // 根据HTTPDNS使用说明，存在网络代理情况下需降级为Local DNS
+    if ([NetworkManager configureProxies]) {
+        NSLog(@"Proxy was set. Degrade!");
+        return YES;
+    }
+    
+    // 假设您禁止"www.taobao.com"域名通过HTTPDNS进行解析
+    if ([hostName isEqualToString:@"www.taobao.com"]) {
+        NSLog(@"The host is in blacklist. Degrade!");
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

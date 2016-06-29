@@ -17,32 +17,20 @@
 @property (nonatomic, strong) NSMutableURLRequest* request;
 @end
 
-static HttpDnsService *httpdns;
-
 @implementation SNIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // 初始化HTTPDNS
-    httpdns = [HttpDnsService sharedInstance];
+    HttpDnsService* httpdns = [HttpDnsService sharedInstance];
     
-    // 设置AccoutID
-    [httpdns setAccountID:139450];
-    
-    // 为HTTPDNS服务设置降级机制
-    [httpdns setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
-    
-    //edited
-    NSArray *preResolveHosts = @[@"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com"];
-    // 设置预解析域名列表
-    [httpdns setPreResolveHosts:preResolveHosts];
-    
+    //需要设置SNI的URL
     NSString *originalUrl = @"https://dou.bz/23o8PS";
-//    NSString* originalUrl = @"https://www.apple.com/ac/globalnav/2.0/en_US/styles/ac-globalnav.built.css";
+
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
+    NSString* ip = [httpdns getIpByHost:url.host];
     // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
     if (ip) {
         NSLog(@"Get IP from HTTPDNS Successfully!");
