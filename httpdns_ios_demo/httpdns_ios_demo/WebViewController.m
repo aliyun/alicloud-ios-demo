@@ -15,7 +15,7 @@
 }
 //@property (nonatomic, strong) UIWebView* webView;
 @property (nonatomic, strong) WKWebView* wkWebView;
-@property (nonatomic, strong) NSURLConnection* conn;
+@property (nonatomic, strong) NSMutableURLRequest* request;
 
 @end
 static HttpDnsService* httpdns;
@@ -27,7 +27,7 @@ static HttpDnsService* httpdns;
     
 //    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
 //    [self.view addSubview:self.webView];
-    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.apple.com"]];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.apple.com"]];
 //    [self.webView loadRequest:req];
     
     _Authenticated = NO;
@@ -50,9 +50,9 @@ static HttpDnsService* httpdns;
 #pragma mark WKNavigationDelegate
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     if (!_Authenticated) {
-        NSMutableURLRequest* mutableReq = [navigationAction.request mutableCopy];
+        self.request = [navigationAction.request mutableCopy];
         
-        NSString* originalUrl = mutableReq.URL.absoluteString;
+        NSString* originalUrl = _request.URL.absoluteString;
         NSURL* url = [NSURL URLWithString:originalUrl];
         // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
         NSString* ip = [httpdns getIpByHostAsync:url.host];
@@ -63,28 +63,79 @@ static HttpDnsService* httpdns;
             if (NSNotFound != hostFirstRange.location) {
                 NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
                 NSLog(@"New URL: %@", newUrl);
-                mutableReq = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-                [mutableReq setValue:url.host forHTTPHeaderField:@"host"];
-                //添加originalUrl保存原始URL
-                [mutableReq addValue:originalUrl forHTTPHeaderField:@"originalUrl"];
+                self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                [_request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }
         decisionHandler(WKNavigationActionPolicyCancel);
-        _conn = [[NSURLConnection alloc] initWithRequest:mutableReq delegate:self];
-        [_conn start];
+        _Authenticated = YES;
+        [webView loadRequest:self.request];
     }else
         decisionHandler(WKNavigationActionPolicyAllow);
 }
 
-#pragma mark NSURLConnectionDelegate
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    [_conn cancel];
-    _Authenticated = YES;
-    [_wkWebView loadRequest:connection.currentRequest];
+-(void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
+    NSLog(@"authentication challenge");
+    if (!challenge) {
+        return;
+    }
+    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    NSURLCredential *credential = nil;
+    /*
+     * 获取原始域名信息。
+     */
+    NSString* host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
+    if (!host) {
+        host = self.request.URL.host;
+    }
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {
+            disposition = NSURLSessionAuthChallengeUseCredential;
+            credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+        } else {
+            //            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+            disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+        }
+    } else {
+        disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    }
+    // 对于其他的challenges直接使用默认的验证方案
+    completionHandler(disposition,credential);
 }
 
--(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
-    
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    NSLog(@"did finish");
+}
+
+-(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
+    NSLog(@"did commit");
+}
+
+- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
+                  forDomain:(NSString *)domain
+{
+    /*
+     * 创建证书校验策略
+     */
+    NSMutableArray *policies = [NSMutableArray array];
+    if (domain) {
+        [policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
+    } else {
+        [policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
+    }
+    /*
+     * 绑定校验策略到服务端的证书上
+     */
+    SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
+    /*
+     * 评估当前serverTrust是否可信任，
+     * 官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed
+     * 的情况下serverTrust可以被验证通过，https://developer.apple.com/library/ios/technotes/tn2232/_index.html
+     * 关于SecTrustResultType的详细信息请参考SecTrust.h
+     */
+    SecTrustResultType result;
+    SecTrustEvaluate(serverTrust, &result);
+    return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
 }
 
 /*
