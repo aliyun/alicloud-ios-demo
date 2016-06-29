@@ -67,7 +67,7 @@ static HttpDnsService *httpdns;
     NSURLSessionTask* task = [session dataTaskWithRequest:self.request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
         if (error) {
             NSLog(@"error: %@", error);
-        }else{
+        } else {
             NSLog(@"data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         }
     }];
@@ -107,7 +107,7 @@ static HttpDnsService *httpdns;
 }
 
 #pragma mark - NSURLConnectionDelegate
--(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
+-(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if (!challenge) {
         return;
     }
@@ -145,28 +145,28 @@ static HttpDnsService *httpdns;
     }
 }
 
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"error: %@",error);
 }
 
--(void)connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
+- (void)connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     NSLog(@"cancel authentication");
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"response: %@",response);
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     NSLog(@"data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
--(NSURLRequest*)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response{
+- (NSURLRequest*)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response {
     return request;
 }
 
 #pragma mark - NSURLSessionTaskDelegate
--(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
     if (!challenge) {
         return;
     }
