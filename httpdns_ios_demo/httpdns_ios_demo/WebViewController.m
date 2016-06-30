@@ -13,7 +13,7 @@
 @interface WebViewController ()<WKNavigationDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate>{
     BOOL _Authenticated;
 }
-//@property (nonatomic, strong) UIWebView* webView;
+// @property (nonatomic, strong) UIWebView* webView;
 @property (nonatomic, strong) WKWebView* wkWebView;
 @property (nonatomic, strong) NSMutableURLRequest* request;
 
@@ -25,10 +25,10 @@ static HttpDnsService* httpdns;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-//    [self.view addSubview:self.webView];
+    // self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    // [self.view addSubview:self.webView];
     NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.apple.com"]];
-//    [self.webView loadRequest:req];
+    // [self.webView loadRequest:req];
     
     _Authenticated = NO;
     httpdns = [HttpDnsService sharedInstance];
@@ -48,7 +48,7 @@ static HttpDnsService* httpdns;
 }
 
 #pragma mark WKNavigationDelegate
--(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     if (!_Authenticated) {
         self.request = [navigationAction.request mutableCopy];
         
@@ -74,7 +74,7 @@ static HttpDnsService* httpdns;
         decisionHandler(WKNavigationActionPolicyAllow);
 }
 
--(void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
     NSLog(@"authentication challenge");
     if (!challenge) {
         return;
@@ -93,7 +93,6 @@ static HttpDnsService* httpdns;
             disposition = NSURLSessionAuthChallengeUseCredential;
             credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
         } else {
-            //            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
             disposition = NSURLSessionAuthChallengePerformDefaultHandling;
         }
     } else {
@@ -103,17 +102,16 @@ static HttpDnsService* httpdns;
     completionHandler(disposition,credential);
 }
 
--(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     NSLog(@"did finish");
 }
 
--(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
     NSLog(@"did commit");
 }
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
-                  forDomain:(NSString *)domain
-{
+                  forDomain:(NSString *)domain {
     /*
      * 创建证书校验策略
      */

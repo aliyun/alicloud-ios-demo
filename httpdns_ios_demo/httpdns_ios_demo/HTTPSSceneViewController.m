@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //初始化httpdns实例
+    // 初始化httpdns实例
     HttpDnsService* httpdns = [HttpDnsService sharedInstance];
 
     NSString* originalUrl = @"https://www.aliyun.com";
@@ -45,10 +45,10 @@
             [self.request setValue:url.host forHTTPHeaderField:@"host"];
         }
     }
-    //NSURLConnection例子
-//    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:YES];
+    // NSURLConnection例子
+    // NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:YES];
     
-    //NSURLSession例子
+    // NSURLSession例子
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession* session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
     NSURLSessionTask* task = [session dataTaskWithRequest:self.request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error){
@@ -67,8 +67,7 @@
 }
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
-                  forDomain:(NSString *)domain
-{
+                  forDomain:(NSString *)domain {
     /*
      * 创建证书校验策略
      */
@@ -94,7 +93,7 @@
 }
 
 #pragma mark - NSURLConnectionDelegate
--(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if (!challenge) {
         return;
     }
@@ -109,8 +108,7 @@
      * 判断challenge的身份验证方法是否是NSURLAuthenticationMethodServerTrust（HTTPS模式下会进行该身份验证流程），
      * 在没有配置身份验证方法的情况下进行默认的网络请求流程。
      */
-    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
-    {
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
         if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {
             /*
              * 验证完以后，需要构造一个NSURLCredential发送给发起方
@@ -121,7 +119,6 @@
             /*
              * 验证失败，取消这次验证流程
              */
-//            [[challenge sender] cancelAuthenticationChallenge:challenge];
             [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
         }
     } else {
@@ -171,7 +168,6 @@
             disposition = NSURLSessionAuthChallengeUseCredential;
             credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
         } else {
-            //            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
             disposition = NSURLSessionAuthChallengePerformDefaultHandling;
         }
     } else {

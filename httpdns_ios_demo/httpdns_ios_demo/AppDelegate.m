@@ -21,10 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //SNI场景设置
+    // SNI场景设置
     [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
-    //WebView场景设置
-//    [NSURLProtocol registerClass:[WebViewURLProtocol class]];
+    
+    // WebView场景设置
+    // [NSURLProtocol registerClass:[WebViewURLProtocol class]];
     
     //初始化HTTPDNS
     HttpDnsService* httpdns = [HttpDnsService sharedInstance];

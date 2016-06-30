@@ -25,7 +25,7 @@
     // 初始化HTTPDNS
     HttpDnsService* httpdns = [HttpDnsService sharedInstance];
     
-    //需要设置SNI的URL
+    // 需要设置SNI的URL
     NSString *originalUrl = @"https://dou.bz/23o8PS";
 
     NSURL* url = [NSURL URLWithString:originalUrl];
@@ -42,8 +42,8 @@
         }
     }
     
-    //NSURLConnection例子
-//    [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
+    // NSURLConnection例子
+    // [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
     
     //NSURLSession例子
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -59,50 +59,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- * 降级过滤器，您可以自己定义HTTPDNS降级机制
- */
-- (BOOL)shouldDegradeHTTPDNS:(NSString *)hostName {
-    NSLog(@"Enters Degradation filter.");
-    // 根据HTTPDNS使用说明，存在网络代理情况下需降级为Local DNS
-    if ([NetworkManager configureProxies]) {
-        NSLog(@"Proxy was set. Degrade!");
-        return YES;
-    }
-    
-    // 假设您禁止"www.taobao.com"域名通过HTTPDNS进行解析
-    if ([hostName isEqualToString:@"www.taobao.com"]) {
-        NSLog(@"The host is in blacklist. Degrade!");
-        return YES;
-    }
-    
-    return NO;
-}
-
 #pragma mark NSURLConnectionDataDelegate
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     NSLog(@"receive data:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     NSLog(@"receive response:%@",response);
 }
 
--(NSURLRequest*)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response{
+- (NSURLRequest*)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response {
     return request;
 }
 
 #pragma mark NSURLSessionDataDelegate
--(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data{
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     NSLog(@"data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
--(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler{
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
     NSLog(@"response: %@",response);
     completionHandler(NSURLSessionResponseAllow);
 }
 
--(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     if (error) {
         NSLog(@"error: %@",error);
     }else
