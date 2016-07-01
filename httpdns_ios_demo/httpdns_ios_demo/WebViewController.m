@@ -9,16 +9,16 @@
 #import "WebViewController.h"
 #import <AlicloudHttpDNS/Httpdns.h>
 @import WebKit;
+#import "WebViewURLProtocol.h"
 
-@interface WebViewController ()<WKNavigationDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate>{
-    BOOL _Authenticated;
-}
+@interface WebViewController ()<WKNavigationDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate>
+
 //@property (nonatomic, strong) UIWebView* webView;
 @property (nonatomic, strong) WKWebView* wkWebView;
 @property (nonatomic, strong) NSMutableURLRequest* request;
 
 @end
-static HttpDnsService* httpdns;
+
 @implementation WebViewController
 
 - (void)viewDidLoad {
@@ -27,19 +27,17 @@ static HttpDnsService* httpdns;
     
 //    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
 //    [self.view addSubview:self.webView];
-    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.apple.com"]];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.aliyun.com"]];
 //    [self.webView loadRequest:req];
     
-    _Authenticated = NO;
-    httpdns = [HttpDnsService sharedInstance];
+    HttpDnsService* httpdns = [HttpDnsService sharedInstance];
     [httpdns setPreResolveHosts:@[req.URL.host]];
-    // 设置AccoutID
-    [httpdns setAccountID:139450];
     
     self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     _wkWebView.navigationDelegate = self;
     [_wkWebView loadRequest:req];
     [self.view addSubview:_wkWebView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,33 +46,34 @@ static HttpDnsService* httpdns;
 }
 
 #pragma mark WKNavigationDelegate
--(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
-    if (!_Authenticated) {
-        self.request = [navigationAction.request mutableCopy];
-        
-        NSString* originalUrl = _request.URL.absoluteString;
-        NSURL* url = [NSURL URLWithString:originalUrl];
-        // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
-        NSString* ip = [httpdns getIpByHostAsync:url.host];
-        if (ip) {
-            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
-            NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
-            if (NSNotFound != hostFirstRange.location) {
-                NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                NSLog(@"New URL: %@", newUrl);
-                self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-                [_request setValue:url.host forHTTPHeaderField:@"host"];
-            }
-        }
-        decisionHandler(WKNavigationActionPolicyCancel);
-        _Authenticated = YES;
-        [webView loadRequest:self.request];
-    }else
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
+//    if (![navigationAction.request valueForHTTPHeaderField:@"host"]) {
+//        self.request = [navigationAction.request mutableCopy];
+//        
+//        NSString* originalUrl = _request.URL.absoluteString;
+//        NSURL* url = [NSURL URLWithString:originalUrl];
+//        // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
+//        NSString* ip = [[HttpDnsService sharedInstance] getIpByHostAsync:url.host];
+//        if (ip) {
+//            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+//            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
+//            NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
+//            if (NSNotFound != hostFirstRange.location) {
+//                NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+//                NSLog(@"New URL: %@", newUrl);
+//                self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+//                [_request setValue:url.host forHTTPHeaderField:@"host"];
+//            }
+//        }
+//        decisionHandler(WKNavigationActionPolicyCancel);
+//        [webView loadRequest:self.request];
+//    } else {
+        NSLog(@"request: %@",navigationAction.request.URL);
         decisionHandler(WKNavigationActionPolicyAllow);
+//    }
 }
 
--(void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
     NSLog(@"authentication challenge");
     if (!challenge) {
         return;
@@ -103,12 +102,21 @@ static HttpDnsService* httpdns;
     completionHandler(disposition,credential);
 }
 
--(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    NSLog(@"response: %@",navigationResponse.response);
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     NSLog(@"did finish");
 }
 
--(void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
     NSLog(@"did commit");
+}
+
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
+    NSLog(@"redirect");
 }
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
