@@ -141,7 +141,7 @@ static dispatch_queue_t reachabilityQueue;
     }
 }
 
-//网络变化回调函数
+// 网络变化回调函数
 static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
 {
     NetworkManager* instance = [NetworkManager instance];

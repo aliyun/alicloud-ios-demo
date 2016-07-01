@@ -79,7 +79,7 @@
         return;
     }
     NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-    NSURLCredential *credential = nil;
+    NSURLCredential* credential = nil;
     /*
      * 获取原始域名信息。
      */
@@ -92,14 +92,13 @@
             disposition = NSURLSessionAuthChallengeUseCredential;
             credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
         } else {
-            //            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
             disposition = NSURLSessionAuthChallengePerformDefaultHandling;
         }
     } else {
         disposition = NSURLSessionAuthChallengePerformDefaultHandling;
     }
     // 对于其他的challenges直接使用默认的验证方案
-    completionHandler(disposition,credential);
+    completionHandler(disposition, credential);
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
@@ -120,21 +119,20 @@
 }
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
-                  forDomain:(NSString *)domain
-{
+                  forDomain:(NSString*)domain {
     /*
      * 创建证书校验策略
      */
-    NSMutableArray *policies = [NSMutableArray array];
+    NSMutableArray* policies = [NSMutableArray array];
     if (domain) {
-        [policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
+        [policies addObject:(__bridge_transfer id) SecPolicyCreateSSL(true, (__bridge CFStringRef) domain)];
     } else {
-        [policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
+        [policies addObject:(__bridge_transfer id) SecPolicyCreateBasicX509()];
     }
     /*
      * 绑定校验策略到服务端的证书上
      */
-    SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
+    SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef) policies);
     /*
      * 评估当前serverTrust是否可信任，
      * 官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed
