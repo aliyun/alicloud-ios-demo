@@ -56,7 +56,7 @@
     NSString* originalUrl = mutableReq.URL.absoluteString;
     NSURL* url = [NSURL URLWithString:originalUrl];
     // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
-    NSString* ip = [[HttpDnsService sharedInstance] getIpByHostAsync:url.host];
+    NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
     if (ip) {
         // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
         NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
@@ -141,9 +141,13 @@
     [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     [inputStream open];
 
-    CFRelease(requestURL);
     CFRelease(cfrequest);
+    CFRelease(requestURL);
+    CFRelease(url);
+    cfrequest = NULL;
+    CFRelease(bodyData);
     CFRelease(requestBody);
+    CFRelease(requestMethod);
 }
 
 /**
@@ -187,75 +191,91 @@
  * input stream 收到数据后的回调函数
  */
 - (void)stream:(NSStream*)aStream handleEvent:(NSStreamEvent)eventCode {
-    if (eventCode == NSStreamEventHasSpaceAvailable || eventCode == NSStreamEventHasBytesAvailable) {
-        UInt8 buffer[2048];
-        NSInputStream* inputstream = (NSInputStream*) aStream;
-        NSNumber* alreadyAdded = objc_getAssociatedObject(aStream, kAnchorAlreadyAdded);
-        if (!alreadyAdded || ![alreadyAdded boolValue]) {
-            objc_setAssociatedObject(aStream, kAnchorAlreadyAdded, [NSNumber numberWithBool:YES], OBJC_ASSOCIATION_COPY);
-            // 通知client已收到response，且只通知一次
-            CFReadStreamRef readStream = (__bridge_retained CFReadStreamRef) aStream;
-            CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
-            NSDictionary* headDict = (__bridge NSDictionary*) (CFHTTPMessageCopyAllHeaderFields(message));
-            CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
-            // 获取响应头部的状态码
-            CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
-            // 此处返回的Response中的URL必须是原始的URL，不然会影响WebView后续请求
-            NSHTTPURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:[self.request.allHTTPHeaderFields valueForKey:@"originalUrl"]] statusCode:myErrCode HTTPVersion:(__bridge NSString*) httpVersion headerFields:headDict];
-            [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-
-            if ([self.request.URL.absoluteString hasPrefix:@"https"]) {
-                // 验证证书
-                SecTrustRef trust = (__bridge SecTrustRef) [aStream propertyForKey:(__bridge NSString*) kCFStreamPropertySSLPeerTrust];
-
-                SecTrustResultType res = kSecTrustResultInvalid;
-                NSMutableArray* policies = [NSMutableArray array];
-                NSString* domain = [[self.request allHTTPHeaderFields] valueForKey:@"host"];
-                if (domain) {
-                    [policies addObject:(__bridge_transfer id) SecPolicyCreateSSL(true, (__bridge CFStringRef) domain)];
+    if (eventCode == NSStreamEventHasBytesAvailable) {
+        CFReadStreamRef readStream = (__bridge_retained CFReadStreamRef) aStream;
+        CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
+        if (CFHTTPMessageIsHeaderComplete(message)) {
+            // 以防response的header信息不完整
+            UInt8 buffer[2048];
+            UInt8* buf = NULL;
+            unsigned long length = 0;
+            NSInputStream* inputstream = (NSInputStream*) aStream;
+            NSNumber* alreadyAdded = objc_getAssociatedObject(aStream, kAnchorAlreadyAdded);
+            if (!alreadyAdded || ![alreadyAdded boolValue]) {
+                objc_setAssociatedObject(aStream, kAnchorAlreadyAdded, [NSNumber numberWithBool:YES], OBJC_ASSOCIATION_COPY);
+                // 通知client已收到response，且只通知一次
+                NSDictionary* headDict = (__bridge NSDictionary*) (CFHTTPMessageCopyAllHeaderFields(message));
+                CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
+                // 获取响应头部的状态码
+                CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
+                // 此处返回的Response中的URL必须是原始的URL，不然会影响WebView后续请求
+                NSHTTPURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:[self.request.allHTTPHeaderFields valueForKey:@"originalUrl"]] statusCode:myErrCode HTTPVersion:(__bridge NSString*) httpVersion headerFields:headDict];
+                [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+                
+                if ([self.request.URL.absoluteString hasPrefix:@"https"]) {
+                    // 验证证书
+                    SecTrustRef trust = (__bridge SecTrustRef) [aStream propertyForKey:(__bridge NSString*) kCFStreamPropertySSLPeerTrust];
+                    
+                    SecTrustResultType res = kSecTrustResultInvalid;
+                    NSMutableArray* policies = [NSMutableArray array];
+                    NSString* domain = [[self.request allHTTPHeaderFields] valueForKey:@"host"];
+                    if (domain) {
+                        [policies addObject:(__bridge_transfer id) SecPolicyCreateSSL(true, (__bridge CFStringRef) domain)];
+                    } else {
+                        [policies addObject:(__bridge_transfer id) SecPolicyCreateBasicX509()];
+                    }
+                    
+                    // 绑定校验策略到服务端的证书上
+                    SecTrustSetPolicies(trust, (__bridge CFArrayRef) policies);
+                    if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
+                        [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+                        [aStream setDelegate:nil];
+                        [aStream close];
+                    }
+                    if (res != kSecTrustResultProceed && res != kSecTrustResultUnspecified) {
+                        /* 证书验证不通过，关闭input stream */
+                        [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+                        [aStream setDelegate:nil];
+                        [aStream close];
+                    } else {
+                        // 证书通过，读取数据
+                        if (![inputstream getBuffer:&buf length:&length]) {
+                            NSInteger amount = [inputstream read:buffer maxLength:sizeof(buffer)];
+                            buf = buffer;
+                            length = amount;
+                        }
+                        NSData* data = [[NSData alloc] initWithBytes:buf length:length];
+                        
+                        [self.client URLProtocol:self didLoadData:data];
+                    }
                 } else {
-                    [policies addObject:(__bridge_transfer id) SecPolicyCreateBasicX509()];
-                }
-
-                // 绑定校验策略到服务端的证书上
-                SecTrustSetPolicies(trust, (__bridge CFArrayRef) policies);
-                if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
-                    [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-                    [aStream setDelegate:nil];
-                    [aStream close];
-                }
-                if (res != kSecTrustResultProceed && res != kSecTrustResultUnspecified) {
-                    /* 证书验证不通过，关闭input stream */
-                    [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-                    [aStream setDelegate:nil];
-                    [aStream close];
-                } else {
-                    // 证书通过，读取数据
-                    CFIndex length = [inputstream read:buffer maxLength:sizeof(buffer)];
-                    NSData* data = [[NSData alloc] initWithBytes:buffer length:length];
-
+                    // http请求
+                    if (![inputstream getBuffer:&buf length:&length]) {
+                        NSInteger amount = [inputstream read:buffer maxLength:sizeof(buffer)];
+                        buf = buffer;
+                        length = amount;
+                    }
+                    NSData* data = [[NSData alloc] initWithBytes:buf length:length];
+                    
                     [self.client URLProtocol:self didLoadData:data];
                 }
             } else {
-                // http请求
-                CFIndex length = [inputstream read:buffer maxLength:sizeof(buffer)];
-                NSData* data = [[NSData alloc] initWithBytes:buffer length:length];
-
+                if (![inputstream getBuffer:&buf length:&length]) {
+                    NSInteger amount = [inputstream read:buffer maxLength:sizeof(buffer)];
+                    buf = buffer;
+                    length = amount;
+                }
+                NSData* data = [[NSData alloc] initWithBytes:buf length:length];
+                
                 [self.client URLProtocol:self didLoadData:data];
             }
-        } else {
-            CFIndex length = [inputstream read:buffer maxLength:sizeof(buffer)];
-            NSData* data = [[NSData alloc] initWithBytes:buffer length:length];
-
-            [self.client URLProtocol:self didLoadData:data];
         }
     } else if (eventCode == NSStreamEventErrorOccurred) {
         [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         [aStream setDelegate:nil];
         [aStream close];
         // 通知client发生错误了
-        NSError* underlyingError = CFBridgingRelease(CFReadStreamCopyError((CFReadStreamRef)(NSInputStream*) aStream));
-        [self.client URLProtocol:self didFailWithError:underlyingError];
+        [self.client URLProtocol:self didFailWithError:[aStream streamError]];
     } else if (eventCode == NSStreamEventEndEncountered) {
         [self handleResponse:(NSInputStream*) aStream];
     }

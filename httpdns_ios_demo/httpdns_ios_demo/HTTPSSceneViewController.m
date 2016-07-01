@@ -8,7 +8,6 @@
 
 #import "CFHttpMessageURLProtocol.h"
 #import "HTTPSSceneViewController.h"
-#import "NetworkManager.h"
 #import <AlicloudHttpDNS/Httpdns.h>
 
 @interface HTTPSSceneViewController () <NSURLConnectionDelegate, NSURLSessionTaskDelegate, NSURLConnectionDataDelegate, NSURLSessionDataDelegate>

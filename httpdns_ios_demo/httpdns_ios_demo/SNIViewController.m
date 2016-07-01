@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // 注册拦截请求的NSURLProtocol
+    [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
     // 初始化HTTPDNS
     HttpDnsService* httpdns = [HttpDnsService sharedInstance];
 
@@ -45,7 +47,7 @@
     // NSURLConnection例子
     // [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
 
-    //NSURLSession例子
+    // NSURLSession例子
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSArray* protocolArray = @[ [CFHttpMessageURLProtocol class] ];
     configuration.protocolClasses = protocolArray;
@@ -85,7 +87,8 @@
 - (void)URLSession:(NSURLSession*)session task:(NSURLSessionTask*)task didCompleteWithError:(NSError*)error {
     if (error) {
         NSLog(@"error: %@", error);
-    } else
+    }
+    else
         NSLog(@"complete");
 }
 

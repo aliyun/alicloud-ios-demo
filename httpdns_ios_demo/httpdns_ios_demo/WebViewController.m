@@ -7,14 +7,11 @@
 //
 
 #import "WebViewController.h"
-#import <AlicloudHttpDNS/Httpdns.h>
-@import WebKit;
 #import "WebViewURLProtocol.h"
 
-@interface WebViewController ()<WKNavigationDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate>
+@interface WebViewController ()
 
-//@property (nonatomic, strong) UIWebView* webView;
-@property (nonatomic, strong) WKWebView* wkWebView;
+@property (nonatomic, strong) UIWebView* webView;
 @property (nonatomic, strong) NSMutableURLRequest* request;
 
 @end
@@ -24,134 +21,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // 注册拦截请求的NSURLProtocol
+    [NSURLProtocol registerClass:[WebViewURLProtocol class]];
     
-//    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-//    [self.view addSubview:self.webView];
-    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.aliyun.com"]];
-//    [self.webView loadRequest:req];
-    
-    HttpDnsService* httpdns = [HttpDnsService sharedInstance];
-    [httpdns setPreResolveHosts:@[req.URL.host]];
-    
-    self.wkWebView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    _wkWebView.navigationDelegate = self;
-    [_wkWebView loadRequest:req];
-    [self.view addSubview:_wkWebView];
-    
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.webView];
+    NSMutableURLRequest* req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.apple.com"]];
+    [self.webView loadRequest:req];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark WKNavigationDelegate
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
-//    if (![navigationAction.request valueForHTTPHeaderField:@"host"]) {
-//        self.request = [navigationAction.request mutableCopy];
-//        
-//        NSString* originalUrl = _request.URL.absoluteString;
-//        NSURL* url = [NSURL URLWithString:originalUrl];
-//        // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
-//        NSString* ip = [[HttpDnsService sharedInstance] getIpByHostAsync:url.host];
-//        if (ip) {
-//            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-//            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
-//            NSRange hostFirstRange = [originalUrl rangeOfString: url.host];
-//            if (NSNotFound != hostFirstRange.location) {
-//                NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-//                NSLog(@"New URL: %@", newUrl);
-//                self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-//                [_request setValue:url.host forHTTPHeaderField:@"host"];
-//            }
-//        }
-//        decisionHandler(WKNavigationActionPolicyCancel);
-//        [webView loadRequest:self.request];
-//    } else {
-        NSLog(@"request: %@",navigationAction.request.URL);
-        decisionHandler(WKNavigationActionPolicyAllow);
-//    }
-}
-
-- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler{
-    NSLog(@"authentication challenge");
-    if (!challenge) {
-        return;
-    }
-    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-    NSURLCredential* credential = nil;
-    /*
-     * 获取原始域名信息。
-     */
-    NSString* host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
-    if (!host) {
-        host = self.request.URL.host;
-    }
-    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-        if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {
-            disposition = NSURLSessionAuthChallengeUseCredential;
-            credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-        } else {
-            disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-        }
-    } else {
-        disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-    }
-    // 对于其他的challenges直接使用默认的验证方案
-    completionHandler(disposition, credential);
-}
-
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-    NSLog(@"response: %@",navigationResponse.response);
-    decisionHandler(WKNavigationResponsePolicyAllow);
-}
-
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    NSLog(@"did finish");
-}
-
-- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-    NSLog(@"did commit");
-}
-
-- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
-    NSLog(@"redirect");
-}
-
-- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
-                  forDomain:(NSString*)domain {
-    /*
-     * 创建证书校验策略
-     */
-    NSMutableArray* policies = [NSMutableArray array];
-    if (domain) {
-        [policies addObject:(__bridge_transfer id) SecPolicyCreateSSL(true, (__bridge CFStringRef) domain)];
-    } else {
-        [policies addObject:(__bridge_transfer id) SecPolicyCreateBasicX509()];
-    }
-    /*
-     * 绑定校验策略到服务端的证书上
-     */
-    SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef) policies);
-    /*
-     * 评估当前serverTrust是否可信任，
-     * 官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed
-     * 的情况下serverTrust可以被验证通过，https://developer.apple.com/library/ios/technotes/tn2232/_index.html
-     * 关于SecTrustResultType的详细信息请参考SecTrust.h
-     */
-    SecTrustResultType result;
-    SecTrustEvaluate(serverTrust, &result);
-    return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
-}
-
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
