@@ -135,50 +135,58 @@
     // 获取响应头部信息
     CFReadStreamRef readStream = (__bridge_retained CFReadStreamRef) inputStream;
     CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
-    NSDictionary* headDict = (__bridge NSDictionary*) (CFHTTPMessageCopyAllHeaderFields(message));
-    
-    // 获取响应头部的状态码
-    CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
-    
-    // 把当前请求关闭
-    [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    [inputStream setDelegate:nil];
-    [inputStream close];
-    
-    if (myErrCode >= 200 && myErrCode < 300) {
+    if (CFHTTPMessageIsHeaderComplete(message)) {
+        // 确保response头部信息完整
+        NSDictionary* headDict = (__bridge NSDictionary*) (CFHTTPMessageCopyAllHeaderFields(message));
         
-        // 返回码为2xx，直接通知client
-        [self.client URLProtocolDidFinishLoading:self];
+        // 获取响应头部的状态码
+        CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
         
-    } else if (myErrCode >= 300 && myErrCode < 400) {
-        // 返回码为3xx，需要重定向请求，继续访问重定向页面
-        NSString* location = headDict[@"Location"];
-        NSURL* url = [[NSURL alloc] initWithString:location];
-        curRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+        // 把当前请求关闭
+        [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [inputStream setDelegate:nil];
+        [inputStream close];
         
-        /***********重定向通知client处理或内部处理*************/
-        // client处理
-        // NSURLResponse* response = [[NSURLResponse alloc] initWithURL:curRequest.URL MIMEType:headDict[@"Content-Type"] expectedContentLength:[headDict[@"Content-Length"] integerValue] textEncodingName:@"UTF8"];
-        // [self.client URLProtocol:self wasRedirectedToRequest:curRequest redirectResponse:response];
-        
-        // 内部处理，将url中的host通过HTTPDNS转换为IP
-        NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
-        
-        if (ip) {
-            NSLog(@"Get IP from HTTPDNS Successfully!");
-            NSRange hostFirstRange = [location rangeOfString:url.host];
-            if (NSNotFound != hostFirstRange.location) {
-                NSString* newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-                [curRequest setValue:url.host forHTTPHeaderField:@"host"];
+        if (myErrCode >= 200 && myErrCode < 300) {
+            
+            // 返回码为2xx，直接通知client
+            [self.client URLProtocolDidFinishLoading:self];
+            
+        } else if (myErrCode >= 300 && myErrCode < 400) {
+            // 返回码为3xx，需要重定向请求，继续访问重定向页面
+            NSString* location = headDict[@"Location"];
+            NSURL* url = [[NSURL alloc] initWithString:location];
+            curRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+            
+            /***********重定向通知client处理或内部处理*************/
+            // client处理
+            // NSURLResponse* response = [[NSURLResponse alloc] initWithURL:curRequest.URL MIMEType:headDict[@"Content-Type"] expectedContentLength:[headDict[@"Content-Length"] integerValue] textEncodingName:@"UTF8"];
+            // [self.client URLProtocol:self wasRedirectedToRequest:curRequest redirectResponse:response];
+            
+            // 内部处理，将url中的host通过HTTPDNS转换为IP
+            NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
+            
+            if (ip) {
+                NSLog(@"Get IP from HTTPDNS Successfully!");
+                NSRange hostFirstRange = [location rangeOfString:url.host];
+                if (NSNotFound != hostFirstRange.location) {
+                    NSString* newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+                    curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                    [curRequest setValue:url.host forHTTPHeaderField:@"host"];
+                }
             }
+            [self startRequest];
+        } else {
+            // 其他情况，直接返回响应信息给client
+            [self.client URLProtocolDidFinishLoading:self];
         }
-        [self startRequest];
     } else {
-        // 其他情况，直接返回响应信息给client
+        // 头部信息不完整，关闭inputstream，通知client
+        [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [inputStream setDelegate:nil];
+        [inputStream close];
         [self.client URLProtocolDidFinishLoading:self];
     }
-    
 }
 
 #pragma mark - NSStreamDelegate
