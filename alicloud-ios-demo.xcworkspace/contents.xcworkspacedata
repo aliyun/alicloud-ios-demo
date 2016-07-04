@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:mpush_ios_demo/mpush_ios_demo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:httpdns_ios_demo/httpdns_ios_demo.xcodeproj">
    </FileRef>
    <FileRef
@@ -14,6 +17,6 @@
       location = "group:oss_ios_demo/oss_ios_demo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:httpdns_restful_demo/httpdns_restful_demo.xcodeproj">
+      location = "group:httpdns_api_demo/httpdns_api_demo.xcodeproj">
    </FileRef>
 </Workspace>
