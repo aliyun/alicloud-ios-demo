@@ -1,10 +1,10 @@
 //
-//  SNIViewController.m
-//  httpdns_ios_demo
+// SNIViewController.m
+// httpdns_ios_demo
 //
-//  SNI应用场景
-//  Created by fuyuan.lfy on 16/6/23.
-//  Copyright © 2016年 alibaba. All rights reserved.
+// SNI应用场景
+// Created by fuyuan.lfy on 16/6/23.
+// Copyright © 2016年 alibaba. All rights reserved.
 //
 
 #import "CFHttpMessageURLProtocol.h"
@@ -26,10 +26,9 @@
     [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
     // 初始化HTTPDNS
     HttpDnsService* httpdns = [HttpDnsService sharedInstance];
-
+    
     // 需要设置SNI的URL
     NSString* originalUrl = @"https://dou.bz/23o8PS";
-
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSString* ip = [httpdns getIpByHost:url.host];
@@ -43,10 +42,10 @@
             [_request setValue:url.host forHTTPHeaderField:@"host"];
         }
     }
-
+    
     // NSURLConnection例子
     // [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
-
+    
     // NSURLSession例子
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSArray* protocolArray = @[ [CFHttpMessageURLProtocol class] ];
@@ -59,6 +58,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    // 取消注册CFHttpMessageURLProtocol，避免拦截其他场景的请求
+    [NSURLProtocol unregisterClass:[CFHttpMessageURLProtocol class]];
 }
 
 #pragma mark NSURLConnectionDataDelegate
@@ -93,13 +97,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

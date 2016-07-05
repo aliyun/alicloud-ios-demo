@@ -1,9 +1,9 @@
 //
-//  AppDelegate.m
-//  httpdns_ios_demo
+// AppDelegate.m
+// httpdns_ios_demo
 //
-//  Created by ryan on 27/1/2016.
-//  Copyright © 2016 alibaba. All rights reserved.
+// Created by ryan on 27/1/2016.
+// Copyright © 2016 alibaba. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -20,14 +20,16 @@
     // Override point for customization after application launch.
     // 初始化HTTPDNS
     HttpDnsService* httpdns = [HttpDnsService sharedInstance];
-
+    
     // 设置AccoutID
     [httpdns setAccountID:139450];
+    // [httpdns setAccountID:142208];
     // 为HTTPDNS服务设置降级机制
-    [httpdns setDelegateForDegradationFilter:(id<HttpDNSDegradationDelegate>)self];
-
+    [httpdns setDelegateForDegradationFilter:(id < HttpDNSDegradationDelegate >)self];
+    
     // edited
     NSArray* preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com" ];
+    // NSArray* preResolveHosts = @[@"pic1cdn.igetget.com"];
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
     return YES;
@@ -65,13 +67,13 @@
         NSLog(@"Proxy was set. Degrade!");
         return YES;
     }
-
+    
     // 假设您禁止"www.taobao.com"域名通过HTTPDNS进行解析
     if ([hostName isEqualToString:@"www.taobao.com"]) {
         NSLog(@"The host is in blacklist. Degrade!");
         return YES;
     }
-
+    
     return NO;
 }
 

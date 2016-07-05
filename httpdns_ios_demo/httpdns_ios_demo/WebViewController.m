@@ -34,6 +34,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewDidDisappear:(BOOL)animated {
+    // 取消注册WebViewURLProtocol，避免拦截其他场景的请求
+    [NSURLProtocol unregisterClass:[WebViewURLProtocol class]];
+}
+
 /*
  #pragma mark - Navigation
  

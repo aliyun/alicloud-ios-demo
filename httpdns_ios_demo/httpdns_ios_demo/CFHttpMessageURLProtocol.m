@@ -1,9 +1,9 @@
 
-//  MyCFHttpMessageURLProtocol.m
-//  NSURLProtocolDemo
+// MyCFHttpMessageURLProtocol.m
+// NSURLProtocolDemo
 //
-//  Created by fuyuan.lfy on 16/6/14.
-//  Copyright © 2016年 Jaylon. All rights reserved.
+// Created by fuyuan.lfy on 16/6/14.
+// Copyright © 2016年 Jaylon. All rights reserved.
 //
 
 #import "CFHttpMessageURLProtocol.h"
@@ -16,6 +16,7 @@
 
 @interface CFHttpMessageURLProtocol () <NSStreamDelegate> {
     NSMutableURLRequest* curRequest;
+    NSRunLoop* curRunLoop;
 }
 
 @end
@@ -115,8 +116,11 @@
     [inputStream setProperty:sslProperties forKey:(__bridge_transfer NSString*) kCFStreamPropertySSLSettings];
     [inputStream setDelegate:self];
     
+    if (!curRunLoop)
+        // 保存当前线程的runloop，这对于重定向的请求很关键
+        curRunLoop = [NSRunLoop currentRunLoop];
     // 将请求放入当前runloop的事件队列
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [inputStream scheduleInRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
     [inputStream open];
     
     CFRelease(cfrequest);
@@ -143,7 +147,7 @@
         CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
         
         // 把当前请求关闭
-        [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [inputStream removeFromRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
         [inputStream setDelegate:nil];
         [inputStream close];
         
@@ -163,26 +167,28 @@
             // NSURLResponse* response = [[NSURLResponse alloc] initWithURL:curRequest.URL MIMEType:headDict[@"Content-Type"] expectedContentLength:[headDict[@"Content-Length"] integerValue] textEncodingName:@"UTF8"];
             // [self.client URLProtocol:self wasRedirectedToRequest:curRequest redirectResponse:response];
             
-            // 内部处理，将url中的host通过HTTPDNS转换为IP
-            NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
-            
-            if (ip) {
-                NSLog(@"Get IP from HTTPDNS Successfully!");
-                NSRange hostFirstRange = [location rangeOfString:url.host];
-                if (NSNotFound != hostFirstRange.location) {
-                    NSString* newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                    curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-                    [curRequest setValue:url.host forHTTPHeaderField:@"host"];
+            // 内部处理，将url中的host通过HTTPDNS转换为IP，不能在startLoading线程中进行同步网络请求，会被阻塞
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(){
+                NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
+                
+                if (ip) {
+                    NSLog(@"Get IP from HTTPDNS Successfully!");
+                    NSRange hostFirstRange = [location rangeOfString:url.host];
+                    if (NSNotFound != hostFirstRange.location) {
+                        NSString* newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+                        curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                        [curRequest setValue:url.host forHTTPHeaderField:@"host"];
+                    }
                 }
-            }
-            [self startRequest];
+                [self startRequest];
+            });
         } else {
             // 其他情况，直接返回响应信息给client
             [self.client URLProtocolDidFinishLoading:self];
         }
     } else {
         // 头部信息不完整，关闭inputstream，通知client
-        [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [inputStream removeFromRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
         [inputStream setDelegate:nil];
         [inputStream close];
         [self.client URLProtocolDidFinishLoading:self];
@@ -229,14 +235,14 @@
                  */
                 SecTrustSetPolicies(trust, (__bridge CFArrayRef) policies);
                 if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
-                    [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+                    [aStream removeFromRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
                     [aStream setDelegate:nil];
                     [aStream close];
                     [self.client URLProtocol:self didFailWithError:[[NSError alloc] initWithDomain:@"can not evaluate the server trust" code:-1 userInfo:nil]];
                 }
                 if (res != kSecTrustResultProceed && res != kSecTrustResultUnspecified) {
                     /* 证书验证不通过，关闭input stream */
-                    [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+                    [aStream removeFromRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
                     [aStream setDelegate:nil];
                     [aStream close];
                     [self.client URLProtocol:self didFailWithError:[[NSError alloc] initWithDomain:@"fail to evaluate the server trust" code:-1 userInfo:nil]];
@@ -265,7 +271,7 @@
             }
         }
     } else if (eventCode == NSStreamEventErrorOccurred) {
-        [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [aStream removeFromRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
         [aStream setDelegate:nil];
         [aStream close];
         // 通知client发生错误了
