@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define ALBB_SESSION_SDK_VERSION  @"1.4.0"
+#define ALBB_SESSION_SDK_VERSION  @"1.4.1"
 
 typedef void (^initSessionSuccessCallback)();
 typedef void (^initSessionFailCallback)(NSError *error);
