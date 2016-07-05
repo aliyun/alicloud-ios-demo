@@ -9,16 +9,15 @@
 #import "CloudPushCallbackResult.h"
 #import <Foundation/Foundation.h>
 
-#define CLOUDPUSH_IOS_SDK_VERSION   @"1.6.0"
-
-typedef enum{
-    CCPSDKEnvironmentDaily,     // 测试环境
-    CCPSDKEnvironmentPre,       // 预发环境
-    CCPSDKEnvironmentSandBox,   // 沙箱环境
-    CCPSDKEnvironmentRelease    // 线上环境
-} CCPSDKEnvironmentEnum;
+#define CLOUDPUSH_IOS_SDK_VERSION   @"1.7.0"
 
 typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
+
+// 保证callback不为空
+#define NotNilCallback(funcName, paras)\
+if (funcName) {\
+funcName(paras);\
+}
 
 @protocol CloudPushSDKServiceDelegate <NSObject>
 
@@ -113,20 +112,66 @@ typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
          withCallback:(CallbackHandler)callback;
 
 /**
- *  增加自定义的tag, 目前只支持12个自定义的tag
- *
- *  @param tag      tag
- *  @param callback 回调
+ *	向指定目标添加自定义标签
+ *  支持向本设备/本设备绑定账号/别名添加自定义标签，目标类型由@param target指定
+ *	@param 	target      目标类型，1：本设备  2：本设备绑定账号  3：别名
+ *	@param 	tags        标签名
+ *	@param 	alias       别名（仅当target = 3时生效）
+ *	@param 	callback 	回调
  */
-+ (void)addTag:(NSString *)tag withCallback:(CallbackHandler)callback;
++ (void)bindTag:(int)target
+       withTags:(NSArray *)tags
+      withAlias:(NSString *)alias
+   withCallback:(CallbackHandler)callback;
 
 /**
- *  删除自定义的tag, 目前只支持12个自定义的tag
- *
- *  @param tag      tag
- *  @param callback 回调
+ *	删除指定目标的自定义标签
+ *  支持从本设备/本设备绑定账号/别名删除自定义标签，目标类型由@param target指定
+ *	@param 	target      目标类型，1：本设备  2：本设备绑定账号  3：别名
+ *	@param 	tags        标签名
+ *	@param 	alias       别名（仅当target = 3时生效）
+ *	@param 	callback 	回调
  */
-+ (void)removeTag:(NSString *)tag withCallback:(CallbackHandler)callback;
++ (void)unbindTag:(int)target
+         withTags:(NSArray *)tags
+        withAlias:(NSString *)alias
+     withCallback:(CallbackHandler)callback;
+
+/**
+ *  查询绑定标签，查询结果可从callback的data中获取
+ *
+ *  @param target       目标类型，1：本设备（当前仅支持查询本设备绑定标签）
+ *  @param callback     回调
+ */
++ (void)listTags:(int)target
+    withCallback:(CallbackHandler)callback;
+
+/**
+ *	给当前设备打别名
+ *
+ *	@param 	alias       别名名称
+ *	@param 	callback 	回调
+ */
++ (void)addAlias:(NSString *)alias
+    withCallback:(CallbackHandler)callback;
+
+/**
+ *	删除当前设备的指定别名
+ *  当alias为nil or length = 0时，删除当前设备绑定所有别名
+ *	@param 	alias       别名名称
+ *	@param 	callback 	回调
+ */
++ (void)removeAlias:(NSString *)alias
+       withCallback:(CallbackHandler)callback;
+
+/**
+ *  查询本设备绑定别名，查询结果可从callback的data中获取
+ *
+ *  @param callback     回调
+ *
+ *  @return
+ */
++ (void)listAliases:(CallbackHandler)callback;
 
 /**
  *	获取APNs返回的deviceToken
@@ -143,21 +188,5 @@ typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
  *  @return
  */
 + (void)registerDevice:(NSData *)deviceToken;
-
-/**
- *	Json转换方法 (建议用户不要使用)
- *
- *	@param 	dict
- *
- *	@return
- */
-+ (NSString *)toJson:(NSDictionary * )dict;
-
-/**
- *	设置环境变量 (用户不要调用)
- *
- *	@param 	env
- */
-+ (void)setEnvironment:(CCPSDKEnvironmentEnum)env;
 
 @end
