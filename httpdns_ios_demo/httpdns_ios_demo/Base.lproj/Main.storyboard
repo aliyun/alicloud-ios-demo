@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GtF-LO-C51">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GtF-LO-C51">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -25,7 +25,7 @@
                                 </constraints>
                                 <state key="normal" title="普通场景"/>
                                 <connections>
-                                    <segue destination="HE3-7Q-fGd" kind="push" id="7hk-e9-shr"/>
+                                    <segue destination="HE3-7Q-fGd" kind="show" id="7hk-e9-shr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfr-ao-TNx">
@@ -36,7 +36,7 @@
                                 </constraints>
                                 <state key="normal" title="HTTPS场景"/>
                                 <connections>
-                                    <segue destination="J88-GR-qgs" kind="push" id="YQ1-t3-M1J"/>
+                                    <segue destination="J88-GR-qgs" kind="show" id="YQ1-t3-M1J"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNf-ed-e74">
@@ -47,7 +47,7 @@
                                 </constraints>
                                 <state key="normal" title="SNI场景"/>
                                 <connections>
-                                    <segue destination="8Gq-sH-iVI" kind="push" id="IIq-aq-ffL"/>
+                                    <segue destination="8Gq-sH-iVI" kind="show" id="IIq-aq-ffL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqP-X5-TOM">
@@ -58,7 +58,7 @@
                                 </constraints>
                                 <state key="normal" title="WebView场景"/>
                                 <connections>
-                                    <segue destination="ajS-jS-EnA" kind="push" id="AmO-j0-ETg"/>
+                                    <segue destination="ajS-jS-EnA" kind="show" id="AmO-j0-ETg"/>
                                 </connections>
                             </button>
                         </subviews>

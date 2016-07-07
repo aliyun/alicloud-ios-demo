@@ -19,11 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     // 初始化httpdns实例
     HttpDnsService* httpdns = [HttpDnsService sharedInstance];
-
-    NSString* originalUrl = @"https://pic1cdn.igetget.com/audio/index/u/3805879991/t/cover/n/big_2016062419504554829.jpg";
+    
+    NSString* originalUrl = @"https://www.apple.com";
     NSURL* url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
@@ -45,20 +45,20 @@
         }
     }
     // NSURLConnection例子
-     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:YES];
-
+    // NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:YES];
+    
     // NSURLSession例子
-//    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    NSURLSession* session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
-//    NSURLSessionTask* task = [session dataTaskWithRequest:self.request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
-//        if (error) {
-//            NSLog(@"error: %@", error);
-//        } else {
-//            NSLog(@"response: %@", response);
-//            NSLog(@"data: %@", data);
-//        }
-//    }];
-//    [task resume];
+    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+    NSURLSessionTask* task = [session dataTaskWithRequest:self.request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+        if (error) {
+            NSLog(@"error: %@", error);
+        } else {
+            NSLog(@"response: %@", response);
+            NSLog(@"data: %@", data);
+        }
+    }];
+    [task resume];
 }
 
 - (void)didReceiveMemoryWarning {

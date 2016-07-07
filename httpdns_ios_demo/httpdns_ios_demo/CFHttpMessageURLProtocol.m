@@ -17,6 +17,7 @@
 @interface CFHttpMessageURLProtocol () <NSStreamDelegate> {
     NSMutableURLRequest* curRequest;
     NSRunLoop* curRunLoop;
+    NSInputStream* inputStream;
 }
 
 @end
@@ -68,6 +69,11 @@
  * 取消请求
  */
 - (void)stopLoading {
+    if (inputStream.streamStatus == NSStreamStatusOpen) {
+        [inputStream removeFromRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
+        [inputStream setDelegate:nil];
+        [inputStream close];
+    }
     [self.client URLProtocol:self didFailWithError:[[NSError alloc] initWithDomain:@"stop loading" code:-1 userInfo:nil]];
 }
 
@@ -102,7 +108,7 @@
     
     // 创建CFHTTPMessage对象的输入流
     CFReadStreamRef readStream = CFReadStreamCreateForHTTPRequest(kCFAllocatorDefault, cfrequest);
-    NSInputStream* inputStream = (__bridge_transfer NSInputStream*) readStream;
+    inputStream = (__bridge_transfer NSInputStream*) readStream;
     
     // 设置SNI host信息，关键步骤
     NSString* host = [curRequest.allHTTPHeaderFields objectForKey:@"host"];
@@ -135,7 +141,7 @@
 /**
  * 根据服务器返回的响应内容进行不同的处理
  */
-- (void)handleResponseWithInputStream:(NSStream*)inputStream {
+- (void)handleResponse {
     // 获取响应头部信息
     CFReadStreamRef readStream = (__bridge_retained CFReadStreamRef) inputStream;
     CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
@@ -277,7 +283,7 @@
         // 通知client发生错误了
         [self.client URLProtocol:self didFailWithError:[aStream streamError]];
     } else if (eventCode == NSStreamEventEndEncountered) {
-        [self handleResponseWithInputStream:aStream];
+        [self handleResponse];
     }
 }
 
