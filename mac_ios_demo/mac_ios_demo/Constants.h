@@ -14,8 +14,16 @@ extern const int MAX_CONCURRENT_REQUESTS_NUM;
 
 extern const int REQUEST_TIMEOUT_INTERVAL;
 
+extern const int REQUEST_INTERVAL;
+
 extern NSString * const REQUEST_URL_API;
 
 extern NSString * const REQUEST_URL_IMG1;
 
 extern NSString * const REQUEST_URL_IMG2;
+
+extern NSString * const REQUEST_URL_API_MAC;
+
+extern NSString * const REQUEST_URL_IMG1_MAC;
+
+extern NSString * const REQUEST_URL_IMG2_MAC;
