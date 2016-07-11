@@ -28,11 +28,11 @@ static dispatch_queue_t reachabilityQueue;
     _NetworkStatus _current;
     _NetworkStatus _last;
     SCNetworkReachabilityRef _ref;
-    NSString* _ssid;
-    CTTelephonyNetworkInfo* _cttInfo;
+    NSString *_ssid;
+    CTTelephonyNetworkInfo *_cttInfo;
 }
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
         _ref = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"gw.alicdn.com" UTF8String]);
         _cttInfo = [[CTTelephonyNetworkInfo alloc] init];
@@ -44,8 +44,8 @@ static dispatch_queue_t reachabilityQueue;
     return self;
 }
 
-+(NetworkManager*)instance {
-    static NetworkManager* _instance = nil;
++ (NetworkManager *)instance {
+    static NetworkManager *_instance = nil;
     @synchronized(self) {
         _instance = [[NetworkManager alloc] init];
     }
@@ -56,16 +56,16 @@ static dispatch_queue_t reachabilityQueue;
 /*
  * 当前网络状态的String描述
  */
--(NSString*)currentStatusString
+- (NSString *)currentStatusString
 {
-    return [NSString stringWithFormat:@"%u",_current];
+    return [NSString stringWithFormat:@"%u", _current];
 }
 
 /*
  * 如果当前网络是Wifi,
  * 获取到当前网络的ssid
  */
--(NSString *)currentWifiSsid
+- (NSString *)currentWifiSsid
 {
     return _ssid;
 }
@@ -93,11 +93,11 @@ static dispatch_queue_t reachabilityQueue;
     }
     
     if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN) {
-        if((flags & kSCNetworkReachabilityFlagsReachable) == kSCNetworkReachabilityFlagsReachable) {
+        if ((flags & kSCNetworkReachabilityFlagsReachable) == kSCNetworkReachabilityFlagsReachable) {
             if ((flags & kSCNetworkReachabilityFlagsTransientConnection) == kSCNetworkReachabilityFlagsTransientConnection) {
                 returnValue = ReachableVia3G;
                 
-                if((flags & kSCNetworkReachabilityFlagsConnectionRequired) == kSCNetworkReachabilityFlagsConnectionRequired) {
+                if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == kSCNetworkReachabilityFlagsConnectionRequired) {
                     returnValue = ReachableVia2G;
                 }
             }
@@ -108,9 +108,9 @@ static dispatch_queue_t reachabilityQueue;
     if (version >= 7.0f && returnValue != ReachableViaWiFi) {
         NSString *nettype = _cttInfo.currentRadioAccessTechnology;
         if (nettype) {
-            if([CTRadioAccessTechnologyGPRS isEqualToString:nettype]) {
+            if ([CTRadioAccessTechnologyGPRS isEqualToString:nettype]) {
                 return ReachableVia2G;
-            } else if([CTRadioAccessTechnologyLTE isEqualToString: nettype] || [CTRadioAccessTechnologyeHRPD isEqualToString: nettype]) {
+            } else if ([CTRadioAccessTechnologyLTE isEqualToString:nettype] || [CTRadioAccessTechnologyeHRPD isEqualToString:nettype]) {
                 return ReachableVia4G;
             }
         }
@@ -119,7 +119,7 @@ static dispatch_queue_t reachabilityQueue;
     return returnValue;
 }
 
--(void)update {
+- (void)update {
     SCNetworkReachabilityFlags flags = 0;
     if (SCNetworkReachabilityGetFlags(_ref, &flags)) {
         _last = _current;
@@ -130,8 +130,8 @@ static dispatch_queue_t reachabilityQueue;
             NSArray *ifs = (id)CFBridgingRelease(CNCopySupportedInterfaces());
             for (NSString *ifnam in ifs) {
                 id info = (id)CFBridgingRelease(CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam));
-                NSString *bssidValue = [info objectForKey:(NSString*)kCNNetworkInfoKeyBSSID];
-                NSString *ssidValue = [info objectForKey:(NSString*)kCNNetworkInfoKeySSID];
+                NSString *bssidValue = [info objectForKey:(NSString *)kCNNetworkInfoKeyBSSID];
+                NSString *ssidValue = [info objectForKey:(NSString *)kCNNetworkInfoKeySSID];
                 if (bssidValue.length <= 0) {
                     continue;
                 }
@@ -141,17 +141,17 @@ static dispatch_queue_t reachabilityQueue;
     }
 }
 
-//网络变化回调函数
-static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
+// 网络变化回调函数
+static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void *info)
 {
-    NetworkManager* instance = [NetworkManager instance];
+    NetworkManager *instance = [NetworkManager instance];
     [instance update];
 }
 
--(void)startNotify {
+- (void)startNotify {
     SCNetworkReachabilityContext context = {0, (__bridge void *)(self), NULL, NULL, NULL};
     
-    if(SCNetworkReachabilitySetCallback(_ref, ReachabilityCallback, &context)) {
+    if (SCNetworkReachabilitySetCallback(_ref, ReachabilityCallback, &context)) {
         reachabilityQueue = dispatch_queue_create(networkManagerQueue, DISPATCH_QUEUE_SERIAL);
         SCNetworkReachabilitySetDispatchQueue(_ref, reachabilityQueue);
     }
@@ -196,8 +196,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if (proxies > 0)
     {
         NSDictionary *settings = [proxies objectAtIndex:0];
-        NSString* host = [settings objectForKey:(NSString *)kCFProxyHostNameKey];
-        NSString* port = [settings objectForKey:(NSString *)kCFProxyPortNumberKey];
+        NSString *host = [settings objectForKey:(NSString *)kCFProxyHostNameKey];
+        NSString *port = [settings objectForKey:(NSString *)kCFProxyPortNumberKey];
         
         if (host || port)
         {
