@@ -11,8 +11,8 @@
 
 @interface WebViewController ()
 
-@property (nonatomic, strong) UIWebView* webView;
-@property (nonatomic, strong) NSMutableURLRequest* request;
+@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) NSMutableURLRequest *request;
 
 @end
 
@@ -26,7 +26,7 @@
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.webView];
-    NSMutableURLRequest* req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.apple.com"]];
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.apple.com"]];
     [self.webView loadRequest:req];
 }
 

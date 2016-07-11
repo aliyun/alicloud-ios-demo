@@ -15,9 +15,9 @@
 #define kAnchorAlreadyAdded @"AnchorAlreadyAdded"
 
 @interface CFHttpMessageURLProtocol () <NSStreamDelegate> {
-    NSMutableURLRequest* curRequest;
-    NSRunLoop* curRunLoop;
-    NSInputStream* inputStream;
+    NSMutableURLRequest *curRequest;
+    NSRunLoop *curRunLoop;
+    NSInputStream *inputStream;
 }
 
 @end
@@ -31,14 +31,14 @@
  *
  *  @return 返回YES表示要拦截处理，返回NO表示不拦截处理
  */
-+ (BOOL)canInitWithRequest:(NSURLRequest*)request {
++ (BOOL)canInitWithRequest:(NSURLRequest *)request {
     
     /* 防止无限循环，因为一个请求在被拦截处理过程中，也会发起一个请求，这样又会走到这里，如果不进行处理，就会造成无限循环 */
     if ([NSURLProtocol propertyForKey:protocolKey inRequest:request]) {
         return NO;
     }
     
-    NSString* url = request.URL.absoluteString;
+    NSString *url = request.URL.absoluteString;
     
     // 如果url以https开头，则进行拦截处理，否则不处理
     if ([url hasPrefix:@"https"]) {
@@ -50,7 +50,7 @@
 /**
  * 如果需要对请求进行重定向，添加指定头部等操作，可以在该方法中进行
  */
-+ (NSURLRequest*)canonicalRequestForRequest:(NSURLRequest*)request {
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request {
     return request;
 }
 
@@ -58,7 +58,7 @@
  * 开始加载，在该方法中，加载一个请求
  */
 - (void)startLoading {
-    NSMutableURLRequest* request = [self.request mutableCopy];
+    NSMutableURLRequest *request = [self.request mutableCopy];
     // 表示该请求已经被处理，防止无限循环
     [NSURLProtocol setProperty:@(YES) forKey:protocolKey inRequest:request];
     curRequest = request;
@@ -99,8 +99,8 @@
     CFHTTPMessageSetBody(cfrequest, bodyData);
     
     // copy原请求的header信息
-    NSDictionary* headFields = curRequest.allHTTPHeaderFields;
-    for (NSString* header in headFields) {
+    NSDictionary *headFields = curRequest.allHTTPHeaderFields;
+    for (NSString *header in headFields) {
         CFStringRef requestHeader = (__bridge CFStringRef) header;
         CFStringRef requestHeaderValue = (__bridge CFStringRef) [headFields valueForKey:header];
         CFHTTPMessageSetHeaderFieldValue(cfrequest, requestHeader, requestHeaderValue);
@@ -108,18 +108,18 @@
     
     // 创建CFHTTPMessage对象的输入流
     CFReadStreamRef readStream = CFReadStreamCreateForHTTPRequest(kCFAllocatorDefault, cfrequest);
-    inputStream = (__bridge_transfer NSInputStream*) readStream;
+    inputStream = (__bridge_transfer NSInputStream *) readStream;
     
     // 设置SNI host信息，关键步骤
-    NSString* host = [curRequest.allHTTPHeaderFields objectForKey:@"host"];
+    NSString *host = [curRequest.allHTTPHeaderFields objectForKey:@"host"];
     if (!host) {
         host = curRequest.URL.host;
     }
     [inputStream setProperty:NSStreamSocketSecurityLevelNegotiatedSSL forKey:NSStreamSocketSecurityLevelKey];
-    NSDictionary* sslProperties = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSDictionary *sslProperties = [[NSDictionary alloc] initWithObjectsAndKeys:
                                    host, (__bridge id) kCFStreamSSLPeerName,
                                    nil];
-    [inputStream setProperty:sslProperties forKey:(__bridge_transfer NSString*) kCFStreamPropertySSLSettings];
+    [inputStream setProperty:sslProperties forKey:(__bridge_transfer NSString *) kCFStreamPropertySSLSettings];
     [inputStream setDelegate:self];
     
     if (!curRunLoop)
@@ -147,7 +147,7 @@
     CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
     if (CFHTTPMessageIsHeaderComplete(message)) {
         // 确保response头部信息完整
-        NSDictionary* headDict = (__bridge NSDictionary*) (CFHTTPMessageCopyAllHeaderFields(message));
+        NSDictionary *headDict = (__bridge NSDictionary *) (CFHTTPMessageCopyAllHeaderFields(message));
         
         // 获取响应头部的状态码
         CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
@@ -164,8 +164,8 @@
             
         } else if (myErrCode >= 300 && myErrCode < 400) {
             // 返回码为3xx，需要重定向请求，继续访问重定向页面
-            NSString* location = headDict[@"Location"];
-            NSURL* url = [[NSURL alloc] initWithString:location];
+            NSString *location = headDict[@"Location"];
+            NSURL *url = [[NSURL alloc] initWithString:location];
             curRequest = [[NSMutableURLRequest alloc] initWithURL:url];
             
             /***********重定向通知client处理或内部处理*************/
@@ -174,20 +174,17 @@
             // [self.client URLProtocol:self wasRedirectedToRequest:curRequest redirectResponse:response];
             
             // 内部处理，将url中的host通过HTTPDNS转换为IP，不能在startLoading线程中进行同步网络请求，会被阻塞
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(){
-                NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
-                
-                if (ip) {
-                    NSLog(@"Get IP from HTTPDNS Successfully!");
-                    NSRange hostFirstRange = [location rangeOfString:url.host];
-                    if (NSNotFound != hostFirstRange.location) {
-                        NSString* newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                        curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
-                        [curRequest setValue:url.host forHTTPHeaderField:@"host"];
-                    }
+            NSString *ip = [[HttpDnsService sharedInstance] getIpByHostAsync:url.host];
+            if (ip) {
+                NSLog(@"Get IP from HTTPDNS Successfully!");
+                NSRange hostFirstRange = [location rangeOfString:url.host];
+                if (NSNotFound != hostFirstRange.location) {
+                    NSString *newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+                    curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                    [curRequest setValue:url.host forHTTPHeaderField:@"host"];
                 }
-                [self startRequest];
-            });
+            }
+            [self startRequest];
         } else {
             // 其他情况，直接返回响应信息给client
             [self.client URLProtocolDidFinishLoading:self];
@@ -205,32 +202,32 @@
 /**
  * input stream 收到header complete后的回调函数
  */
-- (void)stream:(NSStream*)aStream handleEvent:(NSStreamEvent)eventCode {
+- (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode {
     if (eventCode == NSStreamEventHasBytesAvailable) {
         CFReadStreamRef readStream = (__bridge_retained CFReadStreamRef) aStream;
         CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
         if (CFHTTPMessageIsHeaderComplete(message)) {
             // 以防response的header信息不完整
             UInt8 buffer[16 * 1024];
-            UInt8* buf = NULL;
+            UInt8 *buf = NULL;
             unsigned long length = 0;
-            NSInputStream* inputstream = (NSInputStream*) aStream;
-            NSNumber* alreadyAdded = objc_getAssociatedObject(aStream, kAnchorAlreadyAdded);
+            NSInputStream *inputstream = (NSInputStream *) aStream;
+            NSNumber *alreadyAdded = objc_getAssociatedObject(aStream, kAnchorAlreadyAdded);
             if (!alreadyAdded || ![alreadyAdded boolValue]) {
                 objc_setAssociatedObject(aStream, kAnchorAlreadyAdded, [NSNumber numberWithBool:YES], OBJC_ASSOCIATION_COPY);
                 // 通知client已收到response，只通知一次
-                NSDictionary* headDict = (__bridge NSDictionary*) (CFHTTPMessageCopyAllHeaderFields(message));
+                NSDictionary *headDict = (__bridge NSDictionary *) (CFHTTPMessageCopyAllHeaderFields(message));
                 CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
                 // 获取响应头部的状态码
                 CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
-                NSHTTPURLResponse* response = [[NSHTTPURLResponse alloc] initWithURL:curRequest.URL statusCode:myErrCode HTTPVersion:(__bridge NSString*) httpVersion headerFields:headDict];
+                NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:curRequest.URL statusCode:myErrCode HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
                 [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
                 
                 // 验证证书
-                SecTrustRef trust = (__bridge SecTrustRef) [aStream propertyForKey:(__bridge NSString*) kCFStreamPropertySSLPeerTrust];
+                SecTrustRef trust = (__bridge SecTrustRef) [aStream propertyForKey:(__bridge NSString *) kCFStreamPropertySSLPeerTrust];
                 SecTrustResultType res = kSecTrustResultInvalid;
-                NSMutableArray* policies = [NSMutableArray array];
-                NSString* domain = [[curRequest allHTTPHeaderFields] valueForKey:@"host"];
+                NSMutableArray *policies = [NSMutableArray array];
+                NSString *domain = [[curRequest allHTTPHeaderFields] valueForKey:@"host"];
                 if (domain) {
                     [policies addObject:(__bridge_transfer id) SecPolicyCreateSSL(true, (__bridge CFStringRef) domain)];
                 } else {
@@ -260,7 +257,7 @@
                         buf = buffer;
                         length = amount;
                     }
-                    NSData* data = [[NSData alloc] initWithBytes:buf length:length];
+                    NSData *data = [[NSData alloc] initWithBytes:buf length:length];
                     
                     [self.client URLProtocol:self didLoadData:data];
                 }
@@ -271,7 +268,7 @@
                     buf = buffer;
                     length = amount;
                 }
-                NSData* data = [[NSData alloc] initWithBytes:buf length:length];
+                NSData *data = [[NSData alloc] initWithBytes:buf length:length];
                 
                 [self.client URLProtocol:self didLoadData:data];
             }

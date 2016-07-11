@@ -15,7 +15,7 @@
 
 @interface WebViewURLProtocol () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
-@property (nonatomic, strong) NSURLSession* session;
+@property (nonatomic, strong) NSURLSession *session;
 
 @end
 
@@ -27,17 +27,17 @@
  *
  *  @return 返回YES表示要拦截处理，返回NO表示不拦截处理
  */
-+ (BOOL)canInitWithRequest:(NSURLRequest*)request {
++ (BOOL)canInitWithRequest:(NSURLRequest *)request {
     
     /* 防止无限循环，因为一个请求在被拦截处理过程中，也会发起一个请求，这样又会走到这里，如果不进行处理，就会造成无限循环 */
     if ([NSURLProtocol propertyForKey:protocolKey inRequest:request]) {
         return NO;
     }
     
-    NSMutableURLRequest* mutableReq = [request mutableCopy];
+    NSMutableURLRequest *mutableReq = [request mutableCopy];
     
     // 假设原始的请求头部没有host信息，只有使用IP替换后的请求才有
-    NSString* host = [mutableReq valueForHTTPHeaderField:@"host"];
+    NSString *host = [mutableReq valueForHTTPHeaderField:@"host"];
     
     // 假设只拦截原始请求中css的请求
     if (mutableReq && !host && [[mutableReq.HTTPMethod lowercaseString] isEqualToString:@"get"] && [mutableReq.URL.absoluteString hasSuffix:@".css"]) {
@@ -53,18 +53,18 @@
  *
  *  @return 修改后的请求
  */
-+ (NSURLRequest*)canonicalRequestForRequest:(NSURLRequest*)request {
-    NSMutableURLRequest* mutableReq = [request mutableCopy];
-    NSString* originalUrl = mutableReq.URL.absoluteString;
-    NSURL* url = [NSURL URLWithString:originalUrl];
-    // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
-    NSString* ip = [[HttpDnsService sharedInstance] getIpByHost:url.host];
++ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request {
+    NSMutableURLRequest *mutableReq = [request mutableCopy];
+    NSString *originalUrl = mutableReq.URL.absoluteString;
+    NSURL *url = [NSURL URLWithString:originalUrl];
+    // 异步接口获取IP地址
+    NSString *ip = [[HttpDnsService sharedInstance] getIpByHostAsync:url.host];
     if (ip) {
         // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
         NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
         NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
         if (NSNotFound != hostFirstRange.location) {
-            NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+            NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             NSLog(@"New URL: %@", newUrl);
             mutableReq = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
             [mutableReq setValue:url.host forHTTPHeaderField:@"host"];
@@ -78,7 +78,7 @@
  *  开始加载，在该方法中，加载一个请求
  */
 - (void)startLoading {
-    NSMutableURLRequest* request = [self.request mutableCopy];
+    NSMutableURLRequest *request = [self.request mutableCopy];
     // 表示该请求已经被处理，防止无限循环
     [NSURLProtocol setProperty:@(YES) forKey:protocolKey inRequest:request];
     [self startRequest];
@@ -95,18 +95,18 @@
  *  使用NSURLSession转发请求
  */
 - (void)startRequest {
-    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue currentQueue]];
-    NSURLSessionTask* task = [_session dataTaskWithRequest:self.request];
+    NSURLSessionTask *task = [_session dataTaskWithRequest:self.request];
     [task resume];
 }
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
-                  forDomain:(NSString*)domain {
+                  forDomain:(NSString *)domain {
     /*
      * 创建证书校验策略
      */
-    NSMutableArray* policies = [NSMutableArray array];
+    NSMutableArray *policies = [NSMutableArray array];
     if (domain) {
         [policies addObject:(__bridge_transfer id) SecPolicyCreateSSL(true, (__bridge CFStringRef) domain)];
     } else {
@@ -128,16 +128,16 @@
 }
 
 #pragma NSURLSessionTaskDelegate
-- (void)URLSession:(NSURLSession*)session task:(NSURLSessionTask*)task didReceiveChallenge:(NSURLAuthenticationChallenge*)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential* _Nullable))completionHandler {
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *_Nullable))completionHandler {
     if (!challenge) {
         return;
     }
     NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-    NSURLCredential* credential = nil;
+    NSURLCredential *credential = nil;
     /*
      * 获取原始域名信息。
      */
-    NSString* host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
+    NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
     if (!host) {
         host = self.request.URL.host;
     }
@@ -159,12 +159,12 @@
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
     NSLog(@"receive response: %@", response);
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
         // 根据原始URL构造Response
-        NSURLResponse* retResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:[dataTask.currentRequest valueForHTTPHeaderField:@"originalUrl"]] statusCode:httpResponse.statusCode HTTPVersion:(__bridge NSString*)kCFHTTPVersion1_1 headerFields:httpResponse.allHeaderFields];
+        NSURLResponse *retResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:[dataTask.currentRequest valueForHTTPHeaderField:@"originalUrl"]] statusCode:httpResponse.statusCode HTTPVersion:(__bridge NSString *)kCFHTTPVersion1_1 headerFields:httpResponse.allHeaderFields];
         [self.client URLProtocol:self didReceiveResponse:retResponse cacheStoragePolicy:NSURLCacheStorageNotAllowed];
     } else {
-        NSURLResponse* retResponse = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:[dataTask.currentRequest valueForHTTPHeaderField:@"originalUrl"]] MIMEType:response.MIMEType expectedContentLength:response.expectedContentLength textEncodingName:response.textEncodingName];
+        NSURLResponse *retResponse = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:[dataTask.currentRequest valueForHTTPHeaderField:@"originalUrl"]] MIMEType:response.MIMEType expectedContentLength:response.expectedContentLength textEncodingName:response.textEncodingName];
         [self.client URLProtocol:self didReceiveResponse:retResponse cacheStoragePolicy:NSURLCacheStorageNotAllowed];
     }
     completionHandler(NSURLSessionResponseAllow);

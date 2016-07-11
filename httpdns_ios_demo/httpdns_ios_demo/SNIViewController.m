@@ -14,7 +14,7 @@
 
 @interface SNIViewController () <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
-@property (nonatomic, strong) NSMutableURLRequest* request;
+@property (nonatomic, strong) NSMutableURLRequest *request;
 @end
 
 @implementation SNIViewController
@@ -25,19 +25,19 @@
     // 注册拦截请求的NSURLProtocol
     [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
     // 初始化HTTPDNS
-    HttpDnsService* httpdns = [HttpDnsService sharedInstance];
+    HttpDnsService *httpdns = [HttpDnsService sharedInstance];
     
     // 需要设置SNI的URL
-    NSString* originalUrl = @"https://dou.bz/23o8PS";
-    NSURL* url = [NSURL URLWithString:originalUrl];
+    NSString *originalUrl = @"https://dou.bz/23o8PS";
+    NSURL *url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString* ip = [httpdns getIpByHost:url.host];
+    NSString *ip = [httpdns getIpByHostAsync:url.host];
     // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
     if (ip) {
         NSLog(@"Get IP from HTTPDNS Successfully!");
         NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
         if (NSNotFound != hostFirstRange.location) {
-            NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+            NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
             [_request setValue:url.host forHTTPHeaderField:@"host"];
         }
@@ -47,11 +47,11 @@
     // [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
     
     // NSURLSession例子
-    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSArray* protocolArray = @[ [CFHttpMessageURLProtocol class] ];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSArray *protocolArray = @[ [CFHttpMessageURLProtocol class] ];
     configuration.protocolClasses = protocolArray;
-    NSURLSession* session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionTask* task = [session dataTaskWithRequest:_request];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionTask *task = [session dataTaskWithRequest:_request];
     [task resume];
 }
 
@@ -66,29 +66,29 @@
 }
 
 #pragma mark NSURLConnectionDataDelegate
-- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data {
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     NSLog(@"receive data:%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
-- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response {
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"receive response:%@", response);
 }
 
-- (NSURLRequest*)connection:(NSURLConnection*)connection willSendRequest:(NSURLRequest*)request redirectResponse:(NSURLResponse*)response {
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response {
     return request;
 }
 
 #pragma mark NSURLSessionDataDelegate
-- (void)URLSession:(NSURLSession*)session dataTask:(NSURLSessionDataTask*)dataTask didReceiveData:(NSData*)data {
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     NSLog(@"data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
-- (void)URLSession:(NSURLSession*)session dataTask:(NSURLSessionDataTask*)dataTask didReceiveResponse:(NSURLResponse*)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
     NSLog(@"response: %@", response);
     completionHandler(NSURLSessionResponseAllow);
 }
 
-- (void)URLSession:(NSURLSession*)session task:(NSURLSessionTask*)task didCompleteWithError:(NSError*)error {
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     if (error) {
         NSLog(@"error: %@", error);
     }

@@ -11,7 +11,7 @@
 #import <AlicloudHttpDNS/Httpdns.h>
 
 @interface HTTPSSceneViewController () <NSURLConnectionDelegate, NSURLSessionTaskDelegate, NSURLConnectionDataDelegate, NSURLSessionDataDelegate>
-@property (nonatomic, strong) NSMutableURLRequest* request;
+@property (nonatomic, strong) NSMutableURLRequest *request;
 @end
 
 @implementation HTTPSSceneViewController
@@ -21,24 +21,19 @@
     // Do any additional setup after loading the view.
     
     // 初始化httpdns实例
-    HttpDnsService* httpdns = [HttpDnsService sharedInstance];
+    HttpDnsService *httpdns = [HttpDnsService sharedInstance];
     
-    NSString* originalUrl = @"https://www.apple.com";
-    NSURL* url = [NSURL URLWithString:originalUrl];
+    NSString *originalUrl = @"https://www.apple.com";
+    NSURL *url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
-    // 同步接口获取IP地址，由于我们是用来进行url访问请求的，为了适配IPv6的使用场景，我们使用getIpByHostInURLFormat接口
-    // 注* 当您使用IP形式的URL进行网络请求时，IPv4与IPv6的IP地址使用方式略有不同：
-    // IPv4: http://1.1.1.1/path
-    // IPv6: http://[2001:db8:c000:221::]/path
-    // 因此我们专门提供了适配URL格式的IP获取接口getIpByHostInURLFormat
-    // 如果您只是为了获取IP信息而已，可以直接使用getIpByHost接口
-    NSString* ip = [httpdns getIpByHostInURLFormat:url.host];
+    
+    NSString *ip = [httpdns getIpByHostAsync:url.host];
     if (ip) {
         // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
         NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
         NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
         if (NSNotFound != hostFirstRange.location) {
-            NSString* newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+            NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             NSLog(@"New URL: %@", newUrl);
             self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
             [self.request setValue:url.host forHTTPHeaderField:@"host"];
@@ -48,9 +43,9 @@
     // NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:YES];
     
     // NSURLSession例子
-    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession* session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
-    NSURLSessionTask* task = [session dataTaskWithRequest:self.request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+    NSURLSessionTask *task = [session dataTaskWithRequest:self.request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             NSLog(@"error: %@", error);
         } else {
@@ -67,11 +62,11 @@
 }
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
-                  forDomain:(NSString*)domain {
+                  forDomain:(NSString *)domain {
     /*
      * 创建证书校验策略
      */
-    NSMutableArray* policies = [NSMutableArray array];
+    NSMutableArray *policies = [NSMutableArray array];
     if (domain) {
         [policies addObject:(__bridge_transfer id) SecPolicyCreateSSL(true, (__bridge CFStringRef) domain)];
     } else {
@@ -93,14 +88,14 @@
 }
 
 #pragma mark - NSURLConnectionDelegate
-- (void)connection:(NSURLConnection*)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge {
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if (!challenge) {
         return;
     }
     /*
      * URL里面的host在使用HTTPDNS的情况下被设置成了IP，此处从HTTP Header中获取真实域名
      */
-    NSString* host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
+    NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
     if (!host) {
         host = self.request.URL.host;
     }
@@ -113,7 +108,7 @@
             /*
              * 验证完以后，需要构造一个NSURLCredential发送给发起方
              */
-            NSURLCredential* credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+            NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
             [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
         } else {
             /*
@@ -129,37 +124,37 @@
     }
 }
 
-- (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error {
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"error: %@", error);
 }
 
-- (void)connection:(NSURLConnection*)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge {
+- (void)connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     NSLog(@"cancel authentication");
 }
 
-- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response {
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"response: %@", response);
 }
 
-- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data {
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     NSLog(@"data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
-- (NSURLRequest*)connection:(NSURLConnection*)connection willSendRequest:(NSURLRequest*)request redirectResponse:(NSURLResponse*)response {
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response {
     return request;
 }
 
 #pragma mark - NSURLSessionTaskDelegate
-- (void)URLSession:(NSURLSession*)session task:(NSURLSessionTask*)task didReceiveChallenge:(NSURLAuthenticationChallenge*)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential* _Nullable))completionHandler {
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *_Nullable))completionHandler {
     if (!challenge) {
         return;
     }
     NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-    NSURLCredential* credential = nil;
+    NSURLCredential *credential = nil;
     /*
      * 获取原始域名信息。
      */
-    NSString* host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
+    NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
     if (!host) {
         host = self.request.URL.host;
     }
