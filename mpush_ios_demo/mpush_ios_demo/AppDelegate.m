@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <ALBBSDK/ALBBSDK.h>
 
 @interface AppDelegate ()
 
@@ -55,6 +54,7 @@
  *  苹果推送注册成功回调，将苹果返回的deviceToken上传到CloudPush服务器
  */
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"Upload deviceToken to CloudPush server.");
     [CloudPushSDK registerDevice:deviceToken];
 }
 
@@ -68,10 +68,12 @@
 #pragma mark SDK Init
 - (void)initCloudPush {
     // SDK初始化
-    [[ALBBSDK sharedInstance] asyncInit:@"********" appSecret:@"********" :^{
-        NSLog(@"Init Cloud Push success, deviceID: %@", [CloudPushSDK getDeviceId]);
-    }failedCallback:^(NSError *error) {
-        NSLog(@"Init Cloud Push failed, error is: %@", error);
+    [CloudPushSDK asyncInit:@"*****" appSecret:@"*****" callback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+        } else {
+            NSLog(@"Push SDK init failed, error: %@", res.error);
+        }
     }];
 }
 
@@ -81,8 +83,17 @@
  */
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
     NSLog(@"Receive one notification.");
-    // 打印自定义参数
-    NSLog(@"Notification content is：%@", userInfo);
+    // 取得APNS通知内容
+    NSDictionary *aps = [userInfo valueForKey:@"aps"];
+    // 内容
+    NSString *content = [aps valueForKey:@"alert"];
+    // badge数量
+    NSInteger badge = [[aps valueForKey:@"badge"] integerValue];
+    // 播放声音
+    NSString *sound = [aps valueForKey:@"sound"];
+    // 取得Extras字段内容
+    NSString *Extras = [userInfo valueForKey:@"Extras"]; //服务端中Extras字段，key是自己定义的
+    NSLog(@"content = [%@], badge = [%ld], sound = [%@], Extras = [%@]", content, (long)badge, sound, Extras);
     // iOS badge 清0
     application.applicationIconBadgeNumber = 0;
     // 通知打开回执上报
@@ -126,6 +137,7 @@
  *	@param 	notification
  */
 - (void)onMessageReceived:(NSNotification *)notification {
+    NSLog(@"Receive one message!");
     NSData *data = [notification object];
     NSString *message = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     

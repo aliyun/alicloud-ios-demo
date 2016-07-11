@@ -8,7 +8,7 @@
 
 #import "CFHttpMessageURLProtocol.h"
 #import "NetworkManager.h"
-#import <AlicloudHttpDNS/Httpdns.h>
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import <objc/runtime.h>
 
 #define protocolKey @"CFHttpMessagePropertyKey"

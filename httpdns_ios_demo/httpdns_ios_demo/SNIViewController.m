@@ -10,7 +10,7 @@
 #import "CFHttpMessageURLProtocol.h"
 #import "NetworkManager.h"
 #import "SNIViewController.h"
-#import <AlicloudHttpDNS/Httpdns.h>
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
 @interface SNIViewController () <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 

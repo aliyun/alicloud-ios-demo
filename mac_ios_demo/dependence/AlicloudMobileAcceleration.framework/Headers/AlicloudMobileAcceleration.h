@@ -9,7 +9,7 @@
 #ifndef AlicloudMobileAcceleration_h
 #define AlicloudMobileAcceleration_h
 
-#define MAC_IOS_SDK_VERSION 2.1.0
+#define MAC_IOS_SDK_VERSION @"2.1.2"
 
 #import "ALBBMAC.h"
 

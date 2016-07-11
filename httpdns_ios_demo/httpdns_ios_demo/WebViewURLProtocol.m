@@ -7,7 +7,7 @@
 //
 
 #import "WebViewURLProtocol.h"
-#import <AlicloudHttpDNS/Httpdns.h>
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import <objc/runtime.h>
 
 #define protocolKey @"CFHttpMessagePropertyKey"
@@ -158,13 +158,17 @@
 #pragma NSURLSessionDataDelegate
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
     NSLog(@"receive response: %@", response);
+    // 获取原始URL
+    NSString* originalUrl = [dataTask.currentRequest valueForHTTPHeaderField:@"originalUrl"];
+    if (!originalUrl) {
+        originalUrl = response.URL.absoluteString;
+    }
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-        // 根据原始URL构造Response
-        NSURLResponse *retResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:[dataTask.currentRequest valueForHTTPHeaderField:@"originalUrl"]] statusCode:httpResponse.statusCode HTTPVersion:(__bridge NSString *)kCFHTTPVersion1_1 headerFields:httpResponse.allHeaderFields];
+        NSURLResponse *retResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:originalUrl] statusCode:httpResponse.statusCode HTTPVersion:(__bridge NSString *)kCFHTTPVersion1_1 headerFields:httpResponse.allHeaderFields];
         [self.client URLProtocol:self didReceiveResponse:retResponse cacheStoragePolicy:NSURLCacheStorageNotAllowed];
     } else {
-        NSURLResponse *retResponse = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:[dataTask.currentRequest valueForHTTPHeaderField:@"originalUrl"]] MIMEType:response.MIMEType expectedContentLength:response.expectedContentLength textEncodingName:response.textEncodingName];
+        NSURLResponse *retResponse = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:originalUrl] MIMEType:response.MIMEType expectedContentLength:response.expectedContentLength textEncodingName:response.textEncodingName];
         [self.client URLProtocol:self didReceiveResponse:retResponse cacheStoragePolicy:NSURLCacheStorageNotAllowed];
     }
     completionHandler(NSURLSessionResponseAllow);

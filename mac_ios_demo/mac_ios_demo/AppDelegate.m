@@ -24,7 +24,7 @@
     // 调试使用，正式上线请关闭log
     [ALBBMAC setLogEnabled:YES];
     // 预热移动加速域名，非必须调用的API，请根据自身情况选择
-    [ALBBMAC presetMACDomains:@[@"cas.xxyycc.com"]];
+    [ALBBMAC presetMACDomains:@[@"cas.xxyycc.com", @"macapibm.ams.aliyuncs.com", @"macimg0bm.ams.aliyuncs.com", @"macimg1bm.ams.aliyuncs.com"]];
     return YES;
 }
 

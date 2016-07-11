@@ -8,7 +8,7 @@
 
 #import "CFHttpMessageURLProtocol.h"
 #import "HTTPSSceneViewController.h"
-#import <AlicloudHttpDNS/Httpdns.h>
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
 @interface HTTPSSceneViewController () <NSURLConnectionDelegate, NSURLSessionTaskDelegate, NSURLConnectionDataDelegate, NSURLSessionDataDelegate>
 @property (nonatomic, strong) NSMutableURLRequest *request;

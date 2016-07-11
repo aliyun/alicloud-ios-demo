@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "NetworkManager.h"
-#import <AlicloudHttpDNS/Httpdns.h>
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
 @interface ViewController ()<NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
@@ -25,6 +25,7 @@ static HttpDnsService *httpdns;
     // 初始化HTTPDNS
     httpdns = [HttpDnsService sharedInstance];
     
+
     // 异步网络请求
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -49,8 +50,14 @@ static HttpDnsService *httpdns;
                 [request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }
-        NSHTTPURLResponse *response;
-        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSHTTPURLResponse* response;
+        NSError *error;
+        NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (error != nil) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"Response: %@",response);
+        }
         
         // 异步接口获取IP
         ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
@@ -65,9 +72,14 @@ static HttpDnsService *httpdns;
                 [request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }
-        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSLog(@"Response: %@", response);
-        NSLog(@"Data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+
+        data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (error != nil) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"Response: %@",response);
+        }
+
         
         // 测试黑名单中的域名
         ip = [httpdns getIpByHostAsyncInURLFormat:@"www.taobao.com"];
