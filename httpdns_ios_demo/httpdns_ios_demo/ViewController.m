@@ -46,7 +46,7 @@ static HttpDnsService *httpdns;
             if (NSNotFound != hostFirstRange.location) {
                 NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
                 NSLog(@"New URL: %@", newUrl);
-                request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                request.URL = [NSURL URLWithString:newUrl];
                 [request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }
@@ -68,7 +68,7 @@ static HttpDnsService *httpdns;
             if (NSNotFound != hostFirstRange.location) {
                 NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
                 NSLog(@"New URL: %@", newUrl);
-                request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                request.URL = [NSURL URLWithString:newUrl];
                 [request setValue:url.host forHTTPHeaderField:@"host"];
             }
         }

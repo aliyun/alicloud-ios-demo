@@ -165,8 +165,10 @@
         } else if (myErrCode >= 300 && myErrCode < 400) {
             // 返回码为3xx，需要重定向请求，继续访问重定向页面
             NSString *location = headDict[@"Location"];
+            if (!location)
+                location = headDict[@"location"];
             NSURL *url = [[NSURL alloc] initWithString:location];
-            curRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+            curRequest.URL = url;
             
             /***********重定向通知client处理或内部处理*************/
             // client处理
@@ -180,7 +182,7 @@
                 NSRange hostFirstRange = [location rangeOfString:url.host];
                 if (NSNotFound != hostFirstRange.location) {
                     NSString *newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                    curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                    curRequest.URL = [NSURL URLWithString:newUrl];
                     [curRequest setValue:url.host forHTTPHeaderField:@"host"];
                 }
             }
@@ -221,6 +223,7 @@
                 // 获取响应头部的状态码
                 CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
                 NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:curRequest.URL statusCode:myErrCode HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
+                
                 [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
                 
                 // 验证证书

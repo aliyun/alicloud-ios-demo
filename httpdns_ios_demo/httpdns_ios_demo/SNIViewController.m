@@ -31,6 +31,7 @@
     NSString *originalUrl = @"https://dou.bz/23o8PS";
     NSURL *url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [_request addValue:@"hello, world" forHTTPHeaderField:@"Customized Header"];
     NSString *ip = [httpdns getIpByHostAsync:url.host];
     // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
     if (ip) {
@@ -38,7 +39,7 @@
         NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
         if (NSNotFound != hostFirstRange.location) {
             NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-            self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+            self.request.URL = [NSURL URLWithString:newUrl];
             [_request setValue:url.host forHTTPHeaderField:@"host"];
         }
     }
