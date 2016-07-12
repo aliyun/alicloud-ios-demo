@@ -12,12 +12,12 @@
 
 @implementation BaseUIViewController
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     // 进入页面
     [[ALBBMANPageHitHelper getInstance] pageAppear:self];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
     // 离开页面
     [[ALBBMANPageHitHelper getInstance] pageDisAppear:self];
 }
