@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <CloudPushSDK/CCPSysMessage.h>
 
 @interface AppDelegate ()
 
@@ -30,7 +31,7 @@
 
 #pragma mark APNs Register
 /**
- *	@brief	注册苹果推送，获取deviceToken用于推送
+ *	注册苹果推送，获取deviceToken用于推送
  *
  *	@param 	application
  */
@@ -55,7 +56,13 @@
  */
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"Upload deviceToken to CloudPush server.");
-    [CloudPushSDK registerDevice:deviceToken];
+    [CloudPushSDK registerDevice:deviceToken withCallback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"Register deviceToken success.");
+        } else {
+            NSLog(@"Register deviceToken failed, error: %@", res.error);
+        }
+    }];
 }
 
 /*
@@ -67,6 +74,8 @@
 
 #pragma mark SDK Init
 - (void)initCloudPush {
+    // 正式上线建议关闭
+    [CloudPushSDK turnOnDebug];
     // SDK初始化
     [CloudPushSDK asyncInit:@"*****" appSecret:@"*****" callback:^(CloudPushCallbackResult *res) {
         if (res.success) {
@@ -102,7 +111,7 @@
 
 #pragma mark Channel Opened
 /**
- *	@brief	注册推送通道打开监听
+ *	注册推送通道打开监听
  */
 - (void)listenerOnChannelOpened {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -112,7 +121,7 @@
 }
 
 /**
- *	@brief	推送通道打开回调
+ *	推送通道打开回调
  *
  *	@param 	notification
  */
@@ -132,17 +141,20 @@
 }
 
 /**
- *	@brief	处理到来推送消息
+ *	处理到来推送消息
  *
  *	@param 	notification
  */
 - (void)onMessageReceived:(NSNotification *)notification {
     NSLog(@"Receive one message!");
-    NSData *data = [notification object];
-    NSString *message = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+   
+    CCPSysMessage *message = [notification object];
+    NSString *title = [[NSString alloc] initWithData:message.title encoding:NSUTF8StringEncoding];
+    NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
+    NSLog(@"Receive message title: %@, content: %@.", title, body);
     
     LZLPushMessage *tempVO = [[LZLPushMessage alloc] init];
-    tempVO.messageContent = message;
+    tempVO.messageContent = [NSString stringWithFormat:@"title: %@, content: %@", title, body];
     tempVO.isRead = 0;
     
     if(![NSThread isMainThread]) {
