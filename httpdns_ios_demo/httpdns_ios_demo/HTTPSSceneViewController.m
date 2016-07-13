@@ -35,7 +35,7 @@
         if (NSNotFound != hostFirstRange.location) {
             NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             NSLog(@"New URL: %@", newUrl);
-            self.request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+            self.request.URL = [NSURL URLWithString:newUrl];
             [self.request setValue:url.host forHTTPHeaderField:@"host"];
         }
     }
