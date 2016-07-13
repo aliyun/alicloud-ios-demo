@@ -31,7 +31,6 @@
     NSString *originalUrl = @"https://dou.bz/23o8PS";
     NSURL *url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
-    [_request addValue:@"hello, world" forHTTPHeaderField:@"Customized Header"];
     NSString *ip = [httpdns getIpByHostAsync:url.host];
     // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
     if (ip) {
@@ -54,6 +53,20 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionTask *task = [session dataTaskWithRequest:_request];
     [task resume];
+    
+    // 注*：使用NSURLProtocol拦截NSURLSession发起的POST请求时，HTTPBody为空。
+    // 解决方案有两个：1. 使用NSURLConnection发POST请求。
+    // 2. 先将HTTPBody放入HTTP Header field中，然后在NSURLProtocol中再取出来。
+    // 下面主要演示第二种解决方案
+    // NSString *postStr = [NSString stringWithFormat:@"param1=%@&param2=%@", @"val1", @"val2"];
+    // [_request addValue:postStr forHTTPHeaderField:@"originalBody"];
+    // _request.HTTPMethod = @"POST";
+    // NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    // NSArray *protocolArray = @[ [CFHttpMessageURLProtocol class] ];
+    // configuration.protocolClasses = protocolArray;
+    // NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    // NSURLSessionTask *task = [session dataTaskWithRequest:_request];
+    // [task resume];
 }
 
 - (void)didReceiveMemoryWarning {
