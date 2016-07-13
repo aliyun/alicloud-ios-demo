@@ -9,7 +9,7 @@
 #import "CloudPushCallbackResult.h"
 #import <Foundation/Foundation.h>
 
-#define CLOUDPUSH_IOS_SDK_VERSION   @"1.7.0"
+#define CLOUDPUSH_IOS_SDK_VERSION   @"1.7.1"
 
 typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
 
@@ -174,19 +174,18 @@ funcName(paras);\
 + (void)listAliases:(CallbackHandler)callback;
 
 /**
+ *  向阿里云推送注册该设备的deviceToken
+ *
+ *  @param deviceToken 苹果APNs服务器返回的deviceToken
+ */
++ (void)registerDevice:(NSData *)deviceToken
+          withCallback:(CallbackHandler)callback;
+
+/**
  *	获取APNs返回的deviceToken
  *
  *	@return
  */
 + (NSString *)getApnsDeviceToken;
-
-/**
- *  向阿里云推送注册该设备的deviceToken，用户推送通知
- *
- *  @param  deviceToken 苹果APNs服务器推送下来的deviceToken
- *
- *  @return
- */
-+ (void)registerDevice:(NSData *)deviceToken;
 
 @end
