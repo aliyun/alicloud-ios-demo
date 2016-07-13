@@ -66,7 +66,7 @@
         if (NSNotFound != hostFirstRange.location) {
             NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             NSLog(@"New URL: %@", newUrl);
-            mutableReq = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+            mutableReq.URL = [NSURL URLWithString:newUrl];
             [mutableReq setValue:url.host forHTTPHeaderField:@"host"];
             // 添加originalUrl保存原始URL
             [mutableReq addValue:originalUrl forHTTPHeaderField:@"originalUrl"];

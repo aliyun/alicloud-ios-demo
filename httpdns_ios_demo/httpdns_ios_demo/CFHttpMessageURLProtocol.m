@@ -81,11 +81,16 @@
  * 使用CFHTTPMessage转发请求
  */
 - (void)startRequest {
+    // 原请求的header信息
+    NSDictionary *headFields = curRequest.allHTTPHeaderFields;
     // 添加http post请求所附带的数据
     CFStringRef requestBody = CFSTR("");
     CFDataRef bodyData = CFStringCreateExternalRepresentation(kCFAllocatorDefault, requestBody, kCFStringEncodingUTF8, 0);
     if (curRequest.HTTPBody) {
         bodyData = (__bridge_retained CFDataRef) curRequest.HTTPBody;
+    } else if (headFields[@"originalBody"]) {
+        // 使用NSURLSession发POST请求时，将原始HTTPBody从header中取出
+        bodyData = (__bridge_retained CFDataRef) [headFields[@"originalBody"] dataUsingEncoding:NSUTF8StringEncoding];
     }
     
     CFStringRef url = (__bridge CFStringRef) [curRequest.URL absoluteString];
@@ -99,11 +104,13 @@
     CFHTTPMessageSetBody(cfrequest, bodyData);
     
     // copy原请求的header信息
-    NSDictionary *headFields = curRequest.allHTTPHeaderFields;
     for (NSString *header in headFields) {
-        CFStringRef requestHeader = (__bridge CFStringRef) header;
-        CFStringRef requestHeaderValue = (__bridge CFStringRef) [headFields valueForKey:header];
-        CFHTTPMessageSetHeaderFieldValue(cfrequest, requestHeader, requestHeaderValue);
+        if (![header isEqualToString:@"originalBody"]) {
+            // 不包含POST请求时存放在header的body信息
+            CFStringRef requestHeader = (__bridge CFStringRef) header;
+            CFStringRef requestHeaderValue = (__bridge CFStringRef) [headFields valueForKey:header];
+            CFHTTPMessageSetHeaderFieldValue(cfrequest, requestHeader, requestHeaderValue);
+        }
     }
     
     // 创建CFHTTPMessage对象的输入流
@@ -165,8 +172,10 @@
         } else if (myErrCode >= 300 && myErrCode < 400) {
             // 返回码为3xx，需要重定向请求，继续访问重定向页面
             NSString *location = headDict[@"Location"];
+            if (!location)
+                location = headDict[@"location"];
             NSURL *url = [[NSURL alloc] initWithString:location];
-            curRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+            curRequest.URL = url;
             
             /***********重定向通知client处理或内部处理*************/
             // client处理
@@ -180,7 +189,7 @@
                 NSRange hostFirstRange = [location rangeOfString:url.host];
                 if (NSNotFound != hostFirstRange.location) {
                     NSString *newUrl = [location stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                    curRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:newUrl]];
+                    curRequest.URL = [NSURL URLWithString:newUrl];
                     [curRequest setValue:url.host forHTTPHeaderField:@"host"];
                 }
             }
@@ -221,6 +230,7 @@
                 // 获取响应头部的状态码
                 CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
                 NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:curRequest.URL statusCode:myErrCode HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
+                
                 [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
                 
                 // 验证证书
