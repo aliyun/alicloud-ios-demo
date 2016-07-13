@@ -176,6 +176,11 @@
                 location = headDict[@"location"];
             NSURL *url = [[NSURL alloc] initWithString:location];
             curRequest.URL = url;
+            if ([[curRequest.HTTPMethod lowercaseString] isEqualToString:@"post"]) {
+                // 根据RFC文档，当重定向请求为POST请求时，要将其转换为GET请求
+                curRequest.HTTPMethod = @"GET";
+                curRequest.HTTPBody = nil;
+            }
             
             /***********重定向通知client处理或内部处理*************/
             // client处理
