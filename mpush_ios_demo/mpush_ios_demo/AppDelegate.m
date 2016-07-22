@@ -77,7 +77,7 @@
     // 正式上线建议关闭
     [CloudPushSDK turnOnDebug];
     // SDK初始化
-    [CloudPushSDK asyncInit:@"*****" appSecret:@"*****" callback:^(CloudPushCallbackResult *res) {
+    [CloudPushSDK asyncInit:@"23267207" appSecret:@"379089f0019f8faba0c61fcdf00f678f" callback:^(CloudPushCallbackResult *res) {
         if (res.success) {
             NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
         } else {
