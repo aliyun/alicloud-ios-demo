@@ -21,8 +21,8 @@ class Student {
     }
 }
 enum Rank : Int {
-    case Ace = 2
-    case Two, Three, Four, Five, Six = 9, Seven, Eight, Nine, Ten
+    case Ace
+    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
     case Jack, Queen, King
     func SimpleDesc() -> String {
         switch self {
@@ -61,6 +61,7 @@ class FirstViewController: UIViewController {
         } else {
             print("Ace win")
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,4 +85,10 @@ class FirstViewController: UIViewController {
         }
     }
 }
+
+protocol ExamProtocol {
+    var simpleDesc : String {get}
+    mutating func adjust()
+}
+
 
