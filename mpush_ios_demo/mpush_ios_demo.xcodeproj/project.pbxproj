@@ -10,7 +10,6 @@
 		4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */; };
 		4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554E01CEEC7E900F64F49 /* libresolv.tbd */; };
 		5707F9A41B28186F00D29DA5 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */; };
-		5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */; };
 		5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99F1B28186F00D29DA5 /* UTDID.framework */; };
 		C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D151ACED5B70094FCEC /* FAImageView.m */; };
 		C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D171ACED5B70094FCEC /* NSString+FontAwesome.m */; };
@@ -39,13 +38,13 @@
 		C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99E76701AC96B8B000BC567 /* LaunchScreen.xib */; };
 		C9C301161ADBA55000BF3288 /* ued.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C9C301151ADBA55000BF3288 /* ued.sqlite */; };
 		C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D939321ACA77F7007E7BE6 /* Images.xcassets */; };
+		F7F153F81D4734D900E31730 /* MPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F153F71D4734D900E31730 /* MPushSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = lib/AlicloudUtils.framework; sourceTree = "<group>"; };
 		4A9554E01CEEC7E900F64F49 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSessionSDK.framework; path = lib/ALBBSessionSDK.framework; sourceTree = "<group>"; };
-		5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = lib/CloudPushSDK.framework; sourceTree = "<group>"; };
 		5707F99F1B28186F00D29DA5 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = lib/UTDID.framework; sourceTree = "<group>"; };
 		C9102D141ACED5B70094FCEC /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		C9102D151ACED5B70094FCEC /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		C99E76711AC96B8B000BC567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C9C301151ADBA55000BF3288 /* ued.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ued.sqlite; sourceTree = "<group>"; };
 		C9D939321ACA77F7007E7BE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F7F153F71D4734D900E31730 /* MPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPushSDK.framework; path = lib/MPushSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F153F81D4734D900E31730 /* MPushSDK.framework in Frameworks */,
 				C95EFDFE1ACA98D20082CF70 /* libz.dylib in Frameworks */,
 				4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */,
 				C93E19C11ACBD45E00A90F3B /* libsqlite3.dylib in Frameworks */,
@@ -105,7 +106,6 @@
 				C96D707F1ACC490300B3D76B /* CoreGraphics.framework in Frameworks */,
 				C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */,
 				5707F9A41B28186F00D29DA5 /* ALBBSessionSDK.framework in Frameworks */,
-				5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */,
 				4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */,
 				5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */,
 			);
@@ -117,6 +117,7 @@
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7F153F71D4734D900E31730 /* MPushSDK.framework */,
 				4A9554E01CEEC7E900F64F49 /* libresolv.tbd */,
 				4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */,
 				C9102D131ACED5B70094FCEC /* FontAwesome+iOS */,
@@ -229,7 +230,7 @@
 			name = Personal;
 			sourceTree = "<group>";
 		};
-		C95EFE141ACAFF780082CF70 /* Entitys */ = {
+		C95EFE141ACAFF780082CF70 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				C95EFE111ACAFF580082CF70 /* LZLPersonalData.h */,
@@ -237,14 +238,13 @@
 				C93E19BD1ACBD0E800A90F3B /* LZLPushMessage.h */,
 				C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */,
 			);
-			name = Entitys;
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		C99E76521AC96B8B000BC567 = {
 			isa = PBXGroup;
 			children = (
 				5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */,
-				5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */,
 				5707F99F1B28186F00D29DA5 /* UTDID.framework */,
 				C9C301151ADBA55000BF3288 /* ued.sqlite */,
 				C99E765D1AC96B8B000BC567 /* mpush_ios_demo */,
@@ -266,7 +266,7 @@
 			children = (
 				C99E765E1AC96B8B000BC567 /* Supporting Files */,
 				C91A23861ACA32A800E0E33D /* Main */,
-				C95EFE141ACAFF780082CF70 /* Entitys */,
+				C95EFE141ACAFF780082CF70 /* Entities */,
 				C95EFE0C1ACAF3C90082CF70 /* Utils */,
 				C93E19B51ACB95FE00A90F3B /* Message */,
 				C95EFE081ACAE3B90082CF70 /* Settings */,

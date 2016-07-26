@@ -12,6 +12,6 @@
 
 @interface LZLPersonalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *persionalDataTableView;
+@property (weak, nonatomic) IBOutlet UITableView *personalDataTableView;
 
 @end

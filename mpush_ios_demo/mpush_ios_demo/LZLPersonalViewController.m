@@ -25,8 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.persionalDataTableView.delegate = self;
-    self.persionalDataTableView.dataSource = self;
+    self.personalDataTableView.delegate = self;
+    self.personalDataTableView.dataSource = self;
     
     self.personalDataItems = [[NSMutableArray alloc] init];
     [self loadInitialData];

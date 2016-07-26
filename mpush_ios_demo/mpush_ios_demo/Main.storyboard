@@ -374,7 +374,7 @@
                     <navigationItem key="navigationItem" title="信息中心" id="uxW-bw-8dW"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="persionalDataTableView" destination="67r-Hq-QcM" id="oKc-bA-PDi"/>
+                        <outlet property="personalDataTableView" destination="67r-Hq-QcM" id="t11-8Y-EOQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QuD-FA-uVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
