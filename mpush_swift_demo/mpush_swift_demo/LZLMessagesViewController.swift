@@ -27,12 +27,27 @@ class LZLMessagesViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let tappedItem = self.messages[indexPath.row]
+        
+        if !tappedItem.isRead {
+            tappedItem.isRead = true
+            let dao = PushMessageDAO()
+            dao.update(tappedItem)
+            self.refreshTable()
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifier = "pushMessageCell"
         let cell : UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(identifier)
-        cell.textLabel?.text = messages[indexPath.row].messageContent
+        let curMessage = messages[indexPath.row]
+        cell.textLabel?.text = curMessage.messageContent
+        
+        if curMessage.isRead {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
         return cell
     }
     
@@ -40,7 +55,31 @@ class LZLMessagesViewController: UIViewController, UITableViewDataSource, UITabl
         return messages.count
     }
     
-
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // 删除cell
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            // 数据库中删除该条记录
+            let dao = PushMessageDAO()
+            dao.remove(messages[indexPath.row])
+            self.messages.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            tableView.reloadSections(NSIndexSet.init(index: 0), withRowAnimation: UITableViewRowAnimation.None)
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func refreshTable() {
+        let dao = PushMessageDAO()
+        self.messages = dao.selectAll()
+        self.pushMessageTableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.refreshTable()
+    }
     /*
     // MARK: - Navigation
 

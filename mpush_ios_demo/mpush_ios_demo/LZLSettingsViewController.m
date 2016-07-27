@@ -231,7 +231,7 @@
         [MsgToolBox showAlert:@"温馨提示" content:@"请输入别名"];
         return;
     }
-    [CloudPushSDK bindTag:3 withTags:tagArray withAlias:aliasString withCallback:^(CloudPushCallbackResult *res) {
+    [CloudPushSDK unbindTag:3 withTags:tagArray withAlias:aliasString withCallback:^(CloudPushCallbackResult *res) {
         if (res.success) {
             NSLog(@"解绑别名标签成功");
             [MsgToolBox showAlert:@"温馨提示" content:@"别名标签解绑成功"];

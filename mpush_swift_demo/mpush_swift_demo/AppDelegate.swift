@@ -117,7 +117,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Push SDK init success, deviceId: \(CloudPushSDK.getDeviceId()).")
                 }
             }
-            
         )
     }
     
@@ -171,7 +170,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func insertPushMessage(model: LZLPushMessage) {
-        
+        let dao = PushMessageDAO()
+        dao.insert(model)
     }
     
     // 禁止横屏

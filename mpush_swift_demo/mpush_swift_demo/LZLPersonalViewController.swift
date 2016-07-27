@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MPushSDK
 
 class LZLPersonalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -16,6 +17,13 @@ class LZLPersonalViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.personalDataItems = []
+        self.loadInitialData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +44,42 @@ class LZLPersonalViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let tappedItem = self.personalDataItems[indexPath.row]
+        MsgToolBox.showAlert(tappedItem.itemName, content: tappedItem.itemValue)
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    /**
+     *  初始化一些个人数据，类似DeviceID之类的东西
+     */
+    func loadInitialData() {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let deviceId = LZLPersonalData()
+        deviceId.itemName = "Device ID"
+        deviceId.itemValue = CloudPushSDK.getDeviceId()
+        
+        let sdkVersion = LZLPersonalData()
+        sdkVersion.itemName = "CloudPush SDK Version"
+        sdkVersion.itemValue = CloudPushSDK.getVersion()
+        
+        let bindAccount = LZLPersonalData()
+        bindAccount.itemName = "当前绑定账号"
+        bindAccount.itemValue = userDefaults.stringForKey("bindAccount") == nil ? "当前设备未绑定任何账号" : userDefaults.stringForKey("bindAccount")!
+        
+        let contactUs = LZLPersonalData()
+        contactUs.itemName = "联系我们"
+        contactUs.itemValue = "Demo App相关问题\n 请在阿里旺旺或旺信中搜索淘宝旺旺群：\n 1360183878"
+        
+        self.personalDataItems.append(contactUs)
+        self.personalDataItems.append(deviceId)
+        self.personalDataItems.append(sdkVersion)
+        self.personalDataItems.append(bindAccount)
+        
+        self.personalDataTableView.reloadData()
     }
     /*
     // MARK: - Navigation
