@@ -17,7 +17,9 @@ class LZLMessagesViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        let header = MJRefreshNormalHeader()
+        header.setRefreshingTarget(self, refreshingAction: #selector(self.headerRefresh))
+        self.pushMessageTableView.mj_header = header
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +81,14 @@ class LZLMessagesViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidAppear(animated: Bool) {
         self.refreshTable()
+    }
+    
+    // 顶部刷新
+    func headerRefresh(){
+        print("下拉刷新")
+        self.refreshTable()
+        // 结束刷新
+        self.pushMessageTableView.mj_header.endRefreshing()
     }
     /*
     // MARK: - Navigation

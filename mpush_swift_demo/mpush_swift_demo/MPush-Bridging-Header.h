@@ -9,5 +9,6 @@
 #ifndef MPush_Bridging_Header_h
 #define MPush_Bridging_Header_h
 
+#import "MJRefresh.h"
 
 #endif /* MPush_Bridging_Header_h */
