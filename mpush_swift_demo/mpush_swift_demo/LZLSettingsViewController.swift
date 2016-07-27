@@ -146,7 +146,7 @@ class LZLSettingsViewController: UIViewController, UITextFieldDelegate {
     @IBAction func userBindTagToAccount(sender: AnyObject) {
         let tagArray = getTagArray()
         if tagArray == nil {return}
-        CloudPushSDK.unbindTag(2, withTags: tagArray, withAlias: nil, withCallback: {(res) in
+        CloudPushSDK.bindTag(2, withTags: tagArray, withAlias: nil, withCallback: {(res) in
             if res.success {
                 print("绑定账号标签成功")
                 MsgToolBox.showAlert("温馨提示", content: "账号标签绑定成功")

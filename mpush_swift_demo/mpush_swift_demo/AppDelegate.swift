@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 正式上线建议关闭
         CloudPushSDK.turnOnDebug();
         // SDK初始化
-        CloudPushSDK.asyncInit("23267207", appSecret: "379089f0019f8faba0c61fcdf00f678f", callback: {(res) in
+        CloudPushSDK.asyncInit("****", appSecret: "*****", callback: {(res) in
             if res.success {
                 print("Push SDK init success, deviceId: \(CloudPushSDK.getDeviceId()).")
                 }
