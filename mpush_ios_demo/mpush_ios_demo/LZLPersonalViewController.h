@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CloudPushSDK/CloudPushSDK.h>
+#import <MPushSDK/MPushSDK.h>
 #import "MsgToolBox.h"
 
 @interface LZLPersonalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>

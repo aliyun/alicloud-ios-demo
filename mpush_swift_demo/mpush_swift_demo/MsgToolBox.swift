@@ -12,11 +12,11 @@ class MsgToolBox: NSObject {
     static func showAlert(title: String, content: String) {
         // 保证在主线程上执行
         if NSThread.isMainThread() {
-            let alertView = UIAlertView.init(title: title, message: content, delegate: nil, cancelButtonTitle: "已阅", otherButtonTitles: "", "")
+            let alertView = UIAlertView.init(title: title, message: content, delegate: nil, cancelButtonTitle: "已阅")
             alertView.show()
         } else {
             dispatch_async(dispatch_get_main_queue(), {
-                let alertView = UIAlertView.init(title: title, message: content, delegate: nil, cancelButtonTitle: "已阅", otherButtonTitles: "", "")
+                let alertView = UIAlertView.init(title: title, message: content, delegate: nil, cancelButtonTitle: "已阅")
                 alertView.show()
             })
         }

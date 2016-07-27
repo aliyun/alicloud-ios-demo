@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <MPushSDK/CloudPushSDK.h>
+#import <MPushSDK/MPushSDK.h>
 
 @interface AppDelegate ()
 
