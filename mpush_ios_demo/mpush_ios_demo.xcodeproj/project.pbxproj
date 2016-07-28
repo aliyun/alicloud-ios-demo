@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */; };
 		4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554E01CEEC7E900F64F49 /* libresolv.tbd */; };
-		5707F9A41B28186F00D29DA5 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */; };
-		5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */; };
 		5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99F1B28186F00D29DA5 /* UTDID.framework */; };
 		C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D151ACED5B70094FCEC /* FAImageView.m */; };
 		C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D171ACED5B70094FCEC /* NSString+FontAwesome.m */; };
@@ -22,10 +20,8 @@
 		C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91A23891ACA36E700E0E33D /* Main.storyboard */; };
 		C93E19B41ACB95F600A90F3B /* LZLMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19B31ACB95F600A90F3B /* LZLMessagesViewController.m */; };
 		C93E19BF1ACBD0E800A90F3B /* LZLPushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */; };
-		C93E19C11ACBD45E00A90F3B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C93E19C01ACBD45E00A90F3B /* libsqlite3.dylib */; };
 		C93E19C41ACBD4B000A90F3B /* PushMessageDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */; };
 		C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */; };
-		C95EFDFE1ACA98D20082CF70 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFD1ACA98D20082CF70 /* libz.dylib */; };
 		C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */; };
 		C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */; };
 		C95EFE071ACAE2C80082CF70 /* LZLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE061ACAE2C80082CF70 /* LZLSettingsViewController.m */; };
@@ -39,13 +35,15 @@
 		C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99E76701AC96B8B000BC567 /* LaunchScreen.xib */; };
 		C9C301161ADBA55000BF3288 /* ued.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C9C301151ADBA55000BF3288 /* ued.sqlite */; };
 		C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D939321ACA77F7007E7BE6 /* Images.xcassets */; };
+		F7F153F81D4734D900E31730 /* MPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F153F71D4734D900E31730 /* MPushSDK.framework */; };
+		F7F155041D489AD700E31730 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F155031D489AD700E31730 /* libsqlite3.tbd */; };
+		F7F155061D489AE100E31730 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F155051D489AE100E31730 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = lib/AlicloudUtils.framework; sourceTree = "<group>"; };
 		4A9554E01CEEC7E900F64F49 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALBBSessionSDK.framework; path = lib/ALBBSessionSDK.framework; sourceTree = "<group>"; };
-		5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = lib/CloudPushSDK.framework; sourceTree = "<group>"; };
 		5707F99F1B28186F00D29DA5 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = lib/UTDID.framework; sourceTree = "<group>"; };
 		C9102D141ACED5B70094FCEC /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		C9102D151ACED5B70094FCEC /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
@@ -65,11 +63,9 @@
 		C93E19B31ACB95F600A90F3B /* LZLMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLMessagesViewController.m; sourceTree = "<group>"; };
 		C93E19BD1ACBD0E800A90F3B /* LZLPushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLPushMessage.h; sourceTree = "<group>"; };
 		C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLPushMessage.m; sourceTree = "<group>"; };
-		C93E19C01ACBD45E00A90F3B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C93E19C21ACBD4B000A90F3B /* PushMessageDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessageDAO.h; sourceTree = "<group>"; };
 		C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessageDAO.m; sourceTree = "<group>"; };
 		C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		C95EFDFD1ACA98D20082CF70 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C95EFE051ACAE2C80082CF70 /* LZLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLSettingsViewController.h; sourceTree = "<group>"; };
@@ -89,6 +85,9 @@
 		C99E76711AC96B8B000BC567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C9C301151ADBA55000BF3288 /* ued.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ued.sqlite; sourceTree = "<group>"; };
 		C9D939321ACA77F7007E7BE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F7F153F71D4734D900E31730 /* MPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPushSDK.framework; path = lib/MPushSDK.framework; sourceTree = "<group>"; };
+		F7F155031D489AD700E31730 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F7F155051D489AE100E31730 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,16 +95,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C95EFDFE1ACA98D20082CF70 /* libz.dylib in Frameworks */,
+				F7F155061D489AE100E31730 /* libz.tbd in Frameworks */,
+				F7F155041D489AD700E31730 /* libsqlite3.tbd in Frameworks */,
+				F7F153F81D4734D900E31730 /* MPushSDK.framework in Frameworks */,
 				4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */,
-				C93E19C11ACBD45E00A90F3B /* libsqlite3.dylib in Frameworks */,
 				C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */,
 				C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */,
 				C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */,
 				C96D707F1ACC490300B3D76B /* CoreGraphics.framework in Frameworks */,
 				C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */,
-				5707F9A41B28186F00D29DA5 /* ALBBSessionSDK.framework in Frameworks */,
-				5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */,
 				4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */,
 				5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */,
 			);
@@ -117,16 +115,17 @@
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7F155051D489AE100E31730 /* libz.tbd */,
+				F7F155031D489AD700E31730 /* libsqlite3.tbd */,
+				F7F153F71D4734D900E31730 /* MPushSDK.framework */,
 				4A9554E01CEEC7E900F64F49 /* libresolv.tbd */,
 				4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */,
 				C9102D131ACED5B70094FCEC /* FontAwesome+iOS */,
 				C9102D1F1ACED5B70094FCEC /* KoaPullToRefresh */,
 				C96D707E1ACC490300B3D76B /* CoreGraphics.framework */,
 				C96D707C1ACC48F600B3D76B /* QuartzCore.framework */,
-				C93E19C01ACBD45E00A90F3B /* libsqlite3.dylib */,
 				C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */,
 				C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */,
-				C95EFDFD1ACA98D20082CF70 /* libz.dylib */,
 				C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
@@ -229,7 +228,7 @@
 			name = Personal;
 			sourceTree = "<group>";
 		};
-		C95EFE141ACAFF780082CF70 /* Entitys */ = {
+		C95EFE141ACAFF780082CF70 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				C95EFE111ACAFF580082CF70 /* LZLPersonalData.h */,
@@ -237,14 +236,13 @@
 				C93E19BD1ACBD0E800A90F3B /* LZLPushMessage.h */,
 				C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */,
 			);
-			name = Entitys;
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		C99E76521AC96B8B000BC567 = {
 			isa = PBXGroup;
 			children = (
 				5707F99D1B28186E00D29DA5 /* ALBBSessionSDK.framework */,
-				5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */,
 				5707F99F1B28186F00D29DA5 /* UTDID.framework */,
 				C9C301151ADBA55000BF3288 /* ued.sqlite */,
 				C99E765D1AC96B8B000BC567 /* mpush_ios_demo */,
@@ -266,7 +264,7 @@
 			children = (
 				C99E765E1AC96B8B000BC567 /* Supporting Files */,
 				C91A23861ACA32A800E0E33D /* Main */,
-				C95EFE141ACAFF780082CF70 /* Entitys */,
+				C95EFE141ACAFF780082CF70 /* Entities */,
 				C95EFE0C1ACAF3C90082CF70 /* Utils */,
 				C93E19B51ACB95FE00A90F3B /* Message */,
 				C95EFE081ACAE3B90082CF70 /* Settings */,
@@ -318,6 +316,7 @@
 				TargetAttributes = {
 					C99E765A1AC96B8B000BC567 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = QBMN2BBW3K;
 					};
 				};
 			};
@@ -485,9 +484,9 @@
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alibaba.qa.UserExperienceDemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.pushdemo;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -510,8 +509,9 @@
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alibaba.qa.UserExperienceDemo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.pushdemo;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

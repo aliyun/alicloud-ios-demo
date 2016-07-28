@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.pushMessageTableView.delegate =self;
+    self.pushMessageTableView.delegate = self;
     self.pushMessageTableView.dataSource = self;
     
     self.pushMessage = [[NSMutableArray alloc] init];
@@ -31,23 +31,23 @@
         [self refreshTable];
     } withBackgroundColor:[UIColor colorWithRed:0.251 green:0.663 blue:0.827 alpha:1] withPullToRefreshHeightShowed:1];
     
-    //Customize pulltorefresh text colors
+    // Customize pulltorefresh text colors
     [self.pushMessageTableView.pullToRefreshView setTextColor:[UIColor whiteColor]];
     [self.pushMessageTableView.pullToRefreshView setTextFont:[UIFont fontWithName:@"OpenSans-Semibold" size:16]];
     
-    //Set fontawesome icon
+    // Set fontawesome icon
     [self.pushMessageTableView.pullToRefreshView setFontAwesomeIcon:@"icon-refresh"];
     
-    //Set titles
+    // Set titles
     [self.pushMessageTableView.pullToRefreshView setTitle:@"Pull" forState:KoaPullToRefreshStateStopped];
     [self.pushMessageTableView.pullToRefreshView setTitle:@"Release" forState:KoaPullToRefreshStateTriggered];
     [self.pushMessageTableView.pullToRefreshView setTitle:@"Loading" forState:KoaPullToRefreshStateLoading];
     
-    //Hide scroll indicator
+    // Hide scroll indicator
     [self.pushMessageTableView setShowsVerticalScrollIndicator:NO];
 }
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     
     [self.pushMessageTableView.pullToRefreshView startAnimating];
     [self.pushMessageTableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:1];
@@ -69,7 +69,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-//===================================== Table View Method ====================================
+// ===================================== Table View Method ====================================
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //删除cell
     if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -78,7 +78,7 @@
         PushMessageDAO *dao = [[PushMessageDAO alloc] init];
         [dao remove:[self.pushMessage objectAtIndex:indexPath.row]];
         
-        [self.pushMessage removeObjectAtIndex:indexPath.row];  //数据源中剔除记录
+        [self.pushMessage removeObjectAtIndex:indexPath.row];  // 数据源中剔除记录
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
@@ -103,7 +103,7 @@
     cell.textLabel.text = tablecell.messageContent;
     
     if (tablecell.isRead) {
-        cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;

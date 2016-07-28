@@ -1,0 +1,6 @@
+framework module MPushSDK {
+  umbrella header "MPushSDK.h"
+
+  export *
+  module * { export * }
+}

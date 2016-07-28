@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "MsgToolBox.h"
-#import <CloudPushSDK/CloudPushSDK.h>
+#import <MPushSDK/CloudPushSDK.h>
 #import "PushMessageDAO.h"
 
 
