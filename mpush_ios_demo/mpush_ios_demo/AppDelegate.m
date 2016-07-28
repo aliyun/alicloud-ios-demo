@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <MPushSDK/MPushSDK.h>
 
 @interface AppDelegate ()
 

@@ -35,7 +35,7 @@
 		C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99E76701AC96B8B000BC567 /* LaunchScreen.xib */; };
 		C9C301161ADBA55000BF3288 /* ued.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C9C301151ADBA55000BF3288 /* ued.sqlite */; };
 		C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D939321ACA77F7007E7BE6 /* Images.xcassets */; };
-		F7F153F81D4734D900E31730 /* MPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F153F71D4734D900E31730 /* MPushSDK.framework */; };
+		F77F01C31D49F83800B47BF8 /* AliCloudPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77F01C21D49F83800B47BF8 /* AliCloudPush.framework */; };
 		F7F155041D489AD700E31730 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F155031D489AD700E31730 /* libsqlite3.tbd */; };
 		F7F155061D489AE100E31730 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F155051D489AE100E31730 /* libz.tbd */; };
 /* End PBXBuildFile section */
@@ -85,7 +85,7 @@
 		C99E76711AC96B8B000BC567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C9C301151ADBA55000BF3288 /* ued.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ued.sqlite; sourceTree = "<group>"; };
 		C9D939321ACA77F7007E7BE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F7F153F71D4734D900E31730 /* MPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPushSDK.framework; path = lib/MPushSDK.framework; sourceTree = "<group>"; };
+		F77F01C21D49F83800B47BF8 /* AliCloudPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliCloudPush.framework; path = lib/AliCloudPush.framework; sourceTree = "<group>"; };
 		F7F155031D489AD700E31730 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F7F155051D489AE100E31730 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -95,9 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77F01C31D49F83800B47BF8 /* AliCloudPush.framework in Frameworks */,
 				F7F155061D489AE100E31730 /* libz.tbd in Frameworks */,
 				F7F155041D489AD700E31730 /* libsqlite3.tbd in Frameworks */,
-				F7F153F81D4734D900E31730 /* MPushSDK.framework in Frameworks */,
 				4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */,
 				C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */,
 				C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */,
@@ -115,9 +115,9 @@
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F77F01C21D49F83800B47BF8 /* AliCloudPush.framework */,
 				F7F155051D489AE100E31730 /* libz.tbd */,
 				F7F155031D489AD700E31730 /* libsqlite3.tbd */,
-				F7F153F71D4734D900E31730 /* MPushSDK.framework */,
 				4A9554E01CEEC7E900F64F49 /* libresolv.tbd */,
 				4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */,
 				C9102D131ACED5B70094FCEC /* FontAwesome+iOS */,
@@ -311,7 +311,7 @@
 		C99E76531AC96B8B000BC567 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = alibaba;
 				TargetAttributes = {
 					C99E765A1AC96B8B000BC567 = {
@@ -410,6 +410,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -477,7 +478,6 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mpush_ios_demo/Frameworks",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/lib",
 				);
@@ -502,7 +502,6 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mpush_ios_demo/Frameworks",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/lib",
 				);

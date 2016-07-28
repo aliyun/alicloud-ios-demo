@@ -4,9 +4,9 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/CCPStopwatch.h</key>
+		<key>Headers/AliCloudPush.h</key>
 		<data>
-		HdWNhFfrq2qP3bJ8md7mVOu/bwA=
+		4b/R9/aIDvqDb/b6Q1/ixaPSzn8=
 		</data>
 		<key>Headers/CCPSysMessage.h</key>
 		<data>
@@ -18,26 +18,26 @@
 		</data>
 		<key>Headers/CloudPushSDK.h</key>
 		<data>
-		D8D8hup5Je3Yl1l6T1fTWYB+N8Q=
+		vQ9aTQXRiOQUia4NTi+xMHZjkIY=
 		</data>
-		<key>Headers/MPushSDK.h</key>
+		<key>Headers/MPGerneralDeclaration.h</key>
 		<data>
-		H6yks04S1gm3ekQAQRLVNO3RwhM=
+		HkHtumMVRy+9qakya+HdFTNpZvs=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bH69x/3CQkSvOz5Mel6BvUFiiAQ=
+		UypXS7dAVXF2vwTrS2+reVu2wkY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		GFkRvHZ9CLqVvaX4gscBS32qHjE=
+		5vDfvyStbJkgMQv33CGcPJ+0q0k=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/CCPStopwatch.h</key>
+		<key>Headers/AliCloudPush.h</key>
 		<data>
-		HdWNhFfrq2qP3bJ8md7mVOu/bwA=
+		4b/R9/aIDvqDb/b6Q1/ixaPSzn8=
 		</data>
 		<key>Headers/CCPSysMessage.h</key>
 		<data>
@@ -49,15 +49,15 @@
 		</data>
 		<key>Headers/CloudPushSDK.h</key>
 		<data>
-		D8D8hup5Je3Yl1l6T1fTWYB+N8Q=
+		vQ9aTQXRiOQUia4NTi+xMHZjkIY=
 		</data>
-		<key>Headers/MPushSDK.h</key>
+		<key>Headers/MPGerneralDeclaration.h</key>
 		<data>
-		H6yks04S1gm3ekQAQRLVNO3RwhM=
+		HkHtumMVRy+9qakya+HdFTNpZvs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		GFkRvHZ9CLqVvaX4gscBS32qHjE=
+		5vDfvyStbJkgMQv33CGcPJ+0q0k=
 		</data>
 	</dict>
 	<key>rules</key>

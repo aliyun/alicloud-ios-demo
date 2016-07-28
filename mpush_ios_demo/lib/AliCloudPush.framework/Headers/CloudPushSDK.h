@@ -2,34 +2,15 @@
 //  CloudPushSDK.h
 //  CloudPushSDK
 //
-//  Created by wuxiang on 14-8-27.
-//  Copyright (c) 2014年 alibaba. All rights reserved.
+//  Created by junmo on 16/7/26.
+//  Copyright © 2016年 aliyun.mobileService. All rights reserved.
 //
 
-#import "CloudPushCallbackResult.h"
+#import "CCPSysMessage.h"
+#import "MPGerneralDeclaration.h"
 #import <Foundation/Foundation.h>
 
 #define CLOUDPUSH_IOS_SDK_VERSION   @"1.7.1"
-
-typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
-
-// 保证callback不为空
-#define NotNilCallback(funcName, paras)\
-if (funcName) {\
-funcName(paras);\
-}
-
-// 保证callback不为空且在主线程执行
-#define NotNilMainCallback(funcName, paras)\
-if (funcName) {\
-    if ([NSThread isMainThread]) {\
-        funcName(paras);\
-    } else {\
-    dispatch_async(dispatch_get_main_queue(), ^{\
-        funcName(paras);\
-    });\
-    }\
-}
 
 @protocol CloudPushSDKServiceDelegate <NSObject>
 
@@ -81,14 +62,14 @@ if (funcName) {\
 /**
  *	返回推送通知ACK到服务器 (该通知为App处于关闭状态时接收，点击后启动App)
  *
- *	@param 	launchOptions 	
+ *	@param 	launchOptions
  */
 + (void)handleLaunching:(NSDictionary *)launchOptions;
 
 /**
  *	返回推送通知ACK到服务器 (该通知为App处于开启状态时接收)
  *
- *	@param 	userInfo 	
+ *	@param 	userInfo
  */
 + (void)handleReceiveRemoteNotification:(NSDictionary *)userInfo;
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MPushSDK
+import AliCloudPush
 
 class LZLPersonalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

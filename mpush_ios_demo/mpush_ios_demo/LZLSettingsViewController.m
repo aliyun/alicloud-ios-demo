@@ -7,7 +7,7 @@
 //
 
 #import "LZLSettingsViewController.h"
-#import <MPushSDK/MPushSDK.h>
+#import <AliCloudPush/AliCloudPush.h>
 
 @interface LZLSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userAccount;

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MPushSDK
+import AliCloudPush
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

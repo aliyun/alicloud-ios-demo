@@ -8,7 +8,7 @@
 
 import UIKit
 import SQLite
-import MPushSDK
+import AliCloudPush
 
 let DBFILE_NAME = "ued.sqlite"
 

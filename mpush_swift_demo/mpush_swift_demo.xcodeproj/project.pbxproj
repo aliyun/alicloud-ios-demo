@@ -27,7 +27,7 @@
 		F77547791D3E2227002767A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77547781D3E2227002767A9 /* AppDelegate.swift */; };
 		F77547821D3E2227002767A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77547811D3E2227002767A9 /* Assets.xcassets */; };
 		F77547851D3E2227002767A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77547831D3E2227002767A9 /* LaunchScreen.storyboard */; };
-		F7F153FA1D4734FA00E31730 /* MPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F153F91D4734FA00E31730 /* MPushSDK.framework */; };
+		F77F01C11D49F82400B47BF8 /* AliCloudPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77F01C01D49F82400B47BF8 /* AliCloudPush.framework */; };
 		F7F153FC1D4741B100E31730 /* MsgToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F153FB1D4741B100E31730 /* MsgToolBox.swift */; };
 		F7F153FE1D47441500E31730 /* PushMessageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F153FD1D47441500E31730 /* PushMessageDAO.swift */; };
 		F7F154861D47624600E31730 /* ued.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = F7F154851D47624600E31730 /* ued.sqlite */; };
@@ -100,7 +100,7 @@
 		F77547811D3E2227002767A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F77547841D3E2227002767A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F77547861D3E2227002767A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7F153F91D4734FA00E31730 /* MPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPushSDK.framework; path = libs/MPushSDK.framework; sourceTree = "<group>"; };
+		F77F01C01D49F82400B47BF8 /* AliCloudPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliCloudPush.framework; path = libs/AliCloudPush.framework; sourceTree = "<group>"; };
 		F7F153FB1D4741B100E31730 /* MsgToolBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgToolBox.swift; sourceTree = "<group>"; };
 		F7F153FD1D47441500E31730 /* PushMessageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushMessageDAO.swift; sourceTree = "<group>"; };
 		F7F154491D4756B400E31730 /* MPush-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MPush-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F153FA1D4734FA00E31730 /* MPushSDK.framework in Frameworks */,
+				F77F01C11D49F82400B47BF8 /* AliCloudPush.framework in Frameworks */,
 				F7222AE61D460A5100EAB27A /* AlicloudUtils.framework in Frameworks */,
 				F7222ACA1D45ECD600EAB27A /* libresolv.tbd in Frameworks */,
 				F7222AD81D45F6D300EAB27A /* ALBBSessionSDK.framework in Frameworks */,
@@ -174,7 +174,7 @@
 		F7222ACB1D45ED5300EAB27A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F7F153F91D4734FA00E31730 /* MPushSDK.framework */,
+				F77F01C01D49F82400B47BF8 /* AliCloudPush.framework */,
 				F7222AE51D460A5100EAB27A /* AlicloudUtils.framework */,
 				F7222AC91D45ECD600EAB27A /* libresolv.tbd */,
 				F7222AC71D45ECC900EAB27A /* libsqlite3.tbd */,

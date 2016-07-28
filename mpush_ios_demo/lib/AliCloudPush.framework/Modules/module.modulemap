@@ -1,0 +1,6 @@
+framework module AliCloudPush {
+  umbrella header "AliCloudPush.h"
+
+  export *
+  module * { export * }
+}
