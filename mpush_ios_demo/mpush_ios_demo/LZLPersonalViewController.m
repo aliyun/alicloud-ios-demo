@@ -17,7 +17,7 @@
 
 @implementation LZLPersonalViewController
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     self.personalDataItems = [[NSMutableArray alloc] init];
     [self loadInitialData];
 }
@@ -25,8 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.persionalDataTableView.delegate = self;
-    self.persionalDataTableView.dataSource = self;
+    self.personalDataTableView.delegate = self;
+    self.personalDataTableView.dataSource = self;
     
     self.personalDataItems = [[NSMutableArray alloc] init];
     [self loadInitialData];
@@ -52,7 +52,7 @@
     
     LZLPersonalData *bingAccount = [[LZLPersonalData alloc] init];
     bingAccount.itemName = @"当前绑定账号";
-    bingAccount.itemValue = [userDefaultes stringForKey:@"bindAccount"]==nil?@"当前设备未绑定任何账号":[userDefaultes stringForKey:@"bindAccount"];
+    bingAccount.itemValue = [userDefaultes stringForKey:@"bindAccount"] == nil ? @"当前设备未绑定任何账号" :[userDefaultes stringForKey:@"bindAccount"];
     
     LZLPersonalData *connectUS = [[LZLPersonalData alloc] init];
     connectUS.itemName = @"联系我们";

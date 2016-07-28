@@ -7,7 +7,7 @@
 //
 
 #import "LZLSettingsViewController.h"
-#import <CloudPushSDK/CloudPushSDK.h>
+#import <AliCloudPush/AliCloudPush.h>
 
 @interface LZLSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userAccount;
@@ -60,7 +60,7 @@
  */
 - (IBAction)userBindAccount:(id)sender {
     if (self.userAccount.text.length > 0) {
-        //用户按下按钮&&输入了准备绑定的帐户名称
+        // 用户按下按钮&&输入了准备绑定的帐户名称
         [CloudPushSDK bindAccount:self.userAccount.text withCallback:^(CloudPushCallbackResult *res) {
             if (res.success) {
                 NSLog(@"==================> 绑定账号成功");
@@ -68,8 +68,8 @@
                 // 切回主线程，防止crash
                 [MsgToolBox showAlert:@"温馨提示" content:@"账号绑定成功！"];
                 [self clearInput];
-
-                //持久化已绑定的数据
+                
+                // 持久化已绑定的数据
                 NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
                 [userDefaultes setObject:self.userAccount.text forKey:@"bindAccount"];
                 [userDefaultes synchronize];
@@ -78,7 +78,7 @@
                 [MsgToolBox showAlert:@"温馨提示" content:[NSString stringWithFormat:@"账号绑定失败, error: %@", res.error]];
             }
         }];
-
+        
         [self.userAccount resignFirstResponder];
     } else {
         [MsgToolBox showAlert:@"温馨提示" content:@"请输入帐户名！"];
@@ -231,7 +231,7 @@
         [MsgToolBox showAlert:@"温馨提示" content:@"请输入别名"];
         return;
     }
-    [CloudPushSDK bindTag:3 withTags:tagArray withAlias:aliasString withCallback:^(CloudPushCallbackResult *res) {
+    [CloudPushSDK unbindTag:3 withTags:tagArray withAlias:aliasString withCallback:^(CloudPushCallbackResult *res) {
         if (res.success) {
             NSLog(@"解绑别名标签成功");
             [MsgToolBox showAlert:@"温馨提示" content:@"别名标签解绑成功"];
@@ -321,7 +321,8 @@
     }];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+}
 
 - (void) alertMsg:(NSString *)title content:(NSString *)content {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];

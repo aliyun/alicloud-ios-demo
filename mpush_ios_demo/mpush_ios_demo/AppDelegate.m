@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <CloudPushSDK/CCPSysMessage.h>
 
 @interface AppDelegate ()
 
@@ -33,7 +32,7 @@
 /**
  *	注册苹果推送，获取deviceToken用于推送
  *
- *	@param 	application
+ *	@param  application
  */
 - (void)registerAPNS:(UIApplication *)application {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
@@ -77,7 +76,7 @@
     // 正式上线建议关闭
     [CloudPushSDK turnOnDebug];
     // SDK初始化
-    [CloudPushSDK asyncInit:@"*****" appSecret:@"*****" callback:^(CloudPushCallbackResult *res) {
+    [CloudPushSDK asyncInit:@"****" appSecret:@"****" callback:^(CloudPushCallbackResult *res) {
         if (res.success) {
             NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
         } else {
@@ -90,7 +89,7 @@
 /*
  *  App处于启动状态时，通知打开回调
  */
-- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"Receive one notification.");
     // 取得APNS通知内容
     NSDictionary *aps = [userInfo valueForKey:@"aps"];
@@ -123,7 +122,7 @@
 /**
  *	推送通道打开回调
  *
- *	@param 	notification
+ *	@param  notification
  */
 - (void)onChannelOpened:(NSNotification *)notification {
     [MsgToolBox showAlert:@"温馨提示" content:@"消息通道建立成功"];
@@ -143,11 +142,11 @@
 /**
  *	处理到来推送消息
  *
- *	@param 	notification
+ *	@param  notification
  */
 - (void)onMessageReceived:(NSNotification *)notification {
     NSLog(@"Receive one message!");
-   
+    
     CCPSysMessage *message = [notification object];
     NSString *title = [[NSString alloc] initWithData:message.title encoding:NSUTF8StringEncoding];
     NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
@@ -157,14 +156,14 @@
     tempVO.messageContent = [NSString stringWithFormat:@"title: %@, content: %@", title, body];
     tempVO.isRead = 0;
     
-    if(![NSThread isMainThread]) {
+    if (![NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if(tempVO.messageContent != nil) {
+            if (tempVO.messageContent != nil) {
                 [self insertPushMessage:tempVO];
             }
         });
     } else {
-        if(tempVO.messageContent != nil) {
+        if (tempVO.messageContent != nil) {
             [self insertPushMessage:tempVO];
         }
     }
@@ -180,13 +179,17 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {}
+- (void)applicationWillResignActive:(UIApplication *)application {
+}
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {}
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+}
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {}
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+}
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {}
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+}
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveContext];

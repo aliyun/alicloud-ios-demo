@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:mpush_swift_demo/mpush_swift_demo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:mpush_ios_demo/mpush_ios_demo.xcodeproj">
    </FileRef>
    <FileRef

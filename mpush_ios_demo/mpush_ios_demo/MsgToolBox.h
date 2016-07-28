@@ -11,6 +11,6 @@
 
 @interface MsgToolBox : NSObject
 
-+ (void) showAlert:(NSString *)title content:(NSString *)content;
++ (void)showAlert:(NSString *)title content:(NSString *)content;
 
 @end
