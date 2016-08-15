@@ -6,13 +6,10 @@
 //  Copyright (c) 2014年 ___SONGJUN___. All rights reserved.
 //
 
-#define UT_IOS_SDK_VERSION  @"4.3.1.1"
-
 #import <Foundation/Foundation.h>
 #import "UTTracker.h"
 #import "UTIRequestAuthentication.h"
 #import "UTICrashCaughtListener.h"
-
 @interface UTAnalytics : NSObject
 
 +(UTAnalytics *) getInstance;
@@ -35,8 +32,19 @@
 
 -(void) turnOnDebug;
 
+-(void) turnOnDev;
+
 -(void) turnOffCrashHandler;
 
 -(void) setCrashCaughtListener:(id<UTICrashCaughtListener>) aListener;
+
++(NSString *) utsid;
+
+/*
+ *功能：改变切后台sessionid改变的时间间隔
+ *注意：a.只有在白名单内的appkey，调这个接口才会起作用;要加入该白名单，要跟ut方面协商
+ *     b.interval:单位为秒;最短时间不能低于30秒
+ */
+- (void) setSessionTimeOut:(NSUInteger) interval;
 
 @end
