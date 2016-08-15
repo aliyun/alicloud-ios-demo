@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #define ALICLOUD_NETWOEK_STATUS_NOTIFY @"AlicloudNetworkStatusChangeNotify"
-#define ALICLOUD_NETWORK_STATUS_WIFISSID_DEFAULT @"bssidDefault"
 
 typedef enum {
     AlicloudNotReachable = 0,
@@ -24,7 +23,7 @@ typedef enum {
 + (AlicloudReachabilityManager *)shareInstance;
 
 /**
- *	@brief	返回当前网络状态
+ *	@brief	返回当前网络状态(同步调用，可能会阻塞调用线程)
  *
  *	@return
  */
@@ -38,17 +37,10 @@ typedef enum {
 - (AlicloudNetworkStatus)preNetworkStatus;
 
 /**
- *	@brief	检测网络是否连通
+ *	@brief	检测网络是否连通(同步调用，阻塞调用线程)
  *
  *	@return
  */
 - (BOOL)checkInternetConnection;
-
-/**
- *	@brief	获取Wifi名
- *
- *	@return
- */
-- (NSString *)getWifiSSID;
 
 @end

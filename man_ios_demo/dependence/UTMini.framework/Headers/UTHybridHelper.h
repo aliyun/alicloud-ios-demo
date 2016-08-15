@@ -12,7 +12,7 @@
 
 +(UTHybridHelper *) getInstance;
 
--(void) h5UT:(NSDictionary *) dataDict view:(UIWebView *) view;
+-(void) h5UT:(NSDictionary *) dataDict view:(UIWebView *) pView viewController:(UIViewController *) pViewController;
 
 -(void) setH5Url:(NSString *) url;
 
