@@ -18,5 +18,10 @@
 
 +(void) unregisterPlugin:(NSObject<UTPlugin> *) pPlugin;
 
++(BOOL) isRealTimeDebug;
+
++(void) loadConfsWhiteList;
+
++(void) forceUpload;
 
 @end

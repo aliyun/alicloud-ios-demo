@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <CloudPushSDK/CCPSysMessage.h>
+#import <CloudPushSDK/CloudPushSDK.h>
 
 @interface AppDelegate ()
 
