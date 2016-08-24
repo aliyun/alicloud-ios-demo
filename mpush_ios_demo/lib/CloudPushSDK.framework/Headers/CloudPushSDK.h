@@ -7,9 +7,10 @@
 //
 
 #import "CloudPushCallbackResult.h"
+#import "CCPSysMessage.h"
 #import <Foundation/Foundation.h>
 
-#define CLOUDPUSH_IOS_SDK_VERSION   @"1.7.1"
+#define CLOUDPUSH_IOS_SDK_VERSION   @"1.7.2"
 
 typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
 
@@ -95,21 +96,6 @@ funcName(paras);\
  *	@param 	callback    回调
  */
 + (void)unbindAccount:(CallbackHandler)callback;
-
-/**
- *	设置消息可接收的时间，比如08：00 --- 23：00
- *
- *	@param 	startH      起始小时
- *	@param 	startMS     起始分钟
- *	@param 	endH        结束小时
- *	@param 	endMS       结束分钟
- *	@param 	callback 	回调
- */
-+ (void)setAcceptTime:(UInt32)startH
-              startMS:(UInt32)startMS
-                 endH:(UInt32)endH
-                endMS:(UInt32)endMS
-         withCallback:(CallbackHandler)callback;
 
 /**
  *	向指定目标添加自定义标签
