@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import <ALBBSDK/ALBBSDK.h>
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 
 @interface AppDelegate ()
@@ -23,16 +22,15 @@
     NSString *testAppKey = @"********";
     NSString *testAppSecret = @"********";
     
-    // OneSDK初始化
-    [[ALBBSDK sharedInstance] asyncInit:testAppKey
-                              appSecret:testAppSecret :^{
-                                  NSLog(@"OneSDK init success.");
-                              }
-                         failedCallback:^(NSError *error) {
-                             NSLog(@"Init error is %@.", error);
-                         }];
-    // 打开调试日志
-    [ALBBMANLog enableLog];
+    // 获取MAN服务
+    ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
+    
+    // 打开调试日志，线上建议关闭
+    [man turnOnDebug];
+    
+    // 初始化MAN
+    [man initWithAppKey:testAppKey secretKey:testAppSecret];
+    
     return YES;
 }
 

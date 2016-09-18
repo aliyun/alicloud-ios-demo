@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UTMini/UTPageHitBuilder.h>
-//#import "UTPageHitBuilder.h"
 
 @interface ALBBMANPageHitBuilder : UTPageHitBuilder
 
 -(void) setProperty:(NSString *) pKey value:(NSString *) pValue;
 
 -(void) setProperties:(NSDictionary *) pPageProperties;
-
 
 -(void) setPageName:(NSString *) pPageName;
 

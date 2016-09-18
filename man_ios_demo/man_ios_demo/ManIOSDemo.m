@@ -52,12 +52,12 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        ALBBMANAnalytics *analytics = [ALBBMANAnalytics getInstance];
+        ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
         // appVersion默认从Info.list的CFBundleShortVersionString字段获取，如果没有指定，可在此设定
         // 如果上述两个地方都没有设定，appVersion为"-"
-        [analytics setAppVersion:@"2.3.1"];
+        [man setAppVersion:@"2.3.1"];
         // 设置渠道（用以标记该app的分发渠道名称），如果不关心可以不设置即不调用该接口，渠道设置将影响控制台【渠道分析】栏目的报表展现
-        [analytics setChannel:@"50"];
+        [man setChannel:@"50"];
     }
     return self;
 }
@@ -69,8 +69,6 @@
 
 - (void)oneTest {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        // 等待SDK异步初始化完成
-        [NSThread sleepForTimeInterval:1];
         [self crashHandler];
         [self userRegister];
         [self pageHit];
@@ -86,13 +84,11 @@
     账号信息埋点，见文档4.1
  */
 - (void)userRegister {
-    ALBBMANAnalytics *analytics = [ALBBMANAnalytics getInstance];
+    ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
     // 注册用户埋点
-    [analytics userRegister:@"userNick"];
+    [man userRegister:@"userNick"];
     // 用户登录埋点
-    [analytics updateUserAccount:@"userNick" userid:@"userId"];
-    // 用户注销埋点
-    [analytics updateUserAccount:@"" userid:@""];
+    [man updateUserAccount:@"userNick" userid:@"userId"];
 }
 
 /**
@@ -100,7 +96,7 @@
     页面埋点，见文档4.2
  */
 - (void)pageHit {
-    // 产生页面日志的另一种方法
+    // 页面事件埋点的另一种方法
     ALBBMANPageHitBuilder *pageHitBuilder = [[ALBBMANPageHitBuilder alloc] init];
     // 设置页面refer
     [pageHitBuilder setReferPage:@"pageRefer"];
@@ -140,10 +136,10 @@
     // [properties setObject:@"value1" forKey:@"ckey1"];
     // [properties setObject:@"value2" forKey:@"ckey2"];
     // [customBuilder setProperties:properties];
-    ALBBMANTracker *traker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
+    ALBBMANTracker *tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
     // 组装日志并发送
     NSDictionary *dic = [customBuilder build];
-    [traker send:dic];
+    [tracker send:dic];
 }
 
 /**
@@ -162,8 +158,8 @@
     // 设置扩展参数
     [customPerfBuilder setProperty:@"Page" value:@"Home"];
     // 组装日志并发送
-    ALBBMANTracker *traker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
-    [traker send:[customPerfBuilder build]];
+    ALBBMANTracker *tracker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
+    [tracker send:[customPerfBuilder build]];
 }
 
 /**
@@ -234,12 +230,12 @@
     crashHandler关闭和回调设置，见文档5.3
  */
 - (void)crashHandler {
-    ALBBMANAnalytics *analytics = [ALBBMANAnalytics getInstance];
+    ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
     // 设置crash回调方法
     TestCrashCaught *crashCaught = [[TestCrashCaught alloc] init];
-    [analytics setCrashCaughtListener:crashCaught];
+    [man setCrashCaughtListener:crashCaught];
     // 关闭crashHandler
-    [analytics turnOffCrashHandler];
+    [man turnOffCrashHandler];
 }
 
 @end

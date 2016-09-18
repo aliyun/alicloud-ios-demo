@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-
-#import <ALBBSDK/ALBBSDK.h>
 #import <AlicloudMobileAcceleration/ALBBMAC.h>
 
 
@@ -21,20 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    NSString* testAppKey = @"********";
-    NSString* testAppSecret = @"********";
-    
-    [[ALBBSDK sharedInstance] asyncInit:testAppKey
-                              appSecret:testAppSecret :^{
-                                  NSLog(@"onesdk init succeed");
-                              }
-                         failedCallback:^(NSError *error) {
-                                  NSLog(@"error is %@", error);
-                         }];
-    
+    // 初始化移动加速服务
     [ALBBMAC asynInit];
-    [ALBBMAC turnOnDebug];
+    // 调试使用，正式上线请关闭log
+    [ALBBMAC setLogEnabled:YES];
+    // 预热移动加速域名，非必须调用的API，请根据自身情况选择
+    [ALBBMAC presetMACDomains:@[@"cas.xxyycc.com", @"macapibm.ams.aliyuncs.com", @"macimg0bm.ams.aliyuncs.com", @"macimg1bm.ams.aliyuncs.com"]];
     return YES;
 }
 

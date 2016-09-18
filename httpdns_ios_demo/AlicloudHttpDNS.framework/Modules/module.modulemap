@@ -1,0 +1,6 @@
+framework module AlicloudHttpDNS {
+  umbrella header "AlicloudHttpDNS.h"
+
+  export *
+  module * { export * }
+}

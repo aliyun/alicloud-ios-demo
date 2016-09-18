@@ -10,12 +10,16 @@
 
 @interface ALBBMAC : NSObject
 
-+(void)asynInit;
++ (void)asynInit;
 
-+(void)stop;
++ (void)stop;
 
-+(void)restart;
++ (void)restart;
 
-+(void)turnOnDebug;
++ (void)setLogEnabled:(BOOL)enable;
+
++ (void)setDegradtion:(BOOL)degradation;
+
++ (void)presetMACDomains:(NSArray *)hosts;
 
 @end

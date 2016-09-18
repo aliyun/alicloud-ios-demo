@@ -7,25 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941054301CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9410542F1CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework */; };
+		94591A931CEEE7AA002F8BAE /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 94591A921CEEE7AA002F8BAE /* libresolv.tbd */; };
+		94591A951CEEE7B9002F8BAE /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94591A941CEEE7B9002F8BAE /* AlicloudUtils.framework */; };
+		94AE71C01CDB9C6A00EE4BBF /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AE71BF1CDB9C6A00EE4BBF /* UTDID.framework */; };
+		E269F63D1C71833C006FEDB9 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E269F63C1C71833C006FEDB9 /* Constants.m */; };
 		F7590A7D1BC79346009C8B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590A7C1BC79346009C8B08 /* main.m */; };
 		F7590A801BC79346009C8B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590A7F1BC79346009C8B08 /* AppDelegate.m */; };
 		F7590A831BC79346009C8B08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590A821BC79346009C8B08 /* ViewController.m */; };
 		F7590A861BC79346009C8B08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7590A841BC79346009C8B08 /* Main.storyboard */; };
 		F7590A881BC79346009C8B08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7590A871BC79346009C8B08 /* Images.xcassets */; };
-		F7590A8B1BC79346009C8B08 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7590A891BC79346009C8B08 /* LaunchScreen.xib */; };
 		F7590A971BC79346009C8B08 /* mac_ios_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590A961BC79346009C8B08 /* mac_ios_demoTests.m */; };
-		F7590AAA1BC7940D009C8B08 /* ALBB.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7590AA11BC7940D009C8B08 /* ALBB.bundle */; };
 		F7590AB81BC7948D009C8B08 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AB71BC7948D009C8B08 /* libz.dylib */; };
-		F7590AB91BC79500009C8B08 /* ALBBRpcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AA21BC7940D009C8B08 /* ALBBRpcSDK.framework */; };
-		F7590ABA1BC79500009C8B08 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AA31BC7940D009C8B08 /* ALBBSDK.framework */; };
-		F7590ABB1BC79500009C8B08 /* ALBBSessionSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AA41BC7940D009C8B08 /* ALBBSessionSDK.framework */; };
-		F7590ABE1BC79500009C8B08 /* DpaUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AA71BC7940D009C8B08 /* DpaUtil.framework */; };
-		F7590ABF1BC79500009C8B08 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AA81BC7940D009C8B08 /* UTDID.framework */; };
-		F7590AC01BC79500009C8B08 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AA91BC7940D009C8B08 /* UTMini.framework */; };
 		F7590AC11BC7950A009C8B08 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AB51BC79485009C8B08 /* SystemConfiguration.framework */; };
 		F7590AC21BC79514009C8B08 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590AB31BC7947C009C8B08 /* CoreTelephony.framework */; };
-		F781088A1BD9CDC20093AA66 /* AlicloudMobileTokenDistribution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78108891BD9CDC20093AA66 /* AlicloudMobileTokenDistribution.framework */; settings = {ASSET_TAGS = (); }; };
-		F781088C1BDF77E90093AA66 /* AlicloudMobileAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F781088B1BDF77E90093AA66 /* AlicloudMobileAcceleration.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9410542F1CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudMobileAcceleration.framework; path = dependence/AlicloudMobileAcceleration.framework; sourceTree = "<group>"; };
+		94591A921CEEE7AA002F8BAE /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		94591A941CEEE7B9002F8BAE /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = dependence/AlicloudUtils.framework; sourceTree = "<group>"; };
+		94AE71BF1CDB9C6A00EE4BBF /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = dependence/UTDID.framework; sourceTree = "<group>"; };
+		E269F63B1C718110006FEDB9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E269F63C1C71833C006FEDB9 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		F7590A771BC79346009C8B08 /* mac_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mac_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7590A7B1BC79346009C8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7590A7C1BC79346009C8B08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,22 +49,12 @@
 		F7590A821BC79346009C8B08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F7590A851BC79346009C8B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7590A871BC79346009C8B08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F7590A8A1BC79346009C8B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F7590A901BC79346009C8B08 /* mac_ios_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mac_ios_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7590A951BC79346009C8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7590A961BC79346009C8B08 /* mac_ios_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mac_ios_demoTests.m; sourceTree = "<group>"; };
-		F7590AA11BC7940D009C8B08 /* ALBB.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ALBB.bundle; sourceTree = "<group>"; };
-		F7590AA21BC7940D009C8B08 /* ALBBRpcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBRpcSDK.framework; sourceTree = "<group>"; };
-		F7590AA31BC7940D009C8B08 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSDK.framework; sourceTree = "<group>"; };
-		F7590AA41BC7940D009C8B08 /* ALBBSessionSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSessionSDK.framework; sourceTree = "<group>"; };
-		F7590AA71BC7940D009C8B08 /* DpaUtil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DpaUtil.framework; sourceTree = "<group>"; };
-		F7590AA81BC7940D009C8B08 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
-		F7590AA91BC7940D009C8B08 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
 		F7590AB31BC7947C009C8B08 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F7590AB51BC79485009C8B08 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F7590AB71BC7948D009C8B08 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F78108891BD9CDC20093AA66 /* AlicloudMobileTokenDistribution.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileTokenDistribution.framework; sourceTree = "<group>"; };
-		F781088B1BDF77E90093AA66 /* AlicloudMobileAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAcceleration.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,17 +62,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94591A951CEEE7B9002F8BAE /* AlicloudUtils.framework in Frameworks */,
+				94591A931CEEE7AA002F8BAE /* libresolv.tbd in Frameworks */,
+				94AE71C01CDB9C6A00EE4BBF /* UTDID.framework in Frameworks */,
+				941054301CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework in Frameworks */,
 				F7590AC21BC79514009C8B08 /* CoreTelephony.framework in Frameworks */,
 				F7590AC11BC7950A009C8B08 /* SystemConfiguration.framework in Frameworks */,
 				F7590AB81BC7948D009C8B08 /* libz.dylib in Frameworks */,
-				F781088A1BD9CDC20093AA66 /* AlicloudMobileTokenDistribution.framework in Frameworks */,
-				F7590AB91BC79500009C8B08 /* ALBBRpcSDK.framework in Frameworks */,
-				F7590ABA1BC79500009C8B08 /* ALBBSDK.framework in Frameworks */,
-				F7590ABB1BC79500009C8B08 /* ALBBSessionSDK.framework in Frameworks */,
-				F7590ABE1BC79500009C8B08 /* DpaUtil.framework in Frameworks */,
-				F781088C1BDF77E90093AA66 /* AlicloudMobileAcceleration.framework in Frameworks */,
-				F7590ABF1BC79500009C8B08 /* UTDID.framework in Frameworks */,
-				F7590AC01BC79500009C8B08 /* UTMini.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +85,10 @@
 		F7590A6E1BC79346009C8B08 = {
 			isa = PBXGroup;
 			children = (
+				94591A941CEEE7B9002F8BAE /* AlicloudUtils.framework */,
+				94591A921CEEE7AA002F8BAE /* libresolv.tbd */,
+				94AE71BF1CDB9C6A00EE4BBF /* UTDID.framework */,
+				9410542F1CBE2C2900FDDF92 /* AlicloudMobileAcceleration.framework */,
 				F7590AB71BC7948D009C8B08 /* libz.dylib */,
 				F7590AB51BC79485009C8B08 /* SystemConfiguration.framework */,
 				F7590AB31BC7947C009C8B08 /* CoreTelephony.framework */,
@@ -120,13 +111,14 @@
 		F7590A791BC79346009C8B08 /* mac_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
+				E269F63B1C718110006FEDB9 /* Constants.h */,
+				E269F63C1C71833C006FEDB9 /* Constants.m */,
 				F7590A7E1BC79346009C8B08 /* AppDelegate.h */,
 				F7590A7F1BC79346009C8B08 /* AppDelegate.m */,
 				F7590A811BC79346009C8B08 /* ViewController.h */,
 				F7590A821BC79346009C8B08 /* ViewController.m */,
 				F7590A841BC79346009C8B08 /* Main.storyboard */,
 				F7590A871BC79346009C8B08 /* Images.xcassets */,
-				F7590A891BC79346009C8B08 /* LaunchScreen.xib */,
 				F7590A7A1BC79346009C8B08 /* Supporting Files */,
 			);
 			path = mac_ios_demo;
@@ -161,15 +153,6 @@
 		F7590AA01BC7940D009C8B08 /* dependence */ = {
 			isa = PBXGroup;
 			children = (
-				F781088B1BDF77E90093AA66 /* AlicloudMobileAcceleration.framework */,
-				F78108891BD9CDC20093AA66 /* AlicloudMobileTokenDistribution.framework */,
-				F7590AA11BC7940D009C8B08 /* ALBB.bundle */,
-				F7590AA21BC7940D009C8B08 /* ALBBRpcSDK.framework */,
-				F7590AA31BC7940D009C8B08 /* ALBBSDK.framework */,
-				F7590AA41BC7940D009C8B08 /* ALBBSessionSDK.framework */,
-				F7590AA71BC7940D009C8B08 /* DpaUtil.framework */,
-				F7590AA81BC7940D009C8B08 /* UTDID.framework */,
-				F7590AA91BC7940D009C8B08 /* UTMini.framework */,
 			);
 			path = dependence;
 			sourceTree = "<group>";
@@ -218,7 +201,7 @@
 		F7590A6F1BC79346009C8B08 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = com.aliyun.mobile;
 				TargetAttributes = {
 					F7590A761BC79346009C8B08 = {
@@ -254,9 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7590AAA1BC7940D009C8B08 /* ALBB.bundle in Resources */,
 				F7590A861BC79346009C8B08 /* Main.storyboard in Resources */,
-				F7590A8B1BC79346009C8B08 /* LaunchScreen.xib in Resources */,
 				F7590A881BC79346009C8B08 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +259,7 @@
 				F7590A831BC79346009C8B08 /* ViewController.m in Sources */,
 				F7590A801BC79346009C8B08 /* AppDelegate.m in Sources */,
 				F7590A7D1BC79346009C8B08 /* main.m in Sources */,
+				E269F63D1C71833C006FEDB9 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +290,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F7590A891BC79346009C8B08 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F7590A8A1BC79346009C8B08 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -340,6 +314,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -405,7 +380,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependence",
@@ -413,7 +390,10 @@
 				INFOPLIST_FILE = mac_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -421,7 +401,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ENABLE_BITCODE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependence",
@@ -429,7 +411,10 @@
 				INFOPLIST_FILE = mac_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -447,6 +432,7 @@
 				);
 				INFOPLIST_FILE = mac_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mac_ios_demo.app/mac_ios_demo";
 			};
@@ -462,6 +448,7 @@
 				);
 				INFOPLIST_FILE = mac_ios_demoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mac_ios_demo.app/mac_ios_demo";
 			};
