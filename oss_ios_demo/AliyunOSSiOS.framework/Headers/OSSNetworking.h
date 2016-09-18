@@ -10,6 +10,8 @@
 #import "OSSModel.h"
 
 @class OSSSyncMutableDictionary;
+@class OSSNetworkingRequestDelegate;
+@class OSSExecutor;
 
 /**
  定义重试类型
@@ -29,6 +31,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, assign) uint32_t maxRetryCount;
 
 - (OSSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
+                      requestDelegate:(OSSNetworkingRequestDelegate *)delegate
                              response:(NSHTTPURLResponse *)response
                                 error:(NSError *)error;
 
@@ -43,6 +46,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
  */
 @interface OSSNetworkingConfiguration : NSObject
 @property (nonatomic, assign) uint32_t maxRetryCount;
+@property (nonatomic, assign) uint32_t maxConcurrentRequestCount;
 @property (nonatomic, assign) BOOL enableBackgroundTransmitService;
 @property (nonatomic, strong) NSString * backgroundSessionIdentifier;
 @property (nonatomic, assign) NSTimeInterval timeoutIntervalForRequest;
@@ -62,6 +66,8 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, assign) OSSOperationType operType;
 @property (nonatomic, assign) BOOL isAccessViaProxy;
 
+@property (nonatomic, assign) BOOL isRequestCancelled;
+
 @property (nonatomic, strong) OSSHttpResponseParser * responseParser;
 
 @property (nonatomic, strong) NSData * uploadingData;
@@ -70,6 +76,7 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, assign) int64_t payloadTotalBytesWritten;
 
 @property (nonatomic, assign) BOOL isBackgroundUploadFileTask;
+@property (nonatomic, assign) BOOL isHttpdnsEnable;
 
 @property (nonatomic, strong) OSSURLRequestRetryHandler * retryHandler;
 @property (nonatomic, assign) uint32_t currentRetryCount;
@@ -104,6 +111,8 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, strong) NSMutableDictionary * headerParams;
 @property (nonatomic, strong) NSMutableDictionary * querys;
 
+@property (nonatomic, assign) BOOL isHostInCnameExcludeList;
+
 - (instancetype)initWithEndpoint:(NSString *)endpoint
                       httpMethod:(NSString *)httpMethod
                       bucketName:(NSString *)bucketName
@@ -128,7 +137,6 @@ typedef NS_ENUM(NSInteger, OSSNetworkingRetryType) {
 @property (nonatomic, strong) OSSSyncMutableDictionary * sessionDelagateManager;
 @property (nonatomic, strong) OSSNetworkingConfiguration * configuration;
 @property (nonatomic, strong) OSSExecutor * taskExecutor;
-@property (atomic, copy) void (^backgroundSessionCompletionHandler)();
 
 - (instancetype)initWithConfiguration:(OSSNetworkingConfiguration *)configuration;
 - (OSSTask *)sendRequest:(OSSNetworkingRequestDelegate *)request;
