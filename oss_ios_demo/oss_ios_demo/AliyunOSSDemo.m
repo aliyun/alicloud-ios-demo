@@ -503,7 +503,7 @@ static dispatch_queue_t queue4demo;
         return;
     }
 
-    for (int i = 1; i <= 3; i++) {
+    for (int i = 1; i <= 20; i++) {
         @autoreleasepool {
             OSSUploadPartRequest * uploadPart = [OSSUploadPartRequest new];
             uploadPart.bucketName = uploadToBucket;
