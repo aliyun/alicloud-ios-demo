@@ -193,7 +193,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     proxies = CFBridgingRelease(CFNetworkCopyProxiesForURL((__bridge CFURLRef)url,
                                                            (__bridge CFDictionaryRef)proxySettings));
-    if (proxies > 0)
+    if (proxies.count > 0)
     {
         NSDictionary *settings = [proxies objectAtIndex:0];
         NSString *host = [settings objectForKey:(NSString *)kCFProxyHostNameKey];
