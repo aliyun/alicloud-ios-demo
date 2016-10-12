@@ -8,10 +8,9 @@
 
 #import "AliyunOSSDemo.h"
 #import <AliyunOSSiOS/OSSService.h>
-#import <AliyunOSSiOS/OSSCompat.h>
 
 NSString * const AccessKey = @"************";
-NSString * const SecretKey = @"**********************";
+NSString * const SecretKey = @"*********************";
 NSString * const endPoint = @"http://oss-cn-hangzhou.aliyuncs.com";
 NSString * const multipartUploadKey = @"multipartUploadObject";
 
@@ -23,10 +22,13 @@ static dispatch_queue_t queue4demo;
 
 - (void)runDemo {
 
+    // 打开调试log
     [OSSLog enableLog];
 
+    // 在本地生成一些文件用来演示
     [self initLocalFile];
 
+    // 初始化sdk
     [self initOSSClient];
 
 
@@ -36,7 +38,7 @@ static dispatch_queue_t queue4demo;
     // [self listObjectsInBucket];
 
     // 异步上传文件
-    // [self uploadObjectAsync];
+    [self uploadObjectAsync];
 
     // 同步上传文件
     // [self uploadObjectSync];
@@ -48,7 +50,7 @@ static dispatch_queue_t queue4demo;
     // [self downloadObjectSync];
 
     // 复制文件
-    [self copyObjectAsync];
+    // [self copyObjectAsync];
 
     // 签名Obejct的URL以授权第三方访问
     // [self signAccessObjectURL];
@@ -64,15 +66,6 @@ static dispatch_queue_t queue4demo;
 
     // 自行管理UploadId的分块上传
     // [self resumableUpload];
-
-
-/************* 旧版本风格接口，不再建议使用 *************/
-
-    // [self oldPutObjectStyle];
-
-    // [self oldGetObjectStyle];
-
-    // [self oldResumableUploadStyle];
 }
 
 // get local file dir which is readwrite able
@@ -182,7 +175,7 @@ static dispatch_queue_t queue4demo;
     conf.timeoutIntervalForRequest = 30;
     conf.timeoutIntervalForResource = 24 * 60 * 60;
 
-    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential2 clientConfiguration:conf];
+    client = [[OSSClient alloc] initWithEndpoint:endPoint credentialProvider:credential clientConfiguration:conf];
 }
 
 #pragma mark work with normal interface
@@ -336,6 +329,7 @@ static dispatch_queue_t queue4demo;
             OSSAppendObjectResult * result = task.result;
             NSString * etag = result.eTag;
             long nextPosition = result.xOssNextAppendPosition;
+            NSLog(@"etag: %@, nextPosition: %ld", etag, nextPosition);
         } else {
             NSLog(@"append object failed, error: %@" , task.error);
         }
@@ -488,7 +482,7 @@ static dispatch_queue_t queue4demo;
     __block NSMutableArray * partInfos = [NSMutableArray new];
 
     NSString * uploadToBucket = @"android-test";
-    NSString * uploadObjectkey = @"file3m";
+    NSString * uploadObjectkey = @"file20m";
 
     OSSInitMultipartUploadRequest * init = [OSSInitMultipartUploadRequest new];
     init.bucketName = uploadToBucket;
@@ -509,27 +503,30 @@ static dispatch_queue_t queue4demo;
         return;
     }
 
-    for (int i = 1; i <= 3; i++) {
-        OSSUploadPartRequest * uploadPart = [OSSUploadPartRequest new];
-        uploadPart.bucketName = uploadToBucket;
-        uploadPart.objectkey = uploadObjectkey;
-        uploadPart.uploadId = uploadId;
-        uploadPart.partNumber = i; // part number start from 1
+    for (int i = 1; i <= 20; i++) {
+        @autoreleasepool {
+            OSSUploadPartRequest * uploadPart = [OSSUploadPartRequest new];
+            uploadPart.bucketName = uploadToBucket;
+            uploadPart.objectkey = uploadObjectkey;
+            uploadPart.uploadId = uploadId;
+            uploadPart.partNumber = i; // part number start from 1
 
-        NSString * docDir = [self getDocumentDirectory];
-        uploadPart.uploadPartFileURL = [NSURL URLWithString:[docDir stringByAppendingPathComponent:@"file1m"]];
+            NSString * docDir = [self getDocumentDirectory];
+            // uploadPart.uploadPartFileURL = [NSURL URLWithString:[docDir stringByAppendingPathComponent:@"file1m"]];
+            uploadPart.uploadPartData = [NSData dataWithContentsOfFile:[docDir stringByAppendingPathComponent:@"file1m"]];
 
-        OSSTask * uploadPartTask = [client uploadPart:uploadPart];
+            OSSTask * uploadPartTask = [client uploadPart:uploadPart];
 
-        [uploadPartTask waitUntilFinished];
+            [uploadPartTask waitUntilFinished];
 
-        if (!uploadPartTask.error) {
-            OSSUploadPartResult * result = uploadPartTask.result;
-            uint64_t fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:uploadPart.uploadPartFileURL.absoluteString error:nil] fileSize];
-            [partInfos addObject:[OSSPartInfo partInfoWithPartNum:i eTag:result.eTag size:fileSize]];
-        } else {
-            NSLog(@"upload part error: %@", uploadPartTask.error);
-            return;
+            if (!uploadPartTask.error) {
+                OSSUploadPartResult * result = uploadPartTask.result;
+                uint64_t fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:uploadPart.uploadPartFileURL.absoluteString error:nil] fileSize];
+                [partInfos addObject:[OSSPartInfo partInfoWithPartNum:i eTag:result.eTag size:fileSize]];
+            } else {
+                NSLog(@"upload part error: %@", uploadPartTask.error);
+                return;
+            }
         }
     }
 
@@ -579,10 +576,9 @@ static dispatch_queue_t queue4demo;
     __block NSString * recordKey;
 
     NSString * docDir = [self getDocumentDirectory];
-    NSString * filePath = [docDir stringByAppendingPathComponent:@"file1m"];
+    NSString * filePath = [docDir stringByAppendingPathComponent:@"file10m"];
     NSString * bucketName = @"android-test";
     NSString * objectKey = @"uploadKey";
-
 
     [[[[[[OSSTask taskWithResult:nil] continueWithBlock:^id(OSSTask *task) {
         // 为该文件构造一个唯一的记录键
@@ -656,69 +652,4 @@ static dispatch_queue_t queue4demo;
         return nil;
     }];
 }
-
-#pragma mark work with compatible interface
-
-- (void)oldGetObjectStyle {
-    OSSTaskHandler * tk = [client downloadToDataFromBucket:@"android-test"
-                                                 objectKey:@"file1m"
-                                               onCompleted:^(NSData * data, NSError * error) {
-                                                   if (error) {
-                                                       NSLog(@"download object failed, erorr: %@", error);
-                                                   } else {
-                                                       NSLog(@"download object success, data length: %ld", [data length]);
-                                                   }
-                                               } onProgress:^(float progress) {
-                                                   NSLog(@"progress: %f", progress);
-                                               }];
-
-    // [tk cancel];
-}
-
-- (void)oldPutObjectStyle {
-
-    NSString * doctDir = [self getDocumentDirectory];
-    NSString * filePath = [doctDir stringByAppendingPathComponent:@"file10m"];
-
-    NSDictionary * objectMeta = @{@"x-oss-meta-name1": @"value1"};
-
-    OSSTaskHandler * tk = [client uploadFile:filePath
-                             withContentType:@"application/octet-stream"
-                              withObjectMeta:objectMeta
-                                toBucketName:@"android-test"
-                                 toObjectKey:@"file10m"
-                                 onCompleted:^(BOOL isSuccess, NSError * error) {
-                                       if (error) {
-                                           NSLog(@"upload object failed, erorr: %@", error);
-                                       } else {
-                                           NSLog(@"upload object success!");
-                                       }
-                                 } onProgress:^(float progress) {
-                                     NSLog(@"progress: %f", progress);
-                                 }];
-
-}
-
-- (void)oldResumableUploadStyle {
-
-    NSString * doctDir = [self getDocumentDirectory];
-    NSString * filePath = [doctDir stringByAppendingPathComponent:@"file10m"];
-
-    OSSTaskHandler * tk = [client resumableUploadFile:filePath
-                                      withContentType:@"application/octet-stream"
-                                       withObjectMeta:nil
-                                         toBucketName:@"android-test"
-                                          toObjectKey:@"file10m"
-                                          onCompleted:^(BOOL isSuccess, NSError * error) {
-                                              if (error) {
-                                                  NSLog(@"resumable upload object failed, erorr: %@", error);
-                                              } else {
-                                                  NSLog(@"resumable upload object success!");
-                                              }
-                                          } onProgress:^(float progress) {
-                                              NSLog(@"progress: %f", progress);
-                                          }];
-    [tk cancel];
-}
-
 @end

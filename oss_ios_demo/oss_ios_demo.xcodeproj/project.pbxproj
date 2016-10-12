@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		210289381BA9240300C2A6BA /* AliyunOSSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 210289371BA9240300C2A6BA /* AliyunOSSDemo.m */; };
-		212229D71BF470870067190E /* AliyunOSSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212229D61BF470870067190E /* AliyunOSSiOS.framework */; };
+		2178313A1D82717B00602044 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 217831391D82717B00602044 /* libresolv.tbd */; };
+		2178313C1D82718100602044 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2178313B1D82718100602044 /* SystemConfiguration.framework */; };
+		21B3E5211D8E38C90006DEE1 /* AliyunOSSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B3E5201D8E38C90006DEE1 /* AliyunOSSiOS.framework */; };
 		21F02EBF1BA6AC8800D13D12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02EBE1BA6AC8800D13D12 /* main.m */; };
 		21F02EC21BA6AC8800D13D12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02EC11BA6AC8800D13D12 /* AppDelegate.m */; };
 		21F02EC51BA6AC8800D13D12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F02EC41BA6AC8800D13D12 /* ViewController.m */; };
@@ -31,7 +33,9 @@
 /* Begin PBXFileReference section */
 		210289361BA9240300C2A6BA /* AliyunOSSDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliyunOSSDemo.h; sourceTree = "<group>"; };
 		210289371BA9240300C2A6BA /* AliyunOSSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliyunOSSDemo.m; sourceTree = "<group>"; };
-		212229D61BF470870067190E /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
+		217831391D82717B00602044 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		2178313B1D82718100602044 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		21B3E5201D8E38C90006DEE1 /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
 		21F02EB91BA6AC8800D13D12 /* oss_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oss_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F02EBD1BA6AC8800D13D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21F02EBE1BA6AC8800D13D12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,7 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				212229D71BF470870067190E /* AliyunOSSiOS.framework in Frameworks */,
+				2178313C1D82718100602044 /* SystemConfiguration.framework in Frameworks */,
+				21B3E5211D8E38C90006DEE1 /* AliyunOSSiOS.framework in Frameworks */,
+				2178313A1D82717B00602044 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +75,9 @@
 		21F02EB01BA6AC8800D13D12 = {
 			isa = PBXGroup;
 			children = (
-				212229D61BF470870067190E /* AliyunOSSiOS.framework */,
+				21B3E5201D8E38C90006DEE1 /* AliyunOSSiOS.framework */,
+				2178313B1D82718100602044 /* SystemConfiguration.framework */,
+				217831391D82717B00602044 /* libresolv.tbd */,
 				21F02EBB1BA6AC8800D13D12 /* oss_ios_demo */,
 				21F02ED51BA6AC8800D13D12 /* oss_ios_demoTests */,
 				21F02EBA1BA6AC8800D13D12 /* Products */,
