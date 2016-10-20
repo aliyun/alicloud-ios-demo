@@ -10,7 +10,7 @@
 #import "CCPSysMessage.h"
 #import "MPGerneralDefinition.h"
 
-#define CLOUDPUSH_IOS_SDK_VERSION   @"1.8.0"
+#define CLOUDPUSH_IOS_SDK_VERSION   @"1.8.1"
 
 @interface CloudPushSDK : NSObject
 
@@ -33,35 +33,42 @@
 /**
  *	获取本机的deviceId (以设备为粒度推送时，deviceId为设备的标识)
  *
- *	@return
+ *	@return deviceId
  */
 + (NSString *)getDeviceId;
 
 /**
  *	返回SDK版本
  *
- *	@return
+ *	@return SDK版本
  */
 + (NSString *)getVersion;
 
 /**
  *	返回推送通道的状态
  *
- *	@return
+ *	@return 通道状态
  */
 + (BOOL)isChannelOpened;
 
 /**
- *	返回推送通知ACK到服务器 (该通知为App处于关闭状态时接收，点击后启动App)
+ *	返回推送通知ACK到服务器
  *
- *	@param 	launchOptions
+ *	@param 	userInfo   通知相关信息
+ */
++ (void)sendNotificationAck:(NSDictionary *)userInfo;
+
+/**
+ *	返回推送通知ACK到服务器 (该通知为App处于关闭状态时接收，点击后启动App)
+ *	v1.8.1版本之后，由sendNotificationAck替代
+ *	@param 	launchOptions   通知相关信息
  */
 + (void)handleLaunching:(NSDictionary *)launchOptions;
 
 /**
  *	返回推送通知ACK到服务器 (该通知为App处于开启状态时接收)
- *
- *	@param 	userInfo
+ *	v1.8.1版本之后，由sendNotificationAck替代
+ *	@param 	userInfo    通知相关信息
  */
 + (void)handleReceiveRemoteNotification:(NSDictionary *)userInfo;
 
@@ -83,7 +90,7 @@
 
 /**
  *	向指定目标添加自定义标签
- *  支持向本设备/本设备绑定账号/别名添加自定义标签，目标类型由@param target指定
+ *	支持向本设备/本设备绑定账号/别名添加自定义标签，目标类型由target指定
  *	@param 	target      目标类型，1：本设备  2：本设备绑定账号  3：别名
  *	@param 	tags        标签名
  *	@param 	alias       别名（仅当target = 3时生效）
@@ -96,7 +103,7 @@
 
 /**
  *	删除指定目标的自定义标签
- *  支持从本设备/本设备绑定账号/别名删除自定义标签，目标类型由@param target指定
+ *	支持从本设备/本设备绑定账号/别名删除自定义标签，目标类型由target指定
  *	@param 	target      目标类型，1：本设备  2：本设备绑定账号  3：别名
  *	@param 	tags        标签名
  *	@param 	alias       别名（仅当target = 3时生效）
@@ -138,8 +145,6 @@
  *  查询本设备绑定别名，查询结果可从callback的data中获取
  *
  *  @param callback     回调
- *
- *  @return
  */
 + (void)listAliases:(CallbackHandler)callback;
 
@@ -154,7 +159,7 @@
 /**
  *	获取APNs返回的deviceToken
  *
- *	@return
+ *	@return deviceToken
  */
 + (NSString *)getApnsDeviceToken;
 
