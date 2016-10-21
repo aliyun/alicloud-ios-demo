@@ -12,7 +12,6 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "PushMessageDAO.h"
 
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
