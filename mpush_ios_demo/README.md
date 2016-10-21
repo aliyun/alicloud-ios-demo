@@ -39,13 +39,18 @@ mpush_ios_demo已经完成了移动推送SDK的集成工作，但我们还是建
 
 ![appkey](http://test-bucket-lingbo.oss-cn-hangzhou.aliyuncs.com/mpush2.png)
 
-在下述初始化代码中用您的appkey/appsecret替换`********`字段占据的参数。
+在下述初始化代码中用您的appkey/appsecret替换`******`字段占据的参数。
 
 ```
-[[ALBBSDK sharedInstance] asyncInit:@"********" appSecret:@"*********" :^{
-    NSLog(@"Init Onesdk success, deviceID: %@", [CloudPushSDK getDeviceId]);
-} failedCallback:^(NSError *error) {
-    NSLog(@"Init Onesdk failed, error: %@", error);
+static NSString *const testAppKey = @"******";
+static NSString *const testAppSecret = @"******";
+// SDK初始化
+[CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
+    if (res.success) {
+        NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+    } else {
+        NSLog(@"Push SDK init failed, error: %@", res.error);
+    }
 }];
 ```
 

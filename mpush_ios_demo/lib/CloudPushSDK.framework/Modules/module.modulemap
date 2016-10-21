@@ -1,0 +1,6 @@
+framework module CloudPushSDK {
+  umbrella header "CloudPushSDK.h"
+
+  export *
+  module * { export * }
+}
