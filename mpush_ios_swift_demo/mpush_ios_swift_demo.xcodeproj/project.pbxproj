@@ -1,0 +1,708 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AB162881DBCED1A00BAF4CA /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */; };
+		4AB162891DBCED1A00BAF4CA /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */; };
+		4AB1628A1DBCED1A00BAF4CA /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162871DBCED1A00BAF4CA /* UTDID.framework */; };
+		4AB1628F1DBCEE2C00BAF4CA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB1628E1DBCEE2C00BAF4CA /* libz.tbd */; };
+		4AB162931DBCEE3900BAF4CA /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162921DBCEE3900BAF4CA /* libresolv.tbd */; };
+		4AB162951DBCEE5100BAF4CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162941DBCEE5100BAF4CA /* SystemConfiguration.framework */; };
+		4AB162971DBCEE5600BAF4CA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162961DBCEE5600BAF4CA /* CoreTelephony.framework */; };
+		4AB162A31DBF0A3D00BAF4CA /* MPushMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB1629E1DBF0A3D00BAF4CA /* MPushMessageViewController.swift */; };
+		4AB162A41DBF0A3D00BAF4CA /* MPushInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB1629F1DBF0A3D00BAF4CA /* MPushInfoViewController.swift */; };
+		4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */; };
+		4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */; };
+		4AB162AB1DBF0A5900BAF4CA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162A81DBF0A5900BAF4CA /* Base.lproj */; };
+		4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */; };
+		4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AA1DBF0A5900BAF4CA /* Info.plist */; };
+		4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */; };
+		4AB162B11DBF0AAD00BAF4CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */; };
+		4AEE18011DC8775000385425 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE18001DC8775000385425 /* NotificationService.swift */; };
+		4AEE18051DC8775000385425 /* mpush_service_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AEE17FE1DC8775000385425 /* mpush_service_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4AEE18101DC8777000385425 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE180F1DC8777000385425 /* UserNotifications.framework */; };
+		4AEE18121DC8777000385425 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE18111DC8777000385425 /* UserNotificationsUI.framework */; };
+		4AEE18151DC8777000385425 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE18141DC8777000385425 /* NotificationViewController.swift */; };
+		4AEE18181DC8777000385425 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEE18161DC8777000385425 /* MainInterface.storyboard */; };
+		4AEE181C1DC8777000385425 /* mpush_content_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AEE180E1DC8777000385425 /* mpush_content_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4AF4E3AC1DC88E15006C2348 /* aliyun-logo-local.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AF4E3AB1DC88E15006C2348 /* aliyun-logo-local.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AEE18031DC8775000385425 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEDBD6E1DBCEC7F00883BD6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AEE17FD1DC8775000385425;
+			remoteInfo = mpush_service_extension;
+		};
+		4AEE181A1DC8777000385425 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AEDBD6E1DBCEC7F00883BD6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AEE180D1DC8777000385425;
+			remoteInfo = mpush_content_extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4AEE18091DC8775000385425 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4AEE181C1DC8777000385425 /* mpush_content_extension.appex in Embed App Extensions */,
+				4AEE18051DC8775000385425 /* mpush_service_extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = mpush_ios_swift_demo/libs/CloudPushSDK.framework; sourceTree = "<group>"; };
+		4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = mpush_ios_swift_demo/libs/AlicloudUtils.framework; sourceTree = "<group>"; };
+		4AB162871DBCED1A00BAF4CA /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = mpush_ios_swift_demo/libs/UTDID.framework; sourceTree = "<group>"; };
+		4AB1628E1DBCEE2C00BAF4CA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4AB162901DBCEE3300BAF4CA /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		4AB162921DBCEE3900BAF4CA /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		4AB162941DBCEE5100BAF4CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4AB162961DBCEE5600BAF4CA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4AB1629D1DBF092700BAF4CA /* mpush_ios_swift_demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = mpush_ios_swift_demo.entitlements; path = mpush_ios_swift_demo/mpush_ios_swift_demo.entitlements; sourceTree = "<group>"; };
+		4AB1629E1DBF0A3D00BAF4CA /* MPushMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPushMessageViewController.swift; path = mpush_ios_swift_demo/MPushMessageViewController.swift; sourceTree = "<group>"; };
+		4AB1629F1DBF0A3D00BAF4CA /* MPushInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPushInfoViewController.swift; path = mpush_ios_swift_demo/MPushInfoViewController.swift; sourceTree = "<group>"; };
+		4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPushSettingsViewController.swift; path = mpush_ios_swift_demo/MPushSettingsViewController.swift; sourceTree = "<group>"; };
+		4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = mpush_ios_swift_demo/AppDelegate.swift; sourceTree = "<group>"; };
+		4AB162A21DBF0A3D00BAF4CA /* mpush_ios_swift_demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "mpush_ios_swift_demo-Bridging-Header.h"; path = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		4AB162A81DBF0A5900BAF4CA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = mpush_ios_swift_demo/Base.lproj; sourceTree = "<group>"; };
+		4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = mpush_ios_swift_demo/Assets.xcassets; sourceTree = "<group>"; };
+		4AB162AA1DBF0A5900BAF4CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mpush_ios_swift_demo/Info.plist; sourceTree = "<group>"; };
+		4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = mpush_ios_swift_demo/Main.storyboard; sourceTree = "<group>"; };
+		4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mpush_ios_swift_demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4AEDBD761DBCEC7F00883BD6 /* mpush_ios_swift_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mpush_ios_swift_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEE17FE1DC8775000385425 /* mpush_service_extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpush_service_extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEE18001DC8775000385425 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		4AEE18021DC8775000385425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AEE180E1DC8777000385425 /* mpush_content_extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpush_content_extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEE180F1DC8777000385425 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		4AEE18111DC8777000385425 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		4AEE18141DC8777000385425 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		4AEE18171DC8777000385425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4AEE18191DC8777000385425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF4E3AB1DC88E15006C2348 /* aliyun-logo-local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aliyun-logo-local.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AEDBD731DBCEC7F00883BD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB162971DBCEE5600BAF4CA /* CoreTelephony.framework in Frameworks */,
+				4AB162951DBCEE5100BAF4CA /* SystemConfiguration.framework in Frameworks */,
+				4AB162931DBCEE3900BAF4CA /* libresolv.tbd in Frameworks */,
+				4AB1628F1DBCEE2C00BAF4CA /* libz.tbd in Frameworks */,
+				4AB162881DBCED1A00BAF4CA /* CloudPushSDK.framework in Frameworks */,
+				4AB162891DBCED1A00BAF4CA /* AlicloudUtils.framework in Frameworks */,
+				4AB1628A1DBCED1A00BAF4CA /* UTDID.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEE17FB1DC8775000385425 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEE180B1DC8777000385425 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEE18121DC8777000385425 /* UserNotificationsUI.framework in Frameworks */,
+				4AEE18101DC8777000385425 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A2FF9981DBF398800A15A2F /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				4AB1629E1DBF0A3D00BAF4CA /* MPushMessageViewController.swift */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		4A2FF9991DBF39A000A15A2F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		4A2FF99A1DBF39AB00A15A2F /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				4AB1629F1DBF0A3D00BAF4CA /* MPushInfoViewController.swift */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
+		4A2FF99B1DBF39D300A15A2F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		4A2FF99C1DBF39D700A15A2F /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
+		4A2FF99D1DBF39DD00A15A2F /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entry;
+			sourceTree = "<group>";
+		};
+		4AB162841DBCED1A00BAF4CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AB162961DBCEE5600BAF4CA /* CoreTelephony.framework */,
+				4AB162941DBCEE5100BAF4CA /* SystemConfiguration.framework */,
+				4AB162921DBCEE3900BAF4CA /* libresolv.tbd */,
+				4AB162901DBCEE3300BAF4CA /* libresolv.9.tbd */,
+				4AB1628E1DBCEE2C00BAF4CA /* libz.tbd */,
+				4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */,
+				4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */,
+				4AB162871DBCED1A00BAF4CA /* UTDID.framework */,
+				4AEE180F1DC8777000385425 /* UserNotifications.framework */,
+				4AEE18111DC8777000385425 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AB1629C1DBF090000BAF4CA /* mush_ios_swift_demo */ = {
+			isa = PBXGroup;
+			children = (
+				4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */,
+				4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */,
+				4A2FF99A1DBF39AB00A15A2F /* Info */,
+				4A2FF9991DBF39A000A15A2F /* Settings */,
+				4A2FF9981DBF398800A15A2F /* Message */,
+				4A2FF99D1DBF39DD00A15A2F /* Entry */,
+				4A2FF99C1DBF39D700A15A2F /* DAO */,
+				4A2FF99B1DBF39D300A15A2F /* Utils */,
+				4AB162A21DBF0A3D00BAF4CA /* mpush_ios_swift_demo-Bridging-Header.h */,
+				4AB162A71DBF0A4200BAF4CA /* Supporting Files */,
+			);
+			name = mush_ios_swift_demo;
+			sourceTree = "<group>";
+		};
+		4AB162A71DBF0A4200BAF4CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */,
+				4AB162A81DBF0A5900BAF4CA /* Base.lproj */,
+				4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */,
+				4AB162AA1DBF0A5900BAF4CA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AEDBD6D1DBCEC7F00883BD6 = {
+			isa = PBXGroup;
+			children = (
+				4AB1629D1DBF092700BAF4CA /* mpush_ios_swift_demo.entitlements */,
+				4AB1629C1DBF090000BAF4CA /* mush_ios_swift_demo */,
+				4AEE17FF1DC8775000385425 /* mpush_service_extension */,
+				4AEE18131DC8777000385425 /* mpush_content_extension */,
+				4AEDBD771DBCEC7F00883BD6 /* Products */,
+				4AB162841DBCED1A00BAF4CA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4AEDBD771DBCEC7F00883BD6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AEDBD761DBCEC7F00883BD6 /* mpush_ios_swift_demo.app */,
+				4AEE17FE1DC8775000385425 /* mpush_service_extension.appex */,
+				4AEE180E1DC8777000385425 /* mpush_content_extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AEE17FF1DC8775000385425 /* mpush_service_extension */ = {
+			isa = PBXGroup;
+			children = (
+				4AF4E3AB1DC88E15006C2348 /* aliyun-logo-local.png */,
+				4AEE18001DC8775000385425 /* NotificationService.swift */,
+				4AEE18021DC8775000385425 /* Info.plist */,
+			);
+			path = mpush_service_extension;
+			sourceTree = "<group>";
+		};
+		4AEE18131DC8777000385425 /* mpush_content_extension */ = {
+			isa = PBXGroup;
+			children = (
+				4AEE18141DC8777000385425 /* NotificationViewController.swift */,
+				4AEE18161DC8777000385425 /* MainInterface.storyboard */,
+				4AEE18191DC8777000385425 /* Info.plist */,
+			);
+			path = mpush_content_extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AEDBD751DBCEC7F00883BD6 /* mpush_ios_swift_demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AEDBD8A1DBCEC7F00883BD6 /* Build configuration list for PBXNativeTarget "mpush_ios_swift_demo" */;
+			buildPhases = (
+				4AEDBD721DBCEC7F00883BD6 /* Sources */,
+				4AEDBD731DBCEC7F00883BD6 /* Frameworks */,
+				4AEDBD741DBCEC7F00883BD6 /* Resources */,
+				4AEE18091DC8775000385425 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AEE18041DC8775000385425 /* PBXTargetDependency */,
+				4AEE181B1DC8777000385425 /* PBXTargetDependency */,
+			);
+			name = mpush_ios_swift_demo;
+			productName = mpush_ios_swift_demo;
+			productReference = 4AEDBD761DBCEC7F00883BD6 /* mpush_ios_swift_demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AEE17FD1DC8775000385425 /* mpush_service_extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AEE18081DC8775000385425 /* Build configuration list for PBXNativeTarget "mpush_service_extension" */;
+			buildPhases = (
+				4AEE17FA1DC8775000385425 /* Sources */,
+				4AEE17FB1DC8775000385425 /* Frameworks */,
+				4AEE17FC1DC8775000385425 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mpush_service_extension;
+			productName = mpush_service_extension;
+			productReference = 4AEE17FE1DC8775000385425 /* mpush_service_extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4AEE180D1DC8777000385425 /* mpush_content_extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AEE181D1DC8777000385425 /* Build configuration list for PBXNativeTarget "mpush_content_extension" */;
+			buildPhases = (
+				4AEE180A1DC8777000385425 /* Sources */,
+				4AEE180B1DC8777000385425 /* Frameworks */,
+				4AEE180C1DC8777000385425 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mpush_content_extension;
+			productName = mpush_content_extension;
+			productReference = 4AEE180E1DC8777000385425 /* mpush_content_extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AEDBD6E1DBCEC7F00883BD6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = junmo;
+				TargetAttributes = {
+					4AEDBD751DBCEC7F00883BD6 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QBMN2BBW3K;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					4AEE17FD1DC8775000385425 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = QBMN2BBW3K;
+						ProvisioningStyle = Automatic;
+					};
+					4AEE180D1DC8777000385425 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = QBMN2BBW3K;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4AEDBD711DBCEC7F00883BD6 /* Build configuration list for PBXProject "mpush_ios_swift_demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AEDBD6D1DBCEC7F00883BD6;
+			productRefGroup = 4AEDBD771DBCEC7F00883BD6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AEDBD751DBCEC7F00883BD6 /* mpush_ios_swift_demo */,
+				4AEE17FD1DC8775000385425 /* mpush_service_extension */,
+				4AEE180D1DC8777000385425 /* mpush_content_extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AEDBD741DBCEC7F00883BD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */,
+				4AB162AB1DBF0A5900BAF4CA /* Base.lproj in Resources */,
+				4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */,
+				4AB162B11DBF0AAD00BAF4CA /* LaunchScreen.storyboard in Resources */,
+				4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEE17FC1DC8775000385425 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF4E3AC1DC88E15006C2348 /* aliyun-logo-local.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEE180C1DC8777000385425 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEE18181DC8777000385425 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AEDBD721DBCEC7F00883BD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */,
+				4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */,
+				4AB162A41DBF0A3D00BAF4CA /* MPushInfoViewController.swift in Sources */,
+				4AB162A31DBF0A3D00BAF4CA /* MPushMessageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEE17FA1DC8775000385425 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEE18011DC8775000385425 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AEE180A1DC8777000385425 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEE18151DC8777000385425 /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AEE18041DC8775000385425 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AEE17FD1DC8775000385425 /* mpush_service_extension */;
+			targetProxy = 4AEE18031DC8775000385425 /* PBXContainerItemProxy */;
+		};
+		4AEE181B1DC8777000385425 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AEE180D1DC8777000385425 /* mpush_content_extension */;
+			targetProxy = 4AEE181A1DC8777000385425 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4AEE18161DC8777000385425 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AEE18171DC8777000385425 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AEDBD881DBCEC7F00883BD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AEDBD891DBCEC7F00883BD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AEDBD8B1DBCEC7F00883BD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = mpush_ios_swift_demo/mpush_ios_swift_demo.entitlements;
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mpush_ios_swift_demo/libs",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = mpush_ios_swift_demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.pushdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4AEDBD8C1DBCEC7F00883BD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = mpush_ios_swift_demo/mpush_ios_swift_demo.entitlements;
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mpush_ios_swift_demo/libs",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = mpush_ios_swift_demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.pushdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4AEE18061DC8775000385425 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				INFOPLIST_FILE = mpush_service_extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-service-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4AEE18071DC8775000385425 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				INFOPLIST_FILE = mpush_service_extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-service-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4AEE181E1DC8777000385425 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				INFOPLIST_FILE = mpush_content_extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-content-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4AEE181F1DC8777000385425 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				INFOPLIST_FILE = mpush_content_extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-content-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AEDBD711DBCEC7F00883BD6 /* Build configuration list for PBXProject "mpush_ios_swift_demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEDBD881DBCEC7F00883BD6 /* Debug */,
+				4AEDBD891DBCEC7F00883BD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AEDBD8A1DBCEC7F00883BD6 /* Build configuration list for PBXNativeTarget "mpush_ios_swift_demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEDBD8B1DBCEC7F00883BD6 /* Debug */,
+				4AEDBD8C1DBCEC7F00883BD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AEE18081DC8775000385425 /* Build configuration list for PBXNativeTarget "mpush_service_extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEE18061DC8775000385425 /* Debug */,
+				4AEE18071DC8775000385425 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AEE181D1DC8777000385425 /* Build configuration list for PBXNativeTarget "mpush_content_extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AEE181E1DC8777000385425 /* Debug */,
+				4AEE181F1DC8777000385425 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AEDBD6E1DBCEC7F00883BD6 /* Project object */;
+}
