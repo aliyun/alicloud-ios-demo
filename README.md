@@ -7,8 +7,8 @@ oss_ios_demo给出了[对象存储OSS](https://www.aliyun.com/product/oss) iOS S
 运行demo前请在`AliyunOSSDemo.m`文件中填入您的账号信息（仅用于测试，其他鉴权模式参考demo中的credential实现）：
 
 ```
-NSString * const AccessKey = @"**************";
-NSString * const SecretKey = @"**************";
+NSString * const AccessKey = @"******";
+NSString * const SecretKey = @"******";
 ```
 
 ### man_ios_demo
@@ -16,8 +16,8 @@ man_ios_demo给出了[数据分析服务（Mobile Analytics）](https://www.aliy
 运行demo前请在`AppDelegate.m`文件中填入您的账号信息：
 
 ```
-NSString * testAppKey = @"*********";
-NSString * testAppSecret = @"**************";
+NSString * testAppKey = @"******";
+NSString * testAppSecret = @"******";
 ```
 
 ### mac_ios_demo
@@ -35,5 +35,16 @@ mpush_ios_demo给出了[移动推送服务（Mobile Push）](https://www.aliyun.
 运行demo前请在`AppDelegate.m`文件中填入您的账号信息：
 
 ```
-[[ALBBSDK sharedInstance] asyncInit:@"********" appSecret:@"********" :^{
+static NSString *const testAppKey = @"******";
+static NSString *const testAppSecret = @"******";
+```
+
+### mpush_ios_swift_demo
+mpush_ios_swift_demo[移动推送服务（Mobile Push）](https://www.aliyun.com/product/cps) iOS SDK的使用示例。
+
+运行demo前请在`AppDelegate.swift`文件中填入您的账号信息：
+
+```
+let testAppKey = "******"
+let testAppSecret = "******"
 ```
