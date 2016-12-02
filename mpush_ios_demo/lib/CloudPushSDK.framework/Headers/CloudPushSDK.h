@@ -10,7 +10,7 @@
 #import "CCPSysMessage.h"
 #import "MPGerneralDefinition.h"
 
-#define CLOUDPUSH_IOS_SDK_VERSION   @"1.8.2"
+#define MPUSH_IOS_SDK_VERSION @"1.9.0"
 
 @interface CloudPushSDK : NSObject
 
