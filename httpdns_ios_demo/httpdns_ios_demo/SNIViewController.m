@@ -3,16 +3,19 @@
 // httpdns_ios_demo
 //
 // SNI应用场景
-// Created by fuyuan.lfy on 16/6/23.
-// Copyright © 2016年 alibaba. All rights reserved.
+// Created by junmo on 16/12/8.
+// Copyright © 2016年 junmo. All rights reserved.
 //
 
-#import "CFHttpMessageURLProtocol.h"
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import "NetworkManager.h"
 #import "SNIViewController.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import "CFHTTPDNSHTTPProtocol.h"
+
 
 @interface SNIViewController () <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
+
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @property (nonatomic, strong) NSMutableURLRequest *request;
 @end
@@ -21,38 +24,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    // 注册拦截请求的NSURLProtocol
-    [NSURLProtocol registerClass:[CFHttpMessageURLProtocol class]];
-    // 初始化HTTPDNS
-    HttpDnsService *httpdns = [HttpDnsService sharedInstance];
     
-    // 需要设置SNI的URL
-    NSString *originalUrl = @"https://dou.bz/23o8PS";
-    NSURL *url = [NSURL URLWithString:originalUrl];
-    self.request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString *ip = [httpdns getIpByHostAsync:url.host];
-    // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-    if (ip) {
-        NSLog(@"Get IP from HTTPDNS Successfully!");
-        NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
-        if (NSNotFound != hostFirstRange.location) {
-            NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-            self.request.URL = [NSURL URLWithString:newUrl];
-            [_request setValue:url.host forHTTPHeaderField:@"host"];
-        }
-    }
+    [NSURLProtocol registerClass:[CFHTTPDNSHTTPProtocol class]];
+    
+//    NSString *urlString = @"https://www.aliyun.com";
+        NSString *urlString = @"https://dou.bz/23o8PS";
+    //    NSString *urlString = @"https://www.taobao.com";
+    //    NSString *urlString = @"https://www.tmall.com";
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
     
     // NSURLConnection例子
     // [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
     
     // NSURLSession例子
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSArray *protocolArray = @[ [CFHttpMessageURLProtocol class] ];
-    configuration.protocolClasses = protocolArray;
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionTask *task = [session dataTaskWithRequest:_request];
-    [task resume];
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSArray *protocolArray = @[ [CFHttpMessageURLProtocol class] ];
+//    configuration.protocolClasses = protocolArray;
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+//    NSURLSessionTask *task = [session dataTaskWithRequest:_request];
+//    [task resume];
     
     // 注*：使用NSURLProtocol拦截NSURLSession发起的POST请求时，HTTPBody为空。
     // 解决方案有两个：1. 使用NSURLConnection发POST请求。
@@ -75,8 +67,9 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    // 取消注册CFHttpMessageURLProtocol，避免拦截其他场景的请求
-    [NSURLProtocol unregisterClass:[CFHttpMessageURLProtocol class]];
+    // 取消注册NSURLProtocol，避免拦截其他场景的请求
+    [NSURLProtocol unregisterClass:[CFHTTPDNSHTTPProtocol class]];
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark NSURLConnectionDataDelegate
@@ -109,15 +102,5 @@
     else
         NSLog(@"complete");
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
