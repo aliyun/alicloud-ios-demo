@@ -251,8 +251,8 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
  */
 - (void)handleResult {
     /*
-     *  检查`Content-Encoding`，返回数据是否需要进行解压缩
-     *  此处仅做了gzip的判断和解压缩
+     *  检查`Content-Encoding`，返回数据是否需要进行解码操作；
+     *  此处仅做了gzip解码的处理，业务场景若确定有其他编码格式，需自行完成扩展。
      */
     NSString *contentEncoding = [self.response.headerFields objectForKey:@"Content-Encoding"];
     if (contentEncoding && [contentEncoding isEqualToString:@"gzip"]) {
@@ -267,7 +267,7 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
  *  检查是否需要重定向
  */
 - (BOOL)needRedirection {
-    BOOL needRedirect = YES;
+    BOOL needRedirect = NO;
     switch (self.response.statusCode) {
         // 永久重定向
         case 301:
@@ -288,14 +288,14 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
                 }
                 [mRequest setValue:nil forHTTPHeaderField:@"host"];
                 self.redirectRequest = mRequest;
+                needRedirect = YES;
                 break;
             }
         }
-        //case 307:
         // POST不重定向为GET，询问用户是否携带POST数据(很少使用)
+        //case 307:
         //    break;
         default:
-            needRedirect = NO;
             break;
     }
     return needRedirect;

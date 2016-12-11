@@ -13,7 +13,6 @@
 
 + (void)putSwizzleRequest:(NSURLRequest *)swizzleRequest;
 + (NSString *)getResourceHostForIPInURL:(NSURL *)url;
-+ (void)scanPageContent:(NSString *)host data:(NSData *)data response:(NSHTTPURLResponse *)response;
 + (void)clear;
 + (void)description;
 

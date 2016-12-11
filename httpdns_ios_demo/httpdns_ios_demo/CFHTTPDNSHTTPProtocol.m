@@ -14,11 +14,11 @@
 #import "WebViewPageRecorder.h"
 
 /**
- *  本示例拦截HTTPS请求，使用HTTPDNS进行域名解析，基于CFNetwork发送HTTPS请求，并适配SNI配置
- *  若有HTTP请求，或重定向时有HTTP请求，需要另注册其他NSURLProtocol来处理或者走系统原生处理逻辑
+ *  本示例拦截HTTPS请求，使用HTTPDNS进行域名解析，基于CFNetwork发送HTTPS请求，并适配SNI配置；
+ *  若有HTTP请求，或重定向时有HTTP请求，需要另注册其他NSURLProtocol来处理或者走系统原生处理逻辑。
  *
  *  NSURLProtocol API描述参考：https://developer.apple.com/reference/foundation/nsurlprotocol
- *  尽可能拦截少量网络请求，尽量避免直接基于CFNetwork发送HTTP/HTTPS请求
+ *  尽可能拦截少量网络请求，尽量避免直接基于CFNetwork发送HTTP/HTTPS请求。
  */
 
 // 标记是否有WebView来的网络请求
@@ -118,11 +118,7 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
 }
 
 - (void)task:(CFHTTPDNSRequestTask *)task didReceiveData:(NSData *)data {
-    NSLog(@"Did receive data, %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    /*
-     *  读取加载页面内容分析（不建议直接使用）
-     */
-//    [WebViewPageRecorder scanPageContent:[task getOriginalRequestHost] data:data response:[task getRequestResponse]];
+    NSLog(@"Did receive data.");
     [self.client URLProtocol:self didLoadData:data];
 }
 
@@ -148,6 +144,11 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
     if ([self isIPAddress:originURL.host]) {
         
 #ifdef WEBVIEW_REQUEST
+        /*
+         *  若为WebView加载相对路径资源，查找HTTPDNS解析IP和Host映射记录，
+         *  查找到对应Host后，添加到请求Header的`host`字段
+         *  详解可参考WebViewPageRecorder中的描述。
+         */
         NSString *host = [WebViewPageRecorder getResourceHostForIPInURL:originURL];
         if (host) {
             NSLog(@"WebView load relative path resource, set `host` in HeaderFields to [%@].", host);
@@ -173,11 +174,8 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
             
 #ifdef WEBVIEW_REQUEST
             /*
-             *  如果是通过WebView加载网络请求，记录WebView页面解析记录
-             *  基于HTTPS访问页面时，使用HTTPDNS域名解析成功后，
-             *  假设载入页面中有相对路径资源，WebView会自动将访问该资源的URL拼接为类似`https://1.2.3.4/xx/xx/xx`的格式
-             *  加载访问该资源的网络请求时，`Host`字段的缺失会导致HTTPS中SSL/TLS校验失败
-             *  因此记录WebView页面URL的HTTPDNS解析记录，在上述场景出现时将对应`Host`放回URL
+             *  记录HTTPDNS解析IP和Host映射
+             *  详解可参考WebViewPageRecorder中的描述。
              */
             [WebViewPageRecorder putSwizzleRequest:swizzleRequest];
             [WebViewPageRecorder description];

@@ -12,12 +12,18 @@
 #import "SNIViewController.h"
 #import "CFHTTPDNSHTTPProtocol.h"
 
-
+/**
+ *  本示例用于演示HTTPS SNI场景下HTTPDNS的处理方式。
+ *  场景包括：WebView加载、基于NSURLConnection加载、基于NSURLSession加载；
+ *  WebView加载请求场景，HTTPDNS域名解析必须在拦截请求后进行；
+ *  NSURLConnection/NSURLSession加载请求场景，可在发起请求前或拦截请求后进行HTTPDNS域名解析；
+ *  Demo为实现统一的NSURLProtocol，统一在`CFHTTPDNSProtocol`拦截请求后进行HTTPDNS域名解析。
+ *  由于在SNI场景下，网络请求必须基于底层CFNetwork完成，建议不要拦截非SNI场景的网络请求，尽可能走上层网络库发送网络请求。
+ */
 @interface SNIViewController () <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
-@property (nonatomic, strong) NSMutableURLRequest *request;
 @end
 
 @implementation SNIViewController
@@ -26,39 +32,43 @@
     [super viewDidLoad];
     
     [NSURLProtocol registerClass:[CFHTTPDNSHTTPProtocol class]];
-    
-//    NSString *urlString = @"https://www.aliyun.com";
-        NSString *urlString = @"https://dou.bz/23o8PS";
-    //    NSString *urlString = @"https://www.taobao.com";
-    //    NSString *urlString = @"https://www.tmall.com";
+    NSString *urlString = @"https://dou.bz/23o8PS";
     NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    /*
+     *  WebView加载资源场景
+     */
     [self.webView loadRequest:request];
     
-    // NSURLConnection例子
-    // [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:YES];
+    /*
+     *  NSURLConnection加载资源场景
+     */
+    //[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
     
-    // NSURLSession例子
-//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    NSArray *protocolArray = @[ [CFHttpMessageURLProtocol class] ];
-//    configuration.protocolClasses = protocolArray;
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-//    NSURLSessionTask *task = [session dataTaskWithRequest:_request];
-//    [task resume];
+    /*
+     *  NSURLSession加载资源场景
+     */
+    //NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    //NSArray *protocolArray = @[ [CFHTTPDNSHTTPProtocol class] ];
+    //configuration.protocolClasses = protocolArray;
+    //NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    //NSURLSessionTask *task = [session dataTaskWithRequest:request];
+    //[task resume];
     
     // 注*：使用NSURLProtocol拦截NSURLSession发起的POST请求时，HTTPBody为空。
     // 解决方案有两个：1. 使用NSURLConnection发POST请求。
     // 2. 先将HTTPBody放入HTTP Header field中，然后在NSURLProtocol中再取出来。
     // 下面主要演示第二种解决方案
-    // NSString *postStr = [NSString stringWithFormat:@"param1=%@&param2=%@", @"val1", @"val2"];
-    // [_request addValue:postStr forHTTPHeaderField:@"originalBody"];
-    // _request.HTTPMethod = @"POST";
-    // NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    // NSArray *protocolArray = @[ [CFHttpMessageURLProtocol class] ];
-    // configuration.protocolClasses = protocolArray;
-    // NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-    // NSURLSessionTask *task = [session dataTaskWithRequest:_request];
-    // [task resume];
+    //NSString *postStr = [NSString stringWithFormat:@"param1=%@&param2=%@", @"val1", @"val2"];
+    //[request addValue:postStr forHTTPHeaderField:@"originalBody"];
+    //request.HTTPMethod = @"POST";
+    //NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    //NSArray *protocolArray = @[ [CFHTTPDNSHTTPProtocol class] ];
+    //configuration.protocolClasses = protocolArray;
+    //NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    //NSURLSessionTask *task = [session dataTaskWithRequest:request];
+    //[task resume];
 }
 
 - (void)didReceiveMemoryWarning {
