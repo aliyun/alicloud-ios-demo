@@ -88,8 +88,9 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
         bodyData = (__bridge_retained CFDataRef) self.swizzleRequest.HTTPBody;
     } else if (headFields[@"originalBody"]) {
         /*
-         *  使用NSURLSession发POST请求时，HTTPBody为空
-         *  假设发送请求前，将HTTP Body放入Header `originalBody` 字段
+         *  使用NSURLSession发POST请求时，Protocol拦截后无法获取请求Body，
+         *  假设发送请求前，将HTTP Body放入Header `originalBody` 字段暂存，
+         *  从Header `originalBody`中取出放回HTTP请求Body。
          */
         bodyData = (__bridge_retained CFDataRef) [headFields[@"originalBody"] dataUsingEncoding:NSUTF8StringEncoding];
     }
