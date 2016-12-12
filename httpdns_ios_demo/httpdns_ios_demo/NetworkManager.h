@@ -21,16 +21,6 @@ typedef enum {
 + (NetworkManager *)instance;
 
 /*
- * 当前网络的状态
- */
-- (_NetworkStatus)currentStatus;
-
-/*
- * 上一次的网络状态
- */
-- (_NetworkStatus)lastStatus;
-
-/*
  * 当前网络状态的String描述
  */
 - (NSString *)currentStatusString;

@@ -23,14 +23,14 @@
     
     // 设置AccoutID
     [httpdns setAccountID:139450];
-    // [httpdns setAccountID:142208];
     // 为HTTPDNS服务设置降级机制
     [httpdns setDelegateForDegradationFilter:(id < HttpDNSDegradationDelegate >)self];
     // 允许返回过期的IP
     [httpdns setExpiredIPEnabled:YES];
-    
+    // 打开HTTPDNS Log，线上建议关闭
+    //[httpdns setLogEnabled:YES];
     // edited
-    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com" ];
+    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"do.bz"];
     // NSArray* preResolveHosts = @[@"pic1cdn.igetget.com"];
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];

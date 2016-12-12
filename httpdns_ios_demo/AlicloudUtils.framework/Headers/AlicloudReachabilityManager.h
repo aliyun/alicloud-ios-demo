@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
 #define ALICLOUD_NETWOEK_STATUS_NOTIFY @"AlicloudNetworkStatusChangeNotify"
-#define ALICLOUD_NETWORK_STATUS_WIFISSID_DEFAULT @"bssidDefault"
 
 typedef enum {
     AlicloudNotReachable = 0,
@@ -21,10 +21,25 @@ typedef enum {
 
 @interface AlicloudReachabilityManager : NSObject
 
+/**
+ *  获取Reachability单例对象
+ *
+ *  @return 
+ */
 + (AlicloudReachabilityManager *)shareInstance;
 
 /**
- *	@brief	返回当前网络状态
+ *  获取Reachability单例对象，为保证全局维护一个netInfo实例，可从外部传入netInfo对象的引用
+ *  warn: netInfo多次实例化，有一定几率crash
+ *
+ *  @param netInfo
+ *
+ *  @return
+ */
++ (AlicloudReachabilityManager *)shareInstanceWithNetInfo:(CTTelephonyNetworkInfo *)netInfo;
+
+/**
+ *	@brief	返回当前网络状态(同步调用，可能会阻塞调用线程)
  *
  *	@return
  */
@@ -38,17 +53,10 @@ typedef enum {
 - (AlicloudNetworkStatus)preNetworkStatus;
 
 /**
- *	@brief	检测网络是否连通
+ *	@brief	检测网络是否连通(同步调用，阻塞调用线程)
  *
  *	@return
  */
 - (BOOL)checkInternetConnection;
-
-/**
- *	@brief	获取Wifi名
- *
- *	@return
- */
-- (NSString *)getWifiSSID;
 
 @end

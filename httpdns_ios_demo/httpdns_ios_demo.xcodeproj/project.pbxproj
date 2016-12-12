@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1DDB3C1DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DDB351DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m */; };
+		4A1DDB3D1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DDB361DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m */; };
+		4A1DDB3E1DFC47C80008DCF7 /* WebViewPageRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DDB371DFC47C80008DCF7 /* WebViewPageRecorder.m */; };
 		942188EC1C59011B00696D6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EB1C59011B00696D6E /* main.m */; };
 		942188EF1C59011B00696D6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EE1C59011B00696D6E /* AppDelegate.m */; };
 		942188F21C59011B00696D6E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188F11C59011B00696D6E /* ViewController.m */; };
@@ -26,10 +29,16 @@
 		F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */; };
 		F775BD5E1D1BAC8D00217FF0 /* SNIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F775BD5D1D1BAC8D00217FF0 /* SNIViewController.m */; };
 		F77F1DCF1D23A1A300A48D1D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77F1DCE1D23A1A300A48D1D /* WebKit.framework */; };
-		F7F97DFC1D152A0D00646D3F /* CFHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A1DDB351DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFHTTPDNSHTTPProtocol.m; sourceTree = "<group>"; };
+		4A1DDB361DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFHTTPDNSRequestTask.m; sourceTree = "<group>"; };
+		4A1DDB371DFC47C80008DCF7 /* WebViewPageRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewPageRecorder.m; sourceTree = "<group>"; };
+		4A1DDB381DFC47C80008DCF7 /* WebViewPageRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewPageRecorder.h; sourceTree = "<group>"; };
+		4A1DDB391DFC47C80008DCF7 /* CFHTTPDNSRequestTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHTTPDNSRequestTaskDelegate.h; sourceTree = "<group>"; };
+		4A1DDB3A1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHTTPDNSRequestTask.h; sourceTree = "<group>"; };
+		4A1DDB3B1DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHTTPDNSHTTPProtocol.h; sourceTree = "<group>"; };
 		942188E71C59011B00696D6E /* httpdns_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = httpdns_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		942188EB1C59011B00696D6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		942188ED1C59011B00696D6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,8 +68,6 @@
 		F775BD5C1D1BAC8D00217FF0 /* SNIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNIViewController.h; sourceTree = "<group>"; };
 		F775BD5D1D1BAC8D00217FF0 /* SNIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNIViewController.m; sourceTree = "<group>"; };
 		F77F1DCE1D23A1A300A48D1D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		F7F97DFA1D152A0D00646D3F /* CFHttpMessageURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHttpMessageURLProtocol.h; sourceTree = "<group>"; };
-		F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFHttpMessageURLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +91,10 @@
 		942188DE1C59011B00696D6E = {
 			isa = PBXGroup;
 			children = (
+				947191EB1CEDAA9700E13DE9 /* libresolv.tbd */,
 				F77F1DCE1D23A1A300A48D1D /* WebKit.framework */,
 				947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */,
 				947191ED1CEDAA9E00E13DE9 /* SystemConfiguration.framework */,
-				947191EB1CEDAA9700E13DE9 /* libresolv.tbd */,
 				947191E91CEDAA8F00E13DE9 /* AlicloudUtils.framework */,
 				94AE71BD1CDB9C3100EE4BBF /* UTDID.framework */,
 				E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */,
@@ -107,8 +114,13 @@
 		942188E91C59011B00696D6E /* httpdns_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
-				F7F97DFA1D152A0D00646D3F /* CFHttpMessageURLProtocol.h */,
-				F7F97DFB1D152A0D00646D3F /* CFHttpMessageURLProtocol.m */,
+				4A1DDB391DFC47C80008DCF7 /* CFHTTPDNSRequestTaskDelegate.h */,
+				4A1DDB3B1DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.h */,
+				4A1DDB351DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m */,
+				4A1DDB3A1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.h */,
+				4A1DDB361DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m */,
+				4A1DDB381DFC47C80008DCF7 /* WebViewPageRecorder.h */,
+				4A1DDB371DFC47C80008DCF7 /* WebViewPageRecorder.m */,
 				942188ED1C59011B00696D6E /* AppDelegate.h */,
 				942188EE1C59011B00696D6E /* AppDelegate.m */,
 				942188F01C59011B00696D6E /* ViewController.h */,
@@ -173,6 +185,7 @@
 				TargetAttributes = {
 					942188E61C59011B00696D6E = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = QBMN2BBW3K;
 					};
 				};
 			};
@@ -212,15 +225,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F97DFC1D152A0D00646D3F /* CFHttpMessageURLProtocol.m in Sources */,
 				942189051C59041100696D6E /* NetworkManager.m in Sources */,
 				942188F21C59011B00696D6E /* ViewController.m in Sources */,
 				C589F8961D28C0A8007CC868 /* MainViewController.m in Sources */,
 				F7211AA51D1E64CE004DD699 /* WebViewURLProtocol.m in Sources */,
+				4A1DDB3E1DFC47C80008DCF7 /* WebViewPageRecorder.m in Sources */,
 				F7211AA21D1E6020004DD699 /* WebViewController.m in Sources */,
 				942188EF1C59011B00696D6E /* AppDelegate.m in Sources */,
+				4A1DDB3D1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m in Sources */,
 				942188EC1C59011B00696D6E /* main.m in Sources */,
 				F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */,
+				4A1DDB3C1DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m in Sources */,
 				F775BD5E1D1BAC8D00217FF0 /* SNIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,14 +349,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = httpdns_ios_demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lz";
 				PRODUCT_BUNDLE_IDENTIFIER = "alibaba.httpdns-ios-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -352,14 +369,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = httpdns_ios_demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lz";
 				PRODUCT_BUNDLE_IDENTIFIER = "alibaba.httpdns-ios-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
