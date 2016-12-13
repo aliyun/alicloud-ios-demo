@@ -11,7 +11,6 @@
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import "CFHTTPDNSHTTPProtocol.h"
 #import "CFHTTPDNSRequestTaskDelegate.h"
-#import "WebViewPageRecorder.h"
 
 /**
  *  本示例拦截HTTPS请求，使用HTTPDNS进行域名解析，基于CFNetwork发送HTTPS请求，并适配SNI配置；
@@ -20,9 +19,6 @@
  *  NSURLProtocol API描述参考：https://developer.apple.com/reference/foundation/nsurlprotocol
  *  尽可能拦截少量网络请求，尽量避免直接基于CFNetwork发送HTTP/HTTPS请求。
  */
-
-// 标记是否有WebView来的网络请求
-#define WEBVIEW_REQUEST
 
 static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
 
@@ -78,6 +74,7 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
     self.startTime = [NSDate timeIntervalSinceReferenceDate];
     // 构造CFHTTPDNSRequestTask，基于CFNetwork发送HTTPS请求
     NSURLRequest *swizzleRequest = [self httpdnsResolve:recursiveRequest];
+    NSLog(@"SwizzleRequest: %@", swizzleRequest);
     self.task = [[CFHTTPDNSRequestTask alloc] initWithURLRequest:recursiveRequest swizzleRequest:swizzleRequest delegate:self];
     if (self.task) {
         [self.task startLoading];
@@ -142,21 +139,6 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
     NSURL *originURL = request.URL;
     // 原始请求基于IP访问
     if ([self isIPAddress:originURL.host]) {
-        
-#ifdef WEBVIEW_REQUEST
-        /*
-         *  若为WebView加载相对路径资源，查找HTTPDNS解析IP和Host映射记录，
-         *  查找到对应Host后，添加到请求Header的`host`字段
-         *  详解可参考WebViewPageRecorder中的描述。
-         */
-        NSString *host = [WebViewPageRecorder getResourceHostForIPInURL:originURL];
-        if (host) {
-            NSLog(@"WebView load relative path resource, set `host` in HeaderFields to [%@].", host);
-            swizzleRequest = [request mutableCopy];
-            [swizzleRequest setValue:host forHTTPHeaderField:@"host"];
-            return swizzleRequest;
-        }
-#endif
         NSLog(@"[%@] is IP based URL, return.", originURL.absoluteString);
         return request;
     }
@@ -171,15 +153,6 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
             NSString *newUrl = [originURLStr stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             swizzleRequest.URL = [NSURL URLWithString:newUrl];
             [swizzleRequest setValue:originURL.host forHTTPHeaderField:@"host"];
-            
-#ifdef WEBVIEW_REQUEST
-            /*
-             *  记录HTTPDNS解析IP和Host映射
-             *  详解可参考WebViewPageRecorder中的描述。
-             */
-            [WebViewPageRecorder putSwizzleRequest:swizzleRequest];
-            [WebViewPageRecorder description];
-#endif
         }
     } else {
         // 没有获取到域名解析结果
