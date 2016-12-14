@@ -9,6 +9,7 @@
 #import "WebViewURLProtocol.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import <objc/runtime.h>
+#import <arpa/inet.h>
 
 #define protocolKey @"CFHttpMessagePropertyKey"
 #define kAnchorAlreadyAdded @"AnchorAlreadyAdded"
@@ -36,8 +37,10 @@
     
     /*
      *  降级处理逻辑：
-     *  HTTPDNS无法返回对应Host的解析结果IP时，
-     *  不拦截处理该请求，交由其他注册Protocol或系统原生网络库处理。
+     *  1. 不拦截基于IP访问的请求；
+     *  2. HTTPDNS无法返回对应Host的解析结果IP时，不拦截处理该请求，交由其他注册Protocol或系统原生网络库处理。
+     *  基于此，可通过控制台下线域名，动态控制客户端降级。
+     *  【注意】当HTTPDNS不可用时，一定要做好降级处理，减少网络请求处理的无意义干涉，降低风险。
      */
     if (![self canHTTPDNSResolveHost:request.URL.host]) {
         NSLog(@"HTTPDNS can't resolve [%@] now.", request.URL.host);
@@ -102,15 +105,37 @@
 }
 
 /**
- *  检测当前HTTPDNS是否可以返回对应host解析结果IP
+ *  检测当前HTTPDNS是否可以返回对应host解析结果
+ *  host为空或host为IP地址，直接返回NO。
  */
 + (BOOL)canHTTPDNSResolveHost:(NSString *)host {
-    if (!host) {
+    if (!host || [self isIPAddress:host]) {
         return NO;
     }
     NSString *ip = [[HttpDnsService sharedInstance] getIpByHostAsync:host];
     return (ip != nil);
 }
+
+/**
+ *  判断输入是否为IP地址
+ */
++ (BOOL)isIPAddress:(NSString *)str {
+    if (!str) {
+        return NO;
+    }
+    int success;
+    struct in_addr dst;
+    struct in6_addr dst6;
+    const char *utf8 = [str UTF8String];
+    // check IPv4 address
+    success = inet_pton(AF_INET, utf8, &(dst.s_addr));
+    if (!success) {
+        // check IPv6 address
+        success = inet_pton(AF_INET6, utf8, &dst6);
+    }
+    return success;
+}
+
 
 /**
  *  使用NSURLSession转发请求
