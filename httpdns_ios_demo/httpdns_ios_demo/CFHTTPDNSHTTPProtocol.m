@@ -51,6 +51,15 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
         [NSURLProtocol propertyForKey:recursiveRequestFlagProperty inRequest:request] != nil) {
         shouldAccept = NO;
     }
+    /*
+     *  降级处理逻辑：
+     *  HTTPDNS无法返回对应Host的解析结果IP时，
+     *  不拦截处理该请求，交由其他注册Protocol或系统原生网络库处理。
+     */
+    if (![self canHTTPDNSResolveHost:request.URL.host]) {
+        NSLog(@"HTTPDNS can't resolve [%@] now.", request.URL.host);
+        shouldAccept = NO;
+    }
     
     if (shouldAccept) {
         NSLog(@"Accept request: %@.", request);
@@ -159,6 +168,17 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
         return request;
     }
     return swizzleRequest;
+}
+
+/**
+ *  检测当前HTTPDNS是否可以返回对应host解析结果
+ */
++ (BOOL)canHTTPDNSResolveHost:(NSString *)host {
+    if (!host) {
+        return NO;
+    }
+    NSString *ip = [[HttpDnsService sharedInstance] getIpByHostAsync:host];
+    return (ip != nil);
 }
 
 /**

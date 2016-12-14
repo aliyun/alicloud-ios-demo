@@ -34,6 +34,16 @@
         return NO;
     }
     
+    /*
+     *  降级处理逻辑：
+     *  HTTPDNS无法返回对应Host的解析结果IP时，
+     *  不拦截处理该请求，交由其他注册Protocol或系统原生网络库处理。
+     */
+    if (![self canHTTPDNSResolveHost:request.URL.host]) {
+        NSLog(@"HTTPDNS can't resolve [%@] now.", request.URL.host);
+        return NO;
+    }
+    
     NSMutableURLRequest *mutableReq = [request mutableCopy];
     
     // 假设原始的请求头部没有host信息，只有使用IP替换后的请求才有
@@ -89,6 +99,17 @@
 - (void)stopLoading {
     [self.session invalidateAndCancel];
     self.session = nil;
+}
+
+/**
+ *  检测当前HTTPDNS是否可以返回对应host解析结果IP
+ */
++ (BOOL)canHTTPDNSResolveHost:(NSString *)host {
+    if (!host) {
+        return NO;
+    }
+    NSString *ip = [[HttpDnsService sharedInstance] getIpByHostAsync:host];
+    return (ip != nil);
 }
 
 /**

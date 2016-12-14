@@ -30,7 +30,7 @@
     // 打开HTTPDNS Log，线上建议关闭
     //[httpdns setLogEnabled:YES];
     // edited
-    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"do.bz"];
+    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"dou.bz"];
     // NSArray* preResolveHosts = @[@"pic1cdn.igetget.com"];
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
