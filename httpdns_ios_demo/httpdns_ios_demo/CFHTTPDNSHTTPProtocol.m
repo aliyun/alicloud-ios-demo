@@ -56,7 +56,15 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
      *  1. 不拦截基于IP访问的请求；
      *  2. HTTPDNS无法返回对应Host的解析结果IP时，不拦截处理该请求，交由其他注册Protocol或系统原生网络库处理。
      *  基于此，可通过控制台下线域名，动态控制客户端降级。
+     *  ***************************************************************************
      *  【注意】当HTTPDNS不可用时，一定要做好降级处理，减少网络请求处理的无意义干涉，降低风险。
+     *  添加该降级逻辑时，一定要基于HTTPDNS最新版本SDK构建。
+     *  HTTPDNS iOS SDK包括:
+     *      AlicloudHttpDNS.framework
+     *      AlicloudUtils.framework
+     *      UTDID.framework
+     *  各Framework都要升级到线上最新版本，否则不能使用该降级处理逻辑，切记！
+     *  ***************************************************************************
      */
     if (shouldAccept && ![self canHTTPDNSResolveHost:request.URL.host]) {
         NSLog(@"HTTPDNS can't resolve [%@] now.", request.URL.host);
