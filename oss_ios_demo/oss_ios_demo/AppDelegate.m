@@ -12,15 +12,11 @@
 @interface AppDelegate ()
 @end
 
-AliyunOSSDemo * demo;
-
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    demo = [AliyunOSSDemo new];
-    [demo runDemo];
     return YES;
 }
 
