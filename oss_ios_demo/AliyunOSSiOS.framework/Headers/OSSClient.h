@@ -32,6 +32,8 @@
 @class OSSClientConfiguration;
 @protocol OSSCredentialProvider;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  OSSClient是OSS服务的iOS客户端，它为调用者提供了一系列的方法，用于和OSS服务进行交互。
  一般来说，全局内只需要保持一个OSSClient，用来调用各种操作。
@@ -65,7 +67,7 @@
 
 /**
  初始化OSSClient，使用默认的本地设置
- @endpoint 指明Bucket所在的Region域名
+ @endpoint 指明Bucket所在的Region域名，2017年以后苹果要求APP符合ATS政策，这里要写https的endpoint，如 "https://oss-cn-hangzhou.aliyuncs.com"
  @credentialProvider 需要实现的签名器
  */
 - (instancetype)initWithEndpoint:(NSString *)endpoint
@@ -73,7 +75,7 @@
 
 /**
  初始化OSSClient，使用自定义设置
- @endpoint 指明Bucket所在的Region域名
+ @endpoint 指明Bucket所在的Region域名，2017年以后苹果要求APP符合ATS政策，这里要写https的endpoint，如 "https://oss-cn-hangzhou.aliyuncs.com"
  @credentialProvider 需要实现的签名器
  @conf 可以设置一些本地参数如重试次数、超时时间等
  */
@@ -245,3 +247,5 @@
                       objectKey:(NSString *)objectKey
                           error:(const NSError **)error;
 @end
+
+NS_ASSUME_NONNULL_END

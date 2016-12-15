@@ -11,6 +11,15 @@
 
 @interface AliyunOSSDemo : NSObject
 
++ (instancetype)sharedInstance;
+
+- (void)setupEnvironment;
+
 - (void)runDemo;
 
+- (void)uploadObjectAsync;
+
+- (void)downloadObjectAsync;
+
+- (void)resumableUpload;
 @end

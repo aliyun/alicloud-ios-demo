@@ -72,6 +72,7 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
  扩展NSDate
  */
 @interface NSDate (OSS)
++ (void)oss_setStandardTimeIntervalSince1970:(NSTimeInterval)standardTime;
 + (void)oss_setClockSkew:(NSTimeInterval)clockSkew;
 + (NSDate *)oss_dateFromString:(NSString *)string;
 + (NSDate *)oss_clockSkewFixedDate;
@@ -135,6 +136,10 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 @interface OSSCustomSignerCredentialProvider : NSObject <OSSCredentialProvider>
 @property (nonatomic, copy) NSString * (^signContent)(NSString *, NSError **);
 
+/**
+ 任务执行时，这个方法会被调用，进行加签
+ 会在任务执行的后台线程被调用，而非UI线程
+ */
 - (instancetype)initWithImplementedSigner:(OSSCustomSignContentBlock)signContent;
 @end
 
@@ -145,10 +150,17 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 @property (nonatomic, strong) OSSFederationToken * cachedToken;
 @property (nonatomic, copy) OSSFederationToken * (^federationTokenGetter)();
 
+/**
+ 任务执行时，这个方法会被调用，获取新的ststoken
+ 会在任务执行的后台线程被调用，而非UI线程
+ */
 - (instancetype)initWithFederationTokenGetter:(OSSGetFederationTokenBlock)federationTokenGetter;
 - (OSSFederationToken *)getToken:(NSError **)error;
 @end
 
+/**
+ 通过已经获取到的StsToken来加签的加签器
+ */
 @interface OSSStsTokenCredentialProvider : NSObject <OSSCredentialProvider>
 @property (nonatomic, strong) NSString * accessKeyId;
 @property (nonatomic, strong) NSString * secretKeyId;
@@ -591,11 +603,13 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 
 /**
  回调下载进度
+ 会在任务执行的后台线程被回调，而非UI线程
  */
 @property (nonatomic, copy) OSSNetworkingDownloadProgressBlock downloadProgress;
 
 /**
  Object下载过程中，会在接收每一段数据后回调这个Block
+ 会在任务执行的后台线程被回调，而非UI线程
  */
 @property (nonatomic, copy) OSSNetworkingOnRecieveDataBlock onRecieveData;
 @end
@@ -716,7 +730,8 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 @property (nonatomic, strong) NSDictionary * objectMeta;
 
 /**
- 上传进度回调
+ 上传进度回调，
+ 会在任务执行的后台线程被回调，而非UI线程
  */
 @property (nonatomic, copy) OSSNetworkingUploadProgressBlock uploadProgress;
 @end
@@ -810,6 +825,7 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 
 /**
  上传进度回调
+ 会在任务执行的后台线程被回调，而非UI线程
  */
 @property (nonatomic, copy) OSSNetworkingUploadProgressBlock uploadProgress;
 @end
@@ -1010,6 +1026,7 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 
 /**
  上传进度回调
+ 会在任务执行的后台线程被回调，而非UI线程
  */
 @property (nonatomic, copy) OSSNetworkingUploadProgressBlock uploadPartProgress;
 @end
@@ -1231,6 +1248,7 @@ typedef OSSFederationToken * (^OSSGetFederationTokenBlock) ();
 
 /**
  上传进度
+ 会在任务执行的后台线程被回调，而非UI线程
  */
 @property (nonatomic, copy) OSSNetworkingUploadProgressBlock uploadProgress;
 
