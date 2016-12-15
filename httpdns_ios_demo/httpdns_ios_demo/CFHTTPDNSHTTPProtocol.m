@@ -11,7 +11,6 @@
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import "CFHTTPDNSHTTPProtocol.h"
 #import "CFHTTPDNSRequestTaskDelegate.h"
-#import "WebViewPageRecorder.h"
 
 /**
  *  本示例拦截HTTPS请求，使用HTTPDNS进行域名解析，基于CFNetwork发送HTTPS请求，并适配SNI配置；
@@ -20,9 +19,6 @@
  *  NSURLProtocol API描述参考：https://developer.apple.com/reference/foundation/nsurlprotocol
  *  尽可能拦截少量网络请求，尽量避免直接基于CFNetwork发送HTTP/HTTPS请求。
  */
-
-// 标记是否有WebView来的网络请求
-#define WEBVIEW_REQUEST
 
 static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
 
@@ -55,6 +51,17 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
         [NSURLProtocol propertyForKey:recursiveRequestFlagProperty inRequest:request] != nil) {
         shouldAccept = NO;
     }
+    /*
+     *  降级处理逻辑：
+     *  1. 不拦截基于IP访问的请求；
+     *  2. HTTPDNS无法返回对应Host的解析结果IP时，不拦截处理该请求，交由其他注册Protocol或系统原生网络库处理。
+     *  基于此，可通过控制台下线域名，动态控制客户端降级。
+     *  【注意】当HTTPDNS不可用时，一定要做好降级处理，减少网络请求处理的无意义干涉，降低风险。
+     */
+    if (shouldAccept && ![self canHTTPDNSResolveHost:request.URL.host]) {
+        NSLog(@"HTTPDNS can't resolve [%@] now.", request.URL.host);
+        shouldAccept = NO;
+    }
     
     if (shouldAccept) {
         NSLog(@"Accept request: %@.", request);
@@ -78,6 +85,7 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
     self.startTime = [NSDate timeIntervalSinceReferenceDate];
     // 构造CFHTTPDNSRequestTask，基于CFNetwork发送HTTPS请求
     NSURLRequest *swizzleRequest = [self httpdnsResolve:recursiveRequest];
+    NSLog(@"SwizzleRequest: %@", swizzleRequest);
     self.task = [[CFHTTPDNSRequestTask alloc] initWithURLRequest:recursiveRequest swizzleRequest:swizzleRequest delegate:self];
     if (self.task) {
         [self.task startLoading];
@@ -88,7 +96,7 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
  *  停止加载请求
  */
 - (void)stopLoading {
-    NSLog(@"Stop loading, elapsed %.1f seconds.", [NSDate timeIntervalSinceReferenceDate] - self.startTime);
+    NSLog(@"[%@] stop loading, elapsed %.1f seconds.", self.request, [NSDate timeIntervalSinceReferenceDate] - self.startTime);
     if (self.task) {
         [self.task stopLoading];
         self.task = nil;
@@ -140,26 +148,6 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
     NSMutableURLRequest *swizzleRequest;
     NSLog(@"HTTPDNS start resolve URL: %@", request.URL.absoluteString);
     NSURL *originURL = request.URL;
-    // 原始请求基于IP访问
-    if ([self isIPAddress:originURL.host]) {
-        
-#ifdef WEBVIEW_REQUEST
-        /*
-         *  若为WebView加载相对路径资源，查找HTTPDNS解析IP和Host映射记录，
-         *  查找到对应Host后，添加到请求Header的`host`字段
-         *  详解可参考WebViewPageRecorder中的描述。
-         */
-        NSString *host = [WebViewPageRecorder getResourceHostForIPInURL:originURL];
-        if (host) {
-            NSLog(@"WebView load relative path resource, set `host` in HeaderFields to [%@].", host);
-            swizzleRequest = [request mutableCopy];
-            [swizzleRequest setValue:host forHTTPHeaderField:@"host"];
-            return swizzleRequest;
-        }
-#endif
-        NSLog(@"[%@] is IP based URL, return.", originURL.absoluteString);
-        return request;
-    }
     NSString *originURLStr = originURL.absoluteString;
     swizzleRequest = [request mutableCopy];
     NSString *ip = [[HttpDnsService sharedInstance] getIpByHostAsync:originURL.host];
@@ -171,15 +159,6 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
             NSString *newUrl = [originURLStr stringByReplacingCharactersInRange:hostFirstRange withString:ip];
             swizzleRequest.URL = [NSURL URLWithString:newUrl];
             [swizzleRequest setValue:originURL.host forHTTPHeaderField:@"host"];
-            
-#ifdef WEBVIEW_REQUEST
-            /*
-             *  记录HTTPDNS解析IP和Host映射
-             *  详解可参考WebViewPageRecorder中的描述。
-             */
-            [WebViewPageRecorder putSwizzleRequest:swizzleRequest];
-            [WebViewPageRecorder description];
-#endif
         }
     } else {
         // 没有获取到域名解析结果
@@ -189,9 +168,21 @@ static NSString *recursiveRequestFlagProperty = @"com.aliyun.httpdns";
 }
 
 /**
+ *  检测当前HTTPDNS是否可以返回对应host解析结果
+ *  host为空或host为IP地址，直接返回NO。
+ */
++ (BOOL)canHTTPDNSResolveHost:(NSString *)host {
+    if (!host || [self isIPAddress:host]) {
+        return NO;
+    }
+    NSString *ip = [[HttpDnsService sharedInstance] getIpByHostAsync:host];
+    return (ip != nil);
+}
+
+/**
  *  判断输入是否为IP地址
  */
-- (BOOL)isIPAddress:(NSString *)str {
++ (BOOL)isIPAddress:(NSString *)str {
     if (!str) {
         return NO;
     }

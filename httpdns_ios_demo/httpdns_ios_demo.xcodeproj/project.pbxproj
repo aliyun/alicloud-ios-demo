@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A1DDB3C1DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DDB351DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m */; };
 		4A1DDB3D1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DDB361DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m */; };
-		4A1DDB3E1DFC47C80008DCF7 /* WebViewPageRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DDB371DFC47C80008DCF7 /* WebViewPageRecorder.m */; };
 		942188EC1C59011B00696D6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EB1C59011B00696D6E /* main.m */; };
 		942188EF1C59011B00696D6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EE1C59011B00696D6E /* AppDelegate.m */; };
 		942188F21C59011B00696D6E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188F11C59011B00696D6E /* ViewController.m */; };
@@ -34,8 +33,6 @@
 /* Begin PBXFileReference section */
 		4A1DDB351DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFHTTPDNSHTTPProtocol.m; sourceTree = "<group>"; };
 		4A1DDB361DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFHTTPDNSRequestTask.m; sourceTree = "<group>"; };
-		4A1DDB371DFC47C80008DCF7 /* WebViewPageRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewPageRecorder.m; sourceTree = "<group>"; };
-		4A1DDB381DFC47C80008DCF7 /* WebViewPageRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewPageRecorder.h; sourceTree = "<group>"; };
 		4A1DDB391DFC47C80008DCF7 /* CFHTTPDNSRequestTaskDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHTTPDNSRequestTaskDelegate.h; sourceTree = "<group>"; };
 		4A1DDB3A1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHTTPDNSRequestTask.h; sourceTree = "<group>"; };
 		4A1DDB3B1DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFHTTPDNSHTTPProtocol.h; sourceTree = "<group>"; };
@@ -119,8 +116,6 @@
 				4A1DDB351DFC47C80008DCF7 /* CFHTTPDNSHTTPProtocol.m */,
 				4A1DDB3A1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.h */,
 				4A1DDB361DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m */,
-				4A1DDB381DFC47C80008DCF7 /* WebViewPageRecorder.h */,
-				4A1DDB371DFC47C80008DCF7 /* WebViewPageRecorder.m */,
 				942188ED1C59011B00696D6E /* AppDelegate.h */,
 				942188EE1C59011B00696D6E /* AppDelegate.m */,
 				942188F01C59011B00696D6E /* ViewController.h */,
@@ -229,7 +224,6 @@
 				942188F21C59011B00696D6E /* ViewController.m in Sources */,
 				C589F8961D28C0A8007CC868 /* MainViewController.m in Sources */,
 				F7211AA51D1E64CE004DD699 /* WebViewURLProtocol.m in Sources */,
-				4A1DDB3E1DFC47C80008DCF7 /* WebViewPageRecorder.m in Sources */,
 				F7211AA21D1E6020004DD699 /* WebViewController.m in Sources */,
 				942188EF1C59011B00696D6E /* AppDelegate.m in Sources */,
 				4A1DDB3D1DFC47C80008DCF7 /* CFHTTPDNSRequestTask.m in Sources */,

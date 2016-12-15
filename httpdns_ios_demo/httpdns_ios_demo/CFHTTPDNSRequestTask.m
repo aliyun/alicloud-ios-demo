@@ -331,8 +331,17 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
                 [self.delegate task:self didReceiveRedirection:self.redirectRequest response:response];
                 result = NO;
             } else {
-                // 响应Response
-                NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:self.swizzleRequest.URL statusCode:self.response.statusCode HTTPVersion:self.response.httpVersion headerFields:self.response.headerFields];
+                /*
+                 *  构造并返回响应Response，
+                 *  NSHTTPURLResponse中包含：请求URL、响应状态码、HTTP版本和响应头部字段。
+                 *  【注意】请求URL填充为原始请求`originalRequest.URL`，而不是替换后的请求`swizzleRequest.URL`。
+                 *
+                 *  例：WebView加载请求场景下，加载页面`https://a.b.com/aaa/bbb`，HTTPDNS解析后替换为`https://1.2.3.4/aaa/bbb`；
+                 *  加载完成后，该页面需加载相对路径资源`../asset/xx`，计算绝对路径时根据Response返回的Request.URL计算。
+                 *  Response若返回swizzleRequest.URL:`https://1.2.3.4/aaa/bbb`，加载相对路径资源WebView生成绝对路径URL：`https://1.2.3.4/asset/xx`，WebView重新发起网络请求时，由于缺少Host，HTTP请求可能导致服务端找不到对应资源，HTTPS请求导致SSL/TLS鉴权失败；
+                 *  Response若返回originalRequest.URL:`https://a.b.com/aaa/bbb`，加载相对路径资源WebView生成绝对路径URL：`https://a.b.com/asset/xx`，WebView重新发起网络请求时，Host字段完整，可正常完成请求资源加载。
+                 */
+                NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:self.originalRequest.URL statusCode:self.response.statusCode HTTPVersion:self.response.httpVersion headerFields:self.response.headerFields];
                 [self.delegate task:self didReceiveResponse:response cachePolicy:NSURLCacheStorageNotAllowed];
                 
                 // HTTPS校验证书
