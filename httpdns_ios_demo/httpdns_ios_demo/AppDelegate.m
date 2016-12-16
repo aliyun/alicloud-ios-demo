@@ -29,6 +29,11 @@
     [httpdns setExpiredIPEnabled:YES];
     // 打开HTTPDNS Log，线上建议关闭
     //[httpdns setLogEnabled:YES];
+    /*
+     *  设置HTTPDNS域名解析请求类型(HTTP/HTTPS)，若不调用该接口，默认为HTTP请求；
+     *  SDK内部HTTP请求基于CFNetwork实现，不受ATS限制。
+     */
+    //[httpdns setHTTPSRequestEnabled:YES];
     // edited
     NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"dou.bz"];
     // NSArray* preResolveHosts = @[@"pic1cdn.igetget.com"];
