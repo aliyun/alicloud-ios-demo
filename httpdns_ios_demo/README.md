@@ -30,6 +30,6 @@ Demo仅作为原理讲解和示例代码用途，
 - 相关示例代码：
     - SNIViewController
     - CFHTTPDNSRequestTaskDelegate
-    - CFHTTPDNSHTTPProtocl
+    - CFHTTPDNSHTTPProtocol
     - CFHTTPDNSRequestTask
 
