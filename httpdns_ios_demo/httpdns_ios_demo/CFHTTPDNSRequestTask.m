@@ -71,6 +71,7 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
         self.originalRequest = request;
         self.swizzleRequest = swizzleRequest;
         self.delegate = delegate;
+        self.resultData = [NSMutableData data];
     }
     return self;
 }
@@ -227,7 +228,6 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
             NSInteger numBytesRead = 0;
             NSInputStream *inputstream = (NSInputStream *) aStream;
             // Read data
-            self.resultData = [NSMutableData data];
             do {
                 numBytesRead = [inputstream read:buffer maxLength:sizeof(buffer)];
                 if (numBytesRead > 0) {
