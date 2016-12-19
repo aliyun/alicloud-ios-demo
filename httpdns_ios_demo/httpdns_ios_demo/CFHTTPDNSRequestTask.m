@@ -224,13 +224,15 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
                 return;
             }
             UInt8 buffer[BUFFER_SIZE];
-            unsigned long numBytesRead = 0;
+            NSInteger numBytesRead = 0;
             NSInputStream *inputstream = (NSInputStream *) aStream;
             // Read data
             self.resultData = [NSMutableData data];
             do {
                 numBytesRead = [inputstream read:buffer maxLength:sizeof(buffer)];
-                [self.resultData appendBytes:buffer length:numBytesRead];
+                if (numBytesRead > 0) {
+                    [self.resultData appendBytes:buffer length:numBytesRead];
+                }
             } while (numBytesRead > 0);
         }
             break;
