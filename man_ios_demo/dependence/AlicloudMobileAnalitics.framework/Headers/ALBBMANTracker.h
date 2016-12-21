@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UTMini/UTTracker.h>
+#import <UT/UTTracker.h>
 
 @interface ALBBMANTracker : UTTracker
 
