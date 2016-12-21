@@ -9,7 +9,7 @@
 #ifndef ALBBMANPageHitHelper_h
 #define ALBBMANPageHitHelper_h
 #import <Foundation/Foundation.h>
-#import <UTMini/UTTracker.h>
+#import <UT/UTTracker.h>
 
 @interface ALBBMANPageHitHelper : NSObject
 
