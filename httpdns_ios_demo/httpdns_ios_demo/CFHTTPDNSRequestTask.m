@@ -308,7 +308,9 @@ static double DEFAULT_TIMEOUT_INTERVAL = 15.0;
     BOOL result = YES;
     CFReadStreamRef readStream = (__bridge CFReadStreamRef) self.inputStream;
     CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
-    
+    if (!message) {
+        return NO;
+    }
     result = CFHTTPMessageIsHeaderComplete(message);
     if (result) {
         NSNumber *added = objc_getAssociatedObject(self.inputStream, kAnchorAlreadyAdded);
