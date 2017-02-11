@@ -127,7 +127,7 @@ static dispatch_queue_t queue4demo;
 
     // 自实现签名，可以用本地签名也可以远程加签
     id<OSSCredentialProvider> credential1 = [[OSSCustomSignerCredentialProvider alloc] initWithImplementedSigner:^NSString *(NSString *contentToSign, NSError *__autoreleasing *error) {
-        NSString *signature = [OSSUtil calBase64Sha1WithData:contentToSign withSecret:@"<your secret key>"];
+        NSString *signature = [OSSUtil calBase64Sha1WithData:contentToSign withSecret:@"<your accessKeySecret>"];
         if (signature != nil) {
             *error = nil;
         } else {
@@ -135,7 +135,7 @@ static dispatch_queue_t queue4demo;
             *error = [NSError errorWithDomain:@"<your error domain>" code:OSSClientErrorCodeSignFailed userInfo:nil];
             return nil;
         }
-        return [NSString stringWithFormat:@"OSS %@:%@", @"<your access key>", signature];
+        return [NSString stringWithFormat:@"OSS %@:%@", @"<your accessKeyId>", signature];
     }];
 
     // Federation鉴权，建议通过访问远程业务服务器获取签名
