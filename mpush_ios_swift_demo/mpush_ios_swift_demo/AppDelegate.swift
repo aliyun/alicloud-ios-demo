@@ -97,7 +97,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func channelOpenedFunc(notification : Notification) {
         print("Push SDK channel opened.")
+        let msgToolBox: MsgToolBox = MsgToolBox.init()
+        msgToolBox.showAlert(title: "温馨提示", content: "消息通道建立成功")
+  
     }
+
     
     // 注册消息到来监听
     func registerMessageReceive() {

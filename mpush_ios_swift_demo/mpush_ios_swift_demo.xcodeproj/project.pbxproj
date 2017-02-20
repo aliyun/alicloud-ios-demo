@@ -20,6 +20,7 @@
 		0473398B1E5ABCB000CD158A /* LZLPushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 047339891E5ABCB000CD158A /* LZLPushMessage.m */; };
 		0473398D1E5ABE1C00CD158A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0473398C1E5ABE1C00CD158A /* libsqlite3.tbd */; };
 		0473398F1E5ABEE600CD158A /* ued.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0473398E1E5ABEE600CD158A /* ued.sqlite */; };
+		047339911E5AD42700CD158A /* RPushMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047339901E5AD42700CD158A /* RPushMessage.swift */; };
 		4AB162881DBCED1A00BAF4CA /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */; };
 		4AB162891DBCED1A00BAF4CA /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */; };
 		4AB1628A1DBCED1A00BAF4CA /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162871DBCED1A00BAF4CA /* UTDID.framework */; };
@@ -99,6 +100,7 @@
 		047339891E5ABCB000CD158A /* LZLPushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLPushMessage.m; sourceTree = "<group>"; };
 		0473398C1E5ABE1C00CD158A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0473398E1E5ABEE600CD158A /* ued.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = ued.sqlite; path = mpush_ios_swift_demo/ued.sqlite; sourceTree = "<group>"; };
+		047339901E5AD42700CD158A /* RPushMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPushMessage.swift; sourceTree = "<group>"; };
 		4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = mpush_ios_swift_demo/libs/CloudPushSDK.framework; sourceTree = "<group>"; };
 		4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = mpush_ios_swift_demo/libs/AlicloudUtils.framework; sourceTree = "<group>"; };
 		4AB162871DBCED1A00BAF4CA /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = mpush_ios_swift_demo/libs/UTDID.framework; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				047339871E5ABCB000CD158A /* LZLPersonalData.m */,
 				047339881E5ABCB000CD158A /* LZLPushMessage.h */,
 				047339891E5ABCB000CD158A /* LZLPushMessage.m */,
+				047339901E5AD42700CD158A /* RPushMessage.swift */,
 			);
 			name = Entry;
 			path = mpush_ios_swift_demo/Entry;
@@ -516,6 +519,7 @@
 			files = (
 				0473398B1E5ABCB000CD158A /* LZLPushMessage.m in Sources */,
 				0473397C1E5ABA9400CD158A /* NSString+FontAwesome.m in Sources */,
+				047339911E5AD42700CD158A /* RPushMessage.swift in Sources */,
 				4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */,
 				4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */,
 				4AB162A41DBF0A3D00BAF4CA /* MPushInfoViewController.swift in Sources */,
