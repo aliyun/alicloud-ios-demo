@@ -38,7 +38,8 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         mpushMessageTableView.pullToRefreshView.startAnimating()
-        mpushMessageTableView.pullToRefreshView.perform(#selector(KoaPullToRefreshView.stopAnimating) , with: nil, afterDelay: 1.5)
+        mpushMessageTableView.pullToRefreshView.perform(#selector(mpushMessageTableView.pullToRefreshView.stopAnimating) , with: nil, afterDelay: 1)
+        refreshTable()
         
     }
     
@@ -48,9 +49,9 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
         pushMessage = dao.selectAll()
         mpushMessageTableView.reloadData()
         mpushMessageTableView.perform(#selector(mpushMessageTableView.reloadData), with: nil, afterDelay: 1.5)
-        //FIXME: 此处少了一句
-   
         
+        mpushMessageTableView.pullToRefreshView.perform(#selector(mpushMessageTableView.pullToRefreshView.stopAnimating), with: nil, afterDelay: 1.5)
+   
     }
  
     override func didReceiveMemoryWarning() {
@@ -59,7 +60,7 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
     }
 
     
-    //======================= Table View Method ====================================
+    //================= Table View Method ====================================
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         //删除cell
@@ -67,8 +68,9 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
             
             // 数据库中删除该条记录
             let dao : PushMessageDAO = PushMessageDAO.init()
-            dao.remove(pushMessage?.object(at: indexPath.row) as! LZLPushMessage!)
-            pushMessage?.removeObject(at: indexPath.row)//数据源中剔除记录
+            
+            dao.remove(pushMessage!.object(at: indexPath.row) as! LZLPushMessage)
+            pushMessage!.removeObject(at: indexPath.row)//数据源中剔除记录
             
             //MARK: 此处方法有错误
             tableView.deleteRows(at: [indexPath], with:.fade)
@@ -82,14 +84,15 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (pushMessage?.count)!
+        return pushMessage!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let CellIdentifier = "pushMessageCell";
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath)
-        let tablecell: LZLPushMessage = pushMessage?.object(at: indexPath.row) as! LZLPushMessage
+        
+        let tablecell: LZLPushMessage = pushMessage!.object(at: indexPath.row) as! LZLPushMessage
         
         cell.textLabel!.text = tablecell.messageContent
         
