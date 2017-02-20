@@ -123,8 +123,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         tempVO.isRead = false
         
         let isMain = Thread.isMainThread
+   
         //FIXME: 此处做了改动 需要判断
-        if  isMain == true  {
+        if  isMain == false  {
+
             DispatchQueue.main.async {
                 if tempVO.messageContent != nil {
                     self.insertPushMessage(model: tempVO)

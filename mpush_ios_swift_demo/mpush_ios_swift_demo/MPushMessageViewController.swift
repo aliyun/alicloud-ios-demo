@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MPushMessageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var mpushMessageTableView: UITableView!
@@ -44,8 +45,8 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func refreshTable() {
-        let dao: PushMessageDAO = PushMessageDAO.init();
         
+        let dao: PushMessageDAO = PushMessageDAO.init();
         pushMessage = dao.selectAll()
         mpushMessageTableView.reloadData()
         mpushMessageTableView.perform(#selector(mpushMessageTableView.reloadData), with: nil, afterDelay: 1.5)
@@ -68,24 +69,25 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
             
             // 数据库中删除该条记录
             let dao : PushMessageDAO = PushMessageDAO.init()
-            
             dao.remove(pushMessage!.object(at: indexPath.row) as! LZLPushMessage)
             pushMessage!.removeObject(at: indexPath.row)//数据源中剔除记录
             
             //MARK: 此处方法有错误
-            tableView.deleteRows(at: [indexPath], with:.fade)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadSections(NSIndexSet.init(index: 0) as IndexSet, with: .none)
         }
     }
     
     //MARK: - Table view data source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pushMessage!.count
     }
+    
+   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
