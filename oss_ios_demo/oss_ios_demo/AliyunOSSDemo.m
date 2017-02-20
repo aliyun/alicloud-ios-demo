@@ -9,9 +9,9 @@
 #import "AliyunOSSDemo.h"
 #import <AliyunOSSiOS/OSSService.h>
 
-NSString * const AccessKey = @"************";
-NSString * const SecretKey = @"*********************";
-NSString * const endPoint = @"http://oss-cn-hangzhou.aliyuncs.com";
+NSString * const AccessKey = @"*********";
+NSString * const SecretKey = @"*****************";
+NSString * const endPoint = @"https://oss-cn-hangzhou.aliyuncs.com";
 NSString * const multipartUploadKey = @"multipartUploadObject";
 
 
@@ -20,25 +20,34 @@ static dispatch_queue_t queue4demo;
 
 @implementation AliyunOSSDemo
 
++ (instancetype)sharedInstance {
+    static AliyunOSSDemo *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [AliyunOSSDemo new];
+    });
+    return instance;
+}
+
+- (void)setupEnvironment {
+   // 打开调试log
+   [OSSLog enableLog];
+
+   // 在本地生成一些文件用来演示
+   [self initLocalFile];
+
+   // 初始化sdk
+   [self initOSSClient];
+}
+
 - (void)runDemo {
-
-    // 打开调试log
-    [OSSLog enableLog];
-
-    // 在本地生成一些文件用来演示
-    [self initLocalFile];
-
-    // 初始化sdk
-    [self initOSSClient];
-
-
     /*************** 以下每个方法调用代表一个功能的演示，取消注释即可运行 ***************/
 
     // 罗列Bucket中的Object
     // [self listObjectsInBucket];
 
     // 异步上传文件
-    [self uploadObjectAsync];
+    // [self uploadObjectAsync];
 
     // 同步上传文件
     // [self uploadObjectSync];
@@ -138,7 +147,7 @@ static dispatch_queue_t queue4demo;
     // "requestId":"C0E01B94-332E-4582-87F9-B857C807EE52",
     // "securityToken":"CAES7QIIARKAAZPlqaN9ILiQZPS+JDkS/GSZN45RLx4YS/p3OgaUC+oJl3XSlbJ7StKpQp1Q3KtZVCeAKAYY6HYSFOa6rU0bltFXAPyW+jvlijGKLezJs0AcIvP5a4ki6yHWovkbPYNnFSOhOmCGMmXKIkhrRSHMGYJRj8AIUvICAbDhzryeNHvUGhhTVFMuaUE2NDVlVE9YRXFQM2NnM1ZlSGYiEjMzNTQ1MDU0MTUyMjM5ODE3OCoJYWxpY2UtMDAxMOG/g7v6KToGUnNhTUQ1QloKATEaVQoFQWxsb3cSHwoMQWN0aW9uRXF1YWxzEgZBY3Rpb24aBwoFb3NzOioSKwoOUmVzb3VyY2VFcXVhbHMSCFJlc291cmNlGg8KDWFjczpvc3M6KjoqOipKEDEwNzI2MDc4NDc4NjM4ODhSAFoPQXNzdW1lZFJvbGVVc2VyYABqEjMzNTQ1MDU0MTUyMjM5ODE3OHIHeHljLTAwMQ=="}
     id<OSSCredentialProvider> credential2 = [[OSSFederationCredentialProvider alloc] initWithFederationTokenGetter:^OSSFederationToken * {
-        NSURL * url = [NSURL URLWithString:@"http://localhost:8080/distribute-token.json"];
+        NSURL * url = [NSURL URLWithString:@"https://localhost:8080/distribute-token.json"];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         OSSTaskCompletionSource * tcs = [OSSTaskCompletionSource taskCompletionSource];
         NSURLSession * session = [NSURLSession sharedSession];

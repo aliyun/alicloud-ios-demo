@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UTMini/UTIRequestAuthentication.h>
+#import <UT/UTIRequestAuthentication.h>
 
 @protocol ALBBMANIRequestAuthentication <UTIRequestAuthentication>
 

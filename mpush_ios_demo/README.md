@@ -33,6 +33,11 @@ mpush_ios_demo已经完成了移动推送SDK的集成工作，但我们还是建
 
 **当您在使用您自己的APP集成移动推送遇到问题时，您可以对比下demo APP的配置情况。**
 
+#### 配置工程
+修改工程的签名证书，包括`mpush_ios_demo`、`mpush_service_extension`和`mpush_content_extension`三个target都要修改。
+
+![](http://ams-test-junmo.oss-cn-hangzhou.aliyuncs.com/push_demo/Snip20170112_1.png)
+
 #### 配置APP信息
 
 为了使Demo APP能够正常运行，您还需要配置您的appkey/appsecret信息。您可以在移动推送控制台，您在第一步创建的APP中找到它们，如图所示：

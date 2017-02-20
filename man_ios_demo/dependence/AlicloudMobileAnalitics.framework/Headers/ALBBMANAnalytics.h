@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UTMini/UTAnalytics.h>
+#import <UT/UTAnalytics.h>
 #import "ALBBMANTracker.h"
 #import "ALBBMANIRequestAuthentication.h"
 #import "ALBBMANICrashCaughtListener.h"
