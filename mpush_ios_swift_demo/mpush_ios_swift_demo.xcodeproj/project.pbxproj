@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		047339681E5A956100CD158A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047339661E5A956100CD158A /* MainInterface.storyboard */; };
+		0473396B1E5A9A5100CD158A /* MsgToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0473396A1E5A9A5100CD158A /* MsgToolBox.swift */; };
 		4AB162881DBCED1A00BAF4CA /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */; };
 		4AB162891DBCED1A00BAF4CA /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */; };
 		4AB1628A1DBCED1A00BAF4CA /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162871DBCED1A00BAF4CA /* UTDID.framework */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		047339671E5A956100CD158A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		0473396A1E5A9A5100CD158A /* MsgToolBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgToolBox.swift; sourceTree = "<group>"; };
 		4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = mpush_ios_swift_demo/libs/CloudPushSDK.framework; sourceTree = "<group>"; };
 		4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = mpush_ios_swift_demo/libs/AlicloudUtils.framework; sourceTree = "<group>"; };
 		4AB162871DBCED1A00BAF4CA /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = mpush_ios_swift_demo/libs/UTDID.framework; sourceTree = "<group>"; };
@@ -141,6 +143,15 @@
 			path = mpush_content_extension/Base.lproj;
 			sourceTree = "<group>";
 		};
+		047339691E5A9A1F00CD158A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0473396A1E5A9A5100CD158A /* MsgToolBox.swift */,
+			);
+			name = Utils;
+			path = mpush_ios_swift_demo/Utils;
+			sourceTree = "<group>";
+		};
 		4A2FF9981DBF398800A15A2F /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,13 +174,6 @@
 				4AB1629F1DBF0A3D00BAF4CA /* MPushInfoViewController.swift */,
 			);
 			name = Info;
-			sourceTree = "<group>";
-		};
-		4A2FF99B1DBF39D300A15A2F /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 		4A2FF99C1DBF39D700A15A2F /* DAO */ = {
@@ -212,8 +216,8 @@
 				4A2FF9991DBF39A000A15A2F /* Settings */,
 				4A2FF9981DBF398800A15A2F /* Message */,
 				4A2FF99D1DBF39DD00A15A2F /* Entry */,
+				047339691E5A9A1F00CD158A /* Utils */,
 				4A2FF99C1DBF39D700A15A2F /* DAO */,
-				4A2FF99B1DBF39D300A15A2F /* Utils */,
 				4AB162A21DBF0A3D00BAF4CA /* mpush_ios_swift_demo-Bridging-Header.h */,
 				4AB162A71DBF0A4200BAF4CA /* Supporting Files */,
 			);
@@ -425,6 +429,7 @@
 				4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */,
 				4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */,
 				4AB162A41DBF0A3D00BAF4CA /* MPushInfoViewController.swift in Sources */,
+				0473396B1E5A9A5100CD158A /* MsgToolBox.swift in Sources */,
 				4AB162A31DBF0A3D00BAF4CA /* MPushMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
