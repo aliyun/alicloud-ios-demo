@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     
-    let testAppKey = "******"
-    let testAppSecret = "******"
+    let testAppKey = "********"
+    let testAppSecret = "**********************"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -97,6 +97,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func channelOpenedFunc(notification : Notification) {
         print("Push SDK channel opened.")
+        let msgToolBox: MsgToolBox = MsgToolBox.init()
+        msgToolBox.showAlert(title: "温馨提示", content: "消息通道建立成功")
+        
+        
+        
     }
     
     // 注册消息到来监听
@@ -115,7 +120,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let title = String.init(data: pushMessage.title, encoding: String.Encoding.utf8)
         let body = String.init(data: pushMessage.body, encoding: String.Encoding.utf8)
         print("Message title: \(title!), body: \(body!).")
+        //==========================
+        //FIXME:此处做了改动
+        let tempVO: LZLPushMessage = LZLPushMessage.init()
+        tempVO.messageContent = "title:\(title) , content: \(body)"
+        tempVO.isRead = false
+        
+        let isMain = Thread.isMainThread
+        
+        //FIXME: 此处做了改动 需要判断
+        if  isMain == false  {
+            
+            DispatchQueue.main.async {
+                if tempVO.messageContent != nil {
+                    self.insertPushMessage(model: tempVO)
+                }
+            }
+            
+        }else {
+            if tempVO.messageContent != nil {
+                self.insertPushMessage(model: tempVO)
+                
+            }
+        }
+        
     }
+    
+    func insertPushMessage(model: LZLPushMessage ) -> () {
+        let dao : PushMessageDAO =  PushMessageDAO.init()
+        dao.insert(model)
+        
+    }
+    
+    //==========================
     
     // App处于启动状态时，通知打开回调（< iOS 10）
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
