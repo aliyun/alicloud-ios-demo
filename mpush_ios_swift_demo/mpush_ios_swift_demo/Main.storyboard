@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,32 +19,45 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hF2-LV-pPE">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="推送消息" id="5B9-zx-6gE"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Swift App UI Demo请等待." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYB-iO-p5i">
-                                <rect key="frame" x="92" y="282" width="190" height="30"/>
-                                <color key="textColor" red="1" green="0.1524068979" blue="0.19691087970000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6GU-L2-nNp">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pushMessageCell" id="GbE-Yl-Bsa">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GbE-Yl-Bsa" id="TV2-ic-EPs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6GU-L2-nNp" secondAttribute="trailing" id="67H-2G-oeK"/>
                             <constraint firstItem="hF2-LV-pPE" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="DE6-ja-jq8"/>
+                            <constraint firstItem="6GU-L2-nNp" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Mjz-Ap-aYy"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="6GU-L2-nNp" secondAttribute="bottom" id="OBF-NA-7eh"/>
+                            <constraint firstItem="6GU-L2-nNp" firstAttribute="top" secondItem="hF2-LV-pPE" secondAttribute="bottom" id="PD4-e2-auh"/>
                             <constraint firstItem="hF2-LV-pPE" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="aGA-bM-RbU"/>
-                            <constraint firstItem="hF2-LV-pPE" firstAttribute="centerX" secondItem="iYB-iO-p5i" secondAttribute="centerX" id="ko7-iJ-Vvy"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="iYB-iO-p5i" secondAttribute="bottom" constant="306" id="qaV-X3-i2f"/>
                             <constraint firstAttribute="trailing" secondItem="hF2-LV-pPE" secondAttribute="trailing" id="qnH-Ab-7gF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="消息" image="icon01" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="mpushMessageTableView" destination="6GU-L2-nNp" id="daV-dW-hSH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,24 +72,24 @@
                         <viewControllerLayoutGuide type="bottom" id="xBw-8R-mqi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Btd-RY-uno">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhn-oY-RKJ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="信息中心" id="3OX-jZ-3hN"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HqJ-Ls-6cY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="561"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="630"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="NtH-X5-Nqu">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userInfoCell" id="NtH-X5-Nqu">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NtH-X5-Nqu" id="6Gv-fF-qr4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -96,7 +109,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="信息" image="icon03" id="VxL-Wt-i6J"/>
                     <connections>
-                        <outlet property="mpushInfoTableView" destination="HqJ-Ls-6cY" id="lQA-tQ-ELq"/>
+                        <outlet property="mpushInfoTableView" destination="HqJ-Ls-6cY" id="XVv-Be-kKx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VpQ-hy-Fsb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,89 +125,89 @@
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑定账号之后，可以通过指定账号推送" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stg-Dt-NnZ">
-                                <rect key="frame" x="16" y="79" width="295" height="21"/>
+                                <rect key="frame" x="20" y="79" width="295" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑定标签之后，可以根据不同标签推送" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fY6-mO-HDe">
-                                <rect key="frame" x="16" y="184" width="295" height="21"/>
+                                <rect key="frame" x="20" y="184" width="295" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FpW-j2-Ndt">
-                                <rect key="frame" x="16" y="108" width="343" height="30"/>
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入别名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-mv-WN0">
-                                <rect key="frame" x="21" y="445" width="343" height="30"/>
+                                <rect key="frame" x="25" y="445" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-VC-ycK">
-                                <rect key="frame" x="73" y="146" width="62" height="30"/>
+                                <rect key="frame" x="77" y="146" width="62" height="30"/>
                                 <state key="normal" title="绑定账号"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhd-jv-Qay">
-                                <rect key="frame" x="53" y="275" width="92" height="30"/>
+                                <rect key="frame" x="57" y="275" width="92" height="30"/>
                                 <state key="normal" title="绑定设备标签"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDw-hb-noi">
-                                <rect key="frame" x="53" y="313" width="92" height="30"/>
+                                <rect key="frame" x="57" y="313" width="92" height="30"/>
                                 <state key="normal" title="绑定账号标签"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1x-x2-Rn7">
-                                <rect key="frame" x="53" y="351" width="92" height="30"/>
+                                <rect key="frame" x="57" y="351" width="92" height="30"/>
                                 <state key="normal" title="绑定别名标签"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHE-OJ-tF3">
-                                <rect key="frame" x="53" y="389" width="92" height="30"/>
+                                <rect key="frame" x="57" y="389" width="92" height="30"/>
                                 <state key="normal" title="查询设备标签"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8w-TD-HWV">
-                                <rect key="frame" x="53" y="487" width="62" height="30"/>
+                                <rect key="frame" x="57" y="487" width="62" height="30"/>
                                 <state key="normal" title="添加别名"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BY4-7C-g3Z">
-                                <rect key="frame" x="151" y="487" width="62" height="30"/>
+                                <rect key="frame" x="155" y="487" width="62" height="30"/>
                                 <state key="normal" title="查询别名"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbe-27-Ucw">
-                                <rect key="frame" x="244" y="487" width="62" height="30"/>
+                                <rect key="frame" x="248" y="487" width="62" height="30"/>
                                 <state key="normal" title="删除别名"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cH-IU-DoJ">
-                                <rect key="frame" x="201" y="275" width="92" height="30"/>
+                                <rect key="frame" x="205" y="275" width="92" height="30"/>
                                 <state key="normal" title="解绑设备标签"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpW-vE-1Ld">
-                                <rect key="frame" x="201" y="313" width="92" height="30"/>
+                                <rect key="frame" x="205" y="313" width="92" height="30"/>
                                 <state key="normal" title="解绑账号标签"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJz-in-N2l">
-                                <rect key="frame" x="201" y="351" width="92" height="30"/>
+                                <rect key="frame" x="205" y="351" width="92" height="30"/>
                                 <state key="normal" title="解绑别名标签"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3i1-lk-UIQ">
-                                <rect key="frame" x="221" y="146" width="62" height="30"/>
+                                <rect key="frame" x="225" y="146" width="62" height="30"/>
                                 <state key="normal" title="解绑账号"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入标签，多个标签以单空格隔开" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8oh-Cn-Rxe">
-                                <rect key="frame" x="16" y="220" width="343" height="30"/>
+                                <rect key="frame" x="20" y="220" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaW-IZ-MOC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="设置中心" id="j4L-nN-bNm"/>
                                 </items>
