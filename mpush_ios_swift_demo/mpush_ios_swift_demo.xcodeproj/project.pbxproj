@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04252B1A1E6D9FD0001A27E4 /* KoaPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04252B191E6D9FD0001A27E4 /* KoaPullToRefresh.framework */; };
+		04E87E581E6D7021004B5D04 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E87E561E6D7021004B5D04 /* MainInterface.storyboard */; };
+		04E87E5E1E6D73D2004B5D04 /* MsgToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E87E5D1E6D73D2004B5D04 /* MsgToolBox.swift */; };
+		04E87E601E6D749C004B5D04 /* RPushMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E87E5F1E6D749C004B5D04 /* RPushMessage.swift */; };
+		04E87E621E6D74CA004B5D04 /* PushMessageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E87E611E6D74CA004B5D04 /* PushMessageDAO.swift */; };
+		04E87E641E6D74F1004B5D04 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E87E631E6D74F1004B5D04 /* libsqlite3.tbd */; };
+		04E87E661E6D752C004B5D04 /* ued.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04E87E651E6D752C004B5D04 /* ued.sqlite */; };
+		3E7F8E7FA623C83E0F5BB011 /* Pods_mpush_ios_swift_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B1CFA8612351294EC1EFBC /* Pods_mpush_ios_swift_demo.framework */; };
 		4AB162881DBCED1A00BAF4CA /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */; };
 		4AB162891DBCED1A00BAF4CA /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */; };
 		4AB1628A1DBCED1A00BAF4CA /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB162871DBCED1A00BAF4CA /* UTDID.framework */; };
@@ -18,7 +26,6 @@
 		4AB162A41DBF0A3D00BAF4CA /* MPushInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB1629F1DBF0A3D00BAF4CA /* MPushInfoViewController.swift */; };
 		4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */; };
 		4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */; };
-		4AB162AB1DBF0A5900BAF4CA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162A81DBF0A5900BAF4CA /* Base.lproj */; };
 		4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */; };
 		4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AA1DBF0A5900BAF4CA /* Info.plist */; };
 		4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */; };
@@ -66,6 +73,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04252B191E6D9FD0001A27E4 /* KoaPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KoaPullToRefresh.framework; path = "../../../Library/Developer/Xcode/DerivedData/mpush_ios_swift_demo-bhebnlwscfcydhdtvwyxyixlxlcu/Build/Products/Debug-iphonesimulator/KoaPullToRefresh/KoaPullToRefresh.framework"; sourceTree = "<group>"; };
+		04E87E571E6D7021004B5D04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		04E87E5D1E6D73D2004B5D04 /* MsgToolBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgToolBox.swift; sourceTree = "<group>"; };
+		04E87E5F1E6D749C004B5D04 /* RPushMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPushMessage.swift; sourceTree = "<group>"; };
+		04E87E611E6D74CA004B5D04 /* PushMessageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushMessageDAO.swift; sourceTree = "<group>"; };
+		04E87E631E6D74F1004B5D04 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		04E87E651E6D752C004B5D04 /* ued.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ued.sqlite; sourceTree = "<group>"; };
+		49D9358D167063D8F1E292F9 /* Pods-mpush_ios_swift_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_ios_swift_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_ios_swift_demo/Pods-mpush_ios_swift_demo.release.xcconfig"; sourceTree = "<group>"; };
 		4AB162851DBCED1A00BAF4CA /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = mpush_ios_swift_demo/libs/CloudPushSDK.framework; sourceTree = "<group>"; };
 		4AB162861DBCED1A00BAF4CA /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = mpush_ios_swift_demo/libs/AlicloudUtils.framework; sourceTree = "<group>"; };
 		4AB162871DBCED1A00BAF4CA /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = mpush_ios_swift_demo/libs/UTDID.framework; sourceTree = "<group>"; };
@@ -80,7 +95,6 @@
 		4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPushSettingsViewController.swift; path = mpush_ios_swift_demo/MPushSettingsViewController.swift; sourceTree = "<group>"; };
 		4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = mpush_ios_swift_demo/AppDelegate.swift; sourceTree = "<group>"; };
 		4AB162A21DBF0A3D00BAF4CA /* mpush_ios_swift_demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "mpush_ios_swift_demo-Bridging-Header.h"; path = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h"; sourceTree = "<group>"; };
-		4AB162A81DBF0A5900BAF4CA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = mpush_ios_swift_demo/Base.lproj; sourceTree = "<group>"; };
 		4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = mpush_ios_swift_demo/Assets.xcassets; sourceTree = "<group>"; };
 		4AB162AA1DBF0A5900BAF4CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mpush_ios_swift_demo/Info.plist; sourceTree = "<group>"; };
 		4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = mpush_ios_swift_demo/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +110,8 @@
 		4AEE18171DC8777000385425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4AEE18191DC8777000385425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AF4E3AB1DC88E15006C2348 /* aliyun-logo-local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aliyun-logo-local.png"; sourceTree = "<group>"; };
+		5593E39A63B3DBE9C0FEA277 /* Pods-mpush_ios_swift_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_ios_swift_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_ios_swift_demo/Pods-mpush_ios_swift_demo.debug.xcconfig"; sourceTree = "<group>"; };
+		83B1CFA8612351294EC1EFBC /* Pods_mpush_ios_swift_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mpush_ios_swift_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04252B1A1E6D9FD0001A27E4 /* KoaPullToRefresh.framework in Frameworks */,
+				04E87E641E6D74F1004B5D04 /* libsqlite3.tbd in Frameworks */,
 				4AB162971DBCEE5600BAF4CA /* CoreTelephony.framework in Frameworks */,
 				4AB162951DBCEE5100BAF4CA /* SystemConfiguration.framework in Frameworks */,
 				4AB162931DBCEE3900BAF4CA /* libresolv.tbd in Frameworks */,
@@ -110,6 +128,7 @@
 				4AB162881DBCED1A00BAF4CA /* CloudPushSDK.framework in Frameworks */,
 				4AB162891DBCED1A00BAF4CA /* AlicloudUtils.framework in Frameworks */,
 				4AB1628A1DBCED1A00BAF4CA /* UTDID.framework in Frameworks */,
+				3E7F8E7FA623C83E0F5BB011 /* Pods_mpush_ios_swift_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +151,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04E87E551E6D7021004B5D04 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				04E87E561E6D7021004B5D04 /* MainInterface.storyboard */,
+			);
+			name = Base.lproj;
+			path = mpush_content_extension/Base.lproj;
+			sourceTree = "<group>";
+		};
+		04E87E5A1E6D73AE004B5D04 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				04E87E611E6D74CA004B5D04 /* PushMessageDAO.swift */,
+			);
+			name = DAO;
+			path = mpush_ios_swift_demo/DAO;
+			sourceTree = "<group>";
+		};
+		04E87E5B1E6D73AE004B5D04 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				04E87E5F1E6D749C004B5D04 /* RPushMessage.swift */,
+			);
+			name = Entry;
+			path = mpush_ios_swift_demo/Entry;
+			sourceTree = "<group>";
+		};
+		04E87E5C1E6D73AE004B5D04 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				04E87E5D1E6D73D2004B5D04 /* MsgToolBox.swift */,
+			);
+			name = Utils;
+			path = mpush_ios_swift_demo/Utils;
+			sourceTree = "<group>";
+		};
 		4A2FF9981DBF398800A15A2F /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,30 +211,11 @@
 			name = Info;
 			sourceTree = "<group>";
 		};
-		4A2FF99B1DBF39D300A15A2F /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
-		4A2FF99C1DBF39D700A15A2F /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = DAO;
-			sourceTree = "<group>";
-		};
-		4A2FF99D1DBF39DD00A15A2F /* Entry */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Entry;
-			sourceTree = "<group>";
-		};
 		4AB162841DBCED1A00BAF4CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04252B191E6D9FD0001A27E4 /* KoaPullToRefresh.framework */,
+				04E87E631E6D74F1004B5D04 /* libsqlite3.tbd */,
 				4AB162961DBCEE5600BAF4CA /* CoreTelephony.framework */,
 				4AB162941DBCEE5100BAF4CA /* SystemConfiguration.framework */,
 				4AB162921DBCEE3900BAF4CA /* libresolv.tbd */,
@@ -190,6 +226,7 @@
 				4AB162871DBCED1A00BAF4CA /* UTDID.framework */,
 				4AEE180F1DC8777000385425 /* UserNotifications.framework */,
 				4AEE18111DC8777000385425 /* UserNotificationsUI.framework */,
+				83B1CFA8612351294EC1EFBC /* Pods_mpush_ios_swift_demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,9 +239,9 @@
 				4A2FF99A1DBF39AB00A15A2F /* Info */,
 				4A2FF9991DBF39A000A15A2F /* Settings */,
 				4A2FF9981DBF398800A15A2F /* Message */,
-				4A2FF99D1DBF39DD00A15A2F /* Entry */,
-				4A2FF99C1DBF39D700A15A2F /* DAO */,
-				4A2FF99B1DBF39D300A15A2F /* Utils */,
+				04E87E5A1E6D73AE004B5D04 /* DAO */,
+				04E87E5B1E6D73AE004B5D04 /* Entry */,
+				04E87E5C1E6D73AE004B5D04 /* Utils */,
 				4AB162A21DBF0A3D00BAF4CA /* mpush_ios_swift_demo-Bridging-Header.h */,
 				4AB162A71DBF0A4200BAF4CA /* Supporting Files */,
 			);
@@ -214,8 +251,9 @@
 		4AB162A71DBF0A4200BAF4CA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04E87E651E6D752C004B5D04 /* ued.sqlite */,
 				4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */,
-				4AB162A81DBF0A5900BAF4CA /* Base.lproj */,
+				04E87E551E6D7021004B5D04 /* Base.lproj */,
 				4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */,
 				4AB162AA1DBF0A5900BAF4CA /* Info.plist */,
 			);
@@ -231,6 +269,7 @@
 				4AEE18131DC8777000385425 /* mpush_content_extension */,
 				4AEDBD771DBCEC7F00883BD6 /* Products */,
 				4AB162841DBCED1A00BAF4CA /* Frameworks */,
+				958A791ADD4A83F534FD476B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,6 +303,15 @@
 			path = mpush_content_extension;
 			sourceTree = "<group>";
 		};
+		958A791ADD4A83F534FD476B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5593E39A63B3DBE9C0FEA277 /* Pods-mpush_ios_swift_demo.debug.xcconfig */,
+				49D9358D167063D8F1E292F9 /* Pods-mpush_ios_swift_demo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,10 +319,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AEDBD8A1DBCEC7F00883BD6 /* Build configuration list for PBXNativeTarget "mpush_ios_swift_demo" */;
 			buildPhases = (
+				F37EDC5A1D042EE8B4611BE0 /* [CP] Check Pods Manifest.lock */,
 				4AEDBD721DBCEC7F00883BD6 /* Sources */,
 				4AEDBD731DBCEC7F00883BD6 /* Frameworks */,
 				4AEDBD741DBCEC7F00883BD6 /* Resources */,
 				4AEE18091DC8775000385425 /* Embed App Extensions */,
+				116B6C5D27384155CD1DBF54 /* [CP] Embed Pods Frameworks */,
+				5755EC9C229B5FDFBB2347E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,10 +434,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */,
-				4AB162AB1DBF0A5900BAF4CA /* Base.lproj in Resources */,
 				4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */,
 				4AB162B11DBF0AAD00BAF4CA /* LaunchScreen.storyboard in Resources */,
 				4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */,
+				04E87E661E6D752C004B5D04 /* ued.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,10 +454,59 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AEE18181DC8777000385425 /* MainInterface.storyboard in Resources */,
+				04E87E581E6D7021004B5D04 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		116B6C5D27384155CD1DBF54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpush_ios_swift_demo/Pods-mpush_ios_swift_demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5755EC9C229B5FDFBB2347E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpush_ios_swift_demo/Pods-mpush_ios_swift_demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F37EDC5A1D042EE8B4611BE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AEDBD721DBCEC7F00883BD6 /* Sources */ = {
@@ -415,7 +515,10 @@
 			files = (
 				4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */,
 				4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */,
+				04E87E601E6D749C004B5D04 /* RPushMessage.swift in Sources */,
 				4AB162A41DBF0A3D00BAF4CA /* MPushInfoViewController.swift in Sources */,
+				04E87E5E1E6D73D2004B5D04 /* MsgToolBox.swift in Sources */,
+				04E87E621E6D74CA004B5D04 /* PushMessageDAO.swift in Sources */,
 				4AB162A31DBF0A3D00BAF4CA /* MPushMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +555,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		04E87E561E6D7021004B5D04 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04E87E571E6D7021004B5D04 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		4AEE18161DC8777000385425 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -558,6 +669,7 @@
 		};
 		4AEDBD8B1DBCEC7F00883BD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5593E39A63B3DBE9C0FEA277 /* Pods-mpush_ios_swift_demo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -579,11 +691,13 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
 		4AEDBD8C1DBCEC7F00883BD6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49D9358D167063D8F1E292F9 /* Pods-mpush_ios_swift_demo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -604,6 +718,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

@@ -97,6 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func channelOpenedFunc(notification : Notification) {
         print("Push SDK channel opened.")
+        MsgToolBox.showAlert(title: "温馨提示", content: "消息通道建立成功")
     }
     
     // 注册消息到来监听
@@ -115,6 +116,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let title = String.init(data: pushMessage.title, encoding: String.Encoding.utf8)
         let body = String.init(data: pushMessage.body, encoding: String.Encoding.utf8)
         print("Message title: \(title!), body: \(body!).")
+        let tempVO: RPushMessage = RPushMessage.init()
+        tempVO.messageContent = "title:\(title!) , content: \(body!)" as NSString?
+        tempVO.messageContent = tempVO.messageContent!
+        tempVO.isRead = false
+        let isMain = Thread.isMainThread
+        if  isMain == false  {
+            DispatchQueue.main.async {
+                if tempVO.messageContent != nil {
+                    self.insertPushMessage(model: tempVO)
+                }
+            }
+        } else {
+            if tempVO.messageContent != nil {
+                self.insertPushMessage(model: tempVO)
+            }
+        }
+    }
+    
+    func insertPushMessage(model: RPushMessage ) -> () {
+        let dao : PushMessageDAO =  PushMessageDAO.init()
+        dao.insert(model: model)
     }
     
     // App处于启动状态时，通知打开回调（< iOS 10）
@@ -231,7 +253,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

@@ -18,9 +18,9 @@ class MPushInfoViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //mpushInfoTableView.delegate = self
-        //mpushInfoTableView.dataSource = self
-        //initUserInfo()
+        mpushInfoTableView.delegate = self
+        mpushInfoTableView.dataSource = self
+        initUserInfo()
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,14 +37,24 @@ class MPushInfoViewController: UIViewController, UITableViewDelegate, UITableVie
         userInfoValues.append("Demo App相关问题\n 请在阿里旺旺或旺信中搜索淘宝旺旺群：\n 1360183878")
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "userInfoCell"
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = userInfoValues[indexPath.row]
+        cell.textLabel?.text = userInfoKeys[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return userInfoKeys.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        MsgToolBox.showAlert(title: userInfoKeys[indexPath.row], content: userInfoValues[indexPath.row])
+    }
+
 }
