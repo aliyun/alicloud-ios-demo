@@ -23,14 +23,14 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
         mpushMessageTableView.addPullToRefresh(actionHandler: {
             self.refreshTable()
         }, withBackgroundColor: UIColor.init(red: 0.251, green: 0.663, blue: 0.827, alpha: 1), withPullToRefreshHeightShowed: 1)
-        //Customize pulltorefresh text colors
+        // Customize pulltorefresh text colors
         mpushMessageTableView.pullToRefreshView.textColor = UIColor.white
         mpushMessageTableView.pullToRefreshView.textFont = UIFont(name: "OpenSans-Semibold", size: 16)
         // Set fontawesome icon
         mpushMessageTableView.pullToRefreshView.setFontAwesomeIcon("icon-refresh")
-        //Set titles
+        // Set titles
         mpushMessageTableView.pullToRefreshView.setTitle("Pull", forState: UInt(KoaPullToRefreshStateStopped))
-        //Hide scroll indicator
+        // Hide scroll indicator
         mpushMessageTableView.showsVerticalScrollIndicator = false
     }
 
@@ -54,7 +54,7 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //删除cell
+        // 删除cell
         if editingStyle == .delete {
             // 数据库中删除该条记录
             let dao : PushMessageDAO = PushMessageDAO.init()
@@ -68,7 +68,6 @@ class MPushMessageViewController: UIViewController, UITableViewDataSource, UITab
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pushMessage!.count

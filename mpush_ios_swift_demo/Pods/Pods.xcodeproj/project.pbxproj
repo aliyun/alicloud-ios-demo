@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09771B544332AACE60FDDFEBE04B4049 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60403FEE5766D49178CFABB30F8CE689 /* FAImageView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		11344AEFC71964C0BEC0C1D6059745F4 /* KoaPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F9608C6749B955F7BB697893DF021E3 /* KoaPullToRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09771B544332AACE60FDDFEBE04B4049 /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8564523D04197E9AD60190199761A6A /* FAImageView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		11344AEFC71964C0BEC0C1D6059745F4 /* KoaPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = A04381E99F0A4F644808AACD3438D5B9 /* KoaPullToRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D7583EFC788A6727E34A208AEEF3C70 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBEE4CB4FB3AA4FCE01CFA3D3DE9CDB3 /* QuartzCore.framework */; };
-		3C891D50E1C9F9FA1D65AE7447141BD4 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DFF0ACAD7045167DF72B3E8394E1CD3 /* FontAwesome.ttf */; };
-		3D966823B69510ACFB2F0CAFB4230E75 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BA63E4A7CE34B0723A0EB728A66D37 /* UIFont+FontAwesome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4D6706CE6014708A7123274C913F1979 /* FontAwesome+iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 04C05957BE54EBBC9DAC2A3A9CC5A5B0 /* FontAwesome+iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C891D50E1C9F9FA1D65AE7447141BD4 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0BCC9C7E941027259A61416E22AB1BD /* FontAwesome.ttf */; };
+		3D966823B69510ACFB2F0CAFB4230E75 /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1D5B8D48788490662B936E1383D719 /* UIFont+FontAwesome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4D6706CE6014708A7123274C913F1979 /* FontAwesome+iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EC25A2810760953FF9C94B66C829FDD /* FontAwesome+iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CB2231BC0BD82B281737D4261D46062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3808ACDFD0E47ED89DA7DE40259712E /* Foundation.framework */; };
 		6DAA254E8A109C88AAFD67FE8A762AFD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2BB1A4A0BFE7CCC928AB36C47E3379 /* CoreGraphics.framework */; };
-		7CAE5D143185B08965C3BC791052C140 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = A83BA1F403BBB35E895247A625BCC2C4 /* NSString+FontAwesome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8B3763AB0173537D05F8743D426B3DA1 /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 9531FF9661571ED2360304B88410A7E9 /* UIImage+FontAwesome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7CAE5D143185B08965C3BC791052C140 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = A6165B6F29E2635DA22BDCACDB438872 /* NSString+FontAwesome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8B3763AB0173537D05F8743D426B3DA1 /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B84819FC6CF1C5C128C94845181CD /* UIImage+FontAwesome.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		98305DEF3700987680FDC56D2E5BF98D /* FontAwesome_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CDB6846E26692771891E5D193AB26A /* FontAwesome_iOS.framework */; };
-		9D87EA5B753CA8242257E555E6165A20 /* KoaPullToRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A3A7737D7DCC445FB5622D9639FE84 /* KoaPullToRefresh-dummy.m */; };
-		9EFA9843E9C82953621B043EBCFD40BC /* KoaPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 53666B481D36950C7EE5C53FC7DC40F9 /* KoaPullToRefresh.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A24393F0A8715F080DBF1CFED458B879 /* UIFont+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = C45279614E8AE4EE5B218AD6720A4ABF /* UIFont+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D87EA5B753CA8242257E555E6165A20 /* KoaPullToRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9FEC020923491A6EDFD023479CECA2 /* KoaPullToRefresh-dummy.m */; };
+		9EFA9843E9C82953621B043EBCFD40BC /* KoaPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8BAC299A82320FD0B1B4600E2148F8 /* KoaPullToRefresh.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A24393F0A8715F080DBF1CFED458B879 /* UIFont+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 640C271FEC6A5E3DCDB011276D832EB4 /* UIFont+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC03E212D94608D6D2423C532C12EF6E /* Pods-mpush_ios_swift_demo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B699782C2DF83F157B137F2EF431D96C /* Pods-mpush_ios_swift_demo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFC0C9370F67C88B59423F6661ABFBE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3808ACDFD0E47ED89DA7DE40259712E /* Foundation.framework */; };
 		C59D0CE906A94269790D1A02F6EE5FDD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EE0B31FD5228FC5348DA7FA0365E98 /* UIKit.framework */; };
-		C5C6168F7D6F0BC6AE2FB9EDE338A38E /* KoaPullToRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C1B7813B87947D207B8A89229F027D61 /* KoaPullToRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DFF649EE346368CD44B50F0B188635E0 /* FontAwesome+iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE55B639E39273BAB9EE1E78A18AF85C /* FontAwesome+iOS-dummy.m */; };
-		E2B580FB46D309C1737C853D46F7B37E /* UIImage+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B2B08113417B16608CB76D7A5C9EF6 /* UIImage+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E99219E3B7DABF48422E416417EABC97 /* FAImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 47CE006E16B19192684F0BBC1984C8DC /* FAImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECF9FACDDFFD254A0DDCDC2D23A99EEF /* NSString+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 55AC704A5716CA02720B73CA8FD05699 /* NSString+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5C6168F7D6F0BC6AE2FB9EDE338A38E /* KoaPullToRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9392AB1933F145A8236AE39A990096F2 /* KoaPullToRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFF649EE346368CD44B50F0B188635E0 /* FontAwesome+iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF492D89C6C7D6CDAA77E608FAAA95DC /* FontAwesome+iOS-dummy.m */; };
+		E2B580FB46D309C1737C853D46F7B37E /* UIImage+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 90638DEBFB8D20293DEF2EE5B7DCBBC3 /* UIImage+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E99219E3B7DABF48422E416417EABC97 /* FAImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA6CEEE0F17D71AB95E79D48BC8E9FB3 /* FAImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECF9FACDDFFD254A0DDCDC2D23A99EEF /* NSString+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = E56A384CB8B71FD5164ACE8FFDBAB018 /* NSString+FontAwesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3238366734502ECFB94D3A5EF90D784 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3808ACDFD0E47ED89DA7DE40259712E /* Foundation.framework */; };
 		F910D012F182075B23BBD2B972AEC4AC /* Pods-mpush_ios_swift_demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FB2635F6B1A2E372D850A0DBDE4EB6 /* Pods-mpush_ios_swift_demo-dummy.m */; };
 /* End PBXBuildFile section */
@@ -58,48 +58,51 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04C05957BE54EBBC9DAC2A3A9CC5A5B0 /* FontAwesome+iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome+iOS-umbrella.h"; sourceTree = "<group>"; };
 		06CDB6846E26692771891E5D193AB26A /* FontAwesome_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontAwesome_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D294ED1A71690EFB3968D4DDCF020FB /* Pods-mpush_ios_swift_demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-mpush_ios_swift_demo.modulemap"; sourceTree = "<group>"; };
+		0F9FEC020923491A6EDFD023479CECA2 /* KoaPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KoaPullToRefresh-dummy.m"; sourceTree = "<group>"; };
 		12FB2635F6B1A2E372D850A0DBDE4EB6 /* Pods-mpush_ios_swift_demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-mpush_ios_swift_demo-dummy.m"; sourceTree = "<group>"; };
-		15B2B08113417B16608CB76D7A5C9EF6 /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+FontAwesome.h"; sourceTree = "<group>"; };
+		140B84819FC6CF1C5C128C94845181CD /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
+		169AB83A8ABB86465A8EBAFCEFDAE85F /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = utdid/UTDID.framework; sourceTree = "<group>"; };
 		1D8499C993F59D10058751194116D78E /* Pods-mpush_ios_swift_demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-mpush_ios_swift_demo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		22B281CAB358486EEBEA3F1F05FA8BD0 /* Pods-mpush_ios_swift_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mpush_ios_swift_demo.debug.xcconfig"; sourceTree = "<group>"; };
+		26CEA3BC1127EFEEF4368FFE906BE53E /* KoaPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KoaPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
 		288F257334655B0200D3598875023E51 /* Pods_mpush_ios_swift_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_mpush_ios_swift_demo.framework; path = "Pods-mpush_ios_swift_demo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		36F06CBA4AA7930D11ED70ED1983660A /* FontAwesome+iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome+iOS-prefix.pch"; sourceTree = "<group>"; };
-		3CBC2644D8AA4A7DA0A993CE4C47F06F /* KoaPullToRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KoaPullToRefresh.modulemap; sourceTree = "<group>"; };
-		4794DD6D3DE6BCAA659C4397142B36A6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47CE006E16B19192684F0BBC1984C8DC /* FAImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
-		4EFF3F4408D4E3A38E92EC22BE1C6427 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53666B481D36950C7EE5C53FC7DC40F9 /* KoaPullToRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KoaPullToRefresh.m; path = KoaPullToRefresh/KoaPullToRefresh.m; sourceTree = "<group>"; };
-		545A40477635D3777AFEDCC0F4397A02 /* FontAwesome+iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "FontAwesome+iOS.xcconfig"; sourceTree = "<group>"; };
-		55AC704A5716CA02720B73CA8FD05699 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		2EC25A2810760953FF9C94B66C829FDD /* FontAwesome+iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome+iOS-umbrella.h"; sourceTree = "<group>"; };
+		3293C9A51F2B45B8B597E26323F6AA16 /* FontAwesome+iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "FontAwesome+iOS.modulemap"; sourceTree = "<group>"; };
 		56EE0B31FD5228FC5348DA7FA0365E98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		60403FEE5766D49178CFABB30F8CE689 /* FAImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
 		617490377A18840219FC37638118B599 /* Pods-mpush_ios_swift_demo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-mpush_ios_swift_demo-frameworks.sh"; sourceTree = "<group>"; };
+		640C271FEC6A5E3DCDB011276D832EB4 /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
+		681F0C63E86AB163DCE48F68EFBB903E /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = push/CloudPushSDK.framework; sourceTree = "<group>"; };
 		6C2BB1A4A0BFE7CCC928AB36C47E3379 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		6CFB89CE4BF27E35FEAE8CA849258DF1 /* Pods-mpush_ios_swift_demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mpush_ios_swift_demo-acknowledgements.plist"; sourceTree = "<group>"; };
-		6DFF0ACAD7045167DF72B3E8394E1CD3 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = Resources/FontAwesome.ttf; sourceTree = "<group>"; };
-		748A22628D8BC494F92E30AFAB236A1C /* KoaPullToRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KoaPullToRefresh-prefix.pch"; sourceTree = "<group>"; };
-		7F9608C6749B955F7BB697893DF021E3 /* KoaPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KoaPullToRefresh.h; path = KoaPullToRefresh/KoaPullToRefresh.h; sourceTree = "<group>"; };
+		719AE5F710D4321A3D0624864D297354 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90638DEBFB8D20293DEF2EE5B7DCBBC3 /* UIImage+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+FontAwesome.h"; sourceTree = "<group>"; };
+		9392AB1933F145A8236AE39A990096F2 /* KoaPullToRefresh-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KoaPullToRefresh-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9531FF9661571ED2360304B88410A7E9 /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
 		96720F4B6E169733C4C9AEE82523C816 /* Pods-mpush_ios_swift_demo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-mpush_ios_swift_demo-resources.sh"; sourceTree = "<group>"; };
 		994A2ED4F22BFC73A6442E7C1C908622 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99D9F1147A5965043640588506130DED /* FontAwesome+iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "FontAwesome+iOS.xcconfig"; sourceTree = "<group>"; };
 		9C38D5121692C37CFA7A37A52AA5575B /* KoaPullToRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KoaPullToRefresh.framework; path = KoaPullToRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A83BA1F403BBB35E895247A625BCC2C4 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		A04381E99F0A4F644808AACD3438D5B9 /* KoaPullToRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KoaPullToRefresh.h; path = KoaPullToRefresh/KoaPullToRefresh.h; sourceTree = "<group>"; };
+		A0BCC9C7E941027259A61416E22AB1BD /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.ttf; path = Resources/FontAwesome.ttf; sourceTree = "<group>"; };
+		A215CEE76C44E36FD593B37A7F075DC9 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = utils/AlicloudUtils.framework; sourceTree = "<group>"; };
+		A6165B6F29E2635DA22BDCACDB438872 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 		B3808ACDFD0E47ED89DA7DE40259712E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		B699782C2DF83F157B137F2EF431D96C /* Pods-mpush_ios_swift_demo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-mpush_ios_swift_demo-umbrella.h"; sourceTree = "<group>"; };
 		B84C0849AA0A09FC9EBF0830DCEE395B /* Pods-mpush_ios_swift_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mpush_ios_swift_demo.release.xcconfig"; sourceTree = "<group>"; };
-		BE55B639E39273BAB9EE1E78A18AF85C /* FontAwesome+iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome+iOS-dummy.m"; sourceTree = "<group>"; };
-		C1B7813B87947D207B8A89229F027D61 /* KoaPullToRefresh-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KoaPullToRefresh-umbrella.h"; sourceTree = "<group>"; };
-		C45279614E8AE4EE5B218AD6720A4ABF /* UIFont+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIFont+FontAwesome.h"; sourceTree = "<group>"; };
-		C6BA63E4A7CE34B0723A0EB728A66D37 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		BC1D5B8D48788490662B936E1383D719 /* UIFont+FontAwesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FontAwesome.m"; sourceTree = "<group>"; };
+		CA6CEEE0F17D71AB95E79D48BC8E9FB3 /* FAImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
+		CB6B746FE83C477B06EF1CE257C70FA3 /* FontAwesome+iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome+iOS-prefix.pch"; sourceTree = "<group>"; };
+		D0B8826A714839AF1C0946A7319C631E /* KoaPullToRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KoaPullToRefresh.modulemap; sourceTree = "<group>"; };
+		D5576DEBDE74EAA20587A2BF9382DD84 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8564523D04197E9AD60190199761A6A /* FAImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
 		DBEE4CB4FB3AA4FCE01CFA3D3DE9CDB3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		E70C8664D962843E5580A514B3BC329B /* FontAwesome+iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "FontAwesome+iOS.modulemap"; sourceTree = "<group>"; };
-		E7A3A7737D7DCC445FB5622D9639FE84 /* KoaPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KoaPullToRefresh-dummy.m"; sourceTree = "<group>"; };
+		DF492D89C6C7D6CDAA77E608FAAA95DC /* FontAwesome+iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome+iOS-dummy.m"; sourceTree = "<group>"; };
+		DF65995BB62090F2A21F9B684C7CF385 /* KoaPullToRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KoaPullToRefresh.xcconfig; sourceTree = "<group>"; };
+		DF8BAC299A82320FD0B1B4600E2148F8 /* KoaPullToRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KoaPullToRefresh.m; path = KoaPullToRefresh/KoaPullToRefresh.m; sourceTree = "<group>"; };
+		E56A384CB8B71FD5164ACE8FFDBAB018 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
 		F2CB341D425FF71A4FBF140B208BC9A2 /* FontAwesome_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FontAwesome_iOS.framework; path = "FontAwesome+iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFFBD83FA1E7ABD92FD648E510B85592 /* KoaPullToRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KoaPullToRefresh.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,20 +137,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09656B8CD310006D2CA05A545FC7020C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E70C8664D962843E5580A514B3BC329B /* FontAwesome+iOS.modulemap */,
-				545A40477635D3777AFEDCC0F4397A02 /* FontAwesome+iOS.xcconfig */,
-				BE55B639E39273BAB9EE1E78A18AF85C /* FontAwesome+iOS-dummy.m */,
-				36F06CBA4AA7930D11ED70ED1983660A /* FontAwesome+iOS-prefix.pch */,
-				04C05957BE54EBBC9DAC2A3A9CC5A5B0 /* FontAwesome+iOS-umbrella.h */,
-				4794DD6D3DE6BCAA659C4397142B36A6 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/FontAwesome+iOS";
-			sourceTree = "<group>";
-		};
 		0E58CB3366BECAF08755C5983F2C5627 /* Pods-mpush_ios_swift_demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,41 +155,41 @@
 			path = "Target Support Files/Pods-mpush_ios_swift_demo";
 			sourceTree = "<group>";
 		};
-		1FB8AAB4A772D4449E9690B32EDBA206 /* FontAwesome+iOS */ = {
+		19EBE856A382A7E55371051A01DB3C37 /* AlicloudUTDID */ = {
 			isa = PBXGroup;
 			children = (
-				47CE006E16B19192684F0BBC1984C8DC /* FAImageView.h */,
-				60403FEE5766D49178CFABB30F8CE689 /* FAImageView.m */,
-				55AC704A5716CA02720B73CA8FD05699 /* NSString+FontAwesome.h */,
-				A83BA1F403BBB35E895247A625BCC2C4 /* NSString+FontAwesome.m */,
-				C45279614E8AE4EE5B218AD6720A4ABF /* UIFont+FontAwesome.h */,
-				C6BA63E4A7CE34B0723A0EB728A66D37 /* UIFont+FontAwesome.m */,
-				15B2B08113417B16608CB76D7A5C9EF6 /* UIImage+FontAwesome.h */,
-				9531FF9661571ED2360304B88410A7E9 /* UIImage+FontAwesome.m */,
-				23A07AFEC6C4CFE699019B6FFDE34B1C /* Resources */,
-				09656B8CD310006D2CA05A545FC7020C /* Support Files */,
+				9E7C461259F362FBE8917C0CC02F389A /* Frameworks */,
 			);
-			name = "FontAwesome+iOS";
-			path = "FontAwesome+iOS";
+			name = AlicloudUTDID;
+			path = AlicloudUTDID;
 			sourceTree = "<group>";
 		};
-		23A07AFEC6C4CFE699019B6FFDE34B1C /* Resources */ = {
+		2B26CFAAA3BAFBE2AC2227C65AD7CA96 /* AlicloudPush */ = {
 			isa = PBXGroup;
 			children = (
-				6DFF0ACAD7045167DF72B3E8394E1CD3 /* FontAwesome.ttf */,
+				FE421111795889FB11740ABFA92EFC01 /* Frameworks */,
 			);
-			name = Resources;
+			name = AlicloudPush;
+			path = AlicloudPush;
 			sourceTree = "<group>";
 		};
-		57CC6B5EE7D4691649EDEC4CD64317C8 /* Support Files */ = {
+		50C8CB6805CBD80EFE618C5012C0F70C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4EFF3F4408D4E3A38E92EC22BE1C6427 /* Info.plist */,
-				3CBC2644D8AA4A7DA0A993CE4C47F06F /* KoaPullToRefresh.modulemap */,
-				FFFBD83FA1E7ABD92FD648E510B85592 /* KoaPullToRefresh.xcconfig */,
-				E7A3A7737D7DCC445FB5622D9639FE84 /* KoaPullToRefresh-dummy.m */,
-				748A22628D8BC494F92E30AFAB236A1C /* KoaPullToRefresh-prefix.pch */,
-				C1B7813B87947D207B8A89229F027D61 /* KoaPullToRefresh-umbrella.h */,
+				A215CEE76C44E36FD593B37A7F075DC9 /* AlicloudUtils.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63F1BFE82E5A00F67ED97D1A15CC8738 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				719AE5F710D4321A3D0624864D297354 /* Info.plist */,
+				D0B8826A714839AF1C0946A7319C631E /* KoaPullToRefresh.modulemap */,
+				DF65995BB62090F2A21F9B684C7CF385 /* KoaPullToRefresh.xcconfig */,
+				0F9FEC020923491A6EDFD023479CECA2 /* KoaPullToRefresh-dummy.m */,
+				26CEA3BC1127EFEEF4368FFE906BE53E /* KoaPullToRefresh-prefix.pch */,
+				9392AB1933F145A8236AE39A990096F2 /* KoaPullToRefresh-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/KoaPullToRefresh";
@@ -211,21 +200,47 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				F223FB4313B0F77840C1933502652F85 /* Frameworks */,
-				B13C68DDE33A8BB8D0B5EE4474C3F1C9 /* Pods */,
+				91CA0C89ECD45EE52B0F32FA6689F064 /* Pods */,
 				A2FE799C3ADE6A907F897CB26128FE6A /* Products */,
 				BF0B7F1A48B2539ECC80F42A45536B6C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		940F7AF693387CC3AE16CEA9874FA010 /* KoaPullToRefresh */ = {
+		86A568F0233B9713C4590DECE1067139 /* AlicloudUtils */ = {
 			isa = PBXGroup;
 			children = (
-				7F9608C6749B955F7BB697893DF021E3 /* KoaPullToRefresh.h */,
-				53666B481D36950C7EE5C53FC7DC40F9 /* KoaPullToRefresh.m */,
-				57CC6B5EE7D4691649EDEC4CD64317C8 /* Support Files */,
+				50C8CB6805CBD80EFE618C5012C0F70C /* Frameworks */,
 			);
-			name = KoaPullToRefresh;
-			path = KoaPullToRefresh;
+			name = AlicloudUtils;
+			path = AlicloudUtils;
+			sourceTree = "<group>";
+		};
+		91CA0C89ECD45EE52B0F32FA6689F064 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B26CFAAA3BAFBE2AC2227C65AD7CA96 /* AlicloudPush */,
+				19EBE856A382A7E55371051A01DB3C37 /* AlicloudUTDID */,
+				86A568F0233B9713C4590DECE1067139 /* AlicloudUtils */,
+				E24C9C121AE517D4AF5369B91633213D /* FontAwesome+iOS */,
+				E7D0D6518CC6C939A062961A729A95B4 /* KoaPullToRefresh */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9422B27E38EBEBADF3AE554FDD3F9E98 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0BCC9C7E941027259A61416E22AB1BD /* FontAwesome.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9E7C461259F362FBE8917C0CC02F389A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				169AB83A8ABB86465A8EBAFCEFDAE85F /* UTDID.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A2FE799C3ADE6A907F897CB26128FE6A /* Products */ = {
@@ -238,21 +253,41 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B13C68DDE33A8BB8D0B5EE4474C3F1C9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1FB8AAB4A772D4449E9690B32EDBA206 /* FontAwesome+iOS */,
-				940F7AF693387CC3AE16CEA9874FA010 /* KoaPullToRefresh */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		BF0B7F1A48B2539ECC80F42A45536B6C /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				0E58CB3366BECAF08755C5983F2C5627 /* Pods-mpush_ios_swift_demo */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E24C9C121AE517D4AF5369B91633213D /* FontAwesome+iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CA6CEEE0F17D71AB95E79D48BC8E9FB3 /* FAImageView.h */,
+				D8564523D04197E9AD60190199761A6A /* FAImageView.m */,
+				E56A384CB8B71FD5164ACE8FFDBAB018 /* NSString+FontAwesome.h */,
+				A6165B6F29E2635DA22BDCACDB438872 /* NSString+FontAwesome.m */,
+				640C271FEC6A5E3DCDB011276D832EB4 /* UIFont+FontAwesome.h */,
+				BC1D5B8D48788490662B936E1383D719 /* UIFont+FontAwesome.m */,
+				90638DEBFB8D20293DEF2EE5B7DCBBC3 /* UIImage+FontAwesome.h */,
+				140B84819FC6CF1C5C128C94845181CD /* UIImage+FontAwesome.m */,
+				9422B27E38EBEBADF3AE554FDD3F9E98 /* Resources */,
+				FCD8960193E10ADC07E3B6D9F0B9D273 /* Support Files */,
+			);
+			name = "FontAwesome+iOS";
+			path = "FontAwesome+iOS";
+			sourceTree = "<group>";
+		};
+		E7D0D6518CC6C939A062961A729A95B4 /* KoaPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				A04381E99F0A4F644808AACD3438D5B9 /* KoaPullToRefresh.h */,
+				DF8BAC299A82320FD0B1B4600E2148F8 /* KoaPullToRefresh.m */,
+				63F1BFE82E5A00F67ED97D1A15CC8738 /* Support Files */,
+			);
+			name = KoaPullToRefresh;
+			path = KoaPullToRefresh;
 			sourceTree = "<group>";
 		};
 		F223FB4313B0F77840C1933502652F85 /* Frameworks */ = {
@@ -273,6 +308,28 @@
 				56EE0B31FD5228FC5348DA7FA0365E98 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		FCD8960193E10ADC07E3B6D9F0B9D273 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3293C9A51F2B45B8B597E26323F6AA16 /* FontAwesome+iOS.modulemap */,
+				99D9F1147A5965043640588506130DED /* FontAwesome+iOS.xcconfig */,
+				DF492D89C6C7D6CDAA77E608FAAA95DC /* FontAwesome+iOS-dummy.m */,
+				CB6B746FE83C477B06EF1CE257C70FA3 /* FontAwesome+iOS-prefix.pch */,
+				2EC25A2810760953FF9C94B66C829FDD /* FontAwesome+iOS-umbrella.h */,
+				D5576DEBDE74EAA20587A2BF9382DD84 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FontAwesome+iOS";
+			sourceTree = "<group>";
+		};
+		FE421111795889FB11740ABFA92EFC01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				681F0C63E86AB163DCE48F68EFBB903E /* CloudPushSDK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,7 +561,7 @@
 		};
 		1DCC0067F353B3F91D25720DC1099808 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFFBD83FA1E7ABD92FD648E510B85592 /* KoaPullToRefresh.xcconfig */;
+			baseConfigurationReference = DF65995BB62090F2A21F9B684C7CF385 /* KoaPullToRefresh.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -536,7 +593,7 @@
 		};
 		253CE42D5CEE89BD8CB28780883C8FB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFFBD83FA1E7ABD92FD648E510B85592 /* KoaPullToRefresh.xcconfig */;
+			baseConfigurationReference = DF65995BB62090F2A21F9B684C7CF385 /* KoaPullToRefresh.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -643,7 +700,7 @@
 		};
 		635E80A29949935977702B5EB9C0E720 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 545A40477635D3777AFEDCC0F4397A02 /* FontAwesome+iOS.xcconfig */;
+			baseConfigurationReference = 99D9F1147A5965043640588506130DED /* FontAwesome+iOS.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -675,7 +732,7 @@
 		};
 		CA1E253F2F6EBB7E76A0312F431DAA8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 545A40477635D3777AFEDCC0F4397A02 /* FontAwesome+iOS.xcconfig */;
+			baseConfigurationReference = 99D9F1147A5965043640588506130DED /* FontAwesome+iOS.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

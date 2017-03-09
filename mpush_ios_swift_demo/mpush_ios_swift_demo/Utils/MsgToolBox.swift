@@ -11,7 +11,7 @@ import UIKit
 class MsgToolBox: NSObject {
     
     static public func showAlert(title: String, content: String) -> () {
-        //保证在主线程上执行
+        // 保证在主线程上执行
         if Thread.isMainThread == true {
             let alertView = UIAlertView.init(title: title, message: content, delegate: self, cancelButtonTitle: "已阅")
             alertView.show()
@@ -22,6 +22,5 @@ class MsgToolBox: NSObject {
             }
         }
     }
-
 
 }

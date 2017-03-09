@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MPushInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var mpushInfoTableView: UITableView!

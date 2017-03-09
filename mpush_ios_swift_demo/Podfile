@@ -1,6 +1,16 @@
+source 'git@github.com:aliyun/aliyun-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '8.0'
-inhibit_all_warnings!
-target 'mpush_ios_swift_demo' do
-pod 'KoaPullToRefresh', '~> 1.0.6'
-end
+
 use_frameworks!
+inhibit_all_warnings!
+
+target 'mpush_ios_swift_demo' do
+
+pod 'AlicloudPush', '~> 1.9.1'
+
+pod 'KoaPullToRefresh', '~> 1.0.6'
+
+end
+

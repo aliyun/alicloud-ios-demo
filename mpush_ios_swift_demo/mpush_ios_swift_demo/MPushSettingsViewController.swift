@@ -33,7 +33,7 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
     func getTagArray() -> Array<Any> {
         let tagString = self.userLabel.text
         if (tagString?.characters.count)! > 0 {
-            let tagArray = tagString?.components(separatedBy: "")
+            let tagArray = tagString?.components(separatedBy: " ")
             return tagArray!
         } else {
             MsgToolBox.showAlert(title: "温馨提示", content: "请输入标签！")
@@ -56,20 +56,20 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
      */
     @IBAction func userBindAccount(_ sender: Any) {
         if (self.userAccount.text?.characters.count)! > 0 {
-            //用户按下按钮&&输入了准备绑定的帐户名称
+            // 用户按下按钮&&输入了准备绑定的帐户名称
             CloudPushSDK.bindAccount(self.userAccount.text!, withCallback: { (res: CloudPushCallbackResult?) in
                 if (res?.success)! {
                     print("==================> 绑定账号成功")
-                    //切回主线程，防止crash
+                    // 切回主线程，防止crash
                     MsgToolBox.showAlert(title: "温馨提示", content: "账号绑定成功")
                     self.clearInput()
-                    //持久化已绑定的数据
+                    // 持久化已绑定的数据
                     let userDefaultes = UserDefaults.standard
                     userDefaultes.setValue(self.userAccount.text!, forKey: "bindAccount")
                     userDefaultes.synchronize()
                 } else {
                     print("==================> 绑定账号失败")
-                    MsgToolBox.showAlert(title: "温馨提示", content: "账号绑定失败" + String(describing: res?.error))
+                    MsgToolBox.showAlert(title: "温馨提示", content: "账号绑定失败: \(res!.error!)")
                 }
             })
             self.userAccount.resignFirstResponder()
@@ -88,7 +88,7 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
         CloudPushSDK.unbindAccount { (res: CloudPushCallbackResult?) in
             if (res?.success)! {
                 print("解绑账号成功")
-                //切回主线程，防止crash
+                // 切回主线程，防止crash
                 MsgToolBox.showAlert(title: "温馨提示", content: "账号解绑成功！")
                 DispatchQueue.main.async {
                     self.clearInput()
@@ -98,7 +98,7 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 userDefaultes.synchronize()
             } else {
                 print("解绑账号失败")
-                MsgToolBox.showAlert(title: "温馨提示", content: "账号解绑失败" + String(describing: res?.error))
+                MsgToolBox.showAlert(title: "温馨提示", content: "账号解绑失败: \(res!.error!)")
             }
         }
         self.userAccount.resignFirstResponder()
@@ -122,8 +122,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                     self.clearInput()
                 }
             } else {
-            print("绑定设备标签失败" + String(describing: res?.error))
-              MsgToolBox.showAlert(title: "温馨提示", content: "设备标签绑定失败" + String(describing: res?.error))
+            print("绑定设备标签失败" + String(describing: res?.error!))
+              MsgToolBox.showAlert(title: "温馨提示", content: "设备标签绑定失败: \(res!.error!)")
             }
         }
     }
@@ -144,8 +144,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 MsgToolBox.showAlert(title: "温馨提示", content: "解绑设备标签成功！")
                 self.clearInput()
             } else {
-                print("解绑设备标签失败" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "解绑设备标签失败" + String(describing: res?.error))
+                print("解绑设备标签失败" + String(describing: res?.error!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "解绑设备标签失败" + String(describing: res!.error!))
             }
         }
     }
@@ -166,8 +166,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 MsgToolBox.showAlert(title: "温馨提示", content: "账号标签绑定成功！")
                 self.clearInput()
             } else {
-                print("绑定账号标签失败" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "账号标签绑定失败" + String(describing: res?.error))
+                print("绑定账号标签失败" + String(describing: res?.error!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "账号标签绑定失败" + String(describing: res!.error!))
             }
         }
     }
@@ -177,7 +177,6 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
      *
      *  @param sender
      */
-    
     @IBAction func userUnbindTagFromAccount(_ sender: Any) {
         let tagArray = self.getTagArray()
         if !tagArray.isEmpty == false {
@@ -189,8 +188,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 MsgToolBox.showAlert(title: "温馨提示", content: "解绑账号标签成功！")
                 self.clearInput()
             } else {
-                print("解绑账号标签失败" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "解绑账号标签失败" + String(describing: res?.error))
+                print("解绑账号标签失败" + String(describing: res?.error!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "解绑账号标签失败" + String(describing: res!.error!))
             }
         }
     }
@@ -216,8 +215,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 MsgToolBox.showAlert(title: "温馨提示", content: "别名标签绑定成功！")
                 self.clearInput()
             } else {
-                print("绑定别名标签失败" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "别名标签绑定失败" + String(describing: res?.error))
+                print("绑定别名标签失败" + String(describing: res?.error!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "别名标签绑定失败" + String(describing: res!.error!))
             }
         }
     }
@@ -243,8 +242,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 MsgToolBox.showAlert(title: "温馨提示", content: "别名标签解绑成功！")
                 self.clearInput()
             } else {
-                print("解绑别名标签失败" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "解绑别名标签绑定失败" + String(describing: res?.error))
+                print("解绑别名标签失败" + String(describing: res?.error!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "解绑别名标签绑定失败" + String(describing: res!.error!))
             }
         }
     }
@@ -257,12 +256,12 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
     @IBAction func userListTags(_ sender: Any) {
         CloudPushSDK.listAliases { (res: CloudPushCallbackResult?) in
             if (res?.success)! {
-                print("查询设备标签成功" + String(describing: res?.data))
-                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备标签成功！" + String(describing: res?.data))
+                print("查询设备标签成功" + String(describing: res!.data!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备标签成功！\(res!.data!)")
                 self.clearInput()
             } else {
-                print("查询设备标签失败" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备标签失败" + String(describing: res?.error))
+                print("查询设备标签失败:\(res!.error!)")
+                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备标签失败:\(res!.error!)")
             }
         }
     }
@@ -284,8 +283,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 MsgToolBox.showAlert(title: "温馨提示", content: "添加设备别名成功！")
                 self.clearInput()
             } else {
-                print("添加设备别名失败，错误:" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "添加设备别名失败" + String(describing: res?.error))
+                print("添加设备别名失败，错误:" + String(describing: res?.error!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "添加设备别名失败\(res!.error!)")
             }
         }
     }
@@ -306,8 +305,8 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
                 MsgToolBox.showAlert(title: "温馨提示", content: "删除设备别名成功！")
                 self.clearInput()
             } else {
-                print("删除设备别名失败，错误:" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "删除设备别名失败," + String(describing: res?.error))
+                print("删除设备别名失败，错误:" + String(describing: res!.error!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "删除设备别名失败,\(res!.error!)")
             }
         }
     }
@@ -320,21 +319,14 @@ class MPushSettingsViewController: UIViewController,UITextFieldDelegate,UIAlertV
     @IBAction func userListAliases(_ sender: Any) {
         CloudPushSDK.listAliases { (res: CloudPushCallbackResult?) in
             if (res?.success)! {
-                print("查询设备别名成功" + String(describing: res?.data))
-                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备别名成功" + String(describing: res?.data))
+                print("查询设备别名成功" + String(describing: res!.data!))
+                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备别名成功: \(res!.data!)")
                 self.clearInput()
             } else {
-                print("查询设备别名失败，错误:" + String(describing: res?.error))
-                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备别名失败," + String(describing: res?.error))
+                print("查询设备别名失败，错误: \(res!.error!)")
+                MsgToolBox.showAlert(title: "温馨提示", content: "查询设备别名失败,\(res!.error!)")
             }
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {    }
- 
-    func alertMsg(title: String, content: String) {
-        let alertView : UIAlertView = UIAlertView.init(title: title, message: content, delegate: self, cancelButtonTitle: "Cencel", otherButtonTitles: "OK", "")
-        alertView.show()
     }
 
     override func viewDidLoad() {

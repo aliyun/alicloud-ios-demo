@@ -1,15 +1,24 @@
 PODS:
+  - AlicloudPush (1.9.1):
+    - AlicloudUtils
+  - AlicloudUTDID (1.1.0.16)
+  - AlicloudUtils (1.1.6):
+    - AlicloudUTDID
   - FontAwesome+iOS (0.1.4)
   - KoaPullToRefresh (1.0.6):
     - FontAwesome+iOS
 
 DEPENDENCIES:
+  - AlicloudPush (~> 1.9.1)
   - KoaPullToRefresh (~> 1.0.6)
 
 SPEC CHECKSUMS:
+  AlicloudPush: 4fbee1f82605adc3bfc7c6136dad4a57c6ad4049
+  AlicloudUTDID: f5a7bc1420c5f83e3bd40296e5ab2e5a804a12f8
+  AlicloudUtils: b7324d1abeda75355abd72d65134c6870f6af05c
   FontAwesome+iOS: 9070b682a9255ca0fdc34bcfb129ad0ba2b73b87
   KoaPullToRefresh: b83ab0cd9ad8da426ed49ca7d48904ab778491f5
 
-PODFILE CHECKSUM: 3f744947cced3f4ded519911730dde2c9566cb96
+PODFILE CHECKSUM: 94483c7349901a0087d0ec4d0cd82ff7b5d3db5f
 
 COCOAPODS: 1.2.0

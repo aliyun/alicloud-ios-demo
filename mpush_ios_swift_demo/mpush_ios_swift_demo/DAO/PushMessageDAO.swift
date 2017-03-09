@@ -26,7 +26,8 @@ class PushMessageDAO: NSObject {
             do {
                 try FileManager.default.copyItem(atPath:preloadURL!, toPath: database_path)
             } catch let error as NSError {
-                print(error)//如果创建失败，error 会返回错误信息
+                // 如果创建失败，error 会返回错误信息
+                print(error)
             }
         }
     }
@@ -34,13 +35,12 @@ class PushMessageDAO: NSObject {
     // 执行SQL语句
     public func excute(sql: NSString) {
         init_datebase()
-        //print("@数据库路径：\(db_path)")
         // 发起连接
         if sqlite3_open(db_path!.utf8String!, &db) != SQLITE_OK {
             sqlite3_close(db)
             print("数据库打开失败")
-        } else {    //连接成功，执行sql
-            
+        } else {
+            // 连接成功，执行sql
             let errmsg : UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>? = nil
             if sqlite3_exec(db, sql.utf8String, nil, nil, errmsg) != SQLITE_OK {
                 sqlite3_close(db)
@@ -61,9 +61,9 @@ class PushMessageDAO: NSObject {
         } else {
             let sqlStr = "INSERT INTO PUSHMESSAGE (CONTENT, ISREAD) VALUES (?, ?)" as NSString
             var statement: OpaquePointer? = nil
-            //预编译之
+            // 预编译之
             if sqlite3_prepare_v2(db, sqlStr.utf8String, -1, &statement, nil) == SQLITE_OK {
-                //注入参数
+                // 注入参数
                 sqlite3_bind_text(statement, 1, model.messageContent?.utf8String, -1, nil)
                 sqlite3_bind_int(statement, 2, model.isRead! ? 1 : 0)
                 // 执行SQL
@@ -90,9 +90,7 @@ class PushMessageDAO: NSObject {
     
     // 查询全部消息
     public func selectAll() -> NSMutableArray {
-        
         init_datebase()
-        //print("@数据库路径：\(db_path)")
         let returnMsg = NSMutableArray()
         if sqlite3_open(db_path!.utf8String!, &db) != SQLITE_OK {
             sqlite3_close(db)
