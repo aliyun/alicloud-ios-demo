@@ -44,6 +44,8 @@
 
 - (NSString *)getIpByHostAsyncInURLFormat:(NSString *)host;
 
+- (void)setHTTPSRequestEnabled:(BOOL)enable;
+
 - (void)setExpiredIPEnabled:(BOOL)enable;
 
 - (void)setLogEnabled:(BOOL)enable;

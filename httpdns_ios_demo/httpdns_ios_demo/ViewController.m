@@ -35,13 +35,15 @@ static HttpDnsService *httpdns;
         NSURL *url = [NSURL URLWithString:originalUrl];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         
-        // 异步接口获取IP
-        // 为了适配IPv6的使用场景，我们使用 `-[HttpDnsService getIpByHostAsyncInURLFormat:]` 接口
-        //        // 注 * 当您使用IP形式的URL进行网络请求时，IPv4与IPv6的IP地址使用方式略有不同：
-        //        // IPv4: http://1.1.1.1/path
-        //        // IPv6: http://[2001:db8:c000:221::]/path
-        //        // 因此我们专门提供了适配URL格式的IP获取接口 `-[HttpDnsService getIpByHostAsyncInURLFormat:]`
-        //        // 如果您只是为了获取IP信息而已，可以直接使用 `-[HttpDnsService getIpByHostAsync:]`接口
+        /**
+        * 异步接口获取IP
+        * 为了适配IPv6的使用场景，我们使用 `-[HttpDnsService getIpByHostAsyncInURLFormat:]` 接口
+        * 注 * 当您使用IP形式的URL进行网络请求时，IPv4与IPv6的IP地址使用方式略有不同：
+        *         IPv4: http://1.1.1.1/path
+        *         IPv6: http://[2001:db8:c000:221::]/path
+        * 因此我们专门提供了适配URL格式的IP获取接口 `-[HttpDnsService getIpByHostAsyncInURLFormat:]`
+        * 如果您只是为了获取IP信息而已，可以直接使用 `-[HttpDnsService getIpByHostAsync:]`接口
+        *
         NSString *ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
         if (ip) {
             // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
