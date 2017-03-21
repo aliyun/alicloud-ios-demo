@@ -25,6 +25,8 @@ static HttpDnsService *httpdns;
     // 初始化HTTPDNS
     httpdns = [HttpDnsService sharedInstance];
     
+    //自定义超时时间，默认15秒
+    //httpdns.timeoutInterval = 15;
 
     // 异步网络请求
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

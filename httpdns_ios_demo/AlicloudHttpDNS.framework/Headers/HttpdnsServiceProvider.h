@@ -26,6 +26,8 @@
 
 @property (nonatomic, weak, setter=setDelegateForDegradationFilter:) id<HttpDNSDegradationDelegate> delegate;
 
+@property (nonatomic, assign) NSTimeInterval timeoutInterval;
+
 + (instancetype)sharedInstance;
 
 - (void)setPreResolveHosts:(NSArray *)hosts;
@@ -41,8 +43,6 @@
 - (NSArray *)getIpsByHostAsync:(NSString *)host;
 
 - (NSString *)getIpByHostAsyncInURLFormat:(NSString *)host;
-
-- (void)setHTTPSRequestEnabled:(BOOL)enable;
 
 - (void)setExpiredIPEnabled:(BOOL)enable;
 
