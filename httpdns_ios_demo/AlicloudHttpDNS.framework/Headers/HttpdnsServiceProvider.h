@@ -32,12 +32,6 @@
 
 - (void)setPreResolveHosts:(NSArray *)hosts;
 
-- (NSString *)getIpByHost:(NSString *)host;
-
-- (NSArray *)getIpsByHost:(NSString *)host;
-
-- (NSString *)getIpByHostInURLFormat:(NSString *)host;
-
 - (NSString *)getIpByHostAsync:(NSString *)host;
 
 - (NSArray *)getIpsByHostAsync:(NSString *)host;
