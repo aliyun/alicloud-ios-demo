@@ -48,3 +48,14 @@ mpush_ios_swift_demo[移动推送服务（Mobile Push）](https://www.aliyun.com
 let testAppKey = "******"
 let testAppSecret = "******"
 ```
+
+### feedback_ios_demo
+
+运行demo前请在 `YWLoginController.m`文件中填入您的账号信息：
+
+ ```Objective-C
+static NSString * const kAppKey = @"******";
+static NSString * const kAppSecret = @"******";
+ ```
+
+
