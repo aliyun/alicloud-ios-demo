@@ -3,7 +3,7 @@
 //  YWFeedbackDemo
 //
 //  Created by 慕桥（黄玉坤） on 16/1/21.
-//  Copyright (c) 2016年 taobao. All rights reserved.
+//  Copyright (c) 2016年 alibaba. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
