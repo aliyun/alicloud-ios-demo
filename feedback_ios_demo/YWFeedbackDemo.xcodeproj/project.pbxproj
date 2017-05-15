@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A5BF7D71EC1A257001588B2 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */; };
-		9A5BF7D91EC1A48B001588B2 /* YWFeedbackFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7D81EC1A48B001588B2 /* YWFeedbackFMWK.framework */; };
 		9A5BF7DB1EC1AED8001588B2 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */; };
+		9AF9A61B1EC5A5F70018063B /* YWFeedbackFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */; };
 		B3316C8E1C60884300186840 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8D1C60884300186840 /* CoreTelephony.framework */; };
 		B3316C901C60884A00186840 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8F1C60884A00186840 /* SystemConfiguration.framework */; };
 		B33283161C27F820006DB60A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B33283151C27F820006DB60A /* main.m */; };
@@ -40,8 +40,8 @@
 
 /* Begin PBXFileReference section */
 		9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudUtils.framework; sourceTree = "<group>"; };
-		9A5BF7D81EC1A48B001588B2 /* YWFeedbackFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YWFeedbackFMWK.framework; sourceTree = "<group>"; };
 		9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YWFeedbackFMWK.framework; sourceTree = "<group>"; };
 		B3316C8D1C60884300186840 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B3316C8F1C60884A00186840 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B33283111C27F820006DB60A /* YWFeedbackDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YWFeedbackDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,13 +87,13 @@
 			files = (
 				B3316C901C60884A00186840 /* SystemConfiguration.framework in Frameworks */,
 				9A5BF7DB1EC1AED8001588B2 /* libresolv.tbd in Frameworks */,
+				9AF9A61B1EC5A5F70018063B /* YWFeedbackFMWK.framework in Frameworks */,
 				FEF15E3A1DBDBB48002B7239 /* CoreMotion.framework in Frameworks */,
 				FE7BA7271D93E334004CA3F2 /* libsqlite3.tbd in Frameworks */,
 				FE2BAC671DAE241800D0BECA /* UTMini.framework in Frameworks */,
 				FEF15E391DBDB7D2002B7239 /* BCHybridWebViewFMWK.framework in Frameworks */,
 				B3316C8E1C60884300186840 /* CoreTelephony.framework in Frameworks */,
 				FE587B701D9BA92C00E21438 /* UTDID.framework in Frameworks */,
-				9A5BF7D91EC1A48B001588B2 /* YWFeedbackFMWK.framework in Frameworks */,
 				B34E8FC01C5B32A300BBA227 /* libz.tbd in Frameworks */,
 				FEF15E381DBDB7D2002B7239 /* BCConnectorBundle.framework in Frameworks */,
 				9A5BF7D71EC1A257001588B2 /* AlicloudUtils.framework in Frameworks */,
@@ -164,7 +164,7 @@
 		FE60EF8F1D5496AC00D67A40 /* BCFeedback */ = {
 			isa = PBXGroup;
 			children = (
-				9A5BF7D81EC1A48B001588B2 /* YWFeedbackFMWK.framework */,
+				9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */,
 				9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */,
 				FEF15E361DBDB7D2002B7239 /* BCConnectorBundle.framework */,
 				FEF15E371DBDB7D2002B7239 /* BCHybridWebViewFMWK.framework */,
@@ -243,7 +243,7 @@
 				TargetAttributes = {
 					B33283101C27F820006DB60A = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FG8P5PVEK6;
+						DevelopmentTeam = QBMN2BBW3K;
 					};
 				};
 			};
@@ -413,7 +413,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FG8P5PVEK6;
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,7 +447,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = FG8P5PVEK6;
+				DEVELOPMENT_TEAM = QBMN2BBW3K;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
