@@ -24,12 +24,6 @@
 		FE94F55E1DB86B5300C5044C /* YWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F55C1DB86B5300C5044C /* YWLoginController.m */; };
 		FE94F55F1DB86B5300C5044C /* YWLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE94F55D1DB86B5300C5044C /* YWLoginController.xib */; };
 		FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5621DB86B9400C5044C /* AVQRViewController.m */; };
-		FE94F5721DB86B9400C5044C /* icon-error.png in Resources */ = {isa = PBXBuildFile; fileRef = FE94F5651DB86B9400C5044C /* icon-error.png */; };
-		FE94F5731DB86B9400C5044C /* icon-error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE94F5661DB86B9400C5044C /* icon-error@2x.png */; };
-		FE94F5741DB86B9400C5044C /* icon-info.png in Resources */ = {isa = PBXBuildFile; fileRef = FE94F5671DB86B9400C5044C /* icon-info.png */; };
-		FE94F5751DB86B9400C5044C /* icon-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE94F5681DB86B9400C5044C /* icon-info@2x.png */; };
-		FE94F5761DB86B9400C5044C /* icon-success.png in Resources */ = {isa = PBXBuildFile; fileRef = FE94F5691DB86B9400C5044C /* icon-success.png */; };
-		FE94F5771DB86B9400C5044C /* icon-success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE94F56A1DB86B9400C5044C /* icon-success@2x.png */; };
 		FE94F5781DB86B9400C5044C /* TWMessageBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */; };
 		FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56E1DB86B9400C5044C /* UIAlertView+XY.m */; };
 		FE94F57A1DB86B9400C5044C /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5701DB86B9400C5044C /* UIButton+Badge.m */; };
@@ -63,12 +57,6 @@
 		FE94F55D1DB86B5300C5044C /* YWLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YWLoginController.xib; sourceTree = "<group>"; };
 		FE94F5611DB86B9400C5044C /* AVQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVQRViewController.h; sourceTree = "<group>"; };
 		FE94F5621DB86B9400C5044C /* AVQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVQRViewController.m; sourceTree = "<group>"; };
-		FE94F5651DB86B9400C5044C /* icon-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-error.png"; sourceTree = "<group>"; };
-		FE94F5661DB86B9400C5044C /* icon-error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-error@2x.png"; sourceTree = "<group>"; };
-		FE94F5671DB86B9400C5044C /* icon-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info.png"; sourceTree = "<group>"; };
-		FE94F5681DB86B9400C5044C /* icon-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info@2x.png"; sourceTree = "<group>"; };
-		FE94F5691DB86B9400C5044C /* icon-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success.png"; sourceTree = "<group>"; };
-		FE94F56A1DB86B9400C5044C /* icon-success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success@2x.png"; sourceTree = "<group>"; };
 		FE94F56B1DB86B9400C5044C /* TWMessageBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWMessageBarManager.h; sourceTree = "<group>"; };
 		FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageBarManager.m; sourceTree = "<group>"; };
 		FE94F56D1DB86B9400C5044C /* UIAlertView+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XY.h"; sourceTree = "<group>"; };
@@ -192,24 +180,10 @@
 		FE94F5631DB86B9400C5044C /* TWMessageBarManager */ = {
 			isa = PBXGroup;
 			children = (
-				FE94F5641DB86B9400C5044C /* Icons */,
 				FE94F56B1DB86B9400C5044C /* TWMessageBarManager.h */,
 				FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */,
 			);
 			path = TWMessageBarManager;
-			sourceTree = "<group>";
-		};
-		FE94F5641DB86B9400C5044C /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				FE94F5651DB86B9400C5044C /* icon-error.png */,
-				FE94F5661DB86B9400C5044C /* icon-error@2x.png */,
-				FE94F5671DB86B9400C5044C /* icon-info.png */,
-				FE94F5681DB86B9400C5044C /* icon-info@2x.png */,
-				FE94F5691DB86B9400C5044C /* icon-success.png */,
-				FE94F56A1DB86B9400C5044C /* icon-success@2x.png */,
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,14 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE101F061D702D0700853066 /* YWFeedbackBundle.bundle in Resources */,
-				FE94F5731DB86B9400C5044C /* icon-error@2x.png in Resources */,
-				FE94F5741DB86B9400C5044C /* icon-info.png in Resources */,
-				FE94F5751DB86B9400C5044C /* icon-info@2x.png in Resources */,
-				FE94F5761DB86B9400C5044C /* icon-success.png in Resources */,
-				FE94F5771DB86B9400C5044C /* icon-success@2x.png in Resources */,
 				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
 				FE94F55F1DB86B5300C5044C /* YWLoginController.xib in Resources */,
-				FE94F5721DB86B9400C5044C /* icon-error.png in Resources */,
 				B33283211C27F820006DB60A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
