@@ -1,0 +1,6 @@
+framework module AlicloudUtils {
+  umbrella header "AlicloudUtils.h"
+
+  export *
+  module * { export * }
+}

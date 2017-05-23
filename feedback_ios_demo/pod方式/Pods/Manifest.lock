@@ -1,0 +1,18 @@
+PODS:
+  - AlicloudFeedback (3.0.1):
+    - AlicloudUtils
+  - AlicloudUTDID (1.1.0.16)
+  - AlicloudUtils (1.1.7):
+    - AlicloudUTDID
+
+DEPENDENCIES:
+  - AlicloudFeedback (~> 3.0.1)
+
+SPEC CHECKSUMS:
+  AlicloudFeedback: 79f30ae7972292d142ad7fc2da186689a96d78f2
+  AlicloudUTDID: f5a7bc1420c5f83e3bd40296e5ab2e5a804a12f8
+  AlicloudUtils: 28729eba18437f58000afb7657c5499c751a0826
+
+PODFILE CHECKSUM: 99e64c1441ac7b8a5702d30875c13fa9e82e5895
+
+COCOAPODS: 1.2.1
