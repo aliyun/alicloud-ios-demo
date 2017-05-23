@@ -1,0 +1,11 @@
+platform :ios , '7.0'  
+# 指定 Master 仓库和阿里云仓库
+
+source 'https://github.com/aliyun/aliyun-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+# 添加依赖
+
+target 'FeedbackLibDemo' do
+ pod 'AlicloudFeedback', '~> 3.0.1'
+end
