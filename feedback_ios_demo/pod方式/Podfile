@@ -7,5 +7,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 # 添加依赖
 
 target 'FeedbackLibDemo' do
- pod 'AlicloudFeedback', '~> 3.0.1'
+ pod 'AlicloudFeedback', '~> 3.1.1’
 end
