@@ -38,6 +38,12 @@ typedef NS_ENUM(NSInteger, YWFeedbackKitErrorCode)
 /// @brief 业务方扩展反馈数据，在创建反馈页面前设置
 @property (nonatomic, strong, readwrite) NSDictionary *extInfo;
 
+/// @brief 如果不设置，默认为：`[UIFont boldSystemFontOfSize:13]`
+@property (nonatomic, strong) UIFont *defaultCloseButtonTitleFont;
+
+/// @brief 如果不设置，默认为：`[UIFont boldSystemFontOfSize:13]`
+@property (nonatomic, strong) UIFont *defaultRightBarButtonItemTitleFont;
+
 /// @brief 获取当前SDK版本号
 + (NSString *)version;
 
