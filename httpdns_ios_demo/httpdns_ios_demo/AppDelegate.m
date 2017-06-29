@@ -19,16 +19,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // 初始化HTTPDNS
-    HttpDnsService *httpdns = [HttpDnsService sharedInstance];
-    
     // 设置AccoutID
-    [httpdns setAccountID:139450];
+    HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:139450];
+    
     // 为HTTPDNS服务设置降级机制
     [httpdns setDelegateForDegradationFilter:(id < HttpDNSDegradationDelegate >)self];
     // 允许返回过期的IP
     [httpdns setExpiredIPEnabled:YES];
     // 打开HTTPDNS Log，线上建议关闭
-    //[httpdns setLogEnabled:YES];
+    [httpdns setLogEnabled:YES];
     /*
      *  设置HTTPDNS域名解析请求类型(HTTP/HTTPS)，若不调用该接口，默认为HTTP请求；
      *  SDK内部HTTP请求基于CFNetwork实现，不受ATS限制。
