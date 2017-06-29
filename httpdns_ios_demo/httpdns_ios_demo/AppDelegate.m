@@ -10,7 +10,7 @@
 #import "NetworkManager.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()< HttpDNSDegradationDelegate >
 
 @end
 
@@ -23,7 +23,7 @@
     HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:139450];
     
     // 为HTTPDNS服务设置降级机制
-    [httpdns setDelegateForDegradationFilter:(id < HttpDNSDegradationDelegate >)self];
+    [httpdns setDelegateForDegradationFilter:self];
     // 允许返回过期的IP
     [httpdns setExpiredIPEnabled:YES];
     // 打开HTTPDNS Log，线上建议关闭
