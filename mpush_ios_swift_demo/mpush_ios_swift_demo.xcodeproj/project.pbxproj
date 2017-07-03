@@ -18,7 +18,6 @@
 		4AB162A41DBF0A3D00BAF4CA /* MPushInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB1629F1DBF0A3D00BAF4CA /* MPushInfoViewController.swift */; };
 		4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */; };
 		4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */; };
-		4AB162AB1DBF0A5900BAF4CA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162A81DBF0A5900BAF4CA /* Base.lproj */; };
 		4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */; };
 		4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AA1DBF0A5900BAF4CA /* Info.plist */; };
 		4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */; };
@@ -80,7 +79,6 @@
 		4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPushSettingsViewController.swift; path = mpush_ios_swift_demo/MPushSettingsViewController.swift; sourceTree = "<group>"; };
 		4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = mpush_ios_swift_demo/AppDelegate.swift; sourceTree = "<group>"; };
 		4AB162A21DBF0A3D00BAF4CA /* mpush_ios_swift_demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "mpush_ios_swift_demo-Bridging-Header.h"; path = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h"; sourceTree = "<group>"; };
-		4AB162A81DBF0A5900BAF4CA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = mpush_ios_swift_demo/Base.lproj; sourceTree = "<group>"; };
 		4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = mpush_ios_swift_demo/Assets.xcassets; sourceTree = "<group>"; };
 		4AB162AA1DBF0A5900BAF4CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mpush_ios_swift_demo/Info.plist; sourceTree = "<group>"; };
 		4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = mpush_ios_swift_demo/Main.storyboard; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */,
-				4AB162A81DBF0A5900BAF4CA /* Base.lproj */,
 				4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */,
 				4AB162AA1DBF0A5900BAF4CA /* Info.plist */,
 			);
@@ -383,7 +380,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */,
-				4AB162AB1DBF0A5900BAF4CA /* Base.lproj in Resources */,
 				4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */,
 				4AB162B11DBF0AAD00BAF4CA /* LaunchScreen.storyboard in Resources */,
 				4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */,
