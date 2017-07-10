@@ -4,11 +4,10 @@
 
 ### oss_ios_demo
 oss_ios_demo给出了[对象存储OSS](https://www.aliyun.com/product/oss) iOS SDK的使用示例。
-运行demo前请在`AliyunOSSDemo.m`文件中填入您的账号信息（仅用于测试，其他鉴权模式参考demo中的credential实现）：
+运行demo前请在`AliyunOSSDemo.m`文件中填入您的STS信息
 
 ```
-NSString * const AccessKey = @"******";
-NSString * const SecretKey = @"******";
+id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId:@"AccessKeyId" secretKeyId:@"AccessKeySecret" securityToken:@"SecurityToken"];
 ```
 
 ### man_ios_demo

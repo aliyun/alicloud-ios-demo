@@ -9,8 +9,6 @@
 #import "AliyunOSSDemo.h"
 #import <AliyunOSSiOS/OSSService.h>
 
-NSString * const AccessKey = @"*********";
-NSString * const SecretKey = @"*****************";
 NSString * const endPoint = @"https://oss-cn-hangzhou.aliyuncs.com";
 NSString * const multipartUploadKey = @"multipartUploadObject";
 
@@ -122,9 +120,9 @@ static dispatch_queue_t queue4demo;
 
 - (void)initOSSClient {
 
-    id<OSSCredentialProvider> credential = [[OSSPlainTextAKSKPairCredentialProvider alloc] initWithPlainTextAccessKey:AccessKey
-                                                                                                            secretKey:SecretKey];
-
+    id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId:@"AccessKeyId" secretKeyId:@"AccessKeySecret" securityToken:@"SecurityToken"];
+    
+    
     // 自实现签名，可以用本地签名也可以远程加签
     id<OSSCredentialProvider> credential1 = [[OSSCustomSignerCredentialProvider alloc] initWithImplementedSigner:^NSString *(NSString *contentToSign, NSError *__autoreleasing *error) {
         NSString *signature = [OSSUtil calBase64Sha1WithData:contentToSign withSecret:@"<your secret key>"];
