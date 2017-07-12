@@ -25,12 +25,30 @@
 @interface HttpDnsService: NSObject
 
 @property (nonatomic, assign, readonly) int accountID;
-
+@property (nonatomic, copy, readonly) NSString *secretKey;
 @property (nonatomic, weak, setter=setDelegateForDegradationFilter:) id<HttpDNSDegradationDelegate> delegate;
 
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
 - (instancetype)initWithAccountID:(int)accountID;
+
+/*!
+ * @brief 启用鉴权功能的初始化接口
+ * @details 初始化、开启鉴权功能，并设置 HTTPDNS 服务 Account ID，鉴权功能对应的 secretKey。
+ *          您可以从控制台获取您的 Account ID 、secretKey 信息。
+ *          此方法会初始化为单例。
+ * @param accountId 您的 HTTPDNS Account ID
+ * @param secretKey 鉴权对应的 secretKey
+ */
+- (instancetype)initWithAccountID:(int)accountID secretKey:(NSString *)secretKey;
+
+/*!
+ * @brief 校正 App 签名时间
+ * @param authCurrentTime 用于校正的时间戳，正整数。 
+ * @details 不进行该操作，将以设备时间为准，为`(NSUInteger)[[NSDate date] timeIntervalSince1970]`。进行该操作后，如果有偏差，每次网络请求都会对设备时间进行矫正。
+ * @attention 校正操作在 APP 的一个生命周期内生效，APP 重启后需要重新设置才能重新生效。可以重复设置。
+ */
+- (void)setAuthCurrentTime:(NSUInteger)authCurrentTime;
 
 + (instancetype)sharedInstance;
 
