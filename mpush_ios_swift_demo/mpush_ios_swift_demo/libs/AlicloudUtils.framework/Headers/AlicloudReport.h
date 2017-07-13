@@ -9,13 +9,19 @@
 #ifndef AlicloudReport_h
 #define AlicloudReport_h
 
+extern const NSString *EXT_INFO_KEY_VERSION;
+extern const NSString *EXT_INFO_KEY_PACKAGE;
+
 // SDK标识
 typedef NS_ENUM(NSInteger, AMSService) {
     AMSMAN  = 0,
     AMSHTTPDNS,
     AMSMPUSH,
     AMSMAC,
-    AMSAPI
+    AMSAPI,
+    AMSHOTFIX,
+    AMSFEEDBACK,
+    AMSIM
 };
 
 // 上报状态
@@ -32,6 +38,14 @@ typedef NS_ENUM(NSInteger, AMSReportStatus) {
  @param tag SDK标识
  */
 + (void)statAsync:(AMSService)tag;
+
+/**
+ *  异步上报活跃设备统计并携带附加信息
+ *
+ @param tag SDK标识
+ @param extInfo 附加上报信息    { EXT_INFO_KEY_VERSION :"x.x.x", EXT_INFO_KEY_PACKAGE: "xxx"}
+ */
++ (void)statAsync:(AMSService)tag extInfo:(NSDictionary *)extInfo;
 
 /**
  * 获取指定SDK标识上报状态
