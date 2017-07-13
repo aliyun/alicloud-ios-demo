@@ -56,7 +56,7 @@
     
     LZLPersonalData *connectUS = [[LZLPersonalData alloc] init];
     connectUS.itemName = @"联系我们";
-    connectUS.itemValue = @"Demo App相关问题\n 请在阿里旺旺或旺信中搜索淘宝旺旺群：\n 1360183878";
+    connectUS.itemValue = @"Demo App相关问题\n 请搜索钉钉客户支持群：\n 11795523";
     
     [[self personalDataItems] addObject:connectUS];
     [[self personalDataItems] addObject:deviceid];

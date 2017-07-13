@@ -1,0 +1,22 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
+target 'mpush_ios_demo' do
+
+pod 'AlicloudPush', '~> 1.9.2'
+
+end
+
+target 'mpush_service_extension' do
+
+end
+
+target 'mpush_content_extension' do
+
+end
+

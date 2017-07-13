@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A25DD791F17220600FD539A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A25DD781F17220500FD539A /* libsqlite3.tbd */; };
 		4A383CC31DB8649B0037D863 /* aliyun-logo-local.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A383CC21DB8649B0037D863 /* aliyun-logo-local.png */; };
-		4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */; };
+		4A4E20381F172F130087A89E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4E20371F172F130087A89E /* libz.tbd */; };
 		4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554E01CEEC7E900F64F49 /* libresolv.tbd */; };
 		4AC713381DB60DF30062EE5A /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC713371DB60DF30062EE5A /* NotificationService.m */; };
 		4AC7133C1DB60DF30062EE5A /* mpush_service_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AC713341DB60DF30062EE5A /* mpush_service_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -17,8 +18,7 @@
 		4AC7134D1DB60E0B0062EE5A /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7134C1DB60E0B0062EE5A /* NotificationViewController.m */; };
 		4AC713501DB60E0B0062EE5A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7134E1DB60E0B0062EE5A /* MainInterface.storyboard */; };
 		4AC713541DB60E0B0062EE5A /* mpush_content_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AC713451DB60E0B0062EE5A /* mpush_content_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */; };
-		5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707F99F1B28186F00D29DA5 /* UTDID.framework */; };
+		87A04A649B698FF5F830B87A /* libPods-mpush_service_extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1E4C4FC89695923AB6E76B /* libPods-mpush_service_extension.a */; };
 		C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D151ACED5B70094FCEC /* FAImageView.m */; };
 		C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D171ACED5B70094FCEC /* NSString+FontAwesome.m */; };
 		C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9102D1A1ACED5B70094FCEC /* FontAwesome.ttf */; };
@@ -29,10 +29,8 @@
 		C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91A23891ACA36E700E0E33D /* Main.storyboard */; };
 		C93E19B41ACB95F600A90F3B /* LZLMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19B31ACB95F600A90F3B /* LZLMessagesViewController.m */; };
 		C93E19BF1ACBD0E800A90F3B /* LZLPushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */; };
-		C93E19C11ACBD45E00A90F3B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C93E19C01ACBD45E00A90F3B /* libsqlite3.dylib */; };
 		C93E19C41ACBD4B000A90F3B /* PushMessageDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */; };
 		C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */; };
-		C95EFDFE1ACA98D20082CF70 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFD1ACA98D20082CF70 /* libz.dylib */; };
 		C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */; };
 		C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */; };
 		C95EFE071ACAE2C80082CF70 /* LZLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE061ACAE2C80082CF70 /* LZLSettingsViewController.m */; };
@@ -46,6 +44,8 @@
 		C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99E76701AC96B8B000BC567 /* LaunchScreen.xib */; };
 		C9C301161ADBA55000BF3288 /* ued.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C9C301151ADBA55000BF3288 /* ued.sqlite */; };
 		C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D939321ACA77F7007E7BE6 /* Images.xcassets */; };
+		D26215C6598ACF9A26D93913 /* libPods-mpush_ios_demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE66238AAFD5DE71B1C15ACF /* libPods-mpush_ios_demo.a */; };
+		D92F51A25256CBA0E97195AB /* libPods-mpush_content_extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DF75624F21963B82D37AF1 /* libPods-mpush_content_extension.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +81,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0AB59745C9BF52DCD9081D29 /* Pods-mpush_service_extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_service_extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_service_extension/Pods-mpush_service_extension.debug.xcconfig"; sourceTree = "<group>"; };
+		14DF75624F21963B82D37AF1 /* libPods-mpush_content_extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpush_content_extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F1E4C4FC89695923AB6E76B /* libPods-mpush_service_extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpush_service_extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A25DD781F17220500FD539A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4A383CC21DB8649B0037D863 /* aliyun-logo-local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aliyun-logo-local.png"; sourceTree = "<group>"; };
-		4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = lib/AlicloudUtils.framework; sourceTree = "<group>"; };
+		4A4E20371F172F130087A89E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4A9554E01CEEC7E900F64F49 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		4AC7132F1DB5E9270062EE5A /* mpush_ios_demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mpush_ios_demo.entitlements; sourceTree = "<group>"; };
 		4AC713341DB60DF30062EE5A /* mpush_service_extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpush_service_extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +100,12 @@
 		4AC7134C1DB60E0B0062EE5A /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		4AC7134F1DB60E0B0062EE5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4AC713511DB60E0B0062EE5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = lib/CloudPushSDK.framework; sourceTree = "<group>"; };
-		5707F99F1B28186F00D29DA5 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = lib/UTDID.framework; sourceTree = "<group>"; };
+		6FD2E368F80DF3B60364CE69 /* Pods-mpush_service_extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_service_extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_service_extension/Pods-mpush_service_extension.release.xcconfig"; sourceTree = "<group>"; };
+		73C43E4F695D2EED0E03910F /* Pods-mpush_ios_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_ios_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_ios_demo/Pods-mpush_ios_demo.release.xcconfig"; sourceTree = "<group>"; };
+		8714BF2A41667511066F4C15 /* Pods-mpush_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_ios_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_ios_demo/Pods-mpush_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
+		90A0D459DAFF37CC0B244CA6 /* Pods-mpush_content_extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_content_extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_content_extension/Pods-mpush_content_extension.debug.xcconfig"; sourceTree = "<group>"; };
+		AE66238AAFD5DE71B1C15ACF /* libPods-mpush_ios_demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpush_ios_demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC42A3C3C051DA77AC402804 /* Pods-mpush_content_extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_content_extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-mpush_content_extension/Pods-mpush_content_extension.release.xcconfig"; sourceTree = "<group>"; };
 		C9102D141ACED5B70094FCEC /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		C9102D151ACED5B70094FCEC /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
 		C9102D161ACED5B70094FCEC /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -116,11 +124,9 @@
 		C93E19B31ACB95F600A90F3B /* LZLMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLMessagesViewController.m; sourceTree = "<group>"; };
 		C93E19BD1ACBD0E800A90F3B /* LZLPushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLPushMessage.h; sourceTree = "<group>"; };
 		C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLPushMessage.m; sourceTree = "<group>"; };
-		C93E19C01ACBD45E00A90F3B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C93E19C21ACBD4B000A90F3B /* PushMessageDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessageDAO.h; sourceTree = "<group>"; };
 		C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessageDAO.m; sourceTree = "<group>"; };
 		C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		C95EFDFD1ACA98D20082CF70 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C95EFE051ACAE2C80082CF70 /* LZLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLSettingsViewController.h; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A04A649B698FF5F830B87A /* libPods-mpush_service_extension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +163,7 @@
 			files = (
 				4AC713491DB60E0B0062EE5A /* UserNotificationsUI.framework in Frameworks */,
 				4AC713471DB60E0B0062EE5A /* UserNotifications.framework in Frameworks */,
+				D92F51A25256CBA0E97195AB /* libPods-mpush_content_extension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,17 +171,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C95EFDFE1ACA98D20082CF70 /* libz.dylib in Frameworks */,
+				4A4E20381F172F130087A89E /* libz.tbd in Frameworks */,
+				4A25DD791F17220600FD539A /* libsqlite3.tbd in Frameworks */,
 				4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */,
-				C93E19C11ACBD45E00A90F3B /* libsqlite3.dylib in Frameworks */,
 				C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */,
 				C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */,
 				C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */,
 				C96D707F1ACC490300B3D76B /* CoreGraphics.framework in Frameworks */,
 				C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */,
-				5707F9A51B28186F00D29DA5 /* CloudPushSDK.framework in Frameworks */,
-				4A9554DF1CEEC7E200F64F49 /* AlicloudUtils.framework in Frameworks */,
-				5707F9A61B28186F00D29DA5 /* UTDID.framework in Frameworks */,
+				D26215C6598ACF9A26D93913 /* libPods-mpush_ios_demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,22 +208,37 @@
 			path = mpush_content_extension;
 			sourceTree = "<group>";
 		};
+		795163F2344A2BBF9E517325 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90A0D459DAFF37CC0B244CA6 /* Pods-mpush_content_extension.debug.xcconfig */,
+				BC42A3C3C051DA77AC402804 /* Pods-mpush_content_extension.release.xcconfig */,
+				8714BF2A41667511066F4C15 /* Pods-mpush_ios_demo.debug.xcconfig */,
+				73C43E4F695D2EED0E03910F /* Pods-mpush_ios_demo.release.xcconfig */,
+				0AB59745C9BF52DCD9081D29 /* Pods-mpush_service_extension.debug.xcconfig */,
+				6FD2E368F80DF3B60364CE69 /* Pods-mpush_service_extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A4E20371F172F130087A89E /* libz.tbd */,
+				4A25DD781F17220500FD539A /* libsqlite3.tbd */,
 				4A9554E01CEEC7E900F64F49 /* libresolv.tbd */,
-				4A9554DE1CEEC7E200F64F49 /* AlicloudUtils.framework */,
 				C9102D131ACED5B70094FCEC /* FontAwesome+iOS */,
 				C9102D1F1ACED5B70094FCEC /* KoaPullToRefresh */,
 				C96D707E1ACC490300B3D76B /* CoreGraphics.framework */,
 				C96D707C1ACC48F600B3D76B /* QuartzCore.framework */,
-				C93E19C01ACBD45E00A90F3B /* libsqlite3.dylib */,
 				C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */,
 				C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */,
-				C95EFDFD1ACA98D20082CF70 /* libz.dylib */,
 				C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */,
 				4AC713461DB60E0B0062EE5A /* UserNotifications.framework */,
 				4AC713481DB60E0B0062EE5A /* UserNotificationsUI.framework */,
+				14DF75624F21963B82D37AF1 /* libPods-mpush_content_extension.a */,
+				AE66238AAFD5DE71B1C15ACF /* libPods-mpush_ios_demo.a */,
+				2F1E4C4FC89695923AB6E76B /* libPods-mpush_service_extension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -333,14 +354,13 @@
 		C99E76521AC96B8B000BC567 = {
 			isa = PBXGroup;
 			children = (
-				5707F99E1B28186F00D29DA5 /* CloudPushSDK.framework */,
-				5707F99F1B28186F00D29DA5 /* UTDID.framework */,
 				C9C301151ADBA55000BF3288 /* ued.sqlite */,
 				C99E765D1AC96B8B000BC567 /* mpush_ios_demo */,
 				4AC713351DB60DF30062EE5A /* mpush_service_extension */,
 				4AC7134A1DB60E0B0062EE5A /* mpush_content_extension */,
 				C99E765C1AC96B8B000BC567 /* Products */,
 				C1DC29A7E60223AA9A35ED93 /* Frameworks */,
+				795163F2344A2BBF9E517325 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,9 +408,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AC7133D1DB60DF30062EE5A /* Build configuration list for PBXNativeTarget "mpush_service_extension" */;
 			buildPhases = (
+				B0BB7E2162BDC74111040890 /* [CP] Check Pods Manifest.lock */,
 				4AC713301DB60DF30062EE5A /* Sources */,
 				4AC713311DB60DF30062EE5A /* Frameworks */,
 				4AC713321DB60DF30062EE5A /* Resources */,
+				4CFB0FEE344F8094A55E8E0D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,9 +427,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AC713551DB60E0B0062EE5A /* Build configuration list for PBXNativeTarget "mpush_content_extension" */;
 			buildPhases = (
+				82F46E130C11F66172431615 /* [CP] Check Pods Manifest.lock */,
 				4AC713411DB60E0B0062EE5A /* Sources */,
 				4AC713421DB60E0B0062EE5A /* Frameworks */,
 				4AC713431DB60E0B0062EE5A /* Resources */,
+				12F29ED9E9037F8D434E8750 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -422,10 +446,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C99E76811AC96B8B000BC567 /* Build configuration list for PBXNativeTarget "mpush_ios_demo" */;
 			buildPhases = (
+				296748F3AD1234AFB6552D60 /* [CP] Check Pods Manifest.lock */,
 				C99E76571AC96B8B000BC567 /* Sources */,
 				C99E76581AC96B8B000BC567 /* Frameworks */,
 				C99E76591AC96B8B000BC567 /* Resources */,
 				4AC713401DB60DF30062EE5A /* Embed App Extensions */,
+				5E8E5E4FEE1707FB3AE1D4A8 /* [CP] Embed Pods Frameworks */,
+				32E6BB5C503C5896A96935DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -522,6 +549,114 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12F29ED9E9037F8D434E8750 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpush_content_extension/Pods-mpush_content_extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		296748F3AD1234AFB6552D60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		32E6BB5C503C5896A96935DE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpush_ios_demo/Pods-mpush_ios_demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CFB0FEE344F8094A55E8E0D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpush_service_extension/Pods-mpush_service_extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E8E5E4FEE1707FB3AE1D4A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mpush_ios_demo/Pods-mpush_ios_demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82F46E130C11F66172431615 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B0BB7E2162BDC74111040890 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4AC713301DB60DF30062EE5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -598,6 +733,7 @@
 /* Begin XCBuildConfiguration section */
 		4AC7133E1DB60DF30062EE5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AB59745C9BF52DCD9081D29 /* Pods-mpush_service_extension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -620,6 +756,7 @@
 		};
 		4AC7133F1DB60DF30062EE5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FD2E368F80DF3B60364CE69 /* Pods-mpush_service_extension.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -641,6 +778,7 @@
 		};
 		4AC713561DB60E0B0062EE5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90A0D459DAFF37CC0B244CA6 /* Pods-mpush_content_extension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -663,6 +801,7 @@
 		};
 		4AC713571DB60E0B0062EE5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC42A3C3C051DA77AC402804 /* Pods-mpush_content_extension.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -762,6 +901,7 @@
 		};
 		C99E76821AC96B8B000BC567 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8714BF2A41667511066F4C15 /* Pods-mpush_ios_demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = mpush_ios_demo/mpush_ios_demo.entitlements;
@@ -771,15 +911,16 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mpush_ios_demo/Frameworks",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/lib",
 				);
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"${inherited}",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.pushdemo;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
@@ -789,6 +930,7 @@
 		};
 		C99E76831AC96B8B000BC567 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73C43E4F695D2EED0E03910F /* Pods-mpush_ios_demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = mpush_ios_demo/mpush_ios_demo.entitlements;
@@ -798,14 +940,15 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mpush_ios_demo/Frameworks",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/lib",
 				);
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"${inherited}",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.pushdemo;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
