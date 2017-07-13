@@ -10,7 +10,8 @@
 #import "CCPSysMessage.h"
 #import "MPGerneralDefinition.h"
 
-#define MPUSH_IOS_SDK_VERSION @"1.9.0"
+// SDK版本号
+#define MPUSH_IOS_SDK_VERSION @"1.9.2"
 
 @interface CloudPushSDK : NSObject
 
@@ -31,7 +32,7 @@
 + (void)turnOnDebug;
 
 /**
- *	获取本机的deviceId (以设备为粒度推送时，deviceId为设备的标识)
+ *	获取本机的deviceId (deviceId为推送系统的设备标识)
  *
  *	@return deviceId
  */
@@ -63,14 +64,14 @@
  *	v1.8.1版本之后，由sendNotificationAck替代
  *	@param 	launchOptions   通知相关信息
  */
-+ (void)handleLaunching:(NSDictionary *)launchOptions;
++ (void)handleLaunching:(NSDictionary *)launchOptions DEPRECATED_MSG_ATTRIBUTE("Use 'sendNotificationAck:' instead");
 
 /**
  *	返回推送通知ACK到服务器 (该通知为App处于开启状态时接收)
  *	v1.8.1版本之后，由sendNotificationAck替代
  *	@param 	userInfo    通知相关信息
  */
-+ (void)handleReceiveRemoteNotification:(NSDictionary *)userInfo;
++ (void)handleReceiveRemoteNotification:(NSDictionary *)userInfo DEPRECATED_MSG_ATTRIBUTE("Use 'sendNotificationAck:' instead");
 
 /**
  *	绑定账号
