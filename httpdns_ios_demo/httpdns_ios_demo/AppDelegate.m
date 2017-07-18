@@ -21,7 +21,9 @@
     // 初始化HTTPDNS
     // 设置AccoutID
     HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:139450];
-    
+    //鉴权方式初始化
+    //HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:0000 secretKey:@"XXXX"];
+
     // 为HTTPDNS服务设置降级机制
     [httpdns setDelegateForDegradationFilter:self];
     // 允许返回过期的IP
