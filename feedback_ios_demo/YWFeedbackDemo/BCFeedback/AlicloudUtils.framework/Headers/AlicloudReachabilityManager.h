@@ -23,8 +23,6 @@ typedef enum {
 
 /**
  *  获取Reachability单例对象
- *
- *  @return 
  */
 + (AlicloudReachabilityManager *)shareInstance;
 
@@ -32,31 +30,32 @@ typedef enum {
  *  获取Reachability单例对象，为保证全局维护一个netInfo实例，可从外部传入netInfo对象的引用
  *  warn: netInfo多次实例化，有一定几率crash
  *
- *  @param netInfo
- *
- *  @return
  */
 + (AlicloudReachabilityManager *)shareInstanceWithNetInfo:(CTTelephonyNetworkInfo *)netInfo;
 
 /**
- *	@brief	返回当前网络状态(同步调用，可能会阻塞调用线程)
- *
- *	@return
+ *	返回当前网络状态(同步调用，可能会阻塞调用线程)
  */
 - (AlicloudNetworkStatus)currentNetworkStatus;
 
 /**
- *	@brief	返回之前网络状态
- *
- *	@return
+ *	返回之前网络状态
  */
 - (AlicloudNetworkStatus)preNetworkStatus;
 
 /**
- *	@brief	检测网络是否连通(同步调用，阻塞调用线程)
- *
- *	@return
+ *	检测网络是否连通(同步调用，阻塞调用线程)
  */
 - (BOOL)checkInternetConnection;
+
+/**
+ *	检测Wifi网络是否联通
+ */
+- (BOOL)isReachableViaWifi;
+
+/**
+ *	检测蜂窝网络是否联通
+ */
+- (BOOL)isReachableViaWWAN;
 
 @end
