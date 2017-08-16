@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UT/UTCustomHitBuilder.h>
+#import <UTMini/UTCustomHitBuilder.h>
 //#import "UTCustomHitBuilder.h"
 
 @interface ALBBMANCustomHitBuilder : UTCustomHitBuilder

@@ -2,9 +2,10 @@
 //  ALBBMAN.h
 //
 //  Created by nanpo.yhl on 15/7/7.
+//  Modified by yuhan.wyh on 17/07/17
 //  Copyright (c) 2015年  nanpo.yhl. All rights reserved.
 //
-#define MAN_IOS_SDK_VERSION 1.0.7
+#define MAN_IOS_SDK_VERSION 1.0.10
 
 #import "ALBBMANLog.h"
 #import "ALBBMANAnalytics.h"
