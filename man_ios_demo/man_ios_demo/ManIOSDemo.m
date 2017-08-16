@@ -227,13 +227,10 @@
 
 /**
  *	@brief	
-    crashHandler关闭和回调设置，见文档5.3
+    crashHandler关闭设置，见文档5.3
  */
 - (void)crashHandler {
     ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
-    // 设置crash回调方法
-    TestCrashCaught *crashCaught = [[TestCrashCaught alloc] init];
-    [man setCrashCaughtListener:crashCaught];
     // 关闭crashHandler
     [man turnOffCrashHandler];
 }

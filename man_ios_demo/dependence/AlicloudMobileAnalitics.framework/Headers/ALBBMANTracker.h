@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UT/UTTracker.h>
+#import <UTMini/UTTracker.h>
 
 @interface ALBBMANTracker : UTTracker
 
--(id) initWithTrackId:(NSString *) pTrackId;
+- (id) initWithAppKey:(NSString *)appKey;
 
 -(void) setGlobalProperty:(NSString *) pKey value:(NSString *) pValue;
 
