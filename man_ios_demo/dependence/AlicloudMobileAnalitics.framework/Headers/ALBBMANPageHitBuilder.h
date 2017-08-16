@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UT/UTPageHitBuilder.h>
+#import <UTMini/UTPageHitBuilder.h>
 
 @interface ALBBMANPageHitBuilder : UTPageHitBuilder
 

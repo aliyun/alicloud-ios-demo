@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UT/UTICrashCaughtListener.h>
+#import <UTMini/UTICrashCaughtListener.h>
 
 @protocol ALBBMANICrashCaughtListener <UTICrashCaughtListener>
 
