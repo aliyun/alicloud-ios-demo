@@ -14,7 +14,6 @@
 		4ADB84EC1C5E572900E85A3D /* ManIOSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */; };
 		5460C6B51E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C6B11E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework */; };
 		5460C6B61E0A2402007A0AB4 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C6B21E0A2402007A0AB4 /* AlicloudUtils.framework */; };
-		5460C6B71E0A2402007A0AB4 /* UT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C6B31E0A2402007A0AB4 /* UT.framework */; };
 		5460C6B81E0A2402007A0AB4 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C6B41E0A2402007A0AB4 /* UTDID.framework */; };
 		F7590ADE1BC8DD77009C8B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590ADD1BC8DD77009C8B08 /* main.m */; };
 		F7590AE11BC8DD77009C8B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590AE01BC8DD77009C8B08 /* AppDelegate.m */; };
@@ -26,6 +25,9 @@
 		F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */; };
 		F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */; };
 		F7590B1A1BC8E97A009C8B08 /* MANClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590B191BC8E97A009C8B08 /* MANClientRequest.m */; };
+		FAF712711F441E5C004E8172 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF7126F1F441E5C004E8172 /* CrashReporter.framework */; };
+		FAF712721F441E5C004E8172 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF712701F441E5C004E8172 /* UTMini.framework */; };
+		FAF712751F441EAF004E8172 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF712741F441EAF004E8172 /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +51,6 @@
 		4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManIOSDemo.m; sourceTree = "<group>"; };
 		5460C6B11E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
 		5460C6B21E0A2402007A0AB4 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudUtils.framework; sourceTree = "<group>"; };
-		5460C6B31E0A2402007A0AB4 /* UT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UT.framework; sourceTree = "<group>"; };
 		5460C6B41E0A2402007A0AB4 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
 		F7590AD81BC8DD77009C8B08 /* man_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = man_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7590ADC1BC8DD77009C8B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +69,9 @@
 		F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F7590B181BC8E97A009C8B08 /* MANClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANClientRequest.h; sourceTree = "<group>"; };
 		F7590B191BC8E97A009C8B08 /* MANClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANClientRequest.m; sourceTree = "<group>"; };
+		FAF7126F1F441E5C004E8172 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
+		FAF712701F441E5C004E8172 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		FAF712741F441EAF004E8172 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,14 +79,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF712751F441EAF004E8172 /* libsqlite3.0.tbd in Frameworks */,
 				5460C6B51E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework in Frameworks */,
-				5460C6B71E0A2402007A0AB4 /* UT.framework in Frameworks */,
 				4A77BDFD1CA8AF0800C18615 /* libz.tbd in Frameworks */,
+				FAF712721F441E5C004E8172 /* UTMini.framework in Frameworks */,
 				4A50183F1CF01E8A0055433B /* libresolv.tbd in Frameworks */,
 				F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */,
 				5460C6B81E0A2402007A0AB4 /* UTDID.framework in Frameworks */,
 				F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */,
 				5460C6B61E0A2402007A0AB4 /* AlicloudUtils.framework in Frameworks */,
+				FAF712711F441E5C004E8172 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +109,7 @@
 				F7590ADA1BC8DD77009C8B08 /* man_ios_demo */,
 				F7590AF41BC8DD77009C8B08 /* man_ios_demoTests */,
 				F7590AD91BC8DD77009C8B08 /* Products */,
+				FAF712731F441EAF004E8172 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,9 +174,10 @@
 		F7590B011BC8E115009C8B08 /* dependence */ = {
 			isa = PBXGroup;
 			children = (
+				FAF7126F1F441E5C004E8172 /* CrashReporter.framework */,
+				FAF712701F441E5C004E8172 /* UTMini.framework */,
 				5460C6B11E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework */,
 				5460C6B21E0A2402007A0AB4 /* AlicloudUtils.framework */,
-				5460C6B31E0A2402007A0AB4 /* UT.framework */,
 				5460C6B41E0A2402007A0AB4 /* UTDID.framework */,
 				4A77BDFB1CA80A1F00C18615 /* libz.tbd */,
 				4A50183E1CF01E8A0055433B /* libresolv.tbd */,
@@ -177,6 +185,14 @@
 				F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */,
 			);
 			path = dependence;
+			sourceTree = "<group>";
+		};
+		FAF712731F441EAF004E8172 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAF712741F441EAF004E8172 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
