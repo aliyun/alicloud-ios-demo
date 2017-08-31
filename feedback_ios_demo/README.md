@@ -1,24 +1,22 @@
-# # 移动用户反馈 Demo iOS 版
+# 移动用户反馈 Demo iOS 版
 
 
 
 <p align="center">
-
 <a href=""><img src="https://img.shields.io/badge/platform-iOS-brightgreen.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/pod-support-brightgreen.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/Swift-compatible-orange.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/language-ObjC-orange.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
-
 </p>
 
 
+<div align="center">
 
-![](Image/feedback_product_logo.png)
+<img src="Image/feedback_product_logo.png">
+
+</div>
+
 
 
 
@@ -136,8 +134,8 @@ Demo的结构如下：做下说明：
 ## 联系我们
 
  
-官网：移动用户反馈[《移动用户反馈》]( https://help.aliyun.com/document_detail/53145.html?spm=5176.doc53324.6.555.KEwgHA ) 
-钉钉技术支持：11777313（钉钉群号）
-官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 ) 
+ - 官网：移动用户反馈[《移动用户反馈》]( https://help.aliyun.com/document_detail/53145.html?spm=5176.doc53324.6.555.KEwgHA ) 
+ - 钉钉技术支持：11711519（钉钉群号）
+ - 官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 ) 
 
 
