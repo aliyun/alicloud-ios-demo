@@ -1,24 +1,24 @@
-# # HTTPDNS Demo iOS 版
+# HTTPDNS Demo iOS 版
 
 
 
 <p align="center">
 
 <a href=""><img src="https://img.shields.io/badge/platform-iOS-brightgreen.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/pod-support-brightgreen.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/Swift-compatible-orange.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/language-ObjC-orange.svg"></a>
-
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
 
 </p>
 
 
+<div align="center">
 
-![](Image/httpdns_product_logo.png)
+<img src="Image/httpdns_product_logo.png">
+
+</div>
+
 
 
 
@@ -158,8 +158,8 @@ Demo的结构如下：做下说明：
 
 ## 联系我们
 
-官网：[《HTTPDNS》]( https://cn.aliyun.com/product/httpdns?spm=5176.7841952.765261.327.AS1VQb ) 
-钉钉技术支持：11777313（钉钉群号）
-官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 ) 
+ - 官网：[《HTTPDNS》]( https://cn.aliyun.com/product/httpdns?spm=5176.7841952.765261.327.AS1VQb ) 
+ - 钉钉技术支持：11777313（钉钉群号）
+ - 官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 ) 
 
 
