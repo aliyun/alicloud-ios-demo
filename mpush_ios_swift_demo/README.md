@@ -66,7 +66,7 @@ mpush_ios_swift_demo已经完成了移动推送SDK的集成工作，但我们还
 
 在下述初始化代码中用您的appkey/appsecret替换`******`字段占据的参数。
 
-```
+```swift
 let testAppKey = "******"
 let testAppSecret = "******"
 // SDK初始化

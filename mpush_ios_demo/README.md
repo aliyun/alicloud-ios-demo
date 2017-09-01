@@ -66,7 +66,7 @@ mpush_ios_demo已经完成了移动推送SDK的集成工作，但我们还是建
 
 在下述初始化代码中用您的appkey/appsecret替换`******`字段占据的参数。
 
-```
+```objc
 static NSString *const testAppKey = @"******";
 static NSString *const testAppSecret = @"******";
 // SDK初始化
