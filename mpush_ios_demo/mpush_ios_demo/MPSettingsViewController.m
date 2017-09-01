@@ -68,7 +68,7 @@ static NSArray *tableViewCellTitleInSection;
             NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
             [userDefaultes setObject:account forKey:@"bindAccount"];
             [userDefaultes synchronize];
-            [self showLog:@"账号半丁成功"];
+            [self showLog:@"账号绑定成功"];
         } else {
             [self showLog:[NSString stringWithFormat:@"账号绑定失败，错误: %@", res.error]];
         }
