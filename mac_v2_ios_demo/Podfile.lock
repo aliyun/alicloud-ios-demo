@@ -1,0 +1,22 @@
+PODS:
+  - AlicloudMAC (1.0.0):
+    - AlicloudUtils
+  - AlicloudUT (5.2.0.1):
+    - AlicloudUTDID
+  - AlicloudUTDID (1.1.0.16)
+  - AlicloudUtils (1.2.2):
+    - AlicloudUT
+    - AlicloudUTDID
+
+DEPENDENCIES:
+  - AlicloudMAC (~> 1.0.0)
+
+SPEC CHECKSUMS:
+  AlicloudMAC: 29eccdf8100af74a3c756a255dbff42f9c8462d0
+  AlicloudUT: 9f20dcfd2753de09261b6c279245da1650a34932
+  AlicloudUTDID: f5a7bc1420c5f83e3bd40296e5ab2e5a804a12f8
+  AlicloudUtils: 2437ae7fd2b39343539e8f48aa1f7bf6f5a6cff1
+
+PODFILE CHECKSUM: 91cdbdf5d2115f66dd8dabf969d07f9616ca916d
+
+COCOAPODS: 1.2.0
