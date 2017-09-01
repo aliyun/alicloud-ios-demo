@@ -9,7 +9,6 @@
 #import "ViewController.h"
 
 #import <AlicloudMAC/AlicloudMAC.h>
-#import <NetworkCore/NWUserLoger.h>
 
 static NSString *testAppKey = @"******";
 static NSString *testAppSecret = @"******";
