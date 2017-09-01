@@ -33,7 +33,7 @@
 		C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */; };
 		C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */; };
 		C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */; };
-		C95EFE071ACAE2C80082CF70 /* LZLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE061ACAE2C80082CF70 /* LZLSettingsViewController.m */; };
+		C95EFE071ACAE2C80082CF70 /* MPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE061ACAE2C80082CF70 /* MPSettingsViewController.m */; };
 		C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE0A1ACAF3C40082CF70 /* MsgToolBox.m */; };
 		C95EFE131ACAFF580082CF70 /* LZLPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE121ACAFF580082CF70 /* LZLPersonalData.m */; };
 		C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96D707C1ACC48F600B3D76B /* QuartzCore.framework */; };
@@ -129,8 +129,8 @@
 		C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		C95EFE051ACAE2C80082CF70 /* LZLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLSettingsViewController.h; sourceTree = "<group>"; };
-		C95EFE061ACAE2C80082CF70 /* LZLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLSettingsViewController.m; sourceTree = "<group>"; };
+		C95EFE051ACAE2C80082CF70 /* MPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSettingsViewController.h; sourceTree = "<group>"; };
+		C95EFE061ACAE2C80082CF70 /* MPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingsViewController.m; sourceTree = "<group>"; };
 		C95EFE091ACAF3C40082CF70 /* MsgToolBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgToolBox.h; sourceTree = "<group>"; };
 		C95EFE0A1ACAF3C40082CF70 /* MsgToolBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgToolBox.m; sourceTree = "<group>"; };
 		C95EFE111ACAFF580082CF70 /* LZLPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLPersonalData.h; sourceTree = "<group>"; };
@@ -316,8 +316,8 @@
 		C95EFE081ACAE3B90082CF70 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				C95EFE051ACAE2C80082CF70 /* LZLSettingsViewController.h */,
-				C95EFE061ACAE2C80082CF70 /* LZLSettingsViewController.m */,
+				C95EFE051ACAE2C80082CF70 /* MPSettingsViewController.h */,
+				C95EFE061ACAE2C80082CF70 /* MPSettingsViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -679,7 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */,
-				C95EFE071ACAE2C80082CF70 /* LZLSettingsViewController.m in Sources */,
+				C95EFE071ACAE2C80082CF70 /* MPSettingsViewController.m in Sources */,
 				C95EFE131ACAFF580082CF70 /* LZLPersonalData.m in Sources */,
 				C918AE971ACB8C6E001445C1 /* LZLPersonalViewController.m in Sources */,
 				C93E19BF1ACBD0E800A90F3B /* LZLPushMessage.m in Sources */,
