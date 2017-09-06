@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <button id="button">自定义事件</button>
+    </body>
+</html>
+<script>
+    var button = document.getElementById( 'button' );
+    button.addEventListener( 'click', function () {
+        var iframe = document.createElement( "IFRAME" );
+        iframe.setAttribute("src", "jsbridge://custom");
+        document.documentElement.appendChild( iframe );
+        iframe.parentNode.removeChild( iframe );
+        iframe = null;
+    } );
+</script>
