@@ -60,7 +60,9 @@ static NSString *const testAppSecret = @"******";
                 // granted
                 NSLog(@"User authored notification.");
                 // 向APNs注册，获取deviceToken
-                [application registerForRemoteNotifications];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [application registerForRemoteNotifications];
+                });
             } else {
                 // not granted
                 NSLog(@"User denied notification.");
@@ -154,6 +156,10 @@ static NSString *const testAppSecret = @"******";
     int badge = [content.badge intValue];
     // 取得通知自定义字段内容，例：获取key为"Extras"的内容
     NSString *extras = [userInfo valueForKey:@"Extras"];
+    // 通知角标数清0
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    // 同步角标数到服务端
+    // [self syncBadgeNum:0];
     // 通知打开回执上报
     [CloudPushSDK sendNotificationAck:userInfo];
     NSLog(@"Notification, date: %@, title: %@, subtitle: %@, body: %@, badge: %d, extras: %@.", noticeDate, title, subtitle, body, badge, extras);
@@ -176,6 +182,7 @@ static NSString *const testAppSecret = @"******";
 /**
  *  触发通知动作时回调，比如点击、删除通知和点击自定义action(iOS 10+)
  */
+
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
     NSString *userAction = response.actionIdentifier;
     // 点击通知打开
@@ -235,6 +242,8 @@ static NSString *const testAppSecret = @"******";
     NSLog(@"content = [%@], badge = [%ld], sound = [%@], Extras = [%@]", content, (long)badge, sound, Extras);
     // iOS badge 清0
     application.applicationIconBadgeNumber = 0;
+    // 同步通知角标数到服务端
+    // [self syncBadgeNum:0];
     // 通知打开回执上报
     // [CloudPushSDK handleReceiveRemoteNotification:userInfo];(Deprecated from v1.8.1)
     [CloudPushSDK sendNotificationAck:userInfo];
@@ -304,6 +313,17 @@ static NSString *const testAppSecret = @"******";
 - (void)insertPushMessage:(LZLPushMessage *)model {
     PushMessageDAO *dao = [[PushMessageDAO alloc] init];
     [dao insert:model];
+}
+
+/* 同步通知角标数到服务端 */
+- (void)syncBadgeNum:(NSUInteger)badgeNum {
+    [CloudPushSDK syncBadgeNum:badgeNum withCallback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"Sync badge num: [%lu] success.", (unsigned long)badgeNum);
+        } else {
+            NSLog(@"Sync badge num: [%lu] failed, error: %@", (unsigned long)badgeNum, res.error);
+        }
+    }];
 }
 
 #pragma mark 禁止横屏
