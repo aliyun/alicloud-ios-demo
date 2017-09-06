@@ -125,7 +125,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let badge = aps["badge"] ?? 0
         let sound = aps["sound"] ?? "none"
         let extras = userInfo["Extras"]
-        print("Notification, alert: \(alert), badge: \(badge), sound: \(sound), extras: \(extras).")
+        // 设置角标数为0
+        application.applicationIconBadgeNumber = 0;
+        // 同步角标数到服务端
+        // self.syncBadgeNum(0)
+        CloudPushSDK.sendNotificationAck(userInfo)
+        print("Notification, alert: \(alert), badge: \(badge), sound: \(sound), extras: \(String(describing: extras)).")
     }
     
     // 处理iOS 10通知(iOS 10+)
@@ -145,9 +150,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let badge = content.badge ?? 0
         // 取得通知自定义字段内容，例：获取key为"Extras"的内容
         let extras = userInfo["Extras"]
+        // 设置角标数为0
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        // 同步角标数到服务端
+        // self.syncBadgeNum(0)
         // 通知打开回执上报
         CloudPushSDK.sendNotificationAck(userInfo)
-        print("Notification, date: \(noticeDate), title: \(title), subtitle: \(subtitle), body: \(body), badge: \(badge), extras: \(extras).")
+        print("Notification, date: \(noticeDate), title: \(title), subtitle: \(subtitle), body: \(body), badge: \(badge), extras: \(String(describing: extras)).")
     }
     
     // App处于前台时收到通知(iOS 10+)
@@ -188,6 +197,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler()
     }
     
+    /* 同步角标数到服务端 */
+    func syncBadgeNum(_ badgeNum: UInt) {
+        CloudPushSDK.syncBadgeNum(badgeNum) { (res) in
+            if (res!.success) {
+                print("Sync badge num: [\(badgeNum)] success")
+            } else {
+                print("Sync badge num: [\(badgeNum)] failed, error: \(String(describing: res?.error))")
+            }
+        }
+    }
+    
     // APNs注册成功
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("Get deviceToken from APNs success.")
@@ -195,7 +215,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if (res!.success) {
                 print("Upload deviceToken to Push Server, deviceToken: \(CloudPushSDK.getApnsDeviceToken()!)")
             } else {
-                print("Upload deviceToken to Push Server failed, error: \(res?.error)")
+                print("Upload deviceToken to Push Server failed, error: \(String(describing: res?.error))")
             }
         }
     }
