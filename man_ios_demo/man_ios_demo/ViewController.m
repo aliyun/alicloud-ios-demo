@@ -10,6 +10,7 @@
 #import "ManIOSDemo.h"
 #import "TestUIViewController.h"
 #import "MANClientRequest.h"
+#import "MANH5DemoViewController.h"
 
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 
@@ -40,6 +41,11 @@
     [self presentViewController:jmpViewController animated:YES completion:^{
         
     }];
+}
+
+- (IBAction)onH5Clicked:(id)sender {
+    MANH5DemoViewController *h5 = [[MANH5DemoViewController alloc] init];
+    [self presentViewController:h5 animated:YES completion:nil];
 }
 
 @end

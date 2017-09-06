@@ -25,6 +25,8 @@
 		F7590B131BC8E1EC009C8B08 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B121BC8E1EC009C8B08 /* SystemConfiguration.framework */; };
 		F7590B151BC8E1F5009C8B08 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */; };
 		F7590B1A1BC8E97A009C8B08 /* MANClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F7590B191BC8E97A009C8B08 /* MANClientRequest.m */; };
+		FA91FE781F5F9D970093567B /* h5demo.html in Resources */ = {isa = PBXBuildFile; fileRef = FA91FE771F5F9D970093567B /* h5demo.html */; };
+		FA91FE7E1F5FA1EE0093567B /* MANH5DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA91FE7D1F5FA1EE0093567B /* MANH5DemoViewController.m */; };
 		FAF712711F441E5C004E8172 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF7126F1F441E5C004E8172 /* CrashReporter.framework */; };
 		FAF712721F441E5C004E8172 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF712701F441E5C004E8172 /* UTMini.framework */; };
 		FAF712751F441EAF004E8172 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF712741F441EAF004E8172 /* libsqlite3.0.tbd */; };
@@ -69,6 +71,9 @@
 		F7590B141BC8E1F5009C8B08 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F7590B181BC8E97A009C8B08 /* MANClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANClientRequest.h; sourceTree = "<group>"; };
 		F7590B191BC8E97A009C8B08 /* MANClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANClientRequest.m; sourceTree = "<group>"; };
+		FA91FE771F5F9D970093567B /* h5demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = h5demo.html; sourceTree = "<group>"; };
+		FA91FE7C1F5FA1EE0093567B /* MANH5DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANH5DemoViewController.h; sourceTree = "<group>"; };
+		FA91FE7D1F5FA1EE0093567B /* MANH5DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANH5DemoViewController.m; sourceTree = "<group>"; };
 		FAF7126F1F441E5C004E8172 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		FAF712701F441E5C004E8172 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
 		FAF712741F441EAF004E8172 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -125,6 +130,7 @@
 		F7590ADA1BC8DD77009C8B08 /* man_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
+				FA91FE771F5F9D970093567B /* h5demo.html */,
 				4A3091631C5F83FD00C7401A /* BaseUIViewController.h */,
 				4A3091611C5F83E200C7401A /* BaseUIViewController.m */,
 				4A3091681C5F866400C7401A /* TestUIViewController.h */,
@@ -137,6 +143,8 @@
 				F7590AE01BC8DD77009C8B08 /* AppDelegate.m */,
 				F7590AE21BC8DD77009C8B08 /* ViewController.h */,
 				F7590AE31BC8DD77009C8B08 /* ViewController.m */,
+				FA91FE7C1F5FA1EE0093567B /* MANH5DemoViewController.h */,
+				FA91FE7D1F5FA1EE0093567B /* MANH5DemoViewController.m */,
 				F7590AE51BC8DD77009C8B08 /* Main.storyboard */,
 				F7590AE81BC8DD77009C8B08 /* Images.xcassets */,
 				F7590AEA1BC8DD77009C8B08 /* LaunchScreen.xib */,
@@ -275,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA91FE781F5F9D970093567B /* h5demo.html in Resources */,
 				F7590AE71BC8DD77009C8B08 /* Main.storyboard in Resources */,
 				F7590AEC1BC8DD77009C8B08 /* LaunchScreen.xib in Resources */,
 				F7590AE91BC8DD77009C8B08 /* Images.xcassets in Resources */,
@@ -296,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ADB84EC1C5E572900E85A3D /* ManIOSDemo.m in Sources */,
+				FA91FE7E1F5FA1EE0093567B /* MANH5DemoViewController.m in Sources */,
 				4A3091621C5F83E200C7401A /* BaseUIViewController.m in Sources */,
 				F7590AE41BC8DD77009C8B08 /* ViewController.m in Sources */,
 				F7590B1A1BC8E97A009C8B08 /* MANClientRequest.m in Sources */,
