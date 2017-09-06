@@ -13,10 +13,6 @@ static NSArray *tableViewCellTitleInSection;
 
 @interface MPSettingsViewController () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *userAccount;
-@property (weak, nonatomic) IBOutlet UITextField *userLabel;
-@property (weak, nonatomic) IBOutlet UITextField *userAlias;
-
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UITextView *logText;
 
@@ -33,30 +29,6 @@ static NSArray *tableViewCellTitleInSection;
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-}
-
-/**
- *  获取标签数组
- *
- *  @return
- */
-- (NSArray *)getTagArray {
-    NSString *tagString = _userLabel.text;
-    if (tagString.length > 0) {
-        NSArray *tagArray = [tagString componentsSeparatedByString:@" "];
-        return tagArray;
-    } else {
-        [MsgToolBox showAlert:@"温馨提示" content:@"请输入标签！"];
-        return nil;
-    }
-}
-
-- (void)clearInput {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        _userAccount.text = @"";
-        _userLabel.text = @"";
-        _userAlias.text = @"";
-    });
 }
 
 - (void)bindAccount:(NSString *)account {
@@ -150,6 +122,17 @@ static NSArray *tableViewCellTitleInSection;
     }];
 }
 
+- (void)syncBadgeNum:(NSString *)badgeNumStr {
+    NSUInteger badgeNum = [badgeNumStr integerValue];
+    [CloudPushSDK syncBadgeNum:badgeNum withCallback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            [self showLog:[NSString stringWithFormat:@"角标数: [%lu] 同步成功", (unsigned long)badgeNum]];
+        } else {
+            [self showLog:[NSString stringWithFormat:@"角标数: [%lu] 同步失败，错误: %@", (unsigned long)badgeNum, res.error]];
+        }
+    }];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {}
 
 - (void) alertMsg:(NSString *)title content:(NSString *)content {
@@ -173,13 +156,15 @@ static NSArray *tableViewCellTitleInSection;
     tableViewGroupNames = @[
                             @"账号",
                             @"标签",
-                            @"别名"
+                            @"别名",
+                            @"角标"
                             ];
     
     tableViewCellTitleInSection = @[
                                     @[ @"账号绑定", @"账号解绑", @"账号查询" ],
                                     @[ @"设备标签绑定", @"设备标签解绑", @"设备标签查询" ],
-                                    @[ @"别名添加", @"别名删除", @"别名查询" ]
+                                    @[ @"别名添加", @"别名删除", @"别名查询" ],
+                                    @[ @"角标数同步" ]
                                     ];
 }
 
@@ -227,6 +212,8 @@ static NSArray *tableViewCellTitleInSection;
         [self addAlias:text];
     } else if ([alertTitle isEqualToString:@"别名删除"]) {
         [self removeAlias:text];
+    } else if ([alertTitle isEqualToString:@"角标数同步"]) {
+        [self syncBadgeNum:text];
     }
 }
 
@@ -287,6 +274,8 @@ static NSArray *tableViewCellTitleInSection;
         [self showInputViewWithTitle:cellTitle message:nil type:1];
     } else if ([cellTitle isEqualToString:@"别名查询"]) {
         [self listAlias];
+    } else if ([cellTitle isEqualToString:@"角标数同步"]) {
+        [self showInputViewWithTitle:cellTitle message:nil type:1];
     }
 }
 

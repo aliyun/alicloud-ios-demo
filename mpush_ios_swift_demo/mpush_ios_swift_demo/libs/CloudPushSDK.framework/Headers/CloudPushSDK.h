@@ -11,7 +11,7 @@
 #import "MPGerneralDefinition.h"
 
 /* SDK版本号 */
-#define MPUSH_IOS_SDK_VERSION @"1.9.4"
+#define MPUSH_IOS_SDK_VERSION @"1.9.5"
 
 @interface CloudPushSDK : NSObject
 
@@ -163,5 +163,14 @@
  *	@return deviceToken
  */
 + (NSString *)getApnsDeviceToken;
+
+/**
+ 同步设备通知角标数到推送服务器
+
+ @param num badge数，取值范围[0,99999]
+ @param callback 回调
+ */
++ (void)syncBadgeNum:(NSUInteger)num
+        withCallback:(CallbackHandler)callback;
 
 @end
