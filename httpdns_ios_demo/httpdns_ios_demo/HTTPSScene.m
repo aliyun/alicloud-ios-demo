@@ -1,28 +1,25 @@
 //
-//  HTTPSSceneViewController.m
+//  HTTPSScene.m
 //  httpdns_ios_demo
 //
-//  Created by fuyuan.lfy on 16/6/23.
-//  Copyright © 2016年 alibaba. All rights reserved.
+//  Created by chenyilong on 12/9/2017.
+//  Copyright © 2017 alibaba. All rights reserved.
 //
 
-#import "HTTPSSceneViewController.h"
+#import "HTTPSScene.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
-@interface HTTPSSceneViewController () <NSURLConnectionDelegate, NSURLSessionTaskDelegate, NSURLConnectionDataDelegate, NSURLSessionDataDelegate>
+@interface HTTPSScene () <NSURLConnectionDelegate, NSURLSessionTaskDelegate, NSURLConnectionDataDelegate, NSURLSessionDataDelegate>
 @property (nonatomic, strong) NSMutableURLRequest *request;
 @end
 
-@implementation HTTPSSceneViewController
+@implementation HTTPSScene
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+- (void)beginQuery:(NSString *)originalUrl {
     // 初始化httpdns实例
     HttpDnsService *httpdns = [HttpDnsService sharedInstance];
     
-    NSString *originalUrl = @"https://www.apple.com";
+//    NSString *originalUrl = @"https://www.apple.com";
     NSURL *url = [NSURL URLWithString:originalUrl];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     
@@ -53,11 +50,6 @@
         }
     }];
     [task resume];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust

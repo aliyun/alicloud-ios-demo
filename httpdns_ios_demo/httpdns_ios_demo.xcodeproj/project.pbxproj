@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		942188EC1C59011B00696D6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EB1C59011B00696D6E /* main.m */; };
 		942188EF1C59011B00696D6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EE1C59011B00696D6E /* AppDelegate.m */; };
-		942188F21C59011B00696D6E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188F11C59011B00696D6E /* ViewController.m */; };
 		942188F51C59011B00696D6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942188F31C59011B00696D6E /* Main.storyboard */; };
 		942188F71C59011B00696D6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942188F61C59011B00696D6E /* Assets.xcassets */; };
 		942188FA1C59011B00696D6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942188F81C59011B00696D6E /* LaunchScreen.storyboard */; };
@@ -19,9 +18,13 @@
 		947191EE1CEDAA9E00E13DE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947191ED1CEDAA9E00E13DE9 /* SystemConfiguration.framework */; };
 		947191F01CEDAAA500E13DE9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */; };
 		94AE71BE1CDB9C3100EE4BBF /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AE71BD1CDB9C3100EE4BBF /* UTDID.framework */; };
+		9A1E46B11F5D516900800D40 /* aliyun_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1E46B01F5D516900800D40 /* aliyun_bg.png */; };
+		9A88BA531F67C0AA006B833E /* httpdns_product_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA511F67C0AA006B833E /* httpdns_product_logo.png */; };
+		9A88BA541F67C0AA006B833E /* where_is_accountid_secrectkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA521F67C0AA006B833E /* where_is_accountid_secrectkey.png */; };
+		9A88BA571F67D91F006B833E /* CommonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A88BA561F67D91F006B833E /* CommonScene.m */; };
+		9A88BA5A1F67D975006B833E /* HTTPSScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A88BA591F67D975006B833E /* HTTPSScene.m */; };
 		C589F8961D28C0A8007CC868 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C589F8951D28C0A8007CC868 /* MainViewController.m */; };
 		E2552B8C1C7F167A00D46C32 /* AlicloudHttpDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */; };
-		F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +32,6 @@
 		942188EB1C59011B00696D6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		942188ED1C59011B00696D6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		942188EE1C59011B00696D6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		942188F01C59011B00696D6E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		942188F11C59011B00696D6E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		942188F41C59011B00696D6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		942188F61C59011B00696D6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		942188F91C59011B00696D6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,11 +43,16 @@
 		947191ED1CEDAA9E00E13DE9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		947191EF1CEDAAA500E13DE9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		94AE71BD1CDB9C3100EE4BBF /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
+		9A1E46B01F5D516900800D40 /* aliyun_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aliyun_bg.png; sourceTree = "<group>"; };
+		9A88BA511F67C0AA006B833E /* httpdns_product_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = httpdns_product_logo.png; sourceTree = "<group>"; };
+		9A88BA521F67C0AA006B833E /* where_is_accountid_secrectkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = where_is_accountid_secrectkey.png; sourceTree = "<group>"; };
+		9A88BA551F67D91F006B833E /* CommonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonScene.h; sourceTree = "<group>"; };
+		9A88BA561F67D91F006B833E /* CommonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonScene.m; sourceTree = "<group>"; };
+		9A88BA581F67D975006B833E /* HTTPSScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSScene.h; sourceTree = "<group>"; };
+		9A88BA591F67D975006B833E /* HTTPSScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSScene.m; sourceTree = "<group>"; };
 		C589F8941D28C0A8007CC868 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C589F8951D28C0A8007CC868 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudHttpDNS.framework; sourceTree = "<group>"; };
-		F7624EE51D1B7EC1004F8718 /* HTTPSSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSSceneViewController.h; sourceTree = "<group>"; };
-		F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSSceneViewController.m; sourceTree = "<group>"; };
 		F77F1DCE1D23A1A300A48D1D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -93,19 +99,21 @@
 		942188E91C59011B00696D6E /* httpdns_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
+				9A88BA501F67C0AA006B833E /* Image */,
 				942188ED1C59011B00696D6E /* AppDelegate.h */,
 				942188EE1C59011B00696D6E /* AppDelegate.m */,
-				942188F01C59011B00696D6E /* ViewController.h */,
-				942188F11C59011B00696D6E /* ViewController.m */,
 				942188F31C59011B00696D6E /* Main.storyboard */,
 				942188F61C59011B00696D6E /* Assets.xcassets */,
 				942188F81C59011B00696D6E /* LaunchScreen.storyboard */,
 				942188FB1C59011B00696D6E /* Info.plist */,
+				9A1E46B01F5D516900800D40 /* aliyun_bg.png */,
 				942188EA1C59011B00696D6E /* Supporting Files */,
 				942189031C5903F600696D6E /* NetworkManager.h */,
 				942189041C59041100696D6E /* NetworkManager.m */,
-				F7624EE51D1B7EC1004F8718 /* HTTPSSceneViewController.h */,
-				F7624EE61D1B7EC1004F8718 /* HTTPSSceneViewController.m */,
+				9A88BA551F67D91F006B833E /* CommonScene.h */,
+				9A88BA561F67D91F006B833E /* CommonScene.m */,
+				9A88BA581F67D975006B833E /* HTTPSScene.h */,
+				9A88BA591F67D975006B833E /* HTTPSScene.m */,
 				C589F8941D28C0A8007CC868 /* MainViewController.h */,
 				C589F8951D28C0A8007CC868 /* MainViewController.m */,
 			);
@@ -118,6 +126,15 @@
 				942188EB1C59011B00696D6E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A88BA501F67C0AA006B833E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				9A88BA511F67C0AA006B833E /* httpdns_product_logo.png */,
+				9A88BA521F67C0AA006B833E /* where_is_accountid_secrectkey.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +197,10 @@
 			files = (
 				942188FA1C59011B00696D6E /* LaunchScreen.storyboard in Resources */,
 				942188F71C59011B00696D6E /* Assets.xcassets in Resources */,
+				9A88BA541F67C0AA006B833E /* where_is_accountid_secrectkey.png in Resources */,
+				9A1E46B11F5D516900800D40 /* aliyun_bg.png in Resources */,
 				942188F51C59011B00696D6E /* Main.storyboard in Resources */,
+				9A88BA531F67C0AA006B833E /* httpdns_product_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,12 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A88BA5A1F67D975006B833E /* HTTPSScene.m in Sources */,
 				942189051C59041100696D6E /* NetworkManager.m in Sources */,
-				942188F21C59011B00696D6E /* ViewController.m in Sources */,
 				C589F8961D28C0A8007CC868 /* MainViewController.m in Sources */,
 				942188EF1C59011B00696D6E /* AppDelegate.m in Sources */,
+				9A88BA571F67D91F006B833E /* CommonScene.m in Sources */,
 				942188EC1C59011B00696D6E /* main.m in Sources */,
-				F7624EE71D1B7EC1004F8718 /* HTTPSSceneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,29 +1,28 @@
 //
-//  ViewController.m
+//  CommonScene.m
 //  httpdns_ios_demo
 //
-//  Created by ryan on 27/1/2016.
-//  Copyright © 2016 alibaba. All rights reserved.
+//  Created by chenyilong on 12/9/2017.
+//  Copyright © 2017 alibaba. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CommonScene.h"
 #import "NetworkManager.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
-@interface ViewController ()<NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+@interface CommonScene ()<NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 @end
 
-static HttpDnsService *httpdns;
 
-@implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+@implementation CommonScene
+
++ (void)beginQuery:(NSString *)originalUrl {
     // Do any additional setup after loading the view, typically from a nib.
     
     // 初始化HTTPDNS
-    httpdns = [HttpDnsService sharedInstance];
+    HttpDnsService *httpdns = [HttpDnsService sharedInstance];
     
     //自定义超时时间，默认15秒
     //httpdns.timeoutInterval = 15;
@@ -31,7 +30,7 @@ static HttpDnsService *httpdns;
     // 异步网络请求
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        NSString *originalUrl = @"http://www.aliyun.com";
+//        NSString *originalUrl = @"http://www.aliyun.com";
         NSURL *url = [NSURL URLWithString:originalUrl];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         
@@ -73,12 +72,6 @@ static HttpDnsService *httpdns;
             NSLog(@"由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
         }
     });
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -100,6 +93,5 @@ static HttpDnsService *httpdns;
     
     return NO;
 }
-
 
 @end
