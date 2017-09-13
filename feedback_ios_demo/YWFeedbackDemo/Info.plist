@@ -36,7 +36,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>YWLoginController</string>
 	<key>UIMainStoryboardFile</key>
-	<string></string>
+	<string>MainStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

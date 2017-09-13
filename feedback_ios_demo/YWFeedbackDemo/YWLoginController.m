@@ -19,6 +19,7 @@ static NSString * const kAppKey = @"";
 static NSString * const kAppSecret = @"";
 
 @interface YWLoginController()<UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonLogin;
 @property (weak, nonatomic) IBOutlet UIButton *buttonUnread;
 @property (weak, nonatomic) IBOutlet UIButton *buttonScanCode;
@@ -38,8 +39,7 @@ static NSString * const kAppSecret = @"";
 #pragma mark - life circle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.buttonLogin.layer.cornerRadius = 5.0f;
-    self.appkeyLabel.text = [NSString stringWithFormat:@"Appkey: %@", kAppKey];
+    self.textView.text = [NSString stringWithFormat:@"Appkey: %@", kAppKey];
 }
 
 #pragma mark - methods
@@ -85,19 +85,22 @@ static NSString * const kAppSecret = @"";
 - (void)fetchUnreadCount {
     __weak typeof(self) weakSelf = self;
     [self.feedbackKit getUnreadCountWithCompletionBlock:^(NSInteger unreadCount, NSError *error) {
+        NSString *title;
         if (error == nil) {
             NSString *desc = [NSString stringWithFormat:@"未读数：%ld", (long)unreadCount];
             weakSelf.buttonUnread.shouldHideBadgeAtZero = NO;
             weakSelf.buttonUnread.badgeValue = [NSString stringWithFormat:@"%ld", (long)unreadCount];
+            title = [NSString stringWithFormat: @"成功获取未读数！\n %@", desc];
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"成功获取未读数！"
                                                            description:desc
                                                                   type:TWMessageBarMessageTypeSuccess];
         } else {
-            NSString *title = [error.userInfo objectForKey:@"msg"]?:@"接口调用失败，请保持网络通畅！";
+            title = [error.userInfo objectForKey:@"msg"]?:@"接口调用失败，请保持网络通畅！";
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:title
                                                            description:nil
                                                                   type:TWMessageBarMessageTypeError];
         }
+        self.textView.text = title;
     }];
 }
 
@@ -111,10 +114,13 @@ static NSString * const kAppSecret = @"";
 
 #pragma mark actions
 - (IBAction)actionStart:(id)sender {
+    [self cleanTextView];
     [self openFeedbackViewController];
 }
+
 /** 扫码预览 */
 - (IBAction)actionScanCode:(id)sender {
+    [self cleanTextView];
     AVQRViewController *vc = [[AVQRViewController alloc] init];
     __weak typeof(vc) weakVC = vc;
     __weak typeof(self) weakSelf = self;
@@ -140,8 +146,15 @@ static NSString * const kAppSecret = @"";
     [weakSelf.navigationController presentViewController:nav animated:YES completion:nil];
 }
 - (IBAction)actionUnreadCount:(id)sender {
+    [self cleanTextView];
     [self fetchUnreadCount];
 }
+
+- (void)cleanTextView {
+//    self.textView.text = nil;
+    self.textView.text = [NSString stringWithFormat:@"Appkey: %@", kAppKey];
+}
+
 - (IBAction)actionBackground:(id)sender {
     [self.view endEditing:YES];
 }
