@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9A5BF7D71EC1A257001588B2 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */; };
 		9A5BF7DB1EC1AED8001588B2 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */; };
+		9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA611F680C8A006B833E /* feedback_product_logo.png */; };
+		9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */; };
+		9A88BA661F68BBFD006B833E /* aliyun_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA651F68BBFD006B833E /* aliyun_bg.png */; };
+		9A88BA6A1F68C1ED006B833E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */; };
 		9AF9A61B1EC5A5F70018063B /* YWFeedbackFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */; };
 		B3316C8E1C60884300186840 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8D1C60884300186840 /* CoreTelephony.framework */; };
 		B3316C901C60884A00186840 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8F1C60884A00186840 /* SystemConfiguration.framework */; };
@@ -22,7 +26,6 @@
 		FE587B701D9BA92C00E21438 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE587B6F1D9BA92C00E21438 /* UTDID.framework */; };
 		FE7BA7271D93E334004CA3F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */; };
 		FE94F55E1DB86B5300C5044C /* YWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F55C1DB86B5300C5044C /* YWLoginController.m */; };
-		FE94F55F1DB86B5300C5044C /* YWLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE94F55D1DB86B5300C5044C /* YWLoginController.xib */; };
 		FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5621DB86B9400C5044C /* AVQRViewController.m */; };
 		FE94F5781DB86B9400C5044C /* TWMessageBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */; };
 		FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56E1DB86B9400C5044C /* UIAlertView+XY.m */; };
@@ -35,6 +38,10 @@
 /* Begin PBXFileReference section */
 		9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudUtils.framework; sourceTree = "<group>"; };
 		9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		9A88BA611F680C8A006B833E /* feedback_product_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_product_logo.png; sourceTree = "<group>"; };
+		9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = where_is_appkey_secrectkey.png; sourceTree = "<group>"; };
+		9A88BA651F68BBFD006B833E /* aliyun_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aliyun_bg.png; sourceTree = "<group>"; };
+		9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YWFeedbackFMWK.framework; sourceTree = "<group>"; };
 		B3316C8D1C60884300186840 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B3316C8F1C60884A00186840 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -54,7 +61,6 @@
 		FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FE94F55B1DB86B5300C5044C /* YWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWLoginController.h; sourceTree = "<group>"; };
 		FE94F55C1DB86B5300C5044C /* YWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWLoginController.m; sourceTree = "<group>"; };
-		FE94F55D1DB86B5300C5044C /* YWLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YWLoginController.xib; sourceTree = "<group>"; };
 		FE94F5611DB86B9400C5044C /* AVQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVQRViewController.h; sourceTree = "<group>"; };
 		FE94F5621DB86B9400C5044C /* AVQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVQRViewController.m; sourceTree = "<group>"; };
 		FE94F56B1DB86B9400C5044C /* TWMessageBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWMessageBarManager.h; sourceTree = "<group>"; };
@@ -106,6 +112,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A88BA601F680C8A006B833E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				9A88BA611F680C8A006B833E /* feedback_product_logo.png */,
+				9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */,
+				9A88BA651F68BBFD006B833E /* aliyun_bg.png */,
+			);
+			path = Image;
+			sourceTree = SOURCE_ROOT;
+		};
 		B33283081C27F820006DB60A = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +148,7 @@
 				B33283181C27F820006DB60A /* AppDelegate.m */,
 				FE94F55B1DB86B5300C5044C /* YWLoginController.h */,
 				FE94F55C1DB86B5300C5044C /* YWLoginController.m */,
-				FE94F55D1DB86B5300C5044C /* YWLoginController.xib */,
+				9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */,
 				B33283201C27F820006DB60A /* Assets.xcassets */,
 				B33283221C27F820006DB60A /* LaunchScreen.storyboard */,
 				B33283251C27F820006DB60A /* Info.plist */,
@@ -144,6 +160,7 @@
 		B33283141C27F820006DB60A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A88BA601F680C8A006B833E /* Image */,
 				B33283151C27F820006DB60A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -247,6 +264,17 @@
 				FE101F061D702D0700853066 /* YWFeedbackBundle.bundle in Resources */,
 				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
 				FE94F55F1DB86B5300C5044C /* YWLoginController.xib in Resources */,
+				FE94F5731DB86B9400C5044C /* icon-error@2x.png in Resources */,
+				9A88BA661F68BBFD006B833E /* aliyun_bg.png in Resources */,
+				FE94F5741DB86B9400C5044C /* icon-info.png in Resources */,
+				FE94F5751DB86B9400C5044C /* icon-info@2x.png in Resources */,
+				FE94F5761DB86B9400C5044C /* icon-success.png in Resources */,
+				FE94F5771DB86B9400C5044C /* icon-success@2x.png in Resources */,
+				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
+				9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */,
+				9A88BA6A1F68C1ED006B833E /* MainStoryboard.storyboard in Resources */,
+				9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */,
+				FE94F5721DB86B9400C5044C /* icon-error.png in Resources */,
 				B33283211C27F820006DB60A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
