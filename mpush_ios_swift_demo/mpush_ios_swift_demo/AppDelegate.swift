@@ -48,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     // User authored notification
                     print("User authored notification.")
                     // 向APNs注册，获取deviceToken
-                    application.registerForRemoteNotifications()
+                    DispatchQueue.main.async {
+                        application.registerForRemoteNotifications()
+                    }
                 } else {
                     // User denied notification
                     print("User denied notification.")
