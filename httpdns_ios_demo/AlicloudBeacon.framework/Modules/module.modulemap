@@ -1,0 +1,6 @@
+framework module AlicloudBeacon {
+  umbrella header "AlicloudBeacon.h"
+
+  export *
+  module * { export * }
+}

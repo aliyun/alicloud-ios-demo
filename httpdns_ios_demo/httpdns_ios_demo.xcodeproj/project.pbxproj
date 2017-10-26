@@ -21,6 +21,7 @@
 		9A1E46B11F5D516900800D40 /* aliyun_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A1E46B01F5D516900800D40 /* aliyun_bg.png */; };
 		9A5539331FA1CB640019F435 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5539321FA1CB640019F435 /* libsqlite3.0.tbd */; };
 		9A5539351FA1CE760019F435 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5539341FA1CE760019F435 /* UTMini.framework */; };
+		9A5539391FA20CEB0019F435 /* AlicloudBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5539381FA20CEB0019F435 /* AlicloudBeacon.framework */; };
 		9A88BA531F67C0AA006B833E /* httpdns_product_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA511F67C0AA006B833E /* httpdns_product_logo.png */; };
 		9A88BA541F67C0AA006B833E /* where_is_accountid_secrectkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA521F67C0AA006B833E /* where_is_accountid_secrectkey.png */; };
 		9A88BA571F67D91F006B833E /* CommonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A88BA561F67D91F006B833E /* CommonScene.m */; };
@@ -48,6 +49,7 @@
 		9A1E46B01F5D516900800D40 /* aliyun_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aliyun_bg.png; sourceTree = "<group>"; };
 		9A5539321FA1CB640019F435 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9A5539341FA1CE760019F435 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		9A5539381FA20CEB0019F435 /* AlicloudBeacon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudBeacon.framework; sourceTree = "<group>"; };
 		9A88BA511F67C0AA006B833E /* httpdns_product_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = httpdns_product_logo.png; sourceTree = "<group>"; };
 		9A88BA521F67C0AA006B833E /* where_is_accountid_secrectkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = where_is_accountid_secrectkey.png; sourceTree = "<group>"; };
 		9A88BA551F67D91F006B833E /* CommonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonScene.h; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				947191EE1CEDAA9E00E13DE9 /* SystemConfiguration.framework in Frameworks */,
 				947191EA1CEDAA8F00E13DE9 /* AlicloudUtils.framework in Frameworks */,
 				94AE71BE1CDB9C3100EE4BBF /* UTDID.framework in Frameworks */,
+				9A5539391FA20CEB0019F435 /* AlicloudBeacon.framework in Frameworks */,
 				E2552B8C1C7F167A00D46C32 /* AlicloudHttpDNS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +85,7 @@
 		942188DE1C59011B00696D6E = {
 			isa = PBXGroup;
 			children = (
+				9A5539381FA20CEB0019F435 /* AlicloudBeacon.framework */,
 				947191EB1CEDAA9700E13DE9 /* libresolv.tbd */,
 				9A5539341FA1CE760019F435 /* UTMini.framework */,
 				F77F1DCE1D23A1A300A48D1D /* WebKit.framework */,
