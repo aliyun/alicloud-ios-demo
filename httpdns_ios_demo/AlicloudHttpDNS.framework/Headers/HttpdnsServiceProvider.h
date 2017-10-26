@@ -37,7 +37,7 @@
  * @details 初始化、开启鉴权功能，并设置 HTTPDNS 服务 Account ID，鉴权功能对应的 secretKey。
  *          您可以从控制台获取您的 Account ID 、secretKey 信息。
  *          此方法会初始化为单例。
- * @param accountId 您的 HTTPDNS Account ID
+ * @param accountID 您的 HTTPDNS Account ID
  * @param secretKey 鉴权对应的 secretKey
  */
 - (instancetype)initWithAccountID:(int)accountID secretKey:(NSString *)secretKey;
@@ -51,6 +51,8 @@
 - (void)setAuthCurrentTime:(NSUInteger)authCurrentTime;
 
 + (instancetype)sharedInstance;
+
+- (void)setCachedIPEnabled:(BOOL)enable;
 
 - (void)setPreResolveHosts:(NSArray *)hosts;
 
