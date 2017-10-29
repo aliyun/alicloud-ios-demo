@@ -75,6 +75,18 @@ static NSArray *tableViewCellTitleInSection;
     [self.view addSubview:self.tableView];
 }
 
+- (void)showAlert:(NSString *)title content:(NSString *)content {
+    if ([NSThread isMainThread]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alertView show];
+        });
+    }
+}
+
 #pragma mark TableView 数据源设置
 
 /* Section Num */
@@ -126,7 +138,7 @@ static NSArray *tableViewCellTitleInSection;
 
 - (void)onPatchTestClick {
     TestClass *testClass = [[TestClass alloc] init];
-    [testClass output];
+    [self showAlert:@"修复测试" content:[testClass output]];
 }
 
 - (void)onLoadPatchClick {

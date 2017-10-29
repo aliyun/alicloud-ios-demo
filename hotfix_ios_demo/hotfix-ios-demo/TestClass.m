@@ -11,8 +11,9 @@
 
 @implementation TestClass
 
-- (void)output {
+- (NSString *)output {
     NSLog(@"[TestClass] origin output.");
+    return @"[TestClass] origin output.";
 }
 
 @end
