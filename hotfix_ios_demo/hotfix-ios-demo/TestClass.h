@@ -11,7 +11,7 @@
 
 @interface TestClass : NSObject
 
-- (void)output;
+- (NSString *)output;
 
 @end
 
