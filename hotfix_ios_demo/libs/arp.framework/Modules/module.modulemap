@@ -1,0 +1,6 @@
+framework module arp {
+  umbrella header "arp.h"
+
+  export *
+  module * { export * }
+}
