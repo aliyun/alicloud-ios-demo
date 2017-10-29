@@ -1,0 +1,32 @@
+PODS:
+  - AlicloudBeacon (1.0.0):
+    - AlicloudUTDID
+  - AlicloudHotFixDebug (1.0.1)
+  - AlicloudLua (5.1.4.2)
+  - AlicloudUT (5.2.0.1):
+    - AlicloudUTDID
+  - AlicloudUTDID (1.1.0.16)
+  - AlicloudUtils (1.2.2):
+    - AlicloudUT
+    - AlicloudUTDID
+  - ZipArchive (1.4.0)
+
+DEPENDENCIES:
+  - AlicloudBeacon
+  - AlicloudHotFixDebug
+  - AlicloudLua
+  - AlicloudUtils
+  - ZipArchive (~> 1.4)
+
+SPEC CHECKSUMS:
+  AlicloudBeacon: 9fcd6564f60b1bbc925e5cbb15a0b215b4a20806
+  AlicloudHotFixDebug: e68c085ee06a77a26a07ee0d808b90e71d405650
+  AlicloudLua: 7eed0c7e3504a0b6353f63ca672e51a694009cfc
+  AlicloudUT: 9f20dcfd2753de09261b6c279245da1650a34932
+  AlicloudUTDID: f5a7bc1420c5f83e3bd40296e5ab2e5a804a12f8
+  AlicloudUtils: 2437ae7fd2b39343539e8f48aa1f7bf6f5a6cff1
+  ZipArchive: 94e007035ff8394ac7d87179129909795e7595b0
+
+PODFILE CHECKSUM: 7b5908a98db22d4fece25df2f59187ae44e21ded
+
+COCOAPODS: 1.2.0
