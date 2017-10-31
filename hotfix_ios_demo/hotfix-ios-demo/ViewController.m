@@ -18,13 +18,6 @@
 
 @end
 
-static AlicloudHotFixService *hotfixService;
-
-#warning 设置AppId / AppSecret / RsaPrivateKey
-static NSString *const testAppId = @"<#Your AppId#>";
-static NSString *const testAppSecret = @"<#Your AppSecret#>";
-static NSString *const testAppRsaPrivateKey = @"<#Your RSA Private Key#>";
-
 static NSArray *tableViewGroupNames;
 static NSArray *tableViewCellTitleInSection;
 
@@ -44,28 +37,12 @@ static NSArray *tableViewCellTitleInSection;
     // Do any additional setup after loading the view, typically from a nib.
     
     [self initTableView];
-    [self hotfixSdkInit];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)hotfixSdkInit {
-    hotfixService = [AlicloudHotFixService sharedInstance];
-#warning 打开Log
-    [hotfixService setLogEnabled:YES];
-#warning 手动设置App版本号
-    [hotfixService setAppVersion:@"1.0"];
-    [hotfixService initWithAppId:testAppId appSecret:testAppSecret rsaPrivateKey:testAppRsaPrivateKey callback:^(BOOL res, id data, NSError *error) {
-        if (res) {
-            NSLog(@"HotFix SDK init success.");
-        } else {
-            NSLog(@"HotFix SDK init failed, error: %@", error);
-        }
-    }];
 }
 
 - (void)initTableView {
@@ -142,7 +119,7 @@ static NSArray *tableViewCellTitleInSection;
 }
 
 - (void)onLoadPatchClick {
-    [hotfixService loadPatch:^(BOOL res, id data, NSError *error) {
+    [[AlicloudHotFixService sharedInstance] loadPatch:^(BOOL res, id data, NSError *error) {
         if (res) {
             NSLog(@"Load patch success.");
         } else {
@@ -152,7 +129,7 @@ static NSArray *tableViewCellTitleInSection;
 }
 
 - (void)onCleanPatchClick {
-    [hotfixService cleanPatch];
+    [[AlicloudHotFixService sharedInstance] cleanPatch];
 }
 
 - (void)onQrCodeClick {

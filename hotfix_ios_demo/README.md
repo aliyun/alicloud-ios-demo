@@ -37,16 +37,14 @@ static NSString *const testAppRsaPrivateKey = <#Your Rsa Private Key#>;
 ### 测试
 
 - 测试加载本Demo提供的补丁文件。
-- 加载补丁前，点击`补丁加载测试`，打印以下Log：
+- 加载补丁前，点击`补丁加载测试`，打印以下Log并弹出提示框：
 
 ```
 [TestClass] origin output.
 ```
 
-- 加载补丁成功后，点击`补丁加载测试`，打印以下Log：
+- 加载补丁成功后，点击`补丁加载测试`，弹出提示框：
 
 ```
-[TestClass] This is replaced before output.
-[TestClass] origin output.
-[TestClass] This is replaced after output33.
+[TestClass] This is replaced output.
 ```
