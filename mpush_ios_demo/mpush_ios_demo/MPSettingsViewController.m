@@ -257,7 +257,7 @@ static NSArray *tableViewCellTitleInSection;
 /* Click Cell */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellTitle = [self cellTitleForIndexPath:indexPath];
-    if ([cellTitle isEqualToString:@""]) {
+    if ([cellTitle isEqualToString:@"账号绑定"]) {
         [self showInputViewWithTitle:cellTitle message:nil type:1];
     } else if ([cellTitle isEqualToString:@"账号解绑"]) {
         [self unbindAccount];
