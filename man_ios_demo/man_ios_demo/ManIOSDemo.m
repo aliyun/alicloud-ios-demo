@@ -232,7 +232,7 @@
 - (void)crashHandler {
     ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
     // 关闭crashHandler
-    [man turnOffCrashHandler];
+    //[man turnOffCrashHandler];
 }
 
 @end
