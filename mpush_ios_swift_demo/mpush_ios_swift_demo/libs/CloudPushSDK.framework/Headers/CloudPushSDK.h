@@ -11,7 +11,7 @@
 #import "MPGerneralDefinition.h"
 
 /* SDK版本号 */
-#define MPUSH_IOS_SDK_VERSION @"1.9.5"
+#define MPUSH_IOS_SDK_VERSION @"1.9.6"
 
 @interface CloudPushSDK : NSObject
 
