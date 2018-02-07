@@ -40,6 +40,17 @@
     // NSArray* preResolveHosts = @[@"pic1cdn.igetget.com"];
     // 设置预解析域名列表
     [httpdns setPreResolveHosts:preResolveHosts];
+    
+    
+    NSDictionary *IPRankingDatasource = @{
+                                          @"www.aliyun.com" : @80,
+                                          @"www.taobao.com" : @80,
+                                          @"gw.alicdn.com" : @80,
+                                          @"www.tmall.com" : @80,
+                                          @"dou.bz" : @80
+                                          };
+    // IP 优选功能，设置后会自动对IP进行测速排序，可以在调用 `-getIpByHost` 等接口时返回最优IP。
+    [httpdns setIPRankingDatasource:IPRankingDatasource];
     return YES;
 }
 
