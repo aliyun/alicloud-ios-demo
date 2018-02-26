@@ -22,6 +22,8 @@
 		4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AA1DBF0A5900BAF4CA /* Info.plist */; };
 		4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */; };
 		4AB162B11DBF0AAD00BAF4CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */; };
+		4AB172F01FFBA58E00D6F8FB /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB172EF1FFBA58D00D6F8FB /* UTMini.framework */; };
+		4AB172F21FFBA59800D6F8FB /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB172F11FFBA59800D6F8FB /* libsqlite3.0.tbd */; };
 		4AEE18011DC8775000385425 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE18001DC8775000385425 /* NotificationService.swift */; };
 		4AEE18051DC8775000385425 /* mpush_service_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AEE17FE1DC8775000385425 /* mpush_service_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4AEE18101DC8777000385425 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEE180F1DC8777000385425 /* UserNotifications.framework */; };
@@ -83,6 +85,8 @@
 		4AB162AA1DBF0A5900BAF4CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mpush_ios_swift_demo/Info.plist; sourceTree = "<group>"; };
 		4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = mpush_ios_swift_demo/Main.storyboard; sourceTree = "<group>"; };
 		4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mpush_ios_swift_demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4AB172EF1FFBA58D00D6F8FB /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTMini.framework; path = mpush_ios_swift_demo/libs/UTMini.framework; sourceTree = "<group>"; };
+		4AB172F11FFBA59800D6F8FB /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		4AEDBD761DBCEC7F00883BD6 /* mpush_ios_swift_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mpush_ios_swift_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEE17FE1DC8775000385425 /* mpush_service_extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpush_service_extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEE18001DC8775000385425 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -101,13 +105,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB1628F1DBCEE2C00BAF4CA /* libz.tbd in Frameworks */,
+				4AB162931DBCEE3900BAF4CA /* libresolv.tbd in Frameworks */,
+				4AB172F21FFBA59800D6F8FB /* libsqlite3.0.tbd in Frameworks */,
 				4AB162971DBCEE5600BAF4CA /* CoreTelephony.framework in Frameworks */,
 				4AB162951DBCEE5100BAF4CA /* SystemConfiguration.framework in Frameworks */,
-				4AB162931DBCEE3900BAF4CA /* libresolv.tbd in Frameworks */,
-				4AB1628F1DBCEE2C00BAF4CA /* libz.tbd in Frameworks */,
 				4AB162881DBCED1A00BAF4CA /* CloudPushSDK.framework in Frameworks */,
 				4AB162891DBCED1A00BAF4CA /* AlicloudUtils.framework in Frameworks */,
 				4AB1628A1DBCED1A00BAF4CA /* UTDID.framework in Frameworks */,
+				4AB172F01FFBA58E00D6F8FB /* UTMini.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +184,8 @@
 		4AB162841DBCED1A00BAF4CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AB172F11FFBA59800D6F8FB /* libsqlite3.0.tbd */,
+				4AB172EF1FFBA58D00D6F8FB /* UTMini.framework */,
 				4AB162961DBCEE5600BAF4CA /* CoreTelephony.framework */,
 				4AB162941DBCEE5100BAF4CA /* SystemConfiguration.framework */,
 				4AB162921DBCEE3900BAF4CA /* libresolv.tbd */,
@@ -223,11 +231,11 @@
 			isa = PBXGroup;
 			children = (
 				4AB1629D1DBF092700BAF4CA /* mpush_ios_swift_demo.entitlements */,
+				4AB162841DBCED1A00BAF4CA /* Frameworks */,
 				4AB1629C1DBF090000BAF4CA /* mush_ios_swift_demo */,
 				4AEE17FF1DC8775000385425 /* mpush_service_extension */,
 				4AEE18131DC8777000385425 /* mpush_content_extension */,
 				4AEDBD771DBCEC7F00883BD6 /* Products */,
-				4AB162841DBCED1A00BAF4CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

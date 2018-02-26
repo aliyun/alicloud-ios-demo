@@ -70,6 +70,8 @@
 
 - (void)setPreResolveAfterNetworkChanged:(BOOL)enable;
 
+- (void)setIPRankingDatasource:(NSDictionary<NSString *, NSNumber *> *)IPRankingDatasource;
+
 @end
 
 @interface HttpDnsService (HttpdnsDeprecated)
