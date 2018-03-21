@@ -1,22 +1,22 @@
 PODS:
-  - AlicloudPush (1.9.5):
+  - AlicloudPush (1.9.7):
     - AlicloudUtils
-  - AlicloudUT (5.2.0.1):
+  - AlicloudUT (5.2.0.4):
     - AlicloudUTDID
   - AlicloudUTDID (1.1.0.16)
-  - AlicloudUtils (1.2.2):
+  - AlicloudUtils (1.3.1):
     - AlicloudUT
     - AlicloudUTDID
 
 DEPENDENCIES:
-  - AlicloudPush (~> 1.9.5)
+  - AlicloudPush (~> 1.9.7)
 
 SPEC CHECKSUMS:
-  AlicloudPush: 013031fdedba1db17e697ba3f768851f7ba06315
-  AlicloudUT: 9f20dcfd2753de09261b6c279245da1650a34932
+  AlicloudPush: f1283e2c0498c34cea715b883ec27ec476ad6c4a
+  AlicloudUT: 65b42ceb78d67d556388a3ca5f875034f505f9d6
   AlicloudUTDID: f5a7bc1420c5f83e3bd40296e5ab2e5a804a12f8
-  AlicloudUtils: 2437ae7fd2b39343539e8f48aa1f7bf6f5a6cff1
+  AlicloudUtils: 4f7e5d5214ed1b831e677fb739f1ec691aa53ff5
 
-PODFILE CHECKSUM: 83b53b6b1187eb078805b67e30f0e1f9bd67c68a
+PODFILE CHECKSUM: a0dcf5991358909ff4c6142d7b3c425e95876dd5
 
 COCOAPODS: 1.2.0
