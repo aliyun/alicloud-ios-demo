@@ -10,6 +10,7 @@
 		4A25DD791F17220600FD539A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A25DD781F17220500FD539A /* libsqlite3.tbd */; };
 		4A383CC31DB8649B0037D863 /* aliyun-logo-local.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A383CC21DB8649B0037D863 /* aliyun-logo-local.png */; };
 		4A4E20381F172F130087A89E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4E20371F172F130087A89E /* libz.tbd */; };
+		4A7C37162069F860000B0B7E /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7C37152069F860000B0B7E /* AliyunEmasServices-Info.plist */; };
 		4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554E01CEEC7E900F64F49 /* libresolv.tbd */; };
 		4AC713381DB60DF30062EE5A /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC713371DB60DF30062EE5A /* NotificationService.m */; };
 		4AC7133C1DB60DF30062EE5A /* mpush_service_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AC713341DB60DF30062EE5A /* mpush_service_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -87,6 +88,7 @@
 		4A25DD781F17220500FD539A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4A383CC21DB8649B0037D863 /* aliyun-logo-local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aliyun-logo-local.png"; sourceTree = "<group>"; };
 		4A4E20371F172F130087A89E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4A7C37152069F860000B0B7E /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		4A9554E01CEEC7E900F64F49 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		4AC7132F1DB5E9270062EE5A /* mpush_ios_demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mpush_ios_demo.entitlements; sourceTree = "<group>"; };
 		4AC713341DB60DF30062EE5A /* mpush_service_extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpush_service_extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,6 +356,7 @@
 		C99E76521AC96B8B000BC567 = {
 			isa = PBXGroup;
 			children = (
+				4A7C37152069F860000B0B7E /* AliyunEmasServices-Info.plist */,
 				C9C301151ADBA55000BF3288 /* ued.sqlite */,
 				C99E765D1AC96B8B000BC567 /* mpush_ios_demo */,
 				4AC713351DB60DF30062EE5A /* mpush_service_extension */,
@@ -539,6 +542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7C37162069F860000B0B7E /* AliyunEmasServices-Info.plist in Resources */,
 				C9C301161ADBA55000BF3288 /* ued.sqlite in Resources */,
 				C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */,
 				C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */,
