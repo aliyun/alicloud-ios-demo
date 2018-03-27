@@ -91,8 +91,6 @@ Demo仅作为原理讲解和示例代码用途，
 
 本 Demo 的文件夹名字叫做：feedback_ios_demo。
 
- ```
-
 **当您在使用您自己的 APP 集成 SDK 遇到问题时，您可以对比下 demo APP 的配置情况。**
 
 
