@@ -22,7 +22,6 @@
  */
 - (void)setGlobalProperty:(NSString *)key value:(NSString *)value;
 
-
 /**
  删除Tracker通用打点属性
  

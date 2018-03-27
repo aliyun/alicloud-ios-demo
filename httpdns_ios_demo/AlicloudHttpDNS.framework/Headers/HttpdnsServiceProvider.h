@@ -30,6 +30,8 @@
 
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
+- (instancetype)autoInit;
+
 - (instancetype)initWithAccountID:(int)accountID;
 
 /*!
