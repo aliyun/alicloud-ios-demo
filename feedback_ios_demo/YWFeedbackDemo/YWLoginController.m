@@ -107,7 +107,11 @@ static NSString * const kAppSecret = @"";
 #pragma mark getter
 - (YWFeedbackKit *)feedbackKit {
     if (!_feedbackKit) {
-        _feedbackKit = [[YWFeedbackKit alloc] initWithAppKey:kAppKey appSecret:kAppSecret];
+        // SDK初始化，手动配置appKey/appSecret
+        //_feedbackKit = [[YWFeedbackKit alloc] initWithAppKey:kAppKey appSecret:kAppSecret];
+        
+        // 请从控制台下载AliyunEmasServices-Info.plist配置文件，并正确拖入工程
+        _feedbackKit = [[YWFeedbackKit alloc] autoInit];
     }
     return _feedbackKit;
 }

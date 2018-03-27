@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A5BF7D71EC1A257001588B2 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */; };
+		4A7C371A2069FB94000B0B7E /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */; };
+		6FAA94A631D91E16B28AEE80 /* libPods-YWFeedbackDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1478CE99C1158EADB6410786 /* libPods-YWFeedbackDemo.a */; };
 		9A5BF7DB1EC1AED8001588B2 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */; };
 		9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA611F680C8A006B833E /* feedback_product_logo.png */; };
 		9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */; };
 		9A88BA661F68BBFD006B833E /* aliyun_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA651F68BBFD006B833E /* aliyun_bg.png */; };
 		9A88BA6A1F68C1ED006B833E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */; };
-		9AF9A61B1EC5A5F70018063B /* YWFeedbackFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */; };
 		B3316C8E1C60884300186840 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8D1C60884300186840 /* CoreTelephony.framework */; };
 		B3316C901C60884A00186840 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8F1C60884A00186840 /* SystemConfiguration.framework */; };
 		B33283161C27F820006DB60A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B33283151C27F820006DB60A /* main.m */; };
@@ -21,28 +21,24 @@
 		B33283211C27F820006DB60A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B33283201C27F820006DB60A /* Assets.xcassets */; };
 		B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33283221C27F820006DB60A /* LaunchScreen.storyboard */; };
 		B34E8FC01C5B32A300BBA227 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B34E8FBF1C5B32A300BBA227 /* libz.tbd */; };
-		FE101F061D702D0700853066 /* YWFeedbackBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FE101F051D702D0700853066 /* YWFeedbackBundle.bundle */; };
-		FE2BAC671DAE241800D0BECA /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2BAC661DAE241800D0BECA /* UTMini.framework */; };
-		FE587B701D9BA92C00E21438 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE587B6F1D9BA92C00E21438 /* UTDID.framework */; };
 		FE7BA7271D93E334004CA3F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */; };
 		FE94F55E1DB86B5300C5044C /* YWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F55C1DB86B5300C5044C /* YWLoginController.m */; };
 		FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5621DB86B9400C5044C /* AVQRViewController.m */; };
 		FE94F5781DB86B9400C5044C /* TWMessageBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */; };
 		FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56E1DB86B9400C5044C /* UIAlertView+XY.m */; };
 		FE94F57A1DB86B9400C5044C /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5701DB86B9400C5044C /* UIButton+Badge.m */; };
-		FEF15E381DBDB7D2002B7239 /* BCConnectorBundle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF15E361DBDB7D2002B7239 /* BCConnectorBundle.framework */; };
-		FEF15E391DBDB7D2002B7239 /* BCHybridWebViewFMWK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF15E371DBDB7D2002B7239 /* BCHybridWebViewFMWK.framework */; };
 		FEF15E3A1DBDBB48002B7239 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB4BC571D8E958300FF17AA /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudUtils.framework; sourceTree = "<group>"; };
+		1478CE99C1158EADB6410786 /* libPods-YWFeedbackDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YWFeedbackDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D8BA574E137F823713BA09D /* Pods-YWFeedbackDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AliyunEmasServices-Info.plist"; path = "../mpush_ios_demo/AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		9A88BA611F680C8A006B833E /* feedback_product_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_product_logo.png; sourceTree = "<group>"; };
 		9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = where_is_appkey_secrectkey.png; sourceTree = "<group>"; };
 		9A88BA651F68BBFD006B833E /* aliyun_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aliyun_bg.png; sourceTree = "<group>"; };
 		9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YWFeedbackFMWK.framework; sourceTree = "<group>"; };
 		B3316C8D1C60884300186840 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B3316C8F1C60884A00186840 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B33283111C27F820006DB60A /* YWFeedbackDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YWFeedbackDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,9 +51,7 @@
 		B34E8FBF1C5B32A300BBA227 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B39022C51C2A79A800229BDD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B39022C71C2A79AE00229BDD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		FE101F051D702D0700853066 /* YWFeedbackBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YWFeedbackBundle.bundle; sourceTree = "<group>"; };
-		FE2BAC661DAE241800D0BECA /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
-		FE587B6F1D9BA92C00E21438 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
+		BFF5BB2C64153C94AFC11CA3 /* Pods-YWFeedbackDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FE94F55B1DB86B5300C5044C /* YWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWLoginController.h; sourceTree = "<group>"; };
 		FE94F55C1DB86B5300C5044C /* YWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWLoginController.m; sourceTree = "<group>"; };
@@ -70,8 +64,6 @@
 		FE94F56F1DB86B9400C5044C /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
 		FE94F5701DB86B9400C5044C /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		FEB4BC571D8E958300FF17AA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		FEF15E361DBDB7D2002B7239 /* BCConnectorBundle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BCConnectorBundle.framework; sourceTree = "<group>"; };
-		FEF15E371DBDB7D2002B7239 /* BCHybridWebViewFMWK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BCHybridWebViewFMWK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,16 +73,11 @@
 			files = (
 				B3316C901C60884A00186840 /* SystemConfiguration.framework in Frameworks */,
 				9A5BF7DB1EC1AED8001588B2 /* libresolv.tbd in Frameworks */,
-				9AF9A61B1EC5A5F70018063B /* YWFeedbackFMWK.framework in Frameworks */,
 				FEF15E3A1DBDBB48002B7239 /* CoreMotion.framework in Frameworks */,
 				FE7BA7271D93E334004CA3F2 /* libsqlite3.tbd in Frameworks */,
-				FE2BAC671DAE241800D0BECA /* UTMini.framework in Frameworks */,
-				FEF15E391DBDB7D2002B7239 /* BCHybridWebViewFMWK.framework in Frameworks */,
 				B3316C8E1C60884300186840 /* CoreTelephony.framework in Frameworks */,
-				FE587B701D9BA92C00E21438 /* UTDID.framework in Frameworks */,
 				B34E8FC01C5B32A300BBA227 /* libz.tbd in Frameworks */,
-				FEF15E381DBDB7D2002B7239 /* BCConnectorBundle.framework in Frameworks */,
-				9A5BF7D71EC1A257001588B2 /* AlicloudUtils.framework in Frameworks */,
+				6FAA94A631D91E16B28AEE80 /* libPods-YWFeedbackDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +95,7 @@
 				B39022C71C2A79AE00229BDD /* AVFoundation.framework */,
 				B39022C51C2A79A800229BDD /* AudioToolbox.framework */,
 				B34E8FBF1C5B32A300BBA227 /* libz.tbd */,
+				1478CE99C1158EADB6410786 /* libPods-YWFeedbackDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,12 +110,23 @@
 			path = Image;
 			sourceTree = SOURCE_ROOT;
 		};
+		9C7A5774EBAA8176720EBB2C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D8BA574E137F823713BA09D /* Pods-YWFeedbackDemo.debug.xcconfig */,
+				BFF5BB2C64153C94AFC11CA3 /* Pods-YWFeedbackDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B33283081C27F820006DB60A = {
 			isa = PBXGroup;
 			children = (
+				4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */,
 				B33283131C27F820006DB60A /* YWFeedbackDemo */,
 				B33283121C27F820006DB60A /* Products */,
 				600BC3C0D46050573EF2B77B /* Frameworks */,
+				9C7A5774EBAA8176720EBB2C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				FE94F5601DB86B9400C5044C /* Util */,
-				FE60EF8F1D5496AC00D67A40 /* BCFeedback */,
 				B33283171C27F820006DB60A /* AppDelegate.h */,
 				B33283181C27F820006DB60A /* AppDelegate.m */,
 				FE94F55B1DB86B5300C5044C /* YWLoginController.h */,
@@ -164,20 +162,6 @@
 				B33283151C27F820006DB60A /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FE60EF8F1D5496AC00D67A40 /* BCFeedback */ = {
-			isa = PBXGroup;
-			children = (
-				9AF9A61A1EC5A5F70018063B /* YWFeedbackFMWK.framework */,
-				9A5BF7D61EC1A257001588B2 /* AlicloudUtils.framework */,
-				FEF15E361DBDB7D2002B7239 /* BCConnectorBundle.framework */,
-				FEF15E371DBDB7D2002B7239 /* BCHybridWebViewFMWK.framework */,
-				FE2BAC661DAE241800D0BECA /* UTMini.framework */,
-				FE587B6F1D9BA92C00E21438 /* UTDID.framework */,
-				FE101F051D702D0700853066 /* YWFeedbackBundle.bundle */,
-			);
-			path = BCFeedback;
 			sourceTree = "<group>";
 		};
 		FE94F5601DB86B9400C5044C /* Util */ = {
@@ -210,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B33283281C27F820006DB60A /* Build configuration list for PBXNativeTarget "YWFeedbackDemo" */;
 			buildPhases = (
+				605E718172D43A7B5E0F70E0 /* [CP] Check Pods Manifest.lock */,
 				B332830D1C27F820006DB60A /* Sources */,
 				B332830E1C27F820006DB60A /* Frameworks */,
 				B332830F1C27F820006DB60A /* Resources */,
+				53BFD5244AC5FCB3D320E353 /* [CP] Embed Pods Frameworks */,
+				33F7E28156906F672E820947 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,25 +248,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE101F061D702D0700853066 /* YWFeedbackBundle.bundle in Resources */,
 				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
-				FE94F55F1DB86B5300C5044C /* YWLoginController.xib in Resources */,
-				FE94F5731DB86B9400C5044C /* icon-error@2x.png in Resources */,
 				9A88BA661F68BBFD006B833E /* aliyun_bg.png in Resources */,
-				FE94F5741DB86B9400C5044C /* icon-info.png in Resources */,
-				FE94F5751DB86B9400C5044C /* icon-info@2x.png in Resources */,
-				FE94F5761DB86B9400C5044C /* icon-success.png in Resources */,
-				FE94F5771DB86B9400C5044C /* icon-success@2x.png in Resources */,
 				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
 				9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */,
+				4A7C371A2069FB94000B0B7E /* AliyunEmasServices-Info.plist in Resources */,
 				9A88BA6A1F68C1ED006B833E /* MainStoryboard.storyboard in Resources */,
 				9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */,
-				FE94F5721DB86B9400C5044C /* icon-error.png in Resources */,
 				B33283211C27F820006DB60A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33F7E28156906F672E820947 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53BFD5244AC5FCB3D320E353 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		605E718172D43A7B5E0F70E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B332830D1C27F820006DB60A /* Sources */ = {
@@ -404,6 +432,7 @@
 		};
 		B33283291C27F820006DB60A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8BA574E137F823713BA09D /* Pods-YWFeedbackDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -411,15 +440,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QBMN2BBW3K;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YWFeedbackDemo/BCFeedback",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"DAILY=0",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YWFeedbackDemo/BCFeedback/**",
@@ -438,6 +460,7 @@
 		};
 		B332832A1C27F820006DB60A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFF5BB2C64153C94AFC11CA3 /* Pods-YWFeedbackDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -445,11 +468,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QBMN2BBW3K;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YWFeedbackDemo/BCFeedback",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = "DAILY=0";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = "${inherited}";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YWFeedbackDemo/BCFeedback/**",
