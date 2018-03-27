@@ -50,18 +50,18 @@
 * 2.阿里云官网https://cn.aliyun.com/ 选择-产品->移动服务->移动用户反馈。
 ![lujing](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/53140/cn_zh/1493891269187/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-04%20%E4%B8%8B%E5%8D%885.47.19.png)
 * 3.没有应用，需要创建应用。
-    
+
 	管理控制台-》创建应用
 	![创建应用](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/53140/cn_zh/1493989535855/33.png)
-	
+
 
 * 4.客户端集成。
 
 	 目前支持iOS、Android端
-	 
+
      下载客户端SDK并集成，地址：https://mhub.console.aliyun.com/#/download
-     
-     
+
+
 ## Demo说明
 
 该Demo提供了App不同应用场景集成移动用户反馈服务的示例。
@@ -77,8 +77,8 @@ Demo仅作为原理讲解和示例代码用途，
 
 您首先需要登入控制台，创建一个 APP 实体以对应您准备使用的 Demo APP。关于 APP 创建的指引文档可以参考：
 
-- [ 《移动用户反馈 - 开发指南 - 终端SDK手册 - iOS SDK手册》]( https://help.aliyun.com/document_detail/53145.html?spm=5176.doc53324.6.555.KEwgHA ) 
- 
+- [ 《移动用户反馈 - 开发指南 - 终端SDK手册 - iOS SDK手册》]( https://help.aliyun.com/document_detail/53145.html?spm=5176.doc53324.6.555.KEwgHA )
+
 创建完 APP 后，您还需要配置您的 APP ，注意 appkey 的设置，要与控制台保持一致，并根据业务需要选择是否开启鉴权功能。
 
 
@@ -91,51 +91,38 @@ Demo仅作为原理讲解和示例代码用途，
 
 本 Demo 的文件夹名字叫做：feedback_ios_demo。
 
-
-**项目结构**
-
-
-Demo的结构如下：做下说明：
-
- ```Objective-C
-
-
-├── Image
-├── YWFeedbackDemo                       # Demo 演示部分
-│   ├── BCFeedback
-│       ├── AlicloudUtils.framework       # SDK 依赖库
-│       ├── BCConnectorBundle.framework   # SDK 依赖库
-│       ├── BCHybridWebViewFMWK.framework # SDK 依赖库
-│       ├── UTDID.framework.              # SDK 依赖库
-│       ├── UTMini.framework              # SDK 依赖库
-│       ├── YWFeedbackBundle.bundle.      # SDK 依赖资源
-│       └── YWFeedbackFMWK.framework.     # SDK 库
-└── YWFeedbackDemo.xcodeproj
-        
  ```
- 
+
 **当您在使用您自己的 APP 集成 SDK 遇到问题时，您可以对比下 demo APP 的配置情况。**
 
 
 ### 3. 配置APP信息
 
-3.1 配置 appkey、secretKey
+3.1 手动配置 appkey、secretKey
 
 为了使Demo APP能够正常运行，您还需要配置您的appkey/secretKey信息。您可以在移动推送控制台，您在第一步创建的APP中找到它们，如图所示：
 
 ![](Image/where_is_appkey_secrectkey.png)
 
+3.2 自动配置
+
+- 从控制台下载`AliyunEmasServices-Info.plist`，如下图所示：
+
+![unit_config_pic](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/30072/cn_zh/1522115613308/Snip20180327_1.png)
+
+- 替换Demo工程里的`AliyunEmasServices-Info.plist`文件。
+
+- 调用`autoInit`初始化接口。
 
 ### 4. 运行 Demo
 
-用 Xcode 打开 `***.xcodeproj` 文件，即可运行该Demo。
+执行`pod instal` or `pod update`，拉取依赖SDK包。
+
+用 Xcode 打开 `***.xcworkspace` 文件，即可运行该Demo。
 
 
 ## 联系我们
-q
- 
- - 官网：移动用户反馈[《移动用户反馈》]( https://help.aliyun.com/document_detail/53145.html?spm=5176.doc53324.6.555.KEwgHA ) 
+
+ - 官网：移动用户反馈[《移动用户反馈》]( https://help.aliyun.com/document_detail/53145.html?spm=5176.doc53324.6.555.KEwgHA )
  - 钉钉技术支持：11711519（钉钉群号）
- - 官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 ) 
-
-
+ - 官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 )
