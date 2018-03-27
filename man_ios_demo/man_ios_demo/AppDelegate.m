@@ -28,8 +28,12 @@
     // 打开调试日志，线上建议关闭
     [man turnOnDebug];
     
-    // 初始化MAN
-    [man initWithAppKey:testAppKey secretKey:testAppSecret];
+    // 初始化MAN，手动输入appKey/appSecret配置信息
+    //[man initWithAppKey:testAppKey secretKey:testAppSecret];
+    
+    // 初始化MAN，无需输入配置信息
+    // 请从控制台下载AliyunEmasServices-Info.plist配置文件，并正确拖入工程
+    [man autoInit];
     
     return YES;
 }
