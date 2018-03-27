@@ -60,6 +60,8 @@ mpush_ios_demo已经完成了移动推送SDK的集成工作，但我们还是建
 
 ### 4. 配置APP信息
 
+#### 4.1 手动配置
+
 - 为了使Demo APP能够正常运行，您还需要配置您的appkey/appsecret信息。您可以在移动推送控制台，您在第一步创建的APP中找到它们，如图所示：
 
 ![appkey](http://test-bucket-lingbo.oss-cn-hangzhou.aliyuncs.com/mpush2.png)
@@ -71,6 +73,26 @@ static NSString *const testAppKey = @"******";
 static NSString *const testAppSecret = @"******";
 // SDK初始化
 [CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
+    if (res.success) {
+        NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+    } else {
+        NSLog(@"Push SDK init failed, error: %@", res.error);
+    }
+}];
+```
+
+#### 4.2 自动配置
+
+- 从控制台下载`AliyunEmasServices-Info.plist`，如下图所示：
+
+![unit_config_pic](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/30072/cn_zh/1522115613308/Snip20180327_1.png)
+
+- 替换Demo工程里的`AliyunEmasServices-Info.plist`文件。
+
+- 调用自动初始化接口即可：
+
+```objc
+[CloudPushSDK autoInit:^(CloudPushCallbackResult *res) {
     if (res.success) {
         NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
     } else {

@@ -213,8 +213,18 @@ static NSString *const testAppSecret = @"******";
 - (void)initCloudPush {
     // 正式上线建议关闭
     [CloudPushSDK turnOnDebug];
-    // SDK初始化
-    [CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
+    // SDK初始化，手动输出appKey和appSecret
+//    [CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
+//        if (res.success) {
+//            NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+//        } else {
+//            NSLog(@"Push SDK init failed, error: %@", res.error);
+//        }
+//    }];
+    
+    // SDK初始化，无需输入配置信息
+    // 请从控制台下载AliyunEmasServices-Info.plist配置文件，并正确拖入工程
+    [CloudPushSDK autoInit:^(CloudPushCallbackResult *res) {
         if (res.success) {
             NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
         } else {
