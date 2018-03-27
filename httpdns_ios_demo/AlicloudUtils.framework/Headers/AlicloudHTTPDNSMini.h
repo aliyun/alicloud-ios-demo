@@ -15,6 +15,7 @@
 
 + (AlicloudHTTPDNSMini *)sharedInstance;
 - (NSArray *)getIpsByHostAsync:(NSString *)host;
+- (void)setPreResolveHosts:(NSArray *)hosts;
 
 @end
 

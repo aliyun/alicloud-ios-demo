@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     // 初始化HTTPDNS
     // 设置AccoutID
-    HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:139450];
+    HttpDnsService *httpdns = [[HttpDnsService alloc] autoInit];
     //鉴权方式初始化
     //HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:0000 secretKey:@"XXXX"];
 

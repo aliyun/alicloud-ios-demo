@@ -21,5 +21,6 @@
 #import <AlicloudUtils/AntilockBrakeSystem.h>
 #import <AlicloudUtils/AlicloudTracker.h>
 #import <AlicloudUtils/AlicloudReport.h>
+#import <AlicloudUtils/EMASOptions.h>
 #import <AlicloudUtils/EMASTools.h>
 #import <AlicloudUtils/UtilLog.h>

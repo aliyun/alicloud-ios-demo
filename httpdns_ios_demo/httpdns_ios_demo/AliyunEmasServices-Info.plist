@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>config</key>
+	<dict>
+		<key>emas.appKey</key>
+		<string>23714771</string>
+		<key>emas.appSecret</key>
+		<string>xxxx</string>
+		<key>emas.bundleId</key>
+		<string>null</string>
+		<key>httpdns.accountId</key>
+		<string>139450</string>
+	</dict>
+	<key>services</key>
+	<dict>
+		<key>httpdns_service</key>
+		<dict>
+			<key>status</key>
+			<integer>1</integer>
+			<key>version</key>
+			<string>1.6.13</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

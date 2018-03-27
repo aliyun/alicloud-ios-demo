@@ -26,6 +26,7 @@
 		9A88BA541F67C0AA006B833E /* where_is_accountid_secrectkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA521F67C0AA006B833E /* where_is_accountid_secrectkey.png */; };
 		9A88BA571F67D91F006B833E /* CommonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A88BA561F67D91F006B833E /* CommonScene.m */; };
 		9A88BA5A1F67D975006B833E /* HTTPSScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A88BA591F67D975006B833E /* HTTPSScene.m */; };
+		9AFBDCBE206A46AB002F99F6 /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFBDCBD206A46AB002F99F6 /* AliyunEmasServices-Info.plist */; };
 		C589F8961D28C0A8007CC868 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C589F8951D28C0A8007CC868 /* MainViewController.m */; };
 		E2552B8C1C7F167A00D46C32 /* AlicloudHttpDNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		9A88BA561F67D91F006B833E /* CommonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonScene.m; sourceTree = "<group>"; };
 		9A88BA581F67D975006B833E /* HTTPSScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSScene.h; sourceTree = "<group>"; };
 		9A88BA591F67D975006B833E /* HTTPSScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSScene.m; sourceTree = "<group>"; };
+		9AFBDCBD206A46AB002F99F6 /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		C589F8941D28C0A8007CC868 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C589F8951D28C0A8007CC868 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E2552B8B1C7F167A00D46C32 /* AlicloudHttpDNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudHttpDNS.framework; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		942188E91C59011B00696D6E /* httpdns_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
+				9AFBDCBD206A46AB002F99F6 /* AliyunEmasServices-Info.plist */,
 				9A88BA501F67C0AA006B833E /* Image */,
 				942188ED1C59011B00696D6E /* AppDelegate.h */,
 				942188EE1C59011B00696D6E /* AppDelegate.m */,
@@ -221,6 +224,7 @@
 				9A1E46B11F5D516900800D40 /* aliyun_bg.png in Resources */,
 				942188F51C59011B00696D6E /* Main.storyboard in Resources */,
 				9A88BA531F67C0AA006B833E /* httpdns_product_logo.png in Resources */,
+				9AFBDCBE206A46AB002F99F6 /* AliyunEmasServices-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
