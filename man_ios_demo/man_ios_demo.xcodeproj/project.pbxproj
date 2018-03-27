@@ -12,6 +12,7 @@
 		4A3091671C5F865300C7401A /* TestUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3091661C5F865300C7401A /* TestUIViewController.m */; };
 		4A50183F1CF01E8A0055433B /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A50183E1CF01E8A0055433B /* libresolv.tbd */; };
 		4A77BDFD1CA8AF0800C18615 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A77BDFB1CA80A1F00C18615 /* libz.tbd */; };
+		4A7C37182069FADA000B0B7E /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7C37172069FADA000B0B7E /* AliyunEmasServices-Info.plist */; };
 		4ADB84EC1C5E572900E85A3D /* ManIOSDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */; };
 		5460C6B51E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C6B11E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework */; };
 		5460C6B61E0A2402007A0AB4 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460C6B21E0A2402007A0AB4 /* AlicloudUtils.framework */; };
@@ -55,6 +56,7 @@
 		4A3091681C5F866400C7401A /* TestUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUIViewController.h; sourceTree = "<group>"; };
 		4A50183E1CF01E8A0055433B /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		4A77BDFB1CA80A1F00C18615 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4A7C37172069FADA000B0B7E /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AliyunEmasServices-Info.plist"; path = "../mpush_ios_demo/AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		4ADB84EA1C5E571200E85A3D /* ManIOSDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManIOSDemo.h; sourceTree = "<group>"; };
 		4ADB84EB1C5E572900E85A3D /* ManIOSDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManIOSDemo.m; sourceTree = "<group>"; };
 		5460C6B11E0A2402007A0AB4 /* AlicloudMobileAnalitics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudMobileAnalitics.framework; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		F7590ACF1BC8DD77009C8B08 = {
 			isa = PBXGroup;
 			children = (
+				4A7C37172069FADA000B0B7E /* AliyunEmasServices-Info.plist */,
 				F7590B011BC8E115009C8B08 /* dependence */,
 				F7590ADA1BC8DD77009C8B08 /* man_ios_demo */,
 				F7590AF41BC8DD77009C8B08 /* man_ios_demoTests */,
@@ -314,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7C37182069FADA000B0B7E /* AliyunEmasServices-Info.plist in Resources */,
 				FA91FE781F5F9D970093567B /* h5demo.html in Resources */,
 				F7590AE71BC8DD77009C8B08 /* Main.storyboard in Resources */,
 				F7590AEC1BC8DD77009C8B08 /* LaunchScreen.xib in Resources */,
@@ -573,7 +577,7 @@
 				INFOPLIST_FILE = man_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -592,7 +596,7 @@
 				INFOPLIST_FILE = man_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "${inherited}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
