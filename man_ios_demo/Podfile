@@ -10,7 +10,7 @@ target 'man_ios_demo' do
 
   # Pods for man_ios_demo
 
-  pod 'AlicloudMAN', '1.0.12'
+  pod 'AlicloudMAN', '1.0.13'
 
   target 'man_ios_demoTests' do
     inherit! :search_paths

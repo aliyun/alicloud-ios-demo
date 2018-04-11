@@ -1,5 +1,5 @@
 PODS:
-  - AlicloudMAN (1.0.12):
+  - AlicloudMAN (1.0.13):
     - AlicloudUtils
   - AlicloudUT (5.2.0.4):
     - AlicloudUTDID
@@ -9,14 +9,14 @@ PODS:
     - AlicloudUTDID
 
 DEPENDENCIES:
-  - AlicloudMAN (= 1.0.12)
+  - AlicloudMAN (= 1.0.13)
 
 SPEC CHECKSUMS:
-  AlicloudMAN: 0cb940cbf9cb94cd51dacbc7096065ef22747685
+  AlicloudMAN: 9ee9562a7bc9eaf4b7146bce43a6d58dd07b646a
   AlicloudUT: 65b42ceb78d67d556388a3ca5f875034f505f9d6
   AlicloudUTDID: f5a7bc1420c5f83e3bd40296e5ab2e5a804a12f8
   AlicloudUtils: 4f7e5d5214ed1b831e677fb739f1ec691aa53ff5
 
-PODFILE CHECKSUM: 45be7b144bab00dd59d1d47432114f6bfc61e296
+PODFILE CHECKSUM: fd03af15c35b39d57cb7f905a83f44bd4d4e9e8d
 
 COCOAPODS: 1.2.0
