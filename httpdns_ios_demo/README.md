@@ -80,7 +80,7 @@ Demo仅作为原理讲解和示例代码用途，
 
 将工程克隆或下载到本地：
 
-> git clone https://github.com/aliyun/alicloud-android-demo.git
+> git clone https://github.com/aliyun/alicloud-ios-demo.git
 
 本 Demo 的文件夹名字叫做：httpdns_ios_demo。
 
