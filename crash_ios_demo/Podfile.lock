@@ -1,0 +1,97 @@
+PODS:
+  - AlicloudHA (1.1.0.1):
+    - AlicloudUTDID
+    - AliHACore (= 10.0.3)
+    - AliHAProtocol (= 10.0.3)
+    - AliHASecurity (> 10.0.3)
+    - BizErrorReporter4iOS (= 10.0.3)
+    - RemoteDebugChannel (= 10.0.4.4-no-accs)
+    - TBCrashReporter (= 10.1.0.1)
+    - TBRest (= 10.1.0.1)
+    - TRemoteDebugger (= 10.0.3)
+  - AlicloudUTDID (1.1.0.19)
+  - AliHACore (10.0.3):
+    - AliHALogEngine (>= 10.0.2)
+    - AliHAProtocol (>= 10.0.2.1)
+    - TBJSONModel
+    - TBRest (>= 1.0.0.18)
+  - AliHALogEngine (10.0.5)
+  - AliHAMethodTrace (10.0.4)
+  - AliHAProtocol (10.0.3):
+    - TBJSONModel
+  - AliHASecurity (10.0.4)
+  - AliyunOSSiOS (2.10.7)
+  - BizErrorReporter4iOS (10.0.3):
+    - JDYThreadTrace (>= 1.0.0.12)
+    - TBRest
+  - CrashReporter (10.0.3)
+  - JDYThreadTrace (10.0.0)
+  - RemoteDebugChannel (10.0.4.4-no-accs):
+    - AliHAProtocol (>= 10.0.0.3)
+    - AliHASecurity
+    - AliyunOSSiOS
+    - TBJSONModel
+    - TBRest (>= 1.0.0.18)
+    - ZipArchive
+  - TBCrashReporter (10.1.0.1):
+    - AliHAProtocol (>= 1.0.5.3)
+    - CrashReporter (>= 1.3.6.18)
+    - JDYThreadTrace (>= 1.0.0.12)
+    - TBRest (>= 10.1.0.1)
+  - TBJSONModel (0.1.15.1)
+  - TBRest (10.1.0.1)
+  - TRemoteDebugger (10.0.3):
+    - AliHALogEngine (>= 1.0.2.10)
+    - AliHAMethodTrace (>= 1.0.1.2)
+    - AliHAProtocol (>= 10.0.0.5)
+    - AliHASecurity (>= 1.0.1.1)
+    - TBJSONModel
+    - TBRest (>= 1.0.0.18)
+  - ZipArchive (1.4.0)
+
+DEPENDENCIES:
+  - AlicloudHA (~> 1.1.0)
+
+SPEC REPOS:
+  https://github.com/aliyun/aliyun-specs.git:
+    - AlicloudHA
+    - AlicloudUTDID
+    - AliHACore
+    - AliHALogEngine
+    - AliHAMethodTrace
+    - AliHAProtocol
+    - AliHASecurity
+    - BizErrorReporter4iOS
+    - CrashReporter
+    - JDYThreadTrace
+    - RemoteDebugChannel
+    - TBCrashReporter
+    - TBJSONModel
+    - TBRest
+    - TRemoteDebugger
+  https://github.com/cocoapods/specs.git:
+    - AliyunOSSiOS
+    - ZipArchive
+
+SPEC CHECKSUMS:
+  AlicloudHA: 1210e87a78ade0c2d439c6a8436e0a2fd10f393d
+  AlicloudUTDID: 79f509c3e997ef85fe307f8bfb2bb3be27f7e205
+  AliHACore: a8b0b01f92977cbee1d57b5b7dac0f51dca59cfd
+  AliHALogEngine: fea0f3b1fa86e1fb563fd7b10d9337e1f2fb3a97
+  AliHAMethodTrace: 31ebea278dfc3dfead7c47a75fc995c79d14ac36
+  AliHAProtocol: fd6ba550c1888b51cc1cd55a21f220fccadd7a26
+  AliHASecurity: feacfe93b806c1c1a03e2d03c4968d7021df6851
+  AliyunOSSiOS: 602b6a4e70e62a5f0a6431c20496343141d7e66f
+  BizErrorReporter4iOS: 0f8d8f52ca95e89e7c60fc15dc162bc6f32c3d86
+  CrashReporter: f8374b53ef73d1ae23e76331fd648bfc1cd7ff78
+  JDYThreadTrace: 912a762430ed98ce4ccdc85004366dd5bb5ce72e
+  RemoteDebugChannel: b9e4b17a97808a025fb592d59f3c3f2d86fb9390
+  TBCrashReporter: 69fa47c24b9b9ffe22af5fef8a178c2af95376ce
+  TBJSONModel: 2c95a8789bc3d98a2a773dd09c41ddeb902a200b
+  TBRest: 72fb08ba5a17adc8cc1ce6d269872176857b7430
+  TRemoteDebugger: ba20fa8e5845af0f0a8a25d9271a37cb6ab3919d
+  ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
+
+PODFILE CHECKSUM: 08c9c37070f7a84f77d1181453740259cdce95ed
+
+COCOAPODS: 1.7.1

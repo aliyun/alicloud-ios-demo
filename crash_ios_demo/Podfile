@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
+target 'crash_ios_demo' do
+  use_frameworks!
+
+  pod 'AlicloudHA', '~> 1.1.0'
+end
