@@ -19,7 +19,6 @@
 		4AB162A51DBF0A3D00BAF4CA /* MPushSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A01DBF0A3D00BAF4CA /* MPushSettingsViewController.swift */; };
 		4AB162A61DBF0A3D00BAF4CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB162A11DBF0A3D00BAF4CA /* AppDelegate.swift */; };
 		4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162A91DBF0A5900BAF4CA /* Assets.xcassets */; };
-		4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AA1DBF0A5900BAF4CA /* Info.plist */; };
 		4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AE1DBF0AAD00BAF4CA /* Main.storyboard */; };
 		4AB162B11DBF0AAD00BAF4CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB162AF1DBF0AAD00BAF4CA /* LaunchScreen.storyboard */; };
 		4AB172F01FFBA58E00D6F8FB /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB172EF1FFBA58D00D6F8FB /* UTMini.framework */; };
@@ -367,6 +366,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -388,7 +388,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB162AC1DBF0A5900BAF4CA /* Assets.xcassets in Resources */,
-				4AB162AD1DBF0A5900BAF4CA /* Info.plist in Resources */,
 				4AB162B11DBF0AAD00BAF4CA /* LaunchScreen.storyboard in Resources */,
 				4AB162B01DBF0AAD00BAF4CA /* Main.storyboard in Resources */,
 			);
@@ -582,7 +581,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -607,7 +606,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.pushdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_swift_demo/mpush_ios_swift_demo-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -621,7 +620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-service-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -635,7 +634,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-service-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -649,7 +648,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-content-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -663,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.pushdemo.mpush-content-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
