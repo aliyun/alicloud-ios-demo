@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                                object: nil)
     }
     
-    func channelOpenedFunc(notification : Notification) {
+    @objc func channelOpenedFunc(notification : Notification) {
         print("Push SDK channel opened.")
     }
     
@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     // 处理推送消息
-    func onMessageReceivedFunc(notification : Notification) {
+    @objc func onMessageReceivedFunc(notification : Notification) {
         print("Receive one message.")
         let pushMessage: CCPSysMessage = notification.object as! CCPSysMessage
         let title = String.init(data: pushMessage.title, encoding: String.Encoding.utf8)
