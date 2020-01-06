@@ -8,7 +8,7 @@ source 'https://github.com/aliyun/aliyun-specs.git'
 
 target 'mpush_ios_demo' do
 
-pod 'AlicloudPush', '~> 1.9.8'
+pod 'AlicloudPush', '~> 1.9.9'
 
 end
 
