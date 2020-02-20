@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
+platform :ios, '8.0'
+
+target 'apm_ios_demo' do
+  use_frameworks!
+
+  pod 'AlicloudAPM' , '~> 1.0.0'
+
+end
+

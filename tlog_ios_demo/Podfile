@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
+
+platform :ios, '8.0'
+
+target 'tlog_ios_demo' do
+  use_frameworks!
+
+  pod 'AlicloudTLog', '~> 1.0.0'
+
+end
+
