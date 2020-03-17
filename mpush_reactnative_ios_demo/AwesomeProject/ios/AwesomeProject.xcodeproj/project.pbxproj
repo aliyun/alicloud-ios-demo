@@ -22,9 +22,15 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		4A528AA11F2B2E9D00F5E4F6 /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A528A851F2B2E9D00F5E4F6 /* AlicloudUtils.framework */; };
-		4A528AA21F2B2E9D00F5E4F6 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A528A9F1F2B2E9D00F5E4F6 /* UTDID.framework */; };
-		4A528AA31F2B2E9D00F5E4F6 /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A528AA01F2B2E9D00F5E4F6 /* CloudPushSDK.framework */; };
+		403A78BF24206D0E000D8DBC /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78BB24206D0E000D8DBC /* UTDID.framework */; };
+		403A78C024206D0E000D8DBC /* AlicloudUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78BC24206D0E000D8DBC /* AlicloudUtils.framework */; };
+		403A78C124206D0E000D8DBC /* CloudPushSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78BD24206D0E000D8DBC /* CloudPushSDK.framework */; };
+		403A78C224206D0E000D8DBC /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78BE24206D0E000D8DBC /* UTMini.framework */; };
+		403A78C424206D31000D8DBC /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 403A78C324206D31000D8DBC /* AliyunEmasServices-Info.plist */; };
+		403A78C624206E5C000D8DBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78C524206E5C000D8DBC /* libz.tbd */; };
+		403A78C824206E6D000D8DBC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78C724206E6D000D8DBC /* CoreTelephony.framework */; };
+		403A78CA24206E78000D8DBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78C924206E78000D8DBC /* SystemConfiguration.framework */; };
+		403A78CC24206E80000D8DBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A78CB24206E80000D8DBC /* libsqlite3.tbd */; };
 		4A528AA61F2B2F9200F5E4F6 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A528AA51F2B2F7E00F5E4F6 /* libresolv.tbd */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -235,10 +241,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AwesomeProject/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AwesomeProject/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		403A78BB24206D0E000D8DBC /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
+		403A78BC24206D0E000D8DBC /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlicloudUtils.framework; sourceTree = "<group>"; };
+		403A78BD24206D0E000D8DBC /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CloudPushSDK.framework; sourceTree = "<group>"; };
+		403A78BE24206D0E000D8DBC /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		403A78C324206D31000D8DBC /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
+		403A78C524206E5C000D8DBC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		403A78C724206E6D000D8DBC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		403A78C924206E78000D8DBC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		403A78CB24206E80000D8DBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4A03AB981F2B3384003B4AD7 /* AwesomeProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AwesomeProject.entitlements; path = AwesomeProject/AwesomeProject.entitlements; sourceTree = "<group>"; };
-		4A528A851F2B2E9D00F5E4F6 /* AlicloudUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlicloudUtils.framework; path = "../../../../../../../Downloads/OneSDK 5/AlicloudUtils.framework"; sourceTree = "<group>"; };
-		4A528A9F1F2B2E9D00F5E4F6 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = "../../../../../../../Downloads/OneSDK 5/UTDID.framework"; sourceTree = "<group>"; };
-		4A528AA01F2B2E9D00F5E4F6 /* CloudPushSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudPushSDK.framework; path = "../../../../../../../Downloads/OneSDK 5/CloudPushSDK.framework"; sourceTree = "<group>"; };
 		4A528AA51F2B2F7E00F5E4F6 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -258,19 +270,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403A78CC24206E80000D8DBC /* libsqlite3.tbd in Frameworks */,
+				403A78CA24206E78000D8DBC /* SystemConfiguration.framework in Frameworks */,
+				403A78C824206E6D000D8DBC /* CoreTelephony.framework in Frameworks */,
 				4A528AA61F2B2F9200F5E4F6 /* libresolv.tbd in Frameworks */,
+				403A78C624206E5C000D8DBC /* libz.tbd in Frameworks */,
+				403A78C124206D0E000D8DBC /* CloudPushSDK.framework in Frameworks */,
+				403A78C224206D0E000D8DBC /* UTMini.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				403A78BF24206D0E000D8DBC /* UTDID.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
-				4A528AA21F2B2E9D00F5E4F6 /* UTDID.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
-				4A528AA11F2B2E9D00F5E4F6 /* AlicloudUtils.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				403A78C024206D0E000D8DBC /* AlicloudUtils.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
-				4A528AA31F2B2E9D00F5E4F6 /* CloudPushSDK.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 			);
@@ -359,6 +376,8 @@
 		13B07FAE1A68108700A75B9A /* AwesomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				403A78C324206D31000D8DBC /* AliyunEmasServices-Info.plist */,
+				403A78BA24206D0E000D8DBC /* PushSDK */,
 				4A03AB981F2B3384003B4AD7 /* AwesomeProject.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -386,9 +405,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		403A78BA24206D0E000D8DBC /* PushSDK */ = {
+			isa = PBXGroup;
+			children = (
+				403A78BB24206D0E000D8DBC /* UTDID.framework */,
+				403A78BC24206D0E000D8DBC /* AlicloudUtils.framework */,
+				403A78BD24206D0E000D8DBC /* CloudPushSDK.framework */,
+				403A78BE24206D0E000D8DBC /* UTMini.framework */,
+			);
+			path = PushSDK;
+			sourceTree = "<group>";
+		};
 		4A528AA41F2B2F7E00F5E4F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				403A78CB24206E80000D8DBC /* libsqlite3.tbd */,
+				403A78C924206E78000D8DBC /* SystemConfiguration.framework */,
+				403A78C724206E6D000D8DBC /* CoreTelephony.framework */,
+				403A78C524206E5C000D8DBC /* libz.tbd */,
 				4A528AA51F2B2F7E00F5E4F6 /* libresolv.tbd */,
 			);
 			name = Frameworks;
@@ -442,9 +476,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				4A528A851F2B2E9D00F5E4F6 /* AlicloudUtils.framework */,
-				4A528AA01F2B2E9D00F5E4F6 /* CloudPushSDK.framework */,
-				4A528A9F1F2B2E9D00F5E4F6 /* UTDID.framework */,
 				13B07FAE1A68108700A75B9A /* AwesomeProject */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AwesomeProjectTests */,
@@ -532,6 +563,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -782,6 +814,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403A78C424206D31000D8DBC /* AliyunEmasServices-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -894,7 +927,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = QBMN2BBW3K;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PushSDK",
+				);
 				INFOPLIST_FILE = AwesomeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -915,7 +951,10 @@
 				CODE_SIGN_ENTITLEMENTS = AwesomeProject/AwesomeProject.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QBMN2BBW3K;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PushSDK",
+				);
 				INFOPLIST_FILE = AwesomeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
