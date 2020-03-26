@@ -1,0 +1,50 @@
+version: "1.0"
+
+# 构建平台，不区分大小写
+platform: iOS
+
+# 设置系统环境变量
+system-env:
+  MY_KEY: "Hello, Bliss!"
+
+phases:
+  pre_build:
+    commands:
+      - run:
+          name: my pre-build command
+          command: echo 'pre-build ...'
+  build:
+    commands:
+      - run:
+          name: read my system environment variable
+          command: echo $MY_KEY
+      - run:
+          name: read PATH system enviroment
+          command: echo $PATH
+      - cocoapods:
+          deintegrate: false
+          repo_update: false
+          install: false
+          update: true
+      - build_ios_app:
+          scheme: devops-ios-demo
+          project: devops-ios-demo.xcodeproj
+          workspace: devops-ios-demo.xcworkspace
+          clean: true
+          configuration: Release
+          export_method: ad-hoc
+          codesigning_identity: 'iPhone Distribution: kun ling (VSW2PKYTD7)'
+  post_build:
+    commands:
+      - run:
+          name: my post-build command
+          command: echo 'post-build ...'
+
+artifacts:
+  outputs:
+    - filter:
+        root_folder: $EMAS_CODE_DIR
+        location_folder: ./
+        recursive: true
+        extensions:
+          - ipa
