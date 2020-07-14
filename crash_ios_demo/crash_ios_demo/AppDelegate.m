@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import <AliHAAdapter4Cloud/AliHAAdapter.h>
-#import <TBCrashReporter/TBCrashReporter.h>
+#import <AlicloudCrash/AlicloudCrashProvider.h>
+#import <AlicloudHAUtil/AlicloudHAProvider.h>
 
 @interface AppDelegate ()
 
@@ -20,15 +20,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString *appKey = @"xxxxxxx"; //appId
-    NSString *secret = @"xxxxxxx"; //appSecret
-    NSString *channel = @"xx";     //渠道标记，自定义，比如不同的应用商店等
-    NSString *appVersion = @"x.x"; //app版本
-    NSString *nick = @"xx";        //选填。自定义，会上报。可用于查找崩溃数据
+    // 接入方式一:使用配置文件
+    // 请去控制台下载AliyunEmasServices-Info.plist，并替换本地文件
+    NSString *appVersion = @"x.x"; //app版本，会上报
+    NSString *channel = @"xx";     //渠道标记，自定义，会上报
+    NSString *nick = @"xx";        //nick 昵称，自定义，会上报
+    [[AlicloudCrashProvider alloc] autoInitWithAppVersion:appVersion channel:channel nick:nick];
+    [AlicloudHAProvider start];
     
-    id<AliHAPluginProtocol> crashPlugin = [TBCrashReporter sharedReporter];
-    NSArray<id<AliHAPluginProtocol>> *plugins = @[crashPlugin];
-    [AliHAAdapter initWithAppKey:appKey secret:secret appVersion:appVersion channel:channel plugins:plugins nick:nick];
+//    // 接入方式二:不使用配置文件
+//    NSString *appKey = @"xxxxxxx"; //appKey
+//    NSString *secret = @"xxxxxxx"; //secret
+//    NSString *appVersion = @"x.x"; //app版本，会上报
+//    NSString *channel = @"xx";     //渠道标记，自定义，会上报
+//    NSString *nick = @"xx";        //nick 昵称，自定义，会上报
+//
+//    [[AlicloudCrashProvider alloc] initWithAppKey:appKey secret:secret appVersion:appVersion channel:channel nick:nick];
+//    [AlicloudHAProvider start];
     
     return YES;
 }
