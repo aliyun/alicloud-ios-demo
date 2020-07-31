@@ -193,7 +193,7 @@ static NSString *const testAppSecret = @"******";
     }
     // 通知dismiss，category创建时传入UNNotificationCategoryOptionCustomDismissAction才可以触发
     if ([userAction isEqualToString:UNNotificationDismissActionIdentifier]) {
-        NSLog(@"User dismissed the notification.");
+        [CloudPushSDK sendDeleteNotificationAck:response.notification.request.content.userInfo];
     }
     NSString *customAction1 = @"action1";
     NSString *customAction2 = @"action2";
