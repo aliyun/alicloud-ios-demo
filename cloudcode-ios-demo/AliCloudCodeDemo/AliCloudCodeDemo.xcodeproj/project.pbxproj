@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		19E7E1C1CAB92DDEDC2D84B9 /* libPods-AliCloudCodeDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E662B72E40FA5AAE8F254200 /* libPods-AliCloudCodeDemo.a */; };
+		B068AA7C25E8DA73008BF2E5 /* SplashViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA7B25E8DA73008BF2E5 /* SplashViewViewController.m */; };
+		B068AA8025E8DA83008BF2E5 /* InterstitialViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA7F25E8DA83008BF2E5 /* InterstitialViewViewController.m */; };
+		B068AA8425E8DA94008BF2E5 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA8325E8DA94008BF2E5 /* BannerViewController.m */; };
+		B0C7AD7925E8D29600AB2E03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C7AD7825E8D29600AB2E03 /* AppDelegate.m */; };
+		B0C7AD7C25E8D29600AB2E03 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C7AD7B25E8D29600AB2E03 /* SceneDelegate.m */; };
+		B0C7AD7F25E8D29600AB2E03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C7AD7E25E8D29600AB2E03 /* ViewController.m */; };
+		B0C7AD8225E8D29600AB2E03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0C7AD8025E8D29600AB2E03 /* Main.storyboard */; };
+		B0C7AD8425E8D29700AB2E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0C7AD8325E8D29700AB2E03 /* Assets.xcassets */; };
+		B0C7AD8725E8D29700AB2E03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0C7AD8525E8D29700AB2E03 /* LaunchScreen.storyboard */; };
+		B0C7AD8A25E8D29700AB2E03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C7AD8925E8D29700AB2E03 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13A30696E9BF7CAA5D5E6C1E /* Pods-AliCloudCodeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliCloudCodeDemo.release.xcconfig"; path = "Target Support Files/Pods-AliCloudCodeDemo/Pods-AliCloudCodeDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B068AA7A25E8DA73008BF2E5 /* SplashViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewViewController.h; sourceTree = "<group>"; };
+		B068AA7B25E8DA73008BF2E5 /* SplashViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewViewController.m; sourceTree = "<group>"; };
+		B068AA7E25E8DA83008BF2E5 /* InterstitialViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterstitialViewViewController.h; sourceTree = "<group>"; };
+		B068AA7F25E8DA83008BF2E5 /* InterstitialViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterstitialViewViewController.m; sourceTree = "<group>"; };
+		B068AA8225E8DA94008BF2E5 /* BannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
+		B068AA8325E8DA94008BF2E5 /* BannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
+		B0C7AD7425E8D29600AB2E03 /* AliCloudCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AliCloudCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0C7AD7725E8D29600AB2E03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B0C7AD7825E8D29600AB2E03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B0C7AD7A25E8D29600AB2E03 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		B0C7AD7B25E8D29600AB2E03 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		B0C7AD7D25E8D29600AB2E03 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B0C7AD7E25E8D29600AB2E03 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B0C7AD8125E8D29600AB2E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B0C7AD8325E8D29700AB2E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0C7AD8625E8D29700AB2E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0C7AD8825E8D29700AB2E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0C7AD8925E8D29700AB2E03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B6C002BC070302C119EB51F0 /* Pods-AliCloudCodeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliCloudCodeDemo.debug.xcconfig"; path = "Target Support Files/Pods-AliCloudCodeDemo/Pods-AliCloudCodeDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E662B72E40FA5AAE8F254200 /* libPods-AliCloudCodeDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AliCloudCodeDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0C7AD7125E8D29600AB2E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19E7E1C1CAB92DDEDC2D84B9 /* libPods-AliCloudCodeDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6323C1E2AD54439C5CB82327 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6C002BC070302C119EB51F0 /* Pods-AliCloudCodeDemo.debug.xcconfig */,
+				13A30696E9BF7CAA5D5E6C1E /* Pods-AliCloudCodeDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		92FD76802AB0D67E91B55434 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E662B72E40FA5AAE8F254200 /* libPods-AliCloudCodeDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0C7AD6B25E8D29600AB2E03 = {
+			isa = PBXGroup;
+			children = (
+				B0C7AD7625E8D29600AB2E03 /* AliCloudCodeDemo */,
+				B0C7AD7525E8D29600AB2E03 /* Products */,
+				6323C1E2AD54439C5CB82327 /* Pods */,
+				92FD76802AB0D67E91B55434 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B0C7AD7525E8D29600AB2E03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0C7AD7425E8D29600AB2E03 /* AliCloudCodeDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0C7AD7625E8D29600AB2E03 /* AliCloudCodeDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B0C7AD7725E8D29600AB2E03 /* AppDelegate.h */,
+				B0C7AD7825E8D29600AB2E03 /* AppDelegate.m */,
+				B0C7AD7A25E8D29600AB2E03 /* SceneDelegate.h */,
+				B0C7AD7B25E8D29600AB2E03 /* SceneDelegate.m */,
+				B0C7AD7D25E8D29600AB2E03 /* ViewController.h */,
+				B0C7AD7E25E8D29600AB2E03 /* ViewController.m */,
+				B068AA7A25E8DA73008BF2E5 /* SplashViewViewController.h */,
+				B068AA7B25E8DA73008BF2E5 /* SplashViewViewController.m */,
+				B068AA7E25E8DA83008BF2E5 /* InterstitialViewViewController.h */,
+				B068AA7F25E8DA83008BF2E5 /* InterstitialViewViewController.m */,
+				B068AA8225E8DA94008BF2E5 /* BannerViewController.h */,
+				B068AA8325E8DA94008BF2E5 /* BannerViewController.m */,
+				B0C7AD8025E8D29600AB2E03 /* Main.storyboard */,
+				B0C7AD8325E8D29700AB2E03 /* Assets.xcassets */,
+				B0C7AD8525E8D29700AB2E03 /* LaunchScreen.storyboard */,
+				B0C7AD8825E8D29700AB2E03 /* Info.plist */,
+				B0C7AD8925E8D29700AB2E03 /* main.m */,
+			);
+			path = AliCloudCodeDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0C7AD7325E8D29600AB2E03 /* AliCloudCodeDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0C7AD8D25E8D29700AB2E03 /* Build configuration list for PBXNativeTarget "AliCloudCodeDemo" */;
+			buildPhases = (
+				9C74B89F757FC43556A94917 /* [CP] Check Pods Manifest.lock */,
+				B0C7AD7025E8D29600AB2E03 /* Sources */,
+				B0C7AD7125E8D29600AB2E03 /* Frameworks */,
+				B0C7AD7225E8D29600AB2E03 /* Resources */,
+				A3BBA2896A4F3C1F97DC66D3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AliCloudCodeDemo;
+			productName = AliCloudCodeDemo;
+			productReference = B0C7AD7425E8D29600AB2E03 /* AliCloudCodeDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0C7AD6C25E8D29600AB2E03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					B0C7AD7325E8D29600AB2E03 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = B0C7AD6F25E8D29600AB2E03 /* Build configuration list for PBXProject "AliCloudCodeDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0C7AD6B25E8D29600AB2E03;
+			productRefGroup = B0C7AD7525E8D29600AB2E03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0C7AD7325E8D29600AB2E03 /* AliCloudCodeDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0C7AD7225E8D29600AB2E03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0C7AD8725E8D29700AB2E03 /* LaunchScreen.storyboard in Resources */,
+				B0C7AD8425E8D29700AB2E03 /* Assets.xcassets in Resources */,
+				B0C7AD8225E8D29600AB2E03 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C74B89F757FC43556A94917 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AliCloudCodeDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3BBA2896A4F3C1F97DC66D3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AliCloudCodeDemo/Pods-AliCloudCodeDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AliCloudCodeDemo/Pods-AliCloudCodeDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AliCloudCodeDemo/Pods-AliCloudCodeDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0C7AD7025E8D29600AB2E03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B068AA8425E8DA94008BF2E5 /* BannerViewController.m in Sources */,
+				B068AA8025E8DA83008BF2E5 /* InterstitialViewViewController.m in Sources */,
+				B068AA7C25E8DA73008BF2E5 /* SplashViewViewController.m in Sources */,
+				B0C7AD7F25E8D29600AB2E03 /* ViewController.m in Sources */,
+				B0C7AD7925E8D29600AB2E03 /* AppDelegate.m in Sources */,
+				B0C7AD8A25E8D29700AB2E03 /* main.m in Sources */,
+				B0C7AD7C25E8D29600AB2E03 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B0C7AD8025E8D29600AB2E03 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0C7AD8125E8D29600AB2E03 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B0C7AD8525E8D29700AB2E03 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0C7AD8625E8D29700AB2E03 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B0C7AD8B25E8D29700AB2E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B0C7AD8C25E8D29700AB2E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0C7AD8E25E8D29700AB2E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6C002BC070302C119EB51F0 /* Pods-AliCloudCodeDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AliCloudCodeDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alibaba.AliCloudCodeDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0C7AD8F25E8D29700AB2E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13A30696E9BF7CAA5D5E6C1E /* Pods-AliCloudCodeDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AliCloudCodeDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alibaba.AliCloudCodeDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0C7AD6F25E8D29600AB2E03 /* Build configuration list for PBXProject "AliCloudCodeDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0C7AD8B25E8D29700AB2E03 /* Debug */,
+				B0C7AD8C25E8D29700AB2E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0C7AD8D25E8D29700AB2E03 /* Build configuration list for PBXNativeTarget "AliCloudCodeDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0C7AD8E25E8D29700AB2E03 /* Debug */,
+				B0C7AD8F25E8D29700AB2E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0C7AD6C25E8D29600AB2E03 /* Project object */;
+}
