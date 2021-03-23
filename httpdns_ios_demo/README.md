@@ -70,7 +70,7 @@ Demo仅作为原理讲解和示例代码用途，
 
 
 您首先需要登入控制台，创建一个 APP 实体以对应您准备使用的 Demo APP。关于 APP 创建的指引文档可以参考：
- [《HTTPDNS - 开发指南 - 终端SDK手册 - iOS SDK手册》]( https://help.aliyun.com/document_detail/30141.html?spm=5176.7841952.6.570.ywkeYL ) 
+ [《HTTPDNS - 开发指南 - 终端SDK手册 - iOS SDK手册》]( https://help.aliyun.com/document_detail/150881.html?spm=a2c4g.11186623.6.586.439a67dbNXSkxw ) 
 
 创建完 APP 后，您还需要配置您的 APP ，注意 AccountID 的设置，要与控制台保持一致，并根据业务需要选择是否开启鉴权功能。
 
