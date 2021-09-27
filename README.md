@@ -6,7 +6,7 @@
 
 移动云产品管理地址：[移动云产品](https://emas.console.aliyun.com/)
 
-<!-- SDK下载：[地址](https://mhub.console.aliyun.com/#/download) -->
+SDK下载：请参考EMAS快速入门中 ->下载SDK [地址](https://help.aliyun.com/document_detail/169962.html) 
 
 <!--  > 注：demo中的账号信息配置只为方便demo例程的运行，真实产品中，建议您使用安全黑匣子或其他方式保障密钥的安全性。 -->
 
