@@ -11,6 +11,7 @@
 		B03EBD61279A92BC004E9F14 /* UIColor+CloudCodeDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B03EBD60279A92BC004E9F14 /* UIColor+CloudCodeDemo.m */; };
 		B03EBD64279A9361004E9F14 /* UIView+CloudCodeDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B03EBD63279A9361004E9F14 /* UIView+CloudCodeDemo.m */; };
 		B03EBD67279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B03EBD65279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m */; };
+		B03EBD6A279E4088004E9F14 /* FeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03EBD69279E4088004E9F14 /* FeedsViewController.m */; };
 		B068AA7C25E8DA73008BF2E5 /* SplashViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA7B25E8DA73008BF2E5 /* SplashViewViewController.m */; };
 		B068AA8025E8DA83008BF2E5 /* InterstitialViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA7F25E8DA83008BF2E5 /* InterstitialViewViewController.m */; };
 		B068AA8425E8DA94008BF2E5 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA8325E8DA94008BF2E5 /* BannerViewController.m */; };
@@ -31,6 +32,8 @@
 		B03EBD63279A9361004E9F14 /* UIView+CloudCodeDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CloudCodeDemo.m"; sourceTree = "<group>"; };
 		B03EBD65279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+CloudCodeDemo.m"; sourceTree = "<group>"; };
 		B03EBD66279E3904004E9F14 /* UIAlertController+CloudCodeDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+CloudCodeDemo.h"; sourceTree = "<group>"; };
+		B03EBD68279E4088004E9F14 /* FeedsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedsViewController.h; sourceTree = "<group>"; };
+		B03EBD69279E4088004E9F14 /* FeedsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedsViewController.m; sourceTree = "<group>"; };
 		B068AA7A25E8DA73008BF2E5 /* SplashViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewViewController.h; sourceTree = "<group>"; };
 		B068AA7B25E8DA73008BF2E5 /* SplashViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewViewController.m; sourceTree = "<group>"; };
 		B068AA7E25E8DA83008BF2E5 /* InterstitialViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterstitialViewViewController.h; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				B068AA7F25E8DA83008BF2E5 /* InterstitialViewViewController.m */,
 				B068AA8225E8DA94008BF2E5 /* BannerViewController.h */,
 				B068AA8325E8DA94008BF2E5 /* BannerViewController.m */,
+				B03EBD68279E4088004E9F14 /* FeedsViewController.h */,
+				B03EBD69279E4088004E9F14 /* FeedsViewController.m */,
 				B0C7AD8025E8D29600AB2E03 /* Main.storyboard */,
 				B0C7AD8325E8D29700AB2E03 /* Assets.xcassets */,
 				B0C7AD8525E8D29700AB2E03 /* LaunchScreen.storyboard */,
@@ -255,6 +260,7 @@
 				B068AA8425E8DA94008BF2E5 /* BannerViewController.m in Sources */,
 				B03EBD67279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m in Sources */,
 				B03EBD61279A92BC004E9F14 /* UIColor+CloudCodeDemo.m in Sources */,
+				B03EBD6A279E4088004E9F14 /* FeedsViewController.m in Sources */,
 				B068AA8025E8DA83008BF2E5 /* InterstitialViewViewController.m in Sources */,
 				B068AA7C25E8DA73008BF2E5 /* SplashViewViewController.m in Sources */,
 				B0C7AD7F25E8D29600AB2E03 /* ViewController.m in Sources */,

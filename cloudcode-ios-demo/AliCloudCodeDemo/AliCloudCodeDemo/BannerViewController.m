@@ -32,9 +32,15 @@
 }
 
 
+
 - (IBAction)startLoad:(id)sender {
+    
+    static NSString *bannerSlotID = @"无轮播banner";
+    static NSString *loopBannerSlotID = @"有轮播banner";
+    
+    
     self.showBtn.enabled = NO;
-    self.bannerView = [[AliCloudCodeAdBannerView alloc] initWithSlotID:self.loopSwitch.on ? @"566938259067575297" : @"566938140687539203" adSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 40, 80)];
+    self.bannerView = [[AliCloudCodeAdBannerView alloc] initWithSlotID:self.loopSwitch.on ? loopBannerSlotID : bannerSlotID adSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 40, 80)];
     self.bannerView.adDelegate = self;
     if (self.loopSwitch.on) {
         self.bannerView.loopInterval = [self.loopIntervalTextField.text intValue];
