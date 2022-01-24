@@ -10,8 +10,8 @@
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <AdSupport/AdSupport.h>
 
-static NSString *const CHANNELID = @"TEST_TENANT";
-static NSString *const MEDIAID = @"566389535148903424";
+static NSString *const CHANNELID = @"578183632402358274";
+static NSString *const MEDIAID = @"673941303910232065";
 
 
 @interface AppDelegate ()

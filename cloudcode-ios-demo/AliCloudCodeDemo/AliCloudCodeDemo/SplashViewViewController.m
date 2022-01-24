@@ -8,8 +8,16 @@
 #import "SplashViewViewController.h"
 #import <AlicloudCloudCode/AliCloudCodeAdSplashView.h>
 #import <AlicloudCloudCode/AliCloudCodeAdViewProtocol.h>
+#import "UIColor+CloudCodeDemo.h"
+#import "UIView+CloudCodeDemo.h"
+#import <AlicloudCloudCode/AliccAdSplashZoomOutView.h>
+
 
 @interface SplashViewViewController () <AliCloudCodeAdSplashViewDelegate>
+
+
+@property (nonatomic, assign) CGFloat customViewHeight;
+
 
 //插屏广告View
 @property (nonatomic, strong) AliCloudCodeAdSplashView *splashView;
@@ -31,15 +39,30 @@
 
 
 //开屏_全屏模式
-static NSString *const splashSlotID_fullscreen = @"566927798737744900";
+static NSString *const splashSlotID_fullscreen = @"全屏广告位";
 //开屏_非全屏模式，需要自行保证素材展示区域为2:3的比例
-static NSString *const splashSlotID_2_3 = @"566391127667553282";
+static NSString *const splashSlotID_2_3 = @"半屏广告位";
 
 - (IBAction)startLoad:(id)sender {
     
     self.showBtn.enabled = NO;
-    self.splashView = [[AliCloudCodeAdSplashView alloc] initWithSlotID:self.fullScreen.on ? splashSlotID_fullscreen : splashSlotID_2_3 adSize:[UIScreen mainScreen].bounds.size isFullScreen:self.fullScreen.on];
+    
+    AliCloudCodeAdSplashProps *splashProps = [[AliCloudCodeAdSplashProps alloc] init];
+    //设置获取广告样式
+    splashProps.splashType =  AliCloudCodeAdSplashType_All;
+    //设置尺寸
+    splashProps.adSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    splashProps.videoMuted = YES;
+    splashProps.minVideoDuration = 3;
+    splashProps.maxVideoDuration = 10;
+    
+    
+    self.splashView = [[AliCloudCodeAdSplashView alloc] initWithSlotID:self.fullScreen.on?splashSlotID_fullscreen:splashSlotID_2_3 splashProps:splashProps];
+    
+    
     self.splashView.adDelegate = self;
+    self.splashView.rootViewController = self;
+
     
     /*
      非全屏模式开屏广告，所有上部素材比例为2:3 ，底部为自定义区域，需要自行保证上部素材的展示区域为2:3的比例
@@ -47,21 +70,52 @@ static NSString *const splashSlotID_2_3 = @"566391127667553282";
      */
     if (!self.fullScreen.on) {
         
-        //计算上部素材展示高度
-        CGFloat topAreaHegiht = self.splashView.bounds.size.width * (3.0 / 2.0);
+        //如果使用非全屏展示，设置自定义展示区域，需要尽量保证开屏素材区域比例为2:3
+        CGFloat areaHeight = [UIScreen mainScreen].bounds.size.width * (3.0 / 2.0);
+        self.customViewHeight = [UIScreen mainScreen].bounds.size.height - areaHeight;
+
         
-        //计算自定义view的高度
-        CGFloat custViewHeight = self.splashView.bounds.size.height - topAreaHegiht;
-        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.splashView.bounds.size.width, custViewHeight)];
-        customView.backgroundColor = [UIColor systemPinkColor];
-        UILabel *customLbl = [[UILabel alloc] init];
-        [customLbl setText:@"自定义区域"];
-        [customLbl sizeToFit];
-        customLbl.center = CGPointMake(customView.frame.size.width / 2, customView.frame.size.height / 2);
-        [customView addSubview:customLbl];
+        //自定义view
+        UIView *tempCustomView = [[UIView alloc] init];
+        tempCustomView.backgroundColor = [UIColor cloudCodeDemo_colorWithHexString:@"#ACACAC"];
         
-        //设置自定义区域
-        [self.splashView setCustomView:customView viewHeight:custViewHeight];
+        
+        UIImageView *iconImage = [[UIImageView alloc] init];
+        iconImage.cloudCode_size = CGSizeMake(45, 45);
+        iconImage.image = [UIImage imageNamed:@"app_logo"];
+        [tempCustomView addSubview:iconImage];
+        
+        
+        
+        UILabel *titleLbl = [[UILabel alloc] init];
+        titleLbl.text = @"云码";
+        [titleLbl setFont:[UIFont systemFontOfSize:24]];
+        [titleLbl setTextColor:[UIColor cloudCodeDemo_colorWithHexString:@"#5D5D5D"]];
+        [titleLbl sizeToFit];
+        [tempCustomView addSubview:titleLbl];
+        
+        
+        UILabel *desLbl = [[UILabel alloc] init];
+        desLbl.text = @"更智能的的商业推广";
+        [desLbl setFont:[UIFont systemFontOfSize:12]];
+        [desLbl setTextColor:[UIColor cloudCodeDemo_colorWithHexString:@"#5D5D5D"]];
+        [desLbl sizeToFit];
+        [tempCustomView addSubview:desLbl];
+        
+        CGFloat betweenMargin = 20;
+        CGFloat leftMargin = (self.splashView.cloudCode_width - (iconImage.cloudCode_width + 20 + desLbl.cloudCode_width)) / 2;
+        
+        iconImage.cloudCode_left = leftMargin;
+        iconImage.cloudCode_centerY = self.customViewHeight / 2;
+        
+        titleLbl.cloudCode_left = iconImage.cloudCode_right + betweenMargin;
+        titleLbl.cloudCode_top = iconImage.cloudCode_top;
+        
+        desLbl.cloudCode_left = titleLbl.cloudCode_left;
+        desLbl.cloudCode_bottom = iconImage.cloudCode_bottom;
+        
+        [self.splashView setCustomView:tempCustomView viewHeight:self.customViewHeight];
+        
     }
     
     
@@ -154,12 +208,24 @@ static NSString *const splashSlotID_2_3 = @"566391127667553282";
 /// @param splashAdView splashAdView
 - (void)aliccAdSplashViewDidClickSkip:(AliCloudCodeAdSplashView *)splashAdView {
     NSLog(@"开屏广告'跳过'按钮点击");
+    
+    //V+广告
+    if (self.splashView.splashZoomOutView) {
+        self.splashView.splashZoomOutView.frame = CGRectMake(self.view.cloudCode_width - 100, self.view.cloudCode_height - 150, 75, 139);
+        [self.navigationController.view insertSubview:self.splashView.splashZoomOutView belowSubview:self.splashView];
+    }
+    
 }
 
 /// 开屏广告: 倒计时结束事件
 /// @param splashAdView splashAdView
 - (void)aliccAdSplashViewCountdownToZero:(AliCloudCodeAdSplashView *)splashAdView {
     NSLog(@"开屏广告倒计时结束事件");
+    
+    if (self.splashView.splashZoomOutView) {
+        self.splashView.splashZoomOutView.frame = CGRectMake(self.view.cloudCode_width - 100, self.view.cloudCode_height - 150, 75, 139);
+        [self.navigationController.view insertSubview:self.splashView.splashZoomOutView belowSubview:self.splashView];
+    }
 }
 
 

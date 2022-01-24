@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		19E7E1C1CAB92DDEDC2D84B9 /* libPods-AliCloudCodeDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E662B72E40FA5AAE8F254200 /* libPods-AliCloudCodeDemo.a */; };
+		B03EBD61279A92BC004E9F14 /* UIColor+CloudCodeDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B03EBD60279A92BC004E9F14 /* UIColor+CloudCodeDemo.m */; };
+		B03EBD64279A9361004E9F14 /* UIView+CloudCodeDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B03EBD63279A9361004E9F14 /* UIView+CloudCodeDemo.m */; };
+		B03EBD67279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B03EBD65279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m */; };
 		B068AA7C25E8DA73008BF2E5 /* SplashViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA7B25E8DA73008BF2E5 /* SplashViewViewController.m */; };
 		B068AA8025E8DA83008BF2E5 /* InterstitialViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA7F25E8DA83008BF2E5 /* InterstitialViewViewController.m */; };
 		B068AA8425E8DA94008BF2E5 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B068AA8325E8DA94008BF2E5 /* BannerViewController.m */; };
@@ -22,6 +25,12 @@
 
 /* Begin PBXFileReference section */
 		13A30696E9BF7CAA5D5E6C1E /* Pods-AliCloudCodeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AliCloudCodeDemo.release.xcconfig"; path = "Target Support Files/Pods-AliCloudCodeDemo/Pods-AliCloudCodeDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B03EBD5F279A92BC004E9F14 /* UIColor+CloudCodeDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CloudCodeDemo.h"; sourceTree = "<group>"; };
+		B03EBD60279A92BC004E9F14 /* UIColor+CloudCodeDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CloudCodeDemo.m"; sourceTree = "<group>"; };
+		B03EBD62279A9361004E9F14 /* UIView+CloudCodeDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CloudCodeDemo.h"; sourceTree = "<group>"; };
+		B03EBD63279A9361004E9F14 /* UIView+CloudCodeDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CloudCodeDemo.m"; sourceTree = "<group>"; };
+		B03EBD65279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+CloudCodeDemo.m"; sourceTree = "<group>"; };
+		B03EBD66279E3904004E9F14 /* UIAlertController+CloudCodeDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+CloudCodeDemo.h"; sourceTree = "<group>"; };
 		B068AA7A25E8DA73008BF2E5 /* SplashViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashViewViewController.h; sourceTree = "<group>"; };
 		B068AA7B25E8DA73008BF2E5 /* SplashViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashViewViewController.m; sourceTree = "<group>"; };
 		B068AA7E25E8DA83008BF2E5 /* InterstitialViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterstitialViewViewController.h; sourceTree = "<group>"; };
@@ -73,6 +82,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B03EBD5E279A929A004E9F14 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				B03EBD66279E3904004E9F14 /* UIAlertController+CloudCodeDemo.h */,
+				B03EBD65279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m */,
+				B03EBD5F279A92BC004E9F14 /* UIColor+CloudCodeDemo.h */,
+				B03EBD60279A92BC004E9F14 /* UIColor+CloudCodeDemo.m */,
+				B03EBD62279A9361004E9F14 /* UIView+CloudCodeDemo.h */,
+				B03EBD63279A9361004E9F14 /* UIView+CloudCodeDemo.m */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
 		B0C7AD6B25E8D29600AB2E03 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +116,7 @@
 		B0C7AD7625E8D29600AB2E03 /* AliCloudCodeDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B03EBD5E279A929A004E9F14 /* tools */,
 				B0C7AD7725E8D29600AB2E03 /* AppDelegate.h */,
 				B0C7AD7825E8D29600AB2E03 /* AppDelegate.m */,
 				B0C7AD7A25E8D29600AB2E03 /* SceneDelegate.h */,
@@ -228,7 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03EBD64279A9361004E9F14 /* UIView+CloudCodeDemo.m in Sources */,
 				B068AA8425E8DA94008BF2E5 /* BannerViewController.m in Sources */,
+				B03EBD67279E3904004E9F14 /* UIAlertController+CloudCodeDemo.m in Sources */,
+				B03EBD61279A92BC004E9F14 /* UIColor+CloudCodeDemo.m in Sources */,
 				B068AA8025E8DA83008BF2E5 /* InterstitialViewViewController.m in Sources */,
 				B068AA7C25E8DA73008BF2E5 /* SplashViewViewController.m in Sources */,
 				B0C7AD7F25E8D29600AB2E03 /* ViewController.m in Sources */,
