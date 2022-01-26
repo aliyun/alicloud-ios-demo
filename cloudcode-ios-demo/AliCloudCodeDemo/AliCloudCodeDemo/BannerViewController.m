@@ -8,6 +8,7 @@
 #import "BannerViewController.h"
 #import <AlicloudCloudCode/AliCloudCodeAdBannerView.h>
 #import <AlicloudCloudCode/AliCloudCodeAdViewProtocol.h>
+#import "UIAlertController+CloudCodeDemo.h"
 
 @interface BannerViewController () <AliCloudCodeAdBannerViewDelegate>
 
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *loopSwitch;
 
 @property (weak, nonatomic) IBOutlet UITextField *loopIntervalTextField;
+@property (weak, nonatomic) IBOutlet UITextField *slotTextField;
 
 @end
 
@@ -35,12 +37,16 @@
 
 - (IBAction)startLoad:(id)sender {
     
-    static NSString *bannerSlotID = @"无轮播banner";
-    static NSString *loopBannerSlotID = @"有轮播banner";
-    
     
     self.showBtn.enabled = NO;
-    self.bannerView = [[AliCloudCodeAdBannerView alloc] initWithSlotID:self.loopSwitch.on ? loopBannerSlotID : bannerSlotID adSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 40, 80)];
+    
+    NSString *slotID = self.slotTextField.text;
+    if (slotID.length <= 0) {
+        [UIAlertController alicc_showAlertTitle:@"请检查输入" message:@"广告位为空" parentVC:self];
+        return;
+    }
+    
+    self.bannerView = [[AliCloudCodeAdBannerView alloc] initWithSlotID:self.slotTextField.text adSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 40, 80)];
     self.bannerView.adDelegate = self;
     if (self.loopSwitch.on) {
         self.bannerView.loopInterval = [self.loopIntervalTextField.text intValue];

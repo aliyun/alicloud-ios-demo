@@ -11,6 +11,7 @@
 #import "UIColor+CloudCodeDemo.h"
 #import "UIView+CloudCodeDemo.h"
 #import <AlicloudCloudCode/AliccAdSplashZoomOutView.h>
+#import "UIAlertController+CloudCodeDemo.h"
 
 
 @interface SplashViewViewController () <AliCloudCodeAdSplashViewDelegate>
@@ -28,6 +29,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *showBtn;
 
+@property (weak, nonatomic) IBOutlet UITextField *slotTextField;
+
 @end
 
 @implementation SplashViewViewController
@@ -38,14 +41,17 @@
 }
 
 
-//开屏_全屏模式
-static NSString *const splashSlotID_fullscreen = @"全屏广告位";
-//开屏_非全屏模式，需要自行保证素材展示区域为2:3的比例
-static NSString *const splashSlotID_2_3 = @"半屏广告位";
-
 - (IBAction)startLoad:(id)sender {
     
     self.showBtn.enabled = NO;
+    
+    
+    NSString *slotID = self.slotTextField.text;
+    if (slotID.length <= 0) {
+        [UIAlertController alicc_showAlertTitle:@"请检查输入" message:@"广告位为空" parentVC:self];
+        return;
+    }
+    
     
     AliCloudCodeAdSplashProps *splashProps = [[AliCloudCodeAdSplashProps alloc] init];
     //设置获取广告样式
@@ -57,7 +63,7 @@ static NSString *const splashSlotID_2_3 = @"半屏广告位";
     splashProps.maxVideoDuration = 10;
     
     
-    self.splashView = [[AliCloudCodeAdSplashView alloc] initWithSlotID:self.fullScreen.on?splashSlotID_fullscreen:splashSlotID_2_3 splashProps:splashProps];
+    self.splashView = [[AliCloudCodeAdSplashView alloc] initWithSlotID:self.slotTextField.text splashProps:splashProps];
     
     
     self.splashView.adDelegate = self;
