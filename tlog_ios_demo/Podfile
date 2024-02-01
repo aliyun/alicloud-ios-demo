@@ -11,6 +11,7 @@ target 'tlog_ios_demo' do
 
 end
 
+#针对问题的解决方案：SDK does not contain 'libarclite' at the path 'xxx'; try increasing the minimum deployment target
 post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
