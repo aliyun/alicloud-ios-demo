@@ -10,7 +10,6 @@
 #import "ALC1ViewController.h"
 #import "ALC2ViewController.h"
 #import "ALC3ViewController.h"
-#import <AlicloudHAUtil/AlicloudHAProvider.h>
 
 @interface ViewController ()
 
