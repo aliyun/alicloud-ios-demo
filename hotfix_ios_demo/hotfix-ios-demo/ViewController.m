@@ -54,12 +54,16 @@ static NSArray *tableViewCellTitleInSection;
 
 - (void)showAlert:(NSString *)title content:(NSString *)content {
     if ([NSThread isMainThread]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alertView show];
+        UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alertVc addAction:cancel];
+        [UIApplication.sharedApplication.delegate.window.rootViewController presentViewController:alertVc animated:YES completion:nil];
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:content delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alertView show];
+            UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alertVc addAction:cancel];
+            [UIApplication.sharedApplication.delegate.window.rootViewController presentViewController:alertVc animated:YES completion:nil];
         });
     }
 }
