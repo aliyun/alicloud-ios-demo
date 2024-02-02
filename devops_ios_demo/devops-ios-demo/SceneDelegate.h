@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  SceneDelegate.h
 //  TestPublicYunUpdate
 //
 //  Created by ASP on 2020/5/28.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 
-@property(nonatomic, strong)UIWindow *window;
+@property (strong, nonatomic) UIWindow * window;
 
 @end
 
