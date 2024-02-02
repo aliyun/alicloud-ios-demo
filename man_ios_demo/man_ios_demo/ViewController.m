@@ -37,7 +37,7 @@
  */
 - (IBAction)onJmpButton:(id)sender {
     TestUIViewController *jmpViewController = [[TestUIViewController alloc] init];
-    jmpViewController.modalTransitionStyle = UIModalTransitionStylePartialCurl;
+//    jmpViewController.modalTransitionStyle = UIModalTransitionStylePartialCurl;
     [self presentViewController:jmpViewController animated:YES completion:^{
         
     }];
