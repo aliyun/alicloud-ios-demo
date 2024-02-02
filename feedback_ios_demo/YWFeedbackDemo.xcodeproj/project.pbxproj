@@ -30,8 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1478CE99C1158EADB6410786 /* libPods-YWFeedbackDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YWFeedbackDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D8BA574E137F823713BA09D /* Pods-YWFeedbackDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AliyunEmasServices-Info.plist"; path = "../mpush_ios_demo/AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		9A88BA611F680C8A006B833E /* feedback_product_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_product_logo.png; sourceTree = "<group>"; };
@@ -50,7 +48,8 @@
 		B34E8FBF1C5B32A300BBA227 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B39022C51C2A79A800229BDD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B39022C71C2A79AE00229BDD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		BFF5BB2C64153C94AFC11CA3 /* Pods-YWFeedbackDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BB1CFB97D159B743A53D232A /* Pods-YWFeedbackDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.debug.xcconfig"; path = "Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DEBB097378B2427FFC591A0F /* Pods-YWFeedbackDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.release.xcconfig"; path = "Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FE94F55B1DB86B5300C5044C /* YWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWLoginController.h; sourceTree = "<group>"; };
 		FE94F55C1DB86B5300C5044C /* YWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWLoginController.m; sourceTree = "<group>"; };
@@ -93,9 +92,17 @@
 				B39022C71C2A79AE00229BDD /* AVFoundation.framework */,
 				B39022C51C2A79A800229BDD /* AudioToolbox.framework */,
 				B34E8FBF1C5B32A300BBA227 /* libz.tbd */,
-				1478CE99C1158EADB6410786 /* libPods-YWFeedbackDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60F1A02DCE65972821BA6591 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB1CFB97D159B743A53D232A /* Pods-YWFeedbackDemo.debug.xcconfig */,
+				DEBB097378B2427FFC591A0F /* Pods-YWFeedbackDemo.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		9A88BA601F680C8A006B833E /* Image */ = {
@@ -108,15 +115,6 @@
 			path = Image;
 			sourceTree = SOURCE_ROOT;
 		};
-		9C7A5774EBAA8176720EBB2C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1D8BA574E137F823713BA09D /* Pods-YWFeedbackDemo.debug.xcconfig */,
-				BFF5BB2C64153C94AFC11CA3 /* Pods-YWFeedbackDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B33283081C27F820006DB60A = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +122,7 @@
 				B33283131C27F820006DB60A /* YWFeedbackDemo */,
 				B33283121C27F820006DB60A /* Products */,
 				600BC3C0D46050573EF2B77B /* Frameworks */,
-				9C7A5774EBAA8176720EBB2C /* Pods */,
+				60F1A02DCE65972821BA6591 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,12 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B33283281C27F820006DB60A /* Build configuration list for PBXNativeTarget "YWFeedbackDemo" */;
 			buildPhases = (
-				605E718172D43A7B5E0F70E0 /* [CP] Check Pods Manifest.lock */,
+				A3E75FE3F0F622F811D9C4F5 /* [CP] Check Pods Manifest.lock */,
 				B332830D1C27F820006DB60A /* Sources */,
 				B332830E1C27F820006DB60A /* Frameworks */,
 				B332830F1C27F820006DB60A /* Resources */,
-				53BFD5244AC5FCB3D320E353 /* [CP] Embed Pods Frameworks */,
-				33F7E28156906F672E820947 /* [CP] Copy Pods Resources */,
+				4F2BDAB6F638683DF5088803 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,7 +216,8 @@
 				TargetAttributes = {
 					B33283101C27F820006DB60A = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = QBMN2BBW3K;
+						DevelopmentTeam = VSW2PKYTD7;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -228,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -260,49 +259,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		33F7E28156906F672E820947 /* [CP] Copy Pods Resources */ = {
+		4F2BDAB6F638683DF5088803 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo-resources.sh",
+				"${PODS_ROOT}/AlicloudFeedback/feedback/YWFeedbackBundle.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YWFeedbackBundle.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		53BFD5244AC5FCB3D320E353 /* [CP] Embed Pods Frameworks */ = {
+		A3E75FE3F0F622F811D9C4F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		605E718172D43A7B5E0F70E0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YWFeedbackDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -430,14 +424,17 @@
 		};
 		B33283291C27F820006DB60A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D8BA574E137F823713BA09D /* Pods-YWFeedbackDemo.debug.xcconfig */;
+			baseConfigurationReference = BB1CFB97D159B743A53D232A /* Pods-YWFeedbackDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				ENABLE_BITCODE = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -445,26 +442,30 @@
 					"$(PROJECT_DIR)/YWFeedbackDemo/BCFeedback/**",
 				);
 				INFOPLIST_FILE = YWFeedbackDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.baichuan.ywfeedback;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		B332832A1C27F820006DB60A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFF5BB2C64153C94AFC11CA3 /* Pods-YWFeedbackDemo.release.xcconfig */;
+			baseConfigurationReference = DEBB097378B2427FFC591A0F /* Pods-YWFeedbackDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = QBMN2BBW3K;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = "${inherited}";
@@ -473,13 +474,15 @@
 					"$(PROJECT_DIR)/YWFeedbackDemo/BCFeedback/**",
 				);
 				INFOPLIST_FILE = YWFeedbackDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.baichuan.ywfeedback;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
