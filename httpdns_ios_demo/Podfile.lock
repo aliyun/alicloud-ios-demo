@@ -1,15 +1,15 @@
 PODS:
-  - AlicloudHTTPDNS (2.0.1):
+  - AlicloudHTTPDNS (2.1.0):
     - AlicloudSender
     - AlicloudUT
     - AlicloudUtils
-  - AlicloudSender (1.0.0.2):
+  - AlicloudSender (1.0.0.3):
     - AlicloudUTDID
     - EMASRest
   - AlicloudUT (5.2.0.16):
     - AlicloudUTDID
   - AlicloudUTDID (1.5.0.94)
-  - AlicloudUtils (1.3.9):
+  - AlicloudUtils (1.4.1):
     - AlicloudUTDID
   - EMASRest (11.1.1.2)
 
@@ -26,13 +26,13 @@ SPEC REPOS:
     - EMASRest
 
 SPEC CHECKSUMS:
-  AlicloudHTTPDNS: c2befb3aa9374d20132451392b01b532b3b02001
-  AlicloudSender: 376fe7c49f986ae8222a5cc15ef48c6570fa9ff2
+  AlicloudHTTPDNS: fc256d8741c8163a8f3171d63fec30e5b5cf410d
+  AlicloudSender: 1f468b6bd962a099ffc19d45e3608b0fe98f259d
   AlicloudUT: 6d1cf30d57d096b7e9bb4b069dd0ba6ad59a3338
   AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
-  AlicloudUtils: 66e0ba6ece62d7dd05e9dd95674b2c7811624c2f
-  EMASRest: 5ccda23f59b05cdd3a6e321c17e37e8125d7eea4
+  AlicloudUtils: 873a76615bebcee8b1996f20820d366e433c3eab
+  EMASRest: 8df6f87836767a9415ad5cc4af739bc9d215b475
 
 PODFILE CHECKSUM: aa973cd961b28bc9fe60db9319111a77bcf36a98
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3
