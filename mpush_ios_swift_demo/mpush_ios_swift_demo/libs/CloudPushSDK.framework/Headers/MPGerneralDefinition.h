@@ -11,6 +11,8 @@
 
 #import "CloudPushCallbackResult.h"
 
+typedef void (^RetrierFailedCallback)();
+
 typedef void (^CallbackHandler)(CloudPushCallbackResult *res);
 
 // 保证callback不为空且回调不在主线程上执行

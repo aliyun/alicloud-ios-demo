@@ -66,6 +66,17 @@
 #define AlicloudIPv6Adapter_h
 #import <Foundation/Foundation.h>
 
+
+/**
+ * IP 协议栈类型
+ */
+typedef enum {
+    kAlicloudIPUnkown     = 0,    // 未知协议栈
+    kAlicloudIPv4only     = 1,    // IPv4-only
+    kAlicloudIPv6only     = 2,    // IPv6-only
+    kAlicloudIPdual       = 3     // 双栈
+} AlicloudIPStackType;
+
 @interface AlicloudIPv6Adapter : NSObject
 
 + (instancetype)getInstance;
@@ -100,6 +111,18 @@
  *  判断是否为IPv6地址
  */
 - (BOOL)isIPv6Address:(NSString *)addr;
+
+
+/**
+ 获取当前网络栈
+ */
+- (AlicloudIPStackType)currentIpStackType;
+
+
+/**
+ 重置
+ */
+- (void)reset;
 
 @end
 

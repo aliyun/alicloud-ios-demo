@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     
-    let testAppKey = "******"
-    let testAppSecret = "******"
+    let testAppKey = "333740861"
+    let testAppSecret = "b4eecb377a2b42a19dd60bbe5abb2766"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

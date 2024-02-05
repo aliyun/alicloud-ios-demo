@@ -11,9 +11,17 @@
 #import "MPGerneralDefinition.h"
 
 /* SDK版本号 */
-#define MPUSH_IOS_SDK_VERSION @"1.9.6"
+#define MPUSH_IOS_SDK_VERSION @"2.0.4"
 
 @interface CloudPushSDK : NSObject
+
+/**
+ Push SDK初始化
+ 无需手动配置appKey/appSecret
+
+ @param callback 回调
+ */
++ (void)autoInit:(CallbackHandler)callback;
 
 /**
  *	Push SDK初始化
@@ -25,6 +33,13 @@
 + (void)asyncInit:(NSString *)appKey
         appSecret:(NSString *)appSecret
          callback:(CallbackHandler)callback;
+
+
+/**
+ * 关闭推送消息功能(长链通道)
+ * 需要在SDK初始化方法之前调用，SDK初始化后调用无效
+ */
++ (void)closeCCPChannel;
 
 /**
  *	打开调试日志
@@ -59,6 +74,13 @@
  */
 + (void)sendNotificationAck:(NSDictionary *)userInfo;
 
+
+/**
+*    返回删除的推送通知ACK到服务器
+*
+*    @param     userInfo   通知相关信息
+*/
++ (void)sendDeleteNotificationAck:(NSDictionary *)userInfo;
 /**
  *	返回推送通知ACK到服务器 (该通知为App处于关闭状态时接收，点击后启动App)
  *	v1.8.1版本之后，由sendNotificationAck替代
