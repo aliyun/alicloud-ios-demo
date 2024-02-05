@@ -105,9 +105,9 @@ static NSArray *tableViewCellTitleInSection;
 - (void)removeAlias:(NSString *)alias {
     [CloudPushSDK removeAlias:alias withCallback:^(CloudPushCallbackResult *res) {
         if (res.success) {
-            [self showLog:@"别名添加成功"];
+            [self showLog:@"别名删除成功"];
         } else {
-            [self showLog:[NSString stringWithFormat:@"别名添加失败，错误: %@", res.error]];
+            [self showLog:[NSString stringWithFormat:@"别名删除失败，错误: %@", res.error]];
         }
     }];
 }
