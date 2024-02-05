@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <AlicloudTLog/AlicloudTlogProvider.h>
 #import <AlicloudHAUtil/AlicloudHAProvider.h>
+#import <UTDID/UTDID.h>
 
 @interface AppDelegate ()
 
@@ -23,8 +24,12 @@
     NSString *appVersion = @"x.x"; //app版本，会上报
     NSString *channel = @"xx";     //渠道标记，自定义，会上报
     NSString *nick = @"xx";        //nick 昵称，自定义，会上报
+    //初始化方式1
     [[AlicloudTlogProvider alloc] autoInitWithAppVersion:appVersion channel:channel nick:nick];
+    //初始化方式2
+//    [[AlicloudTlogProvider alloc] initWithAppKey:@"333740861" secret:@"b4eecb377a2b42a19dd60bbe5abb2766" tlogRsaSecret:@"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDHimlzBzzTPZ9eiKjan1YuXyhMET/lXm0qbLUE+UBr5y7vwGA/nCr7lp2P0uJDuEMRSGpZ2Aan4+U8b+KDse6QBCua7ILDYzKIV52fVdHh+eOsVussP4EZknqG3okt7lCdYbQFPtgp8rR+FNECGtw/yM+akU5F+AStIXXNGPW73wIDAQAB" appVersion:appVersion channel:channel nick:nick];
     [AlicloudHAProvider start];
+    NSLog(@"\n\nemas-test\n\nutdid:\n%@\n\n",[UTDevice utdid]);
 
     return YES;
 }

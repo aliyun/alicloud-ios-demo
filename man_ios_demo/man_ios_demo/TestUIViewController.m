@@ -13,7 +13,7 @@
 @implementation TestUIViewController
 
 - (void)loadView {
-    UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     view.backgroundColor = [UIColor greenColor];
     self.view = view;
 }

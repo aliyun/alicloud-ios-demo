@@ -1,0 +1,33 @@
+PODS:
+  - AlicloudSender (1.0.0.3):
+    - AlicloudUTDID
+    - EMASRest
+  - AlicloudUpdate (1.0.0.5):
+    - AlicloudSender
+    - Reachability
+  - AlicloudUTDID (1.5.0.94)
+  - EMASRest (11.1.1.2)
+  - Reachability (3.2)
+
+DEPENDENCIES:
+  - AlicloudUpdate (= 1.0.0.5)
+
+SPEC REPOS:
+  https://github.com/aliyun/aliyun-specs.git:
+    - AlicloudSender
+    - AlicloudUpdate
+    - AlicloudUTDID
+    - EMASRest
+  https://github.com/CocoaPods/Specs.git:
+    - Reachability
+
+SPEC CHECKSUMS:
+  AlicloudSender: 1f468b6bd962a099ffc19d45e3608b0fe98f259d
+  AlicloudUpdate: ecaee1ca8b3f5e49fe872c9f83a711a469cde2c6
+  AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
+  EMASRest: 8df6f87836767a9415ad5cc4af739bc9d215b475
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+
+PODFILE CHECKSUM: 6e6d92a31c1af2e1366451341849b031fd7d57cc
+
+COCOAPODS: 1.11.3

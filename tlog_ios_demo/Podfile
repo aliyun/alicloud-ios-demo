@@ -11,3 +11,13 @@ target 'tlog_ios_demo' do
 
 end
 
+#针对问题的解决方案：SDK does not contain 'libarclite' at the path 'xxx'; try increasing the minimum deployment target
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      end
+    end
+  end
+end

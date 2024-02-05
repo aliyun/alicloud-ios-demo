@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YhV-1b-zEn">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YhV-1b-zEn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +13,7 @@
             <objects>
                 <navigationController id="YhV-1b-zEn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wzl-24-Ldl">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -34,33 +32,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMU-oY-BW6">
-                                <rect key="frame" x="176" y="184" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="页面1"/>
-                                <connections>
-                                    <action selector="page1:" destination="6GM-BH-LCd" eventType="touchUpInside" id="kTF-WV-MsL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHS-6e-40A">
-                                <rect key="frame" x="175" y="251" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHS-6e-40A">
+                                <rect key="frame" x="167" y="192" width="80" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6l6-g2-0Vn"/>
+                                    <constraint firstAttribute="width" constant="80" id="Xbk-TJ-ffg"/>
+                                </constraints>
                                 <state key="normal" title="页面2"/>
                                 <connections>
                                     <action selector="page2:" destination="6GM-BH-LCd" eventType="touchUpInside" id="wHg-o2-dPf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1u-mf-iFS">
-                                <rect key="frame" x="175" y="350" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1u-mf-iFS">
+                                <rect key="frame" x="167" y="252" width="80" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6ch-nd-r34"/>
+                                    <constraint firstAttribute="width" constant="80" id="Kti-S2-IzT"/>
+                                </constraints>
                                 <state key="normal" title="页面3"/>
                                 <connections>
                                     <action selector="page3:" destination="6GM-BH-LCd" eventType="touchUpInside" id="Ce1-yz-lWO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMU-oY-BW6">
+                                <rect key="frame" x="167" y="132" width="80" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DX2-ye-s0P"/>
+                                    <constraint firstAttribute="width" constant="80" id="g7L-6t-FQF"/>
+                                </constraints>
+                                <state key="normal" title="页面1"/>
+                                <connections>
+                                    <action selector="page1:" destination="6GM-BH-LCd" eventType="touchUpInside" id="kTF-WV-MsL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eob-Q1-eYH">
+                                <rect key="frame" x="167" y="312" width="80" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="TfP-lF-wPf"/>
+                                    <constraint firstAttribute="height" constant="40" id="rIe-EC-8jR"/>
+                                </constraints>
+                                <state key="normal" title="网络请求"/>
+                                <connections>
+                                    <action selector="networkRequest:" destination="6GM-BH-LCd" eventType="touchUpInside" id="ZO8-rq-Uhw"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wfd-XP-rc0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eob-Q1-eYH" firstAttribute="top" secondItem="O1u-mf-iFS" secondAttribute="bottom" constant="20" id="9Ad-Ap-2kW"/>
+                            <constraint firstItem="O1u-mf-iFS" firstAttribute="top" secondItem="XHS-6e-40A" secondAttribute="bottom" constant="20" id="GiO-x0-jC1"/>
+                            <constraint firstItem="O1u-mf-iFS" firstAttribute="centerX" secondItem="wfd-XP-rc0" secondAttribute="centerX" id="aSM-qJ-kIm"/>
+                            <constraint firstItem="eob-Q1-eYH" firstAttribute="centerX" secondItem="wfd-XP-rc0" secondAttribute="centerX" id="dpU-uL-IdH"/>
+                            <constraint firstItem="SMU-oY-BW6" firstAttribute="centerX" secondItem="wfd-XP-rc0" secondAttribute="centerX" id="lga-h0-tIP"/>
+                            <constraint firstItem="SMU-oY-BW6" firstAttribute="top" secondItem="wfd-XP-rc0" secondAttribute="top" constant="40" id="n4s-Eg-f5Y"/>
+                            <constraint firstItem="XHS-6e-40A" firstAttribute="centerX" secondItem="wfd-XP-rc0" secondAttribute="centerX" id="uUU-NW-xv1"/>
+                            <constraint firstItem="XHS-6e-40A" firstAttribute="top" secondItem="SMU-oY-BW6" secondAttribute="bottom" constant="20" id="xTO-B3-WkE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fty-u0-nuY"/>
                 </viewController>

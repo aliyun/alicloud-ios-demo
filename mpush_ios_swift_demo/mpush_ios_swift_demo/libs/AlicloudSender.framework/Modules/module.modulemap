@@ -1,0 +1,6 @@
+framework module AlicloudSender {
+  umbrella header "AlicloudSender.h"
+
+  export *
+  module * { export * }
+}

@@ -1,16 +1,16 @@
 //
 //  AppDelegate.h
-//  devops-ios-demo
+//  TestPublicYunUpdate
 //
-//  Created by 魏晓堃 on 2019/12/11.
-//  Copyright © 2019 魏晓堃. All rights reserved.
+//  Created by ASP on 2020/5/28.
+//  Copyright © 2020 ASP. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property(nonatomic, strong) UIWindow *window;
+@property(nonatomic, strong)UIWindow *window;
 
 @end
 

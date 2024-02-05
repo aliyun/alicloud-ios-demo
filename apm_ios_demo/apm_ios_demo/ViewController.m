@@ -38,5 +38,32 @@
     [self.navigationController pushViewController:vc1 animated:YES];
 }
 
+- (IBAction)networkRequest:(id)sender {
+    NSString *urlStr = @"https://www.baidu.com/";
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSString *str = [NSString stringWithFormat:@"触发:%@，error:%@",urlStr,error];
+            [self alert:str];
+        } else {
+            [self alert: [NSString stringWithFormat:@"触发:%@，success",urlStr]];
+        }
+    }];
+    [task resume];
+}
+
+- (void)alert:(NSString *)msgStr {
+
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示" message:msgStr preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
+    [alertVc addAction:cancel];
+    
+    [UIApplication.sharedApplication.delegate.window.rootViewController presentViewController:alertVc animated:YES completion:nil];
+    
+}
 
 @end

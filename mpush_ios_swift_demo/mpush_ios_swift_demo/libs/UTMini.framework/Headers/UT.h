@@ -24,6 +24,6 @@
  *                              pageEnter来处理，funcType=2101，则调用ctrlClicked处理
  *
  */
-+(void) h5UT:(NSDictionary *) dataDict view:(UIWebView *) pView viewController:(UIViewController *) pViewController;
++(void) h5UT:(NSDictionary *) dataDict view:(UIView *) pView viewController:(UIViewController *) pViewController;
 
 @end

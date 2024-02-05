@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,7 @@
 		332B38DE23507411009831D0 /* ALC2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38D823507411009831D0 /* ALC2ViewController.m */; };
 		332B38DF23507411009831D0 /* ALC1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38D923507411009831D0 /* ALC1ViewController.m */; };
 		332B38E023507411009831D0 /* ALC3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38DA23507411009831D0 /* ALC3ViewController.m */; };
-		339685C7235097D70020BB4C /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 339685C6235097D70020BB4C /* AliyunEmasServices-Info.plist */; };
+		F8BB2F992B6B9E3D005E5B26 /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8BB2F982B6B9E3D005E5B26 /* AliyunEmasServices-Info.plist */; };
 		FEA34C68ED2E042C74A482DD /* Pods_apm_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ADE4EBEB8CB88EB1639A09 /* Pods_apm_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,10 +37,10 @@
 		332B38DB23507411009831D0 /* ALC3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC3ViewController.h; sourceTree = "<group>"; };
 		332B38DC23507411009831D0 /* ALC1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC1ViewController.h; sourceTree = "<group>"; };
 		332B38DD23507411009831D0 /* ALC2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC2ViewController.h; sourceTree = "<group>"; };
-		339685C6235097D70020BB4C /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AliyunEmasServices-Info.plist"; path = "../../tlog_ios_demo/tlog_ios_demo/AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		94ADE4EBEB8CB88EB1639A09 /* Pods_apm_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apm_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A416AF6F4BABBE512C7FBD28 /* Pods-apm_ios_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apm_ios_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo.release.xcconfig"; sourceTree = "<group>"; };
 		D979A2B91797F489F795B7DB /* Pods-apm_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apm_ios_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
+		F8BB2F982B6B9E3D005E5B26 /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		330B626F23505591004ABFDA /* apm_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
-				339685C6235097D70020BB4C /* AliyunEmasServices-Info.plist */,
+				F8BB2F982B6B9E3D005E5B26 /* AliyunEmasServices-Info.plist */,
 				330B627023505591004ABFDA /* AppDelegate.h */,
 				330B627123505591004ABFDA /* AppDelegate.m */,
 				330B627323505591004ABFDA /* ViewController.h */,
@@ -172,7 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				339685C7235097D70020BB4C /* AliyunEmasServices-Info.plist in Resources */,
+				F8BB2F992B6B9E3D005E5B26 /* AliyunEmasServices-Info.plist in Resources */,
 				330B627D23505592004ABFDA /* LaunchScreen.storyboard in Resources */,
 				330B627A23505592004ABFDA /* Assets.xcassets in Resources */,
 				330B627823505591004ABFDA /* Main.storyboard in Resources */,
@@ -376,15 +376,18 @@
 			baseConfigurationReference = D979A2B91797F489F795B7DB /* Pods-apm_ios_demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VSW2PKYTD7;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				INFOPLIST_FILE = apm_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.apm-ios-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -394,15 +397,18 @@
 			baseConfigurationReference = A416AF6F4BABBE512C7FBD28 /* Pods-apm_ios_demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VSW2PKYTD7;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				INFOPLIST_FILE = apm_ios_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.mobile.apm-ios-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

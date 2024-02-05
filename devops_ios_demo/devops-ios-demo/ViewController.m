@@ -1,20 +1,18 @@
 //
 //  ViewController.m
-//  devops-ios-demo
+//  TestPublicYunUpdate
 //
-//  Created by 魏晓堃 on 2019/12/11.
-//  Copyright © 2019 魏晓堃. All rights reserved.
+//  Created by ASP on 2020/5/28.
+//  Copyright © 2020 ASP. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "EMASDevOpsInfo.h"
- 
+#import <AlicloudUpdate/AlicloudUpdate.h>
+#import <UTDID/UTDevice.h>
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (copy, nonatomic) NSDictionary *desDictionary;
-@property (copy, nonatomic) NSArray *allDesKeys;
+@interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -23,51 +21,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+//     CFShow(infoDictionary);
+    // app名称
+     NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+     // app版本
+     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+     // app build版本
+     NSString *app_build = [infoDictionary objectForKey:@"CFBundleVersion"];
+
+//    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        // 当前应用名称
+    NSString *appCurName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    NSLog(@"当前应用名称：%@",appCurName);
+    // 当前应用软件版本  比如：1.0.1
+    NSString *appCurVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSLog(@"当前应用软件版本:%@",appCurVersion);
+    // 当前应用版本号码   int类型
+    NSString *appCurVersionNum = [infoDictionary objectForKey:@"CFBundleVersion"];
+    NSLog(@"当前应用版本号码：%@",appCurVersionNum);
+    
+    self.textField.text = [UTDevice utdid];
+    self.textView.text = [NSString stringWithFormat:@"AppName：%@\nAppVersion: %@\nAppBuild：%@",appCurName,appCurVersion,appCurVersionNum];
+    
+    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.allDesKeys count];
+- (IBAction)clickButton:(id)sender {
+    [AlicloudUpdate checkAndUpdateNewVersion];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_id" forIndexPath:indexPath];
-    NSDictionary *devOpsInfo = [[EMASDevOpsInfo shareInstance] converToParmaters];
-    NSDictionary *desDictionary = self.desDictionary;
-    NSString *key = self.allDesKeys[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@：%@", desDictionary[key], devOpsInfo[key]];
-    return cell;
-}
-
-- (NSDictionary *)desDictionary {
-    if (!_desDictionary) {
-        _desDictionary = @{
-//                                    @"ip" : @"客户端IP地址",
-//                                     @"proxyIp" : @"代理服务器地址",
-//                                     @"ttid" : @"渠道号",
-                                     @"identifier" : @"唯一标志",
-//                                     @"utdid" : @"UTDID",
-                                     @"brand" : @"品牌",
-                                     @"model" : @"机型",
-                                     @"os" : @"系统名",
-                                     @"osVersion" : @"系统版本",
-//                                     @"apiLevel" : @"OS API级别（Android 特有）",
-                                     @"appVersion" : @"应用版本",
-//                                     @"arch" : @"客户端架构参数",
-//                                     @"netStatus" : @"网络状态",
-//                                     @"locale" : @"语言选项",
-//                                     @"md5Sum" : @"当前包MD5值"
-                                     
-        };
-
-    }
-    return _desDictionary;
-}
-
-- (NSArray *)allDesKeys {
-    if (!_allDesKeys) {
-        _allDesKeys = [self.desDictionary allKeys];
-    }
-    return _allDesKeys;
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.textField resignFirstResponder];
+    [self.textView resignFirstResponder];
 }
 
 @end

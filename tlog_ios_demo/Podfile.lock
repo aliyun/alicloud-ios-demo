@@ -1,0 +1,100 @@
+PODS:
+  - AlicloudHAUtil (1.0.3):
+    - AliHACore
+    - TBRest
+    - ZipArchive
+  - AlicloudSettingService (1.0.0):
+    - EMASRest
+  - AlicloudTLog (1.0.1.2):
+    - AlicloudHAUtil
+    - AlicloudSettingService
+    - AlicloudUtils
+    - AliHACore (~> 10.0.3)
+    - AliHAProtocol (~> 10.0.3)
+    - AliHASecurity (~> 10.0.4)
+    - RemoteDebugChannel (~> 10.0.4)
+    - TBRest (~> 10.1.1)
+    - TRemoteDebugger (~> 10.0.4)
+  - AlicloudUTDID (1.5.0.94)
+  - AlicloudUtils (1.4.1):
+    - AlicloudUTDID
+  - AliHACore (10.0.3.6):
+    - AliHALogEngine (>= 10.0.2)
+    - AliHAProtocol (>= 10.0.2.1)
+    - TBJSONModel
+    - TBRest (>= 1.0.0.18)
+  - AliHALogEngine (10.0.6)
+  - AliHAMethodTrace (10.0.4)
+  - AliHAProtocol (10.0.3.1):
+    - TBJSONModel
+  - AliHASecurity (10.0.4)
+  - AliRemoteDebugInterface (0.0.1.4)
+  - AliyunOSSiOS (2.10.18)
+  - EMASRest (11.1.1.2)
+  - RemoteDebugChannel (10.0.4.6):
+    - AliHAProtocol (>= 10.0.0.3)
+    - AliHASecurity
+    - AliyunOSSiOS
+    - TBJSONModel
+    - TBRest (>= 1.0.0.18)
+    - ZipArchive
+  - TBJSONModel (0.1.15.1)
+  - TBRest (10.1.1.0)
+  - TRemoteDebugger (10.0.6.7):
+    - AliHALogEngine (>= 10.0.5)
+    - AliHAMethodTrace (>= 1.0.1.2)
+    - AliHAProtocol (>= 10.0.0.5)
+    - AliHASecurity (>= 10.0.4)
+    - AliRemoteDebugInterface (>= 0.0.1.2)
+    - TBJSONModel
+    - TBRest (>= 1.0.0.18)
+  - ZipArchive (1.4.0)
+
+DEPENDENCIES:
+  - AlicloudTLog (~> 1.0.0)
+
+SPEC REPOS:
+  https://github.com/aliyun/aliyun-specs.git:
+    - AlicloudHAUtil
+    - AlicloudSettingService
+    - AlicloudTLog
+    - AlicloudUTDID
+    - AlicloudUtils
+    - AliHACore
+    - AliHALogEngine
+    - AliHAMethodTrace
+    - AliHAProtocol
+    - AliHASecurity
+    - AliRemoteDebugInterface
+    - EMASRest
+    - RemoteDebugChannel
+    - TBJSONModel
+    - TBRest
+    - TRemoteDebugger
+  https://github.com/CocoaPods/Specs.git:
+    - AliyunOSSiOS
+    - ZipArchive
+
+SPEC CHECKSUMS:
+  AlicloudHAUtil: ab962c683bf2dc79652726121442dc10fc8cbf08
+  AlicloudSettingService: f78d8433dd722a47c69c5a70ba75c301312f3a85
+  AlicloudTLog: f79c4e118180bb7a8a438ad2616c842d37a47b97
+  AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
+  AlicloudUtils: 873a76615bebcee8b1996f20820d366e433c3eab
+  AliHACore: 631974dc2ab61ffed5ba743e339defb5c9e028c0
+  AliHALogEngine: c98e8b4f4a6ee53b08d0657141ac299b37efb188
+  AliHAMethodTrace: 31ebea278dfc3dfead7c47a75fc995c79d14ac36
+  AliHAProtocol: 32037cc4d1bdbc60a6532895cbf1ddbbe84679b2
+  AliHASecurity: feacfe93b806c1c1a03e2d03c4968d7021df6851
+  AliRemoteDebugInterface: acc89a6becba06e3c009465cbc377b297d745fcb
+  AliyunOSSiOS: e683c1b1faa0657b5cd02de733628cf996f4cd93
+  EMASRest: 8df6f87836767a9415ad5cc4af739bc9d215b475
+  RemoteDebugChannel: 15ff2186d663f1eba9b4733aee0c464504c978e9
+  TBJSONModel: 2c95a8789bc3d98a2a773dd09c41ddeb902a200b
+  TBRest: 36fcaf59c76692eae5acf4c8fd469748d453a327
+  TRemoteDebugger: ae8e8fd945d7d91da6a9238c81fef7ef48362729
+  ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
+
+PODFILE CHECKSUM: ff6b3f20a211379cc981a2401b9ec6eb8dcb8a08
+
+COCOAPODS: 1.11.3
