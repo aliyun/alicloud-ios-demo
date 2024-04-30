@@ -1,38 +1,24 @@
 PODS:
-  - AlicloudHTTPDNS (2.1.0):
-    - AlicloudSender
-    - AlicloudUT
+  - AlicloudHTTPDNS (2.2.0):
     - AlicloudUtils
-  - AlicloudSender (1.0.0.3):
+  - AlicloudUTDID (1.6.0)
+  - AlicloudUtils (2.0.0):
     - AlicloudUTDID
-    - EMASRest
-  - AlicloudUT (5.2.0.16):
-    - AlicloudUTDID
-  - AlicloudUTDID (1.5.0.94)
-  - AlicloudUtils (1.4.1):
-    - AlicloudUTDID
-  - EMASRest (11.1.1.2)
 
 DEPENDENCIES:
-  - AlicloudHTTPDNS
+  - AlicloudHTTPDNS (~> 2.2.0)
 
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
     - AlicloudHTTPDNS
-    - AlicloudSender
-    - AlicloudUT
     - AlicloudUTDID
     - AlicloudUtils
-    - EMASRest
 
 SPEC CHECKSUMS:
-  AlicloudHTTPDNS: fc256d8741c8163a8f3171d63fec30e5b5cf410d
-  AlicloudSender: 1f468b6bd962a099ffc19d45e3608b0fe98f259d
-  AlicloudUT: 6d1cf30d57d096b7e9bb4b069dd0ba6ad59a3338
-  AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
-  AlicloudUtils: 873a76615bebcee8b1996f20820d366e433c3eab
-  EMASRest: 8df6f87836767a9415ad5cc4af739bc9d215b475
+  AlicloudHTTPDNS: cff5f1151ab2612ec3f1c3a9f9a96c515d8e7dbb
+  AlicloudUTDID: 4e9d44c2fd704b3508069c38eaec9d6a759e702c
+  AlicloudUtils: 2a78de434a8b2dc99e408c4d6220e654076d9ef0
 
-PODFILE CHECKSUM: aa973cd961b28bc9fe60db9319111a77bcf36a98
+PODFILE CHECKSUM: e062cbbceefa48b220b9413f213f7d639e820e90
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2
