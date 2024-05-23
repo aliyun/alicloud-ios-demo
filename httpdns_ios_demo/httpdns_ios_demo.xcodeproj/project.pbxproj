@@ -74,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				942188E91C59011B00696D6E /* httpdns_ios_demo */,
+				9A88BA501F67C0AA006B833E /* Image */,
+				942188EA1C59011B00696D6E /* Supporting Files */,
 				942188E81C59011B00696D6E /* Products */,
 				9A5539311FA1CB640019F435 /* Frameworks */,
 				083704630F1EB1964457FEDC /* Pods */,
@@ -92,15 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				9AFBDCBD206A46AB002F99F6 /* AliyunEmasServices-Info.plist */,
-				9A88BA501F67C0AA006B833E /* Image */,
 				942188ED1C59011B00696D6E /* AppDelegate.h */,
 				942188EE1C59011B00696D6E /* AppDelegate.m */,
-				942188F31C59011B00696D6E /* Main.storyboard */,
-				942188F61C59011B00696D6E /* Assets.xcassets */,
-				942188F81C59011B00696D6E /* LaunchScreen.storyboard */,
-				942188FB1C59011B00696D6E /* Info.plist */,
-				9A1E46B01F5D516900800D40 /* aliyun_bg.png */,
-				942188EA1C59011B00696D6E /* Supporting Files */,
 				942189031C5903F600696D6E /* NetworkManager.h */,
 				942189041C59041100696D6E /* NetworkManager.m */,
 				9A88BA551F67D91F006B833E /* CommonScene.h */,
@@ -109,6 +104,11 @@
 				9A88BA591F67D975006B833E /* HTTPSScene.m */,
 				C589F8941D28C0A8007CC868 /* MainViewController.h */,
 				C589F8951D28C0A8007CC868 /* MainViewController.m */,
+				942188F31C59011B00696D6E /* Main.storyboard */,
+				942188F61C59011B00696D6E /* Assets.xcassets */,
+				942188F81C59011B00696D6E /* LaunchScreen.storyboard */,
+				942188FB1C59011B00696D6E /* Info.plist */,
+				9A1E46B01F5D516900800D40 /* aliyun_bg.png */,
 			);
 			path = httpdns_ios_demo;
 			sourceTree = "<group>";
@@ -119,6 +119,7 @@
 				942188EB1C59011B00696D6E /* main.m */,
 			);
 			name = "Supporting Files";
+			path = httpdns_ios_demo;
 			sourceTree = "<group>";
 		};
 		9A5539311FA1CB640019F435 /* Frameworks */ = {
@@ -135,7 +136,8 @@
 				9A88BA511F67C0AA006B833E /* httpdns_product_logo.png */,
 				9A88BA521F67C0AA006B833E /* where_is_accountid_secrectkey.png */,
 			);
-			path = Image;
+			name = Image;
+			path = httpdns_ios_demo/Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +172,7 @@
 				TargetAttributes = {
 					942188E61C59011B00696D6E = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = VSW2PKYTD7;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -359,10 +362,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				ENABLE_BITCODE = NO;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -372,10 +377,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.hoc;
 			};
 			name = Debug;
 		};
@@ -385,8 +394,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -396,10 +407,14 @@
 				INFOPLIST_FILE = httpdns_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.hoc;
 			};
 			name = Release;
 		};

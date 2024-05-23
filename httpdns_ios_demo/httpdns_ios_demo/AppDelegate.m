@@ -24,17 +24,33 @@
     //鉴权方式初始化
     //HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:0000 secretKey:@"XXXX"];
 
-    // 为HTTPDNS服务设置降级机制
-    [httpdns setDelegateForDegradationFilter:self];
-    // 允许返回过期的IP
-    [httpdns setExpiredIPEnabled:YES];
-    // 打开HTTPDNS Log，线上建议关闭
+    // 打开HTTPDNS Log，调试排查问题时使用，线上建议关闭
     [httpdns setLogEnabled:YES];
+    
     /*
      *  设置HTTPDNS域名解析请求类型(HTTP/HTTPS)，若不调用该接口，默认为HTTP请求；
      *  SDK内部HTTP请求基于CFNetwork实现，不受ATS限制。
+     *  设置httpdns域名解析网络请求是否需要走HTTPS方式
      */
     //[httpdns setHTTPSRequestEnabled:YES];
+    
+    // 设置开启持久化缓存，使得APP启动后可以复用上次活跃时缓存在本地的IP，提高启动后获取域名解析结果的速度
+    // setCachedIPEnabled: 方法已被弃用，请使用此方法
+    [httpdns setPersistentCacheIPEnabled:YES];
+    
+    // 为HTTPDNS服务设置降级机制
+    [httpdns setDelegateForDegradationFilter:self];
+    
+    // 允许返回过期的IP
+//    [httpdns setReuseExpiredIPEnabled:YES];
+    
+    // 设置底层HTTPDNS网络请求超时时间，单位为秒
+    [httpdns setTimeoutInterval:2];
+    
+    // 设置是否支持IPv6地址解析，只有开启这个开关，解析接口才有能力解析域名的IPv6地址并返回
+//    [httpdns setIPv6Enabled:YES];
+    
+    
     // edited
     NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"dou.bz"];
     // NSArray* preResolveHosts = @[@"pic1cdn.igetget.com"];

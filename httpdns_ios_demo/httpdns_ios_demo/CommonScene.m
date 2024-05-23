@@ -15,7 +15,6 @@
 @end
 
 
-
 @implementation CommonScene
 
 + (void)beginQuery:(NSString *)originalUrl {
@@ -30,48 +29,73 @@
     // 异步网络请求
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-//        NSString *originalUrl = @"http://www.aliyun.com";
+        //        NSString *originalUrl = @"http://www.aliyun.com";
         NSURL *url = [NSURL URLWithString:originalUrl];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         
-        /**
-         * 异步接口获取IP
-         * 为了适配IPv6的使用场景，我们使用 `-[HttpDnsService getIpByHostAsyncInURLFormat:]` 接口
-         * 注意：当您使用IP形式的URL进行网络请求时，IPv4与IPv6的IP地址使用方式略有不同：
-         *         IPv4: http://1.1.1.1/path
-         *         IPv6: http://[2001:db8:c000:221::]/path
-         * 因此我们专门提供了适配URL格式的IP获取接口 `-[HttpDnsService getIpByHostAsyncInURLFormat:]`
-         * 如果您只是为了获取IP信息而已，可以直接使用 `-[HttpDnsService getIpByHostAsync:]`接口
-         */
-        
-        NSString *ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
-        if (ip) {
-            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-            NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
-            NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
-            if (NSNotFound != hostFirstRange.location) {
-                NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
-                NSLog(@"New URL: %@", newUrl);
-                request.URL = [NSURL URLWithString:newUrl];
-                [request setValue:url.host forHTTPHeaderField:@"host"];
+        HttpdnsResult *result = [httpdns resolveHostSyncNonBlocking:url.host byIpType:HttpdnsQueryIPTypeBoth];
+        if (result) {
+            if (result.hasIpv4Address) {
+                //使用ip
+                NSString *ip = result.firstIpv4Address;
+                request = [self replaceRequest:request forIP:ip fromUrl:url withOriginalUrl:originalUrl];
+                
+                //使用ip列表
+                NSArray<NSString *> *ips = result.ips;
+                //根据业务场景进行ip使用
+                /*
+                 * NSString *ip = result.ips.firstObject;
+                 * request = [self replaceRequest:request forIP:ip fromUrl:url withOriginalUrl:originalUrl];
+                 */
+            } else if (result.hasIpv6Address) {
+                //使用ip
+                NSString *ip = result.firstIpv6Address;
+                request = [self replaceRequest:request forIP:ip fromUrl:url withOriginalUrl:originalUrl];
+                
+                //使用ip列表
+                NSArray<NSString *> *ips = result.ipv6s;
+                //根据业务场景进行ip使用
+                /*
+                 * NSString *ip = result.ipv6s.firstObject;
+                 * request = [self replaceRequest:request forIP:ip fromUrl:url withOriginalUrl:originalUrl];
+                 */
+            } else {
+                //无有效ip
             }
         }
-        NSHTTPURLResponse* response;
-        NSError *error;
-        [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        if (error != nil) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"Response: %@",response);
-        }
+        // NSURLSession例子
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+        NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (error) {
+                NSLog(@"error: %@", error);
+            } else {
+                NSLog(@"response: %@", response);
+                NSLog(@"data: %@", data);
+            }
+        }];
+        [task resume];
         
         // 测试黑名单中的域名
-        ip = [httpdns getIpByHostAsyncInURLFormat:@"www.taobao.com"];
-        if (!ip) {
+        result = [httpdns resolveHostSyncNonBlocking:@"www.taobao.com" byIpType:HttpdnsQueryIPTypeBoth];
+        if (!result) {
             NSLog(@"由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
         }
     });
+}
+
++(NSMutableURLRequest *)replaceRequest:(NSMutableURLRequest *)request forIP:(NSString *)ip fromUrl:(NSURL *)url withOriginalUrl:(NSString *)originalUrl {
+    // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+    NSLog(@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host);
+    NSRange hostFirstRange = [originalUrl rangeOfString:url.host];
+    if (NSNotFound != hostFirstRange.location) {
+        NSString *newUrl = [originalUrl stringByReplacingCharactersInRange:hostFirstRange withString:ip];
+        NSLog(@"New URL: %@", newUrl);
+        request.URL = [NSURL URLWithString:newUrl];
+        [request setValue:url.host forHTTPHeaderField:@"host"];
+    }
+    return request;
 }
 
 /*

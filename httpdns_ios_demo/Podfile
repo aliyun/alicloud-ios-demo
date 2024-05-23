@@ -7,7 +7,7 @@ target 'httpdns_ios_demo' do
   
   use_frameworks!
 
-  pod 'AlicloudHTTPDNS', '~> 2.2.0'
+  pod 'AlicloudHTTPDNS', '3.0.0-beta'
 
 end
 
