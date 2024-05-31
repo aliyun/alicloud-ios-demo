@@ -54,91 +54,42 @@
     }
 }
 
-- (IBAction)beginCommonScenceQuery:(id)sender {
+- (IBAction)beginGeneralScenceQuery:(id)sender {
     [self cleanTextView:nil];
 
-    __block NSString *responseIp;
     NSString *originalUrl = @"http://www.aliyun.com";
-    [GeneralScene beginQuery:originalUrl completionHandler:^(NSString *ip, NSString *text) {
-        responseIp = ip;
-        if (ip) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.textView.text = text;
-            });
-        }
+    [GeneralScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
     }];
-
-    NSUInteger delaySeconds = 1;
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-        if (responseIp == nil) {
-            [GeneralScene beginQuery:originalUrl completionHandler:^(NSString * _Nonnull ip, NSString * _Nonnull text) {
-                self.textView.text = text;
-            }];
-        }
-    });
 }
 
 - (IBAction)beginHTTPSSceneQuery:(id)sender {
     [self cleanTextView:nil];
 
-    __block NSString *responseIp;
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-
-    [[HTTPSScene new] beginQuery:originalUrl completionHandler:^(NSString *ip, NSString *text) {
-        responseIp = ip;
-        if (ip) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.textView.text = text;
-            });
-        }
+    [[HTTPSScene new] httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
     }];
-
-    NSUInteger delaySeconds = 1;
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-        if (responseIp == nil) {
-            [[HTTPSScene new] beginQuery:originalUrl completionHandler:^(NSString * _Nonnull ip, NSString * _Nonnull text) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.textView.text = text;
-                });
-            }];
-        }
-
-    });
 }
 
 - (IBAction)beginHTTPSWithSNISceneQuery:(id)sender {
     [self cleanTextView:nil];
 
-    __block NSString *responseIp;
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-
-    [HTTPSWithSNIScene beginQuery:originalUrl completionHandler:^(NSString * _Nonnull ip, NSString * _Nonnull text) {
-        responseIp = ip;
-        if (ip) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.textView.text = text;
-            });
-        }
+    [HTTPSWithSNIScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
     }];
-
-    NSUInteger delaySeconds = 1;
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-        if (responseIp == nil) {
-            [HTTPSWithSNIScene beginQuery:originalUrl completionHandler:^(NSString * _Nonnull ip, NSString * _Nonnull text) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.textView.text = text;
-                });
-            }];
-        }
-    });
 }
 
 
 - (IBAction)cleanTextView:(id)sender {
-    [self.textView setContentOffset:CGPointZero animated:YES];
+    [self.textView setContentOffset:CGPointZero animated:NO];
     self.textView.text = nil;
 }
 

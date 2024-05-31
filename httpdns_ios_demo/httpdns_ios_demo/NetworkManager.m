@@ -52,17 +52,14 @@ static dispatch_queue_t reachabilityQueue;
 }
 
 
-/*
- * 当前网络状态的String描述
- */
+
+/// 当前网络状态的String描述
 - (NSString *)currentStatusString {
     return [NSString stringWithFormat:@"%u", _current];
 }
 
-/*
- * 如果当前网络是Wifi,
- * 获取到当前网络的ssid
- */
+
+/// 如果当前网络是Wifi,获取到当前网络的ssid
 - (NSString *)currentWifiSsid {
     return _ssid;
 }

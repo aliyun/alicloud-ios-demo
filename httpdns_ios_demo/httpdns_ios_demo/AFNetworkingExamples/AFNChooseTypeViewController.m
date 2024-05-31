@@ -23,57 +23,26 @@
 
 }
 
-- (IBAction)beginHttpsScene:(id)sender {
+- (IBAction)httpsScene:(id)sender {
     [self cleanTextView];
 
-    __block NSString *responseIp;
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-
-    [[AFNHttpsScene new] beginQuery:originalUrl completionHandler:^(NSString *ip, NSString *text) {
-        responseIp = ip;
-        if (ip) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.textView.text = text;
-            });
-        }
+    [AFNHttpsScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
     }];
-
-    NSUInteger delaySeconds = 1;
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-        if (responseIp == nil) {
-            [[AFNHttpsScene new] beginQuery:originalUrl completionHandler:^(NSString * _Nonnull ip, NSString * _Nonnull text) {
-                self.textView.text = text;
-            }];
-        }
-    });
 }
 
-- (IBAction)beginHttpsWithSNIScene:(id)sender {
+- (IBAction)httpsWithSNIScene:(id)sender {
     [self cleanTextView];
 
-    __block NSString *responseIp;
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-
-    [AFNHttpsWithSNIScene beginQuery:originalUrl completionHandler:^(NSString * _Nonnull ip, NSString * _Nonnull text) {
-        responseIp = ip;
-        if (ip) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.textView.text = text;
-            });
-        }
+    [AFNHttpsWithSNIScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
     }];
-
-    NSUInteger delaySeconds = 1;
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-        if (responseIp == nil) {
-            [AFNHttpsWithSNIScene beginQuery:originalUrl completionHandler:^(NSString * _Nonnull ip, NSString * _Nonnull text) {
-                self.textView.text = text;
-            }];
-        }
-
-    });
 }
 
 - (void)cleanTextView {

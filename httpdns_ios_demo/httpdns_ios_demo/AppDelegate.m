@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "NetworkManager.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
 @interface AppDelegate ()
@@ -20,7 +19,6 @@ static int accountID = 139450;
 static NSString * secretKey = @"807a19762f8eaefa8563489baf198535";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
     // Override point for customization after application launch.
     // 初始化HTTPDNS
     // 设置AccoutID
@@ -51,10 +49,8 @@ static NSString * secretKey = @"807a19762f8eaefa8563489baf198535";
     // 设置是否支持IPv6地址解析，只有开启这个开关，解析接口才有能力解析域名的IPv6地址并返回
     [httpdns setIPv6Enabled:YES];
 
-    // edited
-    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"dou.bz"];
-    // NSArray* preResolveHosts = @[@"pic1cdn.igetget.com"];
     // 设置预解析域名列表
+    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"dou.bz"];
     [httpdns setPreResolveHosts:preResolveHosts];
 
     // IP 优选功能，设置后会自动对IP进行测速排序，可以在调用 `-resolveHostSyncNonBlocking` 等接口时返回最优IP。

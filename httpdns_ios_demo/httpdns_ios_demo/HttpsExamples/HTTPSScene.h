@@ -10,6 +10,6 @@
 
 @interface HTTPSScene : NSObject
 
-- (void)beginQuery:(NSString *)originalUrl completionHandler:(void(^)(NSString * ip, NSString * text))completionHandler;
+- (void)httpDnsQueryWithURL:(NSString *)originalUrl completionHandler:(void(^)(NSString * message))completionHandler;
 
 @end

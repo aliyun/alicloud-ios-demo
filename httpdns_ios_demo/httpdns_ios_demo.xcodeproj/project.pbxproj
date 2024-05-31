@@ -11,9 +11,6 @@
 		7EBAD4062C042C7300B1F047 /* AFNHttpsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD4052C042C7300B1F047 /* AFNHttpsScene.m */; };
 		7EBAD40C2C042DED00B1F047 /* AFNChooseTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD40B2C042DED00B1F047 /* AFNChooseTypeViewController.m */; };
 		7EBAD4132C04839D00B1F047 /* AFNHttpsWithSNIScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD4122C04839D00B1F047 /* AFNHttpsWithSNIScene.m */; };
-		7EBAD4162C04867800B1F047 /* AlChooseTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD4152C04867800B1F047 /* AlChooseTypeViewController.swift */; };
-		7EBAD4182C048B0400B1F047 /* AlHttpsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD4172C048B0400B1F047 /* AlHttpsScene.swift */; };
-		7EDF451B2C05861B00DCA9AA /* ALHttpsWithSNIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDF451A2C05861B00DCA9AA /* ALHttpsWithSNIScene.swift */; };
 		7EEF80E92C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF80E82C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m */; };
 		7EEF80EC2C006CA900FB4269 /* HTTPSWithSNIScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF80EB2C006CA900FB4269 /* HTTPSWithSNIScene.m */; };
 		942188EC1C59011B00696D6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EB1C59011B00696D6E /* main.m */; };
@@ -38,10 +35,6 @@
 		7EBAD40B2C042DED00B1F047 /* AFNChooseTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNChooseTypeViewController.m; sourceTree = "<group>"; };
 		7EBAD4112C04839D00B1F047 /* AFNHttpsWithSNIScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNHttpsWithSNIScene.h; sourceTree = "<group>"; };
 		7EBAD4122C04839D00B1F047 /* AFNHttpsWithSNIScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNHttpsWithSNIScene.m; sourceTree = "<group>"; };
-		7EBAD4142C04867800B1F047 /* httpdns_ios_demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "httpdns_ios_demo-Bridging-Header.h"; sourceTree = "<group>"; };
-		7EBAD4152C04867800B1F047 /* AlChooseTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlChooseTypeViewController.swift; sourceTree = "<group>"; };
-		7EBAD4172C048B0400B1F047 /* AlHttpsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlHttpsScene.swift; sourceTree = "<group>"; };
-		7EDF451A2C05861B00DCA9AA /* ALHttpsWithSNIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALHttpsWithSNIScene.swift; sourceTree = "<group>"; };
 		7EEF80E72C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpDnsNSURLProtocolImpl.h; sourceTree = "<group>"; };
 		7EEF80E82C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpDnsNSURLProtocolImpl.m; sourceTree = "<group>"; };
 		7EEF80EA2C006CA900FB4269 /* HTTPSWithSNIScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPSWithSNIScene.h; sourceTree = "<group>"; };
@@ -128,17 +121,6 @@
 			path = AFNetworkingExamples;
 			sourceTree = "<group>";
 		};
-		7EBAD4032C04282500B1F047 /* AlamofireExamples */ = {
-			isa = PBXGroup;
-			children = (
-				7EBAD4152C04867800B1F047 /* AlChooseTypeViewController.swift */,
-				7EBAD4172C048B0400B1F047 /* AlHttpsScene.swift */,
-				7EDF451A2C05861B00DCA9AA /* ALHttpsWithSNIScene.swift */,
-				7EBAD4142C04867800B1F047 /* httpdns_ios_demo-Bridging-Header.h */,
-			);
-			path = AlamofireExamples;
-			sourceTree = "<group>";
-		};
 		942188DE1C59011B00696D6E = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +146,6 @@
 			children = (
 				942188ED1C59011B00696D6E /* AppDelegate.h */,
 				942188EE1C59011B00696D6E /* AppDelegate.m */,
-				7EBAD4032C04282500B1F047 /* AlamofireExamples */,
 				7EBAD4022C04281A00B1F047 /* AFNetworkingExamples */,
 				7EBAD4012C0426D900B1F047 /* HttpsSNIExamples */,
 				7EBAD4002C0426CA00B1F047 /* HttpsExamples */,
@@ -335,15 +316,12 @@
 			files = (
 				7EEF80E92C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m in Sources */,
 				9A88BA5A1F67D975006B833E /* HTTPSScene.m in Sources */,
-				7EBAD4182C048B0400B1F047 /* AlHttpsScene.swift in Sources */,
 				942189051C59041100696D6E /* NetworkManager.m in Sources */,
 				C589F8961D28C0A8007CC868 /* MainViewController.m in Sources */,
 				942188EF1C59011B00696D6E /* AppDelegate.m in Sources */,
 				7EEF80EC2C006CA900FB4269 /* HTTPSWithSNIScene.m in Sources */,
-				7EBAD4162C04867800B1F047 /* AlChooseTypeViewController.swift in Sources */,
 				9A88BA571F67D91F006B833E /* GeneralScene.m in Sources */,
 				7EBAD4132C04839D00B1F047 /* AFNHttpsWithSNIScene.m in Sources */,
-				7EDF451B2C05861B00DCA9AA /* ALHttpsWithSNIScene.swift in Sources */,
 				942188EC1C59011B00696D6E /* main.m in Sources */,
 				7EBAD4062C042C7300B1F047 /* AFNHttpsScene.m in Sources */,
 				7EBAD40C2C042DED00B1F047 /* AFNChooseTypeViewController.m in Sources */,

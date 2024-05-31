@@ -31,27 +31,27 @@
                                             <color key="titleColor" systemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="beginCommonScenceQuery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kcw-7F-bjR"/>
+                                            <action selector="beginGeneralScenceQuery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDp-hi-kzE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qm-p9-bJk">
                                         <rect key="frame" x="188" y="117" width="186" height="57"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="清除当前消息">
+                                        <state key="normal" title="关于我们">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="cleanTextView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fNd-r5-c1D"/>
+                                            <segue destination="ouM-pz-ty5" kind="show" id="oCd-n5-Jap"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XX-DU-3CE">
                                         <rect key="frame" x="1" y="117" width="186" height="57"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Alamofire场景">
+                                        <state key="normal" title="清除当前消息">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ubf-tI-q8h" kind="push" id="Wo3-Z4-wzq"/>
+                                            <action selector="cleanTextView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="63M-Sw-wVX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfr-ao-TNx">
@@ -94,18 +94,15 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7gb-tJ-noX" kind="show" id="8ZQ-XW-NVg"/>
+                                            <segue destination="7gb-tJ-noX" kind="show" id="VTt-9n-40e"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8K6-Yl-rMV">
                                         <rect key="frame" x="188" y="175" width="186" height="57"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="关于我们">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="ouM-pz-ty5" kind="show" id="c6y-MN-Nyb"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,6 +211,7 @@ A：APP Demo相关问题，请搜索钉钉群号：11777313</string>
                             <constraint firstAttribute="trailing" secondItem="S9w-DD-B1D" secondAttribute="trailing" id="h3b-cI-21i"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="帮助中心" id="ycU-pX-oU1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JhO-fq-k7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -273,48 +271,11 @@ Copyright © 2009-2017 Aliyun.com All Rights Reserved.
                             <constraint firstAttribute="trailing" secondItem="6TW-C3-Zn3" secondAttribute="trailing" id="yZz-p3-orC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="关于我们" id="wCN-J5-6Wv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hF3-8y-Gat" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="362"/>
-        </scene>
-        <!--HTTPS场景-->
-        <scene sceneID="ok9-h5-pc5">
-            <objects>
-                <viewController id="J88-GR-qgs" customClass="HTTPSSceneViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rUQ-LF-ntK"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ksu-rt-iae"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VZl-Fe-gxf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="HTTPS场景" id="0a7-nH-be9"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r0X-ag-JhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1810" y="-210"/>
-        </scene>
-        <!--普通场景-->
-        <scene sceneID="A1n-L4-fWY">
-            <objects>
-                <viewController id="HE3-7Q-fGd" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9or-t7-Cq7"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lnt-Ms-3oE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LmJ-lV-GCo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="普通场景" id="8bQ-7w-D0j"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G8N-A9-D2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1852" y="-920"/>
+            <point key="canvasLocation" x="1809" y="332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lLi-O8-o4h">
@@ -358,7 +319,7 @@ Copyright © 2009-2017 Aliyun.com All Rights Reserved.
                                             <color key="titleColor" red="0.18823529780000001" green="0.19215688110000001" blue="0.19215688110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="beginHttpsScene:" destination="s1k-j0-qoW" eventType="touchUpInside" id="Pdy-RY-cc4"/>
+                                            <action selector="httpsScene:" destination="s1k-j0-qoW" eventType="touchUpInside" id="41g-P7-4J7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-iH-O8P">
@@ -369,7 +330,7 @@ Copyright © 2009-2017 Aliyun.com All Rights Reserved.
                                             <color key="titleColor" red="0.18821030859999999" green="0.1882497072" blue="0.18820786480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="beginHttpsWithSNIScene:" destination="s1k-j0-qoW" eventType="touchUpInside" id="McD-Fz-50C"/>
+                                            <action selector="httpsWithSNIScene:" destination="s1k-j0-qoW" eventType="touchUpInside" id="dy7-QQ-hz8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -417,92 +378,6 @@ Copyright © 2009-2017 Aliyun.com All Rights Reserved.
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECb-dZ-SbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="1063"/>
-        </scene>
-        <!--Alamofire场景-->
-        <scene sceneID="ZMG-EU-gXX">
-            <objects>
-                <viewController storyboardIdentifier="AlamofireChooseTypeVC" id="Ubf-tI-q8h" customClass="AlChooseTypeViewController" customModule="httpdns_ios_demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bPk-el-9wC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aliyun_bg" translatesAutoresizingMaskIntoConstraints="NO" id="dRn-ke-Rgt">
-                                <rect key="frame" x="1" y="65" width="373" height="540"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GM-3z-oEH">
-                                <rect key="frame" x="1" y="606" width="373" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6i-fr-3Bf">
-                                        <rect key="frame" x="1" y="1" width="185" height="57"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="57" id="z7d-x3-X1h"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="AlHttpsScene">
-                                            <color key="titleColor" red="0.18823529780000001" green="0.19215688110000001" blue="0.19215688110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="beginHttpsScene:" destination="Ubf-tI-q8h" eventType="touchUpInside" id="k5F-GX-5kn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnz-u1-XeK">
-                                        <rect key="frame" x="187" y="1" width="185" height="57"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="AlHttpsWithSNIScene">
-                                            <color key="titleColor" red="0.18821030859999999" green="0.1882497072" blue="0.18820786480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="beginHttpsWithSNIScene:" destination="Ubf-tI-q8h" eventType="touchUpInside" id="PR0-xf-emh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <constraints>
-                                    <constraint firstItem="dnz-u1-XeK" firstAttribute="top" secondItem="9GM-3z-oEH" secondAttribute="top" constant="1" id="AfS-Fx-ik3"/>
-                                    <constraint firstItem="dnz-u1-XeK" firstAttribute="height" secondItem="f6i-fr-3Bf" secondAttribute="height" id="Soh-hO-La9"/>
-                                    <constraint firstAttribute="height" constant="60" id="Umm-iZ-AfY"/>
-                                    <constraint firstItem="f6i-fr-3Bf" firstAttribute="top" secondItem="9GM-3z-oEH" secondAttribute="top" constant="1" id="bIA-Ck-F9y"/>
-                                    <constraint firstItem="dnz-u1-XeK" firstAttribute="width" secondItem="f6i-fr-3Bf" secondAttribute="width" id="cvI-F5-Cn9"/>
-                                    <constraint firstItem="dnz-u1-XeK" firstAttribute="leading" secondItem="f6i-fr-3Bf" secondAttribute="trailing" constant="1" id="ffM-vH-5gJ"/>
-                                    <constraint firstItem="f6i-fr-3Bf" firstAttribute="leading" secondItem="9GM-3z-oEH" secondAttribute="leading" constant="1" id="hh5-l0-k9I"/>
-                                    <constraint firstAttribute="trailing" secondItem="dnz-u1-XeK" secondAttribute="trailing" constant="1" id="piV-Vq-4ZZ"/>
-                                </constraints>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hfd-s5-mYc">
-                                <rect key="frame" x="1" y="65" width="373" height="480"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="tYR-BH-A9N"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="tYR-BH-A9N" firstAttribute="trailing" secondItem="dRn-ke-Rgt" secondAttribute="trailing" constant="1" id="J9f-mW-AE1"/>
-                            <constraint firstItem="tYR-BH-A9N" firstAttribute="bottom" secondItem="9GM-3z-oEH" secondAttribute="bottom" constant="1" id="OG1-Jg-46I"/>
-                            <constraint firstItem="9GM-3z-oEH" firstAttribute="leading" secondItem="tYR-BH-A9N" secondAttribute="leading" constant="1" id="T0B-aO-TcO"/>
-                            <constraint firstItem="tYR-BH-A9N" firstAttribute="trailing" secondItem="9GM-3z-oEH" secondAttribute="trailing" constant="1" id="YZF-wG-347"/>
-                            <constraint firstItem="hfd-s5-mYc" firstAttribute="bottom" secondItem="dRn-ke-Rgt" secondAttribute="bottom" constant="-60" id="ccV-97-wtn"/>
-                            <constraint firstItem="hfd-s5-mYc" firstAttribute="top" secondItem="dRn-ke-Rgt" secondAttribute="top" id="dlI-ze-LUL"/>
-                            <constraint firstItem="dRn-ke-Rgt" firstAttribute="leading" secondItem="tYR-BH-A9N" secondAttribute="leading" constant="1" id="gYg-ws-aoI"/>
-                            <constraint firstItem="9GM-3z-oEH" firstAttribute="top" secondItem="dRn-ke-Rgt" secondAttribute="bottom" constant="1" id="jUD-UG-cZW"/>
-                            <constraint firstItem="dRn-ke-Rgt" firstAttribute="top" secondItem="tYR-BH-A9N" secondAttribute="top" constant="1" id="olh-g0-fzW"/>
-                            <constraint firstItem="hfd-s5-mYc" firstAttribute="trailing" secondItem="dRn-ke-Rgt" secondAttribute="trailing" id="yUa-AC-TKT"/>
-                            <constraint firstItem="hfd-s5-mYc" firstAttribute="leading" secondItem="dRn-ke-Rgt" secondAttribute="leading" id="zYY-az-uUU"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Alamofire场景" id="nEV-hZ-Y4E"/>
-                    <connections>
-                        <outlet property="textView" destination="hfd-s5-mYc" id="5F1-eY-rpw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8uw-33-oZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1134" y="1063"/>
         </scene>
     </scenes>
     <resources>
