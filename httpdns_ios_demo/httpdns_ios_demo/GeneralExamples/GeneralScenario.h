@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GeneralScene : NSObject
+@interface GeneralScenario : NSObject
 
 + (void)httpDnsQueryWithURL:(NSString *)originalUrl completionHandler:(void(^)(NSString * message))completionHandler;
 

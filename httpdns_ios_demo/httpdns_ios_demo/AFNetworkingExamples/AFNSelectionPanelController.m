@@ -6,17 +6,17 @@
 //  Copyright © 2024 alibaba. All rights reserved.
 //
 
-#import "AFNChooseTypeViewController.h"
-#import "AFNHttpsScene.h"
-#import "AFNHttpsWithSNIScene.h"
+#import "AFNSelectionPanelController.h"
+#import "AFNHttpsScenario.h"
+#import "AFNHttpsWithSNIScenario.h"
 
-@interface AFNChooseTypeViewController ()
+@interface AFNSelectionPanelController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
-@implementation AFNChooseTypeViewController
+@implementation AFNSelectionPanelController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +27,7 @@
     [self cleanTextView];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-    [AFNHttpsScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+    [AFNHttpsScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.textView.text = message;
         });
@@ -38,7 +38,7 @@
     [self cleanTextView];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-    [AFNHttpsWithSNIScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+    [AFNHttpsWithSNIScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.textView.text = message;
         });

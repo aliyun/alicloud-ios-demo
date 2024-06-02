@@ -8,12 +8,12 @@
 //
 
 #import "MainViewController.h"
-#import "GeneralScene.h"
-#import "HTTPSScene.h"
+#import "GeneralScenario.h"
+#import "HTTPSSimpleScenario.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 #import <AlicloudUtils/AlicloudUtils.h>
-#import "HTTPSWithSNIScene.h"
-#import "AFNChooseTypeViewController.h"
+#import "HTTPSWithSNIScenario.h"
+#import "AFNSelectionPanelController.h"
 
 
 @interface MainViewController ()
@@ -32,7 +32,6 @@
 
     // 获取当前网络协议栈
     [self getCurrentIPStackTypeSample];
-
 }
 
 - (void)getCurrentIPStackTypeSample {
@@ -57,8 +56,8 @@
 - (IBAction)beginGeneralScenceQuery:(id)sender {
     [self cleanTextView:nil];
 
-    NSString *originalUrl = @"http://www.aliyun.com";
-    [GeneralScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+    NSString *originalUrl = @"http://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
+    [GeneralScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.textView.text = message;
         });
@@ -69,7 +68,7 @@
     [self cleanTextView:nil];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-    [[HTTPSScene new] httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+    [[HTTPSSimpleScenario new] httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.textView.text = message;
         });
@@ -80,7 +79,7 @@
     [self cleanTextView:nil];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
-    [HTTPSWithSNIScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+    [HTTPSWithSNIScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.textView.text = message;
         });

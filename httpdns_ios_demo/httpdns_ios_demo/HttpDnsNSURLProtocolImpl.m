@@ -10,7 +10,7 @@
 #import <arpa/inet.h>
 #import <objc/runtime.h>
 
-static NSString *const protocolKey = @"HttpDnsHttpMessagePropertyKey";
+static NSString *const hasBeenInterceptedCustomLabelKey = @"HttpDnsHttpMessagePropertyKey";
 static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 
 @interface HttpDnsNSURLProtocolImpl () <NSStreamDelegate>
@@ -34,8 +34,8 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
         return NO;
     }
 
-    /* 防止无限循环，因为一个请求在被拦截处理过程中，也会发起一个请求，这样又会走到这里，如果不进行处理，就会造成无限循环 */
-    if ([NSURLProtocol propertyForKey:protocolKey inRequest:request]) {
+    // 防止无限循环，因为一个请求在被拦截处理过程中，也会发起一个请求，这样又会走到这里，如果不进行处理，就会造成无限循环
+    if ([NSURLProtocol propertyForKey:hasBeenInterceptedCustomLabelKey inRequest:request]) {
         return NO;
     }
 
@@ -90,20 +90,16 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
     return isIPV6;
 }
 
-/**
- * 如果需要对请求进行重定向，添加指定头部等操作，可以在该方法中进行
- */
+// 如果需要对请求进行重定向，添加指定头部等操作，可以在该方法中进行
 + (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request {
     return request;
 }
 
-/**
- * 开始加载，在该方法中，加载一个请求
- */
+// 开始加载，在该方法中，加载一个请求
 - (void)startLoading {
     NSMutableURLRequest *request = [self.request mutableCopy];
     // 表示该请求已经被处理，防止无限循环
-    [NSURLProtocol setProperty:@(YES) forKey:protocolKey inRequest:request];
+    [NSURLProtocol setProperty:@(YES) forKey:hasBeenInterceptedCustomLabelKey inRequest:request];
     self.curRequest = [self createNewRequest:request];
     [self startRequest];
 }
@@ -294,9 +290,8 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
                 } else {
                     [policies addObject:(__bridge_transfer id) SecPolicyCreateBasicX509()];
                 }
-                /*
-                 * 绑定校验策略到服务端的证书上
-                 */
+
+                // 绑定校验策略到服务端的证书上
                 SecTrustSetPolicies(trust, (__bridge CFArrayRef) policies);
                 if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
                     [self closeStream:aStream];
@@ -304,7 +299,7 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
                     return;
                 }
                 if (res != kSecTrustResultProceed && res != kSecTrustResultUnspecified) {
-                    /* 证书验证不通过，关闭input stream */
+                    // 证书验证不通过，关闭input stream
                     [self closeStream:aStream];
                     [self.client URLProtocol:self didFailWithError:[[NSError alloc] initWithDomain:@"fail to evaluate the server trust" code:-1 userInfo:nil]];
                 } else {

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HTTPSScene : NSObject
+@interface HTTPSSimpleScenario : NSObject
 
 - (void)httpDnsQueryWithURL:(NSString *)originalUrl completionHandler:(void(^)(NSString * message))completionHandler;
 

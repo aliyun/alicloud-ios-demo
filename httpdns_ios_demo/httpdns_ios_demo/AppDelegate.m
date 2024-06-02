@@ -16,26 +16,18 @@
 @implementation AppDelegate
 
 static int accountID = 139450;
-static NSString * secretKey = @"807a19762f8eaefa8563489baf198535";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    // 初始化HTTPDNS
-    // 设置AccoutID
-    //    HttpDnsService *httpdns = [[HttpDnsService alloc] autoInit];
-
-    //鉴权方式初始化
-    HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:accountID secretKey:secretKey];
+    // 无鉴权方式初始化
+    HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:accountID];
 
     // 打开HTTPDNS Log，调试排查问题时使用，线上建议关闭
     [httpdns setLogEnabled:YES];
 
-    /*
-     *  设置HTTPDNS域名解析请求类型(HTTP/HTTPS)，若不调用该接口，默认为HTTP请求；
-     *  SDK内部HTTP请求基于CFNetwork实现，不受ATS限制。
-     *  设置httpdns域名解析网络请求是否需要走HTTPS方式
-     */
-     [httpdns setHTTPSRequestEnabled:YES];
+    // 设置HTTPDNS域名解析请求类型(HTTP/HTTPS)，若不调用该接口，默认为HTTP请求；
+    // SDK内部HTTP请求基于CFNetwork实现，不受ATS限制。
+    // 设置httpdns域名解析网络请求是否需要走HTTPS方式
+    [httpdns setHTTPSRequestEnabled:YES];
 
     // 设置开启持久化缓存，使得APP启动后可以复用上次活跃时缓存在本地的IP，提高启动后获取域名解析结果的速度
     [httpdns setPersistentCacheIPEnabled:YES];
@@ -50,16 +42,16 @@ static NSString * secretKey = @"807a19762f8eaefa8563489baf198535";
     [httpdns setIPv6Enabled:YES];
 
     // 设置预解析域名列表
-    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com", @"dou.bz"];
+    NSArray *preResolveHosts = @[ @"www.aliyun.com", @"www.taobao.com", @"gw.alicdn.com", @"www.tmall.com"];
     [httpdns setPreResolveHosts:preResolveHosts];
 
-    // IP 优选功能，设置后会自动对IP进行测速排序，可以在调用 `-resolveHostSyncNonBlocking` 等接口时返回最优IP。
+    // IP优选功能，设置每个域名使用什么端口进行连接质量检测
+    // 设置后会自动对IP进行测速排序，从而在调用 `-resolveHostSyncNonBlocking` 等解析接口时优先返回速度快的IP
     NSDictionary *IPRankingDatasource = @{
         @"www.aliyun.com" : @80,
         @"www.taobao.com" : @80,
         @"gw.alicdn.com" : @80,
-        @"www.tmall.com" : @80,
-        @"dou.bz" : @80
+        @"www.tmall.com" : @80
     };
     [httpdns setIPRankingDatasource:IPRankingDatasource];
 

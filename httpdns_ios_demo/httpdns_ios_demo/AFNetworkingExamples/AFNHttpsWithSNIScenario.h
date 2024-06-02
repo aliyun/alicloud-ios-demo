@@ -1,8 +1,8 @@
 //
-//  HTTPSWithSNIScene.h
+//  AFNHttpsWithSNIScene.h
 //  httpdns_ios_demo
 //
-//  Created by Miracle on 2024/5/24.
+//  Created by Miracle on 2024/5/27.
 //  Copyright © 2024 alibaba. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTTPSWithSNIScene : NSObject
+@interface AFNHttpsWithSNIScenario : NSObject
 
 + (void)httpDnsQueryWithURL:(NSString *)originalUrl completionHandler:(void(^)(NSString * message))completionHandler;
 
