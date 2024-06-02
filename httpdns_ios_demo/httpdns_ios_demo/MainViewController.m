@@ -8,9 +8,12 @@
 //
 
 #import "MainViewController.h"
-#import "CommonScene.h"
+#import "GeneralScene.h"
 #import "HTTPSScene.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudUtils/AlicloudUtils.h>
+#import "HTTPSWithSNIScene.h"
+#import "AFNChooseTypeViewController.h"
 
 
 @interface MainViewController ()
@@ -22,57 +25,71 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    // 获取用户sessionId
+    NSString *sessionId = [[HttpDnsService sharedInstance] getSessionId];
+    NSLog(@"Get sessionId: %@", sessionId);
+
+    // 获取当前网络协议栈
+    [self getCurrentIPStackTypeSample];
+
 }
 
-- (IBAction)beginCommonScenceQuery:(id)sender {
+- (void)getCurrentIPStackTypeSample {
+    AlicloudIPv6Adapter *adapter = [AlicloudIPv6Adapter getInstance];
+    AlicloudIPStackType stackType = [adapter currentIpStackType];
+    switch (stackType) {
+        case kAlicloudIPv4only:
+            NSLog(@"当前网络栈为IPv4");
+            break;
+        case kAlicloudIPv6only:
+            NSLog(@"当前网络栈为IPv6");
+            break;
+        case kAlicloudIPdual:
+            NSLog(@"当前网络栈为IPv4/IPv6双栈");
+            break;
+        default:
+            NSLog(@"无法获取当前网络栈类型");
+            break;
+    }
+}
+
+- (IBAction)beginGeneralScenceQuery:(id)sender {
     [self cleanTextView:nil];
+
     NSString *originalUrl = @"http://www.aliyun.com";
-    [CommonScene beginQuery:originalUrl];
-    
-    NSUInteger delaySeconds = 1;
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-        NSURL *url = [NSURL URLWithString:originalUrl];
-        HttpDnsService *httpdns = [HttpDnsService sharedInstance];
-        NSString *ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
-        NSString *text;
-        
-        if (ip) {
-            text = [NSString stringWithFormat:@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host];
-        } else {
-            text = [NSString stringWithFormat:@"Get IP for host(%@) from HTTPDNS failed!", url.host];
-        }
-        self.textView.text = text;
-        
-    });
+    [GeneralScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
+    }];
 }
 
 - (IBAction)beginHTTPSSceneQuery:(id)sender {
     [self cleanTextView:nil];
-    
-        NSString *originalUrl = @"https://www.apple.com";
 
-    [[HTTPSScene new] beginQuery:originalUrl];
-
-    NSUInteger delaySeconds = 1;
-    dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delaySeconds * NSEC_PER_SEC));
-    dispatch_after(when, dispatch_get_main_queue(), ^{
-        HttpDnsService *httpdns = [HttpDnsService sharedInstance];
-        NSURL *url = [NSURL URLWithString:originalUrl];
-        NSString *ip = [httpdns getIpByHostAsyncInURLFormat:url.host];
-        NSString *text;
-        if (ip) {
-            text = [NSString stringWithFormat:@"Get IP(%@) for host(%@) from HTTPDNS Successfully!", ip, url.host];
-        } else {
-            text = [NSString stringWithFormat:@"Get IP for host(%@) from HTTPDNS failed!", url.host];
-        }
-        self.textView.text = text;
-        
-    });
-    
+    NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
+    [[HTTPSScene new] httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
+    }];
 }
 
+- (IBAction)beginHTTPSWithSNISceneQuery:(id)sender {
+    [self cleanTextView:nil];
+
+    NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
+    [HTTPSWithSNIScene httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = message;
+        });
+    }];
+}
+
+
 - (IBAction)cleanTextView:(id)sender {
+    [self.textView setContentOffset:CGPointZero animated:NO];
     self.textView.text = nil;
 }
 
