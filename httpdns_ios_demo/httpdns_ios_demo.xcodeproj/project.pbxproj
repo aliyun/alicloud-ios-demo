@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4A05E17A7356B9C8575B9CFB /* Pods_httpdns_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCAE62D437C0E4FB3645534 /* Pods_httpdns_ios_demo.framework */; };
-		7EBA72192C0D64AF006F1ED2 /* AlSelectionPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA72182C0D64AF006F1ED2 /* AlSelectionPanelViewController.swift */; };
-		7EBA721C2C0D68BB006F1ED2 /* AlHttpsScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA721B2C0D68BB006F1ED2 /* AlHttpsScenario.swift */; };
-		7EBA72202C0DB4C5006F1ED2 /* AlHttpsWithSNIScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA721F2C0DB4C5006F1ED2 /* AlHttpsWithSNIScenario.swift */; };
+		7EBA72192C0D64AF006F1ED2 /* AFSelectionPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA72182C0D64AF006F1ED2 /* AFSelectionPanelViewController.swift */; };
+		7EBA721C2C0D68BB006F1ED2 /* AFHttpsScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA721B2C0D68BB006F1ED2 /* AFHttpsScenario.swift */; };
+		7EBA72202C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA721F2C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift */; };
 		7EBAD40C2C042DED00B1F047 /* AFNSelectionPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD40B2C042DED00B1F047 /* AFNSelectionPanelController.m */; };
 		7EBAD4132C04839D00B1F047 /* AFNHttpsWithSNIScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD4122C04839D00B1F047 /* AFNHttpsWithSNIScenario.m */; };
 		7EEF80E92C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF80E82C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m */; };
@@ -31,10 +31,10 @@
 /* Begin PBXFileReference section */
 		1CCAE62D437C0E4FB3645534 /* Pods_httpdns_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_httpdns_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		221BB2399CC10C020F9F1585 /* Pods-httpdns_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo.debug.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
-		7EBA72182C0D64AF006F1ED2 /* AlSelectionPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlSelectionPanelViewController.swift; sourceTree = "<group>"; };
+		7EBA72182C0D64AF006F1ED2 /* AFSelectionPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFSelectionPanelViewController.swift; sourceTree = "<group>"; };
 		7EBA721A2C0D64BF006F1ED2 /* httpdns_ios_demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "httpdns_ios_demo-Bridging-Header.h"; sourceTree = "<group>"; };
-		7EBA721B2C0D68BB006F1ED2 /* AlHttpsScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlHttpsScenario.swift; sourceTree = "<group>"; };
-		7EBA721F2C0DB4C5006F1ED2 /* AlHttpsWithSNIScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlHttpsWithSNIScenario.swift; sourceTree = "<group>"; };
+		7EBA721B2C0D68BB006F1ED2 /* AFHttpsScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFHttpsScenario.swift; sourceTree = "<group>"; };
+		7EBA721F2C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFHttpsWithSNIScenario.swift; sourceTree = "<group>"; };
 		7EBAD40A2C042DED00B1F047 /* AFNSelectionPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNSelectionPanelController.h; sourceTree = "<group>"; };
 		7EBAD40B2C042DED00B1F047 /* AFNSelectionPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNSelectionPanelController.m; sourceTree = "<group>"; };
 		7EBAD4112C04839D00B1F047 /* AFNHttpsWithSNIScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNHttpsWithSNIScenario.h; sourceTree = "<group>"; };
@@ -89,9 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				7EBA721A2C0D64BF006F1ED2 /* httpdns_ios_demo-Bridging-Header.h */,
-				7EBA72182C0D64AF006F1ED2 /* AlSelectionPanelViewController.swift */,
-				7EBA721B2C0D68BB006F1ED2 /* AlHttpsScenario.swift */,
-				7EBA721F2C0DB4C5006F1ED2 /* AlHttpsWithSNIScenario.swift */,
+				7EBA72182C0D64AF006F1ED2 /* AFSelectionPanelViewController.swift */,
+				7EBA721B2C0D68BB006F1ED2 /* AFHttpsScenario.swift */,
+				7EBA721F2C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift */,
 			);
 			path = AlamofireExamples;
 			sourceTree = "<group>";
@@ -328,8 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EBA721C2C0D68BB006F1ED2 /* AlHttpsScenario.swift in Sources */,
-				7EBA72192C0D64AF006F1ED2 /* AlSelectionPanelViewController.swift in Sources */,
+				7EBA721C2C0D68BB006F1ED2 /* AFHttpsScenario.swift in Sources */,
+				7EBA72192C0D64AF006F1ED2 /* AFSelectionPanelViewController.swift in Sources */,
 				7EEF80E92C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m in Sources */,
 				9A88BA5A1F67D975006B833E /* HTTPSSimpleScenario.m in Sources */,
 				C589F8961D28C0A8007CC868 /* MainViewController.m in Sources */,
@@ -337,7 +337,7 @@
 				7EEF80EC2C006CA900FB4269 /* HTTPSWithSNIScenario.m in Sources */,
 				9A88BA571F67D91F006B833E /* GeneralScenario.m in Sources */,
 				7EBAD4132C04839D00B1F047 /* AFNHttpsWithSNIScenario.m in Sources */,
-				7EBA72202C0DB4C5006F1ED2 /* AlHttpsWithSNIScenario.swift in Sources */,
+				7EBA72202C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift in Sources */,
 				942188EC1C59011B00696D6E /* main.m in Sources */,
 				94FE202F2C0C462F00B34A55 /* AFNHttpsScenario.m in Sources */,
 				7EBAD40C2C042DED00B1F047 /* AFNSelectionPanelController.m in Sources */,

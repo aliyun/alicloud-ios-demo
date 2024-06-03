@@ -1,5 +1,5 @@
 //
-//  AlSelectionPanelViewController.swift
+//  AFSelectionPanelViewController.swift
 //  httpdns_ios_demo
 //
 //  Created by Miracle on 2024/6/3.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlSelectionPanelViewController: UIViewController {
+class AFSelectionPanelViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
@@ -21,7 +21,7 @@ class AlSelectionPanelViewController: UIViewController {
     @IBAction func httpsScenario(_ sender: Any) {
         cleanTextView()
 
-        AlHttpsScenario.httpDnsQueryWithURL(originalUrl: "https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt") { message in
+        AFHttpsScenario.httpDnsQueryWithURL(originalUrl: "https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt") { message in
             DispatchQueue.main.async {
                 self.textView.text = message
             }
@@ -31,7 +31,7 @@ class AlSelectionPanelViewController: UIViewController {
     @IBAction func httpsWithSNIScenario(_ sender: Any) {
         cleanTextView()
         
-        AlHttpsWithSNIScenario.httpDnsQueryWithURL(originalUrl: "https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt") { message in
+        AFHttpsWithSNIScenario.httpDnsQueryWithURL(originalUrl: "https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt") { message in
             DispatchQueue.main.async {
                 self.textView.text = message
             }

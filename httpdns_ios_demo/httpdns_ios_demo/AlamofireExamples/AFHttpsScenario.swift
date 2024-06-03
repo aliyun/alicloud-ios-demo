@@ -1,5 +1,5 @@
 //
-//  AlHttpsScenario.swift
+//  AFHttpsScenario.swift
 //  httpdns_ios_demo
 //
 //  Created by Miracle on 2024/6/3.
@@ -10,9 +10,9 @@ import UIKit
 import Alamofire
 import AlicloudHttpDNS
 
-class AlHttpsScenario: NSObject {
+class AFHttpsScenario: NSObject {
 
-    static let sharedManager: Session = {
+    static let sharedSession: Session = {
         return Session(delegate: CustomerSessionDelegate())
     }()
 
@@ -20,24 +20,28 @@ class AlHttpsScenario: NSObject {
         // 组装提示信息
         var tipsMessage: String = ""
 
-        let url = NSURL(string: originalUrl)
-        let resolvedIpAddress = resolveAvailableIp(host: url?.host ?? "")
+        guard let url = NSURL(string: originalUrl), let originalHost = url.host else {
+            print("Error: invalid url: \(originalUrl)")
+            return;
+        }
+
+        let resolvedIpAddress = resolveAvailableIp(host: originalHost)
 
         var requestUrl = originalUrl
         if resolvedIpAddress != nil {
-            requestUrl = requestUrl.replacingOccurrences(of: url?.host ?? "", with: resolvedIpAddress!)
+            requestUrl = requestUrl.replacingOccurrences(of: originalHost, with: resolvedIpAddress!)
 
-            let log = "Resolve host(\(String(describing: url?.host))) by HTTPDNS successfully, result ip: \(resolvedIpAddress!)"
+            let log = "Resolve host(\(originalHost)) by HTTPDNS successfully, result ip: \(resolvedIpAddress!)"
             print(log)
             tipsMessage = log
         } else {
-            let log = "Resolve host(\(String(describing: url?.host)) by HTTPDNS failed, keep original url to request"
+            let log = "Resolve host(\(originalHost) by HTTPDNS failed, keep original url to request"
             print(log)
             tipsMessage = log
         }
 
         // 发送网络请求
-        sendRequestWithURL(requestUrl: requestUrl, host: url?.host ?? "") { message in
+        sendRequestWithURL(requestUrl: requestUrl, host: originalHost) { message in
             tipsMessage = tipsMessage + "\n\n" + message
             completionHandler(tipsMessage)
         }
@@ -47,7 +51,7 @@ class AlHttpsScenario: NSObject {
         // 因为域名里的host已经被替换成了ip，因此这里需要主动设置host头，确保后端服务识别正确
         var header = HTTPHeaders()
         header.add(name: "host", value: host)
-        sharedManager.request(requestUrl, method: .get, encoding: URLEncoding.default, headers: header).validate().response { response in
+        sharedSession.request(requestUrl, method: .get, encoding: URLEncoding.default, headers: header).validate().response { response in
             var responseStr = ""
             
             switch response.result {
