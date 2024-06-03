@@ -53,7 +53,7 @@
     }
 }
 
-- (IBAction)beginGeneralScenceQuery:(id)sender {
+- (IBAction)generalScenario:(id)sender {
     [self cleanTextView:nil];
 
     NSString *originalUrl = @"http://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
@@ -64,7 +64,7 @@
     }];
 }
 
-- (IBAction)beginHTTPSSceneQuery:(id)sender {
+- (IBAction)httpsScenario:(id)sender {
     [self cleanTextView:nil];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
@@ -75,7 +75,7 @@
     }];
 }
 
-- (IBAction)beginHTTPSWithSNISceneQuery:(id)sender {
+- (IBAction)httpsWithSNIScenario:(id)sender {
     [self cleanTextView:nil];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";

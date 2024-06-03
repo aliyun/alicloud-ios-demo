@@ -23,7 +23,7 @@
 
 }
 
-- (IBAction)httpsScene:(id)sender {
+- (IBAction)httpsScenario:(id)sender {
     [self cleanTextView];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
@@ -34,7 +34,7 @@
     }];
 }
 
-- (IBAction)httpsWithSNIScene:(id)sender {
+- (IBAction)httpsWithSNIScenario:(id)sender {
     [self cleanTextView];
 
     NSString *originalUrl = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
