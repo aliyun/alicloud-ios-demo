@@ -52,11 +52,11 @@
     if (resolvedIpAddress) {
         requestUrl = [originalUrl stringByReplacingOccurrencesOfString:url.host withString:resolvedIpAddress];
 
-        NSString *log = [NSString stringWithFormat:@"Resolve host(%@) from HTTPDNS successfully, result ip: %@", url.host, resolvedIpAddress];
+        NSString *log = [NSString stringWithFormat:@"Resolve host(%@) by HTTPDNS successfully, result ip: %@", url.host, resolvedIpAddress];
         NSLog(@"%@", log);
         [tipsMessage appendString:log];
     } else {
-        NSString *log = [NSString stringWithFormat:@"Resolve host(%@) from HTTPDNS failed, keep original url to request", url.host];
+        NSString *log = [NSString stringWithFormat:@"Resolve host(%@) by HTTPDNS failed, keep original url to request", url.host];
         NSLog(@"%@", log);
         [tipsMessage appendString:log];
     }
