@@ -13,6 +13,8 @@
 		7EBA72202C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA721F2C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift */; };
 		7EBAD40C2C042DED00B1F047 /* AFNSelectionPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD40B2C042DED00B1F047 /* AFNSelectionPanelController.m */; };
 		7EBAD4132C04839D00B1F047 /* AFNHttpsWithSNIScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAD4122C04839D00B1F047 /* AFNHttpsWithSNIScenario.m */; };
+		7EC901B22C106A0E008BDE98 /* AVPlayerScenarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC901B12C106A0E008BDE98 /* AVPlayerScenarioViewController.m */; };
+		7EC901B52C106AA6008BDE98 /* CustomResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC901B42C106AA6008BDE98 /* CustomResourceLoaderDelegate.m */; };
 		7EEF80E92C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF80E82C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m */; };
 		7EEF80EC2C006CA900FB4269 /* HTTPSWithSNIScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF80EB2C006CA900FB4269 /* HTTPSWithSNIScenario.m */; };
 		942188EC1C59011B00696D6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 942188EB1C59011B00696D6E /* main.m */; };
@@ -39,6 +41,10 @@
 		7EBAD40B2C042DED00B1F047 /* AFNSelectionPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNSelectionPanelController.m; sourceTree = "<group>"; };
 		7EBAD4112C04839D00B1F047 /* AFNHttpsWithSNIScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNHttpsWithSNIScenario.h; sourceTree = "<group>"; };
 		7EBAD4122C04839D00B1F047 /* AFNHttpsWithSNIScenario.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNHttpsWithSNIScenario.m; sourceTree = "<group>"; };
+		7EC901B02C106A0E008BDE98 /* AVPlayerScenarioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerScenarioViewController.h; sourceTree = "<group>"; };
+		7EC901B12C106A0E008BDE98 /* AVPlayerScenarioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerScenarioViewController.m; sourceTree = "<group>"; };
+		7EC901B32C106AA6008BDE98 /* CustomResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomResourceLoaderDelegate.h; sourceTree = "<group>"; };
+		7EC901B42C106AA6008BDE98 /* CustomResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		7EEF80E72C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpDnsNSURLProtocolImpl.h; sourceTree = "<group>"; };
 		7EEF80E82C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpDnsNSURLProtocolImpl.m; sourceTree = "<group>"; };
 		7EEF80EA2C006CA900FB4269 /* HTTPSWithSNIScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPSWithSNIScenario.h; sourceTree = "<group>"; };
@@ -136,6 +142,17 @@
 			path = AFNetworkingExamples;
 			sourceTree = "<group>";
 		};
+		7EC901AF2C106827008BDE98 /* AVPlayerExamples */ = {
+			isa = PBXGroup;
+			children = (
+				7EC901B32C106AA6008BDE98 /* CustomResourceLoaderDelegate.h */,
+				7EC901B42C106AA6008BDE98 /* CustomResourceLoaderDelegate.m */,
+				7EC901B02C106A0E008BDE98 /* AVPlayerScenarioViewController.h */,
+				7EC901B12C106A0E008BDE98 /* AVPlayerScenarioViewController.m */,
+			);
+			path = AVPlayerExamples;
+			sourceTree = "<group>";
+		};
 		942188DE1C59011B00696D6E = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +181,7 @@
 				7EBAD4012C0426D900B1F047 /* HttpsSNIExamples */,
 				7EBAD4002C0426CA00B1F047 /* HttpsExamples */,
 				7EBAD3FF2C0426A000B1F047 /* GeneralExamples */,
+				7EC901AF2C106827008BDE98 /* AVPlayerExamples */,
 				7EEF80E72C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.h */,
 				7EEF80E82C006C6F00FB4269 /* HttpDnsNSURLProtocolImpl.m */,
 				C589F8941D28C0A8007CC868 /* MainViewController.h */,
@@ -337,7 +355,9 @@
 				7EEF80EC2C006CA900FB4269 /* HTTPSWithSNIScenario.m in Sources */,
 				9A88BA571F67D91F006B833E /* GeneralScenario.m in Sources */,
 				7EBAD4132C04839D00B1F047 /* AFNHttpsWithSNIScenario.m in Sources */,
+				7EC901B52C106AA6008BDE98 /* CustomResourceLoaderDelegate.m in Sources */,
 				7EBA72202C0DB4C5006F1ED2 /* AFHttpsWithSNIScenario.swift in Sources */,
+				7EC901B22C106A0E008BDE98 /* AVPlayerScenarioViewController.m in Sources */,
 				942188EC1C59011B00696D6E /* main.m in Sources */,
 				94FE202F2C0C462F00B34A55 /* AFNHttpsScenario.m in Sources */,
 				7EBAD40C2C042DED00B1F047 /* AFNSelectionPanelController.m in Sources */,
