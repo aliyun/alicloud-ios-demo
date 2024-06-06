@@ -72,15 +72,22 @@
 
     // 设置播放页面的大小
     layer.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.playView.frame.size.height);
-    layer.backgroundColor = [UIColor cyanColor].CGColor;
+    layer.backgroundColor = [UIColor clearColor].CGColor;
 
     // 设置播放窗口和当前视图之间的比例显示内容
     layer.videoGravity = AVLayerVideoGravityResizeAspect;
 
+    [self cleanSublayers: self.playView];
     // 添加播放视图到self.playView
     [self.playView.layer addSublayer:layer];
     // 设置播放的默认音量值
     self.player.volume = 1.0f;
+}
+
+- (void)cleanSublayers:(UIView *)playView {
+    for (CALayer *layer in playView.layer.sublayers) {
+        [layer removeFromSuperlayer];
+    }
 }
 
 - (NSString *)resolveAvailableIp:(NSString *)host {
