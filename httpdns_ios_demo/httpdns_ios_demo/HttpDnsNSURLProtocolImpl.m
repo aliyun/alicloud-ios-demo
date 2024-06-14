@@ -50,44 +50,34 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
     // 需要的话可以做更多判断，如配置一个host数组来限制只有这个数组中的host才需要拦截
 
     // 只有已经替换为ip的请求需要拦截
-    if (![self isIPV4:domain] && ![self isIPV6:domain]) {
+    if (![self isPlainIpAddress:domain]) {
         return NO;
     }
     return YES;
 }
 
-+ (BOOL)isIPV4:(NSString *)ipSting {
-    BOOL isIPV4 = YES;
-
-    if (ipSting) {
-        const char *utf8 = [ipSting UTF8String];
-        int success = 0;
-        struct in_addr dst;
-        success = inet_pton(AF_INET, utf8, &dst);
-        if (success != 1) {
-            isIPV4 = NO;
-        }
-    } else {
-        isIPV4 = NO;
++ (BOOL)isPlainIpAddress:(NSString *)hostStr {
+    if (!hostStr) {
+        return NO;
     }
-    return isIPV4;
-}
 
-+ (BOOL)isIPV6:(NSString *)ipSting {
-    BOOL isIPV6 = YES;
-
-    if (ipSting) {
-        const char *utf8 = [ipSting UTF8String];
-        int success = 0;
-        struct in6_addr dst6;
-        success = inet_pton(AF_INET6, utf8, &dst6);
-        if (success != 1) {
-            isIPV6 = NO;
-        }
-    } else {
-        isIPV6 = NO;
+    // 是否ipv4地址
+    const char *utf8 = [hostStr UTF8String];
+    int success = 0;
+    struct in_addr dst;
+    success = inet_pton(AF_INET, utf8, &dst);
+    if (success == 1) {
+        return YES;
     }
-    return isIPV6;
+
+    // 是否ipv6地址
+    struct in6_addr dst6;
+    success = inet_pton(AF_INET6, utf8, &dst6);
+    if (success == 1) {
+        return YES;
+    }
+
+    return NO;
 }
 
 // 如果需要对请求进行重定向，添加指定头部等操作，可以在该方法中进行
