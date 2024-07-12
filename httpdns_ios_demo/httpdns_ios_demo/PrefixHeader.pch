@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  httpdns_ios_demo
+//
+//  Created by Miracle on 2024/7/11.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// *******Tools********
+
+#import "HTTPDNSUtils.h"
+#import "HTTPDNSTools.h"
+
+// *******Category******** 
+
+#import "UIImage+ColorToImage.h"
+#import "UIColor+Hex.h"
+
+#endif /* PrefixHeader_pch */
