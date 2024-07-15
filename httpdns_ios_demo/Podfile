@@ -1,23 +1,24 @@
-platform :ios, '10.0'
-
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
 
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+
 target 'httpdns_ios_demo' do
-  
+  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'AlicloudHTTPDNS', '3.1.0'
-  
-  pod 'AFNetworking'
-  pod 'Alamofire'
+  pod 'AlicloudHTTPDNS'
 
-end
+  # Pods for httpdns_ios_demo
 
-post_install do |installer|
-  installer.generated_projects.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
-    end
+  target 'httpdns_ios_demoTests' do
+    inherit! :search_paths
+    # Pods for testing
   end
+
+  target 'httpdns_ios_demoUITests' do
+    # Pods for testing
+  end
+
 end
