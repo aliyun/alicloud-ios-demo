@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxs-Cb-7dN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981" y="-622"/>
+            <point key="canvasLocation" x="1981" y="-1071"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2845" y="-623"/>
+            <point key="canvasLocation" x="2844" y="-1072"/>
         </scene>
         <!--Hello Fuction View Controller-->
         <scene sceneID="Vk8-kv-lAX">
@@ -203,10 +203,10 @@
                             <constraint firstItem="Ue0-8A-5IX" firstAttribute="top" secondItem="4GF-FW-Zl8" secondAttribute="top" constant="13" id="Clm-GZ-9ws"/>
                             <constraint firstItem="hrM-7k-IM2" firstAttribute="trailing" secondItem="RmP-PF-2BK" secondAttribute="trailing" id="JJ8-2W-gyw"/>
                             <constraint firstItem="hrM-7k-IM2" firstAttribute="leading" secondItem="RmP-PF-2BK" secondAttribute="leading" id="NSi-mi-b7r"/>
-                            <constraint firstItem="1tS-m0-JuE" firstAttribute="leading" secondItem="ykh-rC-EnS" secondAttribute="leading" constant="84" id="PED-cG-owd"/>
                             <constraint firstItem="1tS-m0-JuE" firstAttribute="top" secondItem="ykh-rC-EnS" secondAttribute="top" constant="49" id="Q0U-dg-liM"/>
                             <constraint firstItem="ykh-rC-EnS" firstAttribute="top" secondItem="4J0-hi-jk6" secondAttribute="top" id="Sge-vJ-Gbx"/>
                             <constraint firstItem="4GF-FW-Zl8" firstAttribute="bottom" secondItem="em5-Rk-vp4" secondAttribute="bottom" constant="58" id="Sjc-1X-vNg"/>
+                            <constraint firstItem="1tS-m0-JuE" firstAttribute="trailing" secondItem="4GF-FW-Zl8" secondAttribute="trailing" constant="2" id="UWb-se-yRf"/>
                             <constraint firstItem="Ue0-8A-5IX" firstAttribute="leading" secondItem="4GF-FW-Zl8" secondAttribute="leading" constant="34" id="WDm-Se-o6w"/>
                             <constraint firstItem="RmP-PF-2BK" firstAttribute="leading" secondItem="4GF-FW-Zl8" secondAttribute="leading" constant="32" id="ZiI-LB-X48"/>
                             <constraint firstItem="Rn8-Tf-MUp" firstAttribute="top" secondItem="Ue0-8A-5IX" secondAttribute="bottom" constant="16" id="iAn-qa-m9L"/>
@@ -254,19 +254,63 @@
                                     <action selector="goBack:" destination="kzI-N1-xqX" eventType="touchUpInside" id="U8Y-9Y-6md"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTu-K1-12e">
+                                <rect key="frame" x="41" y="72.666666666666657" width="336" height="70.666666666666657"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择或输入需要解析的域名" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mr8-pr-8fE">
+                                        <rect key="frame" x="24" y="21.666666666666657" width="307" height="27.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Mr8-pr-8fE" secondAttribute="height" multiplier="270:24" id="n37-Bh-egz"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.24313725490196078" green="0.23921568627450979" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="search"/>
+                                        <connections>
+                                            <action selector="textFieldValueChanged:" destination="kzI-N1-xqX" eventType="editingChanged" id="sOw-KW-AFi"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274509803915" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Mr8-pr-8fE" secondAttribute="trailing" constant="5" id="VOM-1b-tMv"/>
+                                    <constraint firstItem="Mr8-pr-8fE" firstAttribute="leading" secondItem="nTu-K1-12e" secondAttribute="leading" constant="24" id="dhc-ej-nWq"/>
+                                    <constraint firstAttribute="width" secondItem="nTu-K1-12e" secondAttribute="height" multiplier="318:67" id="pl0-vJ-uSu"/>
+                                    <constraint firstItem="Mr8-pr-8fE" firstAttribute="centerY" secondItem="nTu-K1-12e" secondAttribute="centerY" id="yL2-ea-vuo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="H22-yS-g7c">
+                                <rect key="frame" x="16" y="159.33333333333331" width="361" height="658.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="opd-bE-835"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nKP-C5-FXd" firstAttribute="top" secondItem="opd-bE-835" secondAttribute="top" constant="43" id="1Q5-hf-Mwm"/>
+                            <constraint firstItem="H22-yS-g7c" firstAttribute="top" secondItem="nTu-K1-12e" secondAttribute="bottom" constant="16" id="Gpa-DG-udM"/>
+                            <constraint firstItem="opd-bE-835" firstAttribute="trailing" secondItem="nTu-K1-12e" secondAttribute="trailing" constant="16" id="LYe-dr-ifl"/>
+                            <constraint firstItem="H22-yS-g7c" firstAttribute="leading" secondItem="opd-bE-835" secondAttribute="leading" constant="16" id="MBE-xZ-p6D"/>
                             <constraint firstItem="nKP-C5-FXd" firstAttribute="leading" secondItem="opd-bE-835" secondAttribute="leading" constant="18" id="Myh-6H-s8E"/>
+                            <constraint firstItem="H22-yS-g7c" firstAttribute="bottom" secondItem="opd-bE-835" secondAttribute="bottom" id="RIg-jf-YK6"/>
+                            <constraint firstItem="nTu-K1-12e" firstAttribute="leading" secondItem="nKP-C5-FXd" secondAttribute="trailing" constant="16" id="VTb-yc-p2E"/>
+                            <constraint firstItem="nTu-K1-12e" firstAttribute="centerY" secondItem="nKP-C5-FXd" secondAttribute="centerY" id="rSb-5I-eKS"/>
+                            <constraint firstItem="opd-bE-835" firstAttribute="trailing" secondItem="H22-yS-g7c" secondAttribute="trailing" constant="16" id="riq-ta-xLh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sCO-uk-Q80"/>
+                    <connections>
+                        <outlet property="domainTextField" destination="Mr8-pr-8fE" id="N8R-Ey-fEl"/>
+                        <outlet property="domainsList" destination="H22-yS-g7c" id="X2U-Rd-TlY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYG-Tx-zCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3685" y="55"/>
+            <point key="canvasLocation" x="3632.8244274809158" y="607.04225352112678"/>
         </scene>
         <!--Resolve Fuction View Controller-->
         <scene sceneID="0gC-17-JPi">
@@ -282,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qGA-W0-oGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4505" y="55"/>
+            <point key="canvasLocation" x="3692" y="-308"/>
         </scene>
         <!--功能-->
         <scene sceneID="yju-lh-igP">
@@ -315,7 +359,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EmG-rD-Qtu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981" y="768"/>
+            <point key="canvasLocation" x="1981" y="1447"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3Ui-Sj-6SM">
@@ -331,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmZ-FS-ooN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="768"/>
+            <point key="canvasLocation" x="2844" y="1447"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Pik-pu-IKn">

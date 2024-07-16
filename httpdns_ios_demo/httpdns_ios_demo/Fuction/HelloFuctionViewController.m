@@ -27,7 +27,7 @@
 }
 
 - (void)updateResolveButtonState {
-    if ([HTTPDNSTools isValidString:self.domainsTextField.text]) {
+    if ([HTTPDNSDemoTools isValidString:self.domainsTextField.text]) {
         [self.resolveButton setEnabled:YES];
     }
 }
@@ -53,7 +53,7 @@
 }
 
 - (IBAction)chooseOrInputHost:(id)sender {
-    ChooseOrInputDomainViewController *domainViewController = [HTTPDNSTools storyBoardInstantiateViewController:@"ChooseOrInputDomainViewController"];
+    ChooseOrInputDomainViewController *domainViewController = [HTTPDNSDemoTools storyBoardInstantiateViewController:@"ChooseOrInputDomainViewController"];
     domainViewController.delegate = self;
     [self.navigationController showViewController:domainViewController sender:nil];
 }

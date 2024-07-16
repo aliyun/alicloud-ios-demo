@@ -32,7 +32,7 @@
     [httpdns setHTTPSRequestEnabled:YES];
 
     // 设置预解析域名
-    NSArray *preResolveHosts = [HTTPDNSUtils domains];
+    NSArray *preResolveHosts = [HTTPDNSDemoUtils domains];
     [httpdns setPreResolveHosts:preResolveHosts];
 
     return YES;
