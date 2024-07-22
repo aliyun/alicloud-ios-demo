@@ -9,6 +9,7 @@
 #import "ResolveTypeButton.h"
 #import "ChooseOrInputDomainViewController.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import "TipsAlertView.h"
 
 @interface ResolveFuctionViewController ()<ChooseOrInputDomainDelegate>
 
@@ -176,7 +177,11 @@
 
 #pragma mark - ChooseOrInputDomainDelegate
 
-- (void)domainResult:(NSString *)domain {
+- (void)domainResult:(NSString *)domain isInput:(BOOL)isInput {
+    if (isInput) {
+        [TipsAlertView alertShow:@"域名解析提醒" message:[NSString stringWithFormat:@"在解析开始前，请将下方域名添加到阿里云控制台HTTPDNS的“域名列表”；否则无法返回解析结果。\n\n%@\n\n若已添加，则忽略此消息",domain] domain:domain];
+    }
+    
     self.domainTextField.text = domain;
 }
 

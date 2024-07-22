@@ -18,6 +18,8 @@
 @property(nonatomic, strong)NSMutableArray *search_InputHistory;
 @property(nonatomic, strong)NSMutableArray *search_Domains;
 
+@property(nonatomic, assign)BOOL isInput;
+
 @end
 
 @implementation ChooseOrInputDomainViewController
@@ -57,8 +59,8 @@
 }
 
 - (void)domainFinished {
-    if ([self.delegate respondsToSelector:@selector(domainResult:)]) {
-        [self.delegate domainResult:self.domainTextField.text];
+    if ([self.delegate respondsToSelector:@selector(domainResult:isInput:)]) {
+        [self.delegate domainResult:self.domainTextField.text isInput:self.isInput];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -195,6 +197,9 @@
 
     if (self.search_Domains.count == 0 && self.search_InputHistory.count == 0) {
         [HTTPDNSDemoUtils inputCacheAdd:textField.text];
+        self.isInput = YES;
+    } else {
+        self.isInput = NO;
     }
 
     [self domainFinished];

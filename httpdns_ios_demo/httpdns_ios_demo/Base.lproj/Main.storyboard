@@ -12,10 +12,9 @@
         <!--案例-->
         <scene sceneID="mNZ-Z9-bZW">
             <objects>
-                <navigationController id="T1x-KA-NSm" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="T1x-KA-NSm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="案例" image="Tabbar_Example" id="ds1-ZL-LxY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cau-NC-9kf">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -26,21 +25,297 @@
             </objects>
             <point key="canvasLocation" x="1981" y="-1071"/>
         </scene>
-        <!--View Controller-->
+        <!--Example View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ExampleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAT-xv-csF">
+                                <rect key="frame" x="16" y="59" width="361" height="126"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTP场景使用HTTPDNS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNb-UA-YST" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="F7H-kE-Qai"/>
+                                            <constraint firstAttribute="width" constant="104" id="pbW-HW-azA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196078431373" green="0.73725490196078436" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="sGr-VE-1Or" appends="YES" id="V2R-qQ-4nR"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTPS（含SNI）场景使用HTTPDNS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goi-hb-OgU" userLabel="HTTPS（含SNI）场景使用HTTPDNS" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="110" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="XA0-zM-qMc"/>
+                                            <constraint firstAttribute="width" constant="104" id="aD5-zC-blt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="AIY-ow-Ruz" appends="YES" id="TK4-Qf-HZg"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普通场景使用HTTPDNS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9r-id-SeC" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="220" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="9nn-gJ-Suk"/>
+                                            <constraint firstAttribute="width" constant="104" id="nAi-d7-jj6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="oa0-zN-vg8" appends="YES" id="9ho-6H-fUC"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFNetwork场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64D-JW-mv0" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="330" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="Qe4-ZO-gbC"/>
+                                            <constraint firstAttribute="height" constant="120" id="nzP-my-7OT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="fCG-sY-SKu" appends="YES" id="al3-4U-S2q"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamofire场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpV-r8-rVa" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="550" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="Ksl-xu-2kw"/>
+                                            <constraint firstAttribute="height" constant="120" id="xXx-9i-dTm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="OnR-ZW-TWu" appends="YES" id="c7Q-Mn-cFa"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamofire（含SNI）场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-Gk-dNJ" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="660" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="Ief-xZ-ECa"/>
+                                            <constraint firstAttribute="width" constant="104" id="d5v-JE-pnY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="eYc-t8-Dfq" appends="YES" id="iDf-k1-QEa"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVPlayer场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ib-RW-PWc" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="770" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="asB-Yx-Eb7"/>
+                                            <constraint firstAttribute="height" constant="120" id="fiV-wd-A4e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="4pN-nn-DeY" appends="YES" id="eTP-nu-DBA"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFNetwork（含SNI）场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHD-Zm-Vfw" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="440" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="lpG-cd-dhS"/>
+                                            <constraint firstAttribute="height" constant="120" id="ydj-go-lMQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="WMZ-0B-sU1" appends="YES" id="etU-a0-KmA"/>
+                                        </connections>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7Ib-RW-PWc" firstAttribute="centerY" secondItem="bbd-Gk-dNJ" secondAttribute="centerY" id="0QV-sW-7dj"/>
+                                    <constraint firstItem="E9r-id-SeC" firstAttribute="centerY" secondItem="goi-hb-OgU" secondAttribute="centerY" id="1A8-SC-LM3"/>
+                                    <constraint firstItem="goi-hb-OgU" firstAttribute="leading" secondItem="tNb-UA-YST" secondAttribute="trailing" constant="6" id="7Vm-Wa-8M3"/>
+                                    <constraint firstItem="tNb-UA-YST" firstAttribute="top" secondItem="kAT-xv-csF" secondAttribute="top" id="89q-9L-b4b"/>
+                                    <constraint firstItem="E9r-id-SeC" firstAttribute="leading" secondItem="goi-hb-OgU" secondAttribute="trailing" constant="6" id="Lzk-pl-OLc"/>
+                                    <constraint firstItem="goi-hb-OgU" firstAttribute="centerY" secondItem="tNb-UA-YST" secondAttribute="centerY" id="M43-LW-P2S"/>
+                                    <constraint firstItem="lpV-r8-rVa" firstAttribute="centerY" secondItem="VHD-Zm-Vfw" secondAttribute="centerY" id="arL-uC-UK0"/>
+                                    <constraint firstAttribute="width" secondItem="kAT-xv-csF" secondAttribute="height" multiplier="344:120" id="dY1-nH-hFH"/>
+                                    <constraint firstItem="VHD-Zm-Vfw" firstAttribute="leading" secondItem="64D-JW-mv0" secondAttribute="trailing" constant="6" id="ikU-DN-GTU"/>
+                                    <constraint firstItem="7Ib-RW-PWc" firstAttribute="leading" secondItem="bbd-Gk-dNJ" secondAttribute="trailing" constant="6" id="jCm-ac-2qr"/>
+                                    <constraint firstItem="lpV-r8-rVa" firstAttribute="leading" secondItem="VHD-Zm-Vfw" secondAttribute="trailing" constant="6" id="kPe-a7-dzZ"/>
+                                    <constraint firstItem="bbd-Gk-dNJ" firstAttribute="centerY" secondItem="lpV-r8-rVa" secondAttribute="centerY" id="mez-rH-3PX"/>
+                                    <constraint firstItem="tNb-UA-YST" firstAttribute="leading" secondItem="kAT-xv-csF" secondAttribute="leading" id="nCE-HL-zA0"/>
+                                    <constraint firstItem="64D-JW-mv0" firstAttribute="centerY" secondItem="E9r-id-SeC" secondAttribute="centerY" id="nYL-ZB-2SX"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Ib-RW-PWc" secondAttribute="trailing" id="p3o-QW-UhJ"/>
+                                    <constraint firstItem="64D-JW-mv0" firstAttribute="leading" secondItem="E9r-id-SeC" secondAttribute="trailing" constant="6" id="px6-mP-1ox"/>
+                                    <constraint firstItem="bbd-Gk-dNJ" firstAttribute="leading" secondItem="lpV-r8-rVa" secondAttribute="trailing" constant="6" id="rcE-Hc-p2h"/>
+                                    <constraint firstItem="VHD-Zm-Vfw" firstAttribute="centerY" secondItem="64D-JW-mv0" secondAttribute="centerY" id="sHI-xP-kSf"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m98-NO-pgl">
+                                <rect key="frame" x="16" y="200" width="361" height="549"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="01J-h5-3FJ" customClass="PlaceHolderTextView">
+                                        <rect key="frame" x="4" y="49.333333333333343" width="353" height="495.66666666666663"/>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.97647058819999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.59607843140000005" green="0.64313725489999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="解析结果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu0-yJ-muj">
+                                        <rect key="frame" x="25" y="14.999999999999998" width="65.333333333333329" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" red="0.1215686275" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Gu0-yJ-muj" firstAttribute="leading" secondItem="m98-NO-pgl" secondAttribute="leading" constant="25" id="5qb-9f-eql"/>
+                                    <constraint firstAttribute="trailing" secondItem="01J-h5-3FJ" secondAttribute="trailing" constant="4" id="8Ud-HT-9wd"/>
+                                    <constraint firstItem="Gu0-yJ-muj" firstAttribute="top" secondItem="m98-NO-pgl" secondAttribute="top" constant="15" id="PXp-nb-TTM"/>
+                                    <constraint firstItem="01J-h5-3FJ" firstAttribute="leading" secondItem="m98-NO-pgl" secondAttribute="leading" constant="4" id="WYD-By-8pS"/>
+                                    <constraint firstAttribute="bottom" secondItem="01J-h5-3FJ" secondAttribute="bottom" constant="4" id="k5X-CM-8R9"/>
+                                    <constraint firstItem="01J-h5-3FJ" firstAttribute="top" secondItem="Gu0-yJ-muj" secondAttribute="bottom" constant="15" id="y0s-gw-avH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m98-NO-pgl" secondAttribute="bottom" constant="20" id="4Jc-GR-ySz"/>
+                            <constraint firstItem="m98-NO-pgl" firstAttribute="trailing" secondItem="kAT-xv-csF" secondAttribute="trailing" id="6bD-oT-mTm"/>
+                            <constraint firstItem="m98-NO-pgl" firstAttribute="leading" secondItem="kAT-xv-csF" secondAttribute="leading" id="ArC-S7-EbX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kAT-xv-csF" secondAttribute="trailing" constant="16" id="E52-Bb-Pi6"/>
+                            <constraint firstItem="kAT-xv-csF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="NWr-Ll-kfv"/>
+                            <constraint firstItem="kAT-xv-csF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aj5-LR-w3A"/>
+                            <constraint firstItem="m98-NO-pgl" firstAttribute="top" secondItem="kAT-xv-csF" secondAttribute="bottom" constant="15" id="ej3-Nb-LGM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qw8-Xn-osk"/>
+                    <connections>
+                        <outlet property="resultTextView" destination="01J-h5-3FJ" id="WJB-hH-Bxe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="sGr-VE-1Or">
+                    <connections>
+                        <action selector="httpsSimpleScenario:" destination="BYZ-38-t0r" id="vkH-1I-Kuj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="AIY-ow-Ruz">
+                    <connections>
+                        <action selector="httpsWithSNIScenario:" destination="BYZ-38-t0r" id="U3u-Km-8Xk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="oa0-zN-vg8">
+                    <connections>
+                        <action selector="generalScenario:" destination="BYZ-38-t0r" id="XgT-6C-Odv"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fCG-sY-SKu">
+                    <connections>
+                        <action selector="AFNetworkingScenario:" destination="BYZ-38-t0r" id="GcW-NJ-51P"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WMZ-0B-sU1">
+                    <connections>
+                        <action selector="AFNetworkingWithSNIScenario:" destination="BYZ-38-t0r" id="esq-bx-oEg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="OnR-ZW-TWu">
+                    <connections>
+                        <action selector="AlamofireScenario:" destination="BYZ-38-t0r" id="C4C-j8-dOo"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="eYc-t8-Dfq">
+                    <connections>
+                        <action selector="AlamofireWithSNIScenario:" destination="BYZ-38-t0r" id="24g-Rz-Qkt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="4pN-nn-DeY">
+                    <connections>
+                        <action selector="AVPlayerScenario:" destination="BYZ-38-t0r" id="xaM-ZB-Beh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2844" y="-1072"/>
+            <point key="canvasLocation" x="2843.5114503816794" y="-1072.5352112676057"/>
         </scene>
         <!--Hello Fuction View Controller-->
         <scene sceneID="Vk8-kv-lAX">
