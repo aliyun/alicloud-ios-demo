@@ -19,10 +19,8 @@
     // 初始化httpdns，全局只需要初始化一次
     HttpDnsService *httpdns = [[HttpDnsService alloc] autoInit];
     //鉴权方式初始化
-    //HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:0000 secretKey:@"XXXX"];
+    // HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:0000];
 
-    // 允许返回过期的IP
-    [httpdns setReuseExpiredIPEnabled:YES];
     // 打开HTTPDNS Log，线上建议关闭
     [httpdns setLogEnabled:YES];
     /*
@@ -31,9 +29,12 @@
      */
     [httpdns setHTTPSRequestEnabled:YES];
 
-    // 设置预解析域名
-    NSArray *preResolveHosts = [HTTPDNSUtils domains];
-    [httpdns setPreResolveHosts:preResolveHosts];
+    // // 设置预解析域名
+    // NSArray *preResolveHosts = [HTTPDNSDemoUtils domains];
+    // [httpdns setPreResolveHosts:preResolveHosts];
+
+    // // 允许返回过期的IP
+    // [httpdns setReuseExpiredIPEnabled:YES];
 
     return YES;
 }

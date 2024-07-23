@@ -10,8 +10,8 @@
 
 // *******Tools********
 
-#import "HTTPDNSUtils.h"
-#import "HTTPDNSTools.h"
+#import "HTTPDNSDemoUtils.h"
+#import "HTTPDNSDemoTools.h"
 
 // *******Category******** 
 

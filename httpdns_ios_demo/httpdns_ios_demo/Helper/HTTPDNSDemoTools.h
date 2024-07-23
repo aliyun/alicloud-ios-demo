@@ -1,5 +1,5 @@
 //
-//  HTTPDNSTools.h
+//  HTTPDNSDemoTools.h
 //  httpdns_ios_demo
 //
 //  Created by Miracle on 2024/7/5.
@@ -10,11 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTTPDNSTools : NSObject
+@interface HTTPDNSDemoTools : NSObject
 
 + (BOOL)isValidString:(id)obj;
 
 + (id)storyBoardInstantiateViewController:(NSString *)identifier;
+
++ (void)userDefaultSetObject:(id)value forKey:(NSString *)key;
+
++ (id)userDefaultGet:(NSString *)key;
+
++ (void)userDefaultRemove:(NSString *)key;
 
 @end
 

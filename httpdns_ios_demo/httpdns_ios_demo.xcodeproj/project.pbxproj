@@ -11,6 +11,10 @@
 		6615E36ACB9DF5295F4AB41A /* Pods_httpdns_ios_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AB242A21723B447CF14A9C /* Pods_httpdns_ios_demoTests.framework */; };
 		7E072F5C2C40D88300A99134 /* ChooseOrInputDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E072F5B2C40D88300A99134 /* ChooseOrInputDomainViewController.m */; };
 		7E072F5F2C41127C00A99134 /* ResolveFuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E072F5E2C41127C00A99134 /* ResolveFuctionViewController.m */; };
+		7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */; };
+		7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */; };
+		7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC07CA82C4A137300D770F6 /* ExampleViewController.m */; };
+		7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */; };
 		7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5602C37902600CC5FD4 /* AppDelegate.m */; };
 		7ED5B56A2C37902600CC5FD4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5B5692C37902600CC5FD4 /* Base */; };
 		7ED5B56C2C37902700CC5FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5B56B2C37902700CC5FD4 /* Assets.xcassets */; };
@@ -19,9 +23,10 @@
 		7ED5B57C2C37902700CC5FD4 /* httpdns_ios_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B57B2C37902700CC5FD4 /* httpdns_ios_demoTests.m */; };
 		7ED5B5862C37902800CC5FD4 /* httpdns_ios_demoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5852C37902800CC5FD4 /* httpdns_ios_demoUITests.m */; };
 		7ED5B5882C37902800CC5FD4 /* httpdns_ios_demoUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5872C37902800CC5FD4 /* httpdns_ios_demoUITestsLaunchTests.m */; };
-		7ED5B5962C379D8900CC5FD4 /* HTTPDNSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5952C379D8900CC5FD4 /* HTTPDNSUtils.m */; };
-		7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSTools.m */; };
+		7ED5B5962C379D8900CC5FD4 /* HTTPDNSDemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5952C379D8900CC5FD4 /* HTTPDNSDemoUtils.m */; };
+		7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m */; };
 		7ED5B59B2C37DE2400CC5FD4 /* httpdns-domains.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5B59A2C37DE2400CC5FD4 /* httpdns-domains.plist */; };
+		7EE26E2A2C4912CB00C71F4E /* TipsAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE26E292C4912CB00C71F4E /* TipsAlertView.m */; };
 		7EF25A8B2C3F7E0B00FD57DF /* HelloFuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A8A2C3F7E0B00FD57DF /* HelloFuctionViewController.m */; };
 		7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A8E2C3FBFAB00FD57DF /* UIImage+ColorToImage.m */; };
 		7EF25A922C3FBFFD00FD57DF /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A912C3FBFFD00FD57DF /* UIColor+Hex.m */; };
@@ -55,6 +60,14 @@
 		7E072F5B2C40D88300A99134 /* ChooseOrInputDomainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseOrInputDomainViewController.m; sourceTree = "<group>"; };
 		7E072F5D2C41127C00A99134 /* ResolveFuctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResolveFuctionViewController.h; sourceTree = "<group>"; };
 		7E072F5E2C41127C00A99134 /* ResolveFuctionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResolveFuctionViewController.m; sourceTree = "<group>"; };
+		7E19D1282C4E3DB20022954C /* PlaceHolderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceHolderTextView.h; sourceTree = "<group>"; };
+		7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderTextView.m; sourceTree = "<group>"; };
+		7E81AA552C4A51C8007F9F55 /* CustomLineSpacingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomLineSpacingLabel.h; sourceTree = "<group>"; };
+		7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomLineSpacingLabel.m; sourceTree = "<group>"; };
+		7EC07CA72C4A137300D770F6 /* ExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		7EC07CA82C4A137300D770F6 /* ExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		7ED2DA1E2C4518B8007051F4 /* DomainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainTableViewCell.h; sourceTree = "<group>"; };
+		7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DomainTableViewCell.m; sourceTree = "<group>"; };
 		7ED5B55C2C37902600CC5FD4 /* httpdns_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = httpdns_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED5B55F2C37902600CC5FD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7ED5B5602C37902600CC5FD4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,11 +81,13 @@
 		7ED5B5812C37902800CC5FD4 /* httpdns_ios_demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = httpdns_ios_demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED5B5852C37902800CC5FD4 /* httpdns_ios_demoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = httpdns_ios_demoUITests.m; sourceTree = "<group>"; };
 		7ED5B5872C37902800CC5FD4 /* httpdns_ios_demoUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = httpdns_ios_demoUITestsLaunchTests.m; sourceTree = "<group>"; };
-		7ED5B5942C379D8900CC5FD4 /* HTTPDNSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPDNSUtils.h; sourceTree = "<group>"; };
-		7ED5B5952C379D8900CC5FD4 /* HTTPDNSUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPDNSUtils.m; sourceTree = "<group>"; };
-		7ED5B5972C37C7AE00CC5FD4 /* HTTPDNSTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPDNSTools.h; sourceTree = "<group>"; };
-		7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPDNSTools.m; sourceTree = "<group>"; };
+		7ED5B5942C379D8900CC5FD4 /* HTTPDNSDemoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPDNSDemoUtils.h; sourceTree = "<group>"; };
+		7ED5B5952C379D8900CC5FD4 /* HTTPDNSDemoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPDNSDemoUtils.m; sourceTree = "<group>"; };
+		7ED5B5972C37C7AE00CC5FD4 /* HTTPDNSDemoTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPDNSDemoTools.h; sourceTree = "<group>"; };
+		7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPDNSDemoTools.m; sourceTree = "<group>"; };
 		7ED5B59A2C37DE2400CC5FD4 /* httpdns-domains.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "httpdns-domains.plist"; sourceTree = "<group>"; };
+		7EE26E282C4912CB00C71F4E /* TipsAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipsAlertView.h; sourceTree = "<group>"; };
+		7EE26E292C4912CB00C71F4E /* TipsAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipsAlertView.m; sourceTree = "<group>"; };
 		7EF25A892C3F7E0B00FD57DF /* HelloFuctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloFuctionViewController.h; sourceTree = "<group>"; };
 		7EF25A8A2C3F7E0B00FD57DF /* HelloFuctionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloFuctionViewController.m; sourceTree = "<group>"; };
 		7EF25A8D2C3FBFAB00FD57DF /* UIImage+ColorToImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorToImage.h"; sourceTree = "<group>"; };
@@ -136,10 +151,38 @@
 				7EF25A972C3FD5F100FD57DF /* ResolveTypeButton.m */,
 				7E072F5A2C40D88300A99134 /* ChooseOrInputDomainViewController.h */,
 				7E072F5B2C40D88300A99134 /* ChooseOrInputDomainViewController.m */,
+				7ED2DA1E2C4518B8007051F4 /* DomainTableViewCell.h */,
+				7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */,
 				7E072F5D2C41127C00A99134 /* ResolveFuctionViewController.h */,
 				7E072F5E2C41127C00A99134 /* ResolveFuctionViewController.m */,
 			);
 			path = Fuction;
+			sourceTree = "<group>";
+		};
+		7EC07CA62C4A132500D770F6 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				7EC07CA72C4A137300D770F6 /* ExampleViewController.h */,
+				7EC07CA82C4A137300D770F6 /* ExampleViewController.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		7ED2DA1D2C450BA4007051F4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7E81AA552C4A51C8007F9F55 /* CustomLineSpacingLabel.h */,
+				7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */,
+				7ED5B5942C379D8900CC5FD4 /* HTTPDNSDemoUtils.h */,
+				7ED5B5952C379D8900CC5FD4 /* HTTPDNSDemoUtils.m */,
+				7ED5B5972C37C7AE00CC5FD4 /* HTTPDNSDemoTools.h */,
+				7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m */,
+				7EE26E282C4912CB00C71F4E /* TipsAlertView.h */,
+				7EE26E292C4912CB00C71F4E /* TipsAlertView.m */,
+				7E19D1282C4E3DB20022954C /* PlaceHolderTextView.h */,
+				7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		7ED5B5532C37902600CC5FD4 = {
@@ -168,14 +211,12 @@
 			isa = PBXGroup;
 			children = (
 				7ED5B59A2C37DE2400CC5FD4 /* httpdns-domains.plist */,
+				7ED2DA1D2C450BA4007051F4 /* Helper */,
+				7EC07CA62C4A132500D770F6 /* Example */,
 				7E072F592C40CABF00A99134 /* Fuction */,
 				7EF25A8C2C3FBF7600FD57DF /* Category */,
 				7ED5B55F2C37902600CC5FD4 /* AppDelegate.h */,
 				7ED5B5602C37902600CC5FD4 /* AppDelegate.m */,
-				7ED5B5942C379D8900CC5FD4 /* HTTPDNSUtils.h */,
-				7ED5B5952C379D8900CC5FD4 /* HTTPDNSUtils.m */,
-				7ED5B5972C37C7AE00CC5FD4 /* HTTPDNSTools.h */,
-				7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSTools.m */,
 				7ED5B5682C37902600CC5FD4 /* Main.storyboard */,
 				7ED5B56B2C37902700CC5FD4 /* Assets.xcassets */,
 				7ED5B56D2C37902700CC5FD4 /* LaunchScreen.storyboard */,
@@ -431,15 +472,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E072F5F2C41127C00A99134 /* ResolveFuctionViewController.m in Sources */,
-				7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSTools.m in Sources */,
+				7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */,
+				7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */,
+				7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m in Sources */,
 				7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */,
 				7EF25A8B2C3F7E0B00FD57DF /* HelloFuctionViewController.m in Sources */,
 				7ED5B5722C37902700CC5FD4 /* main.m in Sources */,
 				7EF25A982C3FD5F100FD57DF /* ResolveTypeButton.m in Sources */,
+				7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */,
 				7EF25A922C3FBFFD00FD57DF /* UIColor+Hex.m in Sources */,
 				7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */,
+				7EE26E2A2C4912CB00C71F4E /* TipsAlertView.m in Sources */,
 				7E072F5C2C40D88300A99134 /* ChooseOrInputDomainViewController.m in Sources */,
-				7ED5B5962C379D8900CC5FD4 /* HTTPDNSUtils.m in Sources */,
+				7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */,
+				7ED5B5962C379D8900CC5FD4 /* HTTPDNSDemoUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +546,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -547,7 +594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -561,6 +608,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -602,7 +650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -628,8 +676,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -662,8 +709,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -9,7 +9,7 @@
 
 @protocol ChooseOrInputDomainDelegate <NSObject>
 
-- (void)domainResult:(NSString *_Nullable)domain;
+- (void)domainResult:(NSString *_Nullable)domain isInput:(BOOL)isInput;
 
 @end
 
