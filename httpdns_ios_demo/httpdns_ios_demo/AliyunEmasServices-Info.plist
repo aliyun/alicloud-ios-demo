@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>config</key>
+	<dict>
+		<key>httpdns.accountId</key>
+		<string>139450</string>
+		<key>httpdns.secretKey</key>
+		<string>807a19762f8eaefa8563489baf198535</string>
+	</dict>
+</dict>
+</plist>

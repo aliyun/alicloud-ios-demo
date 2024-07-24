@@ -10,6 +10,9 @@ target 'httpdns_ios_demo' do
 
   pod 'AlicloudHTTPDNS'
 
+  pod 'AFNetworking'
+  pod 'Alamofire'
+
   # Pods for httpdns_ios_demo
 
   target 'httpdns_ios_demoTests' do
