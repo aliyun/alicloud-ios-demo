@@ -12,6 +12,14 @@
 		7E072F5C2C40D88300A99134 /* ChooseOrInputDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E072F5B2C40D88300A99134 /* ChooseOrInputDomainViewController.m */; };
 		7E072F5F2C41127C00A99134 /* ResolveFuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E072F5E2C41127C00A99134 /* ResolveFuctionViewController.m */; };
 		7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */; };
+		7E776E662C4E640C00188CE3 /* HTTPSWithSNIScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E612C4E640C00188CE3 /* HTTPSWithSNIScenario.m */; };
+		7E776E672C4E640C00188CE3 /* HTTPSSimpleScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E642C4E640C00188CE3 /* HTTPSSimpleScenario.m */; };
+		7E776E6A2C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E682C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m */; };
+		7E776E6E2C4E655D00188CE3 /* GeneralScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E6C2C4E655D00188CE3 /* GeneralScenario.m */; };
+		7E776E762C4E659E00188CE3 /* AFNHttpsScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E702C4E659E00188CE3 /* AFNHttpsScenario.m */; };
+		7E776E772C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E722C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m */; };
+		7E776E7F2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E7D2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift */; };
+		7E776E802C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E7E2C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift */; };
 		7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */; };
 		7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC07CA82C4A137300D770F6 /* ExampleViewController.m */; };
 		7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */; };
@@ -26,6 +34,10 @@
 		7ED5B5962C379D8900CC5FD4 /* HTTPDNSDemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5952C379D8900CC5FD4 /* HTTPDNSDemoUtils.m */; };
 		7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m */; };
 		7ED5B59B2C37DE2400CC5FD4 /* httpdns-domains.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5B59A2C37DE2400CC5FD4 /* httpdns-domains.plist */; };
+		7ED98FFD2C5099290025D1F8 /* AVPlayerAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED98FFC2C5099290025D1F8 /* AVPlayerAlertView.m */; };
+		7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED98FFF2C50DC330025D1F8 /* CustomResourceLoaderDelegate.m */; };
+		7ED990032C50DECA0025D1F8 /* AVPlayerScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED990022C50DECA0025D1F8 /* AVPlayerScenario.m */; };
+		7ED990052C50F2F10025D1F8 /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED990042C50F2F10025D1F8 /* AliyunEmasServices-Info.plist */; };
 		7EE26E2A2C4912CB00C71F4E /* TipsAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE26E292C4912CB00C71F4E /* TipsAlertView.m */; };
 		7EF25A8B2C3F7E0B00FD57DF /* HelloFuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A8A2C3F7E0B00FD57DF /* HelloFuctionViewController.m */; };
 		7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A8E2C3FBFAB00FD57DF /* UIImage+ColorToImage.m */; };
@@ -62,6 +74,21 @@
 		7E072F5E2C41127C00A99134 /* ResolveFuctionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResolveFuctionViewController.m; sourceTree = "<group>"; };
 		7E19D1282C4E3DB20022954C /* PlaceHolderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceHolderTextView.h; sourceTree = "<group>"; };
 		7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderTextView.m; sourceTree = "<group>"; };
+		7E776E602C4E640C00188CE3 /* HTTPSWithSNIScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSWithSNIScenario.h; sourceTree = "<group>"; };
+		7E776E612C4E640C00188CE3 /* HTTPSWithSNIScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSWithSNIScenario.m; sourceTree = "<group>"; };
+		7E776E632C4E640C00188CE3 /* HTTPSSimpleScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSSimpleScenario.h; sourceTree = "<group>"; };
+		7E776E642C4E640C00188CE3 /* HTTPSSimpleScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSSimpleScenario.m; sourceTree = "<group>"; };
+		7E776E682C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpDnsNSURLProtocolImpl.m; sourceTree = "<group>"; };
+		7E776E692C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpDnsNSURLProtocolImpl.h; sourceTree = "<group>"; };
+		7E776E6B2C4E655D00188CE3 /* GeneralScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralScenario.h; sourceTree = "<group>"; };
+		7E776E6C2C4E655D00188CE3 /* GeneralScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralScenario.m; sourceTree = "<group>"; };
+		7E776E6F2C4E659E00188CE3 /* AFNHttpsScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNHttpsScenario.h; sourceTree = "<group>"; };
+		7E776E702C4E659E00188CE3 /* AFNHttpsScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNHttpsScenario.m; sourceTree = "<group>"; };
+		7E776E712C4E659E00188CE3 /* AFNHttpsWithSNIScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNHttpsWithSNIScenario.h; sourceTree = "<group>"; };
+		7E776E722C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNHttpsWithSNIScenario.m; sourceTree = "<group>"; };
+		7E776E792C4E65B400188CE3 /* httpdns_ios_demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "httpdns_ios_demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		7E776E7D2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHttpsScenario.swift; sourceTree = "<group>"; };
+		7E776E7E2C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHttpsWithSNIScenario.swift; sourceTree = "<group>"; };
 		7E81AA552C4A51C8007F9F55 /* CustomLineSpacingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomLineSpacingLabel.h; sourceTree = "<group>"; };
 		7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomLineSpacingLabel.m; sourceTree = "<group>"; };
 		7EC07CA72C4A137300D770F6 /* ExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
@@ -86,6 +113,13 @@
 		7ED5B5972C37C7AE00CC5FD4 /* HTTPDNSDemoTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPDNSDemoTools.h; sourceTree = "<group>"; };
 		7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPDNSDemoTools.m; sourceTree = "<group>"; };
 		7ED5B59A2C37DE2400CC5FD4 /* httpdns-domains.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "httpdns-domains.plist"; sourceTree = "<group>"; };
+		7ED98FFB2C5099290025D1F8 /* AVPlayerAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerAlertView.h; sourceTree = "<group>"; };
+		7ED98FFC2C5099290025D1F8 /* AVPlayerAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerAlertView.m; sourceTree = "<group>"; };
+		7ED98FFE2C50DC330025D1F8 /* CustomResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomResourceLoaderDelegate.h; sourceTree = "<group>"; };
+		7ED98FFF2C50DC330025D1F8 /* CustomResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomResourceLoaderDelegate.m; sourceTree = "<group>"; };
+		7ED990012C50DECA0025D1F8 /* AVPlayerScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerScenario.h; sourceTree = "<group>"; };
+		7ED990022C50DECA0025D1F8 /* AVPlayerScenario.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerScenario.m; sourceTree = "<group>"; };
+		7ED990042C50F2F10025D1F8 /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		7EE26E282C4912CB00C71F4E /* TipsAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipsAlertView.h; sourceTree = "<group>"; };
 		7EE26E292C4912CB00C71F4E /* TipsAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipsAlertView.m; sourceTree = "<group>"; };
 		7EF25A892C3F7E0B00FD57DF /* HelloFuctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloFuctionViewController.h; sourceTree = "<group>"; };
@@ -159,9 +193,62 @@
 			path = Fuction;
 			sourceTree = "<group>";
 		};
+		7E776E622C4E640C00188CE3 /* HttpsSNIExample */ = {
+			isa = PBXGroup;
+			children = (
+				7E776E602C4E640C00188CE3 /* HTTPSWithSNIScenario.h */,
+				7E776E612C4E640C00188CE3 /* HTTPSWithSNIScenario.m */,
+			);
+			path = HttpsSNIExample;
+			sourceTree = "<group>";
+		};
+		7E776E652C4E640C00188CE3 /* HttpsExample */ = {
+			isa = PBXGroup;
+			children = (
+				7E776E632C4E640C00188CE3 /* HTTPSSimpleScenario.h */,
+				7E776E642C4E640C00188CE3 /* HTTPSSimpleScenario.m */,
+			);
+			path = HttpsExample;
+			sourceTree = "<group>";
+		};
+		7E776E6D2C4E655D00188CE3 /* GeneralExample */ = {
+			isa = PBXGroup;
+			children = (
+				7E776E6B2C4E655D00188CE3 /* GeneralScenario.h */,
+				7E776E6C2C4E655D00188CE3 /* GeneralScenario.m */,
+			);
+			path = GeneralExample;
+			sourceTree = "<group>";
+		};
+		7E776E752C4E659E00188CE3 /* AFNetworkingExamples */ = {
+			isa = PBXGroup;
+			children = (
+				7E776E6F2C4E659E00188CE3 /* AFNHttpsScenario.h */,
+				7E776E702C4E659E00188CE3 /* AFNHttpsScenario.m */,
+				7E776E712C4E659E00188CE3 /* AFNHttpsWithSNIScenario.h */,
+				7E776E722C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m */,
+			);
+			path = AFNetworkingExamples;
+			sourceTree = "<group>";
+		};
+		7E776E7C2C4E65EF00188CE3 /* AlamofireExamples */ = {
+			isa = PBXGroup;
+			children = (
+				7E776E7D2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift */,
+				7E776E7E2C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift */,
+			);
+			path = AlamofireExamples;
+			sourceTree = "<group>";
+		};
 		7EC07CA62C4A132500D770F6 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				7ED98FFA2C5091880025D1F8 /* AVPlayerExample */,
+				7E776E7C2C4E65EF00188CE3 /* AlamofireExamples */,
+				7E776E752C4E659E00188CE3 /* AFNetworkingExamples */,
+				7E776E6D2C4E655D00188CE3 /* GeneralExample */,
+				7E776E652C4E640C00188CE3 /* HttpsExample */,
+				7E776E622C4E640C00188CE3 /* HttpsSNIExample */,
 				7EC07CA72C4A137300D770F6 /* ExampleViewController.h */,
 				7EC07CA82C4A137300D770F6 /* ExampleViewController.m */,
 			);
@@ -171,6 +258,8 @@
 		7ED2DA1D2C450BA4007051F4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7E776E692C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.h */,
+				7E776E682C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m */,
 				7E81AA552C4A51C8007F9F55 /* CustomLineSpacingLabel.h */,
 				7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */,
 				7ED5B5942C379D8900CC5FD4 /* HTTPDNSDemoUtils.h */,
@@ -210,6 +299,7 @@
 		7ED5B55E2C37902600CC5FD4 /* httpdns_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
+				7ED990042C50F2F10025D1F8 /* AliyunEmasServices-Info.plist */,
 				7ED5B59A2C37DE2400CC5FD4 /* httpdns-domains.plist */,
 				7ED2DA1D2C450BA4007051F4 /* Helper */,
 				7EC07CA62C4A132500D770F6 /* Example */,
@@ -217,6 +307,7 @@
 				7EF25A8C2C3FBF7600FD57DF /* Category */,
 				7ED5B55F2C37902600CC5FD4 /* AppDelegate.h */,
 				7ED5B5602C37902600CC5FD4 /* AppDelegate.m */,
+				7E776E792C4E65B400188CE3 /* httpdns_ios_demo-Bridging-Header.h */,
 				7ED5B5682C37902600CC5FD4 /* Main.storyboard */,
 				7ED5B56B2C37902700CC5FD4 /* Assets.xcassets */,
 				7ED5B56D2C37902700CC5FD4 /* LaunchScreen.storyboard */,
@@ -242,6 +333,19 @@
 				7ED5B5872C37902800CC5FD4 /* httpdns_ios_demoUITestsLaunchTests.m */,
 			);
 			path = httpdns_ios_demoUITests;
+			sourceTree = "<group>";
+		};
+		7ED98FFA2C5091880025D1F8 /* AVPlayerExample */ = {
+			isa = PBXGroup;
+			children = (
+				7ED98FFE2C50DC330025D1F8 /* CustomResourceLoaderDelegate.h */,
+				7ED98FFF2C50DC330025D1F8 /* CustomResourceLoaderDelegate.m */,
+				7ED98FFB2C5099290025D1F8 /* AVPlayerAlertView.h */,
+				7ED98FFC2C5099290025D1F8 /* AVPlayerAlertView.m */,
+				7ED990012C50DECA0025D1F8 /* AVPlayerScenario.h */,
+				7ED990022C50DECA0025D1F8 /* AVPlayerScenario.m */,
+			);
+			path = AVPlayerExample;
 			sourceTree = "<group>";
 		};
 		7EF25A8C2C3FBF7600FD57DF /* Category */ = {
@@ -279,6 +383,7 @@
 				7ED5B5582C37902600CC5FD4 /* Sources */,
 				7ED5B5592C37902600CC5FD4 /* Frameworks */,
 				7ED5B55A2C37902600CC5FD4 /* Resources */,
+				68ED64A4BE66D5C7DA28519E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,6 +421,7 @@
 				7ED5B57D2C37902800CC5FD4 /* Sources */,
 				7ED5B57E2C37902800CC5FD4 /* Frameworks */,
 				7ED5B57F2C37902800CC5FD4 /* Resources */,
+				323AA8FCF017C33DE216961C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +444,7 @@
 				TargetAttributes = {
 					7ED5B55B2C37902600CC5FD4 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 					7ED5B5762C37902700CC5FD4 = {
 						CreatedOnToolsVersion = 15.3;
@@ -374,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED990052C50F2F10025D1F8 /* AliyunEmasServices-Info.plist in Resources */,
 				7ED5B59B2C37DE2400CC5FD4 /* httpdns-domains.plist in Resources */,
 				7ED5B56C2C37902700CC5FD4 /* Assets.xcassets in Resources */,
 				7ED5B56F2C37902700CC5FD4 /* Base in Resources */,
@@ -442,6 +550,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		323AA8FCF017C33DE216961C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68ED64A4BE66D5C7DA28519E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AB99EC2C10BF32FD65D32A6F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,19 +614,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E072F5F2C41127C00A99134 /* ResolveFuctionViewController.m in Sources */,
+				7E776E7F2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift in Sources */,
 				7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */,
 				7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */,
 				7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m in Sources */,
+				7ED98FFD2C5099290025D1F8 /* AVPlayerAlertView.m in Sources */,
 				7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */,
+				7E776E762C4E659E00188CE3 /* AFNHttpsScenario.m in Sources */,
 				7EF25A8B2C3F7E0B00FD57DF /* HelloFuctionViewController.m in Sources */,
+				7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */,
+				7E776E6A2C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m in Sources */,
 				7ED5B5722C37902700CC5FD4 /* main.m in Sources */,
+				7E776E802C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift in Sources */,
+				7E776E6E2C4E655D00188CE3 /* GeneralScenario.m in Sources */,
 				7EF25A982C3FD5F100FD57DF /* ResolveTypeButton.m in Sources */,
+				7ED990032C50DECA0025D1F8 /* AVPlayerScenario.m in Sources */,
+				7E776E672C4E640C00188CE3 /* HTTPSSimpleScenario.m in Sources */,
+				7E776E772C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m in Sources */,
 				7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */,
 				7EF25A922C3FBFFD00FD57DF /* UIColor+Hex.m in Sources */,
 				7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */,
 				7EE26E2A2C4912CB00C71F4E /* TipsAlertView.m in Sources */,
 				7E072F5C2C40D88300A99134 /* ChooseOrInputDomainViewController.m in Sources */,
 				7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */,
+				7E776E662C4E640C00188CE3 /* HTTPSWithSNIScenario.m in Sources */,
 				7ED5B5962C379D8900CC5FD4 /* HTTPDNSDemoUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,11 +818,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/httpdns_ios_demo/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = httpdns_ios_demo/Info.plist;
@@ -688,6 +844,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "httpdns_ios_demo/httpdns_ios_demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -698,11 +857,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/httpdns_ios_demo/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = httpdns_ios_demo/Info.plist;
@@ -721,6 +883,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "httpdns_ios_demo/httpdns_ios_demo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -729,6 +893,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0837016AD679778FBC5BE853 /* Pods-httpdns_ios_demoTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -747,6 +912,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 779AAC26FF27AC412FD69B41 /* Pods-httpdns_ios_demoTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -765,6 +931,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E36940574994683FEE78BEE /* Pods-httpdns_ios_demo-httpdns_ios_demoUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -781,6 +948,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8FF36133B780D8400A7454A7 /* Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

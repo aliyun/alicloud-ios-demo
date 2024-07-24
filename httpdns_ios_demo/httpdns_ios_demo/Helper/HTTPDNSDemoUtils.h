@@ -11,6 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HTTPDNSDemoUtils : NSObject
 
++ (int)accountId;
+
++ (NSString *)secretKey;
+
 + (NSArray *)domains;
 
 + (NSArray *)inputDomainsHistory;
@@ -20,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)inputCacheRemove:(NSString *)domain;
 
 + (void)inputCacheRemoveAll;
+
++ (NSString *)exampleTextUrlString;
+
++ (NSString *)exampleVideoUrlString;
 
 @end
 

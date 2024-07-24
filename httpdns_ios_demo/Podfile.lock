@@ -1,4 +1,20 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (5.9.1)
   - AlicloudHTTPDNS (3.1.0):
     - AlicloudUtils
   - AlicloudUTDID (1.6.1)
@@ -6,6 +22,8 @@ PODS:
     - AlicloudUTDID
 
 DEPENDENCIES:
+  - AFNetworking
+  - Alamofire
   - AlicloudHTTPDNS
 
 SPEC REPOS:
@@ -13,12 +31,17 @@ SPEC REPOS:
     - AlicloudHTTPDNS
     - AlicloudUTDID
     - AlicloudUtils
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - Alamofire
 
 SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   AlicloudHTTPDNS: 0fa795e920012715e79d40477a6cda3460ab9dc2
   AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
   AlicloudUtils: ef4436f52b828b1182b002373758ecb88068e679
 
-PODFILE CHECKSUM: 72fa5b4f498d601f85b383986d809ea1394a4e0e
+PODFILE CHECKSUM: ec27de673dcb504bcfb436a25245b9c0ae068b10
 
 COCOAPODS: 1.15.2

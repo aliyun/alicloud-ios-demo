@@ -16,10 +16,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // 初始化httpdns，全局只需要初始化一次
-    HttpDnsService *httpdns = [[HttpDnsService alloc] autoInit];
     //鉴权方式初始化
-    // HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:0000];
+    int accountId = [HTTPDNSDemoUtils accountId];
+    NSString *secretKey = [HTTPDNSDemoUtils secretKey];
+    HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:accountId secretKey:secretKey];
 
     // 打开HTTPDNS Log，线上建议关闭
     [httpdns setLogEnabled:YES];
