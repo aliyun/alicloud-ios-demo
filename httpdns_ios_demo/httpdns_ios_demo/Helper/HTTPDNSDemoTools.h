@@ -18,7 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)userDefaultSetObject:(id)value forKey:(NSString *)key;
 
++ (void)userDefaultSetBool:(BOOL)value forKey:(NSString *)key;
+
 + (id)userDefaultGet:(NSString *)key;
+
++ (BOOL)userDefaultBool:(NSString *)key;
 
 + (void)userDefaultRemove:(NSString *)key;
 
