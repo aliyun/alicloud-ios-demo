@@ -7,14 +7,29 @@
 
 #import "HTTPDNSDemoUtils.h"
 
-static NSString *const kEmasInfoFileName = @"AliyunEmasServices-Info";
-static NSString *const kEmasInfoFileType = @"plist";
+#pragma mark - file
+
+static NSString *const kEmasInfoFileName  = @"AliyunEmasServices-Info";
+static NSString *const kEmasInfoFileType  = @"plist";
 
 static NSString *const configInfoFileName = @"httpdns-domains";
 static NSString *const configInfoFileType = @"plist";
-static NSString *const inputHistoryKey = @"httpdns-inputHistory";
 
-static NSString *const textUrlString = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
+#pragma mark - cacheKey
+
+static NSString *const inputHistoryKey                         = @"httpdns-inputHistory";
+
+static NSString *const settingReuseExpiredIPKey                = @"settingReuseExpiredIP";
+static NSString *const settingPersistentCacheKey               = @"settingPersistentCache";
+static NSString *const settingHTTPSRequestKey                  = @"settingHTTPSRequest";
+static NSString *const settingPreResolveAfterNetworkChangedKey = @"settingPreResolveAfterNetworkChanged";
+static NSString *const settingLogEnabledKey                    = @"settingLogEnabled";
+NSString *const settingRegionKey                               = @"settingRegion";
+NSString *const settingTimeoutKey                              = @"settingTimeoutKey";
+
+#pragma mark - URL
+
+static NSString *const textUrlString  = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
 static NSString *const videoUrlString = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/file_example_MP4_640_3MG.mp4";
 
 @implementation HTTPDNSDemoUtils
@@ -90,6 +105,72 @@ static NSString *const videoUrlString = @"https://ams-sdk-public-assets.oss-cn-h
 
 + (NSString *)exampleVideoUrlString {
     return videoUrlString;
+}
+
++ (NSArray<SettingInfoModel *> *)settingInfo {
+    NSArray *infoArray = @[
+        [[SettingInfoModel alloc]initWithTitle:@"允许过期IP" descripte:@"允许使用过期IP" switchIsOn:[HTTPDNSDemoTools userDefaultBool:settingReuseExpiredIPKey] cacheKey:settingReuseExpiredIPKey],
+        [[SettingInfoModel alloc]initWithTitle:@"开启持久化缓存IP" descripte:@"域名解析结果，存储到本地数据库" switchIsOn:[HTTPDNSDemoTools userDefaultBool:settingPersistentCacheKey] cacheKey:settingPersistentCacheKey],
+        [[SettingInfoModel alloc]initWithTitle:@"允许HTTPS" descripte:@"使用HTTPS协议解析" switchIsOn:[HTTPDNSDemoTools userDefaultBool:settingHTTPSRequestKey] cacheKey:settingHTTPSRequestKey],
+        [[SettingInfoModel alloc]initWithTitle:@"网络切换自动刷新" descripte:@"网络切换后自动刷新解析结果缓存" switchIsOn:[HTTPDNSDemoTools userDefaultBool:settingPreResolveAfterNetworkChangedKey] cacheKey:settingPreResolveAfterNetworkChangedKey],
+        [[SettingInfoModel alloc]initWithTitle:@"允许SDK打印日志" descripte:@"开启SDK打印日志" switchIsOn:[HTTPDNSDemoTools userDefaultBool:settingLogEnabledKey] cacheKey:settingLogEnabledKey],
+    ];
+    return infoArray;
+}
+
++ (void)settingInfoChanged:(NSString *)cacheKey value:(id)value {
+    if ([value isKindOfClass:[NSString class]]) {
+        [HTTPDNSDemoTools userDefaultSetObject:value forKey:cacheKey];
+    } else if ([value isKindOfClass:[NSNumber class]]) {
+        NSNumber *numberValue = (NSNumber *)value;
+        if ([numberValue boolValue] == YES || [numberValue boolValue] == NO) {
+            BOOL boolValue = [numberValue boolValue];
+            [HTTPDNSDemoTools userDefaultSetBool:boolValue forKey:cacheKey];
+        }
+    } else {
+        NSLog(@"Unsupported type");
+    }
+}
+
++ (BOOL)settingInfoBool:(settingInfoKey)cacheKey {
+    BOOL isEnable = NO;
+    switch (cacheKey) {
+        case settingInfoReuseExpiredIPKey:
+            isEnable = [HTTPDNSDemoTools userDefaultBool:settingReuseExpiredIPKey];
+            break;
+        case settingInfoPersistentCacheKey:
+            isEnable = [HTTPDNSDemoTools userDefaultBool:settingPersistentCacheKey];
+            break;
+        case settingInfoHTTPSRequestKey:
+            isEnable = [HTTPDNSDemoTools userDefaultBool:settingHTTPSRequestKey];
+            break;
+        case settingInfoPreResolveAfterNetworkChangedKey:
+            isEnable = [HTTPDNSDemoTools userDefaultBool:settingPreResolveAfterNetworkChangedKey];
+            break;
+        case settingInfoLogEnabledKey:
+            isEnable = [HTTPDNSDemoTools userDefaultBool:settingLogEnabledKey];
+            break;
+
+        default:
+            break;
+    }
+    return isEnable;
+}
+
++ (NSString *)settingInfo:(settingInfoKey)cacheKey {
+    NSString *value;
+    switch (cacheKey) {
+        case settingInfoRegionKey:
+            value = [HTTPDNSDemoTools userDefaultGet:settingRegionKey];
+            break;
+        case settingInfoTimeoutKey:
+            value = [HTTPDNSDemoTools userDefaultGet:settingTimeoutKey];
+            break;
+
+        default:
+            break;
+    }
+    return value;
 }
 
 @end

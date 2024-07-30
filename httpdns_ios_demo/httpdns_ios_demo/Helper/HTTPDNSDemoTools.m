@@ -29,11 +29,25 @@
     }
 }
 
++ (void)userDefaultSetBool:(BOOL)value forKey:(NSString *)key {
+    if (key) {
+        [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 + (id)userDefaultGet:(NSString *)key {
     if (key) {
         return [[NSUserDefaults standardUserDefaults] objectForKey:key];
     }
     return nil;
+}
+
++ (BOOL)userDefaultBool:(NSString *)key {
+    if (key) {
+        return [[NSUserDefaults standardUserDefaults] boolForKey:key];
+    }
+    return NO;
 }
 
 + (void)userDefaultRemove:(NSString *)key {
