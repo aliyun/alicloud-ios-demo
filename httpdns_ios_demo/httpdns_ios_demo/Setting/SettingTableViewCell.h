@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +17,7 @@ typedef NS_ENUM(NSUInteger, settingCellType) {
 
 typedef void(^detailValueChangedHandle)(NSString *value);
 
-@interface SettingTableViewCell : UITableViewCell
+@interface SettingTableViewCell : SettingBaseTableViewCell
 
 @property(nonatomic, copy)detailValueChangedHandle valueChangedHandle;
 

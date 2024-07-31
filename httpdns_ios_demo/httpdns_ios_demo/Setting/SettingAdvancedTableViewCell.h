@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SettingAdvancedTableViewCell : UITableViewCell
+@interface SettingAdvancedTableViewCell : SettingBaseTableViewCell
 
 - (void)setTitle:(NSString *)title description:(NSString *)description;
 

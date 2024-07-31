@@ -132,6 +132,16 @@
 
 }
 
+- (void)restoreDefaultSettings {
+    if (self.cellType == RegionCell) {
+        self.valueLabel.text = @"中国大陆";
+        self.valueChangedHandle(@"cn");
+    } else {
+        self.valueTextField.text = @"3000";
+        self.valueChangedHandle(@"3000");
+    }
+}
+
 #pragma mark - textField delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

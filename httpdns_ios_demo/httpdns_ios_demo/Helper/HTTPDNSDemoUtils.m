@@ -36,6 +36,8 @@ NSString *const settingCleanHostDomainKey = @"settingCleanHostDomainKey";
 static NSString *const textUrlString = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
 static NSString *const videoUrlString = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/file_example_MP4_640_3MG.mp4";
 
+static NSString *const helpCenterUrlString = @"https://help.aliyun.com/document_detail/435266.html?spm=a2c4g.435271.0.0.37d167fc4xVvoU";
+
 @implementation HTTPDNSDemoUtils
 
 + (int)accountId {
@@ -189,6 +191,14 @@ static NSString *const videoUrlString = @"https://ams-sdk-public-assets.oss-cn-h
     }
     [domainsArray addObject:domain];
     [HTTPDNSDemoTools userDefaultSetObject:domainsArray.copy forKey:cacheKey];
+}
+
++ (void)settingDomainListRemoveAllForKey:(NSString *)cacheKey {
+    [HTTPDNSDemoTools userDefaultRemove:cacheKey];
+}
+
++ (NSURL *)helpCenterURL {
+    return [NSURL URLWithString:helpCenterUrlString];
 }
 
 @end

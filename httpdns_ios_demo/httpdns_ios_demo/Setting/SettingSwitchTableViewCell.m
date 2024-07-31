@@ -53,6 +53,11 @@
     self.switchChangedhandle(sender.isOn);
 }
 
+- (void)restoreDefaultSettings {
+    self.settingSwitch.on = NO;
+    self.switchChangedhandle(NO);
+}
+
 #pragma mark - lazy load
 
 - (UILabel *)titleLabel {

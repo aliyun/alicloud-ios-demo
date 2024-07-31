@@ -52,6 +52,9 @@
 		7EF3E4072C59E1C400703B58 /* SettingDomainListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4062C59E1C400703B58 /* SettingDomainListTableViewCell.m */; };
 		7EF3E40D2C5A168B00703B58 /* AddDomainAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E40C2C5A168B00703B58 /* AddDomainAlertView.m */; };
 		7EF3E40F2C5A169B00703B58 /* AddDomainAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF3E40E2C5A169B00703B58 /* AddDomainAlertView.xib */; };
+		7EF3E4122C5A419000703B58 /* SettingOtherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */; };
+		7EF3E4152C5A4BE400703B58 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */; };
+		7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */; };
 		F2CC7912569076886960545C /* Pods_httpdns_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDA4467FAA47A9E8133DDAC /* Pods_httpdns_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +160,12 @@
 		7EF3E40B2C5A168B00703B58 /* AddDomainAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDomainAlertView.h; sourceTree = "<group>"; };
 		7EF3E40C2C5A168B00703B58 /* AddDomainAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDomainAlertView.m; sourceTree = "<group>"; };
 		7EF3E40E2C5A169B00703B58 /* AddDomainAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDomainAlertView.xib; sourceTree = "<group>"; };
+		7EF3E4102C5A419000703B58 /* SettingOtherTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingOtherTableViewCell.h; sourceTree = "<group>"; };
+		7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingOtherTableViewCell.m; sourceTree = "<group>"; };
+		7EF3E4132C5A4BE400703B58 /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		7EF3E4162C5A4CD700703B58 /* SettingBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableViewCell.h; sourceTree = "<group>"; };
+		7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableViewCell.m; sourceTree = "<group>"; };
 		8E36940574994683FEE78BEE /* Pods-httpdns_ios_demo-httpdns_ios_demoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo-httpdns_ios_demoUITests.debug.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8FF36133B780D8400A7454A7 /* Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A00B9FD37848612B508E6BC6 /* Pods-httpdns_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo.debug.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -395,6 +404,12 @@
 				7ED456D02C58EC0D006FC84E /* SettingDomainListViewController.m */,
 				7EF3E4052C59E1C400703B58 /* SettingDomainListTableViewCell.h */,
 				7EF3E4062C59E1C400703B58 /* SettingDomainListTableViewCell.m */,
+				7EF3E4102C5A419000703B58 /* SettingOtherTableViewCell.h */,
+				7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */,
+				7EF3E4132C5A4BE400703B58 /* AboutUsViewController.h */,
+				7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */,
+				7EF3E4162C5A4CD700703B58 /* SettingBaseTableViewCell.h */,
+				7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -673,6 +688,7 @@
 				7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */,
 				7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m in Sources */,
 				7EDB2A742C524A7B00CEB01C /* SettingViewController.m in Sources */,
+				7EF3E4152C5A4BE400703B58 /* AboutUsViewController.m in Sources */,
 				7ED456D12C58EC0D006FC84E /* SettingDomainListViewController.m in Sources */,
 				7ED98FFD2C5099290025D1F8 /* AVPlayerAlertView.m in Sources */,
 				7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */,
@@ -681,6 +697,7 @@
 				7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */,
 				7E776E6A2C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m in Sources */,
 				7ED5B5722C37902700CC5FD4 /* main.m in Sources */,
+				7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */,
 				7E776E802C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift in Sources */,
 				7E776E6E2C4E655D00188CE3 /* GeneralScenario.m in Sources */,
 				7EF25A982C3FD5F100FD57DF /* ResolveTypeButton.m in Sources */,
@@ -698,6 +715,7 @@
 				7E072F5C2C40D88300A99134 /* ChooseOrInputDomainViewController.m in Sources */,
 				7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */,
 				7E776E662C4E640C00188CE3 /* HTTPSWithSNIScenario.m in Sources */,
+				7EF3E4122C5A419000703B58 /* SettingOtherTableViewCell.m in Sources */,
 				7ED5B5962C379D8900CC5FD4 /* HTTPDNSDemoUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

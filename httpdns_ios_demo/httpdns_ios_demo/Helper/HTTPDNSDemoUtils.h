@@ -58,6 +58,10 @@ extern NSString *const settingCleanHostDomainKey;
 
 + (void)settingDomainListAdd:(NSString *)domain forKey:(NSString *)cacheKey;
 
++ (void)settingDomainListRemoveAllForKey:(NSString *)cacheKey;
+
++ (NSURL *)helpCenterURL;
+
 @end
 
 NS_ASSUME_NONNULL_END
