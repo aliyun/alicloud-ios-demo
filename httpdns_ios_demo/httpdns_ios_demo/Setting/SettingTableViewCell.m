@@ -45,7 +45,7 @@
         [self.descriptionLabel.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor constant:8],
 
         [self.valueImageView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-5],
-        [self.valueImageView.topAnchor constraintEqualToAnchor:self.contentView.topAnchor],
+        [self.valueImageView.centerYAnchor constraintEqualToAnchor:self.valueLabel.centerYAnchor],
         [self.valueImageView.widthAnchor constraintEqualToConstant:16],
         [self.valueImageView.heightAnchor constraintEqualToConstant:16],
         
@@ -200,7 +200,7 @@
 
 - (UIImageView *)valueImageView {
     if (!_valueImageView) {
-        _valueImageView = [[UIImageView alloc]init];
+        _valueImageView = [[UIImageView alloc] init];
         _valueImageView.translatesAutoresizingMaskIntoConstraints = NO;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(detailValueChangedClick)];
         [_valueImageView addGestureRecognizer:tap];

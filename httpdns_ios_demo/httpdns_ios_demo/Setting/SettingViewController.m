@@ -9,6 +9,8 @@
 #import "SettingSwitchTableViewCell.h"
 #import "SettingInfoModel.h"
 #import "SettingTableViewCell.h"
+#import "SettingAdvancedTableViewCell.h"
+#import "SettingDomainListViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -23,7 +25,7 @@
     [super viewDidLoad];
     self.infoArray = [HTTPDNSDemoUtils settingInfo];
 
-    self.settingTableView.delegate   = self;
+    self.settingTableView.delegate = self;
     self.settingTableView.dataSource = self;
 }
 
@@ -116,13 +118,28 @@
         return cell;
     // 高级配置
     }else if (indexPath.section == 1) {
+        SettingAdvancedTableViewCell *advancedSettingCell = [[SettingAdvancedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ADVANCEDSETTINGCELL"];
+        if (indexPath.row == 0) {
+            [advancedSettingCell setTitle:@"预解析域名列表" description:@"配置需要预解析的域名列表"];
+        } else {
+            [advancedSettingCell setTitle:@"清空指定域名缓存" description:@"配置需要清空缓存的域名列表"];
+        }
 
+        return advancedSettingCell;
     // 其他设置项
     } else {
 
     }
 
     return [UITableViewCell new];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        SettingDomainListViewController *domainListViewController = [HTTPDNSDemoTools storyBoardInstantiateViewController:@"SettingDomainListViewController"];
+        domainListViewController.listType = indexPath.row == 0 ? PreResolveDomainList : CleanCacheDomainList;
+        [self.navigationController showViewController:domainListViewController sender:nil];
+    }
 }
 
 - (NSString *)regionToLoaction:(NSString *)region {

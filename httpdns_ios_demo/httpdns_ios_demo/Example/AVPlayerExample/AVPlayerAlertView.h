@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AVPlayerAlertView : UIView
 
-+ (void)avplayerAlertShow:(AVPlayer *)player;
++ (void)AVPlayerAlertShow:(AVPlayer *)player;
 
 @end
 

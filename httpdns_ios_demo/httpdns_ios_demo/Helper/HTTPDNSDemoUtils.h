@@ -23,6 +23,9 @@ typedef enum : NSUInteger {
 extern NSString *const settingRegionKey;
 extern NSString *const settingTimeoutKey;
 
+extern NSString *const settingPreResolveListKey;
+extern NSString *const settingCleanHostDomainKey;
+
 @interface HTTPDNSDemoUtils : NSObject
 
 + (int)accountId;
@@ -50,6 +53,10 @@ extern NSString *const settingTimeoutKey;
 + (NSString *)settingInfo:(settingInfoKey)cacheKey;
 
 + (BOOL)settingInfoBool:(settingInfoKey)cacheKey;
+
++ (NSArray *)settingDomainListFor:(NSString *)cacheKey;
+
++ (void)settingDomainListAdd:(NSString *)domain forKey:(NSString *)cacheKey;
 
 @end
 

@@ -864,6 +864,7 @@
                     <tabBarItem key="tabBarItem" title="设置" image="Tabbar_Setting" id="8ZY-XI-UK7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FV0-Yu-MPA">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="o0X-ao-CZa" kind="relationship" relationship="rootViewController" id="ZCb-Qp-kWt"/>
@@ -881,7 +882,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n4u-yp-qSe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n4u-yp-qSe">
                                 <rect key="frame" x="17" y="129.33333333333331" width="359" height="639.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
@@ -938,6 +939,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmZ-FS-ooN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2843.5114503816794" y="1259.8591549295775"/>
+        </scene>
+        <!--Setting Domain List View Controller-->
+        <scene sceneID="iq1-If-Eit">
+            <objects>
+                <viewController storyboardIdentifier="SettingDomainListViewController" hidesBottomBarWhenPushed="YES" id="8K5-dy-aaa" customClass="SettingDomainListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n6p-4M-p5u">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预先向HTTPDNS SDK中选择性地注册可能使用的域名，以便SDK提前解析，减少后续域名解析时请求的时延。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1th-IV-kvw">
+                                <rect key="frame" x="17" y="69" width="359" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.59607843137254901" green="0.64313725490196072" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mza-wK-RoZ">
+                                <rect key="frame" x="16" y="734" width="361" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hvp-re-YTe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="预解析域名" backgroundImage="ButtonBackgroundImage_Normal"/>
+                                <connections>
+                                    <action selector="confirmClick:" destination="8K5-dy-aaa" eventType="touchUpInside" id="Yum-fh-6cn"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Qie-za-ntm">
+                                <rect key="frame" x="16" y="121.66666666666669" width="361" height="600.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f5E-Ux-eGD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qie-za-ntm" firstAttribute="leading" secondItem="f5E-Ux-eGD" secondAttribute="leading" constant="16" id="4uw-WG-MWx"/>
+                            <constraint firstItem="1th-IV-kvw" firstAttribute="leading" secondItem="f5E-Ux-eGD" secondAttribute="leading" constant="17" id="6pW-Vk-GMy"/>
+                            <constraint firstItem="f5E-Ux-eGD" firstAttribute="trailing" secondItem="Qie-za-ntm" secondAttribute="trailing" constant="16" id="BOU-qC-5ym"/>
+                            <constraint firstItem="f5E-Ux-eGD" firstAttribute="trailing" secondItem="Mza-wK-RoZ" secondAttribute="trailing" constant="16" id="Gba-Qa-SrM"/>
+                            <constraint firstItem="Mza-wK-RoZ" firstAttribute="top" secondItem="Qie-za-ntm" secondAttribute="bottom" constant="12" id="InZ-kB-sTc"/>
+                            <constraint firstItem="1th-IV-kvw" firstAttribute="top" secondItem="f5E-Ux-eGD" secondAttribute="top" constant="10" id="NFo-Tw-hr2"/>
+                            <constraint firstItem="Qie-za-ntm" firstAttribute="top" secondItem="1th-IV-kvw" secondAttribute="bottom" constant="24" id="NmI-1Z-RG1"/>
+                            <constraint firstAttribute="trailing" secondItem="1th-IV-kvw" secondAttribute="trailing" constant="17" id="OeS-Ae-UTp"/>
+                            <constraint firstItem="Mza-wK-RoZ" firstAttribute="bottom" secondItem="f5E-Ux-eGD" secondAttribute="bottom" constant="-24" id="Uxg-Xm-BNi"/>
+                            <constraint firstItem="Mza-wK-RoZ" firstAttribute="leading" secondItem="f5E-Ux-eGD" secondAttribute="leading" constant="16" id="cd5-7U-jCH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="Mza-wK-RoZ" id="tgK-nE-mIj"/>
+                        <outlet property="domainList" destination="Qie-za-ntm" id="vRF-8M-vvH"/>
+                        <outlet property="listDescription" destination="1th-IV-kvw" id="bw1-U0-nG9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ua-8O-0rD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3785" y="1260"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Pik-pu-IKn">

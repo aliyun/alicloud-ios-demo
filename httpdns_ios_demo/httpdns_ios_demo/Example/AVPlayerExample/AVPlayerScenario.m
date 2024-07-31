@@ -43,7 +43,7 @@
     // 设置播放的默认音量值
     player.volume = 1.0f;
 
-    [AVPlayerAlertView avplayerAlertShow:player];
+    [AVPlayerAlertView AVPlayerAlertShow:player];
 }
 
 + (NSString *)resolveAvailableIp:(NSString *)host {

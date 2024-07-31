@@ -19,7 +19,7 @@
 
 @implementation AVPlayerAlertView
 
-+ (void)avplayerAlertShow:(AVPlayer *)player {
++ (void)AVPlayerAlertShow:(AVPlayer *)player {
     AVPlayerAlertView *alertView = [[AVPlayerAlertView alloc]initWithLayer:player];
     [alertView show];
 }
