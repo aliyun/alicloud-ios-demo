@@ -17,6 +17,8 @@ typedef void(^CheckBoxHandle)(BOOL isSelected);
 
 - (void)setDomain:(NSString *)domain isSelected:(BOOL)isSelected;
 
+- (void)checkBoxClick;
+
 @end
 
 NS_ASSUME_NONNULL_END

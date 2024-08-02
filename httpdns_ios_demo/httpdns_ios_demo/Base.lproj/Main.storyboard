@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAT-xv-csF">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAT-xv-csF">
                                 <rect key="frame" x="16" y="59" width="361" height="126"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTPS场景使用HTTPDNS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNb-UA-YST" customClass="CustomLineSpacingLabel">
@@ -96,7 +96,7 @@
                                             <outletCollection property="gestureRecognizers" destination="oa0-zN-vg8" appends="YES" id="9ho-6H-fUC"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFNetwork场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64D-JW-mv0" customClass="CustomLineSpacingLabel">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFNetworking场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64D-JW-mv0" customClass="CustomLineSpacingLabel">
                                         <rect key="frame" x="330" y="0.0" width="104" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -176,7 +176,7 @@
                                             <outletCollection property="gestureRecognizers" destination="4pN-nn-DeY" appends="YES" id="eTP-nu-DBA"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFNetwork（含SNI）场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHD-Zm-Vfw" customClass="CustomLineSpacingLabel">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFNetworking（含SNI）场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHD-Zm-Vfw" customClass="CustomLineSpacingLabel">
                                         <rect key="frame" x="440" y="0.0" width="104" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -270,6 +270,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="Qw8-Xn-osk"/>
                     <connections>
+                        <outlet property="AFNetworkingScenario" destination="64D-JW-mv0" id="bG6-rK-qxP"/>
+                        <outlet property="AFNetwrokingWithSNIScenario" destination="VHD-Zm-Vfw" id="Oa5-aS-e9y"/>
+                        <outlet property="AVPlayerScenario" destination="7Ib-RW-PWc" id="3wV-pB-lNJ"/>
+                        <outlet property="AlamofireScenario" destination="lpV-r8-rVa" id="TT5-gS-ALL"/>
+                        <outlet property="AlamofireWithSNIScenario" destination="bbd-Gk-dNJ" id="kb8-eb-3Np"/>
+                        <outlet property="generalScenario" destination="E9r-id-SeC" id="N3E-qj-yJH"/>
+                        <outlet property="httpsScenario" destination="tNb-UA-YST" id="WwB-fZ-Ob6"/>
+                        <outlet property="httpsWithSNIScenario" destination="goi-hb-OgU" id="cSW-0i-8wS"/>
                         <outlet property="resultTextView" destination="01J-h5-3FJ" id="WJB-hH-Bxe"/>
                     </connections>
                 </viewController>
@@ -882,7 +890,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n4u-yp-qSe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n4u-yp-qSe">
                                 <rect key="frame" x="17" y="129.33333333333331" width="359" height="639.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>

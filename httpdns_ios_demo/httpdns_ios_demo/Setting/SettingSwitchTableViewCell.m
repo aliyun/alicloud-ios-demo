@@ -73,8 +73,8 @@
 - (UILabel *)descriptionLabel {
     if (!_descriptionLabel) {
         _descriptionLabel = [[UILabel alloc] init];
-        _descriptionLabel.font = [UIFont systemFontOfSize:10];
-        _descriptionLabel.textColor = [UIColor colorWithHexString:@"#A7BCCE"];
+        _descriptionLabel.font = [UIFont systemFontOfSize:12];
+        _descriptionLabel.textColor = [UIColor colorWithHexString:@"#98A4BA"];
         _descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _descriptionLabel;
@@ -84,6 +84,8 @@
     if (!_settingSwitch) {
         _settingSwitch = [[UISwitch alloc] init];
         _settingSwitch.thumbTintColor = [UIColor colorWithHexString:@"#424FF7"];
+        _settingSwitch.onTintColor = [UIColor colorWithHexString:@"#E6EBF3"];
+        _settingSwitch.tintColor = [UIColor colorWithHexString:@"#E6EBF3"];
         [_settingSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
         _settingSwitch.translatesAutoresizingMaskIntoConstraints = NO;
     }

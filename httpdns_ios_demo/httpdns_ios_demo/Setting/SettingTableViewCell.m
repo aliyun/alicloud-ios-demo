@@ -84,50 +84,55 @@
     UIAlertController *regionAlert = [UIAlertController alertControllerWithTitle:@"请选择region" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
     __weak typeof(self) weakSelf = self;
-    UIAlertAction *cnAlert = [UIAlertAction actionWithTitle:@"中国大陆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *cnAction = [UIAlertAction actionWithTitle:@"中国大陆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.valueLabel.text = @"中国大陆";
         if (strongSelf.valueChangedHandle) {
             strongSelf.valueChangedHandle(@"cn");
         }
     }];
-    [regionAlert addAction:cnAlert];
+    [regionAlert addAction:cnAction];
 
-    UIAlertAction *hkAlert = [UIAlertAction actionWithTitle:@"香港" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *hkAction = [UIAlertAction actionWithTitle:@"香港" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.valueLabel.text = @"香港";
         if (strongSelf.valueChangedHandle) {
             strongSelf.valueChangedHandle(@"hk");
         }
     }];
-    [regionAlert addAction:hkAlert];
+    [regionAlert addAction:hkAction];
 
-    UIAlertAction *sgAlert = [UIAlertAction actionWithTitle:@"新加坡" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *sgAction = [UIAlertAction actionWithTitle:@"新加坡" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.valueLabel.text = @"新加坡";
         if (strongSelf.valueChangedHandle) {
             strongSelf.valueChangedHandle(@"sg");
         }
     }];
-    [regionAlert addAction:sgAlert];
+    [regionAlert addAction:sgAction];
 
-    UIAlertAction *deAlert = [UIAlertAction actionWithTitle:@"德国" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *deAction = [UIAlertAction actionWithTitle:@"德国" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         __strong typeof(self) strongSelf = weakSelf;
         strongSelf.valueLabel.text = @"德国";
         if (strongSelf.valueChangedHandle) {
             strongSelf.valueChangedHandle(@"de");
         }
     }];
-    [regionAlert addAction:deAlert];
+    [regionAlert addAction:deAction];
 
-    UIAlertAction *usAlert = [UIAlertAction actionWithTitle:@"美国" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        __strong typeof(self) strongSelf = weakSelf;
-        strongSelf.valueLabel.text = @"美国";
-        if (strongSelf.valueChangedHandle) {
-            strongSelf.valueChangedHandle(@"us");
-        }
-    }];
-    [regionAlert addAction:usAlert];
+    // 暂时隐藏美国
+    // UIAlertAction *usAction = [UIAlertAction actionWithTitle:@"美国" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    //     __strong typeof(self) strongSelf = weakSelf;
+    //     strongSelf.valueLabel.text = @"美国";
+    //     if (strongSelf.valueChangedHandle) {
+    //         strongSelf.valueChangedHandle(@"us");
+    //     }
+    // }];
+    // [regionAlert addAction:usAction];
+
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [regionAlert addAction:cancleAction];
+    
     [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:regionAlert animated:YES completion:nil];
 
 }
@@ -177,8 +182,8 @@
 - (UILabel *)descriptionLabel {
     if (!_descriptionLabel) {
         _descriptionLabel = [[UILabel alloc] init];
-        _descriptionLabel.font = [UIFont systemFontOfSize:10];
-        _descriptionLabel.textColor = [UIColor colorWithHexString:@"#A7BCCE"];
+        _descriptionLabel.font = [UIFont systemFontOfSize:12];
+        _descriptionLabel.textColor = [UIColor colorWithHexString:@"#98A4BA"];
         _descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _descriptionLabel;

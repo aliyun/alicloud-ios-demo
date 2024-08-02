@@ -42,6 +42,7 @@
 		7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED98FFF2C50DC330025D1F8 /* CustomResourceLoaderDelegate.m */; };
 		7ED990032C50DECA0025D1F8 /* AVPlayerScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED990022C50DECA0025D1F8 /* AVPlayerScenario.m */; };
 		7ED990052C50F2F10025D1F8 /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED990042C50F2F10025D1F8 /* AliyunEmasServices-Info.plist */; };
+		7EDA67E92C5B773800BBF1D7 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */; };
 		7EDB2A742C524A7B00CEB01C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2A732C524A7B00CEB01C /* SettingViewController.m */; };
 		7EDB2A772C524EA800CEB01C /* SettingSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2A762C524EA800CEB01C /* SettingSwitchTableViewCell.m */; };
 		7EE26E2A2C4912CB00C71F4E /* TipsAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE26E292C4912CB00C71F4E /* TipsAlertView.m */; };
@@ -140,6 +141,8 @@
 		7ED990012C50DECA0025D1F8 /* AVPlayerScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerScenario.h; sourceTree = "<group>"; };
 		7ED990022C50DECA0025D1F8 /* AVPlayerScenario.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerScenario.m; sourceTree = "<group>"; };
 		7ED990042C50F2F10025D1F8 /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
+		7EDA67E72C5B773800BBF1D7 /* UIView+Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		7EDB2A722C524A7B00CEB01C /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7EDB2A732C524A7B00CEB01C /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7EDB2A752C524EA800CEB01C /* SettingSwitchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingSwitchTableViewCell.h; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				7EF25A8E2C3FBFAB00FD57DF /* UIImage+ColorToImage.m */,
 				7EF25A902C3FBFFD00FD57DF /* UIColor+Hex.h */,
 				7EF25A912C3FBFFD00FD57DF /* UIColor+Hex.m */,
+				7EDA67E72C5B773800BBF1D7 /* UIView+Toast.h */,
+				7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -706,6 +711,7 @@
 				7E776E772C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m in Sources */,
 				7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */,
 				7ED456CB2C5741F7006FC84E /* SettingTableViewCell.m in Sources */,
+				7EDA67E92C5B773800BBF1D7 /* UIView+Toast.m in Sources */,
 				7EF3E4072C59E1C400703B58 /* SettingDomainListTableViewCell.m in Sources */,
 				7EF25A922C3FBFFD00FD57DF /* UIColor+Hex.m in Sources */,
 				7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */,

@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AmG-uy-KAp">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <color key="backgroundColor" red="0.25098039215686274" green="0.2627450980392157" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoi-Rs-dMQ">
@@ -124,12 +124,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="uoi-Rs-dMQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="54x-Cu-DWa"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AmG-uy-KAp" secondAttribute="trailing" id="9aB-7b-IRd"/>
+                <constraint firstItem="AmG-uy-KAp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Cml-D5-8GT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uoi-Rs-dMQ" secondAttribute="trailing" constant="40" id="O1c-RK-Ik3"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="AmG-uy-KAp" secondAttribute="bottom" id="bim-LU-8Ot"/>
-                <constraint firstItem="AmG-uy-KAp" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hoZ-v8-nBM"/>
-                <constraint firstItem="AmG-uy-KAp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="huZ-VH-WYZ"/>
+                <constraint firstItem="AmG-uy-KAp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XE9-Ce-Ogd"/>
+                <constraint firstItem="AmG-uy-KAp" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="XaP-kf-sja"/>
                 <constraint firstItem="uoi-Rs-dMQ" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ifE-sO-Jda"/>
+                <constraint firstAttribute="bottom" secondItem="AmG-uy-KAp" secondAttribute="bottom" id="qAl-sZ-9pe"/>
             </constraints>
             <connections>
                 <outlet property="domainTextField" destination="DWu-mv-Adq" id="CpY-9d-ngZ"/>

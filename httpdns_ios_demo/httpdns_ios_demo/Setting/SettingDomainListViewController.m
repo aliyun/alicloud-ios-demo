@@ -9,6 +9,7 @@
 #import "SettingDomainListTableViewCell.h"
 #import "AddDomainAlertView.h"
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import "UIView+Toast.h"
 
 @interface SettingDomainListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -25,6 +26,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    [self.domainsArray removeAllObjects];
     NSArray *domains = [HTTPDNSDemoUtils domains];
     [self.domainsArray addObjectsFromArray:domains];
     NSArray *addArray;
@@ -85,9 +87,11 @@
 
     HttpDnsService *httpdns = [HttpDnsService sharedInstance];
     if (self.listType == PreResolveDomainList) {
-        [httpdns setPreResolveHosts:self.selectedArray.copy];
+        [httpdns setPreResolveHosts:self.selectedArray.copy queryIPType:AlicloudHttpDNS_IPTypeV64];
+        [self.view showToastWithMessage:@"预解析成功" duration:1.5];
     } else {
         [httpdns cleanHostCache:self.selectedArray.copy];
+        [self.view showToastWithMessage:@"缓存已清空" duration:1.5];
     }
 }
 
@@ -142,6 +146,11 @@
     };
 
     return domainCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SettingDomainListTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell checkBoxClick];
 }
 
 #pragma mark - lazy load

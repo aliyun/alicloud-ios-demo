@@ -65,8 +65,8 @@
 - (UILabel *)descriptionLabel {
     if (!_descriptionLabel) {
         _descriptionLabel = [[UILabel alloc] init];
-        _descriptionLabel.font = [UIFont systemFontOfSize:10];
-        _descriptionLabel.textColor = [UIColor colorWithHexString:@"#A7BCCE"];
+        _descriptionLabel.font = [UIFont systemFontOfSize:12];
+        _descriptionLabel.textColor = [UIColor colorWithHexString:@"#98A4BA"];
         _descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _descriptionLabel;

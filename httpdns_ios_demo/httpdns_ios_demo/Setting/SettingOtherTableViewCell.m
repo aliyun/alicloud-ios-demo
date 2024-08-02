@@ -26,10 +26,10 @@
 
 - (void)setupViews {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.iconImageView];
-    
+
     self.constraintsArray = @[
         [self.titleLabel.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor],
         [self.titleLabel.topAnchor constraintEqualToAnchor:self.contentView.topAnchor]
@@ -48,7 +48,7 @@
                 [self.iconImageView.heightAnchor constraintEqualToConstant:28]
             ]];
             [NSLayoutConstraint activateConstraints:self.constraintsArray];
-            
+
             self.iconImageView.image = [UIImage imageNamed:@"Arrow_RightUp"];
             break;
         case AboutUsCell:
@@ -60,7 +60,7 @@
                 [self.iconImageView.heightAnchor constraintEqualToConstant:12]
             ]];
             [NSLayoutConstraint activateConstraints:self.constraintsArray];
-            
+
             self.iconImageView.image = [UIImage imageNamed:@"Arrow_Right"];
             break;
         case DefaultSettingCell:

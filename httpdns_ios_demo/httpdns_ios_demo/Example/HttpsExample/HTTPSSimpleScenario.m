@@ -52,7 +52,7 @@
 
 - (NSString *)resolveAvailableIp:(NSString *)host {
     HttpDnsService *httpDnsService = [HttpDnsService sharedInstance];
-    HttpdnsResult *result = [httpDnsService resolveHostSyncNonBlocking:host byIpType:HttpdnsQueryIPTypeBoth];
+    HttpdnsResult *result = [httpDnsService resolveHostSyncNonBlocking:host byIpType:HttpdnsQueryIPTypeAuto];
 
     NSLog(@"resolve host result: %@", result);
     if (!result) {

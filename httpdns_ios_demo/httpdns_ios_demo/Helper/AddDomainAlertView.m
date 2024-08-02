@@ -30,7 +30,6 @@
 
 - (void)setTitle:(NSString *)title {
     self.titleLabel.text = title;
-    NSLog(@"%@",self.titleLabel);
 }
 
 - (IBAction)cancleClick:(id)sender {
@@ -45,6 +44,7 @@
 }
 
 - (void)show {
+    self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     [[UIApplication sharedApplication].keyWindow addSubview:self];
 }
 

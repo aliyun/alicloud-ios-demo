@@ -41,11 +41,11 @@
     ]];
 }
 
-- (void)checkBoxClick:(UIButton *)button {
-    button.selected = !button.selected;
+- (void)checkBoxClick {
+    self.checkBox.selected = !self.checkBox.selected;
 
     if (self.selecetedHandle) {
-        self.selecetedHandle(button.selected);
+        self.selecetedHandle(self.checkBox.selected);
     }
 }
 
@@ -71,7 +71,6 @@
         _checkBox = [[UIButton alloc] init];
         [_checkBox setBackgroundImage:[UIImage imageNamed:@"CheckBox_NO"] forState:UIControlStateNormal];
         [_checkBox setBackgroundImage:[UIImage imageNamed:@"CheckBox_YES"] forState:UIControlStateSelected];
-        [_checkBox addTarget:self action:@selector(checkBoxClick:) forControlEvents:UIControlEventTouchUpInside];
         _checkBox.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _checkBox;

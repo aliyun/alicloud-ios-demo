@@ -92,9 +92,11 @@ Demo的结构如下：做下说明：
 
  ```Objective-C
 
-├── AlicloudHttpDNS.framework # SDK 库
-├── AlicloudUtils.framework   # SDK 依赖库
-├── UTDID.framework           # SDK 依赖库
+├── AlicloudHttpDNS.xcframework # SDK 库
+├── AlicloudUtils.xcframework   # SDK 依赖库
+├── AlicloudUTDID.xcframework   # SDK 依赖库
+├── AFNetworking.framework      # 三方网络库
+├── Alamofire.xcframework       # 三方网络库
 └──  httpdns_ios_demo         # Demo 演示部分
        
  ```
@@ -106,52 +108,80 @@ Demo的结构如下：做下说明：
 
 3.1 配置 accountID、secretKey
 
-为了使Demo APP能够正常运行，您还需要配置您的accountID/secretKey信息。您可以在移动推送控制台，您在第一步创建的APP中找到它们，如图所示：
+为了使Demo APP能够正常运行，您还需要配置您的accountID/secretKey信息，您可以分别从EMAS控制台“概览”和“鉴权配置”中找到它们，如图所示：
 
-![](Image/where_is_accountid_secrectkey.png)
+![](Image/httpdns_accountID.png)
 
+![](Image/httpdns_secretKey.png)
+
+3.2 配置需要解析的域名列表
+
+Demo中内置了通用的 `httpdns-domains.plist` 配置文件，只能解析部分已配置的域名，如需解析其他域名，需进入EMAS后台`域名列表`添加要解析的域名，如图所示：
+
+![](Image/httpdns_domainList.png)
 
 ### 4. 运行 Demo
 
-用 Xcode 打开 `***.xcodeproj` 文件，即可运行该Demo，同时建议打开调试开关：
+Demo采用cocoapods管理依赖库，运行前需先执行 `pod install` 命令安装依赖库
+然后 Xcode 打开 `httpdns_ios_demo.xcworkspace` 文件，即可运行该Demo，同时建议打开调试开关：
 
+<div align="center">
 
+<img src="Image/httpdns_logEnabel.png" width="300">
 
- ```Objective-C
-   // 打开HTTPDNS Log，线上建议关闭
-    [httpdns setLogEnabled:YES];
- ```
+</div>
 
 ## 演示的场景
 
-## 1. 普通场景
-- 基于网络API NSURLSession/NSURLConnection发送HTTP请求；
+## 1. HTTPS场景
+
+### 1.1 普通HTTPS场景
+- 基于网络API NSURLSession发送HTTPS请求；
 - 相关示例代码:
-    - ViewController
-
-## 2. WebView场景
-
-- WebView发起的HTTP网络请求，通过注册的NSURLProtocol拦截后处理；
+    - HTTPSSimpleScenario
+    
+### 1.2 HTTPS(含SNI)场景
+- 基于网络API NSURLSession发送HTTPS(含SNI)请求，通过替换NSURLProtocol的实现进行证书处理：
 - 相关示例代码:
-    - WebViewController
-    - WebViewURLProtocol
-
-## 3. HTTPS场景
-
-### 3.1 普通HTTPS请求
-
-- 基于网络API NSURLSession/NSURLConnection发送HTTPS请求；
+    - HTTPSWithSNIScenario
+    - HttpDnsNSURLProtocolImpl
+    
+## 2. 普通场景
+- 基于网络API NSURLSession发送HTTP请求；
 - 相关示例代码:
-    - HTTPSSceneViewController
+    - GeneralScenario
 
-### 3.2 SNI场景HTTPS请求
-- 基于WebView/NSURLSession/NSURLConnection发送的HTTPS（SNI场景）网络请求，
-经过注册的NSURLProtocol拦截后，基于CFNetwork发出网络请求。
+## 3. AFNetworking场景
+
+### 3.1 AFNetworking发送普通HTTPS场景
+- 基于AFNetworking网络库发送HTTPS网络请求；
+- 相关示例代码:
+    - AFNHttpsScenario
+
+### 3.2 AFNetworking发送HTTPS(含SNI)场景
+- 基于AFNetworking网络库发送HTTPS(含SNI)请求，通过替换NSURLProtocol的实现进行证书处理：
+- 相关示例代码:
+    - AFNHttpsWithSNIScenario
+    - HttpDnsNSURLProtocolImpl
+
+## 4. Alamofire场景
+
+### 4.1 Alamofire发送普通HTTPS请求
+- 基于Alamofire网络库发送HTTPS网络请求；
+- 相关示例代码:
+    - AlamofireHttpsScenario
+
+### 4.2 Alamofire发送HTTPS(含SNI)场景
+- 基于Alamofire网络库发送HTTPS(含SNI)请求，通过替换NSURLProtocol的实现进行证书处理：
 - 相关示例代码：
-    - SNIViewController
-    - CFHTTPDNSRequestTaskDelegate
-    - CFHTTPDNSHTTPProtocol
-    - CFHTTPDNSRequestTask
+    - AlamofireHttpsWithSNIScenario
+    - HttpDnsNSURLProtocolImpl
+    
+## 5. AVPlayer场景
+- AVPlayer播放HTTPS视频，通过创建 AVURLAsset 并使用自定义的 AVAssetResourceLoaderDelegate进行证书处理：
+- 相关示例代码：
+    - CustomResourceLoaderDelegate
+    - AVPlayerScenario
 
 
 

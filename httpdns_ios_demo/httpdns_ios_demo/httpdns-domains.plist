@@ -3,10 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>domains</key>
-	<array>
-		<string>www.aliyun.com</string>
-		<string>www.taobao.com</string>
-		<string>www.tmall.com</string>
-	</array>
+	<array/>
 </dict>
 </plist>
