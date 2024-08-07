@@ -1,21 +1,21 @@
 //
-//  SettingSwitchTableViewCell.m
+//  SettingAdvancedTableViewCell.m
 //  httpdns_ios_demo
 //
-//  Created by Miracle on 2024/7/25.
+//  Created by Miracle on 2024/7/30.
 //
 
-#import "SettingSwitchTableViewCell.h"
+#import "SettingAdvancedTableViewCell.h"
 
-@interface SettingSwitchTableViewCell()
+@interface SettingAdvancedTableViewCell()
 
 @property(nonatomic, strong)UILabel *titleLabel;
 @property(nonatomic, strong)UILabel *descriptionLabel;
-@property(nonatomic, strong)UISwitch *settingSwitch;
+@property(nonatomic, strong)UIImageView *valueImageView;
 
 @end
 
-@implementation SettingSwitchTableViewCell
+@implementation SettingAdvancedTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -29,7 +29,7 @@
 
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.descriptionLabel];
-    [self.contentView addSubview:self.settingSwitch];
+    [self.contentView addSubview:self.valueImageView];
 
     [NSLayoutConstraint activateConstraints:@[
         [self.titleLabel.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor],
@@ -38,24 +38,16 @@
         [self.descriptionLabel.leadingAnchor constraintEqualToAnchor:self.titleLabel.leadingAnchor],
         [self.descriptionLabel.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor constant:8],
 
-        [self.settingSwitch.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-5],
-        [self.settingSwitch.centerYAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor constant:4]
+        [self.valueImageView.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-10],
+        [self.valueImageView.centerYAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor],
+        [self.valueImageView.widthAnchor constraintEqualToConstant:7],
+        [self.valueImageView.heightAnchor constraintEqualToConstant:12]
     ]];
 }
 
-- (void)setTitle:(NSString *)title description:(NSString *)description isOn:(BOOL)isOn {
+- (void)setTitle:(NSString *)title description:(NSString *)description {
     self.titleLabel.text = title;
     self.descriptionLabel.text = description;
-    self.settingSwitch.on = isOn;
-}
-
-- (void)switchChanged:(UISwitch *)sender {
-    self.switchChangedhandle(sender.isOn);
-}
-
-- (void)restoreDefaultSettings {
-    self.settingSwitch.on = NO;
-    self.switchChangedhandle(NO);
 }
 
 #pragma mark - lazy load
@@ -80,16 +72,13 @@
     return _descriptionLabel;
 }
 
-- (UISwitch *)settingSwitch {
-    if (!_settingSwitch) {
-        _settingSwitch = [[UISwitch alloc] init];
-        _settingSwitch.thumbTintColor = [UIColor colorWithHexString:@"#424FF7"];
-        _settingSwitch.onTintColor = [UIColor colorWithHexString:@"#E6EBF3"];
-        _settingSwitch.tintColor = [UIColor colorWithHexString:@"#E6EBF3"];
-        [_settingSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-        _settingSwitch.translatesAutoresizingMaskIntoConstraints = NO;
+- (UIImageView *)valueImageView {
+    if (!_valueImageView) {
+        _valueImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Arrow_Right"]];
+        _valueImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        _valueImageView.userInteractionEnabled = YES;
     }
-    return _settingSwitch;
+    return _valueImageView;
 }
 
 @end

@@ -43,12 +43,12 @@
     // 设置播放的默认音量值
     player.volume = 1.0f;
 
-    [AVPlayerAlertView avplayerAlertShow:player];
+    [AVPlayerAlertView AVPlayerAlertShow:player];
 }
 
 + (NSString *)resolveAvailableIp:(NSString *)host {
     HttpDnsService *httpDnsService = [HttpDnsService sharedInstance];
-    HttpdnsResult *result = [httpDnsService resolveHostSyncNonBlocking:host byIpType:HttpdnsQueryIPTypeBoth];
+    HttpdnsResult *result = [httpDnsService resolveHostSyncNonBlocking:host byIpType:HttpdnsQueryIPTypeAuto];
 
     NSLog(@"resolve host result: %@", result);
     if (!result) {

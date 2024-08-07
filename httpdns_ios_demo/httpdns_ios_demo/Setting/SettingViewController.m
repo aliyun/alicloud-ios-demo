@@ -9,6 +9,11 @@
 #import "SettingSwitchTableViewCell.h"
 #import "SettingInfoModel.h"
 #import "SettingTableViewCell.h"
+#import "SettingAdvancedTableViewCell.h"
+#import "SettingDomainListViewController.h"
+#import "SettingOtherTableViewCell.h"
+#import "SettingBaseTableViewCell.h"
+#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -23,7 +28,7 @@
     [super viewDidLoad];
     self.infoArray = [HTTPDNSDemoUtils settingInfo];
 
-    self.settingTableView.delegate   = self;
+    self.settingTableView.delegate = self;
     self.settingTableView.dataSource = self;
 }
 
@@ -50,6 +55,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        return 48;
+    }
     return 64;
 }
 
@@ -71,6 +79,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 2) {
+        return 0.1;
+    }
     return 48;
 }
 
@@ -110,19 +121,71 @@
         cell.switchChangedhandle = ^(BOOL isOn) {
             __strong typeof(self) strongSelf = weakSelf;
             SettingInfoModel *model = strongSelf.infoArray[indexPath.row];
+            model.switchIsOn = isOn;
             [HTTPDNSDemoUtils settingInfoChanged:model.cacheKey value:@(isOn)];
         };
 
         return cell;
     // 高级配置
     }else if (indexPath.section == 1) {
+        SettingAdvancedTableViewCell *advancedSettingCell = [[SettingAdvancedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ADVANCEDSETTINGCELL"];
+        if (indexPath.row == 0) {
+            [advancedSettingCell setTitle:@"预解析域名列表" description:@"配置需要预解析的域名列表"];
+        } else {
+            [advancedSettingCell setTitle:@"清空指定域名缓存" description:@"配置需要清空缓存的域名列表"];
+        }
 
+        return advancedSettingCell;
     // 其他设置项
     } else {
-
+        SettingOtherTableViewCell *otherCell = [[SettingOtherTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OTHERTABLEVIEWCELL"];
+        if (indexPath.row == 0) {
+            [otherCell setCellType:HelpCenterCell];
+        } else if (indexPath.row == 1) {
+            [otherCell setCellType:AboutUsCell];
+        } else {
+            [otherCell setCellType:DefaultSettingCell];
+        }
+        return otherCell;
     }
+}
 
-    return [UITableViewCell new];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        SettingDomainListViewController *domainListViewController = [HTTPDNSDemoTools storyBoardInstantiateViewController:@"SettingDomainListViewController"];
+        domainListViewController.listType = indexPath.row == 0 ? PreResolveDomainList : CleanCacheDomainList;
+        [self.navigationController showViewController:domainListViewController sender:nil];
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            NSURL *helpCenterURL = [HTTPDNSDemoUtils helpCenterURL];
+            if ([[UIApplication sharedApplication] canOpenURL:helpCenterURL]) {
+                [[UIApplication sharedApplication] openURL:helpCenterURL options:@{} completionHandler:nil];
+            }
+        } else if (indexPath.row == 1) {
+            UIViewController *aboutUsViewController = [HTTPDNSDemoTools storyBoardInstantiateViewController:@"AboutUsViewController"];
+            [self.navigationController showViewController:aboutUsViewController sender:nil];
+        } else {
+            // 通用设置处理
+            // 处理可见的cell，前几个不可见的需额外处理
+            NSInteger rows = [tableView numberOfRowsInSection:0];
+            for (int i = 0; i < rows; i++) {
+                SettingBaseTableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                [cell restoreDefaultSettings];
+            }
+
+            for (SettingInfoModel *model in self.infoArray) {
+                model.switchIsOn = NO;
+                [HTTPDNSDemoUtils settingInfoChanged:model.cacheKey value:@(NO)];
+            }
+            [tableView reloadData];
+
+            // 高级配置只需清除配置文件外的domains并清除所有解析缓存
+            [HTTPDNSDemoUtils settingDomainListRemoveAllForKey:settingPreResolveListKey];
+            [HTTPDNSDemoUtils settingDomainListRemoveAllForKey:settingCleanHostDomainKey];
+            HttpDnsService *httpdns = [HttpDnsService sharedInstance];
+            [httpdns cleanHostCache:nil];
+        }
+    }
 }
 
 - (NSString *)regionToLoaction:(NSString *)region {

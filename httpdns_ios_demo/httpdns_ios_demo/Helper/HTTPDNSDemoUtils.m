@@ -9,28 +9,34 @@
 
 #pragma mark - file
 
-static NSString *const kEmasInfoFileName  = @"AliyunEmasServices-Info";
-static NSString *const kEmasInfoFileType  = @"plist";
+static NSString *const kEmasInfoFileName = @"AliyunEmasServices-Info";
+static NSString *const kEmasInfoFileType = @"plist";
 
 static NSString *const configInfoFileName = @"httpdns-domains";
 static NSString *const configInfoFileType = @"plist";
 
 #pragma mark - cacheKey
 
-static NSString *const inputHistoryKey                         = @"httpdns-inputHistory";
+static NSString *const inputHistoryKey = @"httpdns-inputHistory";
 
-static NSString *const settingReuseExpiredIPKey                = @"settingReuseExpiredIP";
-static NSString *const settingPersistentCacheKey               = @"settingPersistentCache";
-static NSString *const settingHTTPSRequestKey                  = @"settingHTTPSRequest";
+static NSString *const settingReuseExpiredIPKey = @"settingReuseExpiredIP";
+static NSString *const settingPersistentCacheKey = @"settingPersistentCache";
+static NSString *const settingHTTPSRequestKey = @"settingHTTPSRequest";
 static NSString *const settingPreResolveAfterNetworkChangedKey = @"settingPreResolveAfterNetworkChanged";
-static NSString *const settingLogEnabledKey                    = @"settingLogEnabled";
-NSString *const settingRegionKey                               = @"settingRegion";
-NSString *const settingTimeoutKey                              = @"settingTimeoutKey";
+static NSString *const settingLogEnabledKey = @"settingLogEnabled";
+NSString *const settingRegionKey = @"settingRegion";
+NSString *const settingTimeoutKey = @"settingTimeoutKey";
+
+NSString *const settingPreResolveListKey = @"settingPreResolveListKey";
+NSString *const settingCleanHostDomainKey = @"settingCleanHostDomainKey";
+
 
 #pragma mark - URL
 
-static NSString *const textUrlString  = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
+static NSString *const textUrlString = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt";
 static NSString *const videoUrlString = @"https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/file_example_MP4_640_3MG.mp4";
+
+static NSString *const helpCenterUrlString = @"https://help.aliyun.com/document_detail/435266.html?spm=a2c4g.435271.0.0.37d167fc4xVvoU";
 
 @implementation HTTPDNSDemoUtils
 
@@ -171,6 +177,28 @@ static NSString *const videoUrlString = @"https://ams-sdk-public-assets.oss-cn-h
             break;
     }
     return value;
+}
+
++ (NSArray *)settingDomainListFor:(NSString *)cacheKey {
+    NSArray *domains = [HTTPDNSDemoTools userDefaultGet:cacheKey];
+    return domains;
+}
+
++ (void)settingDomainListAdd:(NSString *)domain forKey:(NSString *)cacheKey {
+    NSMutableArray *domainsArray = [(NSArray *)[HTTPDNSDemoTools userDefaultGet:cacheKey] mutableCopy];
+    if (domainsArray == nil) {
+        domainsArray = [NSMutableArray arrayWithCapacity:1];
+    }
+    [domainsArray addObject:domain];
+    [HTTPDNSDemoTools userDefaultSetObject:domainsArray.copy forKey:cacheKey];
+}
+
++ (void)settingDomainListRemoveAllForKey:(NSString *)cacheKey {
+    [HTTPDNSDemoTools userDefaultRemove:cacheKey];
+}
+
++ (NSURL *)helpCenterURL {
+    return [NSURL URLWithString:helpCenterUrlString];
 }
 
 @end

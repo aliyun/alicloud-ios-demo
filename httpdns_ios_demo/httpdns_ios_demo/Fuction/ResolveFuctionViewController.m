@@ -87,7 +87,7 @@
     self.endDate = [NSDate date];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSMutableAttributedString *resolveResult = [[NSMutableAttributedString alloc]initWithString:@"该域名返回解析结果为空。\n\n可能原因\n1.该域名不在“域名列表”中。请将该域名添加到阿里云控制台HTTPDNS的“域名列表”\n\n2.该域名返回解析结果为空。\n\n3..."];
+        NSMutableAttributedString *resolveResult = [[NSMutableAttributedString alloc]initWithString:@"该域名返回解析结果为空。\n\n可能原因\n1.该域名不在“域名列表”中。请将该域名添加到阿里云控制台HTTPDNS的“域名列表”\n\n2.该域名返回解析结果为空。"];
         [resolveResult addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#98A4BA"] range:NSMakeRange(0, resolveResult.length)];
 
         if (result.hasIpv4Address || result.hasIpv6Address) {

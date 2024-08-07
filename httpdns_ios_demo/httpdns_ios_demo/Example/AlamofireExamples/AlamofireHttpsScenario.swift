@@ -72,7 +72,7 @@ import AlicloudHttpDNS
 
     class func resolveAvailableIp(host: String) -> String? {
         let httpDnsService = HttpDnsService.sharedInstance()
-        let result = httpDnsService?.resolveHostSyncNonBlocking(host, by: .both)
+        let result = httpDnsService?.resolveHostSyncNonBlocking(host, by: HttpdnsQueryIPType(rawValue: 0))
 
         print("resolve host result: \(String(describing: result))")
         if result == nil {

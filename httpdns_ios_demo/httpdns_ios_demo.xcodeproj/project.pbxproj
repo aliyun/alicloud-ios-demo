@@ -25,6 +25,8 @@
 		7EC087B12C539EB6009EDF36 /* SettingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC087B02C539EB6009EDF36 /* SettingInfoModel.m */; };
 		7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */; };
 		7ED456CB2C5741F7006FC84E /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED456CA2C5741F7006FC84E /* SettingTableViewCell.m */; };
+		7ED456CE2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED456CD2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m */; };
+		7ED456D12C58EC0D006FC84E /* SettingDomainListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED456D02C58EC0D006FC84E /* SettingDomainListViewController.m */; };
 		7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5B5602C37902600CC5FD4 /* AppDelegate.m */; };
 		7ED5B56A2C37902600CC5FD4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5B5692C37902600CC5FD4 /* Base */; };
 		7ED5B56C2C37902700CC5FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5B56B2C37902700CC5FD4 /* Assets.xcassets */; };
@@ -40,6 +42,7 @@
 		7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED98FFF2C50DC330025D1F8 /* CustomResourceLoaderDelegate.m */; };
 		7ED990032C50DECA0025D1F8 /* AVPlayerScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED990022C50DECA0025D1F8 /* AVPlayerScenario.m */; };
 		7ED990052C50F2F10025D1F8 /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED990042C50F2F10025D1F8 /* AliyunEmasServices-Info.plist */; };
+		7EDA67E92C5B773800BBF1D7 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */; };
 		7EDB2A742C524A7B00CEB01C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2A732C524A7B00CEB01C /* SettingViewController.m */; };
 		7EDB2A772C524EA800CEB01C /* SettingSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2A762C524EA800CEB01C /* SettingSwitchTableViewCell.m */; };
 		7EE26E2A2C4912CB00C71F4E /* TipsAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE26E292C4912CB00C71F4E /* TipsAlertView.m */; };
@@ -47,6 +50,12 @@
 		7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A8E2C3FBFAB00FD57DF /* UIImage+ColorToImage.m */; };
 		7EF25A922C3FBFFD00FD57DF /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A912C3FBFFD00FD57DF /* UIColor+Hex.m */; };
 		7EF25A982C3FD5F100FD57DF /* ResolveTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A972C3FD5F100FD57DF /* ResolveTypeButton.m */; };
+		7EF3E4072C59E1C400703B58 /* SettingDomainListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4062C59E1C400703B58 /* SettingDomainListTableViewCell.m */; };
+		7EF3E40D2C5A168B00703B58 /* AddDomainAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E40C2C5A168B00703B58 /* AddDomainAlertView.m */; };
+		7EF3E40F2C5A169B00703B58 /* AddDomainAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF3E40E2C5A169B00703B58 /* AddDomainAlertView.xib */; };
+		7EF3E4122C5A419000703B58 /* SettingOtherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */; };
+		7EF3E4152C5A4BE400703B58 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */; };
+		7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */; };
 		F2CC7912569076886960545C /* Pods_httpdns_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDA4467FAA47A9E8133DDAC /* Pods_httpdns_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +112,10 @@
 		7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DomainTableViewCell.m; sourceTree = "<group>"; };
 		7ED456C92C5741F7006FC84E /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
 		7ED456CA2C5741F7006FC84E /* SettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
+		7ED456CC2C58E4C4006FC84E /* SettingAdvancedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingAdvancedTableViewCell.h; sourceTree = "<group>"; };
+		7ED456CD2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingAdvancedTableViewCell.m; sourceTree = "<group>"; };
+		7ED456CF2C58EC0D006FC84E /* SettingDomainListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingDomainListViewController.h; sourceTree = "<group>"; };
+		7ED456D02C58EC0D006FC84E /* SettingDomainListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingDomainListViewController.m; sourceTree = "<group>"; };
 		7ED5B55C2C37902600CC5FD4 /* httpdns_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = httpdns_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED5B55F2C37902600CC5FD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7ED5B5602C37902600CC5FD4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +141,8 @@
 		7ED990012C50DECA0025D1F8 /* AVPlayerScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerScenario.h; sourceTree = "<group>"; };
 		7ED990022C50DECA0025D1F8 /* AVPlayerScenario.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerScenario.m; sourceTree = "<group>"; };
 		7ED990042C50F2F10025D1F8 /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
+		7EDA67E72C5B773800BBF1D7 /* UIView+Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		7EDB2A722C524A7B00CEB01C /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7EDB2A732C524A7B00CEB01C /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7EDB2A752C524EA800CEB01C /* SettingSwitchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingSwitchTableViewCell.h; sourceTree = "<group>"; };
@@ -143,6 +158,17 @@
 		7EF25A952C3FC14200FD57DF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7EF25A962C3FD5F100FD57DF /* ResolveTypeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ResolveTypeButton.h; path = httpdns_ios_demo/Fuction/ResolveTypeButton.h; sourceTree = SOURCE_ROOT; };
 		7EF25A972C3FD5F100FD57DF /* ResolveTypeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ResolveTypeButton.m; path = httpdns_ios_demo/Fuction/ResolveTypeButton.m; sourceTree = SOURCE_ROOT; };
+		7EF3E4052C59E1C400703B58 /* SettingDomainListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingDomainListTableViewCell.h; sourceTree = "<group>"; };
+		7EF3E4062C59E1C400703B58 /* SettingDomainListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingDomainListTableViewCell.m; sourceTree = "<group>"; };
+		7EF3E40B2C5A168B00703B58 /* AddDomainAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDomainAlertView.h; sourceTree = "<group>"; };
+		7EF3E40C2C5A168B00703B58 /* AddDomainAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDomainAlertView.m; sourceTree = "<group>"; };
+		7EF3E40E2C5A169B00703B58 /* AddDomainAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDomainAlertView.xib; sourceTree = "<group>"; };
+		7EF3E4102C5A419000703B58 /* SettingOtherTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingOtherTableViewCell.h; sourceTree = "<group>"; };
+		7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingOtherTableViewCell.m; sourceTree = "<group>"; };
+		7EF3E4132C5A4BE400703B58 /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		7EF3E4162C5A4CD700703B58 /* SettingBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingBaseTableViewCell.h; sourceTree = "<group>"; };
+		7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingBaseTableViewCell.m; sourceTree = "<group>"; };
 		8E36940574994683FEE78BEE /* Pods-httpdns_ios_demo-httpdns_ios_demoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo-httpdns_ios_demoUITests.debug.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8FF36133B780D8400A7454A7 /* Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A00B9FD37848612B508E6BC6 /* Pods-httpdns_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo.debug.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -280,6 +306,9 @@
 				7ED5B5982C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m */,
 				7EE26E282C4912CB00C71F4E /* TipsAlertView.h */,
 				7EE26E292C4912CB00C71F4E /* TipsAlertView.m */,
+				7EF3E40B2C5A168B00703B58 /* AddDomainAlertView.h */,
+				7EF3E40C2C5A168B00703B58 /* AddDomainAlertView.m */,
+				7EF3E40E2C5A169B00703B58 /* AddDomainAlertView.xib */,
 				7E19D1282C4E3DB20022954C /* PlaceHolderTextView.h */,
 				7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */,
 			);
@@ -370,8 +399,20 @@
 				7EDB2A762C524EA800CEB01C /* SettingSwitchTableViewCell.m */,
 				7ED456C92C5741F7006FC84E /* SettingTableViewCell.h */,
 				7ED456CA2C5741F7006FC84E /* SettingTableViewCell.m */,
+				7ED456CC2C58E4C4006FC84E /* SettingAdvancedTableViewCell.h */,
+				7ED456CD2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m */,
 				7EC087AF2C539EB6009EDF36 /* SettingInfoModel.h */,
 				7EC087B02C539EB6009EDF36 /* SettingInfoModel.m */,
+				7ED456CF2C58EC0D006FC84E /* SettingDomainListViewController.h */,
+				7ED456D02C58EC0D006FC84E /* SettingDomainListViewController.m */,
+				7EF3E4052C59E1C400703B58 /* SettingDomainListTableViewCell.h */,
+				7EF3E4062C59E1C400703B58 /* SettingDomainListTableViewCell.m */,
+				7EF3E4102C5A419000703B58 /* SettingOtherTableViewCell.h */,
+				7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */,
+				7EF3E4132C5A4BE400703B58 /* AboutUsViewController.h */,
+				7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */,
+				7EF3E4162C5A4CD700703B58 /* SettingBaseTableViewCell.h */,
+				7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -383,6 +424,8 @@
 				7EF25A8E2C3FBFAB00FD57DF /* UIImage+ColorToImage.m */,
 				7EF25A902C3FBFFD00FD57DF /* UIColor+Hex.h */,
 				7EF25A912C3FBFFD00FD57DF /* UIColor+Hex.m */,
+				7EDA67E72C5B773800BBF1D7 /* UIView+Toast.h */,
+				7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -512,6 +555,7 @@
 				7ED990052C50F2F10025D1F8 /* AliyunEmasServices-Info.plist in Resources */,
 				7ED5B59B2C37DE2400CC5FD4 /* httpdns-domains.plist in Resources */,
 				7ED5B56C2C37902700CC5FD4 /* Assets.xcassets in Resources */,
+				7EF3E40F2C5A169B00703B58 /* AddDomainAlertView.xib in Resources */,
 				7ED5B56F2C37902700CC5FD4 /* Base in Resources */,
 				7ED5B56A2C37902600CC5FD4 /* Base in Resources */,
 			);
@@ -641,12 +685,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED456CE2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m in Sources */,
+				7EF3E40D2C5A168B00703B58 /* AddDomainAlertView.m in Sources */,
 				7E072F5F2C41127C00A99134 /* ResolveFuctionViewController.m in Sources */,
 				7E776E7F2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift in Sources */,
 				7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */,
 				7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */,
 				7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m in Sources */,
 				7EDB2A742C524A7B00CEB01C /* SettingViewController.m in Sources */,
+				7EF3E4152C5A4BE400703B58 /* AboutUsViewController.m in Sources */,
+				7ED456D12C58EC0D006FC84E /* SettingDomainListViewController.m in Sources */,
 				7ED98FFD2C5099290025D1F8 /* AVPlayerAlertView.m in Sources */,
 				7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */,
 				7E776E762C4E659E00188CE3 /* AFNHttpsScenario.m in Sources */,
@@ -654,6 +702,7 @@
 				7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */,
 				7E776E6A2C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m in Sources */,
 				7ED5B5722C37902700CC5FD4 /* main.m in Sources */,
+				7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */,
 				7E776E802C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift in Sources */,
 				7E776E6E2C4E655D00188CE3 /* GeneralScenario.m in Sources */,
 				7EF25A982C3FD5F100FD57DF /* ResolveTypeButton.m in Sources */,
@@ -662,6 +711,8 @@
 				7E776E772C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m in Sources */,
 				7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */,
 				7ED456CB2C5741F7006FC84E /* SettingTableViewCell.m in Sources */,
+				7EDA67E92C5B773800BBF1D7 /* UIView+Toast.m in Sources */,
+				7EF3E4072C59E1C400703B58 /* SettingDomainListTableViewCell.m in Sources */,
 				7EF25A922C3FBFFD00FD57DF /* UIColor+Hex.m in Sources */,
 				7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */,
 				7EC087B12C539EB6009EDF36 /* SettingInfoModel.m in Sources */,
@@ -670,6 +721,7 @@
 				7E072F5C2C40D88300A99134 /* ChooseOrInputDomainViewController.m in Sources */,
 				7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */,
 				7E776E662C4E640C00188CE3 /* HTTPSWithSNIScenario.m in Sources */,
+				7EF3E4122C5A419000703B58 /* SettingOtherTableViewCell.m in Sources */,
 				7ED5B5962C379D8900CC5FD4 /* HTTPDNSDemoUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

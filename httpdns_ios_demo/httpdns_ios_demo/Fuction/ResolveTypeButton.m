@@ -24,7 +24,7 @@
     self.layer.cornerRadius = 8;
     self.layer.borderWidth = 1;
 
-    self.selectedCheckMark = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Button_CheckMark"]];
+    self.selectedCheckMark = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"CheckBox_YES"]];
     self.selectedCheckMark.frame = CGRectMake(self.frame.size.width - 18, self.frame.size.height - 18, 18, 18);
     [self addSubview:self.selectedCheckMark];
 

@@ -6,12 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingBaseTableViewCell.h"
 
 typedef void(^switchChangedHandle)(BOOL isOn);
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SettingSwitchTableViewCell : UITableViewCell
+@interface SettingSwitchTableViewCell : SettingBaseTableViewCell
 
 @property(nonatomic, copy)switchChangedHandle switchChangedhandle;
 
