@@ -83,8 +83,8 @@
 - (UISwitch *)settingSwitch {
     if (!_settingSwitch) {
         _settingSwitch = [[UISwitch alloc] init];
-        _settingSwitch.thumbTintColor = [UIColor colorWithHexString:@"#424FF7"];
-        _settingSwitch.onTintColor = [UIColor colorWithHexString:@"#E6EBF3"];
+        _settingSwitch.thumbTintColor = [UIColor whiteColor];
+        _settingSwitch.onTintColor = [UIColor colorWithHexString:@"#5578ED"];
         _settingSwitch.tintColor = [UIColor colorWithHexString:@"#E6EBF3"];
         [_settingSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
         _settingSwitch.translatesAutoresizingMaskIntoConstraints = NO;

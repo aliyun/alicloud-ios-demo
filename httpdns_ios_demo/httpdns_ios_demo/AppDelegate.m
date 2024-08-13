@@ -39,15 +39,6 @@
     // 设置Region
     [httpdns setRegion:[HTTPDNSDemoUtils settingInfo:settingInfoRegionKey]];
 
-    // 设置超时时间
-    NSString *timeOut = [HTTPDNSDemoUtils settingInfo:settingInfoTimeoutKey];
-    if (![HTTPDNSDemoTools isValidString:timeOut]) {
-        timeOut = @"3000";
-    }
-    double timeOut_ms = [timeOut doubleValue];
-    NSTimeInterval timeOut_s = timeOut_ms / 1000.0;
-    [httpdns setNetworkingTimeoutInterval:timeOut_s];
-
     return YES;
 }
 
