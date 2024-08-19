@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C2E95640D115D81522589E8 /* Pods_httpdns_ios_demo_httpdns_ios_demoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B0517554DB2524A3D9539B /* Pods_httpdns_ios_demo_httpdns_ios_demoUITests.framework */; };
+		6144CA0AC1F92CAAC6D2529E /* Pods_httpdns_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDA4467FAA47A9E8133DDAC /* Pods_httpdns_ios_demo.framework */; };
 		6615E36ACB9DF5295F4AB41A /* Pods_httpdns_ios_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AB242A21723B447CF14A9C /* Pods_httpdns_ios_demoTests.framework */; };
 		7E072F5C2C40D88300A99134 /* ChooseOrInputDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E072F5B2C40D88300A99134 /* ChooseOrInputDomainViewController.m */; };
 		7E072F5F2C41127C00A99134 /* ResolveFuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E072F5E2C41127C00A99134 /* ResolveFuctionViewController.m */; };
@@ -45,6 +46,7 @@
 		7EDA67E92C5B773800BBF1D7 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */; };
 		7EDB2A742C524A7B00CEB01C /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2A732C524A7B00CEB01C /* SettingViewController.m */; };
 		7EDB2A772C524EA800CEB01C /* SettingSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB2A762C524EA800CEB01C /* SettingSwitchTableViewCell.m */; };
+		7EDEAECF2C6B078600328BA8 /* HTTPDNSDemoLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDEAECE2C6B078600328BA8 /* HTTPDNSDemoLoading.m */; };
 		7EE26E2A2C4912CB00C71F4E /* TipsAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE26E292C4912CB00C71F4E /* TipsAlertView.m */; };
 		7EF25A8B2C3F7E0B00FD57DF /* HelloFuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A8A2C3F7E0B00FD57DF /* HelloFuctionViewController.m */; };
 		7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF25A8E2C3FBFAB00FD57DF /* UIImage+ColorToImage.m */; };
@@ -56,7 +58,6 @@
 		7EF3E4122C5A419000703B58 /* SettingOtherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */; };
 		7EF3E4152C5A4BE400703B58 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */; };
 		7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */; };
-		F2CC7912569076886960545C /* Pods_httpdns_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDA4467FAA47A9E8133DDAC /* Pods_httpdns_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,8 @@
 		7EDB2A732C524A7B00CEB01C /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7EDB2A752C524EA800CEB01C /* SettingSwitchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingSwitchTableViewCell.h; sourceTree = "<group>"; };
 		7EDB2A762C524EA800CEB01C /* SettingSwitchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingSwitchTableViewCell.m; sourceTree = "<group>"; };
+		7EDEAECD2C6B078600328BA8 /* HTTPDNSDemoLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPDNSDemoLoading.h; sourceTree = "<group>"; };
+		7EDEAECE2C6B078600328BA8 /* HTTPDNSDemoLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPDNSDemoLoading.m; sourceTree = "<group>"; };
 		7EE26E282C4912CB00C71F4E /* TipsAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipsAlertView.h; sourceTree = "<group>"; };
 		7EE26E292C4912CB00C71F4E /* TipsAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipsAlertView.m; sourceTree = "<group>"; };
 		7EF25A892C3F7E0B00FD57DF /* HelloFuctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloFuctionViewController.h; sourceTree = "<group>"; };
@@ -181,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2CC7912569076886960545C /* Pods_httpdns_ios_demo.framework in Frameworks */,
+				6144CA0AC1F92CAAC6D2529E /* Pods_httpdns_ios_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +299,8 @@
 		7ED2DA1D2C450BA4007051F4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7EDEAECD2C6B078600328BA8 /* HTTPDNSDemoLoading.h */,
+				7EDEAECE2C6B078600328BA8 /* HTTPDNSDemoLoading.m */,
 				7E776E692C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.h */,
 				7E776E682C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m */,
 				7E81AA552C4A51C8007F9F55 /* CustomLineSpacingLabel.h */,
@@ -703,6 +708,7 @@
 				7E776E6A2C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m in Sources */,
 				7ED5B5722C37902700CC5FD4 /* main.m in Sources */,
 				7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */,
+				7EDEAECF2C6B078600328BA8 /* HTTPDNSDemoLoading.m in Sources */,
 				7E776E802C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift in Sources */,
 				7E776E6E2C4E655D00188CE3 /* GeneralScenario.m in Sources */,
 				7EF25A982C3FD5F100FD57DF /* ResolveTypeButton.m in Sources */,

@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (5.9.1)
-  - AlicloudHTTPDNS (3.1.0):
+  - AlicloudHTTPDNS (3.1.1):
     - AlicloudUtils
   - AlicloudUTDID (1.6.1)
   - AlicloudUtils (2.0.1):
@@ -38,7 +38,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
-  AlicloudHTTPDNS: 0fa795e920012715e79d40477a6cda3460ab9dc2
+  AlicloudHTTPDNS: b00723b69733536c03a3f969b09c3d189909df7d
   AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
   AlicloudUtils: ef4436f52b828b1182b002373758ecb88068e679
 

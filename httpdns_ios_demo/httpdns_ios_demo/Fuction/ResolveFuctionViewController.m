@@ -55,31 +55,44 @@
 
 - (void)resolveAvailableIp:(NSString *)host {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    HttpDnsService *httpDnsService = [HttpDnsService sharedInstance];
-    HttpdnsResult *result;
+        HttpDnsService *httpDnsService = [HttpDnsService sharedInstance];
+        HttpdnsResult *result;
+        HttpdnsRequest *request = [[HttpdnsRequest alloc] init];
 
-    self.startDate = [NSDate date];
-    switch (self.resolveType) {
-        case ResolveTypeSync:
-            result = [httpDnsService resolveHostSync:host byIpType:HttpdnsQueryIPTypeAuto];
-            break;
-        case ResolveTypeSyncNoBlocking:
-            result = [httpDnsService resolveHostSyncNonBlocking:host byIpType:HttpdnsQueryIPTypeAuto];
-            break;
-        case ResolveTypeAsync:
-        {
-            __weak typeof(self) weakSelf = self;
-            [httpDnsService resolveHostAsync:host byIpType:HttpdnsQueryIPTypeAuto completionHandler:^(HttpdnsResult *result) {
-                __strong typeof(self) strongSelf = weakSelf;
-                [strongSelf processingResolveData:result];
-            }];
+        // 设置host
+        request.host = host;
+
+        // 设置超时时间
+        NSString *timeOut = [HTTPDNSDemoUtils settingInfo:settingInfoTimeoutKey];
+        if (![HTTPDNSDemoTools isValidString:timeOut]) {
+            timeOut = @"2000";
         }
-            return;
-        default:
-            break;
-    }
+        double timeOut_ms = [timeOut doubleValue];
+        double timeOut_s = timeOut_ms / 1000.0;
+        request.resolveTimeoutInSecond = timeOut_s;
 
-    [self processingResolveData:result];
+        self.startDate = [NSDate date];
+        switch (self.resolveType) {
+            case ResolveTypeSync:
+                result = [httpDnsService resolveHostSync:request];
+                break;
+            case ResolveTypeSyncNoBlocking:
+                result = [httpDnsService resolveHostSyncNonBlocking:request];
+                break;
+            case ResolveTypeAsync:
+            {
+                __weak typeof(self) weakSelf = self;
+                [httpDnsService resolveHostAsync:request completionHandler:^(HttpdnsResult *result) {
+                    __strong typeof(self) strongSelf = weakSelf;
+                    [strongSelf processingResolveData:result];
+                }];
+            }
+                return;
+            default:
+                break;
+        }
+
+        [self processingResolveData:result];
     });
 }
 

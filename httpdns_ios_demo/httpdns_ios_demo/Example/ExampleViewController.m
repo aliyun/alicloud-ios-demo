@@ -15,6 +15,7 @@
 #import "httpdns_ios_demo-Swift.h"
 #import "AVPlayerScenario.h"
 #import "CustomLineSpacingLabel.h"
+#import "HTTPDNSDemoLoading.h"
 
 @interface ExampleViewController ()
 
@@ -36,6 +37,8 @@
 
 @property (weak, nonatomic) IBOutlet PlaceHolderTextView *resultTextView;
 
+@property(nonatomic, strong)HTTPDNSDemoLoading *loading;
+
 @end
 
 @implementation ExampleViewController
@@ -45,96 +48,110 @@
 
     self.resultTextView.placeholder = @"请选择具体案例";
     self.resultTextView.textContainerInset = UIEdgeInsetsMake(12, 20, 12, 20);
+
+    self.loading = [[HTTPDNSDemoLoading alloc] initWithFrame:self.resultTextView.bounds];
+    self.loading.hidden = YES;
+    [self.resultTextView addSubview:self.loading];
 }
 
-- (void)cleanTextView {
-    [self.resultTextView setContentOffset:CGPointZero animated:NO];
-    self.resultTextView.text = nil;
+- (void)showLoading {
+    [self.loading startLoading];
+}
+
+- (void)stopLoading {
+    [self.loading stopLoading];
 }
 
 #pragma mark - action
 
 - (IBAction)httpsSimpleScenario:(id)sender {
-    [self cleanTextView];
     [self changeSelectedState:self.httpsScenario];
 
+    [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     [[HTTPSSimpleScenario new] httpDnsQueryWithURL:originalUrl completionHandler:^(NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
+            [self stopLoading];
         });
     }];
 }
 
 - (IBAction)httpsWithSNIScenario:(id)sender {
-    [self cleanTextView];
     [self changeSelectedState:self.httpsWithSNIScenario];
 
+    [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     [HTTPSWithSNIScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
+            [self stopLoading];
         });
     }];
 }
 
 - (IBAction)generalScenario:(id)sender {
-    [self cleanTextView];
     [self changeSelectedState:self.generalScenario];
 
+    [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     originalUrl = [originalUrl stringByReplacingOccurrencesOfString:@"https" withString:@"http"];
     [GeneralScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
+            [self stopLoading];
         });
     }];
 }
 
 - (IBAction)AFNetworkingScenario:(id)sender {
-    [self cleanTextView];
     [self changeSelectedState:self.AFNetworkingScenario];
 
+    [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     [AFNHttpsScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
+            [self stopLoading];
         });
     }];
 }
 
 - (IBAction)AFNetworkingWithSNIScenario:(id)sender {
-    [self cleanTextView];
     [self changeSelectedState:self.AFNetwrokingWithSNIScenario];
 
+    [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     [AFNHttpsWithSNIScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
+            [self stopLoading];
         });
     }];
 }
 
 - (IBAction)AlamofireScenario:(id)sender {
-    [self cleanTextView];
     [self changeSelectedState:self.AlamofireScenario];
 
+    [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     [AlamofireHttpsScenario httpDnsQueryWithURLWithOriginalUrl:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
+            [self stopLoading];
         });
     }];
 }
 
 - (IBAction)AlamofireWithSNIScenario:(id)sender {
-    [self cleanTextView];
     [self changeSelectedState:self.AlamofireWithSNIScenario];
 
+    [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     [AlamofireHttpsWithSNIScenario httpDnsQueryWithURLWithOriginalUrl:originalUrl completionHandler:^(NSString * _Nonnull message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
+            [self stopLoading];
         });
     }];
 }
