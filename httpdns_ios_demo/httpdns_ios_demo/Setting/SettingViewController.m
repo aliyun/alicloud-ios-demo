@@ -101,7 +101,7 @@
             SettingTableViewCell *cell = [[SettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SETTINGTABLEVIEWCELL"];
             NSString *value = [HTTPDNSDemoUtils settingInfo:settingInfoTimeoutKey];
             if (![HTTPDNSDemoTools isValidString:value]) {
-                value = @"3000";
+                value = @"2000";
             }
             [cell setCellTitle:@"超时时间" description:@"设置解析超时时间" cellType:TimeOutCell detailValue:value];
             cell.valueChangedHandle = ^(NSString * _Nonnull value) {

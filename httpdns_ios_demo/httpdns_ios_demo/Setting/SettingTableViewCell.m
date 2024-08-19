@@ -48,10 +48,10 @@
         [self.valueImageView.centerYAnchor constraintEqualToAnchor:self.valueLabel.centerYAnchor],
         [self.valueImageView.widthAnchor constraintEqualToConstant:16],
         [self.valueImageView.heightAnchor constraintEqualToConstant:16],
-        
+
         [self.valueLabel.topAnchor constraintEqualToAnchor:self.titleLabel.topAnchor],
         [self.valueLabel.rightAnchor constraintEqualToAnchor:self.valueImageView.leftAnchor constant:-5],
-        
+
         [self.valueTextField.rightAnchor constraintEqualToAnchor:self.valueLabel.leftAnchor constant:-5],
         [self.valueTextField.topAnchor constraintEqualToAnchor:self.valueLabel.topAnchor]
     ]];
@@ -61,7 +61,7 @@
     self.titleLabel.text = title;
     self.descriptionLabel.text = description;
     self.cellType = cellType;
-    
+
     if (cellType == RegionCell) {
         self.valueImageView.image = [UIImage imageNamed:@"Arrow_Down"];
         self.valueLabel.text = value;
@@ -120,21 +120,19 @@
     }];
     [regionAlert addAction:deAction];
 
-    // 暂时隐藏美国
-    // UIAlertAction *usAction = [UIAlertAction actionWithTitle:@"美国" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    //     __strong typeof(self) strongSelf = weakSelf;
-    //     strongSelf.valueLabel.text = @"美国";
-    //     if (strongSelf.valueChangedHandle) {
-    //         strongSelf.valueChangedHandle(@"us");
-    //     }
-    // }];
-    // [regionAlert addAction:usAction];
+    UIAlertAction *usAction = [UIAlertAction actionWithTitle:@"美国" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        __strong typeof(self) strongSelf = weakSelf;
+        strongSelf.valueLabel.text = @"美国";
+        if (strongSelf.valueChangedHandle) {
+            strongSelf.valueChangedHandle(@"us");
+        }
+    }];
+    [regionAlert addAction:usAction];
 
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [regionAlert addAction:cancleAction];
-    
-    [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:regionAlert animated:YES completion:nil];
 
+    [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:regionAlert animated:YES completion:nil];
 }
 
 - (void)restoreDefaultSettings {
@@ -142,8 +140,8 @@
         self.valueLabel.text = @"中国大陆";
         self.valueChangedHandle(@"cn");
     } else {
-        self.valueTextField.text = @"3000";
-        self.valueChangedHandle(@"3000");
+        self.valueTextField.text = @"2000";
+        self.valueChangedHandle(@"2000");
     }
 }
 
@@ -156,7 +154,6 @@
             self.valueChangedHandle(textField.text);
         }
     }
-
     return YES;
 }
 
