@@ -44,8 +44,7 @@
 
 - (IBAction)updateNickName:(id)sender {
     NSString *updateNickName = @"emas-update-nick";
-    [AlicloudHAProvider updateNick:updateNickName];
-    [AlicloudHAProvider start];
+    [AlicloudHAProvider updateNick:updateNickName]; // 如遇updateNick上报数据未生效问题，请检查TBCrashReporter版本>=10.2.2
     [self alert:[NSString stringWithFormat:@"updateNickName:%@",updateNickName]];
 }
 
