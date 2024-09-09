@@ -207,6 +207,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15D152CC2C8ECB5700FF29C0 /* SDWebImageExample */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SDWebImageExample;
+			sourceTree = "<group>";
+		};
 		3AF21258E90089F92E14F4A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +291,7 @@
 		7EC07CA62C4A132500D770F6 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				15D152CC2C8ECB5700FF29C0 /* SDWebImageExample */,
 				7ED98FFA2C5091880025D1F8 /* AVPlayerExample */,
 				7E776E7C2C4E65EF00188CE3 /* AlamofireExamples */,
 				7E776E752C4E659E00188CE3 /* AFNetworkingExamples */,
