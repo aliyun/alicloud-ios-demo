@@ -45,14 +45,13 @@
     // 设置host
     [downloader setValue:host forHTTPHeaderField:@"host"];
     
-    // 4. 设置 SDWebImageManager 使用自定义的 Downloader
+    // 4. 使用自定义的 Downloader 设置 SDWebImageManager
     SDWebImageManager *manager = [[SDWebImageManager alloc] initWithCache:[SDImageCache sharedImageCache] loader:downloader];
     
     // 5. 使用自定义的 SDWebImageManager
     [ImageAlertView imageAlertShow:^(UIImageView * _Nonnull imageView) {
         [imageView sd_setImageWithURL:url placeholderImage:nil options:SDWebImageRetryFailed context:@{SDWebImageContextCustomManager:manager}];
     }];
-   
 }
 
 + (NSString *)resolveAvailableIp:(NSString *)host {
