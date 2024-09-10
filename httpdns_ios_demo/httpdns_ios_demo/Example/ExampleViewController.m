@@ -16,6 +16,7 @@
 #import "AVPlayerScenario.h"
 #import "CustomLineSpacingLabel.h"
 #import "HTTPDNSDemoLoading.h"
+#import "SDWebImageScenario.h"
 
 @interface ExampleViewController ()
 
@@ -34,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *AlamofireWithSNIScenario;
 
 @property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *AVPlayerScenario;
+
+@property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *SDWebImageScenario;
 
 @property (weak, nonatomic) IBOutlet PlaceHolderTextView *resultTextView;
 
@@ -162,6 +165,12 @@
     [AVPlayerScenario httpDnsQueryWithURL:originalUrl];
 }
 
+- (IBAction)SDWebImageScenario:(id)sender {
+    [self changeSelectedState:self.SDWebImageScenario];
+    NSString *originalUrl = [HTTPDNSDemoUtils exampleImageUrlString];
+    [SDWebImageScenario httpDnsQueryWithURL:originalUrl];
+}
+
 - (void)changeSelectedState:(UILabel *)label {
     [self setupLayerFor:self.httpsScenario isSelected:NO];
     [self setupLayerFor:self.httpsWithSNIScenario isSelected:NO];
@@ -171,6 +180,7 @@
     [self setupLayerFor:self.AlamofireScenario isSelected:NO];
     [self setupLayerFor:self.AlamofireWithSNIScenario isSelected:NO];
     [self setupLayerFor:self.AVPlayerScenario isSelected:NO];
+    [self setupLayerFor:self.SDWebImageScenario isSelected:NO];
 
     [self setupLayerFor:label isSelected:YES];
 }

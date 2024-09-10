@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -184,7 +184,7 @@
                                             <constraint firstAttribute="height" constant="120" id="ydj-go-lMQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.71339416499999997" green="0.7887207866" blue="0.84841877219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -196,23 +196,45 @@
                                             <outletCollection property="gestureRecognizers" destination="WMZ-0B-sU1" appends="YES" id="etU-a0-KmA"/>
                                         </connections>
                                     </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDWebImage场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olF-87-4ZY" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="880" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="TtF-BQ-CS1"/>
+                                            <constraint firstAttribute="height" constant="120" id="we6-mD-CVL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.71339416499999997" green="0.7887207866" blue="0.84841877219999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Kh4-FT-IHu" appends="YES" id="bgR-yL-tpr"/>
+                                        </connections>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7Ib-RW-PWc" firstAttribute="centerY" secondItem="bbd-Gk-dNJ" secondAttribute="centerY" id="0QV-sW-7dj"/>
                                     <constraint firstItem="E9r-id-SeC" firstAttribute="centerY" secondItem="goi-hb-OgU" secondAttribute="centerY" id="1A8-SC-LM3"/>
                                     <constraint firstItem="goi-hb-OgU" firstAttribute="leading" secondItem="tNb-UA-YST" secondAttribute="trailing" constant="6" id="7Vm-Wa-8M3"/>
                                     <constraint firstItem="tNb-UA-YST" firstAttribute="top" secondItem="kAT-xv-csF" secondAttribute="top" id="89q-9L-b4b"/>
+                                    <constraint firstItem="olF-87-4ZY" firstAttribute="leading" secondItem="7Ib-RW-PWc" secondAttribute="trailing" constant="6" id="AHU-wI-kNG"/>
+                                    <constraint firstItem="olF-87-4ZY" firstAttribute="centerY" secondItem="7Ib-RW-PWc" secondAttribute="centerY" id="DGb-Db-abq"/>
                                     <constraint firstItem="E9r-id-SeC" firstAttribute="leading" secondItem="goi-hb-OgU" secondAttribute="trailing" constant="6" id="Lzk-pl-OLc"/>
                                     <constraint firstItem="goi-hb-OgU" firstAttribute="centerY" secondItem="tNb-UA-YST" secondAttribute="centerY" id="M43-LW-P2S"/>
                                     <constraint firstItem="lpV-r8-rVa" firstAttribute="centerY" secondItem="VHD-Zm-Vfw" secondAttribute="centerY" id="arL-uC-UK0"/>
                                     <constraint firstAttribute="width" secondItem="kAT-xv-csF" secondAttribute="height" multiplier="344:120" id="dY1-nH-hFH"/>
+                                    <constraint firstAttribute="trailing" secondItem="olF-87-4ZY" secondAttribute="trailing" id="en0-CA-8Bu"/>
                                     <constraint firstItem="VHD-Zm-Vfw" firstAttribute="leading" secondItem="64D-JW-mv0" secondAttribute="trailing" constant="6" id="ikU-DN-GTU"/>
                                     <constraint firstItem="7Ib-RW-PWc" firstAttribute="leading" secondItem="bbd-Gk-dNJ" secondAttribute="trailing" constant="6" id="jCm-ac-2qr"/>
                                     <constraint firstItem="lpV-r8-rVa" firstAttribute="leading" secondItem="VHD-Zm-Vfw" secondAttribute="trailing" constant="6" id="kPe-a7-dzZ"/>
                                     <constraint firstItem="bbd-Gk-dNJ" firstAttribute="centerY" secondItem="lpV-r8-rVa" secondAttribute="centerY" id="mez-rH-3PX"/>
                                     <constraint firstItem="tNb-UA-YST" firstAttribute="leading" secondItem="kAT-xv-csF" secondAttribute="leading" id="nCE-HL-zA0"/>
                                     <constraint firstItem="64D-JW-mv0" firstAttribute="centerY" secondItem="E9r-id-SeC" secondAttribute="centerY" id="nYL-ZB-2SX"/>
-                                    <constraint firstAttribute="trailing" secondItem="7Ib-RW-PWc" secondAttribute="trailing" id="p3o-QW-UhJ"/>
                                     <constraint firstItem="64D-JW-mv0" firstAttribute="leading" secondItem="E9r-id-SeC" secondAttribute="trailing" constant="6" id="px6-mP-1ox"/>
                                     <constraint firstItem="bbd-Gk-dNJ" firstAttribute="leading" secondItem="lpV-r8-rVa" secondAttribute="trailing" constant="6" id="rcE-Hc-p2h"/>
                                     <constraint firstItem="VHD-Zm-Vfw" firstAttribute="centerY" secondItem="64D-JW-mv0" secondAttribute="centerY" id="sHI-xP-kSf"/>
@@ -244,6 +266,7 @@
                                 <constraints>
                                     <constraint firstItem="Gu0-yJ-muj" firstAttribute="leading" secondItem="m98-NO-pgl" secondAttribute="leading" constant="25" id="5qb-9f-eql"/>
                                     <constraint firstAttribute="trailing" secondItem="01J-h5-3FJ" secondAttribute="trailing" constant="4" id="8Ud-HT-9wd"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gu0-yJ-muj" secondAttribute="trailing" constant="20" symbolic="YES" id="CK1-wO-MFe"/>
                                     <constraint firstItem="Gu0-yJ-muj" firstAttribute="top" secondItem="m98-NO-pgl" secondAttribute="top" constant="15" id="PXp-nb-TTM"/>
                                     <constraint firstItem="01J-h5-3FJ" firstAttribute="leading" secondItem="m98-NO-pgl" secondAttribute="leading" constant="4" id="WYD-By-8pS"/>
                                     <constraint firstAttribute="bottom" secondItem="01J-h5-3FJ" secondAttribute="bottom" constant="4" id="k5X-CM-8R9"/>
@@ -275,6 +298,7 @@
                         <outlet property="AVPlayerScenario" destination="7Ib-RW-PWc" id="3wV-pB-lNJ"/>
                         <outlet property="AlamofireScenario" destination="lpV-r8-rVa" id="TT5-gS-ALL"/>
                         <outlet property="AlamofireWithSNIScenario" destination="bbd-Gk-dNJ" id="kb8-eb-3Np"/>
+                        <outlet property="SDWebImageScenario" destination="olF-87-4ZY" id="jw2-UQ-CcK"/>
                         <outlet property="generalScenario" destination="E9r-id-SeC" id="N3E-qj-yJH"/>
                         <outlet property="httpsScenario" destination="tNb-UA-YST" id="WwB-fZ-Ob6"/>
                         <outlet property="httpsWithSNIScenario" destination="goi-hb-OgU" id="cSW-0i-8wS"/>
@@ -320,6 +344,11 @@
                 <tapGestureRecognizer id="4pN-nn-DeY">
                     <connections>
                         <action selector="AVPlayerScenario:" destination="BYZ-38-t0r" id="xaM-ZB-Beh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Kh4-FT-IHu">
+                    <connections>
+                        <action selector="SDWebImageScenario:" destination="BYZ-38-t0r" id="CnY-Y4-Cqm"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -46,6 +46,8 @@ extern NSString *const settingCleanHostDomainKey;
 
 + (NSString *)exampleVideoUrlString;
 
++ (NSString *)exampleImageUrlString;
+
 + (NSArray<SettingInfoModel *> *)settingInfo;
 
 + (void)settingInfoChanged:(NSString *)cacheKey value:(id)value;

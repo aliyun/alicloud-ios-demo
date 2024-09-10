@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15D152CF2C8ECFDD00FF29C0 /* SDWebImageScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D152CE2C8ECFDD00FF29C0 /* SDWebImageScenario.m */; };
+		15D152D22C8ED0FB00FF29C0 /* ImageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D152D12C8ED0FB00FF29C0 /* ImageAlertView.m */; };
 		1C2E95640D115D81522589E8 /* Pods_httpdns_ios_demo_httpdns_ios_demoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B0517554DB2524A3D9539B /* Pods_httpdns_ios_demo_httpdns_ios_demoUITests.framework */; };
 		6144CA0AC1F92CAAC6D2529E /* Pods_httpdns_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDA4467FAA47A9E8133DDAC /* Pods_httpdns_ios_demo.framework */; };
 		6615E36ACB9DF5295F4AB41A /* Pods_httpdns_ios_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AB242A21723B447CF14A9C /* Pods_httpdns_ios_demoTests.framework */; };
@@ -79,6 +81,10 @@
 
 /* Begin PBXFileReference section */
 		0837016AD679778FBC5BE853 /* Pods-httpdns_ios_demoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demoTests.debug.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demoTests/Pods-httpdns_ios_demoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		15D152CD2C8ECFDD00FF29C0 /* SDWebImageScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDWebImageScenario.h; sourceTree = "<group>"; };
+		15D152CE2C8ECFDD00FF29C0 /* SDWebImageScenario.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDWebImageScenario.m; sourceTree = "<group>"; };
+		15D152D02C8ED0FB00FF29C0 /* ImageAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageAlertView.h; sourceTree = "<group>"; };
+		15D152D12C8ED0FB00FF29C0 /* ImageAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageAlertView.m; sourceTree = "<group>"; };
 		4085EFECE91BC9304862E624 /* Pods-httpdns_ios_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo.release.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo.release.xcconfig"; sourceTree = "<group>"; };
 		40B0517554DB2524A3D9539B /* Pods_httpdns_ios_demo_httpdns_ios_demoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_httpdns_ios_demo_httpdns_ios_demoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		779AAC26FF27AC412FD69B41 /* Pods-httpdns_ios_demoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demoTests.release.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demoTests/Pods-httpdns_ios_demoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +216,10 @@
 		15D152CC2C8ECB5700FF29C0 /* SDWebImageExample */ = {
 			isa = PBXGroup;
 			children = (
+				15D152CD2C8ECFDD00FF29C0 /* SDWebImageScenario.h */,
+				15D152CE2C8ECFDD00FF29C0 /* SDWebImageScenario.m */,
+				15D152D02C8ED0FB00FF29C0 /* ImageAlertView.h */,
+				15D152D12C8ED0FB00FF29C0 /* ImageAlertView.m */,
 			);
 			path = SDWebImageExample;
 			sourceTree = "<group>";
@@ -725,8 +735,10 @@
 				7E776E772C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m in Sources */,
 				7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */,
 				7ED456CB2C5741F7006FC84E /* SettingTableViewCell.m in Sources */,
+				15D152CF2C8ECFDD00FF29C0 /* SDWebImageScenario.m in Sources */,
 				7EDA67E92C5B773800BBF1D7 /* UIView+Toast.m in Sources */,
 				7EF3E4072C59E1C400703B58 /* SettingDomainListTableViewCell.m in Sources */,
+				15D152D22C8ED0FB00FF29C0 /* ImageAlertView.m in Sources */,
 				7EF25A922C3FBFFD00FD57DF /* UIColor+Hex.m in Sources */,
 				7EF25A8F2C3FBFAB00FD57DF /* UIImage+ColorToImage.m in Sources */,
 				7EC087B12C539EB6009EDF36 /* SettingInfoModel.m in Sources */,
