@@ -42,8 +42,15 @@
     
     // 3. 创建 SDWebImageDownloader 并应用配置
     SDWebImageDownloader *downloader = [[SDWebImageDownloader alloc] initWithConfig:downloaderConfig];
-    // 设置host
-    [downloader setValue:host forHTTPHeaderField:@"host"];
+    
+    // 设置 requestModifier
+    SDWebImageDownloaderRequestModifier *requestModifier = [SDWebImageDownloaderRequestModifier requestModifierWithBlock:^NSURLRequest * _Nullable(NSURLRequest * _Nonnull request) {
+        NSMutableURLRequest *mutableRequest = [request mutableCopy];
+        [mutableRequest setURL:url];
+        [mutableRequest setValue:host forHTTPHeaderField:@"host"];
+        return mutableRequest;
+    }];
+    downloader.requestModifier = requestModifier;
     
     // 4. 使用自定义的 Downloader 设置 SDWebImageManager
     SDWebImageManager *manager = [[SDWebImageManager alloc] initWithCache:[SDImageCache sharedImageCache] loader:downloader];
