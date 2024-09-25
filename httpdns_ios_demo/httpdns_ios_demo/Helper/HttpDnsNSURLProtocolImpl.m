@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "HttpDnsNSURLProtocolImpl.h"
 #import <arpa/inet.h>
+#import <zlib.h>
 #import <objc/runtime.h>
 
 static NSString *const hasBeenInterceptedCustomLabelKey = @"HttpDnsHttpMessagePropertyKey";
@@ -250,24 +251,19 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
         CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
 #pragma clang diagnostic pop
         if (CFHTTPMessageIsHeaderComplete(message)) {
-            // 以防response的header信息不完整
-            UInt8 buffer[16 * 1024];
-            UInt8 *buf = NULL;
-            NSUInteger length = 0;
             NSInputStream *inputstream = (NSInputStream *) aStream;
             NSNumber *alreadyAdded = objc_getAssociatedObject(aStream, (__bridge const void *)(kAnchorAlreadyAdded));
+            NSDictionary *headDict = (__bridge NSDictionary *) (CFHTTPMessageCopyAllHeaderFields(message));
+
             if (!alreadyAdded || ![alreadyAdded boolValue]) {
                 objc_setAssociatedObject(aStream, (__bridge const void *)(kAnchorAlreadyAdded), [NSNumber numberWithBool:YES], OBJC_ASSOCIATION_COPY);
                 // 通知client已收到response，只通知一次
 
-                NSDictionary *headDict = (__bridge NSDictionary *) (CFHTTPMessageCopyAllHeaderFields(message));
                 CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
                 // 获取响应头部的状态码
                 CFIndex statusCode = CFHTTPMessageGetResponseStatusCode(message);
                 NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:_curRequest.URL statusCode:statusCode
                                                                          HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
-
-
                 [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
 
                 // 验证证书
@@ -283,7 +279,15 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 
                 // 绑定校验策略到服务端的证书上
                 SecTrustSetPolicies(trust, (__bridge CFArrayRef) policies);
-                if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
+                SecTrustEvaluate(trust, &res);
+                SecTrustResultType secondRes = kSecTrustResultInvalid;
+                if (res == kSecTrustResultRecoverableTrustFailure) {
+                    CFDataRef errDataRef = SecTrustCopyExceptions(trust);
+                    SecTrustSetExceptions(trust, errDataRef);
+                    secondRes = SecTrustEvaluate(trust, &res);
+                }
+
+                if (secondRes != errSecSuccess) {
                     [self closeStream:aStream];
                     [self.client URLProtocol:self didFailWithError:[[NSError alloc] initWithDomain:@"can not evaluate the server trust" code:-1 userInfo:nil]];
                     return;
@@ -299,50 +303,22 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
                         [self closeStream:aStream];
                         [self handleRedirect:message];
                     } else {
-                        // 返回成功收到的数据
-                        if (![inputstream getBuffer:&buf length:&length]) {
-                            NSInteger amount = [inputstream read:buffer maxLength:sizeof(buffer)];
-                            buf = buffer;
-                            length = amount;
-                        }
-                        if ((NSInteger)length >= 0) {
-                            NSData *data = [[NSData alloc] initWithBytes:buf length:length];
-                            [self.client URLProtocol:self didLoadData:data];
-                        } else {
-                            NSError *error = inputstream.streamError;
-                            if (!error) {
-                                error = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
-                                                                   code:-2
-                                                               userInfo:nil];
-                            }
-                            [aStream removeFromRunLoop:_curRunLoop forMode:NSRunLoopCommonModes];
-                            [aStream setDelegate:nil];
-                            [aStream close];
+                        NSError *error = nil;
+                        NSData *data = [self readDataFromInputStream:inputstream headerDict:headDict stream:aStream error:&error];
+                        if (error) {
                             [self.client URLProtocol:self didFailWithError:error];
+                        } else {
+                            [self.client URLProtocol:self didLoadData:data];
                         }
                     }
                 }
             } else {
-                // 证书已验证过，返回数据
-                if (![inputstream getBuffer:&buf length:&length]) {
-                    NSInteger amount = [inputstream read:buffer maxLength:sizeof(buffer)];
-                    buf = buffer;
-                    length = amount;
-                }
-                if ((NSInteger)length >= 0) {
-                    NSData *data = [[NSData alloc] initWithBytes:buf length:length];
-                    [self.client URLProtocol:self didLoadData:data];
-                } else {
-                    NSError *error = inputstream.streamError;
-                    if (!error) {
-                        error = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
-                                                           code:-2
-                                                       userInfo:nil];
-                    }
-                    [aStream removeFromRunLoop:_curRunLoop forMode:NSRunLoopCommonModes];
-                    [aStream setDelegate:nil];
-                    [aStream close];
+                NSError *error = nil;
+                NSData *data = [self readDataFromInputStream:inputstream headerDict:headDict stream:aStream error:&error];
+                if (error) {
                     [self.client URLProtocol:self didFailWithError:error];
+                } else {
+                    [self.client URLProtocol:self didLoadData:data];
                 }
             }
             CFRelease((CFReadStreamRef)inputstream);
@@ -356,6 +332,39 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
     } else if (eventCode == NSStreamEventEndEncountered) {
         [self closeStream:_inputStream];
         [self.client URLProtocolDidFinishLoading:self];
+    }
+}
+
+- (NSData *)readDataFromInputStream:(NSInputStream *)inputStream headerDict:(NSDictionary *)headDict stream:(NSStream *)aStream error:(NSError **)error {
+    // 以防response的header信息不完整
+    UInt8 buffer[16 * 1024];
+    UInt8 *buf = NULL;
+    NSUInteger length = 0;
+
+    // 证书已验证过，返回数据
+    if (![inputStream getBuffer:&buf length:&length]) {
+        NSInteger amount = [inputStream read:buffer maxLength:sizeof(buffer)];
+        buf = buffer;
+        length = amount;
+    }
+    if ((NSInteger)length >= 0) {
+        NSData *data = [[NSData alloc] initWithBytes:buf length:length];
+        if (headDict[@"Content-Encoding"] && [headDict[@"Content-Encoding"] containsString:@"gzip"]) {
+            data = [self gzipUncompress:data];
+        }
+        return data;
+    } else {
+        NSError *streamError = inputStream.streamError;
+        if (!streamError) {
+            streamError = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
+                                               code:-2
+                                           userInfo:nil];
+        }
+        *error = streamError;
+        [aStream removeFromRunLoop:_curRunLoop forMode:NSRunLoopCommonModes];
+        [aStream setDelegate:nil];
+        [aStream close];
+        return [NSData data];
     }
 }
 
@@ -385,6 +394,58 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
         _curRequest.HTTPBody = nil;
     }
     [self startRequest];
+}
+
+- (NSData *)gzipUncompress:(NSData *)gzippedData {
+    if ([gzippedData length] == 0) {
+        return gzippedData;
+    }
+
+    unsigned full_length = (unsigned) [gzippedData length];
+    unsigned half_length = (unsigned) [gzippedData length] / 2;
+
+    NSMutableData *decompressed = [NSMutableData dataWithLength:full_length + half_length];
+    BOOL done = NO;
+    int status;
+
+    z_stream strm;
+    strm.next_in = (Bytef *)[gzippedData bytes];
+    strm.avail_in = (uInt)[gzippedData length];
+    strm.total_out = 0;
+    strm.zalloc = Z_NULL;
+    strm.zfree = Z_NULL;
+
+    if (inflateInit2(&strm, 16 + MAX_WBITS) != Z_OK) {
+        return nil;
+    }
+
+    while (!done) {
+        if (strm.total_out >= [decompressed length]) {
+            [decompressed increaseLengthBy:half_length];
+        }
+
+        strm.next_out = (Bytef *)[decompressed mutableBytes] + strm.total_out;
+        strm.avail_out = (uInt)([decompressed length] - strm.total_out);
+
+        status = inflate(&strm, Z_SYNC_FLUSH);
+
+        if (status == Z_STREAM_END) {
+            done = YES;
+        } else if (status != Z_OK) {
+            break;
+        }
+    }
+
+    if (inflateEnd(&strm) != Z_OK) {
+        return nil;
+    }
+
+    if (done) {
+        [decompressed setLength:strm.total_out];
+        return [NSData dataWithData:decompressed];
+    } else {
+        return nil;
+    }
 }
 
 @end
