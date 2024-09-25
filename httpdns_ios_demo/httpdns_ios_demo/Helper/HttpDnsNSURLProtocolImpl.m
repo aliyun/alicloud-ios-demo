@@ -303,11 +303,23 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
                         [self closeStream:aStream];
                         [self handleRedirect:message];
                     } else {
-                        [self readDataFromInputStream:inputstream headerDict:headDict stream:aStream];
+                        NSError *error = nil;
+                        NSData *data = [self readDataFromInputStream:inputstream headerDict:headDict stream:aStream error:&error];
+                        if (error) {
+                            [self.client URLProtocol:self didFailWithError:error];
+                        } else {
+                            [self.client URLProtocol:self didLoadData:data];
+                        }
                     }
                 }
             } else {
-                [self readDataFromInputStream:inputstream headerDict:headDict stream:aStream];
+                NSError *error = nil;
+                NSData *data = [self readDataFromInputStream:inputstream headerDict:headDict stream:aStream error:&error];
+                if (error) {
+                    [self.client URLProtocol:self didFailWithError:error];
+                } else {
+                    [self.client URLProtocol:self didLoadData:data];
+                }
             }
             CFRelease((CFReadStreamRef)inputstream);
             CFRelease(message);
@@ -323,7 +335,7 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
     }
 }
 
-- (void)readDataFromInputStream:(NSInputStream *)inputStream headerDict:(NSDictionary *)headDict stream:(NSStream *)aStream {
+- (NSData *)readDataFromInputStream:(NSInputStream *)inputStream headerDict:(NSDictionary *)headDict stream:(NSStream *)aStream error:(NSError **)error {
     // 以防response的header信息不完整
     UInt8 buffer[16 * 1024];
     UInt8 *buf = NULL;
@@ -340,18 +352,19 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
         if (headDict[@"Content-Encoding"] && [headDict[@"Content-Encoding"] containsString:@"gzip"]) {
             data = [self gzipUncompress:data];
         }
-        [self.client URLProtocol:self didLoadData:data];
+        return data;
     } else {
-        NSError *error = inputStream.streamError;
-        if (!error) {
-            error = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
+        NSError *streamError = inputStream.streamError;
+        if (!streamError) {
+            streamError = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
                                                code:-2
                                            userInfo:nil];
         }
+        *error = streamError;
         [aStream removeFromRunLoop:_curRunLoop forMode:NSRunLoopCommonModes];
         [aStream setDelegate:nil];
         [aStream close];
-        [self.client URLProtocol:self didFailWithError:error];
+        return [NSData data];
     }
 }
 
