@@ -12,6 +12,7 @@ target 'httpdns_ios_demo' do
 
   pod 'AFNetworking'
   pod 'Alamofire'
+  pod 'SDWebImage'
 
   # Pods for httpdns_ios_demo
 
