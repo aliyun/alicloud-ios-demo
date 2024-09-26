@@ -12,6 +12,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setupLineSpacing];
+
+    self.layer.borderColor = [UIColor colorWithHexString:@"#A7BCCE"].CGColor;
+    self.layer.borderWidth = 1;
 }
 
 - (void)setupLineSpacing {
@@ -24,12 +27,21 @@
     paragraphStyle.alignment = NSTextAlignmentCenter;
     NSDictionary *attributes = @{
         NSParagraphStyleAttributeName: paragraphStyle,
-        NSFontAttributeName: self.font,
+        NSFontAttributeName: self.font
     };
 
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:self.text attributes:attributes];
 
     self.attributedText = attributedText;
+}
+
+- (void)drawTextInRect:(CGRect)rect {
+    UIEdgeInsets insets = UIEdgeInsetsMake(10, 10, 10, 10);
+    // 将 rect 调整为考虑内边距后的大小
+    CGRect paddedRect = UIEdgeInsetsInsetRect(rect, insets);
+
+    // 调用父类的方法绘制文本
+    [super drawTextInRect:paddedRect];
 }
 
 @end
