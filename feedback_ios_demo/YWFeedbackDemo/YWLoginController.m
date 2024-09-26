@@ -49,10 +49,53 @@ static NSString * const kAppSecret = @"";
     //  self.feedbackKit = [[YWFeedbackKit alloc] initWithAppKey:kAppKey];
     
     /** 设置App自定义扩展反馈数据 */
-    self.feedbackKit.extInfo = @{@"loginTime":[[NSDate date] description],
-                                 @"visitPath":@"登陆->关于->反馈",
-                                 @"userid":@"yourid",
-                                 @"应用自定义扩展信息":@"开发者可以根据需要设置不同的自定义信息，方便在反馈系统中查看"};
+//    self.feedbackKit.extInfo = @{@"loginTime":[[NSDate date] description],
+//                                 @"visitPath":@"登陆->关于->反馈",
+//                                 @"userid":@"yourid",
+//                                 @"应用自定义扩展信息":@"开发者可以根据需要设置不同的自定义信息，方便在反馈系统中查看"};
+    // demo这里根据设置页的设置，如果有开启自定义拓展反馈数据，就传
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *setting = [defaults objectForKey:@"YWSettingInfo"];
+    if (setting) {
+        // 根据设置 配置自定义拓展信息
+        if (setting[@"customSwitch"] && [setting[@"customSwitch"] boolValue]) {
+            self.feedbackKit.extInfo = @{
+                @"应用自定义扩展信息":@"开发者可以根据需要设置不同的自定义信息，方便在反馈系统中查看",
+                @"userId":@"111"
+            };
+        } else {
+            self.feedbackKit.extInfo = nil;
+        }
+        
+        // 根据设置 配置用户昵称
+        if (setting[@"userName"]) {
+            [self.feedbackKit setUserNick:[NSString stringWithFormat:@"%@",setting[@"userName"]]];
+        } else {
+            [self.feedbackKit setUserNick:nil];
+        }
+        
+        // 根据设置 配置导航栏按键字体大小
+        if (setting[@"font"] && [setting[@"font"] length] != 0) {
+            self.feedbackKit.defaultCloseButtonTitleFont = [UIFont systemFontOfSize:[setting[@"font"] floatValue]];
+            self.feedbackKit.defaultRightBarButtonItemTitleFont = [UIFont systemFontOfSize:[setting[@"font"] floatValue]];
+        } else {
+            self.feedbackKit.defaultCloseButtonTitleFont = nil;
+            self.feedbackKit.defaultRightBarButtonItemTitleFont = nil;
+        }
+        
+        // 根据设置 配置自定义错误提示
+        if (setting[@"errorSwitch"] && [setting[@"errorSwitch"] boolValue]) {
+            /** 使用自定义的方式抛出error */
+            [self.feedbackKit setYWFeedbackViewControllerErrorBlock:^(YWFeedbackViewController *viewController, NSError *error) {
+                NSString *title = [error.userInfo objectForKey:@"msg"]?:@"接口调用失败，请保持网络通畅！";
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:title
+                                                               description:[NSString stringWithFormat:@"%ld", error.code]
+                                                                      type:TWMessageBarMessageTypeError];
+            }];
+        } else {
+            self.feedbackKit.YWFeedbackViewControllerErrorBlock = nil;
+        }
+    }
     
     __weak typeof(self) weakSelf = self;
     [self.feedbackKit makeFeedbackViewControllerWithCompletionBlock:^(YWFeedbackViewController *viewController, NSError *error) {
@@ -71,14 +114,6 @@ static NSString * const kAppSecret = @"";
                                                                   type:TWMessageBarMessageTypeError];
         }
     }];
-    
-    /** 使用自定义的方式抛出error */
-//    [self.feedbackKit setYWFeedbackViewControllerErrorBlock:^(YWFeedbackViewController *viewController, NSError *error) {
-//        NSString *title = [error.userInfo objectForKey:@"msg"]?:@"接口调用失败，请保持网络通畅！";
-//        [[TWMessageBarManager sharedInstance] showMessageWithTitle:title
-//                                                       description:[NSString stringWithFormat:@"%ld", error.code]
-//                                                              type:TWMessageBarMessageTypeError];
-//    }];
 }
 
 /** 查询未读数 */

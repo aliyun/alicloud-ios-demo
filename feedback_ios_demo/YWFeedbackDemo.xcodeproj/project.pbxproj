@@ -20,6 +20,7 @@
 		B33283211C27F820006DB60A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B33283201C27F820006DB60A /* Assets.xcassets */; };
 		B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33283221C27F820006DB60A /* LaunchScreen.storyboard */; };
 		B34E8FC01C5B32A300BBA227 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B34E8FBF1C5B32A300BBA227 /* libz.tbd */; };
+		F1BAF58F2CAA3EA3001C0B76 /* YWSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BAF58E2CAA3EA3001C0B76 /* YWSettingViewController.m */; };
 		FE7BA7271D93E334004CA3F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */; };
 		FE94F55E1DB86B5300C5044C /* YWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F55C1DB86B5300C5044C /* YWLoginController.m */; };
 		FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5621DB86B9400C5044C /* AVQRViewController.m */; };
@@ -50,6 +51,8 @@
 		B39022C71C2A79AE00229BDD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BB1CFB97D159B743A53D232A /* Pods-YWFeedbackDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.debug.xcconfig"; path = "Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		DEBB097378B2427FFC591A0F /* Pods-YWFeedbackDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.release.xcconfig"; path = "Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F1BAF58D2CAA3EA3001C0B76 /* YWSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWSettingViewController.h; sourceTree = "<group>"; };
+		F1BAF58E2CAA3EA3001C0B76 /* YWSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWSettingViewController.m; sourceTree = "<group>"; };
 		FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FE94F55B1DB86B5300C5044C /* YWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWLoginController.h; sourceTree = "<group>"; };
 		FE94F55C1DB86B5300C5044C /* YWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWLoginController.m; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 		B33283131C27F820006DB60A /* YWFeedbackDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F1BAF58D2CAA3EA3001C0B76 /* YWSettingViewController.h */,
+				F1BAF58E2CAA3EA3001C0B76 /* YWSettingViewController.m */,
 				FE94F5601DB86B9400C5044C /* Util */,
 				B33283171C27F820006DB60A /* AppDelegate.h */,
 				B33283181C27F820006DB60A /* AppDelegate.m */,
@@ -307,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */,
+				F1BAF58F2CAA3EA3001C0B76 /* YWSettingViewController.m in Sources */,
 				FE94F57A1DB86B9400C5044C /* UIButton+Badge.m in Sources */,
 				FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */,
 				FE94F5781DB86B9400C5044C /* TWMessageBarManager.m in Sources */,
