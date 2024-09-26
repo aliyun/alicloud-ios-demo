@@ -24,12 +24,57 @@
 
 @implementation SettingViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.infoArray = [HTTPDNSDemoUtils settingInfo];
 
     self.settingTableView.delegate = self;
     self.settingTableView.dataSource = self;
+
+    self.navigationController.navigationBar.topItem.title = @"";
+
+    // 添加键盘监听
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *info = notification.userInfo;
+    CGSize keyboardSize = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+
+    // 计算视图向上移动的高度
+    CGFloat moveUpHeight = keyboardSize.height;
+
+    // 动画效果
+    CGPoint offset = self.settingTableView.contentOffset;
+    offset.y += moveUpHeight;
+    [self.settingTableView setContentOffset:offset animated:YES];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    // 动画效果
+    CGPoint offset = CGPointMake(0, 0);
+    [self.settingTableView setContentOffset:offset animated:YES];
 }
 
 #pragma mark - UITableView delegate & dataSource

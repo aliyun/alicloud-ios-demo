@@ -28,6 +28,9 @@
     self.selectedCheckMark.frame = CGRectMake(self.frame.size.width - 18, self.frame.size.height - 18, 18, 18);
     [self addSubview:self.selectedCheckMark];
 
+    [self setTitleColor:[UIColor colorWithHexString:@"#1B58F4"] forState:UIControlStateSelected];
+    [self setTitleColor:[UIColor colorWithHexString:@"#E6E8EB"] forState:UIControlStateNormal];
+
     [self changeState];
 }
 
