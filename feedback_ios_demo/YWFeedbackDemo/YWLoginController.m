@@ -15,8 +15,8 @@
 #import <YWFeedbackFMWK/YWFeedbackViewController.h>
 
 #warning 修改为你自己的 appkey 和 appSecret。
-static NSString * const kAppKey = @"";
-static NSString * const kAppSecret = @"";
+static NSString * const kAppKey = @"333740861";
+static NSString * const kAppSecret = @"b4eecb377a2b42a19dd60bbe5abb2766";
 
 @interface YWLoginController()<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -45,9 +45,6 @@ static NSString * const kAppSecret = @"";
 #pragma mark - methods
 /** 打开用户反馈页面 */
 - (void)openFeedbackViewController {
-    //  初始化方式,或者参考下方的`- (YWFeedbackKit *)feedbackKit`方法。
-    //  self.feedbackKit = [[YWFeedbackKit alloc] initWithAppKey:kAppKey];
-    
     /** 设置App自定义扩展反馈数据 */
 //    self.feedbackKit.extInfo = @{@"loginTime":[[NSDate date] description],
 //                                 @"visitPath":@"登陆->关于->反馈",
@@ -143,10 +140,7 @@ static NSString * const kAppSecret = @"";
 - (YWFeedbackKit *)feedbackKit {
     if (!_feedbackKit) {
         // SDK初始化，手动配置appKey/appSecret
-        //_feedbackKit = [[YWFeedbackKit alloc] initWithAppKey:kAppKey appSecret:kAppSecret];
-        
-        // 请从控制台下载AliyunEmasServices-Info.plist配置文件，并正确拖入工程
-        _feedbackKit = [[YWFeedbackKit alloc] autoInit];
+        _feedbackKit = [[YWFeedbackKit alloc] initWithAppKey:kAppKey appSecret:kAppSecret];
     }
     return _feedbackKit;
 }

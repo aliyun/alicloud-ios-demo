@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A7C371A2069FB94000B0B7E /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */; };
 		9A5BF7DB1EC1AED8001588B2 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */; };
 		9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA611F680C8A006B833E /* feedback_product_logo.png */; };
 		9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AliyunEmasServices-Info.plist"; path = "../mpush_ios_demo/AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		9A88BA611F680C8A006B833E /* feedback_product_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_product_logo.png; sourceTree = "<group>"; };
 		9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = where_is_appkey_secrectkey.png; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 		B33283081C27F820006DB60A = {
 			isa = PBXGroup;
 			children = (
-				4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */,
 				B33283131C27F820006DB60A /* YWFeedbackDemo */,
 				B33283121C27F820006DB60A /* Products */,
 				600BC3C0D46050573EF2B77B /* Frameworks */,
@@ -254,7 +251,6 @@
 				9A88BA661F68BBFD006B833E /* aliyun_bg.png in Resources */,
 				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
 				9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */,
-				4A7C371A2069FB94000B0B7E /* AliyunEmasServices-Info.plist in Resources */,
 				9A88BA6A1F68C1ED006B833E /* MainStoryboard.storyboard in Resources */,
 				9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */,
 				B33283211C27F820006DB60A /* Assets.xcassets in Resources */,
