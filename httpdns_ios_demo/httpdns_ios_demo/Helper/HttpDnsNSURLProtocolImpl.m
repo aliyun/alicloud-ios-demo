@@ -25,7 +25,7 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 
 @implementation HttpDnsNSURLProtocolImpl
 
-- (instancetype)initWithRequest:(NSURLRequest *)request cachedResponse:(nullable NSCachedURLResponse *)cachedResponse client:(nullable id <NSURLProtocolClient>)client{
+- (instancetype)initWithRequest:(NSURLRequest *)request cachedResponse:(nullable NSCachedURLResponse *)cachedResponse client:(nullable id <NSURLProtocolClient>)client {
     self = [super initWithRequest:request cachedResponse:cachedResponse client:client];
     if (self) {
         _gzipStream.zalloc = Z_NULL;
