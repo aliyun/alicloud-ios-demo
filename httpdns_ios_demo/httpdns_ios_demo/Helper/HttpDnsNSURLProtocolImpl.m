@@ -353,40 +353,30 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 - (NSData *)readDataFromInputStream:(NSInputStream *)inputStream headerDict:(NSDictionary *)headDict stream:(NSStream *)aStream error:(NSError **)error {
     // 以防response的header信息不完整
     UInt8 buffer[16 * 1024];
-    UInt8 *buf = NULL;
-    NSUInteger length = 0;
 
-    // 证书已验证过，返回数据
-    if (![inputStream getBuffer:&buf length:&length]) {
-        NSInteger amount = [inputStream read:buffer maxLength:sizeof(buffer)];
-        buf = buffer;
-        length = amount;
-    }
-    if ((NSInteger)length >= 0) {
-        NSData *data = [[NSData alloc] initWithBytes:buf length:length];
-        if (headDict[@"Content-Encoding"] && [headDict[@"Content-Encoding"] containsString:@"gzip"]) {
-            data = [self gzipUncompress:data];
-            if (data == nil) {
-                NSError *gzipError = [[NSError alloc] initWithDomain:@"gzip decompress fail"
-                                                                code:-1
-                                                            userInfo:nil];
-                *error = gzipError;
-            }
-        }
-        return data;
-    } else {
-        NSError *streamError = inputStream.streamError;
-        if (!streamError) {
-            streamError = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
-                                               code:-2
-                                           userInfo:nil];
-        }
-        *error = streamError;
+    NSUInteger length = [inputStream read:buffer maxLength:sizeof(buffer)];
+    if (length < 0) {
+        *error = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
+                                           code:-2
+                                       userInfo:nil];
         [aStream removeFromRunLoop:_curRunLoop forMode:NSRunLoopCommonModes];
         [aStream setDelegate:nil];
         [aStream close];
-        return [NSData data];
+        return nil;
     }
+
+    NSData *data = [[NSData alloc] initWithBytes:buffer length:length];
+    if (headDict[@"Content-Encoding"] && [headDict[@"Content-Encoding"] containsString:@"gzip"]) {
+        data = [self gzipUncompress:data];
+        if (!data) {
+            *error = [[NSError alloc] initWithDomain:@"can't read any data"
+                                               code:-3
+                                           userInfo:nil];
+            return nil;
+        }
+    }
+
+    return data;
 }
 
 - (void)closeStream:(NSStream*)stream {
