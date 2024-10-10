@@ -366,6 +366,12 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
         NSData *data = [[NSData alloc] initWithBytes:buf length:length];
         if (headDict[@"Content-Encoding"] && [headDict[@"Content-Encoding"] containsString:@"gzip"]) {
             data = [self gzipUncompress:data];
+            if (data == nil) {
+                NSError *gzipError = [[NSError alloc] initWithDomain:@"gzip decompress fail"
+                                                                code:-1
+                                                            userInfo:nil];
+                *error = gzipError;
+            }
         }
         return data;
     } else {
@@ -438,6 +444,13 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 
         if (status == Z_STREAM_END) {
             done = YES;
+        } else if (status == Z_BUF_ERROR) {
+            // 假如Z_BUF_ERROR是由于输出缓冲区不够大引起的，那么应该满足输入缓冲区未处理完，且输出缓冲区已填满
+            // 即满足_gzipStream.avail_in != 0 && _gzipStream.avail_out == 0，此时应该继续循环进行扩容
+            // 对于取反的条件，说明不是由于输出缓冲区不够大引起的，那么此时应该结束循环，代表出现了error
+            if (_gzipStream.avail_in == 0 || _gzipStream.avail_out != 0) {
+                return nil;
+            }
         } else if (status != Z_OK) {
             return nil;
         }
