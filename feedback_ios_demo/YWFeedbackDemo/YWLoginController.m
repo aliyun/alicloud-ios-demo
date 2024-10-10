@@ -46,10 +46,10 @@ static NSString * const kAppSecret = @"b4eecb377a2b42a19dd60bbe5abb2766";
 /** 打开用户反馈页面 */
 - (void)openFeedbackViewController {
     /** 设置App自定义扩展反馈数据 */
-//    self.feedbackKit.extInfo = @{@"loginTime":[[NSDate date] description],
-//                                 @"visitPath":@"登陆->关于->反馈",
-//                                 @"userid":@"yourid",
-//                                 @"应用自定义扩展信息":@"开发者可以根据需要设置不同的自定义信息，方便在反馈系统中查看"};
+    // self.feedbackKit.extInfo = @{@"loginTime":[[NSDate date] description],
+    //                                 @"visitPath":@"登陆->关于->反馈",
+    //                                 @"userid":@"yourid",
+    //                                 @"应用自定义扩展信息":@"开发者可以根据需要设置不同的自定义信息，方便在反馈系统中查看"};
     // demo这里根据设置页的设置，如果有开启自定义拓展反馈数据，就传
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *setting = [defaults objectForKey:@"YWSettingInfo"];
