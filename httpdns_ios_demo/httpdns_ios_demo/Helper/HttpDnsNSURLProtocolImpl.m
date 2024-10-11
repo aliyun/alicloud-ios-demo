@@ -279,15 +279,7 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 
                 // 绑定校验策略到服务端的证书上
                 SecTrustSetPolicies(trust, (__bridge CFArrayRef) policies);
-                SecTrustEvaluate(trust, &res);
-                SecTrustResultType secondRes = kSecTrustResultInvalid;
-                if (res == kSecTrustResultRecoverableTrustFailure) {
-                    CFDataRef errDataRef = SecTrustCopyExceptions(trust);
-                    SecTrustSetExceptions(trust, errDataRef);
-                    secondRes = SecTrustEvaluate(trust, &res);
-                }
-
-                if (secondRes != errSecSuccess) {
+                if (SecTrustEvaluate(trust, &res) != errSecSuccess) {
                     [self closeStream:aStream];
                     [self.client URLProtocol:self didFailWithError:[[NSError alloc] initWithDomain:@"can not evaluate the server trust" code:-1 userInfo:nil]];
                     return;
