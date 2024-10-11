@@ -354,7 +354,7 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
     // 以防response的header信息不完整
     UInt8 buffer[16 * 1024];
 
-    NSUInteger length = [inputStream read:buffer maxLength:sizeof(buffer)];
+    NSInteger length = [inputStream read:buffer maxLength:sizeof(buffer)];
     if (length < 0) {
         *error = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
                                            code:-2
