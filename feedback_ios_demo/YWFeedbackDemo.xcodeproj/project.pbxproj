@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A7C371A2069FB94000B0B7E /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */; };
 		9A5BF7DB1EC1AED8001588B2 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */; };
 		9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA611F680C8A006B833E /* feedback_product_logo.png */; };
 		9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */; };
 		9A88BA661F68BBFD006B833E /* aliyun_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA651F68BBFD006B833E /* aliyun_bg.png */; };
-		9A88BA6A1F68C1ED006B833E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */; };
 		B3316C8E1C60884300186840 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8D1C60884300186840 /* CoreTelephony.framework */; };
 		B3316C901C60884A00186840 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3316C8F1C60884A00186840 /* SystemConfiguration.framework */; };
 		B33283161C27F820006DB60A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B33283151C27F820006DB60A /* main.m */; };
@@ -20,8 +18,10 @@
 		B33283211C27F820006DB60A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B33283201C27F820006DB60A /* Assets.xcassets */; };
 		B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33283221C27F820006DB60A /* LaunchScreen.storyboard */; };
 		B34E8FC01C5B32A300BBA227 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B34E8FBF1C5B32A300BBA227 /* libz.tbd */; };
+		F1BAF7EA2CB8D49F001C0B76 /* YWSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BAF7E92CB8D49F001C0B76 /* YWSettingViewController.m */; };
+		F1BAF7EC2CB8D4C1001C0B76 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1BAF7EB2CB8D4C1001C0B76 /* MainStoryboard.storyboard */; };
+		F1BAF7EF2CB8D4DF001C0B76 /* YWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BAF7EE2CB8D4DF001C0B76 /* YWLoginController.m */; };
 		FE7BA7271D93E334004CA3F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */; };
-		FE94F55E1DB86B5300C5044C /* YWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F55C1DB86B5300C5044C /* YWLoginController.m */; };
 		FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5621DB86B9400C5044C /* AVQRViewController.m */; };
 		FE94F5781DB86B9400C5044C /* TWMessageBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */; };
 		FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56E1DB86B9400C5044C /* UIAlertView+XY.m */; };
@@ -30,12 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AliyunEmasServices-Info.plist"; path = "../mpush_ios_demo/AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		9A5BF7DA1EC1AED8001588B2 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		9A88BA611F680C8A006B833E /* feedback_product_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_product_logo.png; sourceTree = "<group>"; };
 		9A88BA621F680C8A006B833E /* where_is_appkey_secrectkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = where_is_appkey_secrectkey.png; sourceTree = "<group>"; };
 		9A88BA651F68BBFD006B833E /* aliyun_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aliyun_bg.png; sourceTree = "<group>"; };
-		9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B3316C8D1C60884300186840 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B3316C8F1C60884A00186840 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B33283111C27F820006DB60A /* YWFeedbackDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YWFeedbackDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,9 +48,12 @@
 		B39022C71C2A79AE00229BDD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BB1CFB97D159B743A53D232A /* Pods-YWFeedbackDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.debug.xcconfig"; path = "Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		DEBB097378B2427FFC591A0F /* Pods-YWFeedbackDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YWFeedbackDemo.release.xcconfig"; path = "Target Support Files/Pods-YWFeedbackDemo/Pods-YWFeedbackDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F1BAF7E82CB8D49F001C0B76 /* YWSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWSettingViewController.h; sourceTree = "<group>"; };
+		F1BAF7E92CB8D49F001C0B76 /* YWSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWSettingViewController.m; sourceTree = "<group>"; };
+		F1BAF7EB2CB8D4C1001C0B76 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		F1BAF7ED2CB8D4DF001C0B76 /* YWLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWLoginController.h; sourceTree = "<group>"; };
+		F1BAF7EE2CB8D4DF001C0B76 /* YWLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWLoginController.m; sourceTree = "<group>"; };
 		FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		FE94F55B1DB86B5300C5044C /* YWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWLoginController.h; sourceTree = "<group>"; };
-		FE94F55C1DB86B5300C5044C /* YWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWLoginController.m; sourceTree = "<group>"; };
 		FE94F5611DB86B9400C5044C /* AVQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVQRViewController.h; sourceTree = "<group>"; };
 		FE94F5621DB86B9400C5044C /* AVQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVQRViewController.m; sourceTree = "<group>"; };
 		FE94F56B1DB86B9400C5044C /* TWMessageBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWMessageBarManager.h; sourceTree = "<group>"; };
@@ -118,7 +119,6 @@
 		B33283081C27F820006DB60A = {
 			isa = PBXGroup;
 			children = (
-				4A7C37192069FB94000B0B7E /* AliyunEmasServices-Info.plist */,
 				B33283131C27F820006DB60A /* YWFeedbackDemo */,
 				B33283121C27F820006DB60A /* Products */,
 				600BC3C0D46050573EF2B77B /* Frameworks */,
@@ -137,12 +137,14 @@
 		B33283131C27F820006DB60A /* YWFeedbackDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F1BAF7ED2CB8D4DF001C0B76 /* YWLoginController.h */,
+				F1BAF7EE2CB8D4DF001C0B76 /* YWLoginController.m */,
+				F1BAF7EB2CB8D4C1001C0B76 /* MainStoryboard.storyboard */,
+				F1BAF7E82CB8D49F001C0B76 /* YWSettingViewController.h */,
+				F1BAF7E92CB8D49F001C0B76 /* YWSettingViewController.m */,
 				FE94F5601DB86B9400C5044C /* Util */,
 				B33283171C27F820006DB60A /* AppDelegate.h */,
 				B33283181C27F820006DB60A /* AppDelegate.m */,
-				FE94F55B1DB86B5300C5044C /* YWLoginController.h */,
-				FE94F55C1DB86B5300C5044C /* YWLoginController.m */,
-				9A88BA691F68C1ED006B833E /* MainStoryboard.storyboard */,
 				B33283201C27F820006DB60A /* Assets.xcassets */,
 				B33283221C27F820006DB60A /* LaunchScreen.storyboard */,
 				B33283251C27F820006DB60A /* Info.plist */,
@@ -248,9 +250,8 @@
 				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
 				9A88BA661F68BBFD006B833E /* aliyun_bg.png in Resources */,
 				B33283241C27F820006DB60A /* LaunchScreen.storyboard in Resources */,
+				F1BAF7EC2CB8D4C1001C0B76 /* MainStoryboard.storyboard in Resources */,
 				9A88BA631F680C8A006B833E /* feedback_product_logo.png in Resources */,
-				4A7C371A2069FB94000B0B7E /* AliyunEmasServices-Info.plist in Resources */,
-				9A88BA6A1F68C1ED006B833E /* MainStoryboard.storyboard in Resources */,
 				9A88BA641F680C8A006B833E /* where_is_appkey_secrectkey.png in Resources */,
 				B33283211C27F820006DB60A /* Assets.xcassets in Resources */,
 			);
@@ -307,12 +308,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */,
+				F1BAF7EA2CB8D49F001C0B76 /* YWSettingViewController.m in Sources */,
 				FE94F57A1DB86B9400C5044C /* UIButton+Badge.m in Sources */,
+				F1BAF7EF2CB8D4DF001C0B76 /* YWLoginController.m in Sources */,
 				FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */,
 				FE94F5781DB86B9400C5044C /* TWMessageBarManager.m in Sources */,
 				B33283191C27F820006DB60A /* AppDelegate.m in Sources */,
 				B33283161C27F820006DB60A /* main.m in Sources */,
-				FE94F55E1DB86B5300C5044C /* YWLoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
