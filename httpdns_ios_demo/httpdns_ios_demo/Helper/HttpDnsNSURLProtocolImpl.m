@@ -19,10 +19,23 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 @property (strong, readwrite, nonatomic) NSMutableURLRequest *curRequest;
 @property (strong, readwrite, nonatomic) NSRunLoop *curRunLoop;
 @property (strong, readwrite, nonatomic) NSInputStream *inputStream;
+@property (assign, nonatomic) z_stream gzipStream;
 
 @end
 
 @implementation HttpDnsNSURLProtocolImpl
+
+- (instancetype)initWithRequest:(NSURLRequest *)request cachedResponse:(nullable NSCachedURLResponse *)cachedResponse client:(nullable id <NSURLProtocolClient>)client {
+    self = [super initWithRequest:request cachedResponse:cachedResponse client:client];
+    if (self) {
+        _gzipStream.zalloc = Z_NULL;
+        _gzipStream.zfree = Z_NULL;
+        if (inflateInit2(&_gzipStream, 16 + MAX_WBITS) != Z_OK) {
+            [self.client URLProtocol:self didFailWithError:[[NSError alloc] initWithDomain:@"gzip initialize fail" code:-1 userInfo:nil]];
+        }
+    }
+    return self;
+}
 
 /**
  *  是否拦截处理指定的请求
@@ -326,11 +339,13 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
         }
     } else if (eventCode == NSStreamEventErrorOccurred) {
         [self closeStream:aStream];
+        inflateEnd(&_gzipStream);
         // 通知client发生错误了
         [self.client URLProtocol:self didFailWithError:
          [[NSError alloc] initWithDomain:@"NSStreamEventErrorOccurred" code:-1 userInfo:nil]];
     } else if (eventCode == NSStreamEventEndEncountered) {
         [self closeStream:_inputStream];
+        inflateEnd(&_gzipStream);
         [self.client URLProtocolDidFinishLoading:self];
     }
 }
@@ -338,34 +353,30 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 - (NSData *)readDataFromInputStream:(NSInputStream *)inputStream headerDict:(NSDictionary *)headDict stream:(NSStream *)aStream error:(NSError **)error {
     // 以防response的header信息不完整
     UInt8 buffer[16 * 1024];
-    UInt8 *buf = NULL;
-    NSUInteger length = 0;
 
-    // 证书已验证过，返回数据
-    if (![inputStream getBuffer:&buf length:&length]) {
-        NSInteger amount = [inputStream read:buffer maxLength:sizeof(buffer)];
-        buf = buffer;
-        length = amount;
-    }
-    if ((NSInteger)length >= 0) {
-        NSData *data = [[NSData alloc] initWithBytes:buf length:length];
-        if (headDict[@"Content-Encoding"] && [headDict[@"Content-Encoding"] containsString:@"gzip"]) {
-            data = [self gzipUncompress:data];
-        }
-        return data;
-    } else {
-        NSError *streamError = inputStream.streamError;
-        if (!streamError) {
-            streamError = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
-                                               code:-2
-                                           userInfo:nil];
-        }
-        *error = streamError;
+    NSUInteger length = [inputStream read:buffer maxLength:sizeof(buffer)];
+    if (length < 0) {
+        *error = [[NSError alloc] initWithDomain:@"inputstream length is invalid"
+                                           code:-2
+                                       userInfo:nil];
         [aStream removeFromRunLoop:_curRunLoop forMode:NSRunLoopCommonModes];
         [aStream setDelegate:nil];
         [aStream close];
-        return [NSData data];
+        return nil;
     }
+
+    NSData *data = [[NSData alloc] initWithBytes:buffer length:length];
+    if (headDict[@"Content-Encoding"] && [headDict[@"Content-Encoding"] containsString:@"gzip"]) {
+        data = [self gzipUncompress:data];
+        if (!data) {
+            *error = [[NSError alloc] initWithDomain:@"can't read any data"
+                                               code:-3
+                                           userInfo:nil];
+            return nil;
+        }
+    }
+
+    return data;
 }
 
 - (void)closeStream:(NSStream*)stream {
@@ -407,45 +418,36 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
     NSMutableData *decompressed = [NSMutableData dataWithLength:full_length + half_length];
     BOOL done = NO;
     int status;
+    _gzipStream.next_in = (Bytef *)[gzippedData bytes];
+    _gzipStream.avail_in = (uInt)[gzippedData length];
+    _gzipStream.total_out = 0;
 
-    z_stream strm;
-    strm.next_in = (Bytef *)[gzippedData bytes];
-    strm.avail_in = (uInt)[gzippedData length];
-    strm.total_out = 0;
-    strm.zalloc = Z_NULL;
-    strm.zfree = Z_NULL;
-
-    if (inflateInit2(&strm, 16 + MAX_WBITS) != Z_OK) {
-        return nil;
-    }
-
-    while (!done) {
-        if (strm.total_out >= [decompressed length]) {
+    while (_gzipStream.avail_in != 0 && !done) {
+        if (_gzipStream.total_out >= [decompressed length]) {
             [decompressed increaseLengthBy:half_length];
         }
 
-        strm.next_out = (Bytef *)[decompressed mutableBytes] + strm.total_out;
-        strm.avail_out = (uInt)([decompressed length] - strm.total_out);
+        _gzipStream.next_out = (Bytef *)[decompressed mutableBytes] + _gzipStream.total_out;
+        _gzipStream.avail_out = (uInt)([decompressed length] - _gzipStream.total_out);
 
-        status = inflate(&strm, Z_SYNC_FLUSH);
+        status = inflate(&_gzipStream, Z_SYNC_FLUSH);
 
         if (status == Z_STREAM_END) {
             done = YES;
+        } else if (status == Z_BUF_ERROR) {
+            // 假如Z_BUF_ERROR是由于输出缓冲区不够大引起的，那么应该满足输入缓冲区未处理完，且输出缓冲区已填满
+            // 即满足_gzipStream.avail_in != 0 && _gzipStream.avail_out == 0，此时应该继续循环进行扩容
+            // 对于取反的条件，说明不是由于输出缓冲区不够大引起的，那么此时应该结束循环，代表出现了error
+            if (_gzipStream.avail_in == 0 || _gzipStream.avail_out != 0) {
+                return nil;
+            }
         } else if (status != Z_OK) {
-            break;
+            return nil;
         }
     }
 
-    if (inflateEnd(&strm) != Z_OK) {
-        return nil;
-    }
-
-    if (done) {
-        [decompressed setLength:strm.total_out];
-        return [NSData dataWithData:decompressed];
-    } else {
-        return nil;
-    }
+    [decompressed setLength:_gzipStream.total_out];
+    return [NSData dataWithData:decompressed];
 }
 
 @end
