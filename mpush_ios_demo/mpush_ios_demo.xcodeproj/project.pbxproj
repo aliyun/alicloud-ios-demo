@@ -10,7 +10,6 @@
 		4A25DD791F17220600FD539A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A25DD781F17220500FD539A /* libsqlite3.tbd */; };
 		4A383CC31DB8649B0037D863 /* aliyun-logo-local.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A383CC21DB8649B0037D863 /* aliyun-logo-local.png */; };
 		4A4E20381F172F130087A89E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4E20371F172F130087A89E /* libz.tbd */; };
-		4A7C37162069F860000B0B7E /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7C37152069F860000B0B7E /* AliyunEmasServices-Info.plist */; };
 		4A9554E11CEEC7E900F64F49 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9554E01CEEC7E900F64F49 /* libresolv.tbd */; };
 		4AC713381DB60DF30062EE5A /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC713371DB60DF30062EE5A /* NotificationService.m */; };
 		4AC7133C1DB60DF30062EE5A /* mpush_service_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AC713341DB60DF30062EE5A /* mpush_service_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -19,6 +18,10 @@
 		4AC7134D1DB60E0B0062EE5A /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC7134C1DB60E0B0062EE5A /* NotificationViewController.m */; };
 		4AC713501DB60E0B0062EE5A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7134E1DB60E0B0062EE5A /* MainInterface.storyboard */; };
 		4AC713541DB60E0B0062EE5A /* mpush_content_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AC713451DB60E0B0062EE5A /* mpush_content_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7E2E5CEE2CBCEDFC0030441B /* MessageSingleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CED2CBCEDFC0030441B /* MessageSingleTableViewCell.m */; };
+		7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */; };
+		7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */; };
+		7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF16B392CB8CD3B00256421 /* MessageViewController.m */; };
 		91E7FC651FC70E48067649B1 /* libPods-mpush_service_extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F49D0B99AE77C0978EED065 /* libPods-mpush_service_extension.a */; };
 		9FB5229363C709B982FA6070 /* libPods-mpush_content_extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C2A3F748EE1D95B67E1163 /* libPods-mpush_content_extension.a */; };
 		C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D151ACED5B70094FCEC /* FAImageView.m */; };
@@ -90,7 +93,6 @@
 		4A25DD781F17220500FD539A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4A383CC21DB8649B0037D863 /* aliyun-logo-local.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aliyun-logo-local.png"; sourceTree = "<group>"; };
 		4A4E20371F172F130087A89E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		4A7C37152069F860000B0B7E /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		4A9554E01CEEC7E900F64F49 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		4AC7132F1DB5E9270062EE5A /* mpush_ios_demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mpush_ios_demo.entitlements; sourceTree = "<group>"; };
 		4AC713341DB60DF30062EE5A /* mpush_service_extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpush_service_extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,14 @@
 		4AC7134F1DB60E0B0062EE5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4AC713511DB60E0B0062EE5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E493400C746275D3D731AF4 /* Pods-mpush_service_extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_service_extension.release.xcconfig"; path = "Target Support Files/Pods-mpush_service_extension/Pods-mpush_service_extension.release.xcconfig"; sourceTree = "<group>"; };
+		7E2E5CEC2CBCEDFC0030441B /* MessageSingleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSingleTableViewCell.h; sourceTree = "<group>"; };
+		7E2E5CED2CBCEDFC0030441B /* MessageSingleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSingleTableViewCell.m; sourceTree = "<group>"; };
+		7E2E5CF32CBCFE480030441B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
+		7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		7E2E5CF92CBD20E80030441B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		7EF16B382CB8CD3B00256421 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		7EF16B392CB8CD3B00256421 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		7F49D0B99AE77C0978EED065 /* libPods-mpush_service_extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpush_service_extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9102D141ACED5B70094FCEC /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		C9102D151ACED5B70094FCEC /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
@@ -210,6 +220,15 @@
 			path = mpush_content_extension;
 			sourceTree = "<group>";
 		};
+		7E2E5CEF2CBCFD9F0030441B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7E2E5CF92CBD20E80030441B /* UIColor+Hex.h */,
+				7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +308,10 @@
 			children = (
 				C93E19B21ACB95F600A90F3B /* LZLMessagesViewController.h */,
 				C93E19B31ACB95F600A90F3B /* LZLMessagesViewController.m */,
+				7EF16B382CB8CD3B00256421 /* MessageViewController.h */,
+				7EF16B392CB8CD3B00256421 /* MessageViewController.m */,
+				7E2E5CEC2CBCEDFC0030441B /* MessageSingleTableViewCell.h */,
+				7E2E5CED2CBCEDFC0030441B /* MessageSingleTableViewCell.m */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -343,7 +366,7 @@
 		C99E76521AC96B8B000BC567 = {
 			isa = PBXGroup;
 			children = (
-				4A7C37152069F860000B0B7E /* AliyunEmasServices-Info.plist */,
+				7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */,
 				C9C301151ADBA55000BF3288 /* ued.sqlite */,
 				C99E765D1AC96B8B000BC567 /* mpush_ios_demo */,
 				4AC713351DB60DF30062EE5A /* mpush_service_extension */,
@@ -367,6 +390,7 @@
 		C99E765D1AC96B8B000BC567 /* mpush_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
+				7E2E5CEF2CBCFD9F0030441B /* Category */,
 				4AC7132F1DB5E9270062EE5A /* mpush_ios_demo.entitlements */,
 				C99E765E1AC96B8B000BC567 /* Supporting Files */,
 				C91A23861ACA32A800E0E33D /* Main */,
@@ -387,6 +411,7 @@
 				C99E76701AC96B8B000BC567 /* LaunchScreen.xib */,
 				C9D939321ACA77F7007E7BE6 /* Images.xcassets */,
 				C99E765F1AC96B8B000BC567 /* Info.plist */,
+				7E2E5CF32CBCFE480030441B /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -401,7 +426,6 @@
 				2F1B48EB83924CE3C989827C /* Pods-mpush_service_extension.debug.xcconfig */,
 				4E493400C746275D3D731AF4 /* Pods-mpush_service_extension.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -541,10 +565,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7C37162069F860000B0B7E /* AliyunEmasServices-Info.plist in Resources */,
 				C9C301161ADBA55000BF3288 /* ued.sqlite in Resources */,
 				C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */,
 				C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */,
+				7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */,
 				C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */,
 				C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */,
 			);
@@ -642,17 +666,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E2E5CEE2CBCEDFC0030441B /* MessageSingleTableViewCell.m in Sources */,
 				C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */,
 				C95EFE071ACAE2C80082CF70 /* MPSettingsViewController.m in Sources */,
 				C95EFE131ACAFF580082CF70 /* LZLPersonalData.m in Sources */,
 				C918AE971ACB8C6E001445C1 /* LZLPersonalViewController.m in Sources */,
 				C93E19BF1ACBD0E800A90F3B /* LZLPushMessage.m in Sources */,
 				C99E76671AC96B8B000BC567 /* UserExperienceDemo.xcdatamodeld in Sources */,
+				7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */,
 				C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
 				C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */,
 				C99E76611AC96B8B000BC567 /* main.m in Sources */,
 				C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */,
+				7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */,
 				C93E19C41ACBD4B000A90F3B /* PushMessageDAO.m in Sources */,
 				C9102D291ACED5B70094FCEC /* UIFont+FontAwesome.m in Sources */,
 				C93E19B41ACB95F600A90F3B /* LZLMessagesViewController.m in Sources */,
@@ -767,6 +794,7 @@
 				INFOPLIST_FILE = mpush_content_extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.noticontent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -793,6 +821,7 @@
 				INFOPLIST_FILE = mpush_content_extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.noticontent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -895,6 +924,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mpush_ios_demo/PrefixHeader.pch";
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -928,6 +958,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mpush_ios_demo/PrefixHeader.pch";
 				INFOPLIST_FILE = mpush_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

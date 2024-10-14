@@ -156,6 +156,8 @@ static NSString *const testAppSecret = @"******";
     int badge = [content.badge intValue];
     // 取得通知自定义字段内容，例：获取key为"Extras"的内容
     NSString *extras = [userInfo valueForKey:@"Extras"];
+    // 分组id
+    NSString *threadId = userInfo[@"aps"][@"thread-id"];
     // 通知角标数清0
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // 同步角标数到服务端
@@ -214,13 +216,13 @@ static NSString *const testAppSecret = @"******";
     // 正式上线建议关闭
     [CloudPushSDK turnOnDebug];
     // SDK初始化，手动输出appKey和appSecret
-//    [CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
-//        if (res.success) {
-//            NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
-//        } else {
-//            NSLog(@"Push SDK init failed, error: %@", res.error);
-//        }
-//    }];
+   // [CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
+   //     if (res.success) {
+   //         NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+   //     } else {
+   //         NSLog(@"Push SDK init failed, error: %@", res.error);
+   //     }
+   // }];
     
     // SDK初始化，无需输入配置信息
     // 请从控制台下载AliyunEmasServices-Info.plist配置文件，并正确拖入工程
@@ -229,6 +231,14 @@ static NSString *const testAppSecret = @"******";
             NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
         } else {
             NSLog(@"Push SDK init failed, error: %@", res.error);
+        }
+    }];
+
+    [CloudPushSDK bindTag:3 withTags:@[@"MiracleTest"] withAlias:@"MiracleTest" withCallback:^(CloudPushCallbackResult *res) {
+        if (res.success) {
+            NSLog(@"绑定别名成功");
+        } else {
+            NSLog(@"绑定别名失败");
         }
     }];
 }
