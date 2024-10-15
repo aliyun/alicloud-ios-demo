@@ -1,38 +1,25 @@
 PODS:
-  - AlicloudPush (2.0.4):
-    - AlicloudSender
-    - AlicloudUT
+  - AlicloudPush (2.1.0):
+    - AlicloudUTDID
     - AlicloudUtils
-  - AlicloudSender (1.0.0.3):
+  - AlicloudUTDID (1.6.1)
+  - AlicloudUtils (2.0.1):
     - AlicloudUTDID
-    - EMASRest
-  - AlicloudUT (5.2.0.16):
-    - AlicloudUTDID
-  - AlicloudUTDID (1.5.0.94)
-  - AlicloudUtils (1.4.1):
-    - AlicloudUTDID
-  - EMASRest (11.1.1.2)
 
 DEPENDENCIES:
-  - AlicloudPush (~> 2.0.0)
+  - AlicloudPush
 
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
     - AlicloudPush
-    - AlicloudSender
-    - AlicloudUT
     - AlicloudUTDID
     - AlicloudUtils
-    - EMASRest
 
 SPEC CHECKSUMS:
-  AlicloudPush: a805231558d9f14b816bdf999c4c6841823c9485
-  AlicloudSender: 1f468b6bd962a099ffc19d45e3608b0fe98f259d
-  AlicloudUT: 6d1cf30d57d096b7e9bb4b069dd0ba6ad59a3338
-  AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
-  AlicloudUtils: 873a76615bebcee8b1996f20820d366e433c3eab
-  EMASRest: 8df6f87836767a9415ad5cc4af739bc9d215b475
+  AlicloudPush: 653294c5bd7362b0b71e2b89ca8cd28a5334749a
+  AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
+  AlicloudUtils: ef4436f52b828b1182b002373758ecb88068e679
 
-PODFILE CHECKSUM: 727cc6bcdef11fb90fd9ca3f1d42431fc72c163c
+PODFILE CHECKSUM: 69e3e0b541ff04ecc6e723a8df4c1873f808b611
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2

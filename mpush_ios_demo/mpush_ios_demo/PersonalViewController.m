@@ -1,21 +1,21 @@
 //
-//  LZLPersonalViewController.m
+//  PersonalViewController.m
 //  UserExperienceDemo
 //
 //  Created by liuzhilong on 15/4/1.
 //  Copyright (c) 2015年 alibaba. All rights reserved.
 //
 
-#import "LZLPersonalViewController.h"
-#import "LZLPersonalData.h"
+#import "PersonalViewController.h"
+#import "PersonalData.h"
 
-@interface LZLPersonalViewController ()
+@interface PersonalViewController ()
 
 @property NSMutableArray *personalDataItems;
 
 @end
 
-@implementation LZLPersonalViewController
+@implementation PersonalViewController
 
 -(void)viewDidAppear:(BOOL)animated {
     self.personalDataItems = [[NSMutableArray alloc] init];
@@ -42,19 +42,19 @@
     
     NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
     
-    LZLPersonalData *deviceid = [[LZLPersonalData alloc] init];
+    PersonalData *deviceid = [[PersonalData alloc] init];
     deviceid.itemName = @"Device ID";
     deviceid.itemValue =  [CloudPushSDK getDeviceId];
     
-    LZLPersonalData *sdkversion = [[LZLPersonalData alloc] init];
+    PersonalData *sdkversion = [[PersonalData alloc] init];
     sdkversion.itemName = @"CloudPush SDK Version";
     sdkversion.itemValue = [CloudPushSDK getVersion];
     
-    LZLPersonalData *bingAccount = [[LZLPersonalData alloc] init];
+    PersonalData *bingAccount = [[PersonalData alloc] init];
     bingAccount.itemName = @"当前绑定账号";
     bingAccount.itemValue = [userDefaultes stringForKey:@"bindAccount"]==nil?@"当前设备未绑定任何账号":[userDefaultes stringForKey:@"bindAccount"];
     
-    LZLPersonalData *connectUS = [[LZLPersonalData alloc] init];
+    PersonalData *connectUS = [[PersonalData alloc] init];
     connectUS.itemName = @"联系我们";
     connectUS.itemValue = @"Demo App相关问题\n 请搜索钉钉客户支持群：\n 11795523";
     
@@ -78,14 +78,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"personalDataCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    LZLPersonalData *tableview = [self.personalDataItems objectAtIndex:indexPath.row];
+    PersonalData *tableview = [self.personalDataItems objectAtIndex:indexPath.row];
     cell.textLabel.text = tableview.itemName;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    LZLPersonalData *tappedItem = [self.personalDataItems objectAtIndex:indexPath.row];
+    PersonalData *tappedItem = [self.personalDataItems objectAtIndex:indexPath.row];
     [MsgToolBox showAlert:tappedItem.itemName content:tappedItem.itemValue];
 }
 

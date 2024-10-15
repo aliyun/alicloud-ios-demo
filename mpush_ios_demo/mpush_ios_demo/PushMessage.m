@@ -1,13 +1,13 @@
 //
-//  LZLPersonalData.m
+//  PushMessage.m
 //  UserExperienceDemo
 //
 //  Created by liuzhilong on 15/4/1.
 //  Copyright (c) 2015年 alibaba. All rights reserved.
 //
 
-#import "LZLPersonalData.h"
+#import "PushMessage.h"
 
-@implementation LZLPersonalData
+@implementation PushMessage
 
 @end

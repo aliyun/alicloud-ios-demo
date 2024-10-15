@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  mpush_ios_demo
+//
+//  Created by Miracle on 2024/10/14.
+//  Copyright © 2024 alibaba. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// *******Category********
+
+#import "UIColor+Hex.h"
+
+#endif /* PrefixHeader_pch */
