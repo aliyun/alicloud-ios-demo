@@ -20,18 +20,18 @@
 @property (weak, nonatomic) NSString *db_path;
 
 // 初始化数据库
--(void) init_datebase;
+- (void)init_datebase;
 
 // 插入一条消息
--(void) insert:(LZLPushMessage *)model;
+- (void)insert:(LZLPushMessage *)model;
 
 // 删除一条消息
--(void) remove:(LZLPushMessage *)model;
+- (void)remove:(LZLPushMessage *)model;
 
 // 更新一条消息
--(void) update:(LZLPushMessage *)model;
+// -(void) update:(LZLPushMessage *)model;
 
 // 查询全部消息
--(NSMutableArray*) selectAll;
+-(NSMutableArray*)selectAll;
 
 @end

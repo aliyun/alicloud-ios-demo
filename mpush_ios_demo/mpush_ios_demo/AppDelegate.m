@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "MsgToolBox.h"
 #import <CloudPushSDK/CloudPushSDK.h>
+#import "PushMessageDAO.h"
 
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
@@ -35,7 +37,6 @@ static NSString *const testAppSecret = @"******";
     // 监听推送消息到达
     [self registerMessageReceive];
     // 点击通知将App从关闭状态启动时，将通知打开回执上报
-    // [CloudPushSDK handleLaunching:launchOptions];(Deprecated from v1.8.1)
     [CloudPushSDK sendNotificationAck:launchOptions];
     return YES;
 }
@@ -47,45 +48,24 @@ static NSString *const testAppSecret = @"******";
  *	@param 	application
  */
 - (void)registerAPNS:(UIApplication *)application {
-    float systemVersionNum = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if (systemVersionNum >= 10.0) {
-        // iOS 10 notifications
-        _notificationCenter = [UNUserNotificationCenter currentNotificationCenter];
-        // 创建category，并注册到通知中心
-        [self createCustomNotificationCategory];
-        _notificationCenter.delegate = self;
-        // 请求推送权限
-        [_notificationCenter requestAuthorizationWithOptions:UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            if (granted) {
-                // granted
-                NSLog(@"User authored notification.");
-                // 向APNs注册，获取deviceToken
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [application registerForRemoteNotifications];
-                });
-            } else {
-                // not granted
-                NSLog(@"User denied notification.");
-            }
-        }];
-    } else if (systemVersionNum >= 8.0) {
-        // iOS 8 Notifications
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Wdeprecated-declarations"
-        [application registerUserNotificationSettings:
-         [UIUserNotificationSettings settingsForTypes:
-          (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge)
-                                           categories:nil]];
-        [application registerForRemoteNotifications];
-#pragma clang diagnostic pop
-    } else {
-        // iOS < 8 Notifications
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Wdeprecated-declarations"
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-         (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
-#pragma clang diagnostic pop
-    }
+    _notificationCenter = [UNUserNotificationCenter currentNotificationCenter];
+    // 创建category，并注册到通知中心
+    [self createCustomNotificationCategory];
+    _notificationCenter.delegate = self;
+    // 请求推送权限
+    [_notificationCenter requestAuthorizationWithOptions:UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            // granted
+            NSLog(@"User authored notification.");
+            // 向APNs注册，获取deviceToken
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [application registerForRemoteNotifications];
+            });
+        } else {
+            // not granted
+            NSLog(@"User denied notification.");
+        }
+    }];
 }
 
 /**
@@ -138,7 +118,7 @@ static NSString *const testAppSecret = @"******";
 }
 
 /**
- *  处理iOS 10通知(iOS 10+)
+ *  处理通知
  */
 - (void)handleiOS10Notification:(UNNotification *)notification {
     UNNotificationRequest *request = notification.request;
@@ -156,8 +136,6 @@ static NSString *const testAppSecret = @"******";
     int badge = [content.badge intValue];
     // 取得通知自定义字段内容，例：获取key为"Extras"的内容
     NSString *extras = [userInfo valueForKey:@"Extras"];
-    // 分组id
-    NSString *threadId = userInfo[@"aps"][@"thread-id"];
     // 通知角标数清0
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // 同步角标数到服务端
@@ -185,7 +163,7 @@ static NSString *const testAppSecret = @"******";
  *  触发通知动作时回调，比如点击、删除通知和点击自定义action(iOS 10+)
  */
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     NSString *userAction = response.actionIdentifier;
     // 点击通知打开
     if ([userAction isEqualToString:UNNotificationDefaultActionIdentifier]) {
@@ -233,14 +211,6 @@ static NSString *const testAppSecret = @"******";
             NSLog(@"Push SDK init failed, error: %@", res.error);
         }
     }];
-
-    [CloudPushSDK bindTag:3 withTags:@[@"MiracleTest"] withAlias:@"MiracleTest" withCallback:^(CloudPushCallbackResult *res) {
-        if (res.success) {
-            NSLog(@"绑定别名成功");
-        } else {
-            NSLog(@"绑定别名失败");
-        }
-    }];
 }
 
 #pragma mark Notification Open
@@ -258,14 +228,11 @@ static NSString *const testAppSecret = @"******";
     // 播放声音
     NSString *sound = [aps valueForKey:@"sound"];
     // 取得通知自定义字段内容，例：获取key为"Extras"的内容
-    NSString *Extras = [userInfo valueForKey:@"Extras"]; //服务端中Extras字段，key是自己定义的
+    // 服务端中Extras字段，key是自己定义的
+    NSString *Extras = [userInfo valueForKey:@"Extras"];
     NSLog(@"content = [%@], badge = [%ld], sound = [%@], Extras = [%@]", content, (long)badge, sound, Extras);
     // iOS badge 清0
     application.applicationIconBadgeNumber = 0;
-    // 同步通知角标数到服务端
-    // [self syncBadgeNum:0];
-    // 通知打开回执上报
-    // [CloudPushSDK handleReceiveRemoteNotification:userInfo];(Deprecated from v1.8.1)
     [CloudPushSDK sendNotificationAck:userInfo];
 }
 
@@ -307,16 +274,16 @@ static NSString *const testAppSecret = @"******";
  */
 - (void)onMessageReceived:(NSNotification *)notification {
     NSLog(@"Receive one message!");
-   
+
     CCPSysMessage *message = [notification object];
     NSString *title = [[NSString alloc] initWithData:message.title encoding:NSUTF8StringEncoding];
     NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
     NSLog(@"Receive message title: %@, content: %@.", title, body);
-    
+
     LZLPushMessage *tempVO = [[LZLPushMessage alloc] init];
-    tempVO.messageContent = [NSString stringWithFormat:@"title: %@, content: %@", title, body];
-    tempVO.isRead = 0;
-    
+    tempVO.messageTitle = title;
+    tempVO.messageContent = body;
+
     if(![NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(tempVO.messageContent != nil) {
@@ -333,6 +300,9 @@ static NSString *const testAppSecret = @"******";
 - (void)insertPushMessage:(LZLPushMessage *)model {
     PushMessageDAO *dao = [[PushMessageDAO alloc] init];
     [dao insert:model];
+
+    // 发出通知，数据库中添加了一条message，在需要刷新的地方接收通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PUSHMESSAGE_INSERT" object:nil];
 }
 
 /* 同步通知角标数到服务端 */
@@ -358,74 +328,5 @@ static NSString *const testAppSecret = @"******";
 - (void)applicationWillEnterForeground:(UIApplication *)application {}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    [self saveContext];
-}
-
-#pragma mark - Core Data Stack
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
-- (NSURL *)applicationDocumentsDirectory {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-- (NSManagedObjectModel *)managedObjectModel {
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"UserExperienceDemo" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return _managedObjectModel;
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    // Create the coordinator and store
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"UserExperienceDemo.sqlite"];
-    NSError *error = nil;
-    NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        // Report any error we got.
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
-        dict[NSLocalizedFailureReasonErrorKey] = failureReason;
-        dict[NSUnderlyingErrorKey] = error;
-        error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    return _persistentStoreCoordinator;
-}
-
-- (NSManagedObjectContext *)managedObjectContext {
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (!coordinator) {
-        return nil;
-    }
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
-    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    return _managedObjectContext;
-}
-
-#pragma mark - Core Data Saving support
-- (void)saveContext {
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        NSError *error = nil;
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
-}
 
 @end

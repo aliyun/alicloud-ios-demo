@@ -11,7 +11,8 @@
 @interface LZLPushMessage : NSObject
 
 @property int id;
+@property NSString *messageTitle;
 @property NSString *messageContent;
-@property BOOL isRead;
+// @property BOOL isRead;
 
 @end
