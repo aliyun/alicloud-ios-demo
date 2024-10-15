@@ -1,5 +1,5 @@
 //
-//  LZLPushMessage.h    用于处理推送的消息的Entity
+//  PushMessage.h    用于处理推送的消息的Entity
 //  UserExperienceDemo
 //
 //  Created by liuzhilong on 15/4/1.
@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LZLPushMessage : NSObject
+@interface PushMessage : NSObject
 
 @property int id;
 @property NSString *messageTitle;
 @property NSString *messageContent;
-// @property BOOL isRead;
 
 @end

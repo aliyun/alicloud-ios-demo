@@ -1,5 +1,5 @@
 //
-//  LZLPersonalViewController.h
+//  PersonalViewController.h
 //  UserExperienceDemo
 //
 //  Created by liuzhilong on 15/4/1.
@@ -10,7 +10,7 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "MsgToolBox.h"
 
-@interface LZLPersonalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PersonalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *persionalDataTableView;
 

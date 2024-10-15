@@ -115,7 +115,7 @@
         <!--信息-->
         <scene sceneID="Fbo-Db-v5s">
             <objects>
-                <viewController id="JxH-us-ioW" customClass="LZLPersonalViewController" sceneMemberID="viewController">
+                <viewController id="JxH-us-ioW" customClass="PersonalViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i7m-bJ-mQh"/>
                         <viewControllerLayoutGuide type="bottom" id="5LW-kd-XOG"/>

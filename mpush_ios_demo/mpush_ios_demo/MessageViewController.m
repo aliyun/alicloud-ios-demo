@@ -56,7 +56,7 @@
     if (!cell) {
         cell = [[MessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessageTableViewCell"];
     }
-    LZLPushMessage *message = self.pushMessage[indexPath.section];
+    PushMessage *message = self.pushMessage[indexPath.section];
     [cell setMessageTitle:message.messageTitle];
     return cell;
 }
@@ -78,7 +78,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZLPushMessage *message = self.pushMessage[indexPath.section];
+    PushMessage *message = self.pushMessage[indexPath.section];
     [MsgToolBox showAlert:message.messageTitle content:message.messageContent];
 }
 

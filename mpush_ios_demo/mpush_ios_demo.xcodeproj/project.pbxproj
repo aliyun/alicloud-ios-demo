@@ -30,16 +30,16 @@
 		C9102D291ACED5B70094FCEC /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D1C1ACED5B70094FCEC /* UIFont+FontAwesome.m */; };
 		C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D1E1ACED5B70094FCEC /* UIImage+FontAwesome.m */; };
 		C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D221ACED5B70094FCEC /* KoaPullToRefresh.m */; };
-		C918AE971ACB8C6E001445C1 /* LZLPersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C918AE961ACB8C6E001445C1 /* LZLPersonalViewController.m */; };
+		C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C918AE961ACB8C6E001445C1 /* PersonalViewController.m */; };
 		C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91A23891ACA36E700E0E33D /* Main.storyboard */; };
-		C93E19BF1ACBD0E800A90F3B /* LZLPushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */; };
+		C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19BE1ACBD0E800A90F3B /* PushMessage.m */; };
 		C93E19C41ACBD4B000A90F3B /* PushMessageDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */; };
 		C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */; };
 		C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */; };
 		C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */; };
 		C95EFE071ACAE2C80082CF70 /* MPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE061ACAE2C80082CF70 /* MPSettingsViewController.m */; };
 		C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE0A1ACAF3C40082CF70 /* MsgToolBox.m */; };
-		C95EFE131ACAFF580082CF70 /* LZLPersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE121ACAFF580082CF70 /* LZLPersonalData.m */; };
+		C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EFE121ACAFF580082CF70 /* PersonalData.m */; };
 		C96D707D1ACC48F600B3D76B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96D707C1ACC48F600B3D76B /* QuartzCore.framework */; };
 		C96D707F1ACC490300B3D76B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96D707E1ACC490300B3D76B /* CoreGraphics.framework */; };
 		C99E76611AC96B8B000BC567 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C99E76601AC96B8B000BC567 /* main.m */; };
@@ -125,11 +125,11 @@
 		C9102D1E1ACED5B70094FCEC /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
 		C9102D211ACED5B70094FCEC /* KoaPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KoaPullToRefresh.h; sourceTree = "<group>"; };
 		C9102D221ACED5B70094FCEC /* KoaPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KoaPullToRefresh.m; sourceTree = "<group>"; };
-		C918AE951ACB8C6E001445C1 /* LZLPersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLPersonalViewController.h; sourceTree = "<group>"; };
-		C918AE961ACB8C6E001445C1 /* LZLPersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLPersonalViewController.m; sourceTree = "<group>"; };
+		C918AE951ACB8C6E001445C1 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		C918AE961ACB8C6E001445C1 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		C91A23891ACA36E700E0E33D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		C93E19BD1ACBD0E800A90F3B /* LZLPushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLPushMessage.h; sourceTree = "<group>"; };
-		C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLPushMessage.m; sourceTree = "<group>"; };
+		C93E19BD1ACBD0E800A90F3B /* PushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessage.h; sourceTree = "<group>"; };
+		C93E19BE1ACBD0E800A90F3B /* PushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessage.m; sourceTree = "<group>"; };
 		C93E19C21ACBD4B000A90F3B /* PushMessageDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessageDAO.h; sourceTree = "<group>"; };
 		C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessageDAO.m; sourceTree = "<group>"; };
 		C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -139,8 +139,8 @@
 		C95EFE061ACAE2C80082CF70 /* MPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingsViewController.m; sourceTree = "<group>"; };
 		C95EFE091ACAF3C40082CF70 /* MsgToolBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgToolBox.h; sourceTree = "<group>"; };
 		C95EFE0A1ACAF3C40082CF70 /* MsgToolBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgToolBox.m; sourceTree = "<group>"; };
-		C95EFE111ACAFF580082CF70 /* LZLPersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLPersonalData.h; sourceTree = "<group>"; };
-		C95EFE121ACAFF580082CF70 /* LZLPersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLPersonalData.m; sourceTree = "<group>"; };
+		C95EFE111ACAFF580082CF70 /* PersonalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalData.h; sourceTree = "<group>"; };
+		C95EFE121ACAFF580082CF70 /* PersonalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalData.m; sourceTree = "<group>"; };
 		C96D707C1ACC48F600B3D76B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C96D707E1ACC490300B3D76B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C99E765B1AC96B8B000BC567 /* mpush_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mpush_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,8 +339,8 @@
 		C95EFE101ACAFA230082CF70 /* Personal */ = {
 			isa = PBXGroup;
 			children = (
-				C918AE951ACB8C6E001445C1 /* LZLPersonalViewController.h */,
-				C918AE961ACB8C6E001445C1 /* LZLPersonalViewController.m */,
+				C918AE951ACB8C6E001445C1 /* PersonalViewController.h */,
+				C918AE961ACB8C6E001445C1 /* PersonalViewController.m */,
 			);
 			name = Personal;
 			sourceTree = "<group>";
@@ -348,10 +348,10 @@
 		C95EFE141ACAFF780082CF70 /* Entitys */ = {
 			isa = PBXGroup;
 			children = (
-				C95EFE111ACAFF580082CF70 /* LZLPersonalData.h */,
-				C95EFE121ACAFF580082CF70 /* LZLPersonalData.m */,
-				C93E19BD1ACBD0E800A90F3B /* LZLPushMessage.h */,
-				C93E19BE1ACBD0E800A90F3B /* LZLPushMessage.m */,
+				C95EFE111ACAFF580082CF70 /* PersonalData.h */,
+				C95EFE121ACAFF580082CF70 /* PersonalData.m */,
+				C93E19BD1ACBD0E800A90F3B /* PushMessage.h */,
+				C93E19BE1ACBD0E800A90F3B /* PushMessage.m */,
 			);
 			name = Entitys;
 			sourceTree = "<group>";
@@ -661,9 +661,9 @@
 				7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */,
 				C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */,
 				C95EFE071ACAE2C80082CF70 /* MPSettingsViewController.m in Sources */,
-				C95EFE131ACAFF580082CF70 /* LZLPersonalData.m in Sources */,
-				C918AE971ACB8C6E001445C1 /* LZLPersonalViewController.m in Sources */,
-				C93E19BF1ACBD0E800A90F3B /* LZLPushMessage.m in Sources */,
+				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
+				C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */,
+				C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */,
 				7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */,
 				C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,

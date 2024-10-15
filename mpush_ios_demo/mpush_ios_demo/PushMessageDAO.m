@@ -52,7 +52,7 @@
     }
 }
 
-- (void)insert:(LZLPushMessage *)model {
+- (void)insert:(PushMessage *)model {
     [self init_datebase];
     
     NSLog(@"@数据库路径：%@", self.db_path);
@@ -79,13 +79,13 @@
     }
 }
 
-// -(void) update:(LZLPushMessage *)model {
+// -(void) update:(PushMessage *)model {
 //     NSString *updateSQL = [NSString stringWithFormat:
 //                                @"UPDATE PUSHMESSAGE SET ISREAD = '%i' WHERE ID = '%i'", model.isRead?1:0, model.id];
 //     [self excute:updateSQL];
 // }
 
-- (void)remove:(LZLPushMessage *)model {
+- (void)remove:(PushMessage *)model {
     NSString *deleteSQL = [NSString stringWithFormat:
                                @"DELETE FROM PUSHMESSAGE WHERE ID = '%i'",model.id];
     [self excute:deleteSQL];
@@ -106,7 +106,7 @@
         
         if (sqlite3_prepare_v2(db, [sqlQuery UTF8String], -1, &statement, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement) == SQLITE_ROW) {
-                LZLPushMessage *tempEntity = [[LZLPushMessage alloc] init];
+                PushMessage *tempEntity = [[PushMessage alloc] init];
                 
                 tempEntity.id = sqlite3_column_int(statement, 0);
                 tempEntity.messageTitle = [[NSString alloc]initWithUTF8String:(char*)sqlite3_column_text(statement, 1)];

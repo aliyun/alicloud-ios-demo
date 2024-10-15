@@ -280,7 +280,7 @@ static NSString *const testAppSecret = @"******";
     NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
     NSLog(@"Receive message title: %@, content: %@.", title, body);
 
-    LZLPushMessage *tempVO = [[LZLPushMessage alloc] init];
+    PushMessage *tempVO = [[PushMessage alloc] init];
     tempVO.messageTitle = title;
     tempVO.messageContent = body;
 
@@ -297,7 +297,7 @@ static NSString *const testAppSecret = @"******";
     }
 }
 
-- (void)insertPushMessage:(LZLPushMessage *)model {
+- (void)insertPushMessage:(PushMessage *)model {
     PushMessageDAO *dao = [[PushMessageDAO alloc] init];
     [dao insert:model];
 

@@ -1,5 +1,5 @@
 //
-//  LZLPersonalData.h   用于展示各种设备信息的Entity
+//  PersonalData.h   用于展示各种设备信息的Entity
 //  UserExperienceDemo
 //
 //  Created by liuzhilong on 15/4/1.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LZLPersonalData : NSObject
+@interface PersonalData : NSObject
 
 // ID
 @property int id;
