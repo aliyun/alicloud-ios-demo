@@ -37,16 +37,63 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="移动推送Demo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp7-ZM-Sz2">
+                                <rect key="frame" x="16" y="131" width="163.66666666666666" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2R-10-wqp">
+                                <rect key="frame" x="16" y="171.66666666666666" width="188.66666666666666" height="37.666666666666657"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="欢迎来到阿里云移动推送">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Demo,">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="开始你的调试吧">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="~">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2Gr-1w-n2h" firstAttribute="leading" secondItem="v07-sq-yyu" secondAttribute="leading" id="9IY-eh-shg"/>
+                            <constraint firstItem="Tp7-ZM-Sz2" firstAttribute="top" secondItem="ag0-w3-Dkl" secondAttribute="bottom" constant="72" id="Giw-NZ-8wb"/>
                             <constraint firstAttribute="trailing" secondItem="2Gr-1w-n2h" secondAttribute="trailing" id="Gjl-L0-uF5"/>
+                            <constraint firstItem="x2R-10-wqp" firstAttribute="width" secondItem="2Gr-1w-n2h" secondAttribute="width" multiplier="180:375" id="IB5-cg-7sA"/>
                             <constraint firstItem="K2b-Zc-w8n" firstAttribute="leading" secondItem="v07-sq-yyu" secondAttribute="leadingMargin" id="KOS-gy-uXz"/>
+                            <constraint firstItem="x2R-10-wqp" firstAttribute="top" secondItem="Tp7-ZM-Sz2" secondAttribute="bottom" constant="12" id="Qez-YB-2vv"/>
                             <constraint firstItem="K2b-Zc-w8n" firstAttribute="top" secondItem="2Gr-1w-n2h" secondAttribute="bottom" id="XqP-kA-lpi"/>
                             <constraint firstItem="kR5-Tj-TXT" firstAttribute="top" secondItem="K2b-Zc-w8n" secondAttribute="bottom" id="ZcA-1s-ztV"/>
+                            <constraint firstItem="x2R-10-wqp" firstAttribute="leading" secondItem="Tp7-ZM-Sz2" secondAttribute="leading" id="cmt-vI-kBK"/>
                             <constraint firstItem="2Gr-1w-n2h" firstAttribute="top" secondItem="v07-sq-yyu" secondAttribute="top" id="fO4-UQ-gh1"/>
                             <constraint firstItem="2Gr-1w-n2h" firstAttribute="height" secondItem="v07-sq-yyu" secondAttribute="height" multiplier="273:812" id="gnV-IY-pSg"/>
+                            <constraint firstItem="Tp7-ZM-Sz2" firstAttribute="leading" secondItem="v07-sq-yyu" secondAttribute="leading" constant="16" id="wX4-aU-ARe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K2b-Zc-w8n" secondAttribute="trailing" id="zsP-bk-aFq"/>
                         </constraints>
                     </view>
@@ -62,7 +109,7 @@
         <!--设置-->
         <scene sceneID="aR5-Aa-owH">
             <objects>
-                <viewController id="oiA-pW-YX3" customClass="MPSettingsViewController" sceneMemberID="viewController">
+                <viewController id="oiA-pW-YX3" customClass="SettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LGN-g5-PNJ"/>
                         <viewControllerLayoutGuide type="bottom" id="pYR-oW-UOW"/>
@@ -71,25 +118,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btb-uh-VVi">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <items>
-                                    <navigationItem title="设置中心" id="dFv-qG-NbY"/>
-                                </items>
-                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_background" translatesAutoresizingMaskIntoConstraints="NO" id="b4Y-dY-0ZE">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="286.33333333333331"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高级功能" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7I-aI-MGQ">
+                                <rect key="frame" x="15.999999999999993" y="131" width="97.333333333333314" height="28.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqE-9B-MGc">
+                                <rect key="frame" x="16" y="171.66666666666666" width="188.66666666666666" height="37.666666666666657"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="欢迎来到阿里云移动推送">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Demo,">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="开始你的调试吧">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="~">
+                                        <attributes>
+                                            <color key="NSColor" red="0.37647058823529411" green="0.4823529411764706" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_description" translatesAutoresizingMaskIntoConstraints="NO" id="mvE-TZ-Ssa">
+                                <rect key="frame" x="16" y="259.33333333333331" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="4z5-0B-Q9z"/>
+                                    <constraint firstAttribute="width" constant="18" id="aWV-eW-LvF"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oz7-1r-B19">
+                                <rect key="frame" x="24" y="251" width="337" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="d9o-Q4-v2M"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="设备标签和别名数量限制说明">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                    <color key="baseForegroundColor" red="0.19215686269999999" green="0.36078431370000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="limitNoteAction:" destination="oiA-pW-YX3" eventType="touchUpInside" id="Lba-jM-ujA"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="huO-ut-Y1R">
+                                <rect key="frame" x="16" y="301" width="361" height="468"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="btb-uh-VVi" firstAttribute="top" secondItem="LGN-g5-PNJ" secondAttribute="bottom" id="g2h-g9-UJo"/>
-                            <constraint firstItem="btb-uh-VVi" firstAttribute="leading" secondItem="LSy-Tw-09U" secondAttribute="leading" id="xZb-Bw-MpX"/>
-                            <constraint firstAttribute="trailing" secondItem="btb-uh-VVi" secondAttribute="trailing" id="xfi-lg-3id"/>
+                            <constraint firstItem="huO-ut-Y1R" firstAttribute="leading" secondItem="LSy-Tw-09U" secondAttribute="leadingMargin" id="4EC-b2-5QT"/>
+                            <constraint firstItem="b4Y-dY-0ZE" firstAttribute="leading" secondItem="LSy-Tw-09U" secondAttribute="leading" id="4c2-v6-nGV"/>
+                            <constraint firstAttribute="trailing" secondItem="b4Y-dY-0ZE" secondAttribute="trailing" id="8ug-Oc-bBL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oz7-1r-B19" secondAttribute="trailing" constant="16" id="GSJ-3Z-dcr"/>
+                            <constraint firstItem="pYR-oW-UOW" firstAttribute="top" secondItem="huO-ut-Y1R" secondAttribute="bottom" id="H47-zI-uVG"/>
+                            <constraint firstItem="mvE-TZ-Ssa" firstAttribute="top" secondItem="PqE-9B-MGc" secondAttribute="bottom" constant="50" id="K71-dU-nSy"/>
+                            <constraint firstItem="Oz7-1r-B19" firstAttribute="centerY" secondItem="mvE-TZ-Ssa" secondAttribute="centerY" id="P0K-fG-3Zc"/>
+                            <constraint firstItem="huO-ut-Y1R" firstAttribute="top" secondItem="Oz7-1r-B19" secondAttribute="bottom" constant="15" id="Tfb-It-6Ph"/>
+                            <constraint firstItem="PqE-9B-MGc" firstAttribute="width" secondItem="b4Y-dY-0ZE" secondAttribute="width" multiplier="180:375" id="Xhk-Pl-InH"/>
+                            <constraint firstItem="b4Y-dY-0ZE" firstAttribute="top" secondItem="LSy-Tw-09U" secondAttribute="top" id="blB-rB-CVx"/>
+                            <constraint firstItem="S7I-aI-MGQ" firstAttribute="top" secondItem="LGN-g5-PNJ" secondAttribute="bottom" constant="72" id="dhl-l1-oLJ"/>
+                            <constraint firstItem="mvE-TZ-Ssa" firstAttribute="leading" secondItem="PqE-9B-MGc" secondAttribute="leading" id="jqv-lj-IpM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="huO-ut-Y1R" secondAttribute="trailing" id="lwz-f1-5nN"/>
+                            <constraint firstItem="Oz7-1r-B19" firstAttribute="leading" secondItem="mvE-TZ-Ssa" secondAttribute="trailing" constant="-10" id="lxk-wv-bhW"/>
+                            <constraint firstItem="b4Y-dY-0ZE" firstAttribute="height" secondItem="LSy-Tw-09U" secondAttribute="height" multiplier="273:812" id="p8E-bi-9xH"/>
+                            <constraint firstItem="PqE-9B-MGc" firstAttribute="top" secondItem="S7I-aI-MGQ" secondAttribute="bottom" constant="12" id="rIW-Pg-2Lo"/>
+                            <constraint firstItem="PqE-9B-MGc" firstAttribute="leading" secondItem="S7I-aI-MGQ" secondAttribute="leading" id="tWf-8d-crx"/>
+                            <constraint firstItem="S7I-aI-MGQ" firstAttribute="leading" secondItem="LSy-Tw-09U" secondAttribute="leading" constant="16" id="zac-P5-HjQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="设置" image="icon02" id="OAl-wD-k6a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LD4-8a-4Qe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2490" y="-2168"/>
+            <point key="canvasLocation" x="-2490.8396946564885" y="-2168.3098591549297"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7D5-PA-eoq">
@@ -100,7 +226,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="NNA-fh-Su8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="Neu-kT-2le" kind="relationship" relationship="viewControllers" id="cm1-vy-Re5"/>
@@ -171,5 +297,6 @@
         <image name="icon01" width="21" height="18"/>
         <image name="icon02" width="24" height="24"/>
         <image name="icon03" width="20" height="20"/>
+        <image name="setting_description" width="32" height="32"/>
     </resources>
 </document>
