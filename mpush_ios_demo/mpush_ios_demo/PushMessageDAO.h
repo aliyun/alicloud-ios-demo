@@ -10,8 +10,6 @@
 #import "PushMessage.h"
 #import "sqlite3.h"
 
-#define DBFILE_NAME @"ued.sqlite3"
-
 @interface PushMessageDAO : NSObject {
     sqlite3 *db;
 }

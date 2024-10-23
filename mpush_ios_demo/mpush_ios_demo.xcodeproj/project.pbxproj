@@ -19,6 +19,9 @@
 		4AC713501DB60E0B0062EE5A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC7134E1DB60E0B0062EE5A /* MainInterface.storyboard */; };
 		4AC713541DB60E0B0062EE5A /* mpush_content_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4AC713451DB60E0B0062EE5A /* mpush_content_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7E1014802CC62B640075F777 /* CustomToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E10147F2CC62B640075F777 /* CustomToastUtil.m */; };
+		7E1014832CC64A150075F777 /* SettingSingleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014822CC64A150075F777 /* SettingSingleTableViewCell.m */; };
+		7E1014862CC65B510075F777 /* SettingAliasTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014852CC65B510075F777 /* SettingAliasTableViewCell.m */; };
+		7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E10148B2CC73D4C0075F777 /* AliasAndTagView.m */; };
 		7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */; };
 		7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */; };
 		7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */; };
@@ -109,6 +112,12 @@
 		4E493400C746275D3D731AF4 /* Pods-mpush_service_extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_service_extension.release.xcconfig"; path = "Target Support Files/Pods-mpush_service_extension/Pods-mpush_service_extension.release.xcconfig"; sourceTree = "<group>"; };
 		7E10147E2CC62B640075F777 /* CustomToastUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomToastUtil.h; sourceTree = "<group>"; };
 		7E10147F2CC62B640075F777 /* CustomToastUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomToastUtil.m; sourceTree = "<group>"; };
+		7E1014812CC64A150075F777 /* SettingSingleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingSingleTableViewCell.h; sourceTree = "<group>"; };
+		7E1014822CC64A150075F777 /* SettingSingleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingSingleTableViewCell.m; sourceTree = "<group>"; };
+		7E1014842CC65B510075F777 /* SettingAliasTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingAliasTableViewCell.h; sourceTree = "<group>"; };
+		7E1014852CC65B510075F777 /* SettingAliasTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingAliasTableViewCell.m; sourceTree = "<group>"; };
+		7E10148A2CC73D4C0075F777 /* AliasAndTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AliasAndTagView.h; sourceTree = "<group>"; };
+		7E10148B2CC73D4C0075F777 /* AliasAndTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AliasAndTagView.m; sourceTree = "<group>"; };
 		7E2E5CEC2CBCEDFC0030441B /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		7E2E5CF32CBCFE480030441B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -329,6 +338,12 @@
 			children = (
 				7E2E5CFE2CBFB9440030441B /* SettingViewController.h */,
 				7E2E5CFF2CBFB9440030441B /* SettingViewController.m */,
+				7E1014842CC65B510075F777 /* SettingAliasTableViewCell.h */,
+				7E1014852CC65B510075F777 /* SettingAliasTableViewCell.m */,
+				7E1014812CC64A150075F777 /* SettingSingleTableViewCell.h */,
+				7E1014822CC64A150075F777 /* SettingSingleTableViewCell.m */,
+				7E10148A2CC73D4C0075F777 /* AliasAndTagView.h */,
+				7E10148B2CC73D4C0075F777 /* AliasAndTagView.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -669,6 +684,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */,
+				7E1014862CC65B510075F777 /* SettingAliasTableViewCell.m in Sources */,
 				C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */,
 				7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */,
 				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
@@ -677,11 +693,13 @@
 				C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */,
 				7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */,
 				C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */,
+				7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
 				C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */,
 				C99E76611AC96B8B000BC567 /* main.m in Sources */,
 				C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */,
 				7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */,
+				7E1014832CC64A150075F777 /* SettingSingleTableViewCell.m in Sources */,
 				C93E19C41ACBD4B000A90F3B /* PushMessageDAO.m in Sources */,
 				C9102D291ACED5B70094FCEC /* UIFont+FontAwesome.m in Sources */,
 				C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */,

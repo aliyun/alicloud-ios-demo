@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon_add</title>
+    <g id="推送" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="安卓_高级功能" transform="translate(-208, -651)" fill="#4B4D52">
+            <g id="编组-10" transform="translate(32, 527)">
+                <g id="编组-3备份-4" transform="translate(32, 104)">
+                    <g id="编组-14" transform="translate(144, 20)">
+                        <g id="Icon-图标/Navigation/chevron--up" transform="translate(8.0001, 8)">
+                            <path d="M15.6,7 L9,7 L9,0.4 C9,0.179 8.822,0 8.6,0 L7.401,0 C7.179,0 7,0.179 7,0.4 L7,7 L0.401,7 C0.179,7 -1.77635684e-15,7.179 -1.77635684e-15,7.4 L-1.77635684e-15,8.6 C-1.77635684e-15,8.821 0.179,9 0.401,9 L7,9 L7,15.6 C7,15.821 7.179,16 7.401,16 L8.6,16 C8.822,16 9,15.821 9,15.6 L9,9 L15.6,9 C15.822,9 16,8.821 16,8.6 L16,7.4 C16,7.179 15.822,7 15.6,7" id="Fill-1"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -22,16 +22,16 @@
     messageLabel.backgroundColor = [UIColor clearColor];
     messageLabel.textAlignment = NSTextAlignmentLeft;
     messageLabel.numberOfLines = 0;
-
+    
     // 设置成功图标
     UIImageView *successIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"toast_success"]];
-
+    
     // 调整标签大小以适应消息文本
     CGSize maxSize = CGSizeMake(kScreenWidth * 0.8, kScreenHeight * 0.8);
     CGSize expectedSize = [message boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName : messageLabel.font } context:nil].size;
     messageLabel.frame = CGRectMake(30, 0, expectedSize.width + 10, expectedSize.height + 20);
     successIcon.frame = CGRectMake(10, (expectedSize.height + 20 - 14)/2, 14, 14);
-
+    
     // 设置 Toast 背景
     UIView *toastView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30 + messageLabel.bounds.size.width, messageLabel.bounds.size.height)];
     toastView.backgroundColor = UIColor.whiteColor;
@@ -40,13 +40,13 @@
     toastView.layer.cornerRadius = 10;
     toastView.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
     toastView.clipsToBounds = YES;
-
+    
     [toastView addSubview:successIcon];
     [toastView addSubview:messageLabel];
-
+    
     // 添加背景view
     [[UIApplication sharedApplication].keyWindow addSubview:toastView];
-
+    
     // 动画
     toastView.alpha = 0.0;
     [UIView animateWithDuration:0.5 animations:^{
