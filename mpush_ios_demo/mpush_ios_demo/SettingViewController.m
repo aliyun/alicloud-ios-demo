@@ -55,6 +55,8 @@
                     [settingTagsArray addObject:tag];
                 }
                 [self.tagsData setObject:settingTagsArray.copy forKey:@"device"];
+            } else {
+                [self.tagsData setObject:@[] forKey:@"device"];
             }
         }
         dispatch_group_leave(group);
@@ -79,6 +81,8 @@
             NSString *dataString = (NSString *)res.data;
             if (dataString.length > 0) {
                 self.aliasArray = [dataString componentsSeparatedByString:@","].mutableCopy;
+            } else {
+                self.aliasArray = [NSMutableArray array];
             }
         }
         dispatch_group_leave(group);
