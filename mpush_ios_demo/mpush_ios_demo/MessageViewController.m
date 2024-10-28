@@ -8,14 +8,14 @@
 
 #import "MessageViewController.h"
 #import "MessageTableViewCell.h"
-#import "PushMessageDAO.h"
+#import "SQLiteManager.h"
 #import "MsgToolBox.h"
 
 @interface MessageViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 
-@property NSMutableArray *pushMessage;
+@property (nonatomic, strong)NSMutableArray *pushMessages;
 
 @end
 
@@ -27,16 +27,14 @@
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
 
-    self.pushMessage = [NSMutableArray arrayWithCapacity:1];
-
     [self refreshMessageList];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMessageList) name:@"PUSHMESSAGE_INSERT" object:nil];
 }
 
 - (void)refreshMessageList {
-    PushMessageDAO *messageDAO = [[PushMessageDAO alloc] init];
-    self.pushMessage = messageDAO.selectAll;
+    SQLiteManager *manager = [[SQLiteManager alloc] init];
+    self.pushMessages = manager.allMessages;
 
     [self.messageTableView reloadData];
 }
@@ -44,7 +42,7 @@
 #pragma mark - tableView delegate&dataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.pushMessage.count;
+    return self.pushMessages.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -56,7 +54,7 @@
     if (!cell) {
         cell = [[MessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessageTableViewCell"];
     }
-    PushMessage *message = self.pushMessage[indexPath.section];
+    PushMessage *message = self.pushMessages[indexPath.section];
     [cell setMessageTitle:message.messageTitle];
     return cell;
 }
@@ -78,7 +76,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    PushMessage *message = self.pushMessage[indexPath.section];
+    PushMessage *message = self.pushMessages[indexPath.section];
     [MsgToolBox showAlert:message.messageTitle content:message.messageContent];
 }
 
@@ -86,10 +84,10 @@
     //删除cell
     if (editingStyle == UITableViewCellEditingStyleDelete){
         // 数据库中删除该条记录
-        PushMessageDAO *dao = [[PushMessageDAO alloc] init];
-        [dao remove:[self.pushMessage objectAtIndex:indexPath.section]];
+        SQLiteManager *manager = [[SQLiteManager alloc] init];
+        [manager removeMessage:[self.pushMessages objectAtIndex:indexPath.section]];
         // 数据源中剔除记录
-        [self.pushMessage removeObjectAtIndex:indexPath.section];
+        [self.pushMessages removeObjectAtIndex:indexPath.section];
 
         [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -97,6 +95,15 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
+}
+
+#pragma mark - lazy load
+
+- (NSMutableArray *)pushMessages {
+    if (!_pushMessages) {
+        _pushMessages = [NSMutableArray array];
+    }
+    return _pushMessages;
 }
 
 @end

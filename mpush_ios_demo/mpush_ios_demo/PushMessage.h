@@ -10,7 +10,7 @@
 
 @interface PushMessage : NSObject
 
-@property int id;
+@property int messageId;
 @property NSString *messageTitle;
 @property NSString *messageContent;
 

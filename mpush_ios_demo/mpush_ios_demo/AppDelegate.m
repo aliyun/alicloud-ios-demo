@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MsgToolBox.h"
 #import <CloudPushSDK/CloudPushSDK.h>
-#import "PushMessageDAO.h"
+#import "SQLiteManager.h"
 
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
@@ -298,8 +298,8 @@ static NSString *const testAppSecret = @"******";
 }
 
 - (void)insertPushMessage:(PushMessage *)model {
-    PushMessageDAO *dao = [[PushMessageDAO alloc] init];
-    [dao insert:model];
+    SQLiteManager *manager = [[SQLiteManager alloc] init];
+    [manager insertMessage:model];
 
     // 发出通知，数据库中添加了一条message，在需要刷新的地方接收通知
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PUSHMESSAGE_INSERT" object:nil];

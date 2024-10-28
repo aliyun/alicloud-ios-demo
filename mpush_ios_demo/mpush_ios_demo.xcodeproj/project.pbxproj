@@ -22,6 +22,10 @@
 		7E1014832CC64A150075F777 /* SettingSingleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014822CC64A150075F777 /* SettingSingleTableViewCell.m */; };
 		7E1014862CC65B510075F777 /* SettingAliasTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014852CC65B510075F777 /* SettingAliasTableViewCell.m */; };
 		7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E10148B2CC73D4C0075F777 /* AliasAndTagView.m */; };
+		7E10148F2CC8ECC30075F777 /* SettingTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E10148E2CC8ECC30075F777 /* SettingTagTableViewCell.m */; };
+		7E1014952CC9E1880075F777 /* SettingTagsContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014942CC9E1880075F777 /* SettingTagsContentView.m */; };
+		7E1014982CC9E2600075F777 /* SettingTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014972CC9E2600075F777 /* SettingTag.m */; };
+		7E287E5C2CCF668A009AB44F /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E287E5B2CCF668A009AB44F /* SQLiteManager.m */; };
 		7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */; };
 		7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */; };
 		7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */; };
@@ -39,7 +43,6 @@
 		C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C918AE961ACB8C6E001445C1 /* PersonalViewController.m */; };
 		C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91A23891ACA36E700E0E33D /* Main.storyboard */; };
 		C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19BE1ACBD0E800A90F3B /* PushMessage.m */; };
-		C93E19C41ACBD4B000A90F3B /* PushMessageDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */; };
 		C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */; };
 		C95EFE001ACA98E00082CF70 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */; };
 		C95EFE021ACA98F10082CF70 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */; };
@@ -118,6 +121,14 @@
 		7E1014852CC65B510075F777 /* SettingAliasTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingAliasTableViewCell.m; sourceTree = "<group>"; };
 		7E10148A2CC73D4C0075F777 /* AliasAndTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AliasAndTagView.h; sourceTree = "<group>"; };
 		7E10148B2CC73D4C0075F777 /* AliasAndTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AliasAndTagView.m; sourceTree = "<group>"; };
+		7E10148D2CC8ECC30075F777 /* SettingTagTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTagTableViewCell.h; sourceTree = "<group>"; };
+		7E10148E2CC8ECC30075F777 /* SettingTagTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTagTableViewCell.m; sourceTree = "<group>"; };
+		7E1014932CC9E1880075F777 /* SettingTagsContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTagsContentView.h; sourceTree = "<group>"; };
+		7E1014942CC9E1880075F777 /* SettingTagsContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTagsContentView.m; sourceTree = "<group>"; };
+		7E1014962CC9E2600075F777 /* SettingTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTag.h; sourceTree = "<group>"; };
+		7E1014972CC9E2600075F777 /* SettingTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTag.m; sourceTree = "<group>"; };
+		7E287E5A2CCF668A009AB44F /* SQLiteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		7E287E5B2CCF668A009AB44F /* SQLiteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
 		7E2E5CEC2CBCEDFC0030441B /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		7E2E5CF32CBCFE480030441B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -147,8 +158,6 @@
 		C91A23891ACA36E700E0E33D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C93E19BD1ACBD0E800A90F3B /* PushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessage.h; sourceTree = "<group>"; };
 		C93E19BE1ACBD0E800A90F3B /* PushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessage.m; sourceTree = "<group>"; };
-		C93E19C21ACBD4B000A90F3B /* PushMessageDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessageDAO.h; sourceTree = "<group>"; };
-		C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessageDAO.m; sourceTree = "<group>"; };
 		C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C95EFDFF1ACA98E00082CF70 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C95EFE011ACA98F10082CF70 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -324,26 +333,21 @@
 			name = Message;
 			sourceTree = "<group>";
 		};
-		C93E19C51ACBD4B500A90F3B /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-				C93E19C21ACBD4B000A90F3B /* PushMessageDAO.h */,
-				C93E19C31ACBD4B000A90F3B /* PushMessageDAO.m */,
-			);
-			name = DAO;
-			sourceTree = "<group>";
-		};
 		C95EFE081ACAE3B90082CF70 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				7E2E5CFE2CBFB9440030441B /* SettingViewController.h */,
 				7E2E5CFF2CBFB9440030441B /* SettingViewController.m */,
+				7E1014932CC9E1880075F777 /* SettingTagsContentView.h */,
+				7E1014942CC9E1880075F777 /* SettingTagsContentView.m */,
 				7E1014842CC65B510075F777 /* SettingAliasTableViewCell.h */,
 				7E1014852CC65B510075F777 /* SettingAliasTableViewCell.m */,
 				7E1014812CC64A150075F777 /* SettingSingleTableViewCell.h */,
 				7E1014822CC64A150075F777 /* SettingSingleTableViewCell.m */,
 				7E10148A2CC73D4C0075F777 /* AliasAndTagView.h */,
 				7E10148B2CC73D4C0075F777 /* AliasAndTagView.m */,
+				7E10148D2CC8ECC30075F777 /* SettingTagTableViewCell.h */,
+				7E10148E2CC8ECC30075F777 /* SettingTagTableViewCell.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -357,6 +361,8 @@
 				7E2E5CFC2CBF58D70030441B /* CustomAlertView.m */,
 				7E10147E2CC62B640075F777 /* CustomToastUtil.h */,
 				7E10147F2CC62B640075F777 /* CustomToastUtil.m */,
+				7E287E5A2CCF668A009AB44F /* SQLiteManager.h */,
+				7E287E5B2CCF668A009AB44F /* SQLiteManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -377,6 +383,8 @@
 				C95EFE121ACAFF580082CF70 /* PersonalData.m */,
 				C93E19BD1ACBD0E800A90F3B /* PushMessage.h */,
 				C93E19BE1ACBD0E800A90F3B /* PushMessage.m */,
+				7E1014962CC9E2600075F777 /* SettingTag.h */,
+				7E1014972CC9E2600075F777 /* SettingTag.m */,
 			);
 			name = Entitys;
 			sourceTree = "<group>";
@@ -417,7 +425,6 @@
 				C93E19B51ACB95FE00A90F3B /* Message */,
 				C95EFE081ACAE3B90082CF70 /* Settings */,
 				C95EFE101ACAFA230082CF70 /* Personal */,
-				C93E19C51ACBD4B500A90F3B /* DAO */,
 			);
 			path = mpush_ios_demo;
 			sourceTree = "<group>";
@@ -683,8 +690,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E287E5C2CCF668A009AB44F /* SQLiteManager.m in Sources */,
 				7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */,
+				7E1014982CC9E2600075F777 /* SettingTag.m in Sources */,
 				7E1014862CC65B510075F777 /* SettingAliasTableViewCell.m in Sources */,
+				7E1014952CC9E1880075F777 /* SettingTagsContentView.m in Sources */,
 				C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */,
 				7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */,
 				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
@@ -692,6 +702,7 @@
 				C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */,
 				C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */,
 				7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */,
+				7E10148F2CC8ECC30075F777 /* SettingTagTableViewCell.m in Sources */,
 				C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */,
 				7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
@@ -700,7 +711,6 @@
 				C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */,
 				7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */,
 				7E1014832CC64A150075F777 /* SettingSingleTableViewCell.m in Sources */,
-				C93E19C41ACBD4B000A90F3B /* PushMessageDAO.m in Sources */,
 				C9102D291ACED5B70094FCEC /* UIFont+FontAwesome.m in Sources */,
 				C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */,
 				7E1014802CC62B640075F777 /* CustomToastUtil.m in Sources */,

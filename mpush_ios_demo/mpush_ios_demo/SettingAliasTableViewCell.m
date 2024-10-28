@@ -12,11 +12,12 @@
 @interface SettingAliasTableViewCell()
 
 @property (nonatomic, strong)UILabel *titleLabel;
+@property (nonatomic, strong)UIButton *showAllButton;
+@property (nonatomic, strong)AliasAndTagView *addAliasView;
 
 @property (nonatomic, strong)NSLayoutConstraint *addViewLeftConstraint;
 @property (nonatomic, strong)NSLayoutConstraint *addViewTopConstraint;
 @property (nonatomic, strong)NSLayoutConstraint *addViewBottomConstraint;
-@property (nonatomic, strong)AliasAndTagView *addAliasView;
 
 @property (nonatomic, assign)CGFloat aliasViewWidth;
 
@@ -40,6 +41,14 @@
     [NSLayoutConstraint activateConstraints:@[
         [self.titleLabel.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:16],
         [self.titleLabel.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:16]
+    ]];
+
+    [self.contentView addSubview:self.showAllButton];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.showAllButton.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-16],
+        [self.showAllButton.centerYAnchor constraintEqualToAnchor:self.titleLabel.centerYAnchor],
+        [self.showAllButton.widthAnchor constraintEqualToConstant:80],
+        [self.showAllButton.heightAnchor constraintEqualToConstant:36]
     ]];
 
     self.addAliasView = [[AliasAndTagView alloc] initWithType:ViewTypeAddAlias title:nil];
@@ -82,6 +91,8 @@
             self.addViewBottomConstraint
         ]];
         [self.addAliasView removeFromSuperview];
+
+        self.showAllButton.hidden = NO;
     }
 
     for (int i = 0; i < aliasArray.count; i++) {
@@ -97,7 +108,6 @@
             if (strongSelf.deleteHandle) {
                 strongSelf.deleteHandle(aliasArray[i]);
             }
-
         };
         [self.contentView addSubview:aliasView];
 
@@ -134,6 +144,12 @@
     ]];
 }
 
+- (void)showAllAction {
+    if (self.showAllHandle) {
+        self.showAllHandle();
+    }
+}
+
 #pragma mark - lazy load
 
 - (UILabel *)titleLabel {
@@ -145,6 +161,21 @@
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _titleLabel;
+}
+
+- (UIButton *)showAllButton {
+    if (!_showAllButton) {
+        _showAllButton = [[UIButton alloc] init];
+        [_showAllButton setTitle:@"查看全部" forState:UIControlStateNormal];
+        [_showAllButton setImage:[UIImage imageNamed:@"arrow_right"] forState:UIControlStateNormal];
+        _showAllButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_showAllButton setTitleColor:[UIColor colorWithHexString:@"#999CA3"] forState:UIControlStateNormal];
+        [_showAllButton setSemanticContentAttribute:UISemanticContentAttributeForceRightToLeft];
+        [_showAllButton addTarget:self action:@selector(showAllAction) forControlEvents:UIControlEventTouchUpInside];
+        _showAllButton.hidden = YES;
+        _showAllButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _showAllButton;
 }
 
 @end

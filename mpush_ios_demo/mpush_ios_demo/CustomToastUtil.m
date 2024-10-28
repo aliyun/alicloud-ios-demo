@@ -52,7 +52,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         toastView.alpha = 1.0;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.5 delay:2 options:0 animations:^{
+        [UIView animateWithDuration:0.5 delay:1.5 options:0 animations:^{
             toastView.alpha = 0.0;
         } completion:^(BOOL finished) {
             [toastView removeFromSuperview];
