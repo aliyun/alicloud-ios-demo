@@ -52,7 +52,7 @@
         [self.addButton.heightAnchor constraintEqualToConstant:36]
     ]];
 
-    self.addTagView = [[AliasAndTagView alloc] initWithType:ViewTypeAddAlias title:nil];
+    self.addTagView = [[AliasAndTagView alloc] initWithType:ViewTypeAddTag title:nil];
     self.addTagView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.contentView addSubview:self.addTagView];
     self.addViewTopConstraint = [self.addTagView.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor constant:12];

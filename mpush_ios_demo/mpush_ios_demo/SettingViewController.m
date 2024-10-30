@@ -14,6 +14,7 @@
 #import "SettingTagTableViewCell.h"
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "SQLiteManager.h"
+#import "SettingAddTagViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -95,10 +96,12 @@
 }
 
 - (void)refreshTableViewCellFor:(NSInteger)index {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:index];
-    NSArray *indexPaths = @[indexPath];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:index];
+        NSArray *indexPaths = @[indexPath];
 
-    [self.settingTableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.settingTableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+    });
 }
 
 - (IBAction)limitNoteAction:(id)sender {
@@ -106,16 +109,45 @@
 }
 
 - (void)addTag {
-   [CloudPushSDK bindTag:1 withTags:@[@"测试专用",@"测试专用1",@"测试专用2",@"测试专用3",@"测试专用4",@"测试专用5",@"测试专用6",@"测试专用7",@"测试专用8",@"测试专用9",@"测试专用10"] withAlias:nil withCallback:^(CloudPushCallbackResult *res) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (res.success) {
-                [CustomToastUtil showToastWithMessage:@"标签添加成功！"];
-                [self loadDataToRefreshList];
-            } else {
-                [CustomToastUtil showToastWithMessage:@"标签添加失败！"];
-            }
-        });
-    }];
+    SettingAddTagViewController *addTagViewController = [[[NSBundle mainBundle] loadNibNamed:@"SettingAddTagViewController" owner:self options:nil] firstObject];
+    addTagViewController.aliasArray = self.aliasArray;
+    __weak typeof(self) weakSelf = self;
+    addTagViewController.addHandle = ^(SettingTag * _Nonnull tag) {
+        __strong typeof(self) strongSelf = weakSelf;
+
+        NSString *key;
+        BOOL shouldInsertToDB = NO;
+
+        switch (tag.tagType) {
+            case 1:
+                key = @"device";
+                break;
+            case 2:
+                key = @"account";
+                shouldInsertToDB = YES;
+                break;
+            case 3:
+                key = @"alias";
+                shouldInsertToDB = YES;
+                break;
+            default:
+                return; // Exit early for unhandled cases
+        }
+
+        // Update the tags data
+        NSMutableArray *tagsArr = [strongSelf.tagsData[key] mutableCopy];
+        [tagsArr addObject:tag];
+        [strongSelf.tagsData setObject:tagsArr.copy forKey:key];
+
+        // Insert to database if needed
+        if (shouldInsertToDB) {
+            SQLiteManager *manager = [[SQLiteManager alloc] init];
+            [manager insertTag:tag];
+        }
+
+        [strongSelf refreshTableViewCellFor:0];
+    };
+    [self presentViewController:addTagViewController animated:YES completion:nil];
 }
 
 - (void)deleteTag:(SettingTag *)tag {
@@ -124,7 +156,33 @@
             if (res.success) {
                 NSLog(@"删除的是：%@",tag.tagName);
                 [CustomToastUtil showToastWithMessage:@"标签删除成功！"];
-                [self loadDataToRefreshList];
+                NSMutableArray *tempArr;
+                switch (tag.tagType) {
+                    case 1:
+                    {
+                        tempArr = [self.tagsData[@"device"] mutableCopy];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
+                        self.tagsData[@"device"] = [tempArr filteredArrayUsingPredicate:predicate];
+                    }
+                        break;
+                    case 2:
+                    {
+                        tempArr = [self.tagsData[@"account"] mutableCopy];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
+                        self.tagsData[@"account"] = [tempArr filteredArrayUsingPredicate:predicate];
+                    }
+                        break;
+                    case 3:
+                    {
+                        tempArr = [self.tagsData[@"alias"] mutableCopy];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
+                        self.tagsData[@"alias"] = [tempArr filteredArrayUsingPredicate:predicate];
+                    }
+                        break;
+                    default:
+                        return;
+                }
+                [self refreshTableViewCellFor:0];
             } else {
                 [CustomToastUtil showToastWithMessage:@"标签删除失败！"];
             }
@@ -142,7 +200,8 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (res.success) {
                     [CustomToastUtil showToastWithMessage:@"别名添加成功！"];
-                    [self loadDataToRefreshList];
+                    [self.aliasArray addObject:inputString];
+                    [self refreshTableViewCellFor:1];
                 } else {
                     [CustomToastUtil showToastWithMessage:@"别名添加失败！"];
                 }
@@ -156,7 +215,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (res.success) {
                 [CustomToastUtil showToastWithMessage:@"别名删除成功！"];
-                [self loadDataToRefreshList];
+                if ([self.aliasArray containsObject:alias]) {
+                    [self.aliasArray removeObject:alias];
+                }
+                [self refreshTableViewCellFor:1];
             } else {
                 [CustomToastUtil showToastWithMessage:@"别名删除失败！"];
             }
@@ -243,7 +305,7 @@
         [strongSelf showAllTags:tagType];
     };
     [cell setTagsData:self.tagsData];
-    NSLog(@"赋值--%@",self.tagsData);
+
     return cell;
 }
 

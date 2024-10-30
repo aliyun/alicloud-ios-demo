@@ -126,10 +126,7 @@
     [self init_datebase];
 
     NSLog(@"@数据库路径：%@", _dbPath);
-    NSString *sqlStr = @"INSERT INTO ALIASTAGS (TAGNAME, TAGTYPE, TAGALIAS) VALUES (?, ?, ?)";
-    if (tag.tagType == 2) {
-        sqlStr = @"INSERT INTO ALIASTAGS (TAGNAME, TAGTYPE) VALUES (?, ?)";
-    }
+    NSString *sqlStr = @"INSERT INTO SETTINGTAGS (TAGNAME, TAGTYPE, TAGALIAS) VALUES (?, ?, ?)";
 
     if (sqlite3_open([_dbPath UTF8String], &db) != SQLITE_OK) {
         sqlite3_close(db);
@@ -158,23 +155,17 @@
 - (void)removeTag:(SettingTag *)tag {
     [self init_datebase];
 
-    NSLog(@"@数据库路径：%@", _dbPath);
-    NSString *sheet = @"ALIASTAGS";
-    if (tag.tagType == 2) {
-        sheet = @"ACCOUNTTAGS";
-    }
-
     NSString *deleteSQL = [NSString stringWithFormat:
-                               @"DELETE FROM %@ WHERE ID = '%i'", sheet, tag.tagId];
+                               @"DELETE FROM SETTINGTAGS WHERE ID = '%i'", tag.tagId];
     [self excute:deleteSQL];
 }
 
 - (NSMutableArray *)allAliasTags {
-    return [self allTagsWith:0];
+    return [self allTagsWith:3];
 }
 
 - (NSMutableArray *)allAccountTags {
-    return [self allTagsWith:1];
+    return [self allTagsWith:2];
 }
 
 /// allTags
@@ -182,18 +173,12 @@
 - (NSMutableArray *)allTagsWith:(int)type {
     [self init_datebase];
 
-    NSLog(@"@数据库路径：%@", _dbPath);
-    NSString *sheet = @"ALIASTAGS";
-    if (type == 1) {
-        sheet = @"ACCOUNTTAGS";
-    }
-
     NSMutableArray* returnTags = [[NSMutableArray alloc] init];
     if (sqlite3_open([_dbPath UTF8String], &db) != SQLITE_OK) {
         sqlite3_close(db);
         NSLog(@"数据库打开失败");
     } else {
-        NSString *sqlQuery = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY ID DESC", sheet];
+        NSString *sqlQuery = [NSString stringWithFormat:@"SELECT * FROM SETTINGTAGS WHERE TAGTYPE = %d", type];
         sqlite3_stmt * statement;
 
         if (sqlite3_prepare_v2(db, [sqlQuery UTF8String], -1, &statement, NULL) == SQLITE_OK) {

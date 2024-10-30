@@ -31,6 +31,11 @@
 		7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */; };
 		7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CFC2CBF58D70030441B /* CustomAlertView.m */; };
 		7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CFF2CBFB9440030441B /* SettingViewController.m */; };
+		7E9FBAB92CCF9C8900CB9F96 /* SettingAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9FBAB72CCF9C8900CB9F96 /* SettingAddTagViewController.m */; };
+		7E9FBABA2CCF9C8900CB9F96 /* SettingAddTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */; };
+		7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD2EB52CD1E22E00EE1883 /* AddTagTypeButton.m */; };
+		7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBD2CD2342700EE1883 /* AliasListViewController.m */; };
+		7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBF2CD2343D00EE1883 /* AliasListViewController.storyboard */; };
 		7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF16B392CB8CD3B00256421 /* MessageViewController.m */; };
 		91E7FC651FC70E48067649B1 /* libPods-mpush_service_extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F49D0B99AE77C0978EED065 /* libPods-mpush_service_extension.a */; };
 		9FB5229363C709B982FA6070 /* libPods-mpush_content_extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C2A3F748EE1D95B67E1163 /* libPods-mpush_content_extension.a */; };
@@ -139,6 +144,14 @@
 		7E2E5CFC2CBF58D70030441B /* CustomAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
 		7E2E5CFE2CBFB9440030441B /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7E2E5CFF2CBFB9440030441B /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		7E9FBAB62CCF9C8900CB9F96 /* SettingAddTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingAddTagViewController.h; sourceTree = "<group>"; };
+		7E9FBAB72CCF9C8900CB9F96 /* SettingAddTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingAddTagViewController.m; sourceTree = "<group>"; };
+		7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingAddTagViewController.xib; sourceTree = "<group>"; };
+		7EDD2EB42CD1E22E00EE1883 /* AddTagTypeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTagTypeButton.h; sourceTree = "<group>"; };
+		7EDD2EB52CD1E22E00EE1883 /* AddTagTypeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTagTypeButton.m; sourceTree = "<group>"; };
+		7EDD2EBC2CD2342700EE1883 /* AliasListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AliasListViewController.h; sourceTree = "<group>"; };
+		7EDD2EBD2CD2342700EE1883 /* AliasListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AliasListViewController.m; sourceTree = "<group>"; };
+		7EDD2EBF2CD2343D00EE1883 /* AliasListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AliasListViewController.storyboard; sourceTree = "<group>"; };
 		7EF16B382CB8CD3B00256421 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		7EF16B392CB8CD3B00256421 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		7F49D0B99AE77C0978EED065 /* libPods-mpush_service_extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpush_service_extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -348,6 +361,14 @@
 				7E10148B2CC73D4C0075F777 /* AliasAndTagView.m */,
 				7E10148D2CC8ECC30075F777 /* SettingTagTableViewCell.h */,
 				7E10148E2CC8ECC30075F777 /* SettingTagTableViewCell.m */,
+				7EDD2EBC2CD2342700EE1883 /* AliasListViewController.h */,
+				7EDD2EBD2CD2342700EE1883 /* AliasListViewController.m */,
+				7EDD2EBF2CD2343D00EE1883 /* AliasListViewController.storyboard */,
+				7E9FBAB62CCF9C8900CB9F96 /* SettingAddTagViewController.h */,
+				7E9FBAB72CCF9C8900CB9F96 /* SettingAddTagViewController.m */,
+				7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */,
+				7EDD2EB42CD1E22E00EE1883 /* AddTagTypeButton.h */,
+				7EDD2EB52CD1E22E00EE1883 /* AddTagTypeButton.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -589,11 +610,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E9FBABA2CCF9C8900CB9F96 /* SettingAddTagViewController.xib in Resources */,
 				C9C301161ADBA55000BF3288 /* mpush.sqlite in Resources */,
 				C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */,
 				C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */,
 				7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */,
 				C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */,
+				7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */,
 				C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,6 +715,7 @@
 			files = (
 				7E287E5C2CCF668A009AB44F /* SQLiteManager.m in Sources */,
 				7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */,
+				7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */,
 				7E1014982CC9E2600075F777 /* SettingTag.m in Sources */,
 				7E1014862CC65B510075F777 /* SettingAliasTableViewCell.m in Sources */,
 				7E1014952CC9E1880075F777 /* SettingTagsContentView.m in Sources */,
@@ -700,6 +724,7 @@
 				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
 				7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */,
 				C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */,
+				7E9FBAB92CCF9C8900CB9F96 /* SettingAddTagViewController.m in Sources */,
 				C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */,
 				7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */,
 				7E10148F2CC8ECC30075F777 /* SettingTagTableViewCell.m in Sources */,
@@ -708,6 +733,7 @@
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
 				C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */,
 				C99E76611AC96B8B000BC567 /* main.m in Sources */,
+				7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */,
 				C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */,
 				7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */,
 				7E1014832CC64A150075F777 /* SettingSingleTableViewCell.m in Sources */,

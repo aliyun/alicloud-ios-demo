@@ -148,7 +148,7 @@
 
     UIButton *cancleButton = [[UIButton alloc] init];
     [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
-    [cancleButton setTitleColor:[UIColor colorWithHexString:@"#4B586E"] forState:UIControlStateNormal];
+    [cancleButton setTitleColor:[UIColor colorWithHexString:@"#4e5970"] forState:UIControlStateNormal];
     [cancleButton setBackgroundColor:[UIColor colorWithHexString:@"#EBF0FF"]];
     cancleButton.titleLabel.font = [UIFont systemFontOfSize:16];
     cancleButton.layer.cornerRadius = 8;
