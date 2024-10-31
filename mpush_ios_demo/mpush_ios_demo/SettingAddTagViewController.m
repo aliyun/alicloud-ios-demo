@@ -43,8 +43,12 @@
         self.addAliasTagButton.userInteractionEnabled = NO;
     }
 
-    BOOL isBindAccount = [[NSUserDefaults standardUserDefaults] boolForKey:@"isBindAccount"];
-    self.addAccountTagButton.userInteractionEnabled = isBindAccount;
+    NSString *bindAccount = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT];
+    if (!bindAccount || bindAccount.length <= 0) {
+        self.addAccountTagButton.userInteractionEnabled = NO;
+    } else {
+        [self.addAccountTagButton setValue:bindAccount];
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

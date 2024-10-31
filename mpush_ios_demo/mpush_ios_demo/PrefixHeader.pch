@@ -12,5 +12,16 @@
 // *******Category********
 
 #import "UIColor+Hex.h"
+#import "NSString+Numeric.h"
+
+
+// *******Marco***********
+
+#import "Macro.h"
+
+
+// *******Util************
+
+#import "MsgToolBox.h"
 
 #endif /* PrefixHeader_pch */

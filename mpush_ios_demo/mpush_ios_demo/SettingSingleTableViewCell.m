@@ -80,7 +80,7 @@
 - (UILabel *)contentLabel {
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] init];
-        _contentLabel.font = [UIFont systemFontOfSize:16 weight:400];
+        _contentLabel.font = [UIFont systemFontOfSize:16];
         _contentLabel.textColor = [UIColor colorWithHexString:@"#999CA3"];
         _contentLabel.textAlignment = NSTextAlignmentRight;
         _contentLabel.translatesAutoresizingMaskIntoConstraints = NO;

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MsgToolBox.h"
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "SQLiteManager.h"
 

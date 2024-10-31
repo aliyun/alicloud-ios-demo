@@ -9,7 +9,6 @@
 #import "MessageViewController.h"
 #import "MessageTableViewCell.h"
 #import "SQLiteManager.h"
-#import "MsgToolBox.h"
 
 @interface MessageViewController ()<UITableViewDataSource, UITableViewDelegate>
 

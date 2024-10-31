@@ -24,6 +24,10 @@
 
 @property (nonatomic, strong)NSMutableDictionary *tagsData;
 
+@property (nonatomic, copy)NSString *bindAccount;
+
+@property (nonatomic, copy)NSString *badgeNumber;
+
 @end
 
 @implementation SettingViewController
@@ -89,6 +93,14 @@
         dispatch_group_leave(group);
     }];
 
+    // load account & badge data
+    dispatch_group_enter(group);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.bindAccount = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"未绑定账号" ;
+        self.badgeNumber = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BADGENUMBER] ?: @"未同步";
+        dispatch_group_leave(group);
+    });
+
     // refresh list
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [self.settingTableView reloadData];
@@ -111,6 +123,7 @@
 - (void)addTag {
     SettingAddTagViewController *addTagViewController = [[[NSBundle mainBundle] loadNibNamed:@"SettingAddTagViewController" owner:self options:nil] firstObject];
     addTagViewController.aliasArray = self.aliasArray;
+
     __weak typeof(self) weakSelf = self;
     addTagViewController.addHandle = ^(SettingTag * _Nonnull tag) {
         __strong typeof(self) strongSelf = weakSelf;
@@ -154,26 +167,22 @@
     [CloudPushSDK unbindTag:tag.tagType withTags:@[tag.tagName] withAlias:tag.tagAlias withCallback:^(CloudPushCallbackResult *res) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (res.success) {
-                NSLog(@"删除的是：%@",tag.tagName);
                 [CustomToastUtil showToastWithMessage:@"标签删除成功！"];
                 NSMutableArray *tempArr;
                 switch (tag.tagType) {
-                    case 1:
-                    {
+                    case 1: {
                         tempArr = [self.tagsData[@"device"] mutableCopy];
                         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
                         self.tagsData[@"device"] = [tempArr filteredArrayUsingPredicate:predicate];
                     }
                         break;
-                    case 2:
-                    {
+                    case 2: {
                         tempArr = [self.tagsData[@"account"] mutableCopy];
                         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
                         self.tagsData[@"account"] = [tempArr filteredArrayUsingPredicate:predicate];
                     }
                         break;
-                    case 3:
-                    {
+                    case 3: {
                         tempArr = [self.tagsData[@"alias"] mutableCopy];
                         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
                         self.tagsData[@"alias"] = [tempArr filteredArrayUsingPredicate:predicate];
@@ -257,55 +266,100 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    if (indexPath.section == 0) {
-        return[self setupTagCell];
+    switch (indexPath.section) {
+        case 0:
+            return [self configuredTagCell];
+        case 1:
+            return [self configuredAliasCell];
+        case 2:
+        case 3: {
+            SettingSingleTableViewCell *cell;
+            if (indexPath.section == 2) {
+                cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeAccount];
+                [cell setData:self.bindAccount];
+            } else {
+                cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeBadgeNumber];
+                [cell setData:self.badgeNumber];
+            }
+            return cell;
+        }
+        default:
+            return nil;
     }
-
-    if (indexPath.section == 1) {
-        SettingAliasTableViewCell *cell = [[SettingAliasTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SettingAliasTableViewCell"];
-        [cell setAlias:self.aliasArray];
-        __weak typeof(self) weakSelf = self;
-        cell.addHandle = ^{
-            __strong typeof(self) strongSelf = weakSelf;
-            [strongSelf addAlias];
-        };
-        cell.deleteHandle = ^(NSString * _Nonnull alias) {
-            __strong typeof(self) strongSelf = weakSelf;
-            [strongSelf deleteAlias:alias];
-        };
-        cell.showAllHandle = ^{
-            __strong typeof(self) strongSelf = weakSelf;
-            [strongSelf showAllAlias];
-        };
-        return cell;
-    }
-
-    SettingSingleCellType cellType = SettingSingleCellTypeAccount;
-    if (indexPath.section == 3) {
-        cellType = SettingSingleCellTypeBadgeNumber;
-    }
-    SettingSingleTableViewCell *cell = [SettingSingleTableViewCell cellWithType:cellType];
-    return cell;
 }
 
-- (SettingTagTableViewCell *)setupTagCell {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        [CustomAlertView showInputAlert:AlertInputTypeBindAccount handle:^(NSString * _Nonnull inputString) {
+            [CloudPushSDK bindAccount:inputString withCallback:^(CloudPushCallbackResult *res) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (res.success) {
+                        [CustomToastUtil showToastWithMessage:@"绑定账号成功！"];
+
+                        // 绑定成功的账号缓存起来
+                        [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BINDACCOUNT];
+                        self.bindAccount = inputString ?: @"未绑定账号";
+                        [self refreshTableViewCellFor:2];
+                    } else {
+                        [CustomToastUtil showToastWithMessage:@"绑定账号失败！"];
+                    }
+                });
+            }];
+        }];
+    } else if (indexPath.section == 3) {
+        [CustomAlertView showInputAlert:AlertInputTypeSyncBadgeNum handle:^(NSString * _Nonnull inputString) {
+            if (![inputString isNumeric]) {
+                [MsgToolBox showAlert:@"" content:@"请输入纯数字角标"];
+                return;
+            }
+            NSInteger badgeNum = [inputString integerValue];
+            [CloudPushSDK syncBadgeNum:badgeNum withCallback:^(CloudPushCallbackResult *res) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (res.success) {
+                        [CustomToastUtil showToastWithMessage:@"同步角标数成功！"];
+
+                        // 绑定成功的账号缓存起来
+                        [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BADGENUMBER];
+                        self.badgeNumber = inputString ?: @"未同步";
+                        [self refreshTableViewCellFor:3];
+                    } else {
+                        [CustomToastUtil showToastWithMessage:@"同步角标数失败！"];
+                    }
+                });
+            }];
+        }];
+    }
+}
+
+- (SettingTagTableViewCell *)configuredTagCell {
     SettingTagTableViewCell *cell = [[SettingTagTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SettingTagTableViewCell"];
     __weak typeof(self) weakSelf = self;
     cell.addHandle = ^{
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf addTag];
+        [weakSelf addTag];
     };
-    cell.deleteHandle = ^(SettingTag * _Nonnull tag) {
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf deleteTag:tag];
+    cell.deleteHandle = ^(SettingTag *tag) {
+        [weakSelf deleteTag:tag];
     };
     cell.showAllHandle = ^(int tagType) {
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf showAllTags:tagType];
+        [weakSelf showAllTags:tagType];
     };
     [cell setTagsData:self.tagsData];
+    return cell;
+}
 
+- (SettingAliasTableViewCell *)configuredAliasCell {
+    SettingAliasTableViewCell *cell = [[SettingAliasTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SettingAliasTableViewCell"];
+    [cell setAlias:self.aliasArray];
+    __weak typeof(self) weakSelf = self;
+    cell.addHandle = ^{
+        [weakSelf addAlias];
+    };
+    cell.deleteHandle = ^(NSString *alias) {
+        [weakSelf deleteAlias:alias];
+    };
+    cell.showAllHandle = ^{
+        [weakSelf showAllAlias];
+    };
     return cell;
 }
 

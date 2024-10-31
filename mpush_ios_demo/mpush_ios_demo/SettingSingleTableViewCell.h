@@ -19,6 +19,8 @@ typedef NS_ENUM(NSUInteger, SettingSingleCellType) {
 
 + (instancetype)cellWithType:(SettingSingleCellType)cellType;
 
+- (void)setData:(NSString *)data;
+
 @end
 
 NS_ASSUME_NONNULL_END

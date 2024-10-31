@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <CloudPushSDK/CloudPushSDK.h>
-#import "MsgToolBox.h"
 
 @interface PersonalViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
