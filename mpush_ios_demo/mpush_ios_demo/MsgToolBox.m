@@ -23,7 +23,7 @@
 
 + (void)show:(NSString *)title content:(NSString *)content {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"已阅" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:cancleAction];
     [[self getCurrentViewController] presentViewController:alert animated:YES completion:nil];
 }

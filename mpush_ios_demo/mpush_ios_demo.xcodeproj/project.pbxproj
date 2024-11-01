@@ -26,12 +26,17 @@
 		7E1014952CC9E1880075F777 /* SettingTagsContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014942CC9E1880075F777 /* SettingTagsContentView.m */; };
 		7E1014982CC9E2600075F777 /* SettingTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1014972CC9E2600075F777 /* SettingTag.m */; };
 		7E287E5C2CCF668A009AB44F /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E287E5B2CCF668A009AB44F /* SQLiteManager.m */; };
+		7E2C7BFB2CD390A3006CDFE5 /* UIView+TopCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7BFA2CD390A3006CDFE5 /* UIView+TopCorners.m */; };
+		7E2C7C022CD46F5F006CDFE5 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2C7C012CD46F5F006CDFE5 /* InformationTableViewCell.xib */; };
+		7E2C7C032CD46F5F006CDFE5 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C002CD46F5F006CDFE5 /* InformationTableViewCell.m */; };
+		7E2C7C062CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C052CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m */; };
 		7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */; };
 		7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */; };
 		7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */; };
 		7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CFC2CBF58D70030441B /* CustomAlertView.m */; };
 		7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CFF2CBFB9440030441B /* SettingViewController.m */; };
 		7E8DBA6E2CD35E82001DFF0E /* NSString+Numeric.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBA6D2CD35E82001DFF0E /* NSString+Numeric.m */; };
+		7E8DBA762CD38AB7001DFF0E /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBA752CD38AB7001DFF0E /* InformationViewController.m */; };
 		7E9FBAB92CCF9C8900CB9F96 /* SettingAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9FBAB72CCF9C8900CB9F96 /* SettingAddTagViewController.m */; };
 		7E9FBABA2CCF9C8900CB9F96 /* SettingAddTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */; };
 		7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD2EB52CD1E22E00EE1883 /* AddTagTypeButton.m */; };
@@ -135,6 +140,13 @@
 		7E1014972CC9E2600075F777 /* SettingTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTag.m; sourceTree = "<group>"; };
 		7E287E5A2CCF668A009AB44F /* SQLiteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
 		7E287E5B2CCF668A009AB44F /* SQLiteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
+		7E2C7BF92CD390A3006CDFE5 /* UIView+TopCorners.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TopCorners.h"; sourceTree = "<group>"; };
+		7E2C7BFA2CD390A3006CDFE5 /* UIView+TopCorners.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TopCorners.m"; sourceTree = "<group>"; };
+		7E2C7BFF2CD46F5F006CDFE5 /* InformationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationTableViewCell.h; sourceTree = "<group>"; };
+		7E2C7C002CD46F5F006CDFE5 /* InformationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
+		7E2C7C012CD46F5F006CDFE5 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
+		7E2C7C042CD4BFE9006CDFE5 /* InformationCCPTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationCCPTableViewCell.h; sourceTree = "<group>"; };
+		7E2C7C052CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationCCPTableViewCell.m; sourceTree = "<group>"; };
 		7E2E5CEC2CBCEDFC0030441B /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		7E2E5CF32CBCFE480030441B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -147,6 +159,8 @@
 		7E2E5CFF2CBFB9440030441B /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7E8DBA6C2CD35E82001DFF0E /* NSString+Numeric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Numeric.h"; sourceTree = "<group>"; };
 		7E8DBA6D2CD35E82001DFF0E /* NSString+Numeric.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Numeric.m"; sourceTree = "<group>"; };
+		7E8DBA742CD38AB7001DFF0E /* InformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		7E8DBA752CD38AB7001DFF0E /* InformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		7E9FBAB62CCF9C8900CB9F96 /* SettingAddTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingAddTagViewController.h; sourceTree = "<group>"; };
 		7E9FBAB72CCF9C8900CB9F96 /* SettingAddTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingAddTagViewController.m; sourceTree = "<group>"; };
 		7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingAddTagViewController.xib; sourceTree = "<group>"; };
@@ -263,6 +277,8 @@
 				7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */,
 				7E8DBA6C2CD35E82001DFF0E /* NSString+Numeric.h */,
 				7E8DBA6D2CD35E82001DFF0E /* NSString+Numeric.m */,
+				7E2C7BF92CD390A3006CDFE5 /* UIView+TopCorners.h */,
+				7E2C7BFA2CD390A3006CDFE5 /* UIView+TopCorners.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -400,6 +416,13 @@
 			children = (
 				C918AE951ACB8C6E001445C1 /* PersonalViewController.h */,
 				C918AE961ACB8C6E001445C1 /* PersonalViewController.m */,
+				7E8DBA742CD38AB7001DFF0E /* InformationViewController.h */,
+				7E8DBA752CD38AB7001DFF0E /* InformationViewController.m */,
+				7E2C7BFF2CD46F5F006CDFE5 /* InformationTableViewCell.h */,
+				7E2C7C002CD46F5F006CDFE5 /* InformationTableViewCell.m */,
+				7E2C7C012CD46F5F006CDFE5 /* InformationTableViewCell.xib */,
+				7E2C7C042CD4BFE9006CDFE5 /* InformationCCPTableViewCell.h */,
+				7E2C7C052CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m */,
 			);
 			name = Personal;
 			sourceTree = "<group>";
@@ -619,6 +642,7 @@
 			files = (
 				7E9FBABA2CCF9C8900CB9F96 /* SettingAddTagViewController.xib in Resources */,
 				C9C301161ADBA55000BF3288 /* mpush.sqlite in Resources */,
+				7E2C7C022CD46F5F006CDFE5 /* InformationTableViewCell.xib in Resources */,
 				C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */,
 				C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */,
 				7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */,
@@ -723,11 +747,14 @@
 				7E287E5C2CCF668A009AB44F /* SQLiteManager.m in Sources */,
 				7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */,
 				7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */,
+				7E2C7BFB2CD390A3006CDFE5 /* UIView+TopCorners.m in Sources */,
 				7E8DBA6E2CD35E82001DFF0E /* NSString+Numeric.m in Sources */,
 				7E1014982CC9E2600075F777 /* SettingTag.m in Sources */,
 				7E1014862CC65B510075F777 /* SettingAliasTableViewCell.m in Sources */,
 				7E1014952CC9E1880075F777 /* SettingTagsContentView.m in Sources */,
 				C95EFE0B1ACAF3C40082CF70 /* MsgToolBox.m in Sources */,
+				7E8DBA762CD38AB7001DFF0E /* InformationViewController.m in Sources */,
+				7E2C7C032CD46F5F006CDFE5 /* InformationTableViewCell.m in Sources */,
 				7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */,
 				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
 				7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */,
@@ -740,6 +767,7 @@
 				7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
 				C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */,
+				7E2C7C062CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m in Sources */,
 				C99E76611AC96B8B000BC567 /* main.m in Sources */,
 				7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */,
 				C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */,

@@ -14,4 +14,7 @@
 // 角标同步缓存key
 #define DEVICE_BADGENUMBER @"badgeAccount"
 
+// 自有通道开关缓存key
+#define CCPSWITCHSTATE @"ccpSwitchState"
+
 #endif /* Macro_h */
