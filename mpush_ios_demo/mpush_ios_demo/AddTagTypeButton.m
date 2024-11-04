@@ -66,6 +66,16 @@
     self.selectedIcon.highlighted = selected;
 }
 
+- (void)setDisable {
+    self.nameLabel.textColor = [UIColor colorWithHexString:@"#B8BBC2"];
+    self.selectedIcon.image = [UIImage imageNamed:@"tagType_disable"];
+    self.userInteractionEnabled = NO;
+}
+
+- (NSString *)getValue {
+    return self.valueLabel.text;
+}
+
 #pragma mark - lazy load
 
 - (UIImageView *)selectedIcon {

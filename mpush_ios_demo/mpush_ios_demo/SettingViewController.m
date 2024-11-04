@@ -15,6 +15,7 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "SQLiteManager.h"
 #import "SettingAddTagViewController.h"
+#import "ShowAllTagsViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -32,13 +33,17 @@
 
 @implementation SettingViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self loadDataToRefreshList];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.settingTableView.delegate = self;
     self.settingTableView.dataSource = self;
-
-    [self loadDataToRefreshList];
 }
 
 - (void)loadDataToRefreshList {
@@ -180,12 +185,16 @@
                         tempArr = [self.tagsData[@"account"] mutableCopy];
                         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
                         self.tagsData[@"account"] = [tempArr filteredArrayUsingPredicate:predicate];
+                        SQLiteManager *manager = [[SQLiteManager alloc] init];
+                        [manager removeTag:tag];
                     }
                         break;
                     case 3: {
                         tempArr = [self.tagsData[@"alias"] mutableCopy];
                         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
                         self.tagsData[@"alias"] = [tempArr filteredArrayUsingPredicate:predicate];
+                        SQLiteManager *manager = [[SQLiteManager alloc] init];
+                        [manager removeTag:tag];
                     }
                         break;
                     default:
@@ -200,7 +209,23 @@
 }
 
 - (void)showAllTags:(int)tagType {
-
+    NSArray *tagsArray;
+    switch (tagType) {
+        case 1:
+            tagsArray = self.tagsData[@"device"];
+            break;
+        case 2:
+            tagsArray = self.tagsData[@"account"];
+            break;
+        case 3:
+            tagsArray = self.tagsData[@"alias"];
+            break;
+        default:
+            break;
+    }
+    ShowAllTagsViewController *allTagsViewController = [[UIStoryboard storyboardWithName:@"ShowAllTagsViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowAllTagsViewController"];
+    allTagsViewController.dataArray = tagsArray;
+    [self.navigationController pushViewController:allTagsViewController animated:YES];
 }
 
 - (void)addAlias {
@@ -236,7 +261,10 @@
 }
 
 - (void)showAllAlias {
-
+    ShowAllTagsViewController *showAllAliasViewController = [[UIStoryboard storyboardWithName:@"ShowAllTagsViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowAllTagsViewController"];
+    showAllAliasViewController.isAlias = YES;
+    showAllAliasViewController.dataArray = self.aliasArray;
+    [self.navigationController pushViewController:showAllAliasViewController animated:YES];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

@@ -19,6 +19,10 @@ typedef void(^AddTagResultHandle)(SettingTag *tag);
 
 @property (nonatomic, copy)AddTagResultHandle addHandle;
 
+/// 设置默认选中标签类型
+/// - Parameter tagType: 1设备标签 2.账号标签 3.别名标签
+- (void)setSeletedTagType:(int)tagType;
+
 @end
 
 NS_ASSUME_NONNULL_END

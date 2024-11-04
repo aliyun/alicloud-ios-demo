@@ -30,6 +30,10 @@
 		7E2C7C022CD46F5F006CDFE5 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2C7C012CD46F5F006CDFE5 /* InformationTableViewCell.xib */; };
 		7E2C7C032CD46F5F006CDFE5 /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C002CD46F5F006CDFE5 /* InformationTableViewCell.m */; };
 		7E2C7C062CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C052CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m */; };
+		7E2C7C0C2CD4D425006CDFE5 /* ShowAllTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C0B2CD4D425006CDFE5 /* ShowAllTagsViewController.m */; };
+		7E2C7C0E2CD4D46F006CDFE5 /* ShowAllTagsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2C7C0D2CD4D46F006CDFE5 /* ShowAllTagsViewController.storyboard */; };
+		7E2C7C112CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C102CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.m */; };
+		7E2C7C142CD4E0B3006CDFE5 /* TagsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C132CD4E0B3006CDFE5 /* TagsCollectionViewCell.m */; };
 		7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */; };
 		7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */; };
 		7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */; };
@@ -147,6 +151,13 @@
 		7E2C7C012CD46F5F006CDFE5 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
 		7E2C7C042CD4BFE9006CDFE5 /* InformationCCPTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InformationCCPTableViewCell.h; sourceTree = "<group>"; };
 		7E2C7C052CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InformationCCPTableViewCell.m; sourceTree = "<group>"; };
+		7E2C7C0A2CD4D425006CDFE5 /* ShowAllTagsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowAllTagsViewController.h; sourceTree = "<group>"; };
+		7E2C7C0B2CD4D425006CDFE5 /* ShowAllTagsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowAllTagsViewController.m; sourceTree = "<group>"; };
+		7E2C7C0D2CD4D46F006CDFE5 /* ShowAllTagsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowAllTagsViewController.storyboard; sourceTree = "<group>"; };
+		7E2C7C0F2CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowAllTagsFlowLayout.h; sourceTree = "<group>"; };
+		7E2C7C102CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowAllTagsFlowLayout.m; sourceTree = "<group>"; };
+		7E2C7C122CD4E0B3006CDFE5 /* TagsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsCollectionViewCell.h; sourceTree = "<group>"; };
+		7E2C7C132CD4E0B3006CDFE5 /* TagsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsCollectionViewCell.m; sourceTree = "<group>"; };
 		7E2E5CEC2CBCEDFC0030441B /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		7E2E5CF32CBCFE480030441B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -391,6 +402,13 @@
 				7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */,
 				7EDD2EB42CD1E22E00EE1883 /* AddTagTypeButton.h */,
 				7EDD2EB52CD1E22E00EE1883 /* AddTagTypeButton.m */,
+				7E2C7C0A2CD4D425006CDFE5 /* ShowAllTagsViewController.h */,
+				7E2C7C0B2CD4D425006CDFE5 /* ShowAllTagsViewController.m */,
+				7E2C7C0D2CD4D46F006CDFE5 /* ShowAllTagsViewController.storyboard */,
+				7E2C7C122CD4E0B3006CDFE5 /* TagsCollectionViewCell.h */,
+				7E2C7C132CD4E0B3006CDFE5 /* TagsCollectionViewCell.m */,
+				7E2C7C0F2CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.h */,
+				7E2C7C102CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -645,6 +663,7 @@
 				7E2C7C022CD46F5F006CDFE5 /* InformationTableViewCell.xib in Resources */,
 				C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */,
 				C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */,
+				7E2C7C0E2CD4D46F006CDFE5 /* ShowAllTagsViewController.storyboard in Resources */,
 				7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */,
 				C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */,
 				7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */,
@@ -759,7 +778,10 @@
 				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
 				7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */,
 				C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */,
+				7E2C7C142CD4E0B3006CDFE5 /* TagsCollectionViewCell.m in Sources */,
+				7E2C7C0C2CD4D425006CDFE5 /* ShowAllTagsViewController.m in Sources */,
 				7E9FBAB92CCF9C8900CB9F96 /* SettingAddTagViewController.m in Sources */,
+				7E2C7C112CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.m in Sources */,
 				C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */,
 				7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */,
 				7E10148F2CC8ECC30075F777 /* SettingTagTableViewCell.m in Sources */,

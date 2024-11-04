@@ -10,6 +10,7 @@
 #import "AddTagTypeButton.h"
 #import "AliasListViewController.h"
 #import "CustomToastUtil.h"
+#import "MsgToolBox.h"
 #import <CloudPushSDK/CloudPushSDK.h>
 
 @interface SettingAddTagViewController ()
@@ -40,14 +41,36 @@
 
 - (void)setupTypeButtonStatus {
     if (self.aliasArray.count <= 0) {
-        self.addAliasTagButton.userInteractionEnabled = NO;
+        [self.addAliasTagButton setDisable];
     }
 
     NSString *bindAccount = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT];
     if (!bindAccount || bindAccount.length <= 0) {
-        self.addAccountTagButton.userInteractionEnabled = NO;
+        [self.addAccountTagButton setDisable];
     } else {
         [self.addAccountTagButton setValue:bindAccount];
+    }
+}
+
+- (void)setSeletedTagType:(int)tagType {
+    switch (tagType) {
+        case 1:
+            self.addDeviceTagButton.selected = YES;
+            [self.addAliasTagButton setDisable];
+            [self.addAccountTagButton setDisable];
+            break;
+        case 2:
+            self.addAccountTagButton.selected = YES;
+            [self.addAliasTagButton setDisable];
+            [self.addDeviceTagButton setDisable];
+            break;
+        case 3:
+            self.addAliasTagButton.selected = YES;
+            [self.addAliasTagButton setValue:@"未选择别名"];
+            [self.addAccountTagButton setDisable];
+            [self.addDeviceTagButton setDisable];
+        default:
+            break;
     }
 }
 
@@ -96,13 +119,17 @@
 
 - (IBAction)confirmAction:(id)sender {
     if (self.tagNameTextField.text.length <= 0) {
-        [CustomToastUtil showToastWithMessage:@"请输入要绑定的标签"];
+        [MsgToolBox showAlert:@"" content:@"请输入要绑定的标签"];
         return;
     }
 
     int bindTag = 1;
     if (self.addAliasTagButton.isSelected) {
         bindTag = 3;
+        if ([[self.addAliasTagButton getValue] isEqualToString:@"未选择别名"]) {
+            [MsgToolBox showAlert:@"" content:@"请选择别名"];
+            return;
+        }
     }
 
     if (self.addAccountTagButton.isSelected) {
