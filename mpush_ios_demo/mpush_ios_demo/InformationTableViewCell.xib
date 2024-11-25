@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="InformationTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="71" id="KGk-i7-Jjw" customClass="InformationTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="521" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="521" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZD-j5-b8T">
+                        <rect key="frame" x="15.999999999999996" y="22" width="40.666666666666657" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="d2j-vi-F4n"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <color key="textColor" red="0.19215686274509802" green="0.2196078431372549" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oML-aN-Mua">
+                        <rect key="frame" x="15.999999999999996" y="48" width="39.666666666666657" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="tK9-vc-LzW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.63137254901960782" green="0.6705882352941176" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ia-uN-783">
+                        <rect key="frame" x="59.666666666666657" y="50" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="RUL-ec-pGU"/>
+                            <constraint firstAttribute="height" constant="16" id="T7p-YA-UI5"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                            <backgroundConfiguration key="background" image="copy"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="copyDetailAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="N10-nV-NIu"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="oML-aN-Mua" secondAttribute="bottom" id="00u-k7-16C"/>
+                    <constraint firstItem="0Ia-uN-783" firstAttribute="leading" secondItem="oML-aN-Mua" secondAttribute="trailing" constant="4" id="9G6-om-MLa"/>
+                    <constraint firstItem="tZD-j5-b8T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Jig-Ki-1ei"/>
+                    <constraint firstItem="tZD-j5-b8T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="XfQ-qV-Chm"/>
+                    <constraint firstItem="0Ia-uN-783" firstAttribute="centerY" secondItem="oML-aN-Mua" secondAttribute="centerY" id="dSN-OF-Jcs"/>
+                    <constraint firstItem="oML-aN-Mua" firstAttribute="top" secondItem="tZD-j5-b8T" secondAttribute="bottom" constant="6" id="e7Q-gb-EVg"/>
+                    <constraint firstItem="oML-aN-Mua" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="320:375" id="ijm-Ae-ftH"/>
+                    <constraint firstItem="oML-aN-Mua" firstAttribute="leading" secondItem="tZD-j5-b8T" secondAttribute="leading" id="jNj-6X-kr8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="detailCopyButton" destination="0Ia-uN-783" id="sJ3-O8-d1I"/>
+                <outlet property="detailLabel" destination="oML-aN-Mua" id="Jp1-H2-Kpm"/>
+                <outlet property="titleLabel" destination="tZD-j5-b8T" id="FGe-5f-1Zr"/>
+            </connections>
+            <point key="canvasLocation" x="241.98473282442748" y="27.112676056338028"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="copy" width="32" height="32"/>
+    </resources>
+</document>
