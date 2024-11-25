@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 4</title>
+    <g id="推送" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="安卓_基础功能_设置日志等级" transform="translate(-32, -1166)" fill="#FFFFFF">
+            <g id="编组-8" transform="translate(0, 0)">
+                <g id="编组-18" transform="translate(0, 911)">
+                    <g id="编组-17" transform="translate(0, 113)">
+                        <g id="编组-14备份" transform="translate(0, 104)">
+                            <g id="编组-9" transform="translate(32, 38)">
+                                <g id="编组-4" transform="translate(0, 0)">
+                                    <circle id="形状结合" stroke="#CCCCCC" stroke-width="1.75" cx="14" cy="14" r="13.125"></circle>
+                                    <path d="M8.40363375,8.04333964 C9.02901501,8.04333964 9.54585416,8.49222081 9.62765109,9.07461375 L9.63892787,9.23652145 L9.63878409,14.4068371 L19.9330455,14.406976 C20.5584268,14.406976 21.0752659,14.8558572 21.1570629,15.4382501 L21.1683396,15.6001578 C21.1683396,16.2042193 20.7036156,16.7034389 20.1006676,16.7824473 L19.9330455,16.7933396 L8.40363375,16.7933396 C7.77825249,16.7933396 7.26141335,16.3444585 7.17961642,15.7620655 L7.16833964,15.6001578 L7.16833964,9.23652145 C7.16833964,8.57754533 7.72139965,8.04333964 8.40363375,8.04333964 Z" id="路径" fill-rule="nonzero" transform="translate(14.1683, 12.4183) rotate(-45) translate(-14.1683, -12.4183)"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
