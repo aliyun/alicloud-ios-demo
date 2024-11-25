@@ -13,7 +13,7 @@
 
 @implementation CustomToastUtil
 
-+ (void)showToastWithMessage:(NSString *)message {
++ (void)showToastWithMessage:(NSString *)message isSuccess:(BOOL)success {
     // 设置 Toast 标签
     UILabel *messageLabel = [[UILabel alloc] init];
     messageLabel.text = message;
@@ -24,8 +24,12 @@
     messageLabel.numberOfLines = 0;
     
     // 设置成功图标
-    UIImageView *successIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"toast_success"]];
-    
+    NSString *iconName = @"toast_success";
+    if (!success) {
+        iconName = @"toast_fail";
+    }
+    UIImageView *successIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
+
     // 调整标签大小以适应消息文本
     CGSize maxSize = CGSizeMake(kScreenWidth * 0.8, kScreenHeight * 0.8);
     CGSize expectedSize = [message boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName : messageLabel.font } context:nil].size;

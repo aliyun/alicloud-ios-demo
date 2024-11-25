@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomToastUtil : NSObject
 
-+ (void)showToastWithMessage:(NSString *)message;
++ (void)showToastWithMessage:(NSString *)message isSuccess:(BOOL)success;
 
 @end
 

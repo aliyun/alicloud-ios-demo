@@ -35,7 +35,6 @@
 		7E2C7C112CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C102CD4DEB6006CDFE5 /* ShowAllTagsFlowLayout.m */; };
 		7E2C7C142CD4E0B3006CDFE5 /* TagsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C7C132CD4E0B3006CDFE5 /* TagsCollectionViewCell.m */; };
 		7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */; };
-		7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */; };
 		7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */; };
 		7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CFC2CBF58D70030441B /* CustomAlertView.m */; };
 		7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E5CFF2CBFB9440030441B /* SettingViewController.m */; };
@@ -161,7 +160,6 @@
 		7E2E5CEC2CBCEDFC0030441B /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		7E2E5CED2CBCEDFC0030441B /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		7E2E5CF32CBCFE480030441B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		7E2E5CF82CBD20E70030441B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		7E2E5CF92CBD20E80030441B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		7E2E5CFB2CBF58D70030441B /* CustomAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
@@ -461,7 +459,6 @@
 		C99E76521AC96B8B000BC567 = {
 			isa = PBXGroup;
 			children = (
-				7E2E5CF62CBD1CEA0030441B /* AliyunEmasServices-Info.plist */,
 				C9C301151ADBA55000BF3288 /* mpush.sqlite */,
 				C99E765D1AC96B8B000BC567 /* mpush_ios_demo */,
 				4AC713351DB60DF30062EE5A /* mpush_service_extension */,
@@ -664,7 +661,6 @@
 				C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */,
 				C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */,
 				7E2C7C0E2CD4D46F006CDFE5 /* ShowAllTagsViewController.storyboard in Resources */,
-				7E2E5CF72CBD1CEA0030441B /* AliyunEmasServices-Info.plist in Resources */,
 				C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */,
 				7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */,
 				C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */,
