@@ -87,13 +87,13 @@
                 __strong typeof(self) strongSelf = weakSelf;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (res.success) {
-                        [CustomToastUtil showToastWithMessage:@"别名添加成功！"];
+                        [CustomToastUtil showToastWithMessage:@"别名添加成功！" isSuccess:YES];
                         NSMutableArray *tempArray = strongSelf.dataArray.mutableCopy;
                         [tempArray addObject:inputString];
                         strongSelf.dataArray = tempArray.copy;
                         [strongSelf.tagsCollectionView reloadData];
                     } else {
-                        [CustomToastUtil showToastWithMessage:@"别名添加失败！"];
+                        [CustomToastUtil showToastWithMessage:@"别名添加失败！" isSuccess:NO];
                     }
                 });
             }];
@@ -130,7 +130,7 @@
     [CloudPushSDK unbindTag:tag.tagType withTags:@[tag.tagName] withAlias:tag.tagAlias withCallback:^(CloudPushCallbackResult *res) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (res.success) {
-                [CustomToastUtil showToastWithMessage:@"标签删除成功！"];
+                [CustomToastUtil showToastWithMessage:@"标签删除成功！" isSuccess:YES];
                 NSMutableArray *tempArray;
                 tempArray = [self.dataArray mutableCopy];
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"tagName != %@", tag.tagName];
@@ -142,7 +142,7 @@
                     [manager removeTag:tag];
                 }
             } else {
-                [CustomToastUtil showToastWithMessage:@"标签删除失败！"];
+                [CustomToastUtil showToastWithMessage:@"标签删除失败！" isSuccess:NO];
             }
         });
     }];
@@ -152,7 +152,7 @@
     [CloudPushSDK removeAlias:alias withCallback:^(CloudPushCallbackResult *res) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (res.success) {
-                [CustomToastUtil showToastWithMessage:@"别名删除成功！"];
+                [CustomToastUtil showToastWithMessage:@"别名删除成功！" isSuccess:YES];
 
                 if ([self.dataArray containsObject:alias]) {
                     NSMutableArray *tempArray = [self.dataArray mutableCopy];
@@ -161,7 +161,7 @@
                 }
                 [self.tagsCollectionView reloadData];
             } else {
-                [CustomToastUtil showToastWithMessage:@"别名删除失败！"];
+                [CustomToastUtil showToastWithMessage:@"别名删除失败！" isSuccess:NO];
             }
         });
     }];

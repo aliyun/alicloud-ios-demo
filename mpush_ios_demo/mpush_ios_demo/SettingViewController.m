@@ -172,7 +172,7 @@
     [CloudPushSDK unbindTag:tag.tagType withTags:@[tag.tagName] withAlias:tag.tagAlias withCallback:^(CloudPushCallbackResult *res) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (res.success) {
-                [CustomToastUtil showToastWithMessage:@"标签删除成功！"];
+                [CustomToastUtil showToastWithMessage:@"标签删除成功！" isSuccess:YES];
                 NSMutableArray *tempArr;
                 switch (tag.tagType) {
                     case 1: {
@@ -202,7 +202,7 @@
                 }
                 [self refreshTableViewCellFor:0];
             } else {
-                [CustomToastUtil showToastWithMessage:@"标签删除失败！"];
+                [CustomToastUtil showToastWithMessage:@"标签删除失败！" isSuccess:NO];
             }
         });
     }];
@@ -233,11 +233,11 @@
         [CloudPushSDK addAlias:inputString withCallback:^(CloudPushCallbackResult *res) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (res.success) {
-                    [CustomToastUtil showToastWithMessage:@"别名添加成功！"];
+                    [CustomToastUtil showToastWithMessage:@"别名添加成功！" isSuccess:YES];
                     [self.aliasArray addObject:inputString];
                     [self refreshTableViewCellFor:1];
                 } else {
-                    [CustomToastUtil showToastWithMessage:@"别名添加失败！"];
+                    [CustomToastUtil showToastWithMessage:@"别名添加失败！" isSuccess:NO];
                 }
             });
         }];
@@ -248,13 +248,13 @@
     [CloudPushSDK removeAlias:alias withCallback:^(CloudPushCallbackResult *res) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (res.success) {
-                [CustomToastUtil showToastWithMessage:@"别名删除成功！"];
+                [CustomToastUtil showToastWithMessage:@"别名删除成功！" isSuccess:YES];
                 if ([self.aliasArray containsObject:alias]) {
                     [self.aliasArray removeObject:alias];
                 }
                 [self refreshTableViewCellFor:1];
             } else {
-                [CustomToastUtil showToastWithMessage:@"别名删除失败！"];
+                [CustomToastUtil showToastWithMessage:@"别名删除失败！" isSuccess:NO];
             }
         });
     }];
@@ -322,14 +322,14 @@
             [CloudPushSDK bindAccount:inputString withCallback:^(CloudPushCallbackResult *res) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (res.success) {
-                        [CustomToastUtil showToastWithMessage:@"绑定账号成功！"];
+                        [CustomToastUtil showToastWithMessage:@"绑定账号成功！" isSuccess:YES];
 
                         // 绑定成功的账号缓存起来
                         [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BINDACCOUNT];
                         self.bindAccount = inputString ?: @"未绑定账号";
                         [self refreshTableViewCellFor:2];
                     } else {
-                        [CustomToastUtil showToastWithMessage:@"绑定账号失败！"];
+                        [CustomToastUtil showToastWithMessage:@"绑定账号失败！" isSuccess:NO];
                     }
                 });
             }];
@@ -344,14 +344,14 @@
             [CloudPushSDK syncBadgeNum:badgeNum withCallback:^(CloudPushCallbackResult *res) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (res.success) {
-                        [CustomToastUtil showToastWithMessage:@"同步角标数成功！"];
+                        [CustomToastUtil showToastWithMessage:@"同步角标数成功！" isSuccess:YES];
 
                         // 绑定成功的账号缓存起来
                         [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BADGENUMBER];
                         self.badgeNumber = inputString ?: @"未同步";
                         [self refreshTableViewCellFor:3];
                     } else {
-                        [CustomToastUtil showToastWithMessage:@"同步角标数失败！"];
+                        [CustomToastUtil showToastWithMessage:@"同步角标数失败！" isSuccess:NO];
                     }
                 });
             }];

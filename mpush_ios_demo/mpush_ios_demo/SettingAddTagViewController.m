@@ -139,7 +139,7 @@
     [CloudPushSDK bindTag:bindTag withTags:@[self.tagNameTextField.text] withAlias:self.alias withCallback:^(CloudPushCallbackResult *res) {
          dispatch_async(dispatch_get_main_queue(), ^{
              if (res.success) {
-                 [CustomToastUtil showToastWithMessage:@"标签添加成功！"];
+                 [CustomToastUtil showToastWithMessage:@"标签添加成功！" isSuccess:YES];
 
                  if (self.addHandle) {
                      SettingTag *tag = [[SettingTag alloc] init];
@@ -150,7 +150,7 @@
                  }
                  [self goBack:nil];
              } else {
-                 [CustomToastUtil showToastWithMessage:@"标签添加失败！"];
+                 [CustomToastUtil showToastWithMessage:@"标签添加失败！" isSuccess:NO];
              }
          });
      }];

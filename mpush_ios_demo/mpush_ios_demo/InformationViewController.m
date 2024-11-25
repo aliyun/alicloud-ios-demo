@@ -99,7 +99,7 @@
         message = @"关闭自有通道成功，重启生效";
     }
 
-    [CustomToastUtil showToastWithMessage:message];
+    [CustomToastUtil showToastWithMessage:message isSuccess:YES];
 }
 
 #pragma mark - lazy load
