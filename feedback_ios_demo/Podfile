@@ -8,6 +8,6 @@ target 'YWFeedbackDemo' do
   # use_frameworks!
 
   # Pods for YWFeedbackDemo
-  pod 'AlicloudFeedback', '3.3.11'
+  pod 'AlicloudFeedback'
 
 end
