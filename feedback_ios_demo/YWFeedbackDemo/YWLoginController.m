@@ -15,8 +15,8 @@
 #import <YWFeedbackFMWK/YWFeedbackViewController.h>
 
 #warning 修改为你自己的 appkey 和 appSecret。
-static NSString * const kAppKey = @"333740861";
-static NSString * const kAppSecret = @"b4eecb377a2b42a19dd60bbe5abb2766";
+static NSString * const kAppKey = @"******";
+static NSString * const kAppSecret = @"******";
 
 @interface YWLoginController()<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
