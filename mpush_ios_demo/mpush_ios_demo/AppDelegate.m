@@ -13,9 +13,6 @@
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
 
-static NSString *const testAppKey = @"******";
-static NSString *const testAppSecret = @"******";
-
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end
@@ -192,6 +189,11 @@ static NSString *const testAppSecret = @"******";
 - (void)initCloudPush {
     // 正式上线建议关闭
     [CloudPushSDK turnOnDebug];
+
+    BOOL switchIsOn = [[NSUserDefaults standardUserDefaults] boolForKey:CCPSWITCHSTATE];
+    if (!switchIsOn) {
+        [CloudPushSDK closeCCPChannel];
+    }
     // SDK初始化，手动输出appKey和appSecret
    [CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
        if (res.success) {

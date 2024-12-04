@@ -85,20 +85,12 @@
     }
 
     if (aliasArray.count >= 9) {
-        [NSLayoutConstraint deactivateConstraints:@[
-            self.addViewTopConstraint,
-            self.addViewLeftConstraint,
-            self.addViewBottomConstraint
-        ]];
-        [self.addAliasView removeFromSuperview];
-
         self.showAllButton.hidden = NO;
     }
 
-    for (int i = 0; i < aliasArray.count; i++) {
-        if (i >= 9) {
-            return;
-        }
+    NSInteger aliasCount = (aliasArray.count > 8 ? 8 : aliasArray.count);
+
+    for (int i = 0; i < aliasCount; i++) {
 
         AliasAndTagView *aliasView = [[AliasAndTagView alloc] initWithType:ViewTypeAliasAndTag title:aliasArray[i]];
         aliasView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -119,13 +111,6 @@
             [aliasView.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:16 + scalX * (self.aliasViewWidth + 8)],
             [aliasView.topAnchor constraintEqualToAnchor:self.titleLabel.bottomAnchor constant:12 + scalY * (36 + 8)]
         ]];
-
-        if (i == 8) {
-            [NSLayoutConstraint activateConstraints:@[
-                [aliasView.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-16]
-            ]];
-            return;
-        }
     }
 
     // update addAliasView's layout
@@ -134,8 +119,8 @@
         self.addViewLeftConstraint
     ]];
 
-    NSInteger scalY = aliasArray.count / 3;
-    NSInteger scalX = aliasArray.count % 3;
+    NSInteger scalY = aliasCount / 3;
+    NSInteger scalX = aliasCount % 3;
     self.addViewLeftConstraint.constant = 16 + scalX * (self.aliasViewWidth + 8);
     self.addViewTopConstraint.constant = 12 + scalY * (36 + 8);
     [NSLayoutConstraint activateConstraints:@[

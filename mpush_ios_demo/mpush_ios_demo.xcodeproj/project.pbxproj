@@ -54,7 +54,6 @@
 		C9102D291ACED5B70094FCEC /* UIFont+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D1C1ACED5B70094FCEC /* UIFont+FontAwesome.m */; };
 		C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D1E1ACED5B70094FCEC /* UIImage+FontAwesome.m */; };
 		C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D221ACED5B70094FCEC /* KoaPullToRefresh.m */; };
-		C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C918AE961ACB8C6E001445C1 /* PersonalViewController.m */; };
 		C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91A23891ACA36E700E0E33D /* Main.storyboard */; };
 		C93E19BF1ACBD0E800A90F3B /* PushMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C93E19BE1ACBD0E800A90F3B /* PushMessage.m */; };
 		C95EFDFC1ACA98BF0082CF70 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95EFDFB1ACA98BF0082CF70 /* CoreLocation.framework */; };
@@ -193,8 +192,6 @@
 		C9102D1E1ACED5B70094FCEC /* UIImage+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FontAwesome.m"; sourceTree = "<group>"; };
 		C9102D211ACED5B70094FCEC /* KoaPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KoaPullToRefresh.h; sourceTree = "<group>"; };
 		C9102D221ACED5B70094FCEC /* KoaPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KoaPullToRefresh.m; sourceTree = "<group>"; };
-		C918AE951ACB8C6E001445C1 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
-		C918AE961ACB8C6E001445C1 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		C91A23891ACA36E700E0E33D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C93E19BD1ACBD0E800A90F3B /* PushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMessage.h; sourceTree = "<group>"; };
 		C93E19BE1ACBD0E800A90F3B /* PushMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMessage.m; sourceTree = "<group>"; };
@@ -430,8 +427,6 @@
 		C95EFE101ACAFA230082CF70 /* Personal */ = {
 			isa = PBXGroup;
 			children = (
-				C918AE951ACB8C6E001445C1 /* PersonalViewController.h */,
-				C918AE961ACB8C6E001445C1 /* PersonalViewController.m */,
 				7E8DBA742CD38AB7001DFF0E /* InformationViewController.h */,
 				7E8DBA752CD38AB7001DFF0E /* InformationViewController.m */,
 				7E2C7BFF2CD46F5F006CDFE5 /* InformationTableViewCell.h */,
@@ -773,7 +768,6 @@
 				7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */,
 				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
 				7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */,
-				C918AE971ACB8C6E001445C1 /* PersonalViewController.m in Sources */,
 				7E2C7C142CD4E0B3006CDFE5 /* TagsCollectionViewCell.m in Sources */,
 				7E2C7C0C2CD4D425006CDFE5 /* ShowAllTagsViewController.m in Sources */,
 				7E9FBAB92CCF9C8900CB9F96 /* SettingAddTagViewController.m in Sources */,

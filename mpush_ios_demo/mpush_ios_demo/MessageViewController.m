@@ -25,6 +25,7 @@
 
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
+    self.messageTableView.showsVerticalScrollIndicator = NO;
 
     [self refreshMessageList];
 

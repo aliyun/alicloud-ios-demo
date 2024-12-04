@@ -211,7 +211,7 @@
         _addButton = [[UIButton alloc] init];
         [_addButton setTitle:@"添加标签 +" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor colorWithHexString:@"#315CFC"] forState:UIControlStateNormal];
-        _addButton.titleLabel.font = [UIFont systemFontOfSize:14 weight:400];
+        _addButton.titleLabel.font = [UIFont systemFontOfSize:14];
         _addButton.titleLabel.textAlignment = NSTextAlignmentRight;
         [_addButton addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
         _addButton.translatesAutoresizingMaskIntoConstraints = NO;
