@@ -76,9 +76,9 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:14 weight:400];
+        _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textColor = [UIColor colorWithHexString:@"#424FF7"];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _titleLabel;

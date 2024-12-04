@@ -32,7 +32,9 @@
 }
 
 - (void)showCopyButton {
-    self.detailCopyButton.hidden = NO;
+    if (![self.detailLabel.text isEqualToString:@"-"]) {
+        self.detailCopyButton.hidden = NO;
+    }
 }
 
 - (void)hiddenCopyButton {
@@ -43,7 +45,7 @@
     // 获取系统通用的剪切板
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     // 将字符串放入剪切板
-    pasteboard.string = self.detailTextLabel.text;
+    pasteboard.string = self.detailLabel.text;
 
     [MsgToolBox showAlert:@"" content:@"已复制到剪切板"];
 }

@@ -123,6 +123,11 @@
         return;
     }
 
+    if (!self.addDeviceTagButton.isSelected && !self.addAliasTagButton.isSelected && !self.addAccountTagButton.isSelected) {
+        [MsgToolBox showAlert:@"" content:@"请选择标签类型"];
+        return;
+    }
+
     int bindTag = 1;
     if (self.addAliasTagButton.isSelected) {
         bindTag = 3;
