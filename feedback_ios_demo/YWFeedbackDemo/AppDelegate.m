@@ -18,13 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    UIViewController *controller = [[YWLoginController alloc] initWithNibName:nil bundle:nil];
-//    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
-//    nvc.navigationBar.hidden = YES;
-//    self.window.rootViewController = nvc;
-//    [self.window makeKeyAndVisible];
 
     return YES;
 }

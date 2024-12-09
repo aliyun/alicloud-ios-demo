@@ -47,7 +47,7 @@ static NSString * const kAppSecret = @"******";
 - (void)openFeedbackViewController {
     /** 设置App自定义扩展反馈数据 */
 //    self.feedbackKit.extInfo = @{@"loginTime":[[NSDate date] description],
-//                                 @"visitPath":@"登陆->关于->反馈",
+//                                 @"visitPath":@"登录->关于->反馈",
 //                                 @"userid":@"yourid",
 //                                 @"应用自定义扩展信息":@"开发者可以根据需要设置不同的自定义信息，方便在反馈系统中查看"};
     // demo这里根据设置页的设置，如果有开启自定义拓展反馈数据，就传
@@ -137,6 +137,7 @@ static NSString * const kAppSecret = @"******";
 }
 
 #pragma mark getter
+
 - (YWFeedbackKit *)feedbackKit {
     if (!_feedbackKit) {
         // SDK初始化，手动配置appKey/appSecret
@@ -146,6 +147,7 @@ static NSString * const kAppSecret = @"******";
 }
 
 #pragma mark actions
+
 - (IBAction)actionStart:(id)sender {
     [self cleanTextView];
     [self openFeedbackViewController];
@@ -164,7 +166,7 @@ static NSString * const kAppSecret = @"******";
                                          @"photoFromCamera" : @"相册选取",
                                          @"photoFromAlbum" : @"取消",
                                          };
-            
+
             YWFeedbackViewController *webVC = [[YWFeedbackViewController alloc] initWithFeedbackKit:self.feedbackKit extInfo:nil configration:configration];
             webVC.closeBlock = ^(YWFeedbackViewController *feedbackController){
                 [feedbackController dismissViewControllerAnimated:YES completion:nil];
@@ -178,20 +180,22 @@ static NSString * const kAppSecret = @"******";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [weakSelf.navigationController presentViewController:nav animated:YES completion:nil];
 }
+
 - (IBAction)actionUnreadCount:(id)sender {
     [self cleanTextView];
     [self fetchUnreadCount];
 }
 
 - (void)cleanTextView {
-//    self.textView.text = nil;
     self.textView.text = [NSString stringWithFormat:@"Appkey: %@", kAppKey];
 }
 
 - (IBAction)actionBackground:(id)sender {
     [self.view endEditing:YES];
 }
+
 #pragma mark UISplitViewController delegate
+
 - (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation  NS_DEPRECATED_IOS(5_0, 8_0, "Use preferredDisplayMode instead") {
     return NO;
 }
