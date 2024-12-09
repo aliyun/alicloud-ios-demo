@@ -24,7 +24,6 @@
 		FE7BA7271D93E334004CA3F2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7BA7261D93E334004CA3F2 /* libsqlite3.tbd */; };
 		FE94F5711DB86B9400C5044C /* AVQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5621DB86B9400C5044C /* AVQRViewController.m */; };
 		FE94F5781DB86B9400C5044C /* TWMessageBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */; };
-		FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F56E1DB86B9400C5044C /* UIAlertView+XY.m */; };
 		FE94F57A1DB86B9400C5044C /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE94F5701DB86B9400C5044C /* UIButton+Badge.m */; };
 		FEF15E3A1DBDBB48002B7239 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB4BC571D8E958300FF17AA /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
@@ -56,8 +55,6 @@
 		FE94F5621DB86B9400C5044C /* AVQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVQRViewController.m; sourceTree = "<group>"; };
 		FE94F56B1DB86B9400C5044C /* TWMessageBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWMessageBarManager.h; sourceTree = "<group>"; };
 		FE94F56C1DB86B9400C5044C /* TWMessageBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageBarManager.m; sourceTree = "<group>"; };
-		FE94F56D1DB86B9400C5044C /* UIAlertView+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+XY.h"; sourceTree = "<group>"; };
-		FE94F56E1DB86B9400C5044C /* UIAlertView+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+XY.m"; sourceTree = "<group>"; };
 		FE94F56F1DB86B9400C5044C /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
 		FE94F5701DB86B9400C5044C /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		FEB4BC571D8E958300FF17AA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -164,8 +161,6 @@
 				FE94F5611DB86B9400C5044C /* AVQRViewController.h */,
 				FE94F5621DB86B9400C5044C /* AVQRViewController.m */,
 				FE94F5631DB86B9400C5044C /* TWMessageBarManager */,
-				FE94F56D1DB86B9400C5044C /* UIAlertView+XY.h */,
-				FE94F56E1DB86B9400C5044C /* UIAlertView+XY.m */,
 				FE94F56F1DB86B9400C5044C /* UIButton+Badge.h */,
 				FE94F5701DB86B9400C5044C /* UIButton+Badge.m */,
 			);
@@ -258,7 +253,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE94F5791DB86B9400C5044C /* UIAlertView+XY.m in Sources */,
 				F1BAF7EA2CB8D49F001C0B76 /* YWSettingViewController.m in Sources */,
 				FE94F57A1DB86B9400C5044C /* UIButton+Badge.m in Sources */,
 				F1BAF7EF2CB8D4DF001C0B76 /* YWLoginController.m in Sources */,
