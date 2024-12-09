@@ -19,9 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backButtontapped)];
     self.navigationItem.leftBarButtonItem = leftButton;
+    
     [self getSettingInfo];
 }
 
@@ -42,7 +43,6 @@
 }
 
 - (void)backButtontapped {
-    
     NSMutableDictionary *settingInfo = [@{} mutableCopy];
     if (self.userNickTextField.text && self.userNickTextField.text.length > 0) {
         settingInfo[@"userName"] = self.userNickTextField.text;
@@ -58,17 +58,6 @@
     [userDefaults synchronize];
     
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
