@@ -33,7 +33,7 @@ HTTPDNS 是面向移动开发者推出的一款域名解析产品，具有域名
 
 开通 HTTPDNS 服务后，您就可以在管理控制台添加要解析的域名，调用服务 API 进行域名解析。
 
-> HTTPDNS 是一款`递归DNS`服务，与`权威DNS`不同，HTTPDNS 并不具备决定解析结果的能力，而是主要负责解析过程的实现。关于 HTTPDNS 更详细的介绍可以参考官方博文[移动互联网时代，如何优化你的网络 —— 域名解析篇](https://yq.aliyun.com/articles/58967?spm=5176.100244.teamhomeleft.195.8WqcCX)
+> HTTPDNS 是一款`递归DNS`服务，与`权威DNS`不同，HTTPDNS 并不具备决定解析结果的能力，而是主要负责解析过程的实现。关于 HTTPDNS 更详细的介绍可以参考官方博文[移动互联网时代，如何优化你的网络 —— 域名解析篇](https://developer.aliyun.com/article/769831?spm=a2c6h.14164896.0.0.6ab047c5VWHPaT&scm=20140722.S_community)
 
 ### **产品特性**
 
