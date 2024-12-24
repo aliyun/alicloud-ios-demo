@@ -47,19 +47,23 @@
 
 ## 四、接入流程
 * 1.注册阿里云账号。注册地址：https://account.aliyun.com/register/register.htm
-* 2.阿里云官网https://cn.aliyun.com/ 选择-产品->移动服务->移动用户反馈。
-![lujing](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/53140/cn_zh/1493891269187/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-04%20%E4%B8%8B%E5%8D%885.47.19.png)
+* 2.阿里云官网https://cn.aliyun.com/ 选择-产品->企业服务与云通信->移动研发平台 EMAS->移动用户反馈。
+
+![](Image/feedback_lujing.png)
 * 3.没有应用，需要创建应用。
-
-	管理控制台-》创建应用
-	![创建应用](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/53140/cn_zh/1493989535855/33.png)
-
+    
+    3.1产品控制台->添加项目
+    
+	![](Image/feedback_addItem.png)
+    3.2进入项目->立即添加应用
+    
+    ![](Image/feedback_addAPP.png)
 
 * 4.客户端集成。
 
 	 目前支持iOS、Android端
 
-     下载客户端SDK并集成，地址：https://mhub.console.aliyun.com/#/download
+     下载客户端SDK并集成，地址：https://mhub.console.aliyun.com/downloadSdk
 
 
 ## Demo说明
@@ -87,7 +91,7 @@ Demo仅作为原理讲解和示例代码用途，
 
 将工程克隆或下载到本地：
 
-> git clone https://github.com/aliyun/alicloud-android-demo.git
+> git clone https://github.com/aliyun/alicloud-ios-demo.git
 
 本 Demo 的文件夹名字叫做：feedback_ios_demo。
 
@@ -96,21 +100,10 @@ Demo仅作为原理讲解和示例代码用途，
 
 ### 3. 配置APP信息
 
-3.1 手动配置 appkey、secretKey
+为了使Demo APP能够正常运行，您还需要将’YWLoginController.m‘类中的’kAppKey‘和’kAppSecret‘修改为您自己的AppKey/AppSecret。您可以在EMAS控制台，第一步创建的APP中找到它们，如图所示：
 
-为了使Demo APP能够正常运行，您还需要配置您的appkey/secretKey信息。您可以在移动推送控制台，您在第一步创建的APP中找到它们，如图所示：
+![](Image/feedback_appConfig.png)
 
-![](Image/where_is_appkey_secrectkey.png)
-
-3.2 自动配置
-
-- 从控制台下载`AliyunEmasServices-Info.plist`，如下图所示：
-
-![unit_config_pic](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/pic/30072/cn_zh/1522115613308/Snip20180327_1.png)
-
-- 替换Demo工程里的`AliyunEmasServices-Info.plist`文件。
-
-- 调用`autoInit`初始化接口。
 
 ### 4. 运行 Demo
 
