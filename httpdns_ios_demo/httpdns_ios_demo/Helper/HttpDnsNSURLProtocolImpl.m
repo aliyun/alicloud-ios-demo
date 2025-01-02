@@ -19,6 +19,7 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 @property (strong, readwrite, nonatomic) NSMutableURLRequest *curRequest;
 @property (strong, readwrite, nonatomic) NSRunLoop *curRunLoop;
 @property (strong, readwrite, nonatomic) NSInputStream *inputStream;
+@property (nonatomic, assign) BOOL responseIsHandle;
 @property (assign, nonatomic) z_stream gzipStream;
 
 @end
@@ -275,9 +276,13 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
                 CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
                 // 获取响应头部的状态码
                 CFIndex statusCode = CFHTTPMessageGetResponseStatusCode(message);
-                NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:_curRequest.URL statusCode:statusCode
-                                                                         HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
-                [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+
+                if (!self.responseIsHandle) {
+                    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:_curRequest.URL statusCode:statusCode
+                                                                             HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
+                    [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+                    self.responseIsHandle = YES;
+                }
 
                 // 验证证书
                 SecTrustRef trust = (__bridge SecTrustRef) [aStream propertyForKey:(__bridge NSString *) kCFStreamPropertySSLPeerTrust];
@@ -336,6 +341,31 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
         [self.client URLProtocol:self didFailWithError:
          [[NSError alloc] initWithDomain:@"NSStreamEventErrorOccurred" code:-1 userInfo:nil]];
     } else if (eventCode == NSStreamEventEndEncountered) {
+        CFReadStreamRef readStream = (__bridge_retained CFReadStreamRef) aStream;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
+#pragma clang diagnostic pop
+        if (CFHTTPMessageIsHeaderComplete(message)) {
+            NSNumber *alreadyAdded = objc_getAssociatedObject(aStream, (__bridge const void *)(kAnchorAlreadyAdded));
+            NSDictionary *headDict = (__bridge NSDictionary *) (CFHTTPMessageCopyAllHeaderFields(message));
+
+            if (!alreadyAdded || ![alreadyAdded boolValue]) {
+                objc_setAssociatedObject(aStream, (__bridge const void *)(kAnchorAlreadyAdded), [NSNumber numberWithBool:YES], OBJC_ASSOCIATION_COPY);
+                // 通知client已收到response，只通知一次
+
+                if (!self.responseIsHandle) {
+                    CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
+                    // 获取响应头部的状态码
+                    CFIndex statusCode = CFHTTPMessageGetResponseStatusCode(message);
+                    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:_curRequest.URL statusCode:statusCode
+                                                                         HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
+                    [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+                    self.responseIsHandle = YES;
+                }
+            }
+        }
+
         [self closeStream:_inputStream];
         inflateEnd(&_gzipStream);
         [self.client URLProtocolDidFinishLoading:self];
