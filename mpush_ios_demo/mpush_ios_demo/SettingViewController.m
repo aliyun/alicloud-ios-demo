@@ -29,6 +29,8 @@
 
 @property (nonatomic, copy)NSString *badgeNumber;
 
+@property (weak, nonatomic) IBOutlet UIButton *descriptionButton;
+
 @end
 
 @implementation SettingViewController
@@ -37,6 +39,9 @@
     [super viewDidAppear:animated];
 
     [self loadDataToRefreshList];
+
+    [self.descriptionButton setTitleColor:[UIColor colorWithHexString:@"#315CFC"] forState:UIControlStateNormal];
+    self.descriptionButton.titleLabel.font = [UIFont systemFontOfSize:14];
 }
 
 - (void)viewDidLoad {
@@ -44,6 +49,7 @@
 
     self.settingTableView.delegate = self;
     self.settingTableView.dataSource = self;
+    self.settingTableView.showsVerticalScrollIndicator = NO;
 }
 
 - (void)loadDataToRefreshList {
@@ -319,6 +325,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
         [CustomAlertView showInputAlert:AlertInputTypeBindAccount handle:^(NSString * _Nonnull inputString) {
+            if (inputString.length <= 0) {
+                self.bindAccount = @"未绑定账号";
+                [self refreshTableViewCellFor:2];
+                return;
+            }
+            
             [CloudPushSDK bindAccount:inputString withCallback:^(CloudPushCallbackResult *res) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (res.success) {

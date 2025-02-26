@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+static NSString *const testAppKey = @"******";
+static NSString *const testAppSecret = @"******";
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

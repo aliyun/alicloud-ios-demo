@@ -42,6 +42,7 @@
         [self.titleLabel.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor],
 
         [self.contentLabel.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-10],
+        [self.contentLabel.widthAnchor constraintLessThanOrEqualToConstant:180],
         [self.contentLabel.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor]
     ]];
 

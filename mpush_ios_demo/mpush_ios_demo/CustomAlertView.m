@@ -7,6 +7,8 @@
 //
 
 #import "CustomAlertView.h"
+#import <CloudPushSDK/CloudPushSDK.h>
+#import "CustomToastUtil.h"
 
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -20,6 +22,9 @@
 @property (nonatomic, assign)AlertInputType inputType;
 @property (nonatomic, strong)UITextField *inputTextField;
 @property (nonatomic, copy)InputHandle inputHandle;
+
+@property (nonatomic, strong)UIButton *cancleButton;
+@property (nonatomic, strong)UIButton *closeButton;
 
 @end
 
@@ -64,10 +69,11 @@
 
     UITextView *contentTextView = [[UITextView alloc] init];
     contentTextView.editable = NO;
+    contentTextView.showsVerticalScrollIndicator = NO;
     contentTextView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:contentTextView];
 
-    NSString *text = @"标签（tag）\n • App最多支持定义1万个标签，单个标签支持的最大长度为129字符。\n • 不建议在单个标签上绑定超过十万级设备，否则，发起对该标签的推送可能需要较长的处理时间，无法保障响应速度。此种情况下，建议您采用全推方式，或将设备集合拆分到更细粒度的标签，多次调用推送接口分别推送给这些标签来避免此问题。\n\n别名（alias）\n • 单个设备最多添加128个别名，同一个别名最多可被添加到128个设备。\n • 别名支持的最大长度为128字节。";
+    NSString *text = @"标签（tag）\n • App最多支持定义1万个标签，单个标签支持的最大长度为128字符。\n • 不建议在单个标签上绑定超过十万级设备，否则，发起对该标签的推送可能需要较长的处理时间，无法保障响应速度。此种情况下，建议您采用全推方式，或将设备集合拆分到更细粒度的标签，多次调用推送接口分别推送给这些标签来避免此问题。\n\n别名（alias）\n • 单个设备最多添加128个别名，同一个别名最多可被添加到128个设备。\n • 别名支持的最大长度为128字节。";
 
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 2;
@@ -146,15 +152,15 @@
 
     [backgroundView addSubview:self.inputTextField];
 
-    UIButton *cancleButton = [[UIButton alloc] init];
-    [cancleButton setTitle:@"取消" forState:UIControlStateNormal];
-    [cancleButton setTitleColor:[UIColor colorWithHexString:@"#4e5970"] forState:UIControlStateNormal];
-    [cancleButton setBackgroundColor:[UIColor colorWithHexString:@"#EBF0FF"]];
-    cancleButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    cancleButton.layer.cornerRadius = 8;
-    [cancleButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
-    cancleButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [backgroundView addSubview:cancleButton];
+    self.cancleButton = [[UIButton alloc] init];
+    [self.cancleButton setTitle:@"取消" forState:UIControlStateNormal];
+    [self.cancleButton setTitleColor:[UIColor colorWithHexString:@"#4e5970"] forState:UIControlStateNormal];
+    [self.cancleButton setBackgroundColor:[UIColor colorWithHexString:@"#EBF0FF"]];
+    self.cancleButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.cancleButton.layer.cornerRadius = 8;
+    [self.cancleButton addTarget:self action:@selector(cancleButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    self.cancleButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [backgroundView addSubview:self.cancleButton];
 
     UIButton *confirmButton = [[UIButton alloc] init];
     [confirmButton setTitle:@"确定" forState:UIControlStateNormal];
@@ -168,7 +174,7 @@
 
     switch (type) {
         case AlertInputTypeBindAlias:
-            titleLabel.text = @"绑定别名";
+            titleLabel.text = @"添加别名";
             self.inputTextField.placeholder = @"请输入别名";
             break;
         case AlertInputTypeBindAccount:
@@ -184,23 +190,59 @@
             break;
     }
 
+    UILabel *description = [[UILabel alloc] init];
+    description.font = [UIFont systemFontOfSize:14];
+    description.textColor = [UIColor colorWithHexString:@"#999CA3"];
+    description.textAlignment = NSTextAlignmentLeft;
+    description.text = @"单个别名最大长度不超过128字节";
+    description.hidden = YES;
+    description.translatesAutoresizingMaskIntoConstraints = NO;
+    [backgroundView addSubview:description];
+
+    if (type != AlertInputTypeSyncBadgeNum) {
+        NSLayoutConstraint *centerXConstraint = [titleLabel.centerXAnchor constraintEqualToAnchor:backgroundView.centerXAnchor];
+        centerXConstraint.active = YES;
+        if (type == AlertInputTypeBindAlias) {
+            description.hidden = NO;
+        }
+
+        // 关闭按钮
+        self.closeButton = [[UIButton alloc] init];
+        [self.closeButton setBackgroundImage:[UIImage imageNamed:@"icon_pop_close"] forState:UIControlStateNormal];
+        [self.closeButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+        self.closeButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [backgroundView addSubview:self.closeButton];
+
+        [NSLayoutConstraint activateConstraints:@[
+            [self.closeButton.rightAnchor constraintEqualToAnchor:backgroundView.rightAnchor constant:-16],
+            [self.closeButton.topAnchor constraintEqualToAnchor:backgroundView.topAnchor constant:23],
+            [self.closeButton.widthAnchor constraintEqualToConstant:RW(18)],
+            [self.closeButton.heightAnchor constraintEqualToConstant:RW(18)]
+        ]];
+    } else {
+        NSLayoutConstraint *leftConstraint = [titleLabel.leftAnchor constraintEqualToAnchor:backgroundView.leftAnchor constant:16];
+        leftConstraint.active = YES;
+    }
+
     [NSLayoutConstraint activateConstraints:@[
-        [titleLabel.leftAnchor constraintEqualToAnchor:backgroundView.leftAnchor constant:16],
         [titleLabel.topAnchor constraintEqualToAnchor:backgroundView.topAnchor constant:RH(20)],
 
-        [self.inputTextField.leftAnchor constraintEqualToAnchor:titleLabel.leftAnchor],
+        [self.inputTextField.leftAnchor constraintEqualToAnchor:backgroundView.leftAnchor constant:16],
         [self.inputTextField.topAnchor constraintEqualToAnchor:titleLabel.bottomAnchor constant:RH(20)],
         [self.inputTextField.rightAnchor constraintEqualToAnchor:backgroundView.rightAnchor constant:-16],
         [self.inputTextField.heightAnchor constraintEqualToConstant:RW(56)],
 
-        [cancleButton.leftAnchor constraintEqualToAnchor:titleLabel.leftAnchor],
-        [cancleButton.bottomAnchor constraintEqualToAnchor:backgroundView.bottomAnchor constant:RH(-32)],
-        [cancleButton.widthAnchor constraintEqualToConstant:RW(167)],
-        [cancleButton.heightAnchor constraintEqualToConstant:RW(52)],
+        [description.leftAnchor constraintEqualToAnchor:self.inputTextField.leftAnchor],
+        [description.topAnchor constraintEqualToAnchor:self.inputTextField.bottomAnchor constant:2],
 
-        [confirmButton.widthAnchor constraintEqualToAnchor:cancleButton.widthAnchor],
-        [confirmButton.heightAnchor constraintEqualToAnchor:cancleButton.heightAnchor],
-        [confirmButton.centerYAnchor constraintEqualToAnchor:cancleButton.centerYAnchor],
+        [self.cancleButton.leftAnchor constraintEqualToAnchor:self.inputTextField.leftAnchor],
+        [self.cancleButton.bottomAnchor constraintEqualToAnchor:backgroundView.bottomAnchor constant:RH(-32)],
+        [self.cancleButton.widthAnchor constraintEqualToConstant:RW(167)],
+        [self.cancleButton.heightAnchor constraintEqualToConstant:RW(52)],
+
+        [confirmButton.widthAnchor constraintEqualToAnchor:self.cancleButton.widthAnchor],
+        [confirmButton.heightAnchor constraintEqualToAnchor:self.cancleButton.heightAnchor],
+        [confirmButton.centerYAnchor constraintEqualToAnchor:self.cancleButton.centerYAnchor],
         [confirmButton.rightAnchor constraintEqualToAnchor:backgroundView.rightAnchor constant:-16]
     ]];
 
@@ -213,16 +255,61 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    NSString *bindAccount = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"";
+    if (type == AlertInputTypeBindAccount && bindAccount.length > 0) {
+        [self setupAccountConfig:bindAccount];
+    }
 }
 
-- (UIView *)creatPaddingView {
+- (void)setupAccountConfig:(NSString *)account {
+    self.inputTextField.backgroundColor = [UIColor colorWithHexString:@"#EFF1F6"];
+    self.inputTextField.textColor = [UIColor colorWithHexString:@"#999CA3"];
+    self.inputTextField.text = account;
+    self.inputTextField.enabled = NO;
+
+    [self.cancleButton setTitle:@"解除绑定" forState:UIControlStateNormal];
+}
+
+- (UIView *)createPaddingView {
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, RW(56))];
     return paddingView;
 }
 
+- (void)cancleButtonAction {
+    if (self.inputTextField.isEnabled) {
+        [self close];
+        return;
+    }
+
+    [CloudPushSDK unbindAccount:^(CloudPushCallbackResult *res) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (res.success) {
+                [CustomToastUtil showToastWithMessage:@"解绑成功" isSuccess:YES];
+                self.inputTextField.enabled = YES;
+                self.inputTextField.text = @"";
+                self.inputTextField.textColor = [UIColor colorWithHexString:@"#4B4D52"];
+                self.inputTextField.backgroundColor = UIColor.whiteColor;
+                self.inputHandle(self.inputTextField.text);
+
+                [self.cancleButton setTitle:@"取消" forState:UIControlStateNormal];
+
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:DEVICE_BINDACCOUNT];
+            } else {
+                [CustomToastUtil showToastWithMessage:@"解绑失败" isSuccess:NO];
+            }
+        });
+    }];
+}
+
 - (void)confirmButtonAction {
+    if (!self.inputTextField.isEnabled) {
+        [CustomToastUtil showToastWithMessage:@"请先解绑" isSuccess:NO];
+        return;
+    }
+
     if (self.inputTextField.text.length <= 0) {
-        NSLog(@"没有输入");
+        [CustomToastUtil showToastWithMessage:@"未输入内容" isSuccess:NO];
         return;
     }
     self.inputHandle(self.inputTextField.text);
@@ -291,9 +378,9 @@
         _inputTextField.layer.cornerRadius = 8;
         _inputTextField.layer.borderColor = [UIColor colorWithHexString:@"#E6E8EB"].CGColor;
         _inputTextField.layer.borderWidth = 1;
-        _inputTextField.leftView = [self creatPaddingView];
+        _inputTextField.leftView = [self createPaddingView];
         _inputTextField.leftViewMode = UITextFieldViewModeAlways;
-        _inputTextField.rightView = [self creatPaddingView];
+        _inputTextField.rightView = [self createPaddingView];
         _inputTextField.rightViewMode = UITextFieldViewModeAlways;
         _inputTextField.translatesAutoresizingMaskIntoConstraints = NO;
     }

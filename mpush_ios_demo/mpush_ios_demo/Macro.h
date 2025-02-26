@@ -9,10 +9,11 @@
 #ifndef Macro_h
 #define Macro_h
 
+#import "AppDelegate.h"
 // 绑定账号缓存key
-#define DEVICE_BINDACCOUNT @"bindAccount"
+#define DEVICE_BINDACCOUNT [NSString stringWithFormat:@"%@_bindAccount",testAppKey]
 // 角标同步缓存key
-#define DEVICE_BADGENUMBER @"badgeAccount"
+#define DEVICE_BADGENUMBER [NSString stringWithFormat:@"%@_badgeAccount",testAppKey]
 
 // 自有通道开关缓存key
 #define CCPSWITCHSTATE @"ccpSwitchState"

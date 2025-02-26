@@ -49,13 +49,13 @@
     [self.informationArray addObject:contactUs];
 
     // DeviceID
-    NSDictionary *deviceID = @{@"DeviceID":[CloudPushSDK getDeviceId]};
+    NSDictionary *deviceID = @{@"DeviceID":[CloudPushSDK getDeviceId] ?: @"-"};
     [self.informationArray addObject:deviceID];
 
     //deviceID 时间戳
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     NSString *deviceIDTStr = [userDef objectForKey:@"al_mp_devicedId_timerInterval"];
-    NSString *deviceIDTDateStr = @"";
+    NSString *deviceIDTDateStr = @"-";
     if ([deviceIDTStr floatValue] > 0) {
         NSDate *deviceIDTDate = [NSDate dateWithTimeIntervalSince1970:[deviceIDTStr floatValue]];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -66,11 +66,11 @@
     [self.informationArray addObject:deviceIDTime];
 
     // deviceToken
-    NSDictionary *deviceToken = @{@"DeviceToken":[CloudPushSDK getApnsDeviceToken]};
+    NSDictionary *deviceToken = @{@"DeviceToken":[CloudPushSDK getApnsDeviceToken] ?: @"-"};
     [self.informationArray addObject:deviceToken];
 
     // 推送SDK版本号
-    NSDictionary *SDKVersion = @{@"推送SDK版本号":[CloudPushSDK getVersion]};
+    NSDictionary *SDKVersion = @{@"推送SDK版本号":[CloudPushSDK getVersion] ?: @"-"};
     [self.informationArray addObject:SDKVersion];
 
     // 当前绑定账号

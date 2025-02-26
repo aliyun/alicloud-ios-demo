@@ -44,6 +44,7 @@
 
         [self.valueLabel.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-33],
         [self.valueLabel.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
+        [self.valueLabel.widthAnchor constraintLessThanOrEqualToConstant:180],
 
         [self.arrow.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:-9],
         [self.arrow.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],

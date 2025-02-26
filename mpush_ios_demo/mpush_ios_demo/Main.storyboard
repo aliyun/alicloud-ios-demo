@@ -24,7 +24,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K2b-Zc-w8n">
                                 <rect key="frame" x="16" y="286.33333333333326" width="361" height="482.66666666666674"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Qgj-LW-7kP" customClass="MessageSingleTableViewCell">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="361" height="45"/>
@@ -97,7 +97,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="K2b-Zc-w8n" secondAttribute="trailing" id="zsP-bk-aFq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="消息" image="icon01" id="0Ea-3o-nrG"/>
+                    <tabBarItem key="tabBarItem" title="消息" image="icon01" selectedImage="icon01_selected" id="0Ea-3o-nrG"/>
                     <connections>
                         <outlet property="messageTableView" destination="K2b-Zc-w8n" id="Xke-hi-2un"/>
                     </connections>
@@ -122,13 +122,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="286.33333333333331"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高级功能" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7I-aI-MGQ">
-                                <rect key="frame" x="15.999999999999993" y="175" width="97.333333333333314" height="28.666666666666657"/>
+                                <rect key="frame" x="15.999999999999993" y="135" width="97.333333333333314" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqE-9B-MGc">
-                                <rect key="frame" x="16" y="215.66666666666666" width="188.66666666666666" height="37.666666666666657"/>
+                                <rect key="frame" x="16" y="175.66666666666666" width="188.66666666666666" height="37.666666666666657"/>
                                 <attributedString key="attributedText">
                                     <fragment content="欢迎来到阿里云移动推送">
                                         <attributes>
@@ -164,29 +164,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_description" translatesAutoresizingMaskIntoConstraints="NO" id="mvE-TZ-Ssa">
-                                <rect key="frame" x="16" y="303.33333333333331" width="18" height="18"/>
+                                <rect key="frame" x="16" y="267.33333333333331" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="4z5-0B-Q9z"/>
                                     <constraint firstAttribute="width" constant="18" id="aWV-eW-LvF"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oz7-1r-B19">
-                                <rect key="frame" x="24" y="295" width="337" height="35"/>
+                                <rect key="frame" x="24" y="259" width="337" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="d9o-Q4-v2M"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="设备标签和别名数量限制说明">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
-                                    <color key="baseForegroundColor" red="0.19215686269999999" green="0.36078431370000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                    <color key="baseForegroundColor" red="0.19215686274509802" green="0.36078431372549019" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="limitNoteAction:" destination="oiA-pW-YX3" eventType="touchUpInside" id="Lba-jM-ujA"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="huO-ut-Y1R">
-                                <rect key="frame" x="16" y="345" width="361" height="424"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="302" width="361" height="467"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tky-aI-g5O">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="361" height="45"/>
@@ -199,20 +199,20 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b4Y-dY-0ZE" firstAttribute="leading" secondItem="LSy-Tw-09U" secondAttribute="leading" id="4c2-v6-nGV"/>
                             <constraint firstAttribute="trailing" secondItem="b4Y-dY-0ZE" secondAttribute="trailing" id="8ug-Oc-bBL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oz7-1r-B19" secondAttribute="trailing" constant="16" id="GSJ-3Z-dcr"/>
                             <constraint firstItem="pYR-oW-UOW" firstAttribute="top" secondItem="huO-ut-Y1R" secondAttribute="bottom" id="H47-zI-uVG"/>
-                            <constraint firstItem="mvE-TZ-Ssa" firstAttribute="top" secondItem="PqE-9B-MGc" secondAttribute="bottom" constant="50" id="K71-dU-nSy"/>
+                            <constraint firstItem="mvE-TZ-Ssa" firstAttribute="top" secondItem="PqE-9B-MGc" secondAttribute="bottom" constant="54" id="K71-dU-nSy"/>
                             <constraint firstAttribute="trailing" secondItem="huO-ut-Y1R" secondAttribute="trailing" constant="16" id="LNw-ki-Q8c"/>
                             <constraint firstItem="Oz7-1r-B19" firstAttribute="centerY" secondItem="mvE-TZ-Ssa" secondAttribute="centerY" id="P0K-fG-3Zc"/>
                             <constraint firstItem="huO-ut-Y1R" firstAttribute="leading" secondItem="LSy-Tw-09U" secondAttribute="leading" constant="16" id="SVA-0r-qef"/>
-                            <constraint firstItem="huO-ut-Y1R" firstAttribute="top" secondItem="Oz7-1r-B19" secondAttribute="bottom" constant="15" id="Tfb-It-6Ph"/>
+                            <constraint firstItem="huO-ut-Y1R" firstAttribute="top" secondItem="Oz7-1r-B19" secondAttribute="bottom" constant="8" id="Tfb-It-6Ph"/>
                             <constraint firstItem="PqE-9B-MGc" firstAttribute="width" secondItem="b4Y-dY-0ZE" secondAttribute="width" multiplier="180:375" id="Xhk-Pl-InH"/>
                             <constraint firstItem="b4Y-dY-0ZE" firstAttribute="top" secondItem="LSy-Tw-09U" secondAttribute="top" id="blB-rB-CVx"/>
-                            <constraint firstItem="S7I-aI-MGQ" firstAttribute="top" secondItem="LGN-g5-PNJ" secondAttribute="bottom" constant="72" id="dhl-l1-oLJ"/>
+                            <constraint firstItem="S7I-aI-MGQ" firstAttribute="top" secondItem="LGN-g5-PNJ" secondAttribute="bottom" constant="32" id="dhl-l1-oLJ"/>
                             <constraint firstItem="mvE-TZ-Ssa" firstAttribute="leading" secondItem="PqE-9B-MGc" secondAttribute="leading" id="jqv-lj-IpM"/>
                             <constraint firstItem="Oz7-1r-B19" firstAttribute="leading" secondItem="mvE-TZ-Ssa" secondAttribute="trailing" constant="-10" id="lxk-wv-bhW"/>
                             <constraint firstItem="b4Y-dY-0ZE" firstAttribute="height" secondItem="LSy-Tw-09U" secondAttribute="height" multiplier="273:812" id="p8E-bi-9xH"/>
@@ -224,6 +224,7 @@
                     <tabBarItem key="tabBarItem" title="设置" image="icon02" id="OAl-wD-k6a"/>
                     <navigationItem key="navigationItem" id="X99-ca-65V"/>
                     <connections>
+                        <outlet property="descriptionButton" destination="Oz7-1r-B19" id="cB2-bd-jkJ"/>
                         <outlet property="settingTableView" destination="huO-ut-Y1R" id="h8t-bb-FX3"/>
                     </connections>
                 </viewController>
@@ -235,7 +236,7 @@
         <scene sceneID="MDH-8i-acf">
             <objects>
                 <navigationController id="iZW-vo-2cG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" image="icon02" id="Co2-bw-pdf"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="icon02" selectedImage="icon02_selected" id="Co2-bw-pdf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tPw-Kf-3Fl">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -306,15 +307,15 @@
                                 <color key="textColor" red="0.63137254901960782" green="0.6705882352941176" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pdo-9t-8fZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pdo-9t-8fZ">
                                 <rect key="frame" x="0.0" y="164.33333333333331" width="393" height="571.66666666666674"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pdo-9t-8fZ" secondAttribute="height" multiplier="750:1091" id="OPN-rf-GaE"/>
                                 </constraints>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YlQ-aZ-cmX" firstAttribute="leading" secondItem="VWb-NJ-uPw" secondAttribute="leading" constant="15" id="00E-I4-wip"/>
                             <constraint firstItem="pdo-9t-8fZ" firstAttribute="leading" secondItem="VWb-NJ-uPw" secondAttribute="leading" id="02z-hh-vRs"/>
@@ -330,7 +331,7 @@
                             <constraint firstItem="pdo-9t-8fZ" firstAttribute="top" secondItem="PvN-VO-kae" secondAttribute="bottom" constant="29" id="ymE-h2-K3t"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="信息" image="icon03" id="8mJ-Hh-VrR"/>
+                    <tabBarItem key="tabBarItem" title="信息" image="icon03" selectedImage="icon03_selected" id="8mJ-Hh-VrR"/>
                     <connections>
                         <outlet property="informationTableView" destination="pdo-9t-8fZ" id="w7t-cQ-jva"/>
                     </connections>
@@ -343,8 +344,11 @@
     <resources>
         <image name="home_background" width="1500" height="1068"/>
         <image name="icon01" width="21" height="18"/>
+        <image name="icon01_selected" width="24" height="24"/>
         <image name="icon02" width="24" height="24"/>
+        <image name="icon02_selected" width="24" height="24"/>
         <image name="icon03" width="20" height="20"/>
+        <image name="icon03_selected" width="24" height="24"/>
         <image name="information_background" width="750" height="510"/>
         <image name="logo" width="90" height="90"/>
         <image name="setting_description" width="32" height="32"/>
