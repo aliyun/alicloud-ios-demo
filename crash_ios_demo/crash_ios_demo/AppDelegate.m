@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import <AlicloudCrash/AlicloudCrashProvider.h>
-#import <AlicloudHAUtil/AlicloudHAProvider.h>
+#import "AlicloudApmCore/AlicloudApmCore.h"
+#import "AlicloudApmCrashAnalysis/AlicloudApmCrashAnalysis.h"
 
 @interface AppDelegate ()
 
@@ -20,24 +20,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    // 接入方式一:使用配置文件
-    // 请去控制台下载AliyunEmasServices-Info.plist，并替换本地文件
-    NSString *appVersion = @"x.x"; //app版本，会上报
-    NSString *channel = @"xx";     //渠道标记，自定义，会上报
-    NSString *nick = @"xx";        //nick 昵称，自定义，会上报
-    [[AlicloudCrashProvider alloc] autoInitWithAppVersion:appVersion channel:channel nick:nick];
-    [AlicloudHAProvider start];
-    
-//    // 接入方式二:不使用配置文件
-//    NSString *appKey = @"xxxxxxx"; //appKey
-//    NSString *secret = @"xxxxxxx"; //secret
-//    NSString *appVersion = @"x.x"; //app版本，会上报
-//    NSString *channel = @"xx";     //渠道标记，自定义，会上报
-//    NSString *nick = @"xx";        //nick 昵称，自定义，会上报
-//
-//    [[AlicloudCrashProvider alloc] initWithAppKey:appKey secret:secret appVersion:appVersion channel:channel nick:nick];
-//    [AlicloudHAProvider start];
-    
+    EAPMOptions *options = [[EAPMOptions alloc] initWithAppKey:@"Your AppKey"
+                                                     appSecret:@"Youre SecretKey"
+                                                 sdkComponents:@[[EAPMCrashAnalysis class]]];
+
+    options.userId = @"userId";
+    options.userNick = @"userNick";
+    options.channel = @"channel";
+
+    [EAPMApm startWithOptions:options];
+
     return YES;
 }
 

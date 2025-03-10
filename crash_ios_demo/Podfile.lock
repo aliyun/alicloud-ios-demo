@@ -1,108 +1,25 @@
 PODS:
-  - AlicloudCrash (1.2.0):
-    - AlicloudHAUtil
-    - AlicloudUtils
-    - AliHACore (~> 10.0.3)
-    - AliHAMemoryMonitor
-    - JDYThreadTrace (~> 11.1.1)
-    - TBCrashReporter (~> 10.2.0)
-  - AlicloudHAUtil (1.0.3):
-    - AliHACore
-    - TBRest
-    - ZipArchive
-  - AlicloudUTDID (1.5.0.94)
-  - AlicloudUtils (1.4.1):
-    - AlicloudUTDID
-  - AliCrashReporterInterface (0.0.5)
-  - AliHACore (10.0.3.6):
-    - AliHALogEngine (>= 10.0.2)
-    - AliHAProtocol (>= 10.0.2.1)
-    - TBJSONModel
-    - TBRest (>= 1.0.0.18)
-  - AliHALogEngine (10.0.6)
-  - AliHAMemoryMonitor (11.1.8.1):
-    - AliHAMethodTrace (>= 10.0.2)
-    - AliHAProtocol (>= 10.0.2)
-    - BizErrorReporter4iOS (>= 10.0.2)
-    - FBAllocationTracker
-    - FBMemoryProfiler
-    - FBRetainCycleDetector
-  - AliHAMethodTrace (10.0.4)
-  - AliHAProtocol (10.0.3.1):
-    - TBJSONModel
-  - BizErrorReporter4iOS (10.0.3):
-    - JDYThreadTrace (>= 1.0.0.12)
-    - TBRest
-  - CrashReporter (10.0.3)
-  - FBAllocationTracker (0.1.5)
-  - FBMemoryProfiler (0.1.3):
-    - FBAllocationTracker (~> 0.1)
-    - FBRetainCycleDetector (~> 0.1)
-  - FBRetainCycleDetector (0.1.4)
-  - JDYThreadTrace (11.1.1.2)
-  - KSCrashTao (1.0.4.2)
-  - TBCrashReporter (10.2.0.1):
-    - AliCrashReporterInterface
-    - AliHAProtocol (>= 1.0.5.3)
-    - CrashReporter (>= 1.3.6.18)
-    - JDYThreadTrace (>= 1.0.0.12)
-    - KSCrashTao (~> 1.0.4.0)
-    - TBRest (>= 10.1.0.1)
-  - TBJSONModel (0.1.15.1)
-  - TBRest (10.1.1.0)
-  - ZipArchive (1.4.0)
+  - AlicloudApmCore (0.0.1):
+    - AlicloudUTDID (= 1.6.1)
+  - AlicloudApmCrashAnalysis (0.0.1):
+    - AlicloudApmCore (= 0.0.1)
+    - AlicloudUTDID (= 1.6.1)
+  - AlicloudUTDID (1.6.1)
 
 DEPENDENCIES:
-  - AlicloudCrash (~> 1.2.0)
+  - AlicloudApmCrashAnalysis (~> 0.0.1)
 
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
-    - AlicloudCrash
-    - AlicloudHAUtil
+    - AlicloudApmCore
+    - AlicloudApmCrashAnalysis
     - AlicloudUTDID
-    - AlicloudUtils
-    - AliCrashReporterInterface
-    - AliHACore
-    - AliHALogEngine
-    - AliHAMemoryMonitor
-    - AliHAMethodTrace
-    - AliHAProtocol
-    - BizErrorReporter4iOS
-    - CrashReporter
-    - JDYThreadTrace
-    - KSCrashTao
-    - TBCrashReporter
-    - TBJSONModel
-    - TBRest
-  https://github.com/CocoaPods/Specs.git:
-    - FBAllocationTracker
-    - FBMemoryProfiler
-    - FBRetainCycleDetector
-    - ZipArchive
 
 SPEC CHECKSUMS:
-  AlicloudCrash: 98707ca85021db121e84b62dff31e99035127613
-  AlicloudHAUtil: ab962c683bf2dc79652726121442dc10fc8cbf08
-  AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
-  AlicloudUtils: 873a76615bebcee8b1996f20820d366e433c3eab
-  AliCrashReporterInterface: 0e839e0aa67c07c012e76fa3208edb6ee7552438
-  AliHACore: 631974dc2ab61ffed5ba743e339defb5c9e028c0
-  AliHALogEngine: c98e8b4f4a6ee53b08d0657141ac299b37efb188
-  AliHAMemoryMonitor: c9350a89a246a05f91ca509b1bbd28165b87834b
-  AliHAMethodTrace: 31ebea278dfc3dfead7c47a75fc995c79d14ac36
-  AliHAProtocol: 32037cc4d1bdbc60a6532895cbf1ddbbe84679b2
-  BizErrorReporter4iOS: 0f8d8f52ca95e89e7c60fc15dc162bc6f32c3d86
-  CrashReporter: f8374b53ef73d1ae23e76331fd648bfc1cd7ff78
-  FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
-  FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
-  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
-  JDYThreadTrace: 757de93867bac712becb1a3d23a0d1f0bf54f927
-  KSCrashTao: 48ca4b6066c4bf99f089cf8c72f42690dfe79e6f
-  TBCrashReporter: 671d7a163934cf1332da155e7e5195b179f6ee05
-  TBJSONModel: 2c95a8789bc3d98a2a773dd09c41ddeb902a200b
-  TBRest: 36fcaf59c76692eae5acf4c8fd469748d453a327
-  ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
+  AlicloudApmCore: b0fcac915ebacdec89d11aef4acfbe160f13c25e
+  AlicloudApmCrashAnalysis: b36876d99b5761d98ec0e2af665324c7333c9fb5
+  AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
 
-PODFILE CHECKSUM: acedb194fd841baeaa4ec641b5923ed94e111fd9
+PODFILE CHECKSUM: 991a5c746445575f4b887f36868377901094505c
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2

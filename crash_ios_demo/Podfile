@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '10.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
@@ -6,41 +6,6 @@ source 'https://github.com/aliyun/aliyun-specs.git'
 target 'crash_ios_demo' do
   use_frameworks!
 
-  pod 'AlicloudCrash' , '~> 1.2.0'
+  pod 'AlicloudApmCrashAnalysis' , '~> 0.0.1'
 
 end
-
-post_install do |installer|
-  #针对问题的解决方案：SDK does not contain 'libarclite' at the path 'xxx'; try increasing the minimum deployment target
-    installer.generated_projects.each do |project|
-        project.targets.each do |target|
-            target.build_configurations.each do |config|
-                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
-            end
-        end
-    end
-    
-    #针对问题的解决方案：https://help.aliyun.com/document_detail/448230.html?spm=a2c4g.435641.0.i2
-    #解决问题一
-    find_and_replace("Pods/FBRetainCycleDetector/FBRetainCycleDetector/Layout/Classes/FBClassStrongLayout.mm",
-        "layoutCache[currentClass] = ivars;", "layoutCache[(id)currentClass] = ivars;")
-    #解决问题二
-    find_and_replace("Pods/FBRetainCycleDetector/fishhook/fishhook.c",
-    "indirect_symbol_bindings[i] = cur->rebindings[j].replacement;", "if (i < (sizeof(indirect_symbol_bindings) /
-         sizeof(indirect_symbol_bindings[0]))) { \n indirect_symbol_bindings[i]=cur->rebindings[j].replacement; \n }")
-end
-
-def find_and_replace(dir, findstr, replacestr)
-  Dir[dir].each do |name|
-    FileUtils.chmod("+w",name) #add
-      text = File.read(name)
-      replace = text.gsub(findstr,replacestr)
-      if text != replace
-         puts "Fix: " + name
-         File.open(name, "w") { |file| file.puts replace }
-         STDOUT.flush
-      end
-  end
-  Dir[dir + '*/'].each(&method(:find_and_replace))
-end
-
