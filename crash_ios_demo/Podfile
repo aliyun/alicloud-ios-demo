@@ -6,6 +6,6 @@ source 'https://github.com/aliyun/aliyun-specs.git'
 target 'crash_ios_demo' do
   use_frameworks!
 
-  pod 'AlicloudApmCrashAnalysis' , '~> 0.0.1'
+  pod 'AlicloudApmCrashAnalysis' , '~> 2.0.0'
 
 end

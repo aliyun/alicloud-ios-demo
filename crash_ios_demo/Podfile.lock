@@ -1,13 +1,13 @@
 PODS:
-  - AlicloudApmCore (0.0.1):
+  - AlicloudApmCore (1.0.0):
     - AlicloudUTDID (= 1.6.1)
-  - AlicloudApmCrashAnalysis (0.0.1):
-    - AlicloudApmCore (= 0.0.1)
+  - AlicloudApmCrashAnalysis (2.0.0):
+    - AlicloudApmCore (= 1.0.0)
     - AlicloudUTDID (= 1.6.1)
   - AlicloudUTDID (1.6.1)
 
 DEPENDENCIES:
-  - AlicloudApmCrashAnalysis (~> 0.0.1)
+  - AlicloudApmCrashAnalysis (~> 2.0.0)
 
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
@@ -16,10 +16,10 @@ SPEC REPOS:
     - AlicloudUTDID
 
 SPEC CHECKSUMS:
-  AlicloudApmCore: b0fcac915ebacdec89d11aef4acfbe160f13c25e
-  AlicloudApmCrashAnalysis: b36876d99b5761d98ec0e2af665324c7333c9fb5
+  AlicloudApmCore: 9740b681a62262c9373a02835e7d2f32c259fff9
+  AlicloudApmCrashAnalysis: 03eaa9e785f7e0f3858de589e7bacd0050059203
   AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
 
-PODFILE CHECKSUM: 991a5c746445575f4b887f36868377901094505c
+PODFILE CHECKSUM: 6d77dd21b46510a29dae0e7e0889da02930aece7
 
 COCOAPODS: 1.16.2
