@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33700F5D24BDE5A0007BDE3F /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33700F5C24BDE5A0007BDE3F /* AliyunEmasServices-Info.plist */; };
 		3387CEB622FAF12C00EE6BEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3387CEB522FAF12C00EE6BEE /* AppDelegate.m */; };
 		3387CEB922FAF12C00EE6BEE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3387CEB822FAF12C00EE6BEE /* ViewController.m */; };
 		3387CEBC22FAF12C00EE6BEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3387CEBA22FAF12C00EE6BEE /* Main.storyboard */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		33700F5C24BDE5A0007BDE3F /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		3387CEB122FAF12C00EE6BEE /* crash_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crash_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3387CEB422FAF12C00EE6BEE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3387CEB522FAF12C00EE6BEE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 		3387CEB322FAF12C00EE6BEE /* crash_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
-				33700F5C24BDE5A0007BDE3F /* AliyunEmasServices-Info.plist */,
 				3387CEB422FAF12C00EE6BEE /* AppDelegate.h */,
 				3387CEB522FAF12C00EE6BEE /* AppDelegate.m */,
 				3387CEB722FAF12C00EE6BEE /* ViewController.h */,
@@ -109,7 +106,6 @@
 				3387CEAD22FAF12C00EE6BEE /* Sources */,
 				3387CEAE22FAF12C00EE6BEE /* Frameworks */,
 				3387CEAF22FAF12C00EE6BEE /* Resources */,
-				17C229B7241E68D9B10980C8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,7 +153,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33700F5D24BDE5A0007BDE3F /* AliyunEmasServices-Info.plist in Resources */,
 				3387CEC122FAF12D00EE6BEE /* LaunchScreen.storyboard in Resources */,
 				3387CEBE22FAF12D00EE6BEE /* Assets.xcassets in Resources */,
 				3387CEBC22FAF12C00EE6BEE /* Main.storyboard in Resources */,
@@ -167,23 +162,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17C229B7241E68D9B10980C8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crash_ios_demo/Pods-crash_ios_demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-crash_ios_demo/Pods-crash_ios_demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crash_ios_demo/Pods-crash_ios_demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		500A35599217196F2D967239 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
