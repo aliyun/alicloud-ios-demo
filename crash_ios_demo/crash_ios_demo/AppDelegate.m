@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
 
     EAPMOptions *options = [[EAPMOptions alloc] initWithAppKey:@"Your AppKey"
-                                                     appSecret:@"Youre SecretKey"
+                                                     appSecret:@"Your SecretKey"
                                                  sdkComponents:@[[EAPMCrashAnalysis class]]];
 
     options.userId = @"userId";

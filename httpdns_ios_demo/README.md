@@ -93,8 +93,6 @@ Demo的结构如下：做下说明：
  ```Objective-C
 
 ├── AlicloudHttpDNS.xcframework # SDK 库
-├── AlicloudUtils.xcframework   # SDK 依赖库
-├── AlicloudUTDID.xcframework   # SDK 依赖库
 ├── AFNetworking.framework      # 三方网络库
 ├── Alamofire.xcframework       # 三方网络库
 └──  httpdns_ios_demo         # Demo 演示部分
