@@ -1,132 +1,60 @@
 PODS:
-  - AliAPMInterface (1.0.1.12)
-  - AlicloudAPM (1.1.1):
-    - AlicloudHAUtil
-    - AliCloudNetworkMonitor
-    - AlicloudUtils
-    - AliHACore (~> 10.0.3)
-    - AliHADataHubAssembler (= 1.0.1.46-downgrade)
-    - AliHAMemoryMonitor
-    - AliHAPerformanceMonitor (= 10.0.3.2-NO-UT)
-    - AliHASecurity (~> 10.0.3)
-  - AlicloudHAUtil (1.0.3):
-    - AliHACore
-    - TBRest
-    - ZipArchive
-  - AliCloudNetworkMonitor (1.0.1):
-    - AlicloudUtils
-    - AliHAProtocol
-    - AliHASecurity
-    - EMASRest (>= 11.1.1.1)
-    - JDYThreadTrace
-  - AlicloudUTDID (1.5.0.94)
-  - AlicloudUtils (1.4.1):
+  - AlicloudAPM (1.2.1):
+    - AliCloudNetworkMonitor (~> 2.0.0)
     - AlicloudUTDID
-  - AliHACore (10.0.3.6):
-    - AliHALogEngine (>= 10.0.2)
-    - AliHAProtocol (>= 10.0.2.1)
-    - TBJSONModel
-    - TBRest (>= 1.0.0.18)
-  - AliHADataHub4iOS (1.0.1.24)
-  - AliHADataHubAssembler (1.0.1.46-downgrade):
-    - AliAPMInterface (>= 1.0.1.10)
-    - AliHADataHub4iOS (>= 1.0.1.24)
-    - AliHAProtocol
-    - AliRemoteDebugInterface (>= 0.0.1.4)
-    - TBRest (>= 10.0.4.5)
-  - AliHADeviceEvaluation (10.0.3.8)
-  - AliHALogEngine (10.0.6)
-  - AliHAMemoryMonitor (11.1.8.1):
-    - AliHAMethodTrace (>= 10.0.2)
-    - AliHAProtocol (>= 10.0.2)
-    - BizErrorReporter4iOS (>= 10.0.2)
+    - AliHACore (~> 11.0.0)
+    - AliHAMemoryMonitor (~> 12.0.0)
+    - AliHAPerformanceMonitor (~> 11.0.0)
+  - AliCloudNetworkMonitor (2.0.0):
+    - AlicloudUTDID
+    - AliHACore (~> 11.0.0)
+    - EMASRest
+  - AlicloudUTDID (1.6.1)
+  - AliHACore (11.0.2):
+    - AlicloudUTDID
+  - AliHAMemoryMonitor (12.0.0):
+    - AliHACore (~> 11.0.0)
     - FBAllocationTracker
     - FBMemoryProfiler
     - FBRetainCycleDetector
-  - AliHAMethodTrace (10.0.4)
-  - AliHAPerformanceMonitor (10.0.3.2-NO-UT):
-    - AliAPMInterface (>= 1.0.1.10)
-    - AliHADeviceEvaluation (>= 10.0.3.8)
-    - AliHAProtocol
-  - AliHAProtocol (10.0.3.1):
-    - TBJSONModel
-  - AliHASecurity (10.0.4)
-  - AliRemoteDebugInterface (0.0.1.4)
-  - BizErrorReporter4iOS (10.0.3):
-    - JDYThreadTrace (>= 1.0.0.12)
-    - TBRest
-  - EMASRest (11.1.1.2)
+  - AliHAPerformanceMonitor (11.0.0):
+    - AliHACore (~> 11.0.0)
+  - EMASRest (11.2.0)
   - FBAllocationTracker (0.1.5)
   - FBMemoryProfiler (0.1.3):
     - FBAllocationTracker (~> 0.1)
     - FBRetainCycleDetector (~> 0.1)
-  - FBRetainCycleDetector (0.1.4)
-  - JDYThreadTrace (11.1.1.2)
-  - TBJSONModel (0.1.15.1)
-  - TBRest (10.1.1.0)
-  - ZipArchive (1.4.0)
+  - FBRetainCycleDetector (0.1.4.1)
 
 DEPENDENCIES:
-  - AlicloudAPM (~> 1.1.0)
+  - AlicloudAPM (~> 1.2.1)
 
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
-    - AliAPMInterface
     - AlicloudAPM
-    - AlicloudHAUtil
     - AliCloudNetworkMonitor
     - AlicloudUTDID
-    - AlicloudUtils
     - AliHACore
-    - AliHADataHub4iOS
-    - AliHADataHubAssembler
-    - AliHADeviceEvaluation
-    - AliHALogEngine
     - AliHAMemoryMonitor
-    - AliHAMethodTrace
     - AliHAPerformanceMonitor
-    - AliHAProtocol
-    - AliHASecurity
-    - AliRemoteDebugInterface
-    - BizErrorReporter4iOS
     - EMASRest
-    - JDYThreadTrace
-    - TBJSONModel
-    - TBRest
+    - FBRetainCycleDetector
   https://github.com/CocoaPods/Specs.git:
     - FBAllocationTracker
     - FBMemoryProfiler
-    - FBRetainCycleDetector
-    - ZipArchive
 
 SPEC CHECKSUMS:
-  AliAPMInterface: feea5214ffece4ed52a4a75765f4dd24664b588d
-  AlicloudAPM: 07d436426c0e13c6ec8639aa58a001cf80c04a63
-  AlicloudHAUtil: ab962c683bf2dc79652726121442dc10fc8cbf08
-  AliCloudNetworkMonitor: 9703317187d1e7b83ccf00ae2197404107b57a58
-  AlicloudUTDID: 7323c443dcdf9a73e2224dc6ce51703671d7a765
-  AlicloudUtils: 873a76615bebcee8b1996f20820d366e433c3eab
-  AliHACore: 631974dc2ab61ffed5ba743e339defb5c9e028c0
-  AliHADataHub4iOS: 4847f2cf512af4371a4137c7283b6126eb707f9f
-  AliHADataHubAssembler: 3105c6bfe8a62c0bbd10f7d70d5c891d48347a40
-  AliHADeviceEvaluation: aa603195a7a621fa6b9fde70f8a5c5f792feb422
-  AliHALogEngine: c98e8b4f4a6ee53b08d0657141ac299b37efb188
-  AliHAMemoryMonitor: c9350a89a246a05f91ca509b1bbd28165b87834b
-  AliHAMethodTrace: 31ebea278dfc3dfead7c47a75fc995c79d14ac36
-  AliHAPerformanceMonitor: 346c290c709a19405e6cfb4f84086dac368184cb
-  AliHAProtocol: 32037cc4d1bdbc60a6532895cbf1ddbbe84679b2
-  AliHASecurity: feacfe93b806c1c1a03e2d03c4968d7021df6851
-  AliRemoteDebugInterface: acc89a6becba06e3c009465cbc377b297d745fcb
-  BizErrorReporter4iOS: 0f8d8f52ca95e89e7c60fc15dc162bc6f32c3d86
-  EMASRest: 8df6f87836767a9415ad5cc4af739bc9d215b475
+  AlicloudAPM: 70afc67edb125aa63fdbcb7466b6f58a42a5bd74
+  AliCloudNetworkMonitor: 14f008253374c076b140c81115767e7e1e2f876d
+  AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
+  AliHACore: ece52be85fa1fd2740c5e47f7556b60636c59f5c
+  AliHAMemoryMonitor: 64a66e644f90a9b80867a72ef89e7066f909f876
+  AliHAPerformanceMonitor: 86fd855f077199090fe1f93ad287faa31c6fde3c
+  EMASRest: a2df608b34168f43cec23a9f9fcd81b251c5534b
   FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
   FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
-  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
-  JDYThreadTrace: 757de93867bac712becb1a3d23a0d1f0bf54f927
-  TBJSONModel: 2c95a8789bc3d98a2a773dd09c41ddeb902a200b
-  TBRest: 36fcaf59c76692eae5acf4c8fd469748d453a327
-  ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
+  FBRetainCycleDetector: cf5abf8e93180f48cf54d6872a6d0e5ffe0ac1a1
 
-PODFILE CHECKSUM: 2f5f8ccfbecba2b679db4098be8f6c44c6bdd1e4
+PODFILE CHECKSUM: 8c43b1f69adf55e5395825e91dc3e538b7f5f7e8
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2
