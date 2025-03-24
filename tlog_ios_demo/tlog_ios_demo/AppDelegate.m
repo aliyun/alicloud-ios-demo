@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import <AlicloudTLog/AlicloudTlogProvider.h>
-#import <AlicloudHAUtil/AlicloudHAProvider.h>
+#import <AliHACore/AlicloudHAProvider.h>
+#import <TRemoteDebugger/TRDManagerService.h>
 #import <UTDID/UTDID.h>
 
 @interface AppDelegate ()
