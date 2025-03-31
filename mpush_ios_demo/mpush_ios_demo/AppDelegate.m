@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "SQLiteManager.h"
+#import "mpush_ios_demo-Swift.h"
 
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
@@ -34,6 +35,11 @@
     [self registerMessageReceive];
     // 点击通知将App从关闭状态启动时，将通知打开回执上报
     [CloudPushSDK sendNotificationAck:launchOptions];
+
+    // 观察Live Activity
+    LiveActivityObserver *observer = [[LiveActivityObserver alloc] init];
+    [observer observeActivityTokenAndState];
+
     return YES;
 }
 
@@ -188,20 +194,22 @@
 #pragma mark SDK Init
 - (void)initCloudPush {
     // 正式上线建议关闭
-    [CloudPushSDK turnOnDebug];
+    [CloudPushSDK setLogLevel:MPLogLevelDebug];
 
-    BOOL switchIsOn = [[NSUserDefaults standardUserDefaults] boolForKey:CCPSWITCHSTATE];
-    if (!switchIsOn) {
-        [CloudPushSDK closeCCPChannel];
-    }
+    // BOOL switchIsOn = [[NSUserDefaults standardUserDefaults] boolForKey:CCPSWITCHSTATE];
+    // if (!switchIsOn) {
+    //     [CloudPushSDK closeCCPChannel];
+    // }
+
     // SDK初始化，手动输出appKey和appSecret
-   [CloudPushSDK asyncInit:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult *res) {
-       if (res.success) {
-           NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
-       } else {
-           NSLog(@"Push SDK init failed, error: %@", res.error);
-       }
-   }];
+    [CloudPushSDK startWithAppkey:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult * _Nonnull res) {
+        if (res.success) {
+            NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+            [MsgToolBox showAlert:@"设备id" content:[CloudPushSDK getDeviceId]];
+        } else {
+            NSLog(@"Push SDK init failed, error: %@", res.error);
+        }
+    }];
 }
 
 #pragma mark Notification Open
@@ -266,14 +274,15 @@
 - (void)onMessageReceived:(NSNotification *)notification {
     NSLog(@"Receive one message!");
 
-    CCPSysMessage *message = [notification object];
-    NSString *title = [[NSString alloc] initWithData:message.title encoding:NSUTF8StringEncoding];
-    NSString *body = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];
-    NSLog(@"Receive message title: %@, content: %@.", title, body);
+    NSDictionary *data = [notification object];
+    NSString *title = data[@"title"];
+    NSString *content = data[@"content"];
+
+    NSLog(@"Receive message title: %@, content: %@.", title, content);
 
     PushMessage *tempVO = [[PushMessage alloc] init];
     tempVO.messageTitle = title;
-    tempVO.messageContent = body;
+    tempVO.messageContent = content;
 
     if(![NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
