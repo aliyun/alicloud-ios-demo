@@ -5,3 +5,4 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 
 #import "MsgToolBox.h"
+#import "UIColor+Hex.h"

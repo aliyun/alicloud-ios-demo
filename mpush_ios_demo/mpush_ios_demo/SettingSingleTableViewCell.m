@@ -56,9 +56,12 @@
     if (cellType == SettingSingleCellTypeAccount) {
         self.titleLabel.text = @"账号";
         self.contentLabel.text = @"未绑定账号";
-    } else {
+    } else if (cellType == SettingSingleCellTypeBadgeNumber) {
         self.titleLabel.text = @"角标数同步";
         self.contentLabel.text = @"未同步";
+    } else {
+        self.titleLabel.text = @"活动管理";
+        self.contentLabel.text = @"";
     }
 }
 

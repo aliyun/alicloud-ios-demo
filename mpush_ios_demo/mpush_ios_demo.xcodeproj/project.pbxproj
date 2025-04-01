@@ -49,6 +49,12 @@
 		7ED130A62D9A3651009C4900 /* mpushTakeoutLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130A42D9A3651009C4900 /* mpushTakeoutLiveActivity.swift */; };
 		7ED130A82D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130A72D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift */; };
 		7ED130A92D9A81C1009C4900 /* mpushTaxiLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130A72D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift */; };
+		7ED130AC2D9A9851009C4900 /* LiveActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130AA2D9A9851009C4900 /* LiveActivityListViewController.swift */; };
+		7ED130AD2D9A9851009C4900 /* LiveActivityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED130AB2D9A9851009C4900 /* LiveActivityListViewController.xib */; };
+		7ED130AF2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130AE2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift */; };
+		7ED130B12D9BC5A3009C4900 /* ActivityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130B02D9BC5A3009C4900 /* ActivityInfo.swift */; };
+		7ED130B42D9BEBD5009C4900 /* ActivityInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130B22D9BEBD5009C4900 /* ActivityInfoViewController.swift */; };
+		7ED130B52D9BEBD5009C4900 /* ActivityInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED130B32D9BEBD5009C4900 /* ActivityInfoViewController.xib */; };
 		7ED7466E2D940D2900E039D3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED746182D94087A00E039D3 /* WidgetKit.framework */; };
 		7ED7466F2D940D2900E039D3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7461A2D94087B00E039D3 /* SwiftUI.framework */; };
 		7ED7467C2D940D2A00E039D3 /* mpushExtensionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ED7466D2D940D2900E039D3 /* mpushExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -195,6 +201,12 @@
 		7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingAddTagViewController.xib; sourceTree = "<group>"; };
 		7ED130A42D9A3651009C4900 /* mpushTakeoutLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpushTakeoutLiveActivity.swift; sourceTree = "<group>"; };
 		7ED130A72D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpushTaxiLiveActivity.swift; sourceTree = "<group>"; };
+		7ED130AA2D9A9851009C4900 /* LiveActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityListViewController.swift; sourceTree = "<group>"; };
+		7ED130AB2D9A9851009C4900 /* LiveActivityListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveActivityListViewController.xib; sourceTree = "<group>"; };
+		7ED130AE2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewCell.swift; sourceTree = "<group>"; };
+		7ED130B02D9BC5A3009C4900 /* ActivityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInfo.swift; sourceTree = "<group>"; };
+		7ED130B22D9BEBD5009C4900 /* ActivityInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInfoViewController.swift; sourceTree = "<group>"; };
+		7ED130B32D9BEBD5009C4900 /* ActivityInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityInfoViewController.xib; sourceTree = "<group>"; };
 		7ED746182D94087A00E039D3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7ED7461A2D94087B00E039D3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		7ED7466D2D940D2900E039D3 /* mpushExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpushExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,6 +345,12 @@
 			children = (
 				7ED7468E2D969BE600E039D3 /* LiveActivityObserver.swift */,
 				7ED746902D969BE900E039D3 /* mpush_ios_demo-Bridging-Header.h */,
+				7ED130AA2D9A9851009C4900 /* LiveActivityListViewController.swift */,
+				7ED130AB2D9A9851009C4900 /* LiveActivityListViewController.xib */,
+				7ED130AE2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift */,
+				7ED130B02D9BC5A3009C4900 /* ActivityInfo.swift */,
+				7ED130B22D9BEBD5009C4900 /* ActivityInfoViewController.swift */,
+				7ED130B32D9BEBD5009C4900 /* ActivityInfoViewController.xib */,
 			);
 			path = LiveActivity;
 			sourceTree = "<group>";
@@ -753,7 +771,9 @@
 				7E2C7C022CD46F5F006CDFE5 /* InformationTableViewCell.xib in Resources */,
 				C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */,
 				C9D939331ACA77F7007E7BE6 /* Images.xcassets in Resources */,
+				7ED130AD2D9A9851009C4900 /* LiveActivityListViewController.xib in Resources */,
 				7E2C7C0E2CD4D46F006CDFE5 /* ShowAllTagsViewController.storyboard in Resources */,
+				7ED130B52D9BEBD5009C4900 /* ActivityInfoViewController.xib in Resources */,
 				C91A238A1ACA36E700E0E33D /* Main.storyboard in Resources */,
 				7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */,
 				C99E76721AC96B8B000BC567 /* LaunchScreen.xib in Resources */,
@@ -868,6 +888,7 @@
 				7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */,
 				7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */,
 				7E2C7BFB2CD390A3006CDFE5 /* UIView+TopCorners.m in Sources */,
+				7ED130AC2D9A9851009C4900 /* LiveActivityListViewController.swift in Sources */,
 				7E8DBA6E2CD35E82001DFF0E /* NSString+Numeric.m in Sources */,
 				7E1014982CC9E2600075F777 /* SettingTag.m in Sources */,
 				7E1014862CC65B510075F777 /* SettingAliasTableViewCell.m in Sources */,
@@ -876,6 +897,7 @@
 				7E8DBA762CD38AB7001DFF0E /* InformationViewController.m in Sources */,
 				7E2C7C032CD46F5F006CDFE5 /* InformationTableViewCell.m in Sources */,
 				7E2E5CFD2CBF58D70030441B /* CustomAlertView.m in Sources */,
+				7ED130B12D9BC5A3009C4900 /* ActivityInfo.swift in Sources */,
 				C95EFE131ACAFF580082CF70 /* PersonalData.m in Sources */,
 				7E2E5D002CBFB9440030441B /* SettingViewController.m in Sources */,
 				7E2C7C142CD4E0B3006CDFE5 /* TagsCollectionViewCell.m in Sources */,
@@ -892,10 +914,12 @@
 				C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */,
 				7E2C7C062CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m in Sources */,
 				7ED130A92D9A81C1009C4900 /* mpushTaxiLiveActivity.swift in Sources */,
+				7ED130B42D9BEBD5009C4900 /* ActivityInfoViewController.swift in Sources */,
 				C99E76611AC96B8B000BC567 /* main.m in Sources */,
 				7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */,
 				C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */,
 				7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */,
+				7ED130AF2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift in Sources */,
 				7E1014832CC64A150075F777 /* SettingSingleTableViewCell.m in Sources */,
 				C9102D291ACED5B70094FCEC /* UIFont+FontAwesome.m in Sources */,
 				C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */,
