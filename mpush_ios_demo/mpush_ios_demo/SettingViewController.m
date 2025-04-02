@@ -329,8 +329,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
         LiveActivityListViewController *listViewController = [[LiveActivityListViewController alloc] init];
-
-        // [[[NSBundle mainBundle] loadNibNamed:@"LiveActivityListViewController" owner:self options:nil] firstObject];
         listViewController.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:listViewController animated:YES completion:nil];
 
@@ -338,7 +336,7 @@
         [CustomAlertView showInputAlert:AlertInputTypeBindAccount handle:^(NSString * _Nonnull inputString) {
             if (inputString.length <= 0) {
                 self.bindAccount = @"未绑定账号";
-                [self refreshTableViewCellFor:2];
+                [self refreshTableViewCellFor:3];
                 return;
             }
             
@@ -350,7 +348,7 @@
                         // 绑定成功的账号缓存起来
                         [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BINDACCOUNT];
                         self.bindAccount = inputString ?: @"未绑定账号";
-                        [self refreshTableViewCellFor:2];
+                        [self refreshTableViewCellFor:3];
                     } else {
                         [CustomToastUtil showToastWithMessage:@"绑定账号失败！" isSuccess:NO];
                     }
@@ -369,10 +367,10 @@
                     if (res.success) {
                         [CustomToastUtil showToastWithMessage:@"同步角标数成功！" isSuccess:YES];
 
-                        // 绑定成功的账号缓存起来
+                        // 同步成功的角标缓存起来
                         [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BADGENUMBER];
                         self.badgeNumber = inputString ?: @"未同步";
-                        [self refreshTableViewCellFor:3];
+                        [self refreshTableViewCellFor:4];
                     } else {
                         [CustomToastUtil showToastWithMessage:@"同步角标数失败！" isSuccess:NO];
                     }
