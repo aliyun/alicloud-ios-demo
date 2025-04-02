@@ -45,27 +45,20 @@
 		7E8DBA762CD38AB7001DFF0E /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DBA752CD38AB7001DFF0E /* InformationViewController.m */; };
 		7E9FBAB92CCF9C8900CB9F96 /* SettingAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9FBAB72CCF9C8900CB9F96 /* SettingAddTagViewController.m */; };
 		7E9FBABA2CCF9C8900CB9F96 /* SettingAddTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */; };
-		7ED130A52D9A3651009C4900 /* mpushTakeoutLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130A42D9A3651009C4900 /* mpushTakeoutLiveActivity.swift */; };
-		7ED130A62D9A3651009C4900 /* mpushTakeoutLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130A42D9A3651009C4900 /* mpushTakeoutLiveActivity.swift */; };
-		7ED130A82D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130A72D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift */; };
-		7ED130A92D9A81C1009C4900 /* mpushTaxiLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130A72D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift */; };
 		7ED130AC2D9A9851009C4900 /* LiveActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130AA2D9A9851009C4900 /* LiveActivityListViewController.swift */; };
 		7ED130AD2D9A9851009C4900 /* LiveActivityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED130AB2D9A9851009C4900 /* LiveActivityListViewController.xib */; };
 		7ED130AF2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130AE2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift */; };
 		7ED130B12D9BC5A3009C4900 /* ActivityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130B02D9BC5A3009C4900 /* ActivityInfo.swift */; };
 		7ED130B42D9BEBD5009C4900 /* ActivityInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED130B22D9BEBD5009C4900 /* ActivityInfoViewController.swift */; };
 		7ED130B52D9BEBD5009C4900 /* ActivityInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ED130B32D9BEBD5009C4900 /* ActivityInfoViewController.xib */; };
-		7ED7466E2D940D2900E039D3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED746182D94087A00E039D3 /* WidgetKit.framework */; };
-		7ED7466F2D940D2900E039D3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7461A2D94087B00E039D3 /* SwiftUI.framework */; };
-		7ED7467C2D940D2A00E039D3 /* mpushExtensionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ED7466D2D940D2900E039D3 /* mpushExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7ED131302D9D394C009C4900 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED746182D94087A00E039D3 /* WidgetKit.framework */; };
+		7ED131312D9D394C009C4900 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED7461A2D94087B00E039D3 /* SwiftUI.framework */; };
+		7ED1313E2D9D394D009C4900 /* mpush_liveActivity_extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ED1312F2D9D394C009C4900 /* mpush_liveActivity_extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7ED7468F2D969BE600E039D3 /* LiveActivityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED7468E2D969BE600E039D3 /* LiveActivityObserver.swift */; };
 		7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD2EB52CD1E22E00EE1883 /* AddTagTypeButton.m */; };
 		7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBD2CD2342700EE1883 /* AliasListViewController.m */; };
 		7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBF2CD2343D00EE1883 /* AliasListViewController.storyboard */; };
 		7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF16B392CB8CD3B00256421 /* MessageViewController.m */; };
-		7EFC83C72D96B49A00D166D0 /* mpushExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC83C42D96B49A00D166D0 /* mpushExtension.swift */; };
-		7EFC83C82D96B49A00D166D0 /* mpushExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC83C52D96B49A00D166D0 /* mpushExtensionBundle.swift */; };
-		7EFC83CA2D96B49A00D166D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EFC83C12D96B49A00D166D0 /* Assets.xcassets */; };
 		C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D151ACED5B70094FCEC /* FAImageView.m */; };
 		C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D171ACED5B70094FCEC /* NSString+FontAwesome.m */; };
 		C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9102D1A1ACED5B70094FCEC /* FontAwesome.ttf */; };
@@ -103,12 +96,12 @@
 			remoteGlobalIDString = 4AC713441DB60E0B0062EE5A;
 			remoteInfo = mpush_content_extension;
 		};
-		7ED7467A2D940D2A00E039D3 /* PBXContainerItemProxy */ = {
+		7ED1313C2D9D394D009C4900 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C99E76531AC96B8B000BC567 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7ED7466C2D940D2900E039D3;
-			remoteInfo = mpushExtensionExtension;
+			remoteGlobalIDString = 7ED1312E2D9D394C009C4900;
+			remoteInfo = mpush_liveActivity_extensionExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -120,8 +113,8 @@
 			dstSubfolderSpec = 13;
 			files = (
 				4AC713541DB60E0B0062EE5A /* mpush_content_extension.appex in Embed App Extensions */,
+				7ED1313E2D9D394D009C4900 /* mpush_liveActivity_extension.appex in Embed App Extensions */,
 				4AC7133C1DB60DF30062EE5A /* mpush_service_extension.appex in Embed App Extensions */,
-				7ED7467C2D940D2A00E039D3 /* mpushExtensionExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,17 +192,15 @@
 		7E9FBAB62CCF9C8900CB9F96 /* SettingAddTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingAddTagViewController.h; sourceTree = "<group>"; };
 		7E9FBAB72CCF9C8900CB9F96 /* SettingAddTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingAddTagViewController.m; sourceTree = "<group>"; };
 		7E9FBAB82CCF9C8900CB9F96 /* SettingAddTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingAddTagViewController.xib; sourceTree = "<group>"; };
-		7ED130A42D9A3651009C4900 /* mpushTakeoutLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpushTakeoutLiveActivity.swift; sourceTree = "<group>"; };
-		7ED130A72D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpushTaxiLiveActivity.swift; sourceTree = "<group>"; };
 		7ED130AA2D9A9851009C4900 /* LiveActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityListViewController.swift; sourceTree = "<group>"; };
 		7ED130AB2D9A9851009C4900 /* LiveActivityListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveActivityListViewController.xib; sourceTree = "<group>"; };
 		7ED130AE2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewCell.swift; sourceTree = "<group>"; };
 		7ED130B02D9BC5A3009C4900 /* ActivityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInfo.swift; sourceTree = "<group>"; };
 		7ED130B22D9BEBD5009C4900 /* ActivityInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInfoViewController.swift; sourceTree = "<group>"; };
 		7ED130B32D9BEBD5009C4900 /* ActivityInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityInfoViewController.xib; sourceTree = "<group>"; };
+		7ED1312F2D9D394C009C4900 /* mpush_liveActivity_extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpush_liveActivity_extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED746182D94087A00E039D3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7ED7461A2D94087B00E039D3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		7ED7466D2D940D2900E039D3 /* mpushExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = mpushExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED7468E2D969BE600E039D3 /* LiveActivityObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityObserver.swift; sourceTree = "<group>"; };
 		7ED746902D969BE900E039D3 /* mpush_ios_demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mpush_ios_demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		7EDD2EB42CD1E22E00EE1883 /* AddTagTypeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTagTypeButton.h; sourceTree = "<group>"; };
@@ -220,10 +211,6 @@
 		7EDD2EC12CD3229A00EE1883 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		7EF16B382CB8CD3B00256421 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		7EF16B392CB8CD3B00256421 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
-		7EFC83C12D96B49A00D166D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7EFC83C32D96B49A00D166D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7EFC83C42D96B49A00D166D0 /* mpushExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpushExtension.swift; sourceTree = "<group>"; };
-		7EFC83C52D96B49A00D166D0 /* mpushExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpushExtensionBundle.swift; sourceTree = "<group>"; };
 		C9102D141ACED5B70094FCEC /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		C9102D151ACED5B70094FCEC /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
 		C9102D161ACED5B70094FCEC /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -258,6 +245,36 @@
 		DE594F734BC46E7214E21EA1 /* Pods-mpush_content_extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpush_content_extension.release.xcconfig"; path = "Target Support Files/Pods-mpush_content_extension/Pods-mpush_content_extension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7ED1313F2D9D394D009C4900 /* Exceptions for "mpush_liveActivity_extension" folder in "mpush_liveActivity_extension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7ED1312E2D9D394C009C4900 /* mpush_liveActivity_extension */;
+		};
+		7ED131432D9D399D009C4900 /* Exceptions for "mpush_liveActivity_extension" folder in "mpush_ios_demo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				mpushTakeoutLiveActivity.swift,
+				mpushTaxiLiveActivity.swift,
+			);
+			target = C99E765A1AC96B8B000BC567 /* mpush_ios_demo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		7ED131322D9D394C009C4900 /* mpush_liveActivity_extension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7ED131432D9D399D009C4900 /* Exceptions for "mpush_liveActivity_extension" folder in "mpush_ios_demo" target */,
+				7ED1313F2D9D394D009C4900 /* Exceptions for "mpush_liveActivity_extension" folder in "mpush_liveActivity_extension" target */,
+			);
+			path = mpush_liveActivity_extension;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		4AC713311DB60DF30062EE5A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -277,12 +294,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ED7466A2D940D2900E039D3 /* Frameworks */ = {
+		7ED1312C2D9D394C009C4900 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ED7466F2D940D2900E039D3 /* SwiftUI.framework in Frameworks */,
-				7ED7466E2D940D2900E039D3 /* WidgetKit.framework in Frameworks */,
+				7ED131312D9D394C009C4900 /* SwiftUI.framework in Frameworks */,
+				7ED131302D9D394C009C4900 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,19 +370,6 @@
 				7ED130B32D9BEBD5009C4900 /* ActivityInfoViewController.xib */,
 			);
 			path = LiveActivity;
-			sourceTree = "<group>";
-		};
-		7EFC83C62D96B49A00D166D0 /* mpushExtension */ = {
-			isa = PBXGroup;
-			children = (
-				7ED130A42D9A3651009C4900 /* mpushTakeoutLiveActivity.swift */,
-				7ED130A72D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift */,
-				7EFC83C12D96B49A00D166D0 /* Assets.xcassets */,
-				7EFC83C32D96B49A00D166D0 /* Info.plist */,
-				7EFC83C42D96B49A00D166D0 /* mpushExtension.swift */,
-				7EFC83C52D96B49A00D166D0 /* mpushExtensionBundle.swift */,
-			);
-			path = mpushExtension;
 			sourceTree = "<group>";
 		};
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
@@ -539,7 +543,7 @@
 				C99E765D1AC96B8B000BC567 /* mpush_ios_demo */,
 				4AC713351DB60DF30062EE5A /* mpush_service_extension */,
 				4AC7134A1DB60E0B0062EE5A /* mpush_content_extension */,
-				7EFC83C62D96B49A00D166D0 /* mpushExtension */,
+				7ED131322D9D394C009C4900 /* mpush_liveActivity_extension */,
 				C99E765C1AC96B8B000BC567 /* Products */,
 				C1DC29A7E60223AA9A35ED93 /* Frameworks */,
 				F71FC4E12AEF6729511ECE65 /* Pods */,
@@ -552,7 +556,7 @@
 				C99E765B1AC96B8B000BC567 /* mpush_ios_demo.app */,
 				4AC713341DB60DF30062EE5A /* mpush_service_extension.appex */,
 				4AC713451DB60E0B0062EE5A /* mpush_content_extension.appex */,
-				7ED7466D2D940D2900E039D3 /* mpushExtensionExtension.appex */,
+				7ED1312F2D9D394C009C4900 /* mpush_liveActivity_extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -637,21 +641,26 @@
 			productReference = 4AC713451DB60E0B0062EE5A /* mpush_content_extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		7ED7466C2D940D2900E039D3 /* mpushExtensionExtension */ = {
+		7ED1312E2D9D394C009C4900 /* mpush_liveActivity_extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7ED7467E2D940D2A00E039D3 /* Build configuration list for PBXNativeTarget "mpushExtensionExtension" */;
+			buildConfigurationList = 7ED131402D9D394D009C4900 /* Build configuration list for PBXNativeTarget "mpush_liveActivity_extension" */;
 			buildPhases = (
-				7ED746692D940D2900E039D3 /* Sources */,
-				7ED7466A2D940D2900E039D3 /* Frameworks */,
-				7ED7466B2D940D2900E039D3 /* Resources */,
+				7ED1312B2D9D394C009C4900 /* Sources */,
+				7ED1312C2D9D394C009C4900 /* Frameworks */,
+				7ED1312D2D9D394C009C4900 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = mpushExtensionExtension;
-			productName = mpushExtensionExtension;
-			productReference = 7ED7466D2D940D2900E039D3 /* mpushExtensionExtension.appex */;
+			fileSystemSynchronizedGroups = (
+				7ED131322D9D394C009C4900 /* mpush_liveActivity_extension */,
+			);
+			name = mpush_liveActivity_extension;
+			packageProductDependencies = (
+			);
+			productName = mpush_liveActivity_extensionExtension;
+			productReference = 7ED1312F2D9D394C009C4900 /* mpush_liveActivity_extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		C99E765A1AC96B8B000BC567 /* mpush_ios_demo */ = {
@@ -669,7 +678,7 @@
 			dependencies = (
 				4AC7133B1DB60DF30062EE5A /* PBXTargetDependency */,
 				4AC713531DB60E0B0062EE5A /* PBXTargetDependency */,
-				7ED7467B2D940D2A00E039D3 /* PBXTargetDependency */,
+				7ED1313D2D9D394D009C4900 /* PBXTargetDependency */,
 			);
 			name = mpush_ios_demo;
 			productName = UserExperienceDemo;
@@ -696,7 +705,7 @@
 						DevelopmentTeam = VSW2PKYTD7;
 						ProvisioningStyle = Manual;
 					};
-					7ED7466C2D940D2900E039D3 = {
+					7ED1312E2D9D394C009C4900 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 					C99E765A1AC96B8B000BC567 = {
@@ -732,7 +741,7 @@
 				C99E765A1AC96B8B000BC567 /* mpush_ios_demo */,
 				4AC713331DB60DF30062EE5A /* mpush_service_extension */,
 				4AC713441DB60E0B0062EE5A /* mpush_content_extension */,
-				7ED7466C2D940D2900E039D3 /* mpushExtensionExtension */,
+				7ED1312E2D9D394C009C4900 /* mpush_liveActivity_extension */,
 			);
 		};
 /* End PBXProject section */
@@ -754,11 +763,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ED7466B2D940D2900E039D3 /* Resources */ = {
+		7ED1312D2D9D394C009C4900 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EFC83CA2D96B49A00D166D0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,14 +876,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ED746692D940D2900E039D3 /* Sources */ = {
+		7ED1312B2D9D394C009C4900 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ED130A62D9A3651009C4900 /* mpushTakeoutLiveActivity.swift in Sources */,
-				7EFC83C72D96B49A00D166D0 /* mpushExtension.swift in Sources */,
-				7ED130A82D9A3BD2009C4900 /* mpushTaxiLiveActivity.swift in Sources */,
-				7EFC83C82D96B49A00D166D0 /* mpushExtensionBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,11 +913,9 @@
 				7E10148F2CC8ECC30075F777 /* SettingTagTableViewCell.m in Sources */,
 				C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */,
 				7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */,
-				7ED130A52D9A3651009C4900 /* mpushTakeoutLiveActivity.swift in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
 				C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */,
 				7E2C7C062CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m in Sources */,
-				7ED130A92D9A81C1009C4900 /* mpushTaxiLiveActivity.swift in Sources */,
 				7ED130B42D9BEBD5009C4900 /* ActivityInfoViewController.swift in Sources */,
 				C99E76611AC96B8B000BC567 /* main.m in Sources */,
 				7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */,
@@ -940,10 +942,10 @@
 			target = 4AC713441DB60E0B0062EE5A /* mpush_content_extension */;
 			targetProxy = 4AC713521DB60E0B0062EE5A /* PBXContainerItemProxy */;
 		};
-		7ED7467B2D940D2A00E039D3 /* PBXTargetDependency */ = {
+		7ED1313D2D9D394D009C4900 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7ED7466C2D940D2900E039D3 /* mpushExtensionExtension */;
-			targetProxy = 7ED7467A2D940D2A00E039D3 /* PBXContainerItemProxy */;
+			target = 7ED1312E2D9D394C009C4900 /* mpush_liveActivity_extension */;
+			targetProxy = 7ED1313C2D9D394D009C4900 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1091,7 +1093,7 @@
 			};
 			name = Release;
 		};
-		7ED7467F2D940D2A00E039D3 /* Debug */ = {
+		7ED131412D9D394D009C4900 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1126,10 +1128,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mpushExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = mpushExtension;
+				INFOPLIST_FILE = mpush_liveActivity_extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = mpush_liveActivity_extension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 alibaba. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1152,7 +1154,7 @@
 			};
 			name = Debug;
 		};
-		7ED746802D940D2A00E039D3 /* Release */ = {
+		7ED131422D9D394D009C4900 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1177,19 +1179,18 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mpushExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = mpushExtension;
+				INFOPLIST_FILE = mpush_liveActivity_extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = mpush_liveActivity_extension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 alibaba. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1198,10 +1199,8 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.dynamicisland;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aliyun.emas.pocdemo.mpush-liveActivity-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dynamicisland.dev;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1292,7 +1291,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1F90EF3B57DAFE2A874CF4F7 /* Pods-mpush_ios_demo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = mpush_ios_demo/mpush_ios_demo.entitlements;
@@ -1335,7 +1333,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1659DD4CA90B04B7432C453D /* Pods-mpush_ios_demo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = mpush_ios_demo/mpush_ios_demo.entitlements;
@@ -1393,11 +1390,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7ED7467E2D940D2A00E039D3 /* Build configuration list for PBXNativeTarget "mpushExtensionExtension" */ = {
+		7ED131402D9D394D009C4900 /* Build configuration list for PBXNativeTarget "mpush_liveActivity_extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7ED7467F2D940D2A00E039D3 /* Debug */,
-				7ED746802D940D2A00E039D3 /* Release */,
+				7ED131412D9D394D009C4900 /* Debug */,
+				7ED131422D9D394D009C4900 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

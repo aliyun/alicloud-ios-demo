@@ -1,8 +1,8 @@
 //
-//  mpushExtension.swift
-//  mpushExtension
+//  mpush_liveActivity_extension.swift
+//  mpush_liveActivity_extension
 //
-//  Created by Miracle on 2025/3/26.
+//  Created by Miracle on 2025/4/2.
 //  Copyright © 2025 alibaba. All rights reserved.
 //
 
@@ -44,7 +44,7 @@ struct SimpleEntry: TimelineEntry {
     let emoji: String
 }
 
-struct mpushExtensionEntryView : View {
+struct mpush_liveActivity_extensionEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
@@ -58,16 +58,16 @@ struct mpushExtensionEntryView : View {
     }
 }
 
-struct mpushExtension: Widget {
-    let kind: String = "mpushExtension"
+struct mpush_liveActivity_extension: Widget {
+    let kind: String = "mpush_liveActivity_extension"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
-                mpushExtensionEntryView(entry: entry)
+                mpush_liveActivity_extensionEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
             } else {
-                mpushExtensionEntryView(entry: entry)
+                mpush_liveActivity_extensionEntryView(entry: entry)
                     .padding()
                     .background()
             }
@@ -78,7 +78,7 @@ struct mpushExtension: Widget {
 }
 
 #Preview(as: .systemSmall) {
-    mpushExtension()
+    mpush_liveActivity_extension()
 } timeline: {
     SimpleEntry(date: .now, emoji: "😀")
     SimpleEntry(date: .now, emoji: "🤩")
