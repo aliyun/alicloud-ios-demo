@@ -196,11 +196,6 @@
     // 正式上线建议关闭
     [CloudPushSDK setLogLevel:MPLogLevelDebug];
 
-    // BOOL switchIsOn = [[NSUserDefaults standardUserDefaults] boolForKey:CCPSWITCHSTATE];
-    // if (!switchIsOn) {
-    //     [CloudPushSDK closeCCPChannel];
-    // }
-
     // SDK初始化，手动输出appKey和appSecret
     [CloudPushSDK startWithAppkey:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult * _Nonnull res) {
         if (res.success) {
