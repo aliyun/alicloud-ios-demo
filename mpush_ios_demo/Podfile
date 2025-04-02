@@ -8,20 +8,8 @@ source 'https://github.com/aliyun/aliyun-specs.git'
 
 target 'mpush_ios_demo' do
 
-pod 'AlicloudPush'
+pod 'AlicloudPush', '~> 3'
 
-end
-
-#Build_Env 1日常， 2预发， 3线上
-post_install do |installer_representation|
-    installer_representation.pods_project.targets.each do |target|
-        puts "target name #{target.name}"
-        if target.name == 'AlicloudPush'
-            target.build_configurations.each do |config|
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','Build_Env=2']
-            end
-        end
-    end
 end
 
 target 'mpush_service_extension' do

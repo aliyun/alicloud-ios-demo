@@ -66,10 +66,10 @@ class LiveActivityListViewController: UIViewController {
             staticParams["appLogo"] = activity.attributes.appLogo
             info.staticParams = staticParams
 
-            dynamicParams["status"] = activity.contentState.status
-            dynamicParams["distance"] = activity.contentState.distance
-            dynamicParams["eta"] = activity.contentState.eta
-            dynamicParams["prompt"] = activity.contentState.prompt
+            dynamicParams["status"] = activity.contentState.status ?? "-"
+            dynamicParams["distance"] = activity.contentState.distance ?? "-"
+            dynamicParams["eta"] = activity.contentState.eta ?? "-"
+            dynamicParams["prompt"] = activity.contentState.prompt ?? "-"
             info.dynamicParams = dynamicParams
 
             infoArr.append(info)
@@ -96,10 +96,10 @@ class LiveActivityListViewController: UIViewController {
             staticParams["appLogo"] = activity.attributes.merchantLogo
             info.staticParams = staticParams
 
-            dynamicParams["status"] = activity.contentState.status
-            dynamicParams["distance"] = activity.contentState.distance
-            dynamicParams["progress"] = activity.contentState.progress
-            dynamicParams["prompt"] = activity.contentState.prompt
+            dynamicParams["status"] = activity.contentState.status ?? "-"
+            dynamicParams["distance"] = activity.contentState.distance ?? "-"
+            dynamicParams["progress"] = activity.contentState.progress ?? "-"
+            dynamicParams["prompt"] = activity.contentState.prompt ?? "-"
             info.dynamicParams = dynamicParams
 
             infoArr.append(info)

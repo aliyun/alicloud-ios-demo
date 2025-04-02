@@ -27,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.informationTableView addTopRoundedCornersWithRadius:20];
     self.informationTableView.delegate = self;
     self.informationTableView.dataSource = self;
 
@@ -35,9 +34,10 @@
     [self.informationTableView registerNib:nib forCellReuseIdentifier:@"InformationTableViewCell"];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.informationTableView addTopRoundedCornersWithRadius:20];
     [self setupInformationData];
 }
 

@@ -40,7 +40,7 @@ class ActivityInfoViewController: UIViewController {
         // 处理可选类型
         if let date = activityInfo.staleDate {
             let staleDate = dateFormatter.string(from: date)
-            self.stateLabel.text = staleDate
+            self.staleDateLabel.text = staleDate
         }
 
         // 静态参数

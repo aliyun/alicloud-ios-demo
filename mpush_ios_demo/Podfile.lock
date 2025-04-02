@@ -4,7 +4,7 @@ PODS:
     - AlicloudELS
 
 DEPENDENCIES:
-  - AlicloudPush
+  - AlicloudPush (~> 3)
 
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
@@ -15,6 +15,6 @@ SPEC CHECKSUMS:
   AlicloudELS: 96074fdc25db4713145c86acc258703e8afd5569
   AlicloudPush: 17bbfe1d041276bbe7ace15e7bca5c10528ccecd
 
-PODFILE CHECKSUM: 708a7b7c8ccfbee2a2796508d7c966d438611759
+PODFILE CHECKSUM: 65b7b03d4907605c2ff27eb114c0944954dcd5b5
 
 COCOAPODS: 1.16.2

@@ -14,13 +14,13 @@ import SwiftUI
 struct mpushTaxitAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // 行程状态，"1"-接单中, "2"-前往中, "3"-行程中, "4"-已完成
-        var status: String
+        var status: String?
         // 剩余距离（单位：米）
-        var distance: String
+        var distance: String?
         // 预计到达时间（单位：分钟）
-        var eta: String
+        var eta: String?
         // 提示语
-        var prompt: String
+        var prompt: String?
     }
 
     // 打车软件名称
@@ -126,29 +126,29 @@ struct TaxiLockStatusView: View {
                 case "1":
                     // 已接单
                     Text("司机已接单").font(.system(size: 16, weight: .medium))
-                    if !state.prompt.isEmpty {
-                        Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                    if !(state.prompt?.isEmpty ?? true) {
+                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 case "2":
                     // 前往中
-                    if !state.prompt.isEmpty {
-                        Text("预计\(state.eta)分钟到达").font(.system(size: 16, weight: .medium))
+                    if !(state.eta?.isEmpty ?? true) {
+                        Text("预计\(state.eta!)分钟到达").font(.system(size: 16, weight: .medium))
                     }
-                    if !state.distance.isEmpty {
-                        Text("距您\(state.distance)米").font(.system(size: 13)).foregroundColor(.secondary)
+                    if !(state.distance?.isEmpty ?? true) {
+                        Text("距您\(state.distance!)米").font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 case "3":
                     // 行程中
                     Text("行程进行中").font(.system(size: 16, weight: .medium))
-                    if !state.distance.isEmpty {
-                        let km = String(format: "%.1f", (Double(state.distance) ?? 0.0)/1000.0)
+                    if !(state.distance?.isEmpty ?? true) {
+                        let km = String(format: "%.1f", (Double(state.distance!) ?? 0.0)/1000.0)
                         Text("剩余\(km)公里").font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 case "4":
                     //已送达
                     Text("行程已完成").font(.system(size: 16, weight: .medium))
-                    if !state.prompt.isEmpty {
-                        Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                    if !(state.prompt?.isEmpty ?? true) {
+                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 default:
                     Text("行程状态未知").font(.system(size: 16, weight: .medium))
@@ -196,29 +196,29 @@ struct TaxiExpandedView: View {
                     case "1":
                         // 已接单
                         Text("司机已接单").font(.system(size: 16, weight: .medium))
-                        if !state.prompt.isEmpty {
-                            Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                        if !(state.prompt?.isEmpty ?? true) {
+                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     case "2":
                         // 前往中
-                        if !state.prompt.isEmpty {
-                            Text("预计\(state.eta)分钟到达").font(.system(size: 16, weight: .medium))
+                        if !(state.eta?.isEmpty ?? true) {
+                            Text("预计\(state.eta!)分钟到达").font(.system(size: 16, weight: .medium))
                         }
-                        if !state.distance.isEmpty {
-                            Text("距您\(state.distance)米").font(.system(size: 13)).foregroundColor(.secondary)
+                        if !(state.distance?.isEmpty ?? true) {
+                            Text("距您\(state.distance!)米").font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     case "3":
                         // 行程中
                         Text("行程进行中").font(.system(size: 16, weight: .medium))
-                        if !state.distance.isEmpty {
-                            let km = String(format: "%.1f", (Double(state.distance) ?? 0.0)/1000.0)
+                        if !(state.distance?.isEmpty ?? true) {
+                            let km = String(format: "%.1f", (Double(state.distance!) ?? 0.0)/1000.0)
                             Text("剩余\(km)公里").font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     case "4":
                         //已送达
                         Text("行程已完成").font(.system(size: 16, weight: .medium))
-                        if !state.prompt.isEmpty {
-                            Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                        if !(state.prompt?.isEmpty ?? true) {
+                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     default:
                         Text("行程状态未知").font(.system(size: 16, weight: .medium))

@@ -14,13 +14,13 @@ import SwiftUI
 struct mpushTakeoutAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // 配送状态，"1"-备货中, "2"-待配送, "3"-配送中, "4"-已完成
-        var status: String
+        var status: String?
         // 配送距离（单位：米）
-        var distance: String
+        var distance: String?
         // 配送剩余时间（单位：分钟）
-        var progress: String
+        var progress: String?
         // 提示语
-        var prompt: String
+        var prompt: String?
     }
 
     // 商家名称
@@ -125,8 +125,8 @@ struct TakeoutLockStatusView: View {
                 case "1":
                     // 备货中
                     Text("商家备货中").font(.system(size: 16, weight: .medium))
-                    if !state.prompt.isEmpty {
-                        Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                    if !(state.prompt?.isEmpty ?? true) {
+                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 case "2":
                     // 待配送
@@ -135,14 +135,20 @@ struct TakeoutLockStatusView: View {
                     // 配送中
                     Text("骑手配送中").font(.system(size: 16, weight: .medium))
                     HStack(spacing: 0) {
-                        Text("距您\(state.distance)米").font(.system(size:13)).foregroundColor(.secondary)
-                        Text("，预计\(state.progress)分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
+                        if !(state.distance?.isEmpty ?? true) {
+                            Text("距您\(state.distance!)米").font(.system(size:13)).foregroundColor(.secondary)
+
+                        }
+
+                        if !(state.progress?.isEmpty ?? true) {
+                            Text("，预计\(state.progress!)分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
+                        }
                     }
                 case "4":
                     //已送达
                     Text("商品已送达").font(.system(size: 16, weight: .medium))
-                    if !state.prompt.isEmpty {
-                        Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                    if !(state.prompt?.isEmpty ?? true) {
+                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 default:
                     Text("配送状态未知").font(.system(size: 16, weight: .medium))
@@ -190,8 +196,8 @@ struct TakeoutExpandedView: View {
                     case "1":
                         // 备货中
                         Text("商家备货中").font(.system(size: 16, weight: .medium))
-                        if !state.prompt.isEmpty {
-                            Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                        if !(state.prompt?.isEmpty ?? true) {
+                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     case "2":
                         // 待配送
@@ -200,14 +206,20 @@ struct TakeoutExpandedView: View {
                         // 配送中
                         Text("骑手配送中").font(.system(size: 16, weight: .medium))
                         HStack(spacing: 0) {
-                            Text("距您\(state.distance)米").font(.system(size:13)).foregroundColor(.secondary)
-                            Text("，预计\(state.progress)分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
+                            if !(state.distance?.isEmpty ?? true) {
+                                Text("距您\(state.distance!)米").font(.system(size:13)).foregroundColor(.secondary)
+
+                            }
+
+                            if !(state.progress?.isEmpty ?? true) {
+                                Text("，预计\(state.progress!)分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
+                            }
                         }
                     case "4":
                         //已送达
                         Text("商品已送达").font(.system(size: 16, weight: .medium))
-                        if !state.prompt.isEmpty {
-                            Text(state.prompt).font(.system(size: 13)).foregroundColor(.secondary)
+                        if !(state.prompt?.isEmpty ?? true) {
+                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     default:
                         Text("配送状态未知").font(.system(size: 16, weight: .medium))
