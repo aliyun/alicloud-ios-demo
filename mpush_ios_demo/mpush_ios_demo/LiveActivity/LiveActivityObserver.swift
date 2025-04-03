@@ -38,7 +38,7 @@ class LiveActivityObserver: NSObject {
                     let mytoken = tokenData.map { String(format: "%02x", $0) }.joined()
                     if (TokenManager.shared.takeoutStartToken != mytoken) {
                         TokenManager.shared.takeoutStartToken = mytoken;
-                        NSLog("Activity startToken=\(mytoken) ")
+                        print("Activity startToken=\(mytoken) ")
                         CloudPushSDK.registerLiveActivityStartToken(tokenData, forActivityAttributes: "mpushTakeoutAttributes") { res in
                             print("Activity register start token result: \(res.success)")
                         }
@@ -53,7 +53,6 @@ class LiveActivityObserver: NSObject {
             if #available(iOS 16.2, *) {
                 for await activity in Activity<mpushTakeoutAttributes>.activityUpdates {
                     print("===== Observing the activity: \(activity.id) \(activity.attributes) ==========")
-                    MsgToolBox.showAlert("activity.id", content: activity.id)
 
                     Task {
                         for await tokenData in activity.pushTokenUpdates {
@@ -84,15 +83,16 @@ class LiveActivityObserver: NSObject {
         }
     }
 
+    /// 打车模型监听
     func taxiObserver() {
         Task {
             if #available(iOS 17.2, *) {
-                for await tokenData in Activity<mpushTaxitAttributes>.pushToStartTokenUpdates {
+                for await tokenData in Activity<mpushTaxiAttributes>.pushToStartTokenUpdates {
                     let mytoken = tokenData.map { String(format: "%02x", $0) }.joined()
                     if (TokenManager.shared.taxiStartToken != mytoken) {
                         TokenManager.shared.taxiStartToken = mytoken;
-                        NSLog("Activity startToken=\(mytoken) ")
-                        CloudPushSDK.registerLiveActivityStartToken(tokenData, forActivityAttributes: "mpushTaxitAttributes") { res in
+                        print("Activity startToken=\(mytoken) ")
+                        CloudPushSDK.registerLiveActivityStartToken(tokenData, forActivityAttributes: "mpushTaxiAttributes") { res in
                             print("Activity register start token result: \(res.success)")
                         }
                     }
@@ -104,9 +104,8 @@ class LiveActivityObserver: NSObject {
 
         Task {
             if #available(iOS 16.2, *) {
-                for await activity in Activity<mpushTaxitAttributes>.activityUpdates {
+                for await activity in Activity<mpushTaxiAttributes>.activityUpdates {
                     print("===== Observing the activity: \(activity.id) \(activity.attributes) ==========")
-                    MsgToolBox.showAlert("activity.id", content: activity.id)
 
                     Task {
                         for await tokenData in activity.pushTokenUpdates {

@@ -200,7 +200,6 @@
     [CloudPushSDK startWithAppkey:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult * _Nonnull res) {
         if (res.success) {
             NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
-            [MsgToolBox showAlert:@"设备id" content:[CloudPushSDK getDeviceId]];
         } else {
             NSLog(@"Push SDK init failed, error: %@", res.error);
         }

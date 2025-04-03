@@ -11,7 +11,7 @@ import WidgetKit
 import SwiftUI
 
 
-struct mpushTaxitAttributes: ActivityAttributes {
+struct mpushTaxiAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // 行程状态，"1"-接单中, "2"-前往中, "3"-行程中, "4"-已完成
         var status: String?
@@ -33,7 +33,7 @@ struct mpushTaxitAttributes: ActivityAttributes {
 @available(iOS 16.1, *)
 struct mpushTaxiLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: mpushTaxitAttributes.self) { context in
+        ActivityConfiguration(for: mpushTaxiAttributes.self) { context in
             // Lock screen/banner UI goes here
             TaxiLockStatusView(attributes: context.attributes, state: context.state)
         } dynamicIsland: { context in
@@ -76,7 +76,7 @@ struct mpushTaxiLiveActivity: Widget {
         }
     }
 
-    func statusTitle(state: mpushTaxitAttributes.ContentState) -> String {
+    func statusTitle(state: mpushTaxiAttributes.ContentState) -> String {
         switch state.status {
         case "1": 
             return "接单中"
@@ -94,8 +94,8 @@ struct mpushTaxiLiveActivity: Widget {
 
 @available(iOS 16.1, *)
 struct TaxiLockStatusView: View {
-    let attributes: mpushTaxitAttributes
-    let state: mpushTaxitAttributes.ContentState
+    let attributes: mpushTaxiAttributes
+    let state: mpushTaxiAttributes.ContentState
 
     var body: some View {
         HStack(spacing: 12) {
@@ -140,9 +140,13 @@ struct TaxiLockStatusView: View {
                 case "3":
                     // 行程中
                     Text("行程进行中").font(.system(size: 16, weight: .medium))
-                    if !(state.distance?.isEmpty ?? true) {
-                        let km = String(format: "%.1f", (Double(state.distance!) ?? 0.0)/1000.0)
-                        Text("剩余\(km)公里").font(.system(size: 13)).foregroundColor(.secondary)
+                    if let distanceString = state.distance, !distanceString.isEmpty {
+                        if let distanceValue = Double(distanceString) {
+                            let km = String(format: "%.1f", distanceValue / 1000.0)
+                            Text("剩余\(km)公里").font(.system(size: 13)).foregroundColor(.secondary)
+                        } else {
+                            Text("未知").font(.system(size: 13)).foregroundColor(.secondary)
+                        }
                     }
                 case "4":
                     //已送达
@@ -163,8 +167,8 @@ struct TaxiLockStatusView: View {
 // 扩展模式视图
 @available(iOS 16.1, *)
 struct TaxiExpandedView: View {
-    let attributes: mpushTaxitAttributes
-    let state: mpushTaxitAttributes.ContentState
+    let attributes: mpushTaxiAttributes
+    let state: mpushTaxiAttributes.ContentState
 
     var body: some View {
         VStack(alignment: .center) {
@@ -210,9 +214,13 @@ struct TaxiExpandedView: View {
                     case "3":
                         // 行程中
                         Text("行程进行中").font(.system(size: 16, weight: .medium))
-                        if !(state.distance?.isEmpty ?? true) {
-                            let km = String(format: "%.1f", (Double(state.distance!) ?? 0.0)/1000.0)
-                            Text("剩余\(km)公里").font(.system(size: 13)).foregroundColor(.secondary)
+                        if let distanceString = state.distance, !distanceString.isEmpty {
+                            if let distanceValue = Double(distanceString) {
+                                let km = String(format: "%.1f", distanceValue / 1000.0)
+                                Text("剩余\(km)公里").font(.system(size: 13)).foregroundColor(.secondary)
+                            } else {
+                                Text("未知").font(.system(size: 13)).foregroundColor(.secondary)
+                            }
                         }
                     case "4":
                         //已送达

@@ -130,6 +130,20 @@
                     <color key="textColor" red="0.63137254899999995" green="0.6705882353" blue="0.70196078429999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs5-sC-sSp">
+                    <rect key="frame" x="27.333333333333329" y="261.66666666666669" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="IMx-J0-lbY"/>
+                        <constraint firstAttribute="width" constant="16" id="wtn-ji-a1r"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=" ">
+                        <backgroundConfiguration key="background" image="copy"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="copyActivityId:" destination="-1" eventType="touchUpInside" id="lFu-BI-Rya"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -142,6 +156,7 @@
                 <constraint firstItem="Z7E-Ho-uj2" firstAttribute="leading" secondItem="UbI-sY-QSt" secondAttribute="leading" id="9AN-p1-WDk"/>
                 <constraint firstItem="UbI-sY-QSt" firstAttribute="leading" secondItem="sKj-tC-UgY" secondAttribute="leading" id="BKJ-Kk-A7T"/>
                 <constraint firstItem="SKx-4h-V1H" firstAttribute="top" secondItem="Yf5-OX-waN" secondAttribute="bottom" constant="10" id="BUc-Xj-FAc"/>
+                <constraint firstItem="qs5-sC-sSp" firstAttribute="centerY" secondItem="ofx-WR-mfX" secondAttribute="centerY" id="DOO-Bs-qYU"/>
                 <constraint firstItem="Z7E-Ho-uj2" firstAttribute="top" secondItem="UbI-sY-QSt" secondAttribute="bottom" constant="10" id="E1u-MH-NSt"/>
                 <constraint firstItem="Ztd-kp-J3e" firstAttribute="leading" secondItem="O14-W0-Po6" secondAttribute="leading" id="EHe-9i-lyf"/>
                 <constraint firstItem="ofx-WR-mfX" firstAttribute="top" secondItem="sus-ph-BI7" secondAttribute="bottom" constant="5" id="Hgk-bg-99a"/>
@@ -154,6 +169,7 @@
                 <constraint firstItem="1qJ-bZ-Mqv" firstAttribute="leading" secondItem="ZLv-Ln-Lar" secondAttribute="leading" id="Pry-Of-Ig1"/>
                 <constraint firstItem="8HY-kQ-a7y" firstAttribute="centerY" secondItem="ZgY-eK-zEC" secondAttribute="centerY" id="QEe-Nm-sth"/>
                 <constraint firstItem="UbI-sY-QSt" firstAttribute="top" secondItem="sKj-tC-UgY" secondAttribute="bottom" constant="5" id="R98-II-Cf9"/>
+                <constraint firstItem="qs5-sC-sSp" firstAttribute="leading" secondItem="ofx-WR-mfX" secondAttribute="trailing" constant="4" id="VzN-Sd-fYT"/>
                 <constraint firstItem="ZgY-eK-zEC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="X4r-0M-rYf"/>
                 <constraint firstItem="MPR-rN-UQt" firstAttribute="leading" secondItem="Z7E-Ho-uj2" secondAttribute="leading" id="XRv-NB-8pc"/>
                 <constraint firstItem="Yf5-OX-waN" firstAttribute="leading" secondItem="1NG-dR-BcW" secondAttribute="leading" id="XzD-qh-6Dr"/>
@@ -174,6 +190,7 @@
     </objects>
     <resources>
         <image name="arrow_back" width="22" height="22"/>
+        <image name="copy" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

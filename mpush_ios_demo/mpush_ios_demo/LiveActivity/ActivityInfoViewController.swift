@@ -37,6 +37,7 @@ class ActivityInfoViewController: UIViewController {
         // 过期时间
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
         // 处理可选类型
         if let date = activityInfo.staleDate {
             let staleDate = dateFormatter.string(from: date)
@@ -64,5 +65,15 @@ class ActivityInfoViewController: UIViewController {
     
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true)
+    }
+
+
+    /// 复制活动id到剪切板
+    @IBAction func copyActivityId(_ sender: Any) {
+         // 获取系统通用的剪切板
+        let pasteboard = UIPasteboard.general
+        // 将字符串放入剪切板
+        pasteboard.string = idLabel.text
+        MsgToolBox.showAlert("", content: "已复制到剪切板")
     }
 }

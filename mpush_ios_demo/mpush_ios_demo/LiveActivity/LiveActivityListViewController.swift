@@ -26,6 +26,8 @@ class LiveActivityListViewController: UIViewController {
         activitiesListTableView.delegate = self
         activitiesListTableView.dataSource = self
 
+        observeActivities()
+
     }
 
 
@@ -49,12 +51,12 @@ class LiveActivityListViewController: UIViewController {
 
     @available(iOS 16.2, *)
     private func getTaxiParams() -> [ActivityInfo] {
-        let activities = Activity<mpushTaxitAttributes>.activities
+        let activities = Activity<mpushTaxiAttributes>.activities
         var infoArr = [ActivityInfo]()
         for activity in activities {
             var info = ActivityInfo()
             info.state = "\(activity.activityState)"
-            info.modelName = "mpushTaxitAttributes"
+            info.modelName = "mpushTaxiAttributes"
             info.id = activity.id
             info.modelType = "打车"
             info.staleDate = activity.content.staleDate
@@ -107,6 +109,54 @@ class LiveActivityListViewController: UIViewController {
         return infoArr
     }
 
+    private func observeActivities() {
+        if #available(iOS 16.1, *) {
+            takeoutObserver()
+            taxiObserver()
+        } else {
+            // Fallback on earlier versions
+        }
+
+
+    }
+
+    /// 外卖模型监听
+    private func takeoutObserver() {
+        Task {
+            if #available(iOS 16.2, *) {
+                for await activity in Activity<mpushTakeoutAttributes>.activityUpdates {
+                    Task {
+                        for await _ in activity.activityStateUpdates {
+                            DispatchQueue.main.async {[weak self] in
+                                self?.getData()
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
+    /// 打车模型监听
+    private func taxiObserver() {
+        Task {
+            if #available(iOS 16.2, *) {
+                for await activity in Activity<mpushTaxiAttributes>.activityUpdates {
+                    Task {
+                        for await _ in activity.activityStateUpdates {
+                            DispatchQueue.main.async {[weak self] in
+                                self?.getData()
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
 }
 
 
@@ -139,10 +189,10 @@ extension LiveActivityListViewController: UITableViewDelegate, UITableViewDataSo
                         }
                     }
                 } else {
-                    let activities = Activity<mpushTaxitAttributes>.activities
+                    let activities = Activity<mpushTaxiAttributes>.activities
                     if let activity = activities.first(where: { $0.id == info.id }) {
                         Task {
-                            let state = mpushTaxitAttributes.ContentState(status: "4", distance: "0", eta: "0", prompt: "欢迎使用，祝你生活愉快")
+                            let state = mpushTaxiAttributes.ContentState(status: "4", distance: "0", eta: "0", prompt: "欢迎使用，祝你生活愉快")
                             await activity.end(.init(state: state, staleDate: nil))
                             self.getData()
                         }
