@@ -86,7 +86,7 @@ struct mpushTakeoutLiveActivity: Widget {
         case "4":
             return "已完成"
         default:
-            return "备货中"
+            return "状态未知"
         }
     }
 }
@@ -135,14 +135,9 @@ struct TakeoutLockStatusView: View {
                     // 配送中
                     Text("骑手配送中").font(.system(size: 16, weight: .medium))
                     HStack(spacing: 0) {
-                        if !(state.distance?.isEmpty ?? true) {
-                            Text("距您\(state.distance!)米").font(.system(size:13)).foregroundColor(.secondary)
+                        Text("距您\(checkIfNumeric(input: state.distance))米").font(.system(size:13)).foregroundColor(.secondary)
 
-                        }
-
-                        if !(state.progress?.isEmpty ?? true) {
-                            Text("，预计\(state.progress!)分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
-                        }
+                        Text("，预计\(checkIfNumeric(input: state.progress))分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 case "4":
                     //已送达
@@ -206,14 +201,9 @@ struct TakeoutExpandedView: View {
                         // 配送中
                         Text("骑手配送中").font(.system(size: 16, weight: .medium))
                         HStack(spacing: 0) {
-                            if !(state.distance?.isEmpty ?? true) {
-                                Text("距您\(state.distance!)米").font(.system(size:13)).foregroundColor(.secondary)
+                            Text("距您\(checkIfNumeric(input: state.distance))米").font(.system(size:13)).foregroundColor(.secondary)
 
-                            }
-
-                            if !(state.progress?.isEmpty ?? true) {
-                                Text("，预计\(state.progress!)分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
-                            }
+                            Text("，预计\(checkIfNumeric(input: state.progress))分钟送达").font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     case "4":
                         //已送达
@@ -242,19 +232,18 @@ struct TakeoutExpandedView: View {
     }
 }
 
+fileprivate func checkIfNumeric(input: String?) -> String {
+    // 检查是否为nil或空字符串
+    guard let input = input, !input.isEmpty else {
+        return "未知"
+    }
 
-// #Preview("Dynamic Island Expanded", as: .dynamicIsland(.expanded), using: mpushTakeoutAttributes(merchantName: "商家", merchantLogo: "https://YourLogo.png")) {
-//     mpushTakeoutLiveActivity()
-// } contentStates: {
-//     mpushTakeoutAttributes.ContentState(status: "1", distance: "0", progress: "0", prompt: "正在用心准备您的美食")
-//     mpushTakeoutAttributes.ContentState(status: "3", distance: "500", progress: "10", prompt: "")
-//     mpushTakeoutAttributes.ContentState(status: "4", distance: "0", progress: "0", prompt: "感谢您的惠顾，欢迎再次光临")
-// }
-//
-// #Preview("Lock Screen", as: .content, using: mpushTakeoutAttributes(merchantName: "商家", merchantLogo: "https://YourLogo.png")) {
-//     mpushTakeoutLiveActivity()
-// } contentStates: {
-//     mpushTakeoutAttributes.ContentState(status: "1", distance: "0", progress: "0", prompt: "正在用心准备您的美食")
-//     mpushTakeoutAttributes.ContentState(status: "3", distance: "500", progress: "10", prompt: "")
-//     mpushTakeoutAttributes.ContentState(status: "4", distance: "0", progress: "0", prompt: "感谢您的惠顾，欢迎再次光临")
-// }
+    // 创建匹配数字(包括小数和负数)的正则表达式
+    let numericRegex = #"^-?([0-9]+(\.[0-9]*)?|\.[0-9]+)$"#
+
+    // 检查字符串是否匹配正则表达式
+    if let _ = input.range(of: numericRegex, options: .regularExpression) {
+        return input
+    } else {
+        return "未知"}
+}

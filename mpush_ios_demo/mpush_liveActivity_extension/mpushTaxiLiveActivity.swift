@@ -87,7 +87,7 @@ struct mpushTaxiLiveActivity: Widget {
         case "4":
             return "已完成"
         default:
-            return "接单中"
+            return "状态未知"
         }
     }
 }
@@ -131,12 +131,9 @@ struct TaxiLockStatusView: View {
                     }
                 case "2":
                     // 前往中
-                    if !(state.eta?.isEmpty ?? true) {
-                        Text("预计\(state.eta!)分钟到达").font(.system(size: 16, weight: .medium))
-                    }
-                    if !(state.distance?.isEmpty ?? true) {
-                        Text("距您\(state.distance!)米").font(.system(size: 13)).foregroundColor(.secondary)
-                    }
+                    Text("预计\(checkIfNumeric(input: state.eta))分钟到达").font(.system(size: 16, weight: .medium))
+
+                    Text("距您\(checkIfNumeric(input: state.distance))米").font(.system(size: 13)).foregroundColor(.secondary)
                 case "3":
                     // 行程中
                     Text("行程进行中").font(.system(size: 16, weight: .medium))
@@ -205,12 +202,9 @@ struct TaxiExpandedView: View {
                         }
                     case "2":
                         // 前往中
-                        if !(state.eta?.isEmpty ?? true) {
-                            Text("预计\(state.eta!)分钟到达").font(.system(size: 16, weight: .medium))
-                        }
-                        if !(state.distance?.isEmpty ?? true) {
-                            Text("距您\(state.distance!)米").font(.system(size: 13)).foregroundColor(.secondary)
-                        }
+                        Text("预计\(checkIfNumeric(input: state.eta))分钟到达").font(.system(size: 16, weight: .medium))
+
+                        Text("距您\(checkIfNumeric(input: state.distance))米").font(.system(size: 13)).foregroundColor(.secondary)
                     case "3":
                         // 行程中
                         Text("行程进行中").font(.system(size: 16, weight: .medium))
@@ -247,4 +241,21 @@ struct TaxiExpandedView: View {
             }.frame(width: 300, height: 60)
         }
     }
+
+}
+
+fileprivate func checkIfNumeric(input: String?) -> String {
+    // 检查是否为nil或空字符串
+    guard let input = input, !input.isEmpty else {
+        return "未知"
+    }
+
+    // 创建匹配数字(包括小数和负数)的正则表达式
+    let numericRegex = #"^-?([0-9]+(\.[0-9]*)?|\.[0-9]+)$"#
+
+    // 检查字符串是否匹配正则表达式
+    if let _ = input.range(of: numericRegex, options: .regularExpression) {
+        return input
+    } else {
+        return "未知"}
 }
