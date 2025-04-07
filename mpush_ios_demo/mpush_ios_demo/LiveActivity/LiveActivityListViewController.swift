@@ -126,7 +126,23 @@ class LiveActivityListViewController: UIViewController {
             if #available(iOS 16.2, *) {
                 for await activity in Activity<mpushTakeoutAttributes>.activityUpdates {
                     Task {
+                        for await _ in activity.contentUpdates {
+                            DispatchQueue.main.async {[weak self] in
+                                self?.getData()
+                            }
+                        }
+                    }
+
+                    Task {
                         for await _ in activity.activityStateUpdates {
+                            DispatchQueue.main.async {[weak self] in
+                                self?.getData()
+                            }
+                        }
+                    }
+
+                    Task {
+                        for await _ in activity.pushTokenUpdates {
                             DispatchQueue.main.async {[weak self] in
                                 self?.getData()
                             }
@@ -145,7 +161,23 @@ class LiveActivityListViewController: UIViewController {
             if #available(iOS 16.2, *) {
                 for await activity in Activity<mpushTaxiAttributes>.activityUpdates {
                     Task {
+                        for await _ in activity.contentUpdates {
+                            DispatchQueue.main.async {[weak self] in
+                                self?.getData()
+                            }
+                        }
+                    }
+
+                    Task {
                         for await _ in activity.activityStateUpdates {
+                            DispatchQueue.main.async {[weak self] in
+                                self?.getData()
+                            }
+                        }
+                    }
+
+                    Task {
+                        for await _ in activity.pushTokenUpdates {
                             DispatchQueue.main.async {[weak self] in
                                 self?.getData()
                             }
