@@ -1,6 +1,6 @@
 //
 //  mpushTaxiLiveActivity.swift
-//  mpushExtensionExtension
+//  mpush_liveActivity_extension
 //
 //  Created by Miracle on 2025/3/31.
 //  Copyright © 2025 alibaba. All rights reserved.
@@ -126,8 +126,8 @@ struct TaxiLockStatusView: View {
                 case "1":
                     // 已接单
                     Text("司机已接单").font(.system(size: 16, weight: .medium))
-                    if !(state.prompt?.isEmpty ?? true) {
-                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                    if let promptText = state.prompt, !promptText.isEmpty {
+                        Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 case "2":
                     // 前往中
@@ -148,8 +148,8 @@ struct TaxiLockStatusView: View {
                 case "4":
                     //已送达
                     Text("行程已完成").font(.system(size: 16, weight: .medium))
-                    if !(state.prompt?.isEmpty ?? true) {
-                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                    if let promptText = state.prompt, !promptText.isEmpty {
+                        Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 default:
                     Text("行程状态未知").font(.system(size: 16, weight: .medium))
@@ -197,8 +197,8 @@ struct TaxiExpandedView: View {
                     case "1":
                         // 已接单
                         Text("司机已接单").font(.system(size: 16, weight: .medium))
-                        if !(state.prompt?.isEmpty ?? true) {
-                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                        if let promptText = state.prompt, !promptText.isEmpty {
+                            Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     case "2":
                         // 前往中
@@ -219,8 +219,8 @@ struct TaxiExpandedView: View {
                     case "4":
                         //已送达
                         Text("行程已完成").font(.system(size: 16, weight: .medium))
-                        if !(state.prompt?.isEmpty ?? true) {
-                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                        if let promptText = state.prompt, !promptText.isEmpty {
+                            Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     default:
                         Text("行程状态未知").font(.system(size: 16, weight: .medium))

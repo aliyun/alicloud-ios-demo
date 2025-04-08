@@ -1,6 +1,6 @@
 //
 //  mpushTakeoutLiveActivity.swift
-//  mpushExtension
+//  mpush_liveActivity_extension
 //
 //  Created by Miracle on 2025/3/27.
 //  Copyright © 2025 alibaba. All rights reserved.
@@ -125,8 +125,8 @@ struct TakeoutLockStatusView: View {
                 case "1":
                     // 备货中
                     Text("商家备货中").font(.system(size: 16, weight: .medium))
-                    if !(state.prompt?.isEmpty ?? true) {
-                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                    if let promptText = state.prompt, !promptText.isEmpty {
+                        Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 case "2":
                     // 待配送
@@ -142,8 +142,8 @@ struct TakeoutLockStatusView: View {
                 case "4":
                     //已送达
                     Text("商品已送达").font(.system(size: 16, weight: .medium))
-                    if !(state.prompt?.isEmpty ?? true) {
-                        Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                    if let promptText = state.prompt, !promptText.isEmpty {
+                        Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                     }
                 default:
                     Text("配送状态未知").font(.system(size: 16, weight: .medium))
@@ -191,8 +191,8 @@ struct TakeoutExpandedView: View {
                     case "1":
                         // 备货中
                         Text("商家备货中").font(.system(size: 16, weight: .medium))
-                        if !(state.prompt?.isEmpty ?? true) {
-                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                        if let promptText = state.prompt, !promptText.isEmpty {
+                            Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     case "2":
                         // 待配送
@@ -208,8 +208,8 @@ struct TakeoutExpandedView: View {
                     case "4":
                         //已送达
                         Text("商品已送达").font(.system(size: 16, weight: .medium))
-                        if !(state.prompt?.isEmpty ?? true) {
-                            Text(state.prompt!).font(.system(size: 13)).foregroundColor(.secondary)
+                        if let promptText = state.prompt, !promptText.isEmpty {
+                            Text(promptText).font(.system(size: 13)).foregroundColor(.secondary)
                         }
                     default:
                         Text("配送状态未知").font(.system(size: 16, weight: .medium))
