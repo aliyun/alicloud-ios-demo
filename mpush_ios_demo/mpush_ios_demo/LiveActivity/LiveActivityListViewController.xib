@@ -43,16 +43,33 @@
                     <rect key="frame" x="16" y="111" width="361" height="707"/>
                     <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQW-Ef-Bwm">
+                    <rect key="frame" x="303" y="71" width="80" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="ELz-MN-tgW"/>
+                        <constraint firstAttribute="height" constant="40" id="cpM-4F-FXN"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="刷新">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                        <color key="baseForegroundColor" red="0.19215686274509802" green="0.2196078431372549" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="refreshList:" destination="-1" eventType="touchUpInside" id="z7I-gf-ZqR"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="VQW-Ef-Bwm" firstAttribute="centerY" secondItem="Cjw-p4-Uhm" secondAttribute="centerY" id="3fA-2E-jg7"/>
                 <constraint firstItem="NAA-vv-tys" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="4NH-JQ-3Kp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VAD-QY-JqG" secondAttribute="bottom" id="Der-3k-kbB"/>
                 <constraint firstItem="Cjw-p4-Uhm" firstAttribute="leading" secondItem="NAA-vv-tys" secondAttribute="trailing" constant="4" id="TSW-JS-Pmo"/>
                 <constraint firstItem="Cjw-p4-Uhm" firstAttribute="centerY" secondItem="NAA-vv-tys" secondAttribute="centerY" id="adF-QA-mNx"/>
                 <constraint firstItem="NAA-vv-tys" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="dyA-U1-flv"/>
                 <constraint firstItem="VAD-QY-JqG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="nIA-Te-h81"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VQW-Ef-Bwm" secondAttribute="trailing" constant="10" id="tle-Ub-amT"/>
                 <constraint firstItem="VAD-QY-JqG" firstAttribute="top" secondItem="Cjw-p4-Uhm" secondAttribute="bottom" constant="8" id="xc3-gU-McB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VAD-QY-JqG" secondAttribute="trailing" constant="16" id="ySG-7N-cck"/>
             </constraints>

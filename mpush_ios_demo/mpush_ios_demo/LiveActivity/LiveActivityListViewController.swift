@@ -37,6 +37,10 @@ class LiveActivityListViewController: UIViewController {
         dismiss(animated: true)
     }
 
+    @IBAction func refreshList(_ sender: Any) {
+        getData()
+    }
+    
     // MARK: - 获取数据
     private func getData() {
         if #available(iOS 16.2, *) {
