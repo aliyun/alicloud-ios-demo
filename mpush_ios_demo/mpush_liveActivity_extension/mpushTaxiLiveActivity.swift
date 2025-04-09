@@ -12,8 +12,9 @@ import SwiftUI
 
 
 struct mpushTaxiAttributes: ActivityAttributes {
+    // 内容状态定义动态参数
     public struct ContentState: Codable, Hashable {
-        // 行程状态，"1"-接单中, "2"-前往中, "3"-行程中, "4"-已完成
+        // 行程状态，"1" - 已接单, "2" - 前往中, "3" - 行程中, "4" - 已完成
         var status: String?
         // 剩余距离（单位：米）
         var distance: String?
@@ -23,6 +24,7 @@ struct mpushTaxiAttributes: ActivityAttributes {
         var prompt: String?
     }
 
+    // 静态参数 - 创建后不会变化
     // 打车软件名称
     var appName: String
     // 打车软件logo

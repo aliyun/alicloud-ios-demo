@@ -36,7 +36,7 @@
     // 点击通知将App从关闭状态启动时，将通知打开回执上报
     [CloudPushSDK sendNotificationAck:launchOptions];
 
-    // 观察Live Activity
+    // 初始化Live Activity观察者
     LiveActivityObserver *observer = [[LiveActivityObserver alloc] init];
     [observer observeActivityTokenAndState];
 

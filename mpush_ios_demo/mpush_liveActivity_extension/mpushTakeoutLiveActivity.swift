@@ -12,8 +12,9 @@ import SwiftUI
 
 
 struct mpushTakeoutAttributes: ActivityAttributes {
+    // 内容状态定义动态参数
     public struct ContentState: Codable, Hashable {
-        // 配送状态，"1"-备货中, "2"-待配送, "3"-配送中, "4"-已完成
+        // 配送状态，"1" - 备货中, "2" - 待配送, "3" - 配送中, "4" - 已完成
         var status: String?
         // 配送距离（单位：米）
         var distance: String?
@@ -23,6 +24,7 @@ struct mpushTakeoutAttributes: ActivityAttributes {
         var prompt: String?
     }
 
+    // 静态参数 - 创建后不会变化
     // 商家名称
     var merchantName: String
     // 商家图片
