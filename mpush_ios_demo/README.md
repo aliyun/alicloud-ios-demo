@@ -95,22 +95,22 @@ static NSString *const testAppSecret = @"******";
 
 完成上述替换后，您的Demo APP就能够正常收发应用内消息和APNs通知了。
 
-## 灵动岛介绍
+## 灵动岛使用文档
 
 ### 1. Token监听与上报
 
-- 通过APNs推送实现Live Activity的远程控制，需结合ActivityKit异步监听机制与阿里云推送服务对实时活动完成全生命周期管理。
+通过APNs推送实现远程控制Live Activity，需结合ActivityKit异步监听机制与阿里云推送服务，对实时活动进行全生命周期管理。
 
-Live Activity涉及两种token：
+#### Live Activity涉及的两种token：
 
-启动令牌(Start Token)：用于远程启动Live Activity
-推送令牌(Push Token)：用于更新已存在的Live Activity
+- **启动令牌 (Start Token)**：用于远程启动Live Activity。
+- **推送令牌 (Push Token)**：用于更新已存在的Live Activity。
 
-建议在应用启动时就开启监听
+建议在应用启动时就开启监听：
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // 观察Live Activity
+    // 初始化Live Activity观察者
     LiveActivityObserver *observer = [[LiveActivityObserver alloc] init];
     [observer observeActivityTokenAndState];
 
@@ -118,7 +118,9 @@ Live Activity涉及两种token：
 }
 ```
 
-多活动适配，需要独立监听每个ActivityAttributes，Demo中配置了`mpushTakeoutAttributes`和`mpushTaxiAttributes`两个ActivityAttributes，需要分别创建监听任务并通过SDK中的api进行上报，参考LiveActivityObserver.swift中代码：
+### 2. 多活动适配
+
+为实现多活动适配，需独立监听每个ActivityAttributes。Demo中配置了`mpushTakeoutAttributes`和`mpushTaxiAttributes`两个ActivityAttributes，需分别创建监听任务并通过SDK中的API进行上报。具体实现参考 `LiveActivityObserver.swift` 中的代码示例：
 
 ```swift
 class LiveActivityObserver: NSObject {
@@ -145,13 +147,11 @@ class LiveActivityObserver: NSObject {
                 // Fallback on earlier versions
             }
         }
-
         Task {
             if #available(iOS 16.2, *) {
                 for await activity in Activity<mpushTakeoutAttributes>.activityUpdates {
                     print("===== Observing the activity: \(activity.id) \(activity.attributes) ==========")
                     MsgToolBox.showAlert("activity.id", content: activity.id)
-
                     Task {
                         for await tokenData in activity.pushTokenUpdates {
                             let token = tokenData.map { String(format: "%02x", $0) }.joined()
@@ -165,7 +165,6 @@ class LiveActivityObserver: NSObject {
                             }
                         }
                     }
-
                     Task {
                         for await state in activity.activityStateUpdates {
                             print("Observer Activity state: \(activity.id) state: \(state)")
@@ -180,7 +179,6 @@ class LiveActivityObserver: NSObject {
             }
         }
     }
-
     func taxiObserver() {
         Task {
             if #available(iOS 17.2, *) {
@@ -198,13 +196,11 @@ class LiveActivityObserver: NSObject {
                 // Fallback on earlier versions
             }
         }
-
         Task {
             if #available(iOS 16.2, *) {
                 for await activity in Activity<mpushTaxiAttributes>.activityUpdates {
                     print("===== Observing the activity: \(activity.id) \(activity.attributes) ==========")
                     MsgToolBox.showAlert("activity.id", content: activity.id)
-
                     Task {
                         for await tokenData in activity.pushTokenUpdates {
                             let token = tokenData.map { String(format: "%02x", $0) }.joined()
@@ -218,7 +214,6 @@ class LiveActivityObserver: NSObject {
                             }
                         }
                     }
-
                     Task {
                         for await state in activity.activityStateUpdates {
                             print("Observer Activity state: \(activity.id) state: \(state)")
@@ -234,58 +229,57 @@ class LiveActivityObserver: NSObject {
         }
     }
 }
-
 ```
 
-### 2.静态参数和动态参数
+### 3. 静态参数和动态参数
 
-- 以下内容以mpushTaxiAttributes作为示例
+以下内容以`mpushTaxiAttributes`作为示例。
 
 #### 参数类型
 
 灵动岛中的数据分为两类参数：
 
-- **静态参数(Static Attributes)**
-
-- 在创建Live Activity时一次性设定
-- 在整个活动生命周期内保持不变
-- 在ActivityAttributes结构体中定义
+- **静态参数 (Static Attributes)**
+  - 在创建Live Activity时一次性设定
+  - 在整个活动生命周期内保持不变
+  - 在ActivityAttributes结构体中定义
 
 ```swift
 struct mpushTaxiAttributes: ActivityAttributes {
-    // 静态参数- 创建后不会变化
+    // 静态参数 - 创建后不会变化
     // 打车软件名称
     var appName: String
     // 打车软件logo
     var appLogo: String
     
-    // ContentState定义动态参数
+    // 内容状态定义动态参数
     public struct ContentState: Codable, Hashable {
         // 动态参数在这里定义...
     }
 }
 ```
-- **动态参数 (ContentState)**
 
-- 可随时更新以反映活动的最新状态
-- 每次更新都会刷新灵动岛UI *在ContentState嵌套结构体中定义
+- **动态参数 (ContentState)**
+  - 可随时更新以反映活动的最新状态
+  - 每次更新都会刷新灵动岛UI
+  - 在ContentState嵌套结构体中定义
 
 ```swift
-    public struct ContentState: Codable, Hashable {
-        // 行程状态，"1"-接单中, "2"-前往中, "3"-行程中, "4"-已完成
-        var status: String?
-        // 剩余距离（单位：米）
-        var distance: String?
-        // 预计到达时间（单位：分钟）
-        var eta: String?
-        // 提示语
-        var prompt: String?
-    }
+public struct ContentState: Codable, Hashable {
+    // 行程状态，"1" - 已接单, "2" - 前往中, "3" - 行程中, "4" - 已完成
+    var status: String?
+    // 剩余距离（单位：米）
+    var distance: String?
+    // 预计到达时间（单位：分钟）
+    var eta: String?
+    // 提示语
+    var prompt: String?
+}
 ```
 
-#### 灵动岛显示模式
+### 4. 灵动岛显示模式
 
-灵动岛提供多种显示模式，适应不同场景：
+灵动岛提供多种显示模式以适应不同场景：
 
 - **紧凑模式 (Compact)**
 
@@ -341,11 +335,11 @@ ActivityConfiguration(for: mpushTaxiAttributes.self) { context in
 } dynamicIsland: { context in
     //灵动岛配置...
 }
-```        
+```
 
-#### 状态与UI对应关系
+### 5. 状态与UI对应关系
 
-- 通过动态参数控制UI展示，示例：
+通过动态参数控制UI展示，示例如下：
 
 ```swift
 switch state.status {
@@ -367,7 +361,7 @@ switch state.status {
 }
 ```
 
-### 3. Live Activity 远程管理
+### 6. Live Activity 远程管理
 
 - iOS 16.1引入的Live Activity（实时活动）功能允许应用在锁屏和灵动岛上显示实时更新的信息。本SDK支持通过APNs远程管理Live Activity，包括创建、更新和结束活动。
 
@@ -423,7 +417,7 @@ switch state.status {
 ![活动结束配置](assets/LiveActivity-ended.png)
 
 
-### 4. 灵动岛效果示例
+### 7. 灵动岛效果示例
 
 - Live Activity在不同场景下有四种显示模式
 
