@@ -13,7 +13,6 @@
 		330B625823505577004ABFDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330B625723505577004ABFDA /* Assets.xcassets */; };
 		330B625B23505577004ABFDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330B625923505577004ABFDA /* LaunchScreen.storyboard */; };
 		330B625E23505577004ABFDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B625D23505577004ABFDA /* main.m */; };
-		332B38D723506EBA009831D0 /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 332B38D623506EBA009831D0 /* AliyunEmasServices-Info.plist */; };
 		F5D6AFC29937A547995F599F /* Pods_tlog_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB5105FF5D07963B4F7559A /* Pods_tlog_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +28,6 @@
 		330B625C23505577004ABFDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		330B625D23505577004ABFDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		332B38D223505D31009831D0 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		332B38D623506EBA009831D0 /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		40CE94449ACC117DC279D775 /* Pods-tlog_ios_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tlog_ios_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-tlog_ios_demo/Pods-tlog_ios_demo.release.xcconfig"; sourceTree = "<group>"; };
 		673C8EEE35861D5A999928AD /* Pods-tlog_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tlog_ios_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tlog_ios_demo/Pods-tlog_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
 		7CB5105FF5D07963B4F7559A /* Pods_tlog_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tlog_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +75,6 @@
 		330B624D23505576004ABFDA /* tlog_ios_demo */ = {
 			isa = PBXGroup;
 			children = (
-				332B38D623506EBA009831D0 /* AliyunEmasServices-Info.plist */,
 				330B624E23505576004ABFDA /* AppDelegate.h */,
 				330B624F23505576004ABFDA /* AppDelegate.m */,
 				330B625123505576004ABFDA /* ViewController.h */,
@@ -159,7 +156,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				332B38D723506EBA009831D0 /* AliyunEmasServices-Info.plist in Resources */,
 				330B625B23505577004ABFDA /* LaunchScreen.storyboard in Resources */,
 				330B625823505577004ABFDA /* Assets.xcassets in Resources */,
 				330B625623505576004ABFDA /* Main.storyboard in Resources */,

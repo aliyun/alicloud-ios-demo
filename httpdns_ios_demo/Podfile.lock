@@ -14,15 +14,11 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - Alamofire (5.9.1)
-  - AlicloudHTTPDNS (3.1.2):
-    - AlicloudUtils
-  - AlicloudUTDID (1.6.1)
-  - AlicloudUtils (2.0.1):
-    - AlicloudUTDID
-  - SDWebImage (5.19.7):
-    - SDWebImage/Core (= 5.19.7)
-  - SDWebImage/Core (5.19.7)
+  - Alamofire (5.10.2)
+  - AlicloudHTTPDNS (3.2.0)
+  - SDWebImage (5.21.0):
+    - SDWebImage/Core (= 5.21.0)
+  - SDWebImage/Core (5.21.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -33,8 +29,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
     - AlicloudHTTPDNS
-    - AlicloudUTDID
-    - AlicloudUtils
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - Alamofire
@@ -42,12 +36,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
-  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
-  AlicloudHTTPDNS: 1703612ac5194f132d0772a5071d8f4d7f4f1436
-  AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
-  AlicloudUtils: ef4436f52b828b1182b002373758ecb88068e679
-  SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  AlicloudHTTPDNS: 7460344fc29d7e6561fcc20f94601f73b859d5e0
+  SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
 
 PODFILE CHECKSUM: 77fe26b6ff2febea324fab1af50e6c71071d638a
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

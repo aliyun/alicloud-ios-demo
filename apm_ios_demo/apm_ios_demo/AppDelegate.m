@@ -19,13 +19,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString *appVersion = @"x.x"; //app版本，会上报
-    NSString *channel = @"xx";     //渠道标记，自定义，会上报
-    NSString *nick = @"xx";        //nick 昵称，自定义，会上报
-    
-    [[AlicloudAPMProvider alloc] autoInitWithAppVersion:appVersion channel:channel nick:nick];
+    NSString *appVersion = @"<Your AppVersion>";
+    NSString *channel = @"<Your App Releasing Channel>";
+    NSString *nick = @"<User Nickname>";
+    NSString *appKey = @"<Your AppKey>";
+    NSString *appSecret = @"<Your AppSecret>";
+    NSString *appRsaSecret = @"<Your AppRsaSecret>";
+    [[AlicloudAPMProvider alloc] initWithAppKey:appKey secret:appSecret rsaSecret:appRsaSecret appVersion:appVersion channel:channel nick:nick];
     [AlicloudHAProvider start];
-    
+
     return YES;
 }
 
