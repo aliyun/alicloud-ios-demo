@@ -18,8 +18,6 @@
 
 @property (nonatomic, strong)NSMutableArray *informationArray;
 
-@property (nonatomic, strong) UISwitch *ccpSwitch;
-
 @end
 
 @implementation InformationViewController
@@ -27,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.informationTableView addTopRoundedCornersWithRadius:20];
     self.informationTableView.delegate = self;
     self.informationTableView.dataSource = self;
 
@@ -35,9 +32,10 @@
     [self.informationTableView registerNib:nib forCellReuseIdentifier:@"InformationTableViewCell"];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.informationTableView addTopRoundedCornersWithRadius:20];
     [self setupInformationData];
 }
 
@@ -82,26 +80,6 @@
     [self.informationTableView reloadData];
 }
 
-- (void)ccpSwitchChanged:(UISwitch *)sender {
-    sender.thumbTintColor = [UIColor colorWithHexString:@"424FF7"];
-    if (!sender.on) {
-        sender.thumbTintColor = [UIColor colorWithHexString:@"BABCC2"];
-    }
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:sender.on forKey:CCPSWITCHSTATE];
-    [defaults synchronize];
-
-    NSString *message;
-    if (sender.on) {
-        message = @"开启自有通道成功，重启生效";
-    } else {
-        message = @"关闭自有通道成功，重启生效";
-    }
-
-    [CustomToastUtil showToastWithMessage:message isSuccess:YES];
-}
-
 #pragma mark - lazy load
 
 - (NSMutableArray *)informationArray {
@@ -111,71 +89,40 @@
     return _informationArray;
 }
 
-- (UISwitch *)ccpSwitch {
-    if (!_ccpSwitch) {
-        _ccpSwitch = [[UISwitch alloc] init];
-        _ccpSwitch.onTintColor = [UIColor colorWithHexString:@"#E9E9E9"];
-        BOOL switchIsOn = [[NSUserDefaults standardUserDefaults] boolForKey:CCPSWITCHSTATE];
-        _ccpSwitch.on = switchIsOn;
-        _ccpSwitch.thumbTintColor = [UIColor colorWithHexString:@"424FF7"];
-        if (!switchIsOn) {
-            _ccpSwitch.thumbTintColor = [UIColor colorWithHexString:@"BABCC2"];
-        }
-        [_ccpSwitch addTarget:self action:@selector(ccpSwitchChanged:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _ccpSwitch;
-}
-
 #pragma mark - UITableView delegate & dataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return self.informationArray.count;
-    }
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.informationArray.count;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        InformationTableViewCell *informationCell = [tableView dequeueReusableCellWithIdentifier:@"InformationTableViewCell"];
-        NSDictionary *data = self.informationArray[indexPath.row];
-        [informationCell setTitle:data.allKeys.firstObject detail:data.allValues.firstObject];
-        if ([data.allKeys.firstObject isEqualToString:@"DeviceID"] || [data.allKeys.firstObject isEqualToString:@"DeviceToken"]) {
-            [informationCell showCopyButton];
-        } else {
-            [informationCell hiddenCopyButton];
-        }
-        return informationCell;
+    InformationTableViewCell *informationCell = [tableView dequeueReusableCellWithIdentifier:@"InformationTableViewCell"];
+    NSDictionary *data = self.informationArray[indexPath.row];
+    [informationCell setTitle:data.allKeys.firstObject detail:data.allValues.firstObject];
+    if ([data.allKeys.firstObject isEqualToString:@"DeviceID"] || [data.allKeys.firstObject isEqualToString:@"DeviceToken"]) {
+        [informationCell showCopyButton];
+    } else {
+        [informationCell hiddenCopyButton];
     }
-
-    InformationCCPTableViewCell *cell = [[InformationCCPTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CCPSWITCHCELL"];
-    cell.accessoryView = self.ccpSwitch;
-
-    return cell;
+    return informationCell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 0) {
-        UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 28)];
-        footer.backgroundColor = UIColor.whiteColor;
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 28)];
+    footer.backgroundColor = UIColor.whiteColor;
 
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, tableView.frame.size.width, 8)];
-        line.backgroundColor = [UIColor colorWithHexString:@"#F2F3F7"];
-        [footer addSubview:line];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, tableView.frame.size.width, 8)];
+    line.backgroundColor = [UIColor colorWithHexString:@"#F2F3F7"];
+    [footer addSubview:line];
 
-        return footer;
-    }
-    return [UIView new];
+    return footer;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 1) {
-        return 0.01;
-    }
     return 28;
 }
 

@@ -16,6 +16,7 @@
 #import "SQLiteManager.h"
 #import "SettingAddTagViewController.h"
 #import "ShowAllTagsViewController.h"
+#import "mpush_ios_demo-Swift.h"
 
 @interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -276,7 +277,7 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -306,9 +307,12 @@
         case 1:
             return [self configuredAliasCell];
         case 2:
-        case 3: {
+        case 3:
+        case 4: {
             SettingSingleTableViewCell *cell;
             if (indexPath.section == 2) {
+                cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeActivity];
+            } else if (indexPath.section == 3) {
                 cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeAccount];
                 [cell setData:self.bindAccount];
             } else {
@@ -324,10 +328,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
+        LiveActivityListViewController *listViewController = [[LiveActivityListViewController alloc] init];
+        listViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:listViewController animated:YES completion:nil];
+
+    } else if (indexPath.section == 3) {
         [CustomAlertView showInputAlert:AlertInputTypeBindAccount handle:^(NSString * _Nonnull inputString) {
             if (inputString.length <= 0) {
                 self.bindAccount = @"未绑定账号";
-                [self refreshTableViewCellFor:2];
+                [self refreshTableViewCellFor:3];
                 return;
             }
             
@@ -339,14 +348,14 @@
                         // 绑定成功的账号缓存起来
                         [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BINDACCOUNT];
                         self.bindAccount = inputString ?: @"未绑定账号";
-                        [self refreshTableViewCellFor:2];
+                        [self refreshTableViewCellFor:3];
                     } else {
                         [CustomToastUtil showToastWithMessage:@"绑定账号失败！" isSuccess:NO];
                     }
                 });
             }];
         }];
-    } else if (indexPath.section == 3) {
+    } else if (indexPath.section == 4) {
         [CustomAlertView showInputAlert:AlertInputTypeSyncBadgeNum handle:^(NSString * _Nonnull inputString) {
             if (![inputString isNumeric]) {
                 [MsgToolBox showAlert:@"" content:@"请输入纯数字角标"];
@@ -358,10 +367,10 @@
                     if (res.success) {
                         [CustomToastUtil showToastWithMessage:@"同步角标数成功！" isSuccess:YES];
 
-                        // 绑定成功的账号缓存起来
+                        // 同步成功的角标缓存起来
                         [[NSUserDefaults standardUserDefaults] setObject:inputString forKey:DEVICE_BADGENUMBER];
                         self.badgeNumber = inputString ?: @"未同步";
-                        [self refreshTableViewCellFor:3];
+                        [self refreshTableViewCellFor:4];
                     } else {
                         [CustomToastUtil showToastWithMessage:@"同步角标数失败！" isSuccess:NO];
                     }

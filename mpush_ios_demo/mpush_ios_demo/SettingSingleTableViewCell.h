@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, SettingSingleCellType) {
+    SettingSingleCellTypeActivity,
     SettingSingleCellTypeAccount,
     SettingSingleCellTypeBadgeNumber,
 };
