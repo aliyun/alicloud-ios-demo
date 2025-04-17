@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import <AlicloudAPM/AlicloudAPMProvider.h>
-#import <AliHACore/AlicloudHAProvider.h>
+
+#import <AlicloudApmCore/AlicloudApmCore.h>
+#import "CommonTools.h"
+#import "Macros.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,16 +22,37 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString *appVersion = @"<Your AppVersion>";
-    NSString *channel = @"<Your App Releasing Channel>";
-    NSString *nick = @"<User Nickname>";
-    NSString *appKey = @"<Your AppKey>";
-    NSString *appSecret = @"<Your AppSecret>";
-    NSString *appRsaSecret = @"<Your AppRsaSecret>";
-    [[AlicloudAPMProvider alloc] initWithAppKey:appKey secret:appSecret rsaSecret:appRsaSecret appVersion:appVersion channel:channel nick:nick];
-    [AlicloudHAProvider start];
+    [self initSDK];
 
     return YES;
+}
+
+- (void)initSDK {
+    NSString *appKey = (NSString *)[CommonTools userDefaultGet:kAppKey];
+    NSString *appSecret = (NSString *)[CommonTools userDefaultGet:kAppSecret];
+    NSString *appRsaSecret = (NSString *)[CommonTools userDefaultGet:kAppRsaSecret];
+    NSArray *funtions = (NSArray *)[CommonTools userDefaultGet:kFunctions];
+
+    if (!appKey || !appSecret || !appRsaSecret || !funtions) {
+        return;
+    }
+
+    [[EAPMConfiguration sharedInstance] setLoggerLevel:EAPMLoggerLevelDebug];
+
+    EAPMOptions *options = [[EAPMOptions alloc] initWithAppKey:appKey
+                                                     appSecret:appSecret];
+    NSMutableArray *functionsClass = [NSMutableArray array];
+    for (NSString *function in funtions) {
+        [functionsClass addObject:NSClassFromString(function)];
+    }
+
+    options.userId = @"test";
+    options.userNick = @"apmAllTest";
+    options.channel = @"dev";
+    options.appRsaSecret = appRsaSecret;
+    options.sdkComponents = functionsClass;
+
+    [EAPMApm startWithOptions:options];
 }
 
 

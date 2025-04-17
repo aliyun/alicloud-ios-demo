@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		330B627223505591004ABFDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B627123505591004ABFDA /* AppDelegate.m */; };
-		330B627523505591004ABFDA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B627423505591004ABFDA /* ViewController.m */; };
+		330B627523505591004ABFDA /* PerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B627423505591004ABFDA /* PerformanceViewController.m */; };
 		330B627823505591004ABFDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330B627623505591004ABFDA /* Main.storyboard */; };
 		330B627A23505592004ABFDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330B627923505592004ABFDA /* Assets.xcassets */; };
 		330B627D23505592004ABFDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330B627B23505592004ABFDA /* LaunchScreen.storyboard */; };
@@ -16,6 +16,11 @@
 		332B38DE23507411009831D0 /* ALC2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38D823507411009831D0 /* ALC2ViewController.m */; };
 		332B38DF23507411009831D0 /* ALC1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38D923507411009831D0 /* ALC1ViewController.m */; };
 		332B38E023507411009831D0 /* ALC3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38DA23507411009831D0 /* ALC3ViewController.m */; };
+		7EAE924B2DB10A5A0047CB67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE924A2DB10A5A0047CB67 /* ViewController.m */; };
+		7EFDB87E2DAFB1800079A3D1 /* SDKConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB87D2DAFB1800079A3D1 /* SDKConfigViewController.m */; };
+		7EFDB8822DAFB2060079A3D1 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8802DAFB2060079A3D1 /* CommonTools.m */; };
+		7EFDB8852DAFBA490079A3D1 /* CrashAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8842DAFBA490079A3D1 /* CrashAnalysisViewController.m */; };
+		7EFDB8BE2DB0E2900079A3D1 /* RemoteLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8BD2DB0E2900079A3D1 /* RemoteLogViewController.m */; };
 		FEA34C68ED2E042C74A482DD /* Pods_apm_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ADE4EBEB8CB88EB1639A09 /* Pods_apm_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +28,8 @@
 		330B626D23505591004ABFDA /* apm_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apm_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330B627023505591004ABFDA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		330B627123505591004ABFDA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		330B627323505591004ABFDA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		330B627423505591004ABFDA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		330B627323505591004ABFDA /* PerformanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceViewController.h; sourceTree = "<group>"; };
+		330B627423505591004ABFDA /* PerformanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceViewController.m; sourceTree = "<group>"; };
 		330B627723505591004ABFDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		330B627923505592004ABFDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330B627C23505592004ABFDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +41,17 @@
 		332B38DB23507411009831D0 /* ALC3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC3ViewController.h; sourceTree = "<group>"; };
 		332B38DC23507411009831D0 /* ALC1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC1ViewController.h; sourceTree = "<group>"; };
 		332B38DD23507411009831D0 /* ALC2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC2ViewController.h; sourceTree = "<group>"; };
+		7EAE92492DB10A5A0047CB67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7EAE924A2DB10A5A0047CB67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7EFDB87C2DAFB1800079A3D1 /* SDKConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKConfigViewController.h; sourceTree = "<group>"; };
+		7EFDB87D2DAFB1800079A3D1 /* SDKConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKConfigViewController.m; sourceTree = "<group>"; };
+		7EFDB87F2DAFB2060079A3D1 /* CommonTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTools.h; sourceTree = "<group>"; };
+		7EFDB8802DAFB2060079A3D1 /* CommonTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTools.m; sourceTree = "<group>"; };
+		7EFDB8812DAFB2060079A3D1 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		7EFDB8832DAFBA490079A3D1 /* CrashAnalysisViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashAnalysisViewController.h; sourceTree = "<group>"; };
+		7EFDB8842DAFBA490079A3D1 /* CrashAnalysisViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashAnalysisViewController.m; sourceTree = "<group>"; };
+		7EFDB8BC2DB0E2900079A3D1 /* RemoteLogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteLogViewController.h; sourceTree = "<group>"; };
+		7EFDB8BD2DB0E2900079A3D1 /* RemoteLogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteLogViewController.m; sourceTree = "<group>"; };
 		94ADE4EBEB8CB88EB1639A09 /* Pods_apm_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apm_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A416AF6F4BABBE512C7FBD28 /* Pods-apm_ios_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apm_ios_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo.release.xcconfig"; sourceTree = "<group>"; };
 		D979A2B91797F489F795B7DB /* Pods-apm_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apm_ios_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,15 +109,26 @@
 			children = (
 				330B627023505591004ABFDA /* AppDelegate.h */,
 				330B627123505591004ABFDA /* AppDelegate.m */,
-				330B627323505591004ABFDA /* ViewController.h */,
-				330B627423505591004ABFDA /* ViewController.m */,
+				7EAE92492DB10A5A0047CB67 /* ViewController.h */,
+				7EAE924A2DB10A5A0047CB67 /* ViewController.m */,
+				330B627323505591004ABFDA /* PerformanceViewController.h */,
+				330B627423505591004ABFDA /* PerformanceViewController.m */,
 				332B38DC23507411009831D0 /* ALC1ViewController.h */,
 				332B38D923507411009831D0 /* ALC1ViewController.m */,
 				332B38DD23507411009831D0 /* ALC2ViewController.h */,
 				332B38D823507411009831D0 /* ALC2ViewController.m */,
 				332B38DB23507411009831D0 /* ALC3ViewController.h */,
 				332B38DA23507411009831D0 /* ALC3ViewController.m */,
+				7EFDB87C2DAFB1800079A3D1 /* SDKConfigViewController.h */,
+				7EFDB87D2DAFB1800079A3D1 /* SDKConfigViewController.m */,
+				7EFDB8832DAFBA490079A3D1 /* CrashAnalysisViewController.h */,
+				7EFDB8842DAFBA490079A3D1 /* CrashAnalysisViewController.m */,
+				7EFDB8BC2DB0E2900079A3D1 /* RemoteLogViewController.h */,
+				7EFDB8BD2DB0E2900079A3D1 /* RemoteLogViewController.m */,
 				330B627623505591004ABFDA /* Main.storyboard */,
+				7EFDB87F2DAFB2060079A3D1 /* CommonTools.h */,
+				7EFDB8802DAFB2060079A3D1 /* CommonTools.m */,
+				7EFDB8812DAFB2060079A3D1 /* Macros.h */,
 				330B627923505592004ABFDA /* Assets.xcassets */,
 				330B627B23505592004ABFDA /* LaunchScreen.storyboard */,
 				330B627E23505592004ABFDA /* Info.plist */,
@@ -225,9 +252,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				332B38DE23507411009831D0 /* ALC2ViewController.m in Sources */,
+				7EFDB87E2DAFB1800079A3D1 /* SDKConfigViewController.m in Sources */,
+				7EFDB8822DAFB2060079A3D1 /* CommonTools.m in Sources */,
+				7EFDB8BE2DB0E2900079A3D1 /* RemoteLogViewController.m in Sources */,
 				332B38E023507411009831D0 /* ALC3ViewController.m in Sources */,
+				7EAE924B2DB10A5A0047CB67 /* ViewController.m in Sources */,
 				332B38DF23507411009831D0 /* ALC1ViewController.m in Sources */,
-				330B627523505591004ABFDA /* ViewController.m in Sources */,
+				330B627523505591004ABFDA /* PerformanceViewController.m in Sources */,
+				7EFDB8852DAFBA490079A3D1 /* CrashAnalysisViewController.m in Sources */,
 				330B628023505592004ABFDA /* main.m in Sources */,
 				330B627223505591004ABFDA /* AppDelegate.m in Sources */,
 			);
@@ -376,6 +408,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				INFOPLIST_FILE = apm_ios_demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,6 +430,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
 				INFOPLIST_FILE = apm_ios_demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
