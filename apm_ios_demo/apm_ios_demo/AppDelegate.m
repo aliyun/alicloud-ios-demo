@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import <AlicloudAPM/AlicloudAPMProvider.h>
-#import <AliHACore/AlicloudHAProvider.h>
+
+#import <AlicloudApmCore/AlicloudApmCore.h>
+#import <AlicloudApmCrashAnalysis/AlicloudApmCrashAnalysis.h>
+#import <AlicloudApmPerformance/AlicloudApmPerformance.h>
+#import <AlicloudApmRemoteLog/AlicloudApmRemoteLog.h>
+#import "CommonTools.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,16 +24,39 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString *appVersion = @"<Your AppVersion>";
-    NSString *channel = @"<Your App Releasing Channel>";
-    NSString *nick = @"<User Nickname>";
-    NSString *appKey = @"<Your AppKey>";
-    NSString *appSecret = @"<Your AppSecret>";
-    NSString *appRsaSecret = @"<Your AppRsaSecret>";
-    [[AlicloudAPMProvider alloc] initWithAppKey:appKey secret:appSecret rsaSecret:appRsaSecret appVersion:appVersion channel:channel nick:nick];
-    [AlicloudHAProvider start];
+    [self initSDK];
 
     return YES;
+}
+
+- (void)initSDK {
+    NSString *appKey = @"请替换您的appKey";
+    NSString *appSecret = @"请替换您的appSecret";
+    NSString *appRsaSecret = @"请替换您的appRsaSecret";
+    
+    // 崩溃分析：EAPMCrashAnalysis 性能分析：EAPMPerformance  远程日志：EAPMRemoteLog
+    NSArray *functions = @[[EAPMCrashAnalysis class], [EAPMPerformance class], [EAPMRemoteLog class]];
+
+    // 仅用于demo页面配置AppKey场景，非应用接入合理使用场景
+    [CommonTools setUpConfigWithAppKey:&appKey appSecret:&appSecret appRsaSecret:&appRsaSecret functions:&functions];
+
+    if (!appKey || !appSecret || !appRsaSecret || !functions) {
+        NSLog(@"****初始化失败，请检查所有必需的配置参数****");
+        return;
+    }
+
+    [[EAPMConfiguration sharedInstance] setLoggerLevel:EAPMLoggerLevelDebug];
+
+    EAPMOptions *options = [[EAPMOptions alloc] initWithAppKey:appKey
+                                                     appSecret:appSecret];
+
+    options.userId = @"test";
+    options.userNick = @"apmAllTest";
+    options.channel = @"dev";
+    options.appRsaSecret = appRsaSecret;
+    options.sdkComponents = functions;
+
+    [EAPMApm startWithOptions:options];
 }
 
 
