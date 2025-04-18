@@ -7,6 +7,7 @@
 //
 
 #import "CommonTools.h"
+#import "Macros.h"
 
 @implementation CommonTools
 
@@ -22,6 +23,29 @@
         return [[NSUserDefaults standardUserDefaults] objectForKey:key];
     }
     return nil;
+}
+
++ (void)setUpConfigWithAppKey:(NSString **)appKey appSecret:(NSString **)appSecret appRsaSecret:(NSString **)appRsaSecret functions:(NSArray **)functions {
+    if ([*appKey isEqualToString:@"请替换您的appKey"]) {
+        *appKey = (NSString *)[CommonTools userDefaultGet:kAppKey];
+    }
+
+    if ([*appSecret isEqualToString:@"请替换您的appSecret"]) {
+        *appSecret = (NSString *)[CommonTools userDefaultGet:kAppSecret];
+    }
+
+    if ([*appRsaSecret isEqualToString:@"请替换您的appRsaSecret"]) {
+        *appRsaSecret = (NSString *)[CommonTools userDefaultGet:kAppRsaSecret];
+    }
+
+    NSArray *localFunctions = (NSArray *)[CommonTools userDefaultGet:kFunctions];
+    if (localFunctions && localFunctions.count >= 0) {
+        NSMutableArray *functionsClass = [NSMutableArray array];
+        for (NSString *function in localFunctions) {
+            [functionsClass addObject:NSClassFromString(function)];
+        }
+        *functions = functionsClass;
+    }
 }
 
 @end

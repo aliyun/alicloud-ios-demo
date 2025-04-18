@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Performance View Controller-->
+        <!--性能分析-->
         <scene sceneID="f4k-q4-5YJ">
             <objects>
                 <viewController id="6GM-BH-LCd" customClass="PerformanceViewController" sceneMemberID="viewController">
@@ -75,11 +75,11 @@
                             <constraint firstItem="XHS-6e-40A" firstAttribute="top" secondItem="SMU-oY-BW6" secondAttribute="bottom" constant="20" id="xTO-B3-WkE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Fty-u0-nuY"/>
+                    <navigationItem key="navigationItem" title="性能分析" id="Fty-u0-nuY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GT0-7M-Efg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="-74"/>
+            <point key="canvasLocation" x="906" y="-60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FZ8-FD-Far">
@@ -112,11 +112,11 @@
                                     <constraint firstAttribute="width" constant="160" id="x6t-RX-TBQ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="CrashAnalysis">
+                                <buttonConfiguration key="configuration" style="plain" title="性能分析">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Pwo-b6-KJY" kind="show" id="gli-5R-kR8"/>
+                                    <segue destination="6GM-BH-LCd" kind="show" id="ZKW-mh-a7g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q6-o6-eV7">
@@ -126,7 +126,7 @@
                                     <constraint firstAttribute="height" constant="40" id="GMd-Mn-X5n"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="RemoteLog">
+                                <buttonConfiguration key="configuration" style="plain" title="远程日志">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -140,11 +140,11 @@
                                     <constraint firstAttribute="height" constant="40" id="kae-sg-SmC"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Performance">
+                                <buttonConfiguration key="configuration" style="plain" title="崩溃分析">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="6GM-BH-LCd" kind="show" id="M2y-7N-bzc"/>
+                                    <segue destination="Pwo-b6-KJY" kind="show" id="Ip0-CK-1jA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -160,7 +160,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MIt-xN-2yV">
-                        <barButtonItem key="rightBarButtonItem" title="config" id="Tez-hJ-04k">
+                        <barButtonItem key="rightBarButtonItem" title="SDK配置" id="Tez-hJ-04k">
                             <connections>
                                 <segue destination="NAV-sG-NmH" kind="show" id="xWg-hQ-ln3"/>
                             </connections>
@@ -171,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="114" y="-60"/>
         </scene>
-        <!--RemoteLog-->
+        <!--远程日志-->
         <scene sceneID="asl-3B-mPs">
             <objects>
                 <viewController id="sal-6E-CES" customClass="RemoteLogViewController" sceneMemberID="viewController">
@@ -193,37 +193,21 @@
                                     <action selector="creatLog:" destination="sal-6E-CES" eventType="touchUpInside" id="uSp-Z3-V6o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0P-Yh-0CB">
-                                <rect key="frame" x="157" y="336" width="100" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="LEp-zC-eDX"/>
-                                    <constraint firstAttribute="height" constant="40" id="aor-gz-JpK"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="主动上报">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="updateLog:" destination="sal-6E-CES" eventType="touchUpInside" id="jbE-Bb-UZB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lRR-02-UPN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="W0P-Yh-0CB" firstAttribute="top" secondItem="hO5-cW-ROc" secondAttribute="bottom" constant="44" id="0Dl-WY-pCg"/>
                             <constraint firstItem="hO5-cW-ROc" firstAttribute="top" secondItem="lRR-02-UPN" secondAttribute="top" constant="160" id="5gC-10-Bf2"/>
-                            <constraint firstItem="W0P-Yh-0CB" firstAttribute="centerX" secondItem="hO5-cW-ROc" secondAttribute="centerX" id="Awq-bE-1bk"/>
                             <constraint firstItem="hO5-cW-ROc" firstAttribute="centerX" secondItem="lRR-02-UPN" secondAttribute="centerX" id="Ls2-HR-u9T"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="RemoteLog" id="hLP-b1-odf"/>
+                    <navigationItem key="navigationItem" title="远程日志" id="hLP-b1-odf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfE-b5-Slu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1190" y="694"/>
         </scene>
-        <!--Crash Analysis View Controller-->
+        <!--崩溃分析-->
         <scene sceneID="soD-T0-qUE">
             <objects>
                 <viewController id="Pwo-b6-KJY" customClass="CrashAnalysisViewController" sceneMemberID="viewController">
@@ -275,13 +259,13 @@
                         <viewLayoutGuide key="safeArea" id="fkJ-OR-9CD"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="W30-bT-zyD"/>
+                    <navigationItem key="navigationItem" title="崩溃分析" id="W30-bT-zyD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jl-AS-BaG" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-317" y="694"/>
         </scene>
-        <!--SDK Config-->
+        <!--SDK配置-->
         <scene sceneID="O1G-QO-luQ">
             <objects>
                 <viewController id="NAV-sG-NmH" customClass="SDKConfigViewController" sceneMemberID="viewController">
@@ -331,7 +315,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EAPMCrashAnalysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsm-wf-dpe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开启崩溃分析" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsm-wf-dpe">
                                 <rect key="frame" x="20" y="359" width="180" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="akz-7W-zKP"/>
@@ -340,7 +324,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EAPMPerformance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K2-Wd-yIY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开启性能分析" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K2-Wd-yIY">
                                 <rect key="frame" x="20" y="399" width="180" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="oMu-a8-hRQ"/>
@@ -349,7 +333,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EAPMRemoteLog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhZ-CW-voQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开启远程日志" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhZ-CW-voQ">
                                 <rect key="frame" x="20" y="439" width="180" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="ykt-Kn-PYY"/>
@@ -439,7 +423,7 @@
                             <constraint firstItem="lU0-bP-hTX" firstAttribute="leading" secondItem="2uY-5D-45n" secondAttribute="leading" constant="60" id="zxt-65-R2H"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SDK Config" id="6cO-aX-quE"/>
+                    <navigationItem key="navigationItem" title="SDK配置" id="6cO-aX-quE"/>
                     <connections>
                         <outlet property="appKeyTextfiled" destination="od3-X2-EOJ" id="xof-vh-URv"/>
                         <outlet property="appRsaTextfiled" destination="8yV-Zg-baN" id="Tv2-Hq-cY4"/>

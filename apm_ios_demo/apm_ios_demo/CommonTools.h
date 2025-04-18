@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (id)userDefaultGet:(NSString *)key;
 
++ (void)setUpConfigWithAppKey:(NSString **)appKey appSecret:(NSString **)appSecret appRsaSecret:(NSString **)appRsaSecret functions:(NSArray **)functions;
+
 @end
 
 NS_ASSUME_NONNULL_END

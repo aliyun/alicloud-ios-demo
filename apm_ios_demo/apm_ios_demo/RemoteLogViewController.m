@@ -28,8 +28,4 @@
     [log info:@"info message"];
 }
 
-- (IBAction)updateLog:(id)sender {
-    [EAPMRemoteLog uploadTLog:@"主动上报"];
-}
-
 @end

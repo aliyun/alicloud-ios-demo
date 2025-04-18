@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 
 #import <AlicloudApmCore/AlicloudApmCore.h>
+#import <AlicloudApmCrashAnalysis/AlicloudApmCrashAnalysis.h>
+#import <AlicloudApmPerformance/AlicloudApmPerformance.h>
+#import <AlicloudApmRemoteLog/AlicloudApmRemoteLog.h>
 #import "CommonTools.h"
-#import "Macros.h"
 
 @interface AppDelegate ()
 
@@ -28,12 +30,18 @@
 }
 
 - (void)initSDK {
-    NSString *appKey = (NSString *)[CommonTools userDefaultGet:kAppKey];
-    NSString *appSecret = (NSString *)[CommonTools userDefaultGet:kAppSecret];
-    NSString *appRsaSecret = (NSString *)[CommonTools userDefaultGet:kAppRsaSecret];
-    NSArray *funtions = (NSArray *)[CommonTools userDefaultGet:kFunctions];
+    NSString *appKey = @"请替换您的appKey";
+    NSString *appSecret = @"请替换您的appSecret";
+    NSString *appRsaSecret = @"请替换您的appRsaSecret";
+    
+    // 崩溃分析：EAPMCrashAnalysis 性能分析：EAPMPerformance  远程日志：EAPMRemoteLog
+    NSArray *functions = @[[EAPMCrashAnalysis class], [EAPMPerformance class], [EAPMRemoteLog class]];
 
-    if (!appKey || !appSecret || !appRsaSecret || !funtions) {
+    // 仅用于demo页面配置AppKey场景，非应用接入合理使用场景
+    [CommonTools setUpConfigWithAppKey:&appKey appSecret:&appSecret appRsaSecret:&appRsaSecret functions:&functions];
+
+    if (!appKey || !appSecret || !appRsaSecret || !functions) {
+        NSLog(@"****初始化失败，请检查所有必需的配置参数****");
         return;
     }
 
@@ -41,16 +49,12 @@
 
     EAPMOptions *options = [[EAPMOptions alloc] initWithAppKey:appKey
                                                      appSecret:appSecret];
-    NSMutableArray *functionsClass = [NSMutableArray array];
-    for (NSString *function in funtions) {
-        [functionsClass addObject:NSClassFromString(function)];
-    }
 
     options.userId = @"test";
     options.userNick = @"apmAllTest";
     options.channel = @"dev";
     options.appRsaSecret = appRsaSecret;
-    options.sdkComponents = functionsClass;
+    options.sdkComponents = functions;
 
     [EAPMApm startWithOptions:options];
 }
