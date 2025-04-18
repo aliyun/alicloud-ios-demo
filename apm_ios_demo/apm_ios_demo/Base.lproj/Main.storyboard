@@ -215,41 +215,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK2-Ww-VgH">
-                                <rect key="frame" x="155" y="116" width="104" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK2-Ww-VgH">
+                                <rect key="frame" x="147" y="116" width="120" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2Mv-Pl-jL1"/>
+                                    <constraint firstAttribute="height" constant="40" id="nht-hP-QjL"/>
+                                </constraints>
                                 <state key="normal" title="全堆栈Crash"/>
                                 <connections>
                                     <action selector="testCrash:" destination="Pwo-b6-KJY" eventType="touchUpInside" id="jym-EL-JY3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2Y-iS-lPw">
-                                <rect key="frame" x="178" y="171" width="59" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2Y-iS-lPw">
+                                <rect key="frame" x="167" y="171" width="80" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="a46-Pj-2kL"/>
+                                    <constraint firstAttribute="height" constant="40" id="qgs-Jk-7om"/>
+                                </constraints>
                                 <state key="normal" title="Abort"/>
                                 <connections>
                                     <action selector="testAbort:" destination="Pwo-b6-KJY" eventType="touchUpInside" id="k8b-06-bQs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJT-nW-MeT">
-                                <rect key="frame" x="162" y="228" width="91" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJT-nW-MeT">
+                                <rect key="frame" x="152" y="228" width="110" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="RET-Vt-neK"/>
+                                    <constraint firstAttribute="height" constant="40" id="aKN-Wt-ZXp"/>
+                                </constraints>
                                 <state key="normal" title="触发卡顿"/>
                                 <connections>
                                     <action selector="testFreezing:" destination="Pwo-b6-KJY" eventType="touchUpInside" id="VBl-s4-5jm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGN-dN-V25">
-                                <rect key="frame" x="155" y="282" width="106" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGN-dN-V25">
+                                <rect key="frame" x="147" y="282" width="120" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="e7Y-J9-l5I"/>
+                                    <constraint firstAttribute="width" constant="120" id="jBL-Wp-FqW"/>
+                                </constraints>
                                 <state key="normal" title="自定义异常"/>
                                 <connections>
                                     <action selector="customExceptions:" destination="Pwo-b6-KJY" eventType="touchUpInside" id="Rcc-V9-gs1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrF-qY-6Oh">
-                                <rect key="frame" x="143" y="337" width="129" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrF-qY-6Oh">
+                                <rect key="frame" x="132" y="337" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="JSp-iJ-wAT"/>
+                                    <constraint firstAttribute="height" constant="40" id="igz-xj-FM0"/>
+                                </constraints>
                                 <state key="normal" title="更新nickName"/>
                                 <connections>
                                     <action selector="updateNickName:" destination="Pwo-b6-KJY" eventType="touchUpInside" id="q0m-kA-vQn"/>
@@ -258,6 +273,18 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fkJ-OR-9CD"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dK2-Ww-VgH" firstAttribute="centerX" secondItem="fkJ-OR-9CD" secondAttribute="centerX" id="BVK-nf-HZ7"/>
+                            <constraint firstItem="lGN-dN-V25" firstAttribute="centerX" secondItem="aJT-nW-MeT" secondAttribute="centerX" id="GP1-jK-xLy"/>
+                            <constraint firstItem="HrF-qY-6Oh" firstAttribute="top" secondItem="lGN-dN-V25" secondAttribute="bottom" constant="15" id="Nwm-7D-dFr"/>
+                            <constraint firstItem="dK2-Ww-VgH" firstAttribute="top" secondItem="fkJ-OR-9CD" secondAttribute="top" constant="24" id="O7X-Pb-UNr"/>
+                            <constraint firstItem="HrF-qY-6Oh" firstAttribute="centerX" secondItem="lGN-dN-V25" secondAttribute="centerX" id="P4f-Bh-R09"/>
+                            <constraint firstItem="lGN-dN-V25" firstAttribute="top" secondItem="aJT-nW-MeT" secondAttribute="bottom" constant="14" id="PFz-YR-GKD"/>
+                            <constraint firstItem="M2Y-iS-lPw" firstAttribute="top" secondItem="dK2-Ww-VgH" secondAttribute="bottom" constant="15" id="QYP-Af-Fvj"/>
+                            <constraint firstItem="aJT-nW-MeT" firstAttribute="top" secondItem="M2Y-iS-lPw" secondAttribute="bottom" constant="17" id="Vkf-iD-61y"/>
+                            <constraint firstItem="M2Y-iS-lPw" firstAttribute="centerX" secondItem="dK2-Ww-VgH" secondAttribute="centerX" id="ivv-rW-KqG"/>
+                            <constraint firstItem="aJT-nW-MeT" firstAttribute="centerX" secondItem="M2Y-iS-lPw" secondAttribute="centerX" id="xbG-j0-l37"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="崩溃分析" id="W30-bT-zyD"/>
                 </viewController>
