@@ -1,8 +1,8 @@
 //
-//  ViewController.h
+//  SDKConfigViewController.h
 //  apm_ios_demo
 //
-//  Created by Miracle on 2025/4/17.
+//  Created by Miracle on 2025/4/16.
 //  Copyright © 2025 aliyun. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController : UIViewController
+@interface SDKConfigViewController : UIViewController
 
 @end
 

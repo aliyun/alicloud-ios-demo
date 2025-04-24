@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RemoteLogViewController.h
 //  apm_ios_demo
 //
 //  Created by Miracle on 2025/4/17.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController : UIViewController
+@interface RemoteLogViewController : UIViewController
 
 @end
 
