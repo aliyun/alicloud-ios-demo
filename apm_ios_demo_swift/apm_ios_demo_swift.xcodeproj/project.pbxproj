@@ -16,6 +16,10 @@
 		D2DF6BDD2DBE2C07005C1F5A /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6BD42DBE2C07005C1F5A /* SecondView.swift */; };
 		D2DF6BE62DBE2CE4005C1F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DF6BE42DBE2CE4005C1F5A /* Assets.xcassets */; };
 		D2DF6BE82DBE2DAF005C1F5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DF6BE72DBE2DAF005C1F5A /* Preview Assets.xcassets */; };
+		D2DF6BFD2DBF893E005C1F5A /* CrashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6BFC2DBF893E005C1F5A /* CrashView.swift */; };
+		D2DF6BFF2DBF894E005C1F5A /* PerfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6BFE2DBF894E005C1F5A /* PerfView.swift */; };
+		D2DF6C012DBF895A005C1F5A /* RemoteLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6C002DBF895A005C1F5A /* RemoteLogView.swift */; };
+		D2DF6C032DBF8968005C1F5A /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF6C022DBF8968005C1F5A /* BasicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +34,13 @@
 		D2DF6BD22DBE2C07005C1F5A /* CrashHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashHelper.h; sourceTree = "<group>"; };
 		D2DF6BD32DBE2C07005C1F5A /* CrashHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashHelper.m; sourceTree = "<group>"; };
 		D2DF6BD42DBE2C07005C1F5A /* SecondView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
-		D2DF6BDE2DBE2C37005C1F5A /* apm_ios_demo_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = apm_ios_demo_swift.app; path = "/Users/zhongyujie/XcodeProjects/alicloud-ios-demo-github/apm_ios_demo_swift/build/Debug-iphoneos/apm_ios_demo_swift.app"; sourceTree = "<absolute>"; };
 		D2DF6BE42DBE2CE4005C1F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2DF6BE72DBE2DAF005C1F5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D2DF6BFB2DBF8900005C1F5A /* apm_ios_demo_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apm_ios_demo_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2DF6BFC2DBF893E005C1F5A /* CrashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashView.swift; sourceTree = "<group>"; };
+		D2DF6BFE2DBF894E005C1F5A /* PerfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfView.swift; sourceTree = "<group>"; };
+		D2DF6C002DBF895A005C1F5A /* RemoteLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLogView.swift; sourceTree = "<group>"; };
+		D2DF6C022DBF8968005C1F5A /* BasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
 		DC2E59F35248A13DAAA8088E /* Pods-apm_ios_demo_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apm_ios_demo_swift.debug.xcconfig"; path = "Target Support Files/Pods-apm_ios_demo_swift/Pods-apm_ios_demo_swift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +79,7 @@
 				D2DF6BD52DBE2C07005C1F5A /* apm_ios_demo_swift */,
 				A6BD9A8A84D6AB59F3C13453 /* Pods */,
 				8ADACAB66254012A8FF981E4 /* Frameworks */,
+				D2DF6BFB2DBF8900005C1F5A /* apm_ios_demo_swift.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +97,10 @@
 				D2DF6BD22DBE2C07005C1F5A /* CrashHelper.h */,
 				D2DF6BD32DBE2C07005C1F5A /* CrashHelper.m */,
 				D2DF6BD42DBE2C07005C1F5A /* SecondView.swift */,
+				D2DF6BFC2DBF893E005C1F5A /* CrashView.swift */,
+				D2DF6BFE2DBF894E005C1F5A /* PerfView.swift */,
+				D2DF6C002DBF895A005C1F5A /* RemoteLogView.swift */,
+				D2DF6C022DBF8968005C1F5A /* BasicView.swift */,
 			);
 			path = apm_ios_demo_swift;
 			sourceTree = "<group>";
@@ -120,7 +133,7 @@
 			);
 			name = apm_ios_demo_swift;
 			productName = apm_ios_demo_swift;
-			productReference = D2DF6BDE2DBE2C37005C1F5A /* apm_ios_demo_swift.app */;
+			productReference = D2DF6BFB2DBF8900005C1F5A /* apm_ios_demo_swift.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -233,9 +246,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2DF6BD82DBE2C07005C1F5A /* AppDelegate.swift in Sources */,
+				D2DF6BFF2DBF894E005C1F5A /* PerfView.swift in Sources */,
+				D2DF6BFD2DBF893E005C1F5A /* CrashView.swift in Sources */,
 				D2DF6BDC2DBE2C07005C1F5A /* CrashHelper.m in Sources */,
 				D2DF6BDD2DBE2C07005C1F5A /* SecondView.swift in Sources */,
 				D2DF6BDA2DBE2C07005C1F5A /* ContentView.swift in Sources */,
+				D2DF6C012DBF895A005C1F5A /* RemoteLogView.swift in Sources */,
+				D2DF6C032DBF8968005C1F5A /* BasicView.swift in Sources */,
 				D2DF6BDB2DBE2C07005C1F5A /* CrashHandler.cpp in Sources */,
 				D2DF6BD72DBE2C07005C1F5A /* apm_ios_demo_swiftApp.swift in Sources */,
 			);
