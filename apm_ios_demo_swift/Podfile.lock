@@ -1,0 +1,103 @@
+PODS:
+  - AlicloudAPM (1.2.4):
+    - AliCloudNetworkMonitor (~> 2.0.3)
+    - AlicloudUTDID
+    - AliHACore (~> 11.0.6)
+    - AliHAMemoryMonitor (~> 12.0.1)
+    - AliHAPerformanceMonitor (~> 11.0.5)
+  - AlicloudApmAll (2.0.0):
+    - AlicloudApmCrashAnalysis (~> 2.2.0)
+    - AlicloudApmPerformance (~> 2.0.0)
+    - AlicloudApmRemoteLog (~> 2.0.0)
+  - AlicloudApmCore (1.2.0):
+    - AlicloudUTDID (= 1.6.1)
+    - AliHACore (~> 11.0.6)
+  - AlicloudApmCrashAnalysis (2.2.1):
+    - AlicloudApmCore (~> 1.2.0)
+    - AlicloudUTDID (= 1.6.1)
+  - AlicloudApmPerformance (2.0.0):
+    - AlicloudAPM (~> 1.2.4)
+    - AlicloudApmCore (~> 1.2.0)
+  - AlicloudApmRemoteLog (2.0.0):
+    - AlicloudApmCore (~> 1.2.0)
+    - AlicloudTLog (~> 1.1.2)
+  - AliCloudNetworkMonitor (2.0.3):
+    - AlicloudUTDID
+    - AliHACore (~> 11.0.6)
+    - EMASRest
+  - AlicloudTLog (1.1.2):
+    - AliHACore (~> 11.0.6)
+    - TRemoteDebugger (~> 11.0.1)
+  - AlicloudUTDID (1.6.1)
+  - AliHACore (11.0.6):
+    - AlicloudUTDID
+  - AliHAMemoryMonitor (12.0.1):
+    - AliHACore (~> 11.0.6)
+    - FBAllocationTracker
+    - FBMemoryProfiler
+    - FBRetainCycleDetector
+  - AliHAPerformanceMonitor (11.0.5):
+    - AliHACore (~> 11.0.6)
+  - AliyunOSSiOS (2.11.1)
+  - EMASRest (11.2.0)
+  - FBAllocationTracker (0.1.5)
+  - FBMemoryProfiler (0.1.3):
+    - FBAllocationTracker (~> 0.1)
+    - FBRetainCycleDetector (~> 0.1)
+  - FBRetainCycleDetector (0.1.4.2)
+  - SSZipArchive (2.4.3)
+  - TRemoteDebugger (11.0.1):
+    - AliHACore (~> 11.0.6)
+    - AliyunOSSiOS
+    - SSZipArchive
+
+DEPENDENCIES:
+  - AlicloudApmAll (~> 2.0.0)
+
+SPEC REPOS:
+  https://github.com/aliyun/aliyun-specs.git:
+    - AlicloudAPM
+    - AlicloudApmAll
+    - AlicloudApmCore
+    - AlicloudApmCrashAnalysis
+    - AlicloudApmPerformance
+    - AlicloudApmRemoteLog
+    - AliCloudNetworkMonitor
+    - AlicloudTLog
+    - AlicloudUTDID
+    - AliHACore
+    - AliHAMemoryMonitor
+    - AliHAPerformanceMonitor
+    - EMASRest
+    - FBRetainCycleDetector
+    - TRemoteDebugger
+  https://github.com/CocoaPods/Specs.git:
+    - AliyunOSSiOS
+    - FBAllocationTracker
+    - FBMemoryProfiler
+    - SSZipArchive
+
+SPEC CHECKSUMS:
+  AlicloudAPM: 99ab8a15d95075a1b6c57270049638fb0d9e5fe0
+  AlicloudApmAll: c5356886a8ecfd5f04974cb7d4b33f9626120ef2
+  AlicloudApmCore: 4e7cc2ea7eff06a2048efc12af1e5035c469bd55
+  AlicloudApmCrashAnalysis: feb6e82d46d39249d3b76ed9a2e93b6282b6f3ab
+  AlicloudApmPerformance: 7d510b50244756de8c6835927143675ba75e6012
+  AlicloudApmRemoteLog: dce9f6155f97733afa2fb83e94cb377be8cd7c8a
+  AliCloudNetworkMonitor: c8eefbfb1fdbbf8d970bdcc7b1ba009fe5d1bb5a
+  AlicloudTLog: 23d2239c2a694fa1db05ef2ac8cf0a5b4bf6bd58
+  AlicloudUTDID: 5d2f22d50e11eecd38f30bc7a48c71925ea90976
+  AliHACore: 7b1728858d08f2efa0f7b369c83537e8cd9a3218
+  AliHAMemoryMonitor: c3c27e5b326e2b0b433d6c9ff8949f4765c23f03
+  AliHAPerformanceMonitor: 456a00278acb44378489c08ea905ed5f571117f6
+  AliyunOSSiOS: 51e8aa24dda25918e3b5b80d72105a57485b6bf7
+  EMASRest: a2df608b34168f43cec23a9f9fcd81b251c5534b
+  FBAllocationTracker: dfdca3f71aceca6a85e95e3c6ec76a9785eba0f1
+  FBMemoryProfiler: 623fc5f8a61f7d02ec75c87e3b97c90f621d8b02
+  FBRetainCycleDetector: 545728c5cc84a9b09830ac7bf40e7d0d1e2ec49f
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
+  TRemoteDebugger: ea8aad667ef3454eaa85572f555b076f82928868
+
+PODFILE CHECKSUM: f1eac409a6a464878ab05696f9b1331f9626b89e
+
+COCOAPODS: 1.16.2
