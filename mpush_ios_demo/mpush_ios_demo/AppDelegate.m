@@ -14,6 +14,9 @@
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
 
+NSString *const testAppKey = @"335545903";
+NSString *const testAppSecret = @"bf524eae098740c2bce55c968a082353";
+
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end

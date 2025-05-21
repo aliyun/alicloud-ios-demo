@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 
-static NSString *const testAppKey = @"********";
-static NSString *const testAppSecret = @"********";
+extern NSString *const testAppKey;
+extern NSString *const testAppSecret;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
