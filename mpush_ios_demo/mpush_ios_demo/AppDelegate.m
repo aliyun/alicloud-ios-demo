@@ -14,6 +14,7 @@
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
 
+// 请前往 https://emas.console.aliyun.com 创建你自己的 App 并替换以下参数值
 NSString *const testAppKey = @"335545903";
 NSString *const testAppSecret = @"bf524eae098740c2bce55c968a082353";
 

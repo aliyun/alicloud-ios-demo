@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+// 请前往 https://emas.console.aliyun.com 创建你自己的 App 并替换以下参数值
 extern NSString *const testAppKey;
 extern NSString *const testAppSecret;
 
