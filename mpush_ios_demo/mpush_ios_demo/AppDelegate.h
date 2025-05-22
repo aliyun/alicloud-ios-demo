@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
-static NSString *const testAppKey = @"********";
-static NSString *const testAppSecret = @"********";
+// 请前往 https://emas.console.aliyun.com 创建你自己的 App 并替换以下参数值
+extern NSString *const testAppKey;
+extern NSString *const testAppSecret;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
