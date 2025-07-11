@@ -147,69 +147,6 @@ API_AVAILABLE(ios(17.0))
     HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy service instance destroyed");
 }
 
-#pragma mark - 核心接口：WebView集成
-
-- (BOOL)_installIntoWebViewConfiguration:(WKWebViewConfiguration *)configuration {
-    // 参数有效性检查
-    if (!configuration) {
-        HTTPDNS_LOCAL_PROXY_LOG_ERROR("WebView configuration object is null, cannot install proxy");
-        return NO;
-    }
-
-    // 系统版本兼容性检查
-    if (@available(iOS 17.0, *)) {
-        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System version supports WebView proxy configuration");
-
-        // 创建专用的数据存储，用于隔离代理配置
-        NSUUID *dataStoreIdentifier = [[NSUUID alloc] initWithUUIDString:kHTTPDNSProxyDataStoreUUID];
-        WKWebsiteDataStore *dataStore = [WKWebsiteDataStore dataStoreForIdentifier:dataStoreIdentifier];
-        configuration.websiteDataStore = dataStore;
-
-        // 检查代理服务运行状态
-        if (!self.isProxyRunning) {
-            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy service not running, clearing proxy configuration");
-            // 清理代理配置，恢复使用系统网络
-            [dataStore setProxyConfigurations:@[]];
-            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Configured WebView to use system network (proxy cleared)");
-            return NO;
-        }
-
-        // 代理服务正常运行，配置WebView使用本地代理
-        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy service running normally, starting WebView proxy configuration");
-
-        // 创建代理端点配置
-        NSString *proxyHost = @"127.0.0.1";
-        NSString *proxyPortString = [NSString stringWithFormat:@"%d", _proxyPort];
-        nw_endpoint_t proxyEndpoint = nw_endpoint_create_host([proxyHost UTF8String], [proxyPortString UTF8String]);
-
-        // 创建HTTP CONNECT代理配置
-        nw_proxy_config_t proxyConfig = nw_proxy_config_create_http_connect(proxyEndpoint, NULL);
-        if (proxyConfig) {
-            NSArray<nw_proxy_config_t> *proxyConfigs = @[proxyConfig];
-
-            // 检查API可用性并设置代理配置
-            if ([dataStore respondsToSelector:@selector(setProxyConfigurations:)]) {
-                [dataStore setProxyConfigurations:proxyConfigs];
-                HTTPDNS_LOCAL_PROXY_LOG_INFO("WebView proxy configuration successful - listening address: %@:%d", proxyHost, _proxyPort);
-                return YES;
-            } else {
-                HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System doesn't support setProxyConfigurations API, enabling fallback mode");
-            }
-        } else {
-            HTTPDNS_LOCAL_PROXY_LOG_ERROR("Cannot create proxy configuration object, enabling fallback mode");
-        }
-
-        // 配置失败时的降级处理
-        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy configuration failed, WebView will use system network");
-        [dataStore setProxyConfigurations:@[]];
-        return NO;
-
-    } else {
-        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System version below iOS 17.0, doesn't support WebView proxy configuration, using system network");
-        return NO;
-    }
-}
-
 #pragma mark - 服务控制
 
 /**
@@ -768,8 +705,66 @@ API_AVAILABLE(ios(17.0))
 }
 
 + (BOOL)installIntoWebViewConfiguration:(WKWebViewConfiguration *)configuration {
-    HttpdnsLocalHttpProxy *proxy = [HttpdnsLocalHttpProxy sharedInstance];
-    return [proxy _installIntoWebViewConfiguration:configuration];
+    // 参数有效性检查
+    if (!configuration) {
+        HTTPDNS_LOCAL_PROXY_LOG_ERROR("WebView configuration object is null, cannot install proxy");
+        return NO;
+    }
+
+    // 系统版本兼容性检查
+    if (@available(iOS 17.0, *)) {
+        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System version supports WebView proxy configuration");
+
+        HttpdnsLocalHttpProxy *proxy = [HttpdnsLocalHttpProxy sharedInstance];
+
+        // 创建专用的数据存储，用于隔离代理配置
+        NSUUID *dataStoreIdentifier = [[NSUUID alloc] initWithUUIDString:kHTTPDNSProxyDataStoreUUID];
+        WKWebsiteDataStore *dataStore = [WKWebsiteDataStore dataStoreForIdentifier:dataStoreIdentifier];
+        configuration.websiteDataStore = dataStore;
+
+        // 检查代理服务运行状态
+        if (!proxy.isProxyRunning) {
+            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy service not running, clearing proxy configuration");
+            // 清理代理配置，恢复使用系统网络
+            [dataStore setProxyConfigurations:@[]];
+            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Configured WebView to use system network (proxy cleared)");
+            return NO;
+        }
+
+        // 代理服务正常运行，配置WebView使用本地代理
+        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy service running normally, starting WebView proxy configuration");
+
+        // 创建代理端点配置
+        NSString *proxyHost = @"127.0.0.1";
+        NSString *proxyPortString = [NSString stringWithFormat:@"%d", proxy.proxyPort];
+        nw_endpoint_t proxyEndpoint = nw_endpoint_create_host([proxyHost UTF8String], [proxyPortString UTF8String]);
+
+        // 创建HTTP CONNECT代理配置
+        nw_proxy_config_t proxyConfig = nw_proxy_config_create_http_connect(proxyEndpoint, NULL);
+        if (proxyConfig) {
+            NSArray<nw_proxy_config_t> *proxyConfigs = @[proxyConfig];
+
+            // 检查API可用性并设置代理配置
+            if ([dataStore respondsToSelector:@selector(setProxyConfigurations:)]) {
+                [dataStore setProxyConfigurations:proxyConfigs];
+                HTTPDNS_LOCAL_PROXY_LOG_INFO("WebView proxy configuration successful - listening address: %@:%d", proxyHost, proxy.proxyPort);
+                return YES;
+            } else {
+                HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System doesn't support setProxyConfigurations API, enabling fallback mode");
+            }
+        } else {
+            HTTPDNS_LOCAL_PROXY_LOG_ERROR("Cannot create proxy configuration object, enabling fallback mode");
+        }
+
+        // 配置失败时的降级处理
+        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy configuration failed, WebView will use system network");
+        [dataStore setProxyConfigurations:@[]];
+        return NO;
+
+    } else {
+        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System version below iOS 17.0, doesn't support WebView proxy configuration, using system network");
+        return NO;
+    }
 }
 
 + (void)uninstallFromWebViewConfiguration:(WKWebViewConfiguration *)configuration {
