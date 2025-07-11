@@ -87,6 +87,8 @@
         return [self resolveHostnameWithHTTPDNS:hostname];
     }];
 
+    [HttpdnsLocalHttpProxy setLogLevel:HttpdnsProxyLogLevelDebug];
+
     // 创建WKWebView
     CGRect bounds = self.view.bounds;
     WKWebView *webView = [[WKWebView alloc] initWithFrame:bounds configuration:config];
@@ -102,10 +104,6 @@
 }
 
 #pragma mark - Public Methods
-
-+ (void)presentWithURL:(NSURL *)url {
-
-}
 
 - (NSString *)resolveHostnameWithHTTPDNS:(NSString *)hostname {
     // 获取HTTPDNS服务实例
@@ -135,7 +133,7 @@
         }
     }
 
-    NSLog(@"WKWebViewProxyScenario: HTTPDNS resolution failed, using original hostname: %@", hostname);
+    NSLog(@"WKWebViewProxyScenario: didn't get an IP from HTTPDNS, fallback to use original hostname: %@", hostname);
     return hostname;
 }
 

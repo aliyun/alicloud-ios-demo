@@ -20,6 +20,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ *  HTTPDNS代理服务日志级别
+ */
+typedef NS_ENUM(NSInteger, HttpdnsProxyLogLevel) {
+    HttpdnsProxyLogLevelNone = 0,     ///< 禁用所有日志
+    HttpdnsProxyLogLevelError,        ///< 仅ERROR级别
+    HttpdnsProxyLogLevelInfo,         ///< ERROR + INFO级别
+    HttpdnsProxyLogLevelDebug         ///< 所有日志级别（包括DEBUG）
+};
+
+/**
  *  阿里云HTTPDNS本地代理服务
  *
  *  静态工具类，提供简洁的API接口用于WebView代理配置
@@ -36,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  - HTTPDNS域名解析集成
  *  - 网络访问监控和优化
  *
- *  @since iOS 10.0
  *  @warning 代理配置功能需要iOS 17.0+
  */
 @interface HttpdnsLocalHttpProxy : NSObject
@@ -88,6 +97,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  @endcode
  */
 + (BOOL)installIntoWebViewConfiguration:(WKWebViewConfiguration *)configuration;
+
+#pragma mark - 日志配置
+
+/**
+ *  设置代理服务日志级别
+ *
+ *  通过此方法可控制代理服务的日志输出级别，用于调试和生产环境的日志管理
+ *
+ *  @param logLevel 日志级别
+ *         - HttpdnsProxyLogLevelNone: 禁用所有日志
+ *         - HttpdnsProxyLogLevelError: 仅显示错误日志
+ *         - HttpdnsProxyLogLevelInfo: 显示错误和信息日志
+ *         - HttpdnsProxyLogLevelDebug: 显示所有日志（包括调试信息）
+ *
+ *  @code
+ *  // 开发环境：启用详细日志
+ *  [HttpdnsLocalHttpProxy setLogLevel:HttpdnsProxyLogLevelDebug];
+ *
+ *  // 生产环境：仅显示重要信息
+ *  [HttpdnsLocalHttpProxy setLogLevel:HttpdnsProxyLogLevelError];
+ *  @endcode
+ */
++ (void)setLogLevel:(HttpdnsProxyLogLevel)logLevel;
 
 @end
 

@@ -17,7 +17,6 @@
 
 #import "HttpdnsLocalHttpProxy.h"
 #import <Network/Network.h>
-#import <os/log.h>
 #import <netdb.h>
 
 #pragma mark - 常量定义
@@ -37,21 +36,32 @@ static const NSTimeInterval kHTTPDNSProxyStartupTimeout = 5.0;
 /// 端口重试间隔时间（微秒）
 static const useconds_t kHTTPDNSProxyRetryInterval = 100000; // 100ms
 
-/// 统一日志子系统
-static os_log_t _httpdnsProxyLogger;
+/// 当前日志级别配置
+static HttpdnsProxyLogLevel _currentLogLevel = HttpdnsProxyLogLevelError;
 
-/// 初始化日志系统
-static void _initializeLogger(void) {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _httpdnsProxyLogger = os_log_create("com.alicloud.httpdns", "LocalProxy");
-    });
+/// 检查是否应该输出指定级别的日志
+static BOOL _shouldLog(HttpdnsProxyLogLevel level) {
+    return _currentLogLevel >= level;
 }
 
-/// 便捷日志宏定义
-#define HTTPDNS_LOCAL_PROXY_LOG_INFO(fmt, ...)    os_log_info(_httpdnsProxyLogger, fmt, ##__VA_ARGS__)
-#define HTTPDNS_LOCAL_PROXY_LOG_ERROR(fmt, ...)   os_log_error(_httpdnsProxyLogger, fmt, ##__VA_ARGS__)
-#define HTTPDNS_LOCAL_PROXY_LOG_DEBUG(fmt, ...)   os_log_debug(_httpdnsProxyLogger, fmt, ##__VA_ARGS__)
+/// 便捷日志宏定义（使用NSLog输出）
+#define HTTPDNS_LOCAL_PROXY_LOG_INFO(fmt, ...)    do { \
+    if (_shouldLog(HttpdnsProxyLogLevelInfo)) { \
+        NSLog(@"[LOCAL-PROXY-INFO] " fmt, ##__VA_ARGS__); \
+    } \
+} while(0)
+
+#define HTTPDNS_LOCAL_PROXY_LOG_ERROR(fmt, ...)   do { \
+    if (_shouldLog(HttpdnsProxyLogLevelError)) { \
+        NSLog(@"[LOCAL-PROXY-ERROR] " fmt, ##__VA_ARGS__); \
+    } \
+} while(0)
+
+#define HTTPDNS_LOCAL_PROXY_LOG_DEBUG(fmt, ...)   do { \
+    if (_shouldLog(HttpdnsProxyLogLevelDebug)) { \
+        NSLog(@"[LOCAL-PROXY-DEBUG] " fmt, ##__VA_ARGS__); \
+    } \
+} while(0)
 
 API_AVAILABLE(ios(17.0))
 @interface HttpdnsLocalHttpProxy ()
@@ -81,9 +91,6 @@ API_AVAILABLE(ios(17.0))
 #pragma mark - 初始化
 
 + (void)load {
-    // 初始化日志系统
-    _initializeLogger();
-
     // 仅在iOS 17+系统上自动启动代理服务
     if (@available(iOS 17.0, *)) {
         HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System version supports WKWebView proxy configuration, preparing to start proxy service");
@@ -607,13 +614,6 @@ API_AVAILABLE(ios(17.0))
 
         // 转发有效数据
         if (content && dispatch_data_get_size(content) > 0) {
-            size_t dataSize = dispatch_data_get_size(content);
-
-            // 监控大数据包传输（用于性能分析）
-            if (dataSize > 4096) {
-                HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Forwarding large data packet: %zu bytes", dataSize);
-            }
-
             // 发送数据到目标连接
             nw_connection_send(destination, content, NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT, false, ^(nw_error_t sendError) {
                 if (sendError) {
@@ -748,6 +748,10 @@ API_AVAILABLE(ios(17.0))
 }
 
 #pragma mark - 静态API实现
+
++ (void)setLogLevel:(HttpdnsProxyLogLevel)logLevel {
+    _currentLogLevel = logLevel;
+}
 
 + (void)setDNSResolverBlock:(NSString *(^)(NSString *hostname))resolverBlock {
     HttpdnsLocalHttpProxy *proxy = [HttpdnsLocalHttpProxy sharedInstance];
