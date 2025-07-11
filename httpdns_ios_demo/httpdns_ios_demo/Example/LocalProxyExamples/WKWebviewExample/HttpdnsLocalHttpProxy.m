@@ -36,6 +36,9 @@ static const NSTimeInterval kHTTPDNSProxyStartupTimeout = 5.0;
 /// 端口重试间隔时间（微秒）
 static const useconds_t kHTTPDNSProxyRetryInterval = 100000; // 100ms
 
+/// 自定义WebView数据存储标识符
+static NSString * const kHTTPDNSProxyDataStoreUUID = @"CE5A8E48-C35B-4690-8526-D851C7B9A36B";
+
 /// 当前日志级别配置
 static HttpdnsProxyLogLevel _currentLogLevel = HttpdnsProxyLogLevelError;
 
@@ -157,15 +160,17 @@ API_AVAILABLE(ios(17.0))
     if (@available(iOS 17.0, *)) {
         HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System version supports WebView proxy configuration");
 
+        // 创建专用的数据存储，用于隔离代理配置
+        NSUUID *dataStoreIdentifier = [[NSUUID alloc] initWithUUIDString:kHTTPDNSProxyDataStoreUUID];
+        WKWebsiteDataStore *dataStore = [WKWebsiteDataStore dataStoreForIdentifier:dataStoreIdentifier];
+        configuration.websiteDataStore = dataStore;
+
         // 检查代理服务运行状态
         if (!self.isProxyRunning) {
-            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy service not running, enabling system network fallback mode");
-
-            // 使用非持久化数据存储，确保清除任何旧的代理配置
-            WKWebsiteDataStore *dataStore = [WKWebsiteDataStore nonPersistentDataStore];
-            configuration.websiteDataStore = dataStore;
-
-            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Configured WebView to use system network (no proxy mode)");
+            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy service not running, clearing proxy configuration");
+            // 清理代理配置，恢复使用系统网络
+            [dataStore setProxyConfigurations:@[]];
+            HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Configured WebView to use system network (proxy cleared)");
             return NO;
         }
 
@@ -180,14 +185,11 @@ API_AVAILABLE(ios(17.0))
         // 创建HTTP CONNECT代理配置
         nw_proxy_config_t proxyConfig = nw_proxy_config_create_http_connect(proxyEndpoint, NULL);
         if (proxyConfig) {
-            WKWebsiteDataStore *dataStore = [WKWebsiteDataStore defaultDataStore];
             NSArray<nw_proxy_config_t> *proxyConfigs = @[proxyConfig];
 
             // 检查API可用性并设置代理配置
             if ([dataStore respondsToSelector:@selector(setProxyConfigurations:)]) {
                 [dataStore setProxyConfigurations:proxyConfigs];
-                configuration.websiteDataStore = dataStore;
-
                 HTTPDNS_LOCAL_PROXY_LOG_INFO("WebView proxy configuration successful - listening address: %@:%d", proxyHost, _proxyPort);
                 return YES;
             } else {
@@ -199,6 +201,7 @@ API_AVAILABLE(ios(17.0))
 
         // 配置失败时的降级处理
         HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Proxy configuration failed, WebView will use system network");
+        [dataStore setProxyConfigurations:@[]];
         return NO;
 
     } else {
@@ -767,6 +770,29 @@ API_AVAILABLE(ios(17.0))
 + (BOOL)installIntoWebViewConfiguration:(WKWebViewConfiguration *)configuration {
     HttpdnsLocalHttpProxy *proxy = [HttpdnsLocalHttpProxy sharedInstance];
     return [proxy _installIntoWebViewConfiguration:configuration];
+}
+
++ (void)uninstallFromWebViewConfiguration:(WKWebViewConfiguration *)configuration {
+    if (!configuration) {
+        HTTPDNS_LOCAL_PROXY_LOG_ERROR("WebView configuration is null, cannot uninstall proxy");
+        return;
+    }
+
+    if (@available(iOS 17.0, *)) {
+        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("Uninstalling proxy from WebView configuration");
+
+        // 使用与安装时相同的专用数据存储标识符
+        NSUUID *dataStoreIdentifier = [[NSUUID alloc] initWithUUIDString:kHTTPDNSProxyDataStoreUUID];
+        WKWebsiteDataStore *dataStore = [WKWebsiteDataStore dataStoreForIdentifier:dataStoreIdentifier];
+        configuration.websiteDataStore = dataStore;
+
+        // 清理代理配置
+        [dataStore setProxyConfigurations:@[]];
+
+        HTTPDNS_LOCAL_PROXY_LOG_INFO("Proxy uninstalled from WebView configuration successfully");
+    } else {
+        HTTPDNS_LOCAL_PROXY_LOG_DEBUG("System version is below iOS 17.0, no need to uninstall proxy");
+    }
 }
 
 @end
