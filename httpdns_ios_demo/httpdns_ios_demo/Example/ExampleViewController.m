@@ -17,6 +17,7 @@
 #import "CustomLineSpacingLabel.h"
 #import "HTTPDNSDemoLoading.h"
 #import "SDWebImageScenario.h"
+#import "ProxyWebViewController.h"
 
 @interface ExampleViewController ()
 
@@ -37,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *AVPlayerScenario;
 
 @property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *SDWebImageScenario;
+
+@property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *WKWebViewProxyScenario;
 
 @property (weak, nonatomic) IBOutlet PlaceHolderTextView *resultTextView;
 
@@ -171,7 +174,48 @@
     [SDWebImageScenario httpDnsQueryWithURL:originalUrl];
 }
 
+- (IBAction)WKWebViewProxyScenario:(id)sender {
+    [self changeSelectedState:self.WKWebViewProxyScenario];
+
+    [self showLoading];
+
+    // 获取当前显示的视图控制器
+    UIViewController *presentingVC = nil;
+
+    if (@available(iOS 13.0, *)) {
+        UIWindowScene *windowScene = (UIWindowScene *)[[[UIApplication sharedApplication] connectedScenes] anyObject];
+        presentingVC = windowScene.windows.firstObject.rootViewController;
+    } else {
+        presentingVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    }
+
+    while (presentingVC.presentedViewController) {
+        presentingVC = presentingVC.presentedViewController;
+    }
+
+    NSURL *url = [NSURL URLWithString:@"https://m.taobao.com"];
+    // 创建WebView控制器
+    ProxyWebViewController *webViewController = [[ProxyWebViewController alloc] initWithURL:url];
+
+    // 创建导航控制器
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewController];
+    navController.modalPresentationStyle = UIModalPresentationFullScreen;
+
+    // 显示WebView
+    [presentingVC presentViewController:navController animated:YES completion:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.resultTextView.text = @"已加载WebView页面";
+            [self stopLoading];
+        });
+    }];
+}
+
+
+
 - (void)changeSelectedState:(UILabel *)label {
+    // 清除下方展示区域的内容（传递当前选中的标签信息）
+    [self clearResultTextViewForLabel:label];
+
     [self setupLayerFor:self.httpsScenario isSelected:NO];
     [self setupLayerFor:self.httpsWithSNIScenario isSelected:NO];
     [self setupLayerFor:self.generalScenario isSelected:NO];
@@ -181,6 +225,7 @@
     [self setupLayerFor:self.AlamofireWithSNIScenario isSelected:NO];
     [self setupLayerFor:self.AVPlayerScenario isSelected:NO];
     [self setupLayerFor:self.SDWebImageScenario isSelected:NO];
+    [self setupLayerFor:self.WKWebViewProxyScenario isSelected:NO];
 
     [self setupLayerFor:label isSelected:YES];
 }
@@ -193,6 +238,23 @@
     label.layer.borderColor = color.CGColor;
     label.layer.borderWidth = 1;
     label.textColor = color;
+}
+
+
+- (void)clearResultTextViewForLabel:(UILabel *)label {
+    // 清除展示区域的内容，恢复占位符文本
+    self.resultTextView.text = @"";
+
+    // 只有在非WKWebViewProxyScenario场景下才停止加载动画
+    // 因为WKWebViewProxyScenario会在changeSelectedState后立即调用showLoading
+    if (label != self.WKWebViewProxyScenario) {
+        [self stopLoading];
+    }
+}
+
+// 保留原方法供其他地方调用
+- (void)clearResultTextView {
+    [self clearResultTextViewForLabel:nil];
 }
 
 @end
