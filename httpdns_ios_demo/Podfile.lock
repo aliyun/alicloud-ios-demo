@@ -15,10 +15,10 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (5.10.2)
-  - AlicloudHTTPDNS (3.2.0)
-  - SDWebImage (5.21.0):
-    - SDWebImage/Core (= 5.21.0)
-  - SDWebImage/Core (5.21.0)
+  - AlicloudHTTPDNS (3.2.1)
+  - SDWebImage (5.21.1):
+    - SDWebImage/Core (= 5.21.1)
+  - SDWebImage/Core (5.21.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -37,9 +37,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
-  AlicloudHTTPDNS: 7460344fc29d7e6561fcc20f94601f73b859d5e0
-  SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
+  AlicloudHTTPDNS: 7c3ea698dad0070cf3ea7d1e6cc1a3650f5de437
+  SDWebImage: f29024626962457f3470184232766516dee8dfea
 
-PODFILE CHECKSUM: 77fe26b6ff2febea324fab1af50e6c71071d638a
+PODFILE CHECKSUM: 8b08f99d643c477bb9c342f3faa6df1f8ef7bb6c
 
 COCOAPODS: 1.16.2

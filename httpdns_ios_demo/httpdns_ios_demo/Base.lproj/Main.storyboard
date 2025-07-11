@@ -216,6 +216,26 @@
                                             <outletCollection property="gestureRecognizers" destination="Kh4-FT-IHu" appends="YES" id="bgR-yL-tpr"/>
                                         </connections>
                                     </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WKWebView代理场景使用" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-Vp-2dL" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="990" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="ABC-XY-123"/>
+                                            <constraint firstAttribute="height" constant="120" id="DEF-UV-456"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="WkB-Tap-Ges" appends="YES" id="WkB-Con-123"/>
+                                        </connections>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7Ib-RW-PWc" firstAttribute="centerY" secondItem="bbd-Gk-dNJ" secondAttribute="centerY" id="0QV-sW-7dj"/>
@@ -228,7 +248,9 @@
                                     <constraint firstItem="goi-hb-OgU" firstAttribute="centerY" secondItem="tNb-UA-YST" secondAttribute="centerY" id="M43-LW-P2S"/>
                                     <constraint firstItem="lpV-r8-rVa" firstAttribute="centerY" secondItem="VHD-Zm-Vfw" secondAttribute="centerY" id="arL-uC-UK0"/>
                                     <constraint firstAttribute="width" secondItem="kAT-xv-csF" secondAttribute="height" multiplier="344:120" id="dY1-nH-hFH"/>
-                                    <constraint firstAttribute="trailing" secondItem="olF-87-4ZY" secondAttribute="trailing" id="en0-CA-8Bu"/>
+                                    <constraint firstItem="WkB-Vp-2dL" firstAttribute="leading" secondItem="olF-87-4ZY" secondAttribute="trailing" constant="6" id="WkB-Lead-123"/>
+                                    <constraint firstItem="WkB-Vp-2dL" firstAttribute="centerY" secondItem="olF-87-4ZY" secondAttribute="centerY" id="WkB-CenterY-123"/>
+                                    <constraint firstAttribute="trailing" secondItem="WkB-Vp-2dL" secondAttribute="trailing" id="WkB-Trail-123"/>
                                     <constraint firstItem="VHD-Zm-Vfw" firstAttribute="leading" secondItem="64D-JW-mv0" secondAttribute="trailing" constant="6" id="ikU-DN-GTU"/>
                                     <constraint firstItem="7Ib-RW-PWc" firstAttribute="leading" secondItem="bbd-Gk-dNJ" secondAttribute="trailing" constant="6" id="jCm-ac-2qr"/>
                                     <constraint firstItem="lpV-r8-rVa" firstAttribute="leading" secondItem="VHD-Zm-Vfw" secondAttribute="trailing" constant="6" id="kPe-a7-dzZ"/>
@@ -299,6 +321,7 @@
                         <outlet property="AlamofireScenario" destination="lpV-r8-rVa" id="TT5-gS-ALL"/>
                         <outlet property="AlamofireWithSNIScenario" destination="bbd-Gk-dNJ" id="kb8-eb-3Np"/>
                         <outlet property="SDWebImageScenario" destination="olF-87-4ZY" id="jw2-UQ-CcK"/>
+                        <outlet property="WKWebViewProxyScenario" destination="WkB-Vp-2dL" id="WkB-Out-123"/>
                         <outlet property="generalScenario" destination="E9r-id-SeC" id="N3E-qj-yJH"/>
                         <outlet property="httpsScenario" destination="tNb-UA-YST" id="WwB-fZ-Ob6"/>
                         <outlet property="httpsWithSNIScenario" destination="goi-hb-OgU" id="cSW-0i-8wS"/>
@@ -349,6 +372,11 @@
                 <tapGestureRecognizer id="Kh4-FT-IHu">
                     <connections>
                         <action selector="SDWebImageScenario:" destination="BYZ-38-t0r" id="CnY-Y4-Cqm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WkB-Tap-Ges">
+                    <connections>
+                        <action selector="WKWebViewProxyScenario:" destination="BYZ-38-t0r" id="WkB-Act-123"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
