@@ -21,23 +21,22 @@
     NSString *secretKey     = [HTTPDNSDemoUtils secretKey];
     HttpDnsService *httpdns = [[HttpDnsService alloc] initWithAccountID:accountId secretKey:secretKey];
 
-    // 是否允许返回过期的IP
-    [httpdns setReuseExpiredIPEnabled:[HTTPDNSDemoUtils settingInfoBool:settingInfoReuseExpiredIPKey]];
-
     // 是否开启持久化缓存
+    // 建议设置为YES
     [httpdns setPersistentCacheIPEnabled:[HTTPDNSDemoUtils settingInfoBool:settingInfoPersistentCacheKey]];
 
     // 是否允许HTTPS
     [httpdns setHTTPSRequestEnabled:[HTTPDNSDemoUtils settingInfoBool:settingInfoHTTPSRequestKey]];
+
+    // 是否允许返回过期的IP
+    // 建议设置为YES
+    [httpdns setReuseExpiredIPEnabled:[HTTPDNSDemoUtils settingInfoBool:settingInfoReuseExpiredIPKey]];
 
     // 是否开启网络切换自动刷新
     [httpdns setPreResolveAfterNetworkChanged:[HTTPDNSDemoUtils settingInfoBool:settingInfoPreResolveAfterNetworkChangedKey]];
 
     // 是否打开HTTPDNS Log，线上建议关闭
     [httpdns setLogEnabled:[HTTPDNSDemoUtils settingInfoBool:settingInfoLogEnabledKey]];
-
-    // 设置Region
-    [httpdns setRegion:[HTTPDNSDemoUtils settingInfo:settingInfoRegionKey]];
 
     return YES;
 }

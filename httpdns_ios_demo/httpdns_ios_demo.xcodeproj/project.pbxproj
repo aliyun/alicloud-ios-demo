@@ -60,6 +60,8 @@
 		7EF3E4122C5A419000703B58 /* SettingOtherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4112C5A419000703B58 /* SettingOtherTableViewCell.m */; };
 		7EF3E4152C5A4BE400703B58 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4142C5A4BE400703B58 /* AboutUsViewController.m */; };
 		7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF3E4172C5A4CD700703B58 /* SettingBaseTableViewCell.m */; };
+		AC4918142E1CBEF300DC46A8 /* ProxyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4918132E1CBEF300DC46A8 /* ProxyWebViewController.m */; };
+		ACCDCD6D2E1265DA0068F100 /* HttpdnsLocalHttpProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCDCD6C2E1265DA0068F100 /* HttpdnsLocalHttpProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +184,10 @@
 		8FF36133B780D8400A7454A7 /* Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo-httpdns_ios_demoUITests/Pods-httpdns_ios_demo-httpdns_ios_demoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A00B9FD37848612B508E6BC6 /* Pods-httpdns_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-httpdns_ios_demo.debug.xcconfig"; path = "Target Support Files/Pods-httpdns_ios_demo/Pods-httpdns_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
 		A9AB242A21723B447CF14A9C /* Pods_httpdns_ios_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_httpdns_ios_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC4918122E1CBEF300DC46A8 /* ProxyWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProxyWebViewController.h; sourceTree = "<group>"; };
+		AC4918132E1CBEF300DC46A8 /* ProxyWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProxyWebViewController.m; sourceTree = "<group>"; };
+		ACCDCD6B2E1265DA0068F100 /* HttpdnsLocalHttpProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpdnsLocalHttpProxy.h; sourceTree = "<group>"; };
+		ACCDCD6C2E1265DA0068F100 /* HttpdnsLocalHttpProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpdnsLocalHttpProxy.m; sourceTree = "<group>"; };
 		FBDA4467FAA47A9E8133DDAC /* Pods_httpdns_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_httpdns_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -310,6 +316,7 @@
 				7E776E622C4E640C00188CE3 /* HttpsSNIExample */,
 				7EC07CA72C4A137300D770F6 /* ExampleViewController.h */,
 				7EC07CA82C4A137300D770F6 /* ExampleViewController.m */,
+				ACCDCD632E0E9B6D0068F100 /* LocalProxyExamples */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -451,6 +458,25 @@
 				7EDA67E82C5B773800BBF1D7 /* UIView+Toast.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		ACCDCD622E0E9B6D0068F100 /* WKWebviewExample */ = {
+			isa = PBXGroup;
+			children = (
+				ACCDCD6B2E1265DA0068F100 /* HttpdnsLocalHttpProxy.h */,
+				ACCDCD6C2E1265DA0068F100 /* HttpdnsLocalHttpProxy.m */,
+				AC4918122E1CBEF300DC46A8 /* ProxyWebViewController.h */,
+				AC4918132E1CBEF300DC46A8 /* ProxyWebViewController.m */,
+			);
+			path = WKWebviewExample;
+			sourceTree = "<group>";
+		};
+		ACCDCD632E0E9B6D0068F100 /* LocalProxyExamples */ = {
+			isa = PBXGroup;
+			children = (
+				ACCDCD622E0E9B6D0068F100 /* WKWebviewExample */,
+			);
+			path = LocalProxyExamples;
 			sourceTree = "<group>";
 		};
 		B11767BD33987611832BA42E /* Pods */ = {
@@ -715,6 +741,7 @@
 				7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */,
 				7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */,
 				7ED5B5992C37C7AE00CC5FD4 /* HTTPDNSDemoTools.m in Sources */,
+				ACCDCD6D2E1265DA0068F100 /* HttpdnsLocalHttpProxy.m in Sources */,
 				7EDB2A742C524A7B00CEB01C /* SettingViewController.m in Sources */,
 				7EF3E4152C5A4BE400703B58 /* AboutUsViewController.m in Sources */,
 				7ED456D12C58EC0D006FC84E /* SettingDomainListViewController.m in Sources */,
@@ -748,6 +775,7 @@
 				7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */,
 				7E776E662C4E640C00188CE3 /* HTTPSWithSNIScenario.m in Sources */,
 				7EF3E4122C5A419000703B58 /* SettingOtherTableViewCell.m in Sources */,
+				AC4918142E1CBEF300DC46A8 /* ProxyWebViewController.m in Sources */,
 				7ED5B5962C379D8900CC5FD4 /* HTTPDNSDemoUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -929,12 +957,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
+				DEVELOPMENT_TEAM = 9U5S7UP5BB;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/httpdns_ios_demo/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -943,7 +970,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -952,7 +979,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "httpdns_ios_demo/httpdns_ios_demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -968,12 +994,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
+				DEVELOPMENT_TEAM = 9U5S7UP5BB;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/httpdns_ios_demo/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -982,7 +1007,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -991,7 +1016,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "httpdns_ios_demo/httpdns_ios_demo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
