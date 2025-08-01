@@ -17,6 +17,7 @@
 #import "SettingAddTagViewController.h"
 #import "ShowAllTagsViewController.h"
 #import "mpush_ios_demo-Swift.h"
+#import "SDKStatusManager.h"
 
 @interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -51,6 +52,7 @@
     self.settingTableView.delegate = self;
     self.settingTableView.dataSource = self;
     self.settingTableView.showsVerticalScrollIndicator = NO;
+    self.settingTableView.userInteractionEnabled = [SDKStatusManager getSDKInitStatus];
 }
 
 - (void)loadDataToRefreshList {
@@ -108,8 +110,13 @@
     // load account & badge data
     dispatch_group_enter(group);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        self.bindAccount = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"未绑定账号" ;
-        self.badgeNumber = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BADGENUMBER] ?: @"未同步";
+        if (![SDKStatusManager getSDKInitStatus]) {
+            self.bindAccount = @"-";
+            self.badgeNumber = @"-";
+        } else {
+            self.bindAccount = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"未绑定账号" ;
+            self.badgeNumber = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BADGENUMBER] ?: @"未同步";
+        }
         dispatch_group_leave(group);
     });
 

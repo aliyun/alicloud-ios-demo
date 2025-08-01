@@ -10,6 +10,7 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "SQLiteManager.h"
 #import "mpush_ios_demo-Swift.h"
+#import "SDKStatusManager.h"
 
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
@@ -207,6 +208,8 @@ NSString *const testAppSecret = @"bf524eae098740c2bce55c968a082353";
         } else {
             NSLog(@"Push SDK init failed, error: %@", res.error);
         }
+        // 更新一下SDK初始化状态
+        [SDKStatusManager updateSDKStatus:res.success];
     }];
 }
 

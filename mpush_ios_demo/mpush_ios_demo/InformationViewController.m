@@ -11,6 +11,7 @@
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "CustomToastUtil.h"
 #import "InformationCCPTableViewCell.h"
+#import "SDKStatusManager.h"
 
 @interface InformationViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -46,25 +47,54 @@
     NSDictionary *contactUs = @{@"联系我们":@"搜索钉钉客户支持群：30959784"};
     [self.informationArray addObject:contactUs];
 
+    NSString *deviceIDString;
+    NSString *deviceIDTimeString;
+    NSString *deviceTokenString;
+    NSString *bindAccountString;
+
+    BOOL SDKStatus = [SDKStatusManager getSDKInitStatus];
+
+    // 如果SDK没有初始化成功，头部展示失败，并且不再获取deviceID、DeviceID存储日期、DeviceToken、当前绑定账号
+    if (!SDKStatus) {
+        NSDictionary *SDKStatus = @{@"SDK注册状态":@"注册失败"};
+        [self.informationArray addObject:SDKStatus];
+
+        deviceIDString = @"-";
+        deviceIDTimeString = @"-";
+        deviceTokenString = @"-";
+        bindAccountString = @"-";
+    } else {
+        // DeviceID
+        deviceIDString = [CloudPushSDK getDeviceId] ?: @"-";
+
+        //deviceID 时间戳
+        NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+        NSString *deviceIDTStr = [userDef objectForKey:@"al_mp_devicedId_timerInterval"];
+        deviceIDTimeString = @"-";
+        if ([deviceIDTStr floatValue] > 0) {
+            NSDate *deviceIDTDate = [NSDate dateWithTimeIntervalSince1970:[deviceIDTStr floatValue]];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            deviceIDTimeString = [dateFormatter stringFromDate:deviceIDTDate];
+        }
+
+        // deviceToken
+        deviceTokenString = [CloudPushSDK getApnsDeviceToken] ?: @"-";
+
+        // 当前绑定账号
+        bindAccountString = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"未绑定账号" ;
+    }
+
     // DeviceID
-    NSDictionary *deviceID = @{@"DeviceID":[CloudPushSDK getDeviceId] ?: @"-"};
+    NSDictionary *deviceID = @{@"DeviceID":deviceIDString};
     [self.informationArray addObject:deviceID];
 
     //deviceID 时间戳
-    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
-    NSString *deviceIDTStr = [userDef objectForKey:@"al_mp_devicedId_timerInterval"];
-    NSString *deviceIDTDateStr = @"-";
-    if ([deviceIDTStr floatValue] > 0) {
-        NSDate *deviceIDTDate = [NSDate dateWithTimeIntervalSince1970:[deviceIDTStr floatValue]];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        deviceIDTDateStr = [dateFormatter stringFromDate:deviceIDTDate];
-    }
-    NSDictionary *deviceIDTime = @{@"DeviceID存储日期":deviceIDTDateStr};
+    NSDictionary *deviceIDTime = @{@"DeviceID存储日期":deviceIDTimeString};
     [self.informationArray addObject:deviceIDTime];
 
     // deviceToken
-    NSDictionary *deviceToken = @{@"DeviceToken":[CloudPushSDK getApnsDeviceToken] ?: @"-"};
+    NSDictionary *deviceToken = @{@"DeviceToken":deviceTokenString};
     [self.informationArray addObject:deviceToken];
 
     // 推送SDK版本号
@@ -72,7 +102,6 @@
     [self.informationArray addObject:SDKVersion];
 
     // 当前绑定账号
-    NSString *bindAccountString = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"未绑定账号" ;
     NSDictionary *bindAccount = @{@"当前绑定账号":bindAccountString};
     [self.informationArray addObject:bindAccount];
 
