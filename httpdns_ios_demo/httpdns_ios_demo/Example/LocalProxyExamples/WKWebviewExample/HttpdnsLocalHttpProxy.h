@@ -98,6 +98,21 @@ typedef NS_ENUM(NSInteger, HttpdnsProxyLogLevel) {
  */
 + (BOOL)installIntoWebViewConfiguration:(WKWebViewConfiguration *)configuration;
 
+/**
+ *  从WKWebViewConfiguration中卸载本地代理
+ *
+ *  此方法会清除之前为WKWebView配置的代理设置，使其恢复使用系统默认网络
+ *  使用与安装时相同的专用数据存储标识符来定位和清理配置
+ *
+ *  @param configuration 目标WKWebViewConfiguration实例，不能为nil
+ *
+ *  @code
+ *  // 在不再需要代理时调用
+ *  [HttpdnsLocalHttpProxy uninstallFromWebViewConfiguration:webView.configuration];
+ *  @endcode
+ */
++ (void)uninstallFromWebViewConfiguration:(WKWebViewConfiguration *)configuration;
+
 #pragma mark - 日志配置
 
 /**
