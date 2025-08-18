@@ -60,6 +60,9 @@
 		7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBD2CD2342700EE1883 /* AliasListViewController.m */; };
 		7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBF2CD2343D00EE1883 /* AliasListViewController.storyboard */; };
 		7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF16B392CB8CD3B00256421 /* MessageViewController.m */; };
+		7EF4B2B22E53090300DE44CF /* SDKConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4B2B12E53090300DE44CF /* SDKConfigViewController.m */; };
+		7EF4B2B52E53091700DE44CF /* ConfigsHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4B2B42E53091700DE44CF /* ConfigsHistoryView.m */; };
+		7EF4B2B82E53096100DE44CF /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4B2B72E53096100DE44CF /* CommonTools.m */; };
 		C9102D251ACED5B70094FCEC /* FAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D151ACED5B70094FCEC /* FAImageView.m */; };
 		C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C9102D171ACED5B70094FCEC /* NSString+FontAwesome.m */; };
 		C9102D281ACED5B70094FCEC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9102D1A1ACED5B70094FCEC /* FontAwesome.ttf */; };
@@ -214,6 +217,12 @@
 		7EDD2EC12CD3229A00EE1883 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		7EF16B382CB8CD3B00256421 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		7EF16B392CB8CD3B00256421 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		7EF4B2B02E53090300DE44CF /* SDKConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKConfigViewController.h; sourceTree = "<group>"; };
+		7EF4B2B12E53090300DE44CF /* SDKConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKConfigViewController.m; sourceTree = "<group>"; };
+		7EF4B2B32E53091700DE44CF /* ConfigsHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigsHistoryView.h; sourceTree = "<group>"; };
+		7EF4B2B42E53091700DE44CF /* ConfigsHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigsHistoryView.m; sourceTree = "<group>"; };
+		7EF4B2B62E53096100DE44CF /* CommonTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTools.h; sourceTree = "<group>"; };
+		7EF4B2B72E53096100DE44CF /* CommonTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTools.m; sourceTree = "<group>"; };
 		C9102D141ACED5B70094FCEC /* FAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAImageView.h; sourceTree = "<group>"; };
 		C9102D151ACED5B70094FCEC /* FAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAImageView.m; sourceTree = "<group>"; };
 		C9102D161ACED5B70094FCEC /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -465,6 +474,10 @@
 		C95EFE081ACAE3B90082CF70 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7EF4B2B32E53091700DE44CF /* ConfigsHistoryView.h */,
+				7EF4B2B42E53091700DE44CF /* ConfigsHistoryView.m */,
+				7EF4B2B02E53090300DE44CF /* SDKConfigViewController.h */,
+				7EF4B2B12E53090300DE44CF /* SDKConfigViewController.m */,
 				7E2E5CFE2CBFB9440030441B /* SettingViewController.h */,
 				7E2E5CFF2CBFB9440030441B /* SettingViewController.m */,
 				7E1014932CC9E1880075F777 /* SettingTagsContentView.h */,
@@ -499,6 +512,8 @@
 		C95EFE0C1ACAF3C90082CF70 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7EF4B2B62E53096100DE44CF /* CommonTools.h */,
+				7EF4B2B72E53096100DE44CF /* CommonTools.m */,
 				7E0C42D62E41F8BA00E95EFF /* SDKStatusManager.h */,
 				7E0C42D72E41F8BA00E95EFF /* SDKStatusManager.m */,
 				C95EFE091ACAF3C40082CF70 /* MsgToolBox.h */,
@@ -896,6 +911,7 @@
 				7E287E5C2CCF668A009AB44F /* SQLiteManager.m in Sources */,
 				7E2E5CEE2CBCEDFC0030441B /* MessageTableViewCell.m in Sources */,
 				7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */,
+				7EF4B2B82E53096100DE44CF /* CommonTools.m in Sources */,
 				7E2C7BFB2CD390A3006CDFE5 /* UIView+TopCorners.m in Sources */,
 				7ED130AC2D9A9851009C4900 /* LiveActivityListViewController.swift in Sources */,
 				7E8DBA6E2CD35E82001DFF0E /* NSString+Numeric.m in Sources */,
@@ -917,6 +933,7 @@
 				7E0C42D82E41F8BA00E95EFF /* SDKStatusManager.m in Sources */,
 				7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */,
 				7E10148F2CC8ECC30075F777 /* SettingTagTableViewCell.m in Sources */,
+				7EF4B2B52E53091700DE44CF /* ConfigsHistoryView.m in Sources */,
 				C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */,
 				7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
@@ -926,6 +943,7 @@
 				C99E76611AC96B8B000BC567 /* main.m in Sources */,
 				7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */,
 				C9102D261ACED5B70094FCEC /* NSString+FontAwesome.m in Sources */,
+				7EF4B2B22E53090300DE44CF /* SDKConfigViewController.m in Sources */,
 				7E2E5CFA2CBD20E80030441B /* UIColor+Hex.m in Sources */,
 				7ED130AF2D9A9DAE009C4900 /* ActivitiesTableViewCell.swift in Sources */,
 				7E1014832CC64A150075F777 /* SettingSingleTableViewCell.m in Sources */,

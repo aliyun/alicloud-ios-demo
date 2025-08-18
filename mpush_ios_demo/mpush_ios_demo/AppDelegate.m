@@ -16,10 +16,16 @@
 #import <UserNotifications/UserNotifications.h>
 
 // 请前往 https://emas.console.aliyun.com 创建你自己的 App 并替换以下参数值
-NSString *const testAppKey = @"335545903";
-NSString *const testAppSecret = @"bf524eae098740c2bce55c968a082353";
+NSString *testAppKey = @"335545903";
+NSString *testAppSecret = @"bf524eae098740c2bce55c968a082353";
+
+// 预发环境使用
+NSString *elsHost;
+NSString *vipHost;
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
+
+@property (nonatomic, assign) NSInteger SDKEnv;
 
 @end
 
@@ -32,6 +38,10 @@ NSString *const testAppSecret = @"bf524eae098740c2bce55c968a082353";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // APNs注册，获取deviceToken并上报
     [self registerAPNS:application];
+    // 获取本地配置
+    if ([CommonTools getConfigViewVisible]) {
+        [self fetchLocalConfig];
+    }
     // 初始化SDK
     [self initCloudPush];
     // 监听推送通道打开动作
@@ -201,16 +211,46 @@ NSString *const testAppSecret = @"bf524eae098740c2bce55c968a082353";
     // 正式上线建议关闭
     [CloudPushSDK setLogLevel:MPLogLevelDebug];
 
-    // SDK初始化，手动输出appKey和appSecret
-    [CloudPushSDK startWithAppkey:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult * _Nonnull res) {
-        if (res.success) {
-            NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
-        } else {
-            NSLog(@"Push SDK init failed, error: %@", res.error);
-        }
-        // 更新一下SDK初始化状态
-        [SDKStatusManager updateSDKStatus:res.success];
-    }];
+    if (self.SDKEnv == 0) {
+        // 生产
+        [CloudPushSDK startWithAppkey:testAppKey appSecret:testAppSecret callback:^(CloudPushCallbackResult * _Nonnull res) {
+            if (res.success) {
+                NSLog(@"Push SDK init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+            } else {
+                NSLog(@"Push SDK init failed, error: %@", res.error);
+            }
+            // 更新一下SDK初始化状态
+            [SDKStatusManager updateSDKStatus:res.success];
+        }];
+    } else {
+        // 预发
+        [CloudPushSDK startWithAppkey:testAppKey appSecret:testAppSecret elsHost:elsHost vipHost:vipHost callback:^(CloudPushCallbackResult * _Nonnull res) {
+            if (res.success) {
+                NSLog(@"Push SDK-Pre init success, deviceId: %@.", [CloudPushSDK getDeviceId]);
+            } else {
+                NSLog(@"Push SDK-Pre init failed, error: %@", res.error);
+            }
+            // 更新一下SDK初始化状态
+            [SDKStatusManager updateSDKStatus:res.success];
+        }];
+    }
+}
+
+- (void)fetchLocalConfig {
+    NSString *appKey = (NSString *)[CommonTools userDefaultGet:kAppKey];
+    NSString *secretKey = (NSString *)[CommonTools userDefaultGet:kSecretKey];
+    NSNumber *envIndexNumber = [CommonTools userDefaultGet:kSDKEnv];
+
+    if (!appKey || !secretKey || !envIndexNumber) {
+        return;
+    }
+
+    testAppKey = appKey;
+    testAppSecret = secretKey;
+    NSDictionary *preConfigs = [CommonTools getPreServiceUrl];
+    elsHost = preConfigs[@"elsHost"];
+    vipHost = preConfigs[@"vipHost"];
+    self.SDKEnv = [envIndexNumber integerValue];
 }
 
 #pragma mark Notification Open

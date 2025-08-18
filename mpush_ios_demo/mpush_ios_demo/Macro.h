@@ -15,4 +15,9 @@
 // 角标同步缓存key
 #define DEVICE_BADGENUMBER [NSString stringWithFormat:@"%@_badgeAccount",testAppKey]
 
+#define kAppKey @"pushSDKAppkey"
+#define kSecretKey @"pushSDKAppSecret"
+#define kSDKEnv @"pushSDKEnv"
+#define kConfigsHistory @"pushSDKConfigsHistory"
+
 #endif /* Macro_h */

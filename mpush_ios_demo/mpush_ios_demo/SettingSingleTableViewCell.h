@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, SettingSingleCellType) {
     SettingSingleCellTypeActivity,
     SettingSingleCellTypeAccount,
     SettingSingleCellTypeBadgeNumber,
+    SettingSingleCellTypeConfig
 };
 
 @interface SettingSingleTableViewCell : UITableViewCell

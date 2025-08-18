@@ -59,6 +59,9 @@
     } else if (cellType == SettingSingleCellTypeBadgeNumber) {
         self.titleLabel.text = @"角标数同步";
         self.contentLabel.text = @"未同步";
+    } else if (cellType == SettingSingleCellTypeConfig) {
+        self.titleLabel.text = @"环境与AppKey配置";
+        self.contentLabel.text = @"";
     } else {
         self.titleLabel.text = @"活动管理";
         self.contentLabel.text = @"";
