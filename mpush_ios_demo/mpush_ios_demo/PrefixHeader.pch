@@ -25,4 +25,6 @@
 
 #import "MsgToolBox.h"
 
+#import "CommonTools.h"
+
 #endif /* PrefixHeader_pch */

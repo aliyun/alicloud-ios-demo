@@ -20,6 +20,12 @@
 	<string>1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>ConfigAVisible</key>
+	<string>${CONFIG_A_VISIBLE}</string>
+	<key>PreElsUrl</key>
+	<string>$(PRE_ELS_URL)</string>
+	<key>PreVipUrl</key>
+	<string>$(PRE_VIP_URL)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

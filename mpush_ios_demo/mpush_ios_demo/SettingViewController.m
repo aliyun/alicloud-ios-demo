@@ -17,6 +17,8 @@
 #import "SettingAddTagViewController.h"
 #import "ShowAllTagsViewController.h"
 #import "mpush_ios_demo-Swift.h"
+#import "SDKConfigViewController.h"
+#import "SDKStatusManager.h"
 
 @interface SettingViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -43,6 +45,15 @@
 
     [self.descriptionButton setTitleColor:[UIColor colorWithHexString:@"#315CFC"] forState:UIControlStateNormal];
     self.descriptionButton.titleLabel.font = [UIFont systemFontOfSize:14];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for (UITableViewCell *cell in self.settingTableView.visibleCells) {
+            NSIndexPath *indexPath = [self.settingTableView indexPathForCell:cell];
+            if (![SDKStatusManager getSDKInitStatus] && indexPath.section != 5) {
+                cell.userInteractionEnabled = NO;
+            }
+        }
+    });
 }
 
 - (void)viewDidLoad {
@@ -108,8 +119,13 @@
     // load account & badge data
     dispatch_group_enter(group);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        self.bindAccount = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"未绑定账号" ;
-        self.badgeNumber = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BADGENUMBER] ?: @"未同步";
+        if (![SDKStatusManager getSDKInitStatus]) {
+            self.bindAccount = @"-";
+            self.badgeNumber = @"-";
+        } else {
+            self.bindAccount = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BINDACCOUNT] ?: @"未绑定账号" ;
+            self.badgeNumber = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_BADGENUMBER] ?: @"未同步";
+        }
         dispatch_group_leave(group);
     });
 
@@ -277,6 +293,9 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if ([CommonTools getConfigViewVisible]) {
+        return 6;
+    }
     return 5;
 }
 
@@ -308,16 +327,19 @@
             return [self configuredAliasCell];
         case 2:
         case 3:
-        case 4: {
+        case 4:
+        case 5: {
             SettingSingleTableViewCell *cell;
             if (indexPath.section == 2) {
                 cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeActivity];
             } else if (indexPath.section == 3) {
                 cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeAccount];
                 [cell setData:self.bindAccount];
-            } else {
+            } else if (indexPath.section == 4) {
                 cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeBadgeNumber];
                 [cell setData:self.badgeNumber];
+            } else {
+                cell = [SettingSingleTableViewCell cellWithType:SettingSingleCellTypeConfig];
             }
             return cell;
         }
@@ -377,6 +399,11 @@
                 });
             }];
         }];
+    } else if (indexPath.section == 5) {
+        // 进入SDK配置页面
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SDKConfigViewController *configViewController = [storyboard instantiateViewControllerWithIdentifier:@"SDKConfigViewController"];
+        [self.navigationController pushViewController:configViewController animated:YES];
     }
 }
 
