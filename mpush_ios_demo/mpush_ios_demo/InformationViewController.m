@@ -18,7 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *informationTableView;
 
-@property (nonatomic, strong)NSMutableArray *informationArray;
+@property (nonatomic, strong) NSMutableArray *informationArray;
 
 @end
 

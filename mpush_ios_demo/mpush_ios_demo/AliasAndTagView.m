@@ -10,11 +10,11 @@
 
 @interface AliasAndTagView()
 
-@property (nonatomic, strong)UILabel *titleLabel;
-@property (nonatomic, strong)UIImageView *iconImageView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *iconImageView;
 
-@property (nonatomic, assign)ViewType type;
-@property (nonatomic, copy)NSString *title;
+@property (nonatomic, assign) ViewType type;
+@property (nonatomic, copy) NSString *title;
 
 @end
 

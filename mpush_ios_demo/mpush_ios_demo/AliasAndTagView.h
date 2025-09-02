@@ -24,13 +24,13 @@ typedef void(^DeleteAliasTagHandle)(NSString *alias, NSString *tag);
 
 @interface AliasAndTagView : UIView
 
-@property (nonatomic, copy)AddAliasAndTagHandle addHandle;
+@property (nonatomic, copy) AddAliasAndTagHandle addHandle;
 
-@property (nonatomic, copy)DeleteHandle deleteHandle;
+@property (nonatomic, copy) DeleteHandle deleteHandle;
 
-@property (nonatomic, copy)DeleteAliasTagHandle deleteAliasTagHandle;
+@property (nonatomic, copy) DeleteAliasTagHandle deleteAliasTagHandle;
 
-@property (nonatomic, copy)NSString *alias;
+@property (nonatomic, copy) NSString *alias;
 
 - (instancetype)initWithType:(ViewType)type title:(nullable NSString *)title;
 

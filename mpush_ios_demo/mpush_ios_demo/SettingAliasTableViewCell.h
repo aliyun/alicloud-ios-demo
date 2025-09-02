@@ -18,11 +18,11 @@ typedef void(^ShowAllAliasHandle)(void);
 
 @interface SettingAliasTableViewCell : UITableViewCell
 
-@property (nonatomic, copy)AddAliasHandle addHandle;
+@property (nonatomic, copy) AddAliasHandle addHandle;
 
-@property (nonatomic, copy)DeleteAliasHandle deleteHandle;
+@property (nonatomic, copy) DeleteAliasHandle deleteHandle;
 
-@property (nonatomic, copy)ShowAllAliasHandle showAllHandle;
+@property (nonatomic, copy) ShowAllAliasHandle showAllHandle;
 
 - (void)setAlias:(NSArray *)aliasArray;
 

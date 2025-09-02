@@ -11,11 +11,11 @@
 
 @interface SettingTagsContentView()
 
-@property (nonatomic, copy)NSArray<SettingTag *> *tags;
-@property (nonatomic, copy)NSString *title;
-@property (nonatomic, strong)UIButton *showAllButton;
-@property (nonatomic, assign)CGFloat height;
-@property (nonatomic, strong)UIView *line;
+@property (nonatomic, copy) NSArray<SettingTag *> *tags;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) UIButton *showAllButton;
+@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, strong) UIView *line;
 
 @end
 

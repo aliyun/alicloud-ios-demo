@@ -17,8 +17,8 @@ typedef void(^ContentViewShowAllTagsHandle)(void);
 
 @interface SettingTagsContentView : UIView
 
-@property (nonatomic, copy)DeleteTagHandle deleteHandle;
-@property (nonatomic, copy)ContentViewShowAllTagsHandle showAllHandle;
+@property (nonatomic, copy) DeleteTagHandle deleteHandle;
+@property (nonatomic, copy) ContentViewShowAllTagsHandle showAllHandle;
 
 - (instancetype)initWithTitle:(NSString *)title Tags:(NSArray<SettingTag *> *)tags;
 

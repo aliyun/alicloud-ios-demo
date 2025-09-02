@@ -12,16 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SettingTag : NSObject
 
-@property (nonatomic, assign)int tagId;
+@property (nonatomic, assign) int tagId;
 
 /// 标签名
-@property (nonatomic, copy)NSString *tagName;
+@property (nonatomic, copy) NSString *tagName;
 
 /// 标签绑定的别名
-@property (nonatomic, copy)NSString *tagAlias;
+@property (nonatomic, copy) NSString *tagAlias;
 
 /// 标签类型 1：本设备  2：本设备绑定账号  3：别名
-@property (nonatomic, assign)int tagType;
+@property (nonatomic, assign) int tagType;
 
 @end
 

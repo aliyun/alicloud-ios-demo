@@ -19,11 +19,11 @@ typedef void(^ShowAllTagsHandle)(int tagType);
 
 @interface SettingTagTableViewCell : UITableViewCell
 
-@property (nonatomic, copy)AddTagHandle addHandle;
+@property (nonatomic, copy) AddTagHandle addHandle;
 
-@property (nonatomic, copy)DeleteTagHandle deleteHandle;
+@property (nonatomic, copy) DeleteTagHandle deleteHandle;
 
-@property (nonatomic, copy)ShowAllTagsHandle showAllHandle;
+@property (nonatomic, copy) ShowAllTagsHandle showAllHandle;
 
 - (void)setTagsData:(NSDictionary *)data;
 

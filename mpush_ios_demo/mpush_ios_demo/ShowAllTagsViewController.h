@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ShowAllTagsViewController : UIViewController
 
-@property (nonatomic, assign)BOOL isAlias;
+@property (nonatomic, assign) BOOL isAlias;
 
-@property (nonatomic, copy)NSArray *dataArray;
+@property (nonatomic, copy) NSArray *dataArray;
 
 @end
 

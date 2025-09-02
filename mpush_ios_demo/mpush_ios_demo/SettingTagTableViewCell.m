@@ -12,13 +12,13 @@
 
 @interface SettingTagTableViewCell()
 
-@property (nonatomic, strong)UILabel *titleLabel;
-@property (nonatomic, strong)UIButton *addButton;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIButton *addButton;
 
-@property (nonatomic, strong)NSLayoutConstraint *addViewLeftConstraint;
-@property (nonatomic, strong)NSLayoutConstraint *addViewTopConstraint;
-@property (nonatomic, strong)NSLayoutConstraint *addViewBottomConstraint;
-@property (nonatomic, strong)AliasAndTagView *addTagView;
+@property (nonatomic, strong) NSLayoutConstraint *addViewLeftConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *addViewTopConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *addViewBottomConstraint;
+@property (nonatomic, strong) AliasAndTagView *addTagView;
 
 @property (nonatomic, assign)CGFloat tagViewWidth;
 

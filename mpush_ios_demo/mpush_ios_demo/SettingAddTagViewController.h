@@ -15,9 +15,9 @@ typedef void(^AddTagResultHandle)(SettingTag *tag);
 
 @interface SettingAddTagViewController : UIViewController
 
-@property (nonatomic, copy)NSArray *aliasArray;
+@property (nonatomic, copy) NSArray *aliasArray;
 
-@property (nonatomic, copy)AddTagResultHandle addHandle;
+@property (nonatomic, copy) AddTagResultHandle addHandle;
 
 /// 设置默认选中标签类型
 /// - Parameter tagType: 1设备标签 2.账号标签 3.别名标签

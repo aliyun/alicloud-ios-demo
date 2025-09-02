@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 
-@property (nonatomic, strong)NSMutableArray *pushMessages;
+@property (nonatomic, strong) NSMutableArray *pushMessages;
 
 @end
 

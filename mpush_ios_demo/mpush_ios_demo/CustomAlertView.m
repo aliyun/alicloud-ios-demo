@@ -18,13 +18,13 @@
 
 @interface CustomAlertView()
 
-@property(nonatomic, strong)UIVisualEffectView *blurEffectView;
-@property (nonatomic, assign)AlertInputType inputType;
-@property (nonatomic, strong)UITextField *inputTextField;
-@property (nonatomic, copy)InputHandle inputHandle;
+@property (nonatomic, strong) UIVisualEffectView *blurEffectView;
+@property (nonatomic, assign) AlertInputType inputType;
+@property (nonatomic, strong) UITextField *inputTextField;
+@property (nonatomic, copy) InputHandle inputHandle;
 
-@property (nonatomic, strong)UIButton *cancleButton;
-@property (nonatomic, strong)UIButton *closeButton;
+@property (nonatomic, strong) UIButton *cancleButton;
+@property (nonatomic, strong) UIButton *closeButton;
 
 @end
 
