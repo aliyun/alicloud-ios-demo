@@ -11,6 +11,7 @@
 #import "SQLiteManager.h"
 #import "mpush_ios_demo-Swift.h"
 #import "SDKStatusManager.h"
+#import "NotificationDataManager.h"
 
 // iOS 10 notification
 #import <UserNotifications/UserNotifications.h>
@@ -141,6 +142,7 @@ NSString *vipHost;
     UNNotificationRequest *request = notification.request;
     UNNotificationContent *content = request.content;
     NSDictionary *userInfo = content.userInfo;
+
     // 通知时间
     NSDate *noticeDate = notification.date;
     // 标题
@@ -162,6 +164,20 @@ NSString *vipHost;
     NSLog(@"Notification, date: %@, title: %@, subtitle: %@, body: %@, badge: %d, extras: %@.", noticeDate, title, subtitle, body, badge, extras);
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [CloudPushSDK sendNotificationAck:userInfo];
+
+    // 将静默通知存入json文件
+    if (userInfo) {
+        [NotificationDataManager saveNotificationData:userInfo];
+
+        // 发出通知，本地文件中添加了一条静默通知，在需要刷新的地方接收通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PUSHNOTIFICATION_INSERT" object:nil];
+    }
+
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
 /**
  *  App处于前台时收到通知(iOS 10+)
  */
@@ -171,7 +187,7 @@ NSString *vipHost;
     [self handleiOS10Notification:notification];
     // 通知不弹出
     completionHandler(UNNotificationPresentationOptionNone);
-    
+
     // 通知弹出，且带有声音、内容和角标
     //completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
 }
@@ -198,7 +214,7 @@ NSString *vipHost;
     if ([userAction isEqualToString:customAction1]) {
         NSLog(@"User custom action1.");
     }
-    
+
     // 点击用户自定义Action2
     if ([userAction isEqualToString:customAction2]) {
         NSLog(@"User custom action2.");

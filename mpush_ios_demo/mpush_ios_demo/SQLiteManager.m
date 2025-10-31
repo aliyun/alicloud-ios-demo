@@ -153,8 +153,6 @@
 }
 
 - (void)removeTag:(SettingTag *)tag {
-    [self init_datebase];
-
     NSString *deleteSQL = [NSString stringWithFormat:
                                @"DELETE FROM SETTINGTAGS WHERE ID = '%i'", tag.tagId];
     [self excute:deleteSQL];

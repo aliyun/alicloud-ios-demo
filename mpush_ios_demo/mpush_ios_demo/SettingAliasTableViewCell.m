@@ -11,13 +11,13 @@
 
 @interface SettingAliasTableViewCell()
 
-@property (nonatomic, strong)UILabel *titleLabel;
-@property (nonatomic, strong)UIButton *showAllButton;
-@property (nonatomic, strong)AliasAndTagView *addAliasView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIButton *showAllButton;
+@property (nonatomic, strong) AliasAndTagView *addAliasView;
 
-@property (nonatomic, strong)NSLayoutConstraint *addViewLeftConstraint;
-@property (nonatomic, strong)NSLayoutConstraint *addViewTopConstraint;
-@property (nonatomic, strong)NSLayoutConstraint *addViewBottomConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *addViewLeftConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *addViewTopConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *addViewBottomConstraint;
 
 @property (nonatomic, assign)CGFloat aliasViewWidth;
 

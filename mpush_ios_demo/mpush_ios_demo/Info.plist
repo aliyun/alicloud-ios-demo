@@ -20,12 +20,6 @@
 	<string>1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>ConfigAVisible</key>
-	<string>${CONFIG_A_VISIBLE}</string>
-	<key>PreElsUrl</key>
-	<string>$(PRE_ELS_URL)</string>
-	<key>PreVipUrl</key>
-	<string>$(PRE_VIP_URL)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -41,10 +35,16 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>ConfigAVisible</key>
+	<string>${CONFIG_A_VISIBLE}</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
+	<key>PreElsUrl</key>
+	<string>$(PRE_ELS_URL)</string>
+	<key>PreVipUrl</key>
+	<string>$(PRE_VIP_URL)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>

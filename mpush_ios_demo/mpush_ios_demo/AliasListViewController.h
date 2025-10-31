@@ -14,9 +14,9 @@ typedef void(^ChooseAliasHandle)(NSString *alias);
 
 @interface AliasListViewController : UIViewController
 
-@property (nonatomic, copy)NSArray *aliasArray;
+@property (nonatomic, copy) NSArray *aliasArray;
 
-@property (nonatomic, copy)ChooseAliasHandle chooseHandle;
+@property (nonatomic, copy) ChooseAliasHandle chooseHandle;
 
 @end
 

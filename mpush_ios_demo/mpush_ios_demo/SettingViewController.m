@@ -24,13 +24,13 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 
-@property (nonatomic, strong)NSMutableArray *aliasArray;
+@property (nonatomic, strong) NSMutableArray *aliasArray;
 
-@property (nonatomic, strong)NSMutableDictionary *tagsData;
+@property (nonatomic, strong) NSMutableDictionary *tagsData;
 
-@property (nonatomic, copy)NSString *bindAccount;
+@property (nonatomic, copy) NSString *bindAccount;
 
-@property (nonatomic, copy)NSString *badgeNumber;
+@property (nonatomic, copy) NSString *badgeNumber;
 
 @property (weak, nonatomic) IBOutlet UIButton *descriptionButton;
 

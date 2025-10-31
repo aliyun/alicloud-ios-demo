@@ -10,13 +10,13 @@
 
 @interface AddTagTypeButton()
 
-@property (nonatomic, strong)UIImageView *selectedIcon;
+@property (nonatomic, strong) UIImageView *selectedIcon;
 
-@property (nonatomic, strong)UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *nameLabel;
 
-@property (nonatomic, strong)UILabel *valueLabel;
+@property (nonatomic, strong) UILabel *valueLabel;
 
-@property (nonatomic, strong)UIImageView *arrow;
+@property (nonatomic, strong) UIImageView *arrow;
 
 @end
 

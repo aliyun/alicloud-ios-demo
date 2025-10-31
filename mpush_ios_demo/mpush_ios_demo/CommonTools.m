@@ -61,7 +61,7 @@
 
 + (BOOL)getConfigViewVisible {
     NSString *visible = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ConfigAVisible"];
-    return [visible.uppercaseString isEqualToString:@"YES"] || [visible isEqualToString:@"1"];;
+    return [visible.uppercaseString isEqualToString:@"YES"] || [visible isEqualToString:@"1"];
 }
 
 + (NSDictionary *)getPreServiceUrl {

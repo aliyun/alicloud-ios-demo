@@ -16,9 +16,9 @@ typedef void(^DeleteAliasHandle)(NSString *alias);
 
 @interface TagsCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, copy)DeleteHandle deleteHandle;
+@property (nonatomic, copy) DeleteHandle deleteHandle;
 
-@property (nonatomic, copy)DeleteAliasHandle deleteAliasHandle;
+@property (nonatomic, copy) DeleteAliasHandle deleteAliasHandle;
 
 - (void)setTag:(SettingTag *)tag;
 

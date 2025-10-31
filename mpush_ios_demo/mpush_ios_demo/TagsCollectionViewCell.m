@@ -10,10 +10,10 @@
 
 @interface TagsCollectionViewCell()
 
-@property (nonatomic, strong)UILabel *titleLabel;
-@property (nonatomic, strong)UIImageView *iconImageView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *iconImageView;
 
-@property (nonatomic, strong)SettingTag *bindTag;
+@property (nonatomic, strong) SettingTag *bindTag;
 
 @end
 

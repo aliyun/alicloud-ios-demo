@@ -60,6 +60,8 @@
 		7EDD2EBE2CD2342700EE1883 /* AliasListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBD2CD2342700EE1883 /* AliasListViewController.m */; };
 		7EDD2EC02CD2343D00EE1883 /* AliasListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDD2EBF2CD2343D00EE1883 /* AliasListViewController.storyboard */; };
 		7EF16B3A2CB8CD3B00256421 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF16B392CB8CD3B00256421 /* MessageViewController.m */; };
+		7EF1C81E2E65853300E04BCC /* SilentNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF1C81D2E65853300E04BCC /* SilentNotificationViewController.m */; };
+		7EF1C8212E65A98900E04BCC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF1C8202E65A98900E04BCC /* NotificationDataManager.m */; };
 		7EF4B2B22E53090300DE44CF /* SDKConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4B2B12E53090300DE44CF /* SDKConfigViewController.m */; };
 		7EF4B2B52E53091700DE44CF /* ConfigsHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4B2B42E53091700DE44CF /* ConfigsHistoryView.m */; };
 		7EF4B2B82E53096100DE44CF /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4B2B72E53096100DE44CF /* CommonTools.m */; };
@@ -217,6 +219,10 @@
 		7EDD2EC12CD3229A00EE1883 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		7EF16B382CB8CD3B00256421 /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		7EF16B392CB8CD3B00256421 /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		7EF1C81C2E65853300E04BCC /* SilentNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SilentNotificationViewController.h; sourceTree = "<group>"; };
+		7EF1C81D2E65853300E04BCC /* SilentNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SilentNotificationViewController.m; sourceTree = "<group>"; };
+		7EF1C81F2E65A98900E04BCC /* NotificationDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
+		7EF1C8202E65A98900E04BCC /* NotificationDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		7EF4B2B02E53090300DE44CF /* SDKConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKConfigViewController.h; sourceTree = "<group>"; };
 		7EF4B2B12E53090300DE44CF /* SDKConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKConfigViewController.m; sourceTree = "<group>"; };
 		7EF4B2B32E53091700DE44CF /* ConfigsHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigsHistoryView.h; sourceTree = "<group>"; };
@@ -384,6 +390,15 @@
 			path = LiveActivity;
 			sourceTree = "<group>";
 		};
+		7EF1C81B2E65850300E04BCC /* SilentNotification */ = {
+			isa = PBXGroup;
+			children = (
+				7EF1C81C2E65853300E04BCC /* SilentNotificationViewController.h */,
+				7EF1C81D2E65853300E04BCC /* SilentNotificationViewController.m */,
+			);
+			path = SilentNotification;
+			sourceTree = "<group>";
+		};
 		C1DC29A7E60223AA9A35ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +540,8 @@
 				7E287E5A2CCF668A009AB44F /* SQLiteManager.h */,
 				7E287E5B2CCF668A009AB44F /* SQLiteManager.m */,
 				7EDD2EC12CD3229A00EE1883 /* Macro.h */,
+				7EF1C81F2E65A98900E04BCC /* NotificationDataManager.h */,
+				7EF1C8202E65A98900E04BCC /* NotificationDataManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -592,6 +609,7 @@
 				C95EFE141ACAFF780082CF70 /* Entitys */,
 				C95EFE0C1ACAF3C90082CF70 /* Utils */,
 				C93E19B51ACB95FE00A90F3B /* Message */,
+				7EF1C81B2E65850300E04BCC /* SilentNotification */,
 				C95EFE081ACAE3B90082CF70 /* Settings */,
 				C95EFE101ACAFA230082CF70 /* Personal */,
 			);
@@ -913,6 +931,7 @@
 				7EDD2EB62CD1E22E00EE1883 /* AddTagTypeButton.m in Sources */,
 				7EF4B2B82E53096100DE44CF /* CommonTools.m in Sources */,
 				7E2C7BFB2CD390A3006CDFE5 /* UIView+TopCorners.m in Sources */,
+				7EF1C81E2E65853300E04BCC /* SilentNotificationViewController.m in Sources */,
 				7ED130AC2D9A9851009C4900 /* LiveActivityListViewController.swift in Sources */,
 				7E8DBA6E2CD35E82001DFF0E /* NSString+Numeric.m in Sources */,
 				7E1014982CC9E2600075F777 /* SettingTag.m in Sources */,
@@ -936,6 +955,7 @@
 				7EF4B2B52E53091700DE44CF /* ConfigsHistoryView.m in Sources */,
 				C9102D2B1ACED5B70094FCEC /* KoaPullToRefresh.m in Sources */,
 				7E10148C2CC73D4C0075F777 /* AliasAndTagView.m in Sources */,
+				7EF1C8212E65A98900E04BCC /* NotificationDataManager.m in Sources */,
 				C99E76641AC96B8B000BC567 /* AppDelegate.m in Sources */,
 				C9102D2A1ACED5B70094FCEC /* UIImage+FontAwesome.m in Sources */,
 				7E2C7C062CD4BFE9006CDFE5 /* InformationCCPTableViewCell.m in Sources */,
@@ -1016,10 +1036,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.notiservice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.notiservice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.notiservice.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_SERVICE_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1046,10 +1066,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.notiservice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.notiservice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.notiservice.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_SERVICE_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1078,10 +1098,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.noticontent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.noticontent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.noticontent.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_CONTENT_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1109,10 +1129,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.noticontent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.noticontent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.noticontent.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_CONTENT_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1165,10 +1185,10 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.dynamicisland;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.dynamicisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dynamicisland.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DYNAMICISLAND_DEV;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1224,10 +1244,10 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.dynamicisland;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.dynamicisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dynamicisland.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DYNAMICISLAND_DEV;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1344,11 +1364,11 @@
 					"-ObjC",
 					"${inherited}",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_demo/LiveActivity/mpush_ios_demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1385,11 +1405,11 @@
 					"-ObjC",
 					"${inherited}",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_demo/LiveActivity/mpush_ios_demo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
