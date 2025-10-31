@@ -1,5 +1,5 @@
 #import "ProxyWebViewController.h"
-#import "HttpdnsLocalHttpProxy.h"
+#import <EMASLocalProxy/EMASLocalHttpProxy.h>
 #import <AlicloudHttpDNS/AlicloudHttpDNS.h>
 
 @interface ProxyWebViewController ()
@@ -74,20 +74,24 @@
     // 创建 WKWebViewConfiguration
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 
-    // 配置WebView代理
-    BOOL proxyConfigured = [HttpdnsLocalHttpProxy installIntoWebViewConfiguration:config];
-    if (proxyConfigured) {
-        NSLog(@"WKWebViewProxyScenario: Proxy configuration applied successfully");
-    } else {
-        NSLog(@"WKWebViewProxyScenario: Using system network (proxy unavailable)");
-    }
-
     // 配置DNS解析器
-    [HttpdnsLocalHttpProxy setDNSResolverBlock:^NSString *(NSString *hostname) {
+    [EMASLocalHttpProxy setDNSResolverBlock:^NSArray<NSString *> * _Nullable(NSString * _Nonnull hostname) {
         return [self resolveHostnameWithHTTPDNS:hostname];
     }];
 
-    [HttpdnsLocalHttpProxy setLogLevel:HttpdnsProxyLogLevelDebug];
+    [EMASLocalHttpProxy setLogLevel:EMASLocalHttpProxyLogLevelDebug];
+
+    // 配置WebView代理
+    if ([EMASLocalHttpProxy isProxyReady]) {
+        BOOL proxyConfigured = [EMASLocalHttpProxy installIntoWebViewConfiguration:config];
+        if (proxyConfigured) {
+            NSLog(@"WKWebViewProxyScenario: Proxy configuration applied successfully");
+        } else {
+            NSLog(@"WKWebViewProxyScenario: Using system network (proxy unavailable)");
+        }
+    } else {
+        NSLog(@"WKWebViewProxyScenario: Proxy haven't been ready.");
+    }
 
     // 创建WKWebView
     CGRect bounds = self.view.bounds;
@@ -105,36 +109,24 @@
 
 #pragma mark - Public Methods
 
-- (NSString *)resolveHostnameWithHTTPDNS:(NSString *)hostname {
-    // 获取HTTPDNS服务实例
+- (NSArray<NSString *> *)resolveHostnameWithHTTPDNS:(NSString *)hostname {
     HttpDnsService *httpdns = [HttpDnsService sharedInstance];
-    if (!httpdns) {
-        return hostname;
+    HttpdnsResult* result = [httpdns resolveHostSyncNonBlocking:hostname byIpType:HttpdnsQueryIPTypeAuto];
+
+    if (result && (result.hasIpv4Address || result.hasIpv6Address)) {
+        NSMutableArray<NSString *> *allIPs = [NSMutableArray array];
+        if (result.hasIpv4Address) {
+            [allIPs addObjectsFromArray:result.ips];
+        }
+        if (result.hasIpv6Address) {
+            [allIPs addObjectsFromArray:result.ipv6s];
+        }
+        NSLog(@"DNS resolved %@ to IPs: %@", hostname, allIPs);
+        return allIPs;
     }
 
-    // 使用HTTPDNS解析域名
-    HttpdnsResult *result = [httpdns resolveHostSync:hostname byIpType:HttpdnsQueryIPTypeAuto];
-
-    if (result) {
-        NSString *resolvedIP = nil;
-
-        // 使用IPv4地址
-        if ([result hasIpv4Address]) {
-            resolvedIP = [result firstIpv4Address];
-            NSLog(@"WKWebViewProxyScenario: HTTPDNS IPv4 resolved: %@ -> %@", hostname, resolvedIP);
-        } else if ([result hasIpv6Address]) {
-            // 如果没有IPv4地址，使用IPv6地址
-            resolvedIP = [result firstIpv6Address];
-            NSLog(@"WKWebViewProxyScenario: HTTPDNS IPv6 resolved: %@ -> %@", hostname, resolvedIP);
-        }
-
-        if (resolvedIP) {
-            return resolvedIP;
-        }
-    }
-
-    NSLog(@"WKWebViewProxyScenario: didn't get an IP from HTTPDNS, fallback to use original hostname: %@", hostname);
-    return hostname;
+    NSLog(@"DNS resolution failed for domain: %@", hostname);
+    return nil;
 }
 
 @end 
