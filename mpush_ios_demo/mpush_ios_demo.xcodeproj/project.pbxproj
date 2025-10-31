@@ -1036,10 +1036,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.notiservice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.notiservice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.notiservice.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_SERVICE_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1066,10 +1066,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.notiservice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.notiservice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.notiservice.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_SERVICE_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1098,10 +1098,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.noticontent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.noticontent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.noticontent.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_CONTENT_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1129,10 +1129,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.noticontent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.noticontent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.noticontent.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_CONTENT_DEV;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1185,10 +1185,10 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.dynamicisland;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.dynamicisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dynamicisland.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DYNAMICISLAND_DEV;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1244,10 +1244,10 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.dynamicisland;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push.dynamicisland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dynamicisland.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DYNAMICISLAND_DEV;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1364,11 +1364,11 @@
 					"-ObjC",
 					"${inherited}",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_demo/LiveActivity/mpush_ios_demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1405,11 +1405,11 @@
 					"-ObjC",
 					"${inherited}",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emasdemo.push;
 				PRODUCT_NAME = mpush_ios_demo;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EMAS_PUSH_IOS_DEMO_DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "mpush_ios_demo/LiveActivity/mpush_ios_demo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
