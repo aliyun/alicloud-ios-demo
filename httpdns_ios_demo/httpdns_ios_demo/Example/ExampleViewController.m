@@ -7,8 +7,6 @@
 
 #import "ExampleViewController.h"
 #import "PlaceHolderTextView.h"
-#import "GeneralScenario.h"
-#import "HTTPSSimpleScenario.h"
 #import "HTTPSWithSNIScenario.h"
 #import "AFNHttpsScenario.h"
 #import "AFNHttpsWithSNIScenario.h"
@@ -70,39 +68,12 @@
 
 #pragma mark - action
 
-- (IBAction)httpsSimpleScenario:(id)sender {
-    [self changeSelectedState:self.httpsScenario];
-
-    [self showLoading];
-    NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
-    [[HTTPSSimpleScenario new] httpDnsQueryWithURL:originalUrl completionHandler:^(NSString *message) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.resultTextView.text = message;
-            [self stopLoading];
-        });
-    }];
-}
-
 - (IBAction)httpsWithSNIScenario:(id)sender {
     [self changeSelectedState:self.httpsWithSNIScenario];
 
     [self showLoading];
     NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
     [HTTPSWithSNIScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.resultTextView.text = message;
-            [self stopLoading];
-        });
-    }];
-}
-
-- (IBAction)generalScenario:(id)sender {
-    [self changeSelectedState:self.generalScenario];
-
-    [self showLoading];
-    NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
-    originalUrl = [originalUrl stringByReplacingOccurrencesOfString:@"https" withString:@"http"];
-    [GeneralScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultTextView.text = message;
             [self stopLoading];
