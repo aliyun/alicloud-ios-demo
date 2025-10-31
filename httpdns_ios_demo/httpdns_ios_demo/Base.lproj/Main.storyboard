@@ -196,19 +196,41 @@
                                             <outletCollection property="gestureRecognizers" destination="WkB-Tap-Ges" appends="YES" id="WkB-Con-123"/>
                                         </connections>
                                     </label>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="EmasCurl场景" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUd-pW-Ox9" customClass="CustomLineSpacingLabel">
+                                        <rect key="frame" x="880" y="0.0" width="104" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="Zbk-ZS-lnU"/>
+                                            <constraint firstAttribute="height" constant="120" id="ta6-hF-vcG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="textColor" red="0.65490196079999996" green="0.73725490199999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="EiX-m8-tf6" appends="YES" id="0Oj-nm-yi9"/>
+                                        </connections>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7Ib-RW-PWc" firstAttribute="centerY" secondItem="bbd-Gk-dNJ" secondAttribute="centerY" id="0QV-sW-7dj"/>
+                                    <constraint firstItem="FUd-pW-Ox9" firstAttribute="leading" secondItem="WkB-Vp-2dL" secondAttribute="trailing" constant="6" id="3vv-19-aA8"/>
                                     <constraint firstItem="64D-JW-mv0" firstAttribute="leading" secondItem="goi-hb-OgU" secondAttribute="trailing" constant="6" id="51d-VT-5I9"/>
                                     <constraint firstItem="olF-87-4ZY" firstAttribute="leading" secondItem="7Ib-RW-PWc" secondAttribute="trailing" constant="6" id="AHU-wI-kNG"/>
                                     <constraint firstItem="olF-87-4ZY" firstAttribute="centerY" secondItem="7Ib-RW-PWc" secondAttribute="centerY" id="DGb-Db-abq"/>
                                     <constraint firstItem="goi-hb-OgU" firstAttribute="leading" secondItem="kAT-xv-csF" secondAttribute="leading" id="GGu-Q3-OKs"/>
+                                    <constraint firstAttribute="trailing" secondItem="FUd-pW-Ox9" secondAttribute="trailing" id="Vwm-F6-sUM"/>
                                     <constraint firstItem="WkB-Vp-2dL" firstAttribute="centerY" secondItem="olF-87-4ZY" secondAttribute="centerY" id="WkB-CenterY-123"/>
                                     <constraint firstItem="WkB-Vp-2dL" firstAttribute="leading" secondItem="olF-87-4ZY" secondAttribute="trailing" constant="6" id="WkB-Lead-123"/>
-                                    <constraint firstAttribute="trailing" secondItem="WkB-Vp-2dL" secondAttribute="trailing" id="WkB-Trail-123"/>
                                     <constraint firstItem="lpV-r8-rVa" firstAttribute="centerY" secondItem="VHD-Zm-Vfw" secondAttribute="centerY" id="arL-uC-UK0"/>
                                     <constraint firstItem="goi-hb-OgU" firstAttribute="top" secondItem="kAT-xv-csF" secondAttribute="top" id="dRq-9M-kjc"/>
                                     <constraint firstAttribute="width" secondItem="kAT-xv-csF" secondAttribute="height" multiplier="344:120" id="dY1-nH-hFH"/>
+                                    <constraint firstItem="FUd-pW-Ox9" firstAttribute="centerY" secondItem="WkB-Vp-2dL" secondAttribute="centerY" id="hKO-ft-3ds"/>
                                     <constraint firstItem="VHD-Zm-Vfw" firstAttribute="leading" secondItem="64D-JW-mv0" secondAttribute="trailing" constant="6" id="ikU-DN-GTU"/>
                                     <constraint firstItem="7Ib-RW-PWc" firstAttribute="leading" secondItem="bbd-Gk-dNJ" secondAttribute="trailing" constant="6" id="jCm-ac-2qr"/>
                                     <constraint firstItem="lpV-r8-rVa" firstAttribute="leading" secondItem="VHD-Zm-Vfw" secondAttribute="trailing" constant="6" id="kPe-a7-dzZ"/>
@@ -277,6 +299,7 @@
                         <outlet property="AlamofireWithSNIScenario" destination="bbd-Gk-dNJ" id="kb8-eb-3Np"/>
                         <outlet property="SDWebImageScenario" destination="olF-87-4ZY" id="jw2-UQ-CcK"/>
                         <outlet property="WKWebViewProxyScenario" destination="WkB-Vp-2dL" id="WkB-Out-123"/>
+                        <outlet property="emasCurlScenario" destination="FUd-pW-Ox9" id="Gai-9d-RYA"/>
                         <outlet property="httpsWithSNIScenario" destination="goi-hb-OgU" id="cSW-0i-8wS"/>
                         <outlet property="resultTextView" destination="01J-h5-3FJ" id="WJB-hH-Bxe"/>
                     </connections>
@@ -330,6 +353,11 @@
                 <tapGestureRecognizer id="WkB-Tap-Ges">
                     <connections>
                         <action selector="WKWebViewProxyScenario:" destination="BYZ-38-t0r" id="WkB-Act-123"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="EiX-m8-tf6">
+                    <connections>
+                        <action selector="EmasCurlScenario:" destination="BYZ-38-t0r" id="DyC-NP-ww5"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

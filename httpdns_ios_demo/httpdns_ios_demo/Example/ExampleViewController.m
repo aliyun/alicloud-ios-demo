@@ -16,14 +16,11 @@
 #import "HTTPDNSDemoLoading.h"
 #import "SDWebImageScenario.h"
 #import "ProxyWebViewController.h"
+#import "EmascurlScenario.h"
 
 @interface ExampleViewController ()
 
-@property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *httpsScenario;
-
 @property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *httpsWithSNIScenario;
-
-@property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *generalScenario;
 
 @property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *AFNetworkingScenario;
 
@@ -40,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *WKWebViewProxyScenario;
 
 @property (weak, nonatomic) IBOutlet PlaceHolderTextView *resultTextView;
+
+@property (weak, nonatomic) IBOutlet CustomLineSpacingLabel *emasCurlScenario;
 
 @property(nonatomic, strong)HTTPDNSDemoLoading *loading;
 
@@ -181,15 +180,24 @@
     }];
 }
 
+- (IBAction)EmasCurlScenario:(id)sender {
+    [self changeSelectedState:self.emasCurlScenario];
 
+    [self showLoading];
+    NSString *originalUrl = [HTTPDNSDemoUtils exampleTextUrlString];
+    [EmasCurlScenario httpDnsQueryWithURL:originalUrl completionHandler:^(NSString * _Nonnull message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.resultTextView.text = message;
+            [self stopLoading];
+        });
+    }];
+}
 
 - (void)changeSelectedState:(UILabel *)label {
     // 清除下方展示区域的内容（传递当前选中的标签信息）
     [self clearResultTextViewForLabel:label];
 
-    [self setupLayerFor:self.httpsScenario isSelected:NO];
     [self setupLayerFor:self.httpsWithSNIScenario isSelected:NO];
-    [self setupLayerFor:self.generalScenario isSelected:NO];
     [self setupLayerFor:self.AFNetworkingScenario isSelected:NO];
     [self setupLayerFor:self.AFNetwrokingWithSNIScenario isSelected:NO];
     [self setupLayerFor:self.AlamofireScenario isSelected:NO];
@@ -197,6 +205,7 @@
     [self setupLayerFor:self.AVPlayerScenario isSelected:NO];
     [self setupLayerFor:self.SDWebImageScenario isSelected:NO];
     [self setupLayerFor:self.WKWebViewProxyScenario isSelected:NO];
+    [self setupLayerFor:self.emasCurlScenario isSelected:NO];
 
     [self setupLayerFor:label isSelected:YES];
 }

@@ -23,6 +23,7 @@
 		7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */; };
 		7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC07CA82C4A137300D770F6 /* ExampleViewController.m */; };
 		7EC087B12C539EB6009EDF36 /* SettingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC087B02C539EB6009EDF36 /* SettingInfoModel.m */; };
+		7EC1EC452EB4AC7700B25CF7 /* EmasCurlScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1EC442EB4AC7700B25CF7 /* EmasCurlScenario.m */; };
 		7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */; };
 		7ED456CB2C5741F7006FC84E /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED456CA2C5741F7006FC84E /* SettingTableViewCell.m */; };
 		7ED456CE2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED456CD2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m */; };
@@ -111,6 +112,8 @@
 		7EC07CA82C4A137300D770F6 /* ExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		7EC087AF2C539EB6009EDF36 /* SettingInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingInfoModel.h; sourceTree = "<group>"; };
 		7EC087B02C539EB6009EDF36 /* SettingInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingInfoModel.m; sourceTree = "<group>"; };
+		7EC1EC432EB4AC7700B25CF7 /* EmasCurlScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmasCurlScenario.h; sourceTree = "<group>"; };
+		7EC1EC442EB4AC7700B25CF7 /* EmasCurlScenario.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmasCurlScenario.m; sourceTree = "<group>"; };
 		7ED2DA1E2C4518B8007051F4 /* DomainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainTableViewCell.h; sourceTree = "<group>"; };
 		7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DomainTableViewCell.m; sourceTree = "<group>"; };
 		7ED456C92C5741F7006FC84E /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 			children = (
 				7E776E602C4E640C00188CE3 /* HTTPSWithSNIScenario.h */,
 				7E776E612C4E640C00188CE3 /* HTTPSWithSNIScenario.m */,
+				7EC1EC432EB4AC7700B25CF7 /* EmasCurlScenario.h */,
+				7EC1EC442EB4AC7700B25CF7 /* EmasCurlScenario.m */,
 			);
 			path = HttpsSNIExample;
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				7ED456D12C58EC0D006FC84E /* SettingDomainListViewController.m in Sources */,
 				7ED98FFD2C5099290025D1F8 /* AVPlayerAlertView.m in Sources */,
 				7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */,
+				7EC1EC452EB4AC7700B25CF7 /* EmasCurlScenario.m in Sources */,
 				7E776E762C4E659E00188CE3 /* AFNHttpsScenario.m in Sources */,
 				7EF25A8B2C3F7E0B00FD57DF /* HelloFuctionViewController.m in Sources */,
 				7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */,

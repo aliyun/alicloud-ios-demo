@@ -10,6 +10,7 @@ target 'httpdns_ios_demo' do
 
   pod 'AlicloudHTTPDNS', '3.2.1'
   pod 'EMASLocalProxy', '1.3.6'
+  pod 'EMASCurl', '1.4.1'
 
   pod 'AFNetworking'
   pod 'Alamofire'
