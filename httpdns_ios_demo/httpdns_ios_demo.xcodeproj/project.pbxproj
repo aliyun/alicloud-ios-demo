@@ -15,9 +15,7 @@
 		7E072F5F2C41127C00A99134 /* ResolveFuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E072F5E2C41127C00A99134 /* ResolveFuctionViewController.m */; };
 		7E19D12A2C4E3DB20022954C /* PlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */; };
 		7E776E662C4E640C00188CE3 /* HTTPSWithSNIScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E612C4E640C00188CE3 /* HTTPSWithSNIScenario.m */; };
-		7E776E672C4E640C00188CE3 /* HTTPSSimpleScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E642C4E640C00188CE3 /* HTTPSSimpleScenario.m */; };
 		7E776E6A2C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E682C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m */; };
-		7E776E6E2C4E655D00188CE3 /* GeneralScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E6C2C4E655D00188CE3 /* GeneralScenario.m */; };
 		7E776E762C4E659E00188CE3 /* AFNHttpsScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E702C4E659E00188CE3 /* AFNHttpsScenario.m */; };
 		7E776E772C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E722C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m */; };
 		7E776E7F2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E776E7D2C4E65FF00188CE3 /* AlamofireHttpsScenario.swift */; };
@@ -25,6 +23,7 @@
 		7E81AA572C4A51C8007F9F55 /* CustomLineSpacingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E81AA562C4A51C8007F9F55 /* CustomLineSpacingLabel.m */; };
 		7EC07CA92C4A137300D770F6 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC07CA82C4A137300D770F6 /* ExampleViewController.m */; };
 		7EC087B12C539EB6009EDF36 /* SettingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC087B02C539EB6009EDF36 /* SettingInfoModel.m */; };
+		7EC1EC452EB4AC7700B25CF7 /* EmasCurlScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1EC442EB4AC7700B25CF7 /* EmasCurlScenario.m */; };
 		7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */; };
 		7ED456CB2C5741F7006FC84E /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED456CA2C5741F7006FC84E /* SettingTableViewCell.m */; };
 		7ED456CE2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED456CD2C58E4C4006FC84E /* SettingAdvancedTableViewCell.m */; };
@@ -98,12 +97,8 @@
 		7E19D1292C4E3DB20022954C /* PlaceHolderTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderTextView.m; sourceTree = "<group>"; };
 		7E776E602C4E640C00188CE3 /* HTTPSWithSNIScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSWithSNIScenario.h; sourceTree = "<group>"; };
 		7E776E612C4E640C00188CE3 /* HTTPSWithSNIScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSWithSNIScenario.m; sourceTree = "<group>"; };
-		7E776E632C4E640C00188CE3 /* HTTPSSimpleScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSSimpleScenario.h; sourceTree = "<group>"; };
-		7E776E642C4E640C00188CE3 /* HTTPSSimpleScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSSimpleScenario.m; sourceTree = "<group>"; };
 		7E776E682C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpDnsNSURLProtocolImpl.m; sourceTree = "<group>"; };
 		7E776E692C4E642800188CE3 /* HttpDnsNSURLProtocolImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpDnsNSURLProtocolImpl.h; sourceTree = "<group>"; };
-		7E776E6B2C4E655D00188CE3 /* GeneralScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralScenario.h; sourceTree = "<group>"; };
-		7E776E6C2C4E655D00188CE3 /* GeneralScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralScenario.m; sourceTree = "<group>"; };
 		7E776E6F2C4E659E00188CE3 /* AFNHttpsScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNHttpsScenario.h; sourceTree = "<group>"; };
 		7E776E702C4E659E00188CE3 /* AFNHttpsScenario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNHttpsScenario.m; sourceTree = "<group>"; };
 		7E776E712C4E659E00188CE3 /* AFNHttpsWithSNIScenario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNHttpsWithSNIScenario.h; sourceTree = "<group>"; };
@@ -117,6 +112,8 @@
 		7EC07CA82C4A137300D770F6 /* ExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		7EC087AF2C539EB6009EDF36 /* SettingInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingInfoModel.h; sourceTree = "<group>"; };
 		7EC087B02C539EB6009EDF36 /* SettingInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingInfoModel.m; sourceTree = "<group>"; };
+		7EC1EC432EB4AC7700B25CF7 /* EmasCurlScenario.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmasCurlScenario.h; sourceTree = "<group>"; };
+		7EC1EC442EB4AC7700B25CF7 /* EmasCurlScenario.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmasCurlScenario.m; sourceTree = "<group>"; };
 		7ED2DA1E2C4518B8007051F4 /* DomainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainTableViewCell.h; sourceTree = "<group>"; };
 		7ED2DA1F2C4518B8007051F4 /* DomainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DomainTableViewCell.m; sourceTree = "<group>"; };
 		7ED456C92C5741F7006FC84E /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
@@ -249,26 +246,10 @@
 			children = (
 				7E776E602C4E640C00188CE3 /* HTTPSWithSNIScenario.h */,
 				7E776E612C4E640C00188CE3 /* HTTPSWithSNIScenario.m */,
+				7EC1EC432EB4AC7700B25CF7 /* EmasCurlScenario.h */,
+				7EC1EC442EB4AC7700B25CF7 /* EmasCurlScenario.m */,
 			);
 			path = HttpsSNIExample;
-			sourceTree = "<group>";
-		};
-		7E776E652C4E640C00188CE3 /* HttpsExample */ = {
-			isa = PBXGroup;
-			children = (
-				7E776E632C4E640C00188CE3 /* HTTPSSimpleScenario.h */,
-				7E776E642C4E640C00188CE3 /* HTTPSSimpleScenario.m */,
-			);
-			path = HttpsExample;
-			sourceTree = "<group>";
-		};
-		7E776E6D2C4E655D00188CE3 /* GeneralExample */ = {
-			isa = PBXGroup;
-			children = (
-				7E776E6B2C4E655D00188CE3 /* GeneralScenario.h */,
-				7E776E6C2C4E655D00188CE3 /* GeneralScenario.m */,
-			);
-			path = GeneralExample;
 			sourceTree = "<group>";
 		};
 		7E776E752C4E659E00188CE3 /* AFNetworkingExamples */ = {
@@ -298,8 +279,6 @@
 				7ED98FFA2C5091880025D1F8 /* AVPlayerExample */,
 				7E776E7C2C4E65EF00188CE3 /* AlamofireExamples */,
 				7E776E752C4E659E00188CE3 /* AFNetworkingExamples */,
-				7E776E6D2C4E655D00188CE3 /* GeneralExample */,
-				7E776E652C4E640C00188CE3 /* HttpsExample */,
 				7E776E622C4E640C00188CE3 /* HttpsSNIExample */,
 				7EC07CA72C4A137300D770F6 /* ExampleViewController.h */,
 				7EC07CA82C4A137300D770F6 /* ExampleViewController.m */,
@@ -741,6 +720,7 @@
 				7ED456D12C58EC0D006FC84E /* SettingDomainListViewController.m in Sources */,
 				7ED98FFD2C5099290025D1F8 /* AVPlayerAlertView.m in Sources */,
 				7ED5B5612C37902600CC5FD4 /* AppDelegate.m in Sources */,
+				7EC1EC452EB4AC7700B25CF7 /* EmasCurlScenario.m in Sources */,
 				7E776E762C4E659E00188CE3 /* AFNHttpsScenario.m in Sources */,
 				7EF25A8B2C3F7E0B00FD57DF /* HelloFuctionViewController.m in Sources */,
 				7ED990002C50DC330025D1F8 /* CustomResourceLoaderDelegate.m in Sources */,
@@ -749,10 +729,8 @@
 				7EF3E4182C5A4CD700703B58 /* SettingBaseTableViewCell.m in Sources */,
 				7EDEAECF2C6B078600328BA8 /* HTTPDNSDemoLoading.m in Sources */,
 				7E776E802C4E65FF00188CE3 /* AlamofireHttpsWithSNIScenario.swift in Sources */,
-				7E776E6E2C4E655D00188CE3 /* GeneralScenario.m in Sources */,
 				7EF25A982C3FD5F100FD57DF /* ResolveTypeButton.m in Sources */,
 				7ED990032C50DECA0025D1F8 /* AVPlayerScenario.m in Sources */,
-				7E776E672C4E640C00188CE3 /* HTTPSSimpleScenario.m in Sources */,
 				7E776E772C4E659E00188CE3 /* AFNHttpsWithSNIScenario.m in Sources */,
 				7ED2DA202C4518B8007051F4 /* DomainTableViewCell.m in Sources */,
 				7ED456CB2C5741F7006FC84E /* SettingTableViewCell.m in Sources */,
