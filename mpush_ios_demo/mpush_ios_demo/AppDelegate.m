@@ -17,8 +17,8 @@
 #import <UserNotifications/UserNotifications.h>
 
 // 请前往 https://emas.console.aliyun.com 创建你自己的 App 并替换以下参数值
-NSString *testAppKey = @"335545903";
-NSString *testAppSecret = @"bf524eae098740c2bce55c968a082353";
+NSString *testAppKey = @"335574565";
+NSString *testAppSecret = @"f5af84d4848649d4b1fbfb0b6d787830";
 
 // 预发环境使用
 NSString *elsHost;
