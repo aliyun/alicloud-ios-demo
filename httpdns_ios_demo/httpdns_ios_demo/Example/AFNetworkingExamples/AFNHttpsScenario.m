@@ -8,7 +8,7 @@
 
 #import "AFNHttpsScenario.h"
 #import <AFNetworking/AFNetworking.h>
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 
 @implementation AFNHttpsScenario
 

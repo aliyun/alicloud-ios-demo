@@ -7,7 +7,7 @@
 //
 
 #import "HTTPSWithSNIScenario.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 #import "HttpDnsNSURLProtocolImpl.h"
 
 @implementation HTTPSWithSNIScenario

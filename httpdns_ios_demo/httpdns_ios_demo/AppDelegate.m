@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 
 @interface AppDelegate ()
 

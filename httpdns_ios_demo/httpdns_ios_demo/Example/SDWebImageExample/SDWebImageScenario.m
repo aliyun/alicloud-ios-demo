@@ -6,7 +6,7 @@
 //
 
 #import "SDWebImageScenario.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 #import <SDWebImage/SDWebImage.h>
 #import "HttpDnsNSURLProtocolImpl.h"
 #import "ImageAlertView.h"

@@ -13,7 +13,7 @@
 #import "SettingDomainListViewController.h"
 #import "SettingOtherTableViewCell.h"
 #import "SettingBaseTableViewCell.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
