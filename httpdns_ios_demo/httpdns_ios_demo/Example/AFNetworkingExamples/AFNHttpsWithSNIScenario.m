@@ -7,7 +7,7 @@
 //
 
 #import "AFNHttpsWithSNIScenario.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 #import "HttpDnsNSURLProtocolImpl.h"
 #import <AFNetworking/AFNetworking.h>
 

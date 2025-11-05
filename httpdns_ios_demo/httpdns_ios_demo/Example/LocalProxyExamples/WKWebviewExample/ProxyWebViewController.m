@@ -1,6 +1,6 @@
 #import "ProxyWebViewController.h"
 #import <EMASLocalProxy/EMASLocalHttpProxy.h>
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 
 @interface ProxyWebViewController ()
 @property (nonatomic, strong) NSURL *targetURL;

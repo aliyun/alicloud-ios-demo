@@ -7,7 +7,7 @@
 
 #import "EmasCurlScenario.h"
 #import <EMASCurl/EMASCurl.h>
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 
 // 实现自定义DNS解析器（例如使用HTTPDNS）
 @interface MyDNSResolver : NSObject <EMASCurlProtocolDNSResolver>

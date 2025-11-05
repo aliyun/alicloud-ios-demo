@@ -8,7 +8,7 @@
 #import "ResolveFuctionViewController.h"
 #import "ResolveTypeButton.h"
 #import "ChooseOrInputDomainViewController.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 #import "TipsAlertView.h"
 
 @interface ResolveFuctionViewController ()<ChooseOrInputDomainDelegate>

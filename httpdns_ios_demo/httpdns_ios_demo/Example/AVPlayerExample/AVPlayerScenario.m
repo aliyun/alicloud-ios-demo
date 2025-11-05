@@ -6,7 +6,7 @@
 //
 
 #import "AVPlayerScenario.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 #import <AVFoundation/AVFoundation.h>
 #import "CustomResourceLoaderDelegate.h"
 #import "AVPlayerAlertView.h"

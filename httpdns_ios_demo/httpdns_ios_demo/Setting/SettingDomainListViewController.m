@@ -8,7 +8,7 @@
 #import "SettingDomainListViewController.h"
 #import "SettingDomainListTableViewCell.h"
 #import "AddDomainAlertView.h"
-#import <AlicloudHttpDNS/AlicloudHttpDNS.h>
+#import <AlicloudHTTPDNS/AlicloudHttpDNS.h>
 #import "UIView+Toast.h"
 
 @interface SettingDomainListViewController ()<UITableViewDelegate,UITableViewDataSource>

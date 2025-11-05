@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-import AlicloudHttpDNS
+import AlicloudHTTPDNS
 
 @objcMembers class AlamofireHttpsScenario: NSObject {
 
