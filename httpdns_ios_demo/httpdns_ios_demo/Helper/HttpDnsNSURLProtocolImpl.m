@@ -278,10 +278,15 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
                 CFIndex statusCode = CFHTTPMessageGetResponseStatusCode(message);
 
                 if (!self.responseIsHandle) {
-                    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:_curRequest.URL statusCode:statusCode
-                                                                             HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
-                    [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-                    self.responseIsHandle = YES;
+                    // 如果是重定向，不要先通知 client
+                    if (statusCode >= 300 && statusCode < 400) {
+                        // 跳过 didReceiveResponse，等待重定向处理
+                    } else {
+                        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:_curRequest.URL statusCode:statusCode
+                                                                                 HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
+                        [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
+                        self.responseIsHandle = YES;
+                    }
                 }
 
                 // 验证证书
@@ -346,9 +351,20 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
 #pragma clang diagnostic pop
-        if (CFHTTPMessageIsHeaderComplete(message)) {
-            NSNumber *alreadyAdded = objc_getAssociatedObject(aStream, (__bridge const void *)(kAnchorAlreadyAdded));
+        BOOL headerComplete = message ? CFHTTPMessageIsHeaderComplete(message) : NO;
+        if (headerComplete) {
+            CFIndex statusCode = CFHTTPMessageGetResponseStatusCode(message);
             NSDictionary *headDict = (__bridge NSDictionary *) (CFHTTPMessageCopyAllHeaderFields(message));
+
+            // 处理 3xx 重定向
+            if (statusCode >= 300 && statusCode < 400) {
+                [self closeStream:aStream];
+                [self handleRedirect:message];
+                CFRelease(message);
+                return;
+            }
+
+            NSNumber *alreadyAdded = objc_getAssociatedObject(aStream, (__bridge const void *)(kAnchorAlreadyAdded));
 
             if (!alreadyAdded || ![alreadyAdded boolValue]) {
                 objc_setAssociatedObject(aStream, (__bridge const void *)(kAnchorAlreadyAdded), [NSNumber numberWithBool:YES], OBJC_ASSOCIATION_COPY);
@@ -356,8 +372,6 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
 
                 if (!self.responseIsHandle) {
                     CFStringRef httpVersion = CFHTTPMessageCopyVersion(message);
-                    // 获取响应头部的状态码
-                    CFIndex statusCode = CFHTTPMessageGetResponseStatusCode(message);
                     NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:_curRequest.URL statusCode:statusCode
                                                                          HTTPVersion:(__bridge NSString *) httpVersion headerFields:headDict];
                     [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
@@ -419,7 +433,17 @@ static NSString *const kAnchorAlreadyAdded = @"AnchorAlreadyAdded";
     NSString *location = headDict[@"Location"];
     if (!location)
         location = headDict[@"location"];
-    NSURL *url = [[NSURL alloc] initWithString:location];
+
+    // 使用 relativeToURL 同时支持绝对路径和相对路径
+    NSURL *url = [NSURL URLWithString:location relativeToURL:_curRequest.URL].absoluteURL;
+
+    // 检查是否跨域重定向，如果是则更新 host header
+    NSString *currentHost = [_curRequest.allHTTPHeaderFields objectForKey:@"host"];
+    NSString *newHost = url.host;
+    if (newHost && currentHost && ![newHost isEqualToString:currentHost]) {
+        [_curRequest setValue:newHost forHTTPHeaderField:@"host"];
+    }
+
     _curRequest.URL = url;
     if ([[_curRequest.HTTPMethod lowercaseString] isEqualToString:@"post"]) {
         // 根据RFC文档，当重定向请求为POST请求时，要将其转换为GET请求
