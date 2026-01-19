@@ -110,5 +110,5 @@ Demo仅作为原理讲解和示例代码用途，
 ## 联系我们
 
  - 官网：移动用户反馈[《移动用户反馈》]( https://help.aliyun.com/document_detail/53145.html?spm=5176.doc53324.6.555.KEwgHA )
- - 钉钉技术支持：11711519（钉钉群号）
+ - 钉钉技术支持：35248489（钉钉群号）
  - 官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 )

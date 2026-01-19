@@ -187,7 +187,7 @@ Demo采用cocoapods管理依赖库，运行前需先执行 `pod install` 命令�
 ## 联系我们
 
  - 官网：[《HTTPDNS》]( https://cn.aliyun.com/product/httpdns?spm=5176.7841952.765261.327.AS1VQb ) 
- - 钉钉技术支持：11777313（钉钉群号）
+ - 钉钉技术支持：35248489（钉钉群号）
  - 官方技术博客：[《阿里云移动服务》]( https://yq.aliyun.com/teams/32 ) 
 
 
