@@ -6,6 +6,10 @@ platform :ios, '12.0'
 target 'apm_ios_demo' do
   use_frameworks!
 
-  pod 'AlicloudApmAll'
+  pod 'AlicloudApmAll' , '2.1.8', :subspecs => [
+    'AlicloudApmMemAlloc',
+    'AlicloudApmMemLeak',
+    'AlicloudApmRemoteLog',
+  ]
 
 end

@@ -11,13 +11,17 @@
 
 @interface RemoteLogViewController ()
 
+@property(nonatomic, strong) EAPMRemoteLog *remoteLogger;
+
 @end
 
 @implementation RemoteLogViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.remoteLogger = [[EAPMRemoteLog alloc] initWithModuleName:@"YourModuleName"];
+    
 }
 
 - (IBAction)creatLog:(id)sender {
@@ -26,6 +30,11 @@
     [log warn:@"warn message"];
     [log debug:@"debug message"];
     [log info:@"info message"];
+}
+
+
+- (IBAction)uploadLoad:(id)sender {
+    [EAPMRemoteLog uploadTLog:@"主动上报bizComment"];
 }
 
 @end
