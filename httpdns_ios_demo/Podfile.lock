@@ -16,7 +16,9 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (5.10.2)
   - AlicloudHTTPDNS (3.4.0)
-  - EMASCurl (1.4.2)
+  - EMASCurl (1.5.2):
+    - EMASCurl/HTTP2 (= 1.5.2)
+  - EMASCurl/HTTP2 (1.5.2)
   - EMASLocalProxy (1.3.6)
   - SDWebImage (5.21.1):
     - SDWebImage/Core (= 5.21.1)
@@ -26,7 +28,7 @@ DEPENDENCIES:
   - AFNetworking
   - Alamofire
   - AlicloudHTTPDNS (= 3.4.0)
-  - EMASCurl (= 1.4.2)
+  - EMASCurl (= 1.5.2)
   - EMASLocalProxy (= 1.3.6)
   - SDWebImage
 
@@ -44,10 +46,10 @@ SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   AlicloudHTTPDNS: bf08cd49a2b9e37f7c4f5b43eb26f7b1a83a34d8
-  EMASCurl: 85ab7017460a8101e6c6c0ae7d8413ed8ebb0c88
+  EMASCurl: d58b56291873f474809b7d0f477a8ce823780b6b
   EMASLocalProxy: 9475c21e6a0d58c683af4342757303d344ba1a00
   SDWebImage: f29024626962457f3470184232766516dee8dfea
 
-PODFILE CHECKSUM: b72e6ba8218623f4455104b9323899aad66209c3
+PODFILE CHECKSUM: 1c8a68bdcb55f0f6f2b7a9888bcdfd34e2fd90da
 
 COCOAPODS: 1.16.2
