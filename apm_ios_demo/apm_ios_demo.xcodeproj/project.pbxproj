@@ -8,19 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		330B627223505591004ABFDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B627123505591004ABFDA /* AppDelegate.m */; };
-		330B627523505591004ABFDA /* PerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B627423505591004ABFDA /* PerformanceViewController.m */; };
-		330B627823505591004ABFDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330B627623505591004ABFDA /* Main.storyboard */; };
+		330B627523505591004ABFDA /* EAPMDemoPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B627423505591004ABFDA /* EAPMDemoPerformance.m */; };
 		330B627A23505592004ABFDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330B627923505592004ABFDA /* Assets.xcassets */; };
 		330B627D23505592004ABFDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330B627B23505592004ABFDA /* LaunchScreen.storyboard */; };
 		330B628023505592004ABFDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 330B627F23505592004ABFDA /* main.m */; };
-		332B38DE23507411009831D0 /* ALC2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38D823507411009831D0 /* ALC2ViewController.m */; };
-		332B38DF23507411009831D0 /* ALC1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38D923507411009831D0 /* ALC1ViewController.m */; };
-		332B38E023507411009831D0 /* ALC3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38DA23507411009831D0 /* ALC3ViewController.m */; };
-		7EAE924B2DB10A5A0047CB67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE924A2DB10A5A0047CB67 /* ViewController.m */; };
-		7EFDB87E2DAFB1800079A3D1 /* SDKConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB87D2DAFB1800079A3D1 /* SDKConfigViewController.m */; };
-		7EFDB8822DAFB2060079A3D1 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8802DAFB2060079A3D1 /* CommonTools.m */; };
-		7EFDB8852DAFBA490079A3D1 /* CrashAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8842DAFBA490079A3D1 /* CrashAnalysisViewController.m */; };
-		7EFDB8BE2DB0E2900079A3D1 /* RemoteLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8BD2DB0E2900079A3D1 /* RemoteLogViewController.m */; };
+		332B38DF23507411009831D0 /* EAPMDemoMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B38D923507411009831D0 /* EAPMDemoMemory.m */; };
+		7EFDB8822DAFB2060079A3D1 /* EAPMDemoConfigStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8802DAFB2060079A3D1 /* EAPMDemoConfigStore.m */; };
+		7EFDB8852DAFBA490079A3D1 /* EAPMDemoCrashAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8842DAFBA490079A3D1 /* EAPMDemoCrashAnalysis.m */; };
+		7EFDB8BE2DB0E2900079A3D1 /* EAPMDemoRemoteLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDB8BD2DB0E2900079A3D1 /* EAPMDemoRemoteLog.m */; };
+		9A0000000000000000000001 /* EAPMDemoSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0000000000000000000011 /* EAPMDemoSettingsViewController.m */; };
+		A10000000000000000000001 /* EAPMDemoHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000011 /* EAPMDemoHomeViewController.m */; };
+		A10000000000000000000002 /* EAPMDemoHomeUI.m in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000013 /* EAPMDemoHomeUI.m */; };
+		A10000000000000000000004 /* EAPMDemoPerformanceScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000017 /* EAPMDemoPerformanceScrollViewController.m */; };
+		B20000000000000000000001 /* EAPMDemoCrashViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000011 /* EAPMDemoCrashViewController.mm */; };
+		C30000000000000000000001 /* EAPMDemoNetworkAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000011 /* EAPMDemoNetworkAnalysisViewController.m */; };
+		D40000000000000000000001 /* EAPMDemoOverlayPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000011 /* EAPMDemoOverlayPresenter.m */; };
+		D40000000000000000000020 /* EAPMDemoUIComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000022 /* EAPMDemoUIComponents.m */; };
 		FEA34C68ED2E042C74A482DD /* Pods_apm_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ADE4EBEB8CB88EB1639A09 /* Pods_apm_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,32 +31,40 @@
 		330B626D23505591004ABFDA /* apm_ios_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = apm_ios_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330B627023505591004ABFDA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		330B627123505591004ABFDA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		330B627323505591004ABFDA /* PerformanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceViewController.h; sourceTree = "<group>"; };
-		330B627423505591004ABFDA /* PerformanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceViewController.m; sourceTree = "<group>"; };
-		330B627723505591004ABFDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		330B627323505591004ABFDA /* EAPMDemoPerformance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoPerformance.h; sourceTree = "<group>"; };
+		330B627423505591004ABFDA /* EAPMDemoPerformance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoPerformance.m; sourceTree = "<group>"; };
 		330B627923505592004ABFDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330B627C23505592004ABFDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		330B627E23505592004ABFDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		330B627F23505592004ABFDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		332B38D823507411009831D0 /* ALC2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALC2ViewController.m; sourceTree = "<group>"; };
-		332B38D923507411009831D0 /* ALC1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALC1ViewController.m; sourceTree = "<group>"; };
-		332B38DA23507411009831D0 /* ALC3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALC3ViewController.m; sourceTree = "<group>"; };
-		332B38DB23507411009831D0 /* ALC3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC3ViewController.h; sourceTree = "<group>"; };
-		332B38DC23507411009831D0 /* ALC1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC1ViewController.h; sourceTree = "<group>"; };
-		332B38DD23507411009831D0 /* ALC2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALC2ViewController.h; sourceTree = "<group>"; };
-		7EAE92492DB10A5A0047CB67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7EAE924A2DB10A5A0047CB67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7EFDB87C2DAFB1800079A3D1 /* SDKConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKConfigViewController.h; sourceTree = "<group>"; };
-		7EFDB87D2DAFB1800079A3D1 /* SDKConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKConfigViewController.m; sourceTree = "<group>"; };
-		7EFDB87F2DAFB2060079A3D1 /* CommonTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTools.h; sourceTree = "<group>"; };
-		7EFDB8802DAFB2060079A3D1 /* CommonTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTools.m; sourceTree = "<group>"; };
-		7EFDB8812DAFB2060079A3D1 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
-		7EFDB8832DAFBA490079A3D1 /* CrashAnalysisViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashAnalysisViewController.h; sourceTree = "<group>"; };
-		7EFDB8842DAFBA490079A3D1 /* CrashAnalysisViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashAnalysisViewController.m; sourceTree = "<group>"; };
-		7EFDB8BC2DB0E2900079A3D1 /* RemoteLogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteLogViewController.h; sourceTree = "<group>"; };
-		7EFDB8BD2DB0E2900079A3D1 /* RemoteLogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteLogViewController.m; sourceTree = "<group>"; };
+		332B38D923507411009831D0 /* EAPMDemoMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoMemory.m; sourceTree = "<group>"; };
+		332B38DC23507411009831D0 /* EAPMDemoMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPMDemoMemory.h; sourceTree = "<group>"; };
+		7EFDB87F2DAFB2060079A3D1 /* EAPMDemoConfigStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoConfigStore.h; sourceTree = "<group>"; };
+		7EFDB8802DAFB2060079A3D1 /* EAPMDemoConfigStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoConfigStore.m; sourceTree = "<group>"; };
+		7EFDB8812DAFB2060079A3D1 /* EAPMDemoConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoConstants.h; sourceTree = "<group>"; };
+		7EFDB8832DAFBA490079A3D1 /* EAPMDemoCrashAnalysis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoCrashAnalysis.h; sourceTree = "<group>"; };
+		7EFDB8842DAFBA490079A3D1 /* EAPMDemoCrashAnalysis.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoCrashAnalysis.m; sourceTree = "<group>"; };
+		7EFDB8BC2DB0E2900079A3D1 /* EAPMDemoRemoteLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoRemoteLog.h; sourceTree = "<group>"; };
+		7EFDB8BD2DB0E2900079A3D1 /* EAPMDemoRemoteLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoRemoteLog.m; sourceTree = "<group>"; };
 		94ADE4EBEB8CB88EB1639A09 /* Pods_apm_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apm_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A0000000000000000000010 /* EAPMDemoSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoSettingsViewController.h; sourceTree = "<group>"; };
+		9A0000000000000000000011 /* EAPMDemoSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoSettingsViewController.m; sourceTree = "<group>"; };
+		A10000000000000000000010 /* EAPMDemoHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoHomeViewController.h; sourceTree = "<group>"; };
+		A10000000000000000000011 /* EAPMDemoHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoHomeViewController.m; sourceTree = "<group>"; };
+		A10000000000000000000012 /* EAPMDemoHomeUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoHomeUI.h; sourceTree = "<group>"; };
+		A10000000000000000000013 /* EAPMDemoHomeUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoHomeUI.m; sourceTree = "<group>"; };
+		A10000000000000000000016 /* EAPMDemoPerformanceScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoPerformanceScrollViewController.h; sourceTree = "<group>"; };
+		A10000000000000000000017 /* EAPMDemoPerformanceScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoPerformanceScrollViewController.m; sourceTree = "<group>"; };
 		A416AF6F4BABBE512C7FBD28 /* Pods-apm_ios_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apm_ios_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo.release.xcconfig"; sourceTree = "<group>"; };
+		B20000000000000000000010 /* EAPMDemoCrashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoCrashViewController.h; sourceTree = "<group>"; };
+		B20000000000000000000011 /* EAPMDemoCrashViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = EAPMDemoCrashViewController.mm; sourceTree = "<group>"; };
+		C30000000000000000000010 /* EAPMDemoNetworkAnalysisViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoNetworkAnalysisViewController.h; sourceTree = "<group>"; };
+		C30000000000000000000011 /* EAPMDemoNetworkAnalysisViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoNetworkAnalysisViewController.m; sourceTree = "<group>"; };
+		D40000000000000000000010 /* EAPMDemoOverlayPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoOverlayPresenter.h; sourceTree = "<group>"; };
+		D40000000000000000000011 /* EAPMDemoOverlayPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoOverlayPresenter.m; sourceTree = "<group>"; };
+		D40000000000000000000012 /* EAPMDemoUIStyleGuide.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoUIStyleGuide.h; sourceTree = "<group>"; };
+		D40000000000000000000021 /* EAPMDemoUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EAPMDemoUIComponents.h; sourceTree = "<group>"; };
+		D40000000000000000000022 /* EAPMDemoUIComponents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EAPMDemoUIComponents.m; sourceTree = "<group>"; };
 		D979A2B91797F489F795B7DB /* Pods-apm_ios_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apm_ios_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,32 +120,104 @@
 			children = (
 				330B627023505591004ABFDA /* AppDelegate.h */,
 				330B627123505591004ABFDA /* AppDelegate.m */,
-				7EAE92492DB10A5A0047CB67 /* ViewController.h */,
-				7EAE924A2DB10A5A0047CB67 /* ViewController.m */,
-				330B627323505591004ABFDA /* PerformanceViewController.h */,
-				330B627423505591004ABFDA /* PerformanceViewController.m */,
-				332B38DC23507411009831D0 /* ALC1ViewController.h */,
-				332B38D923507411009831D0 /* ALC1ViewController.m */,
-				332B38DD23507411009831D0 /* ALC2ViewController.h */,
-				332B38D823507411009831D0 /* ALC2ViewController.m */,
-				332B38DB23507411009831D0 /* ALC3ViewController.h */,
-				332B38DA23507411009831D0 /* ALC3ViewController.m */,
-				7EFDB87C2DAFB1800079A3D1 /* SDKConfigViewController.h */,
-				7EFDB87D2DAFB1800079A3D1 /* SDKConfigViewController.m */,
-				7EFDB8832DAFBA490079A3D1 /* CrashAnalysisViewController.h */,
-				7EFDB8842DAFBA490079A3D1 /* CrashAnalysisViewController.m */,
-				7EFDB8BC2DB0E2900079A3D1 /* RemoteLogViewController.h */,
-				7EFDB8BD2DB0E2900079A3D1 /* RemoteLogViewController.m */,
-				330B627623505591004ABFDA /* Main.storyboard */,
-				7EFDB87F2DAFB2060079A3D1 /* CommonTools.h */,
-				7EFDB8802DAFB2060079A3D1 /* CommonTools.m */,
-				7EFDB8812DAFB2060079A3D1 /* Macros.h */,
+				A10000000000000000000020 /* Modules */,
 				330B627923505592004ABFDA /* Assets.xcassets */,
 				330B627B23505592004ABFDA /* LaunchScreen.storyboard */,
 				330B627E23505592004ABFDA /* Info.plist */,
 				330B627F23505592004ABFDA /* main.m */,
 			);
 			path = apm_ios_demo;
+			sourceTree = "<group>";
+		};
+		9A0000000000000000000020 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9A0000000000000000000010 /* EAPMDemoSettingsViewController.h */,
+				9A0000000000000000000011 /* EAPMDemoSettingsViewController.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000020 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000021 /* Home */,
+				A10000000000000000000034 /* CrashAnalysis */,
+				A10000000000000000000022 /* Performance */,
+				A10000000000000000000035 /* Memory */,
+				A10000000000000000000036 /* RemoteLog */,
+				9A0000000000000000000020 /* Settings */,
+				A10000000000000000000037 /* Shared */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000021 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000010 /* EAPMDemoHomeViewController.h */,
+				A10000000000000000000011 /* EAPMDemoHomeViewController.m */,
+				A10000000000000000000012 /* EAPMDemoHomeUI.h */,
+				A10000000000000000000013 /* EAPMDemoHomeUI.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000022 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				330B627323505591004ABFDA /* EAPMDemoPerformance.h */,
+				330B627423505591004ABFDA /* EAPMDemoPerformance.m */,
+				A10000000000000000000016 /* EAPMDemoPerformanceScrollViewController.h */,
+				A10000000000000000000017 /* EAPMDemoPerformanceScrollViewController.m */,
+				C30000000000000000000010 /* EAPMDemoNetworkAnalysisViewController.h */,
+				C30000000000000000000011 /* EAPMDemoNetworkAnalysisViewController.m */,
+			);
+			path = Performance;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000034 /* CrashAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				7EFDB8832DAFBA490079A3D1 /* EAPMDemoCrashAnalysis.h */,
+				7EFDB8842DAFBA490079A3D1 /* EAPMDemoCrashAnalysis.m */,
+				B20000000000000000000010 /* EAPMDemoCrashViewController.h */,
+				B20000000000000000000011 /* EAPMDemoCrashViewController.mm */,
+			);
+			path = CrashAnalysis;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000035 /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				332B38DC23507411009831D0 /* EAPMDemoMemory.h */,
+				332B38D923507411009831D0 /* EAPMDemoMemory.m */,
+			);
+			path = Memory;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000036 /* RemoteLog */ = {
+			isa = PBXGroup;
+			children = (
+				7EFDB8BC2DB0E2900079A3D1 /* EAPMDemoRemoteLog.h */,
+				7EFDB8BD2DB0E2900079A3D1 /* EAPMDemoRemoteLog.m */,
+			);
+			path = RemoteLog;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000037 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7EFDB87F2DAFB2060079A3D1 /* EAPMDemoConfigStore.h */,
+				7EFDB8802DAFB2060079A3D1 /* EAPMDemoConfigStore.m */,
+				7EFDB8812DAFB2060079A3D1 /* EAPMDemoConstants.h */,
+				D40000000000000000000012 /* EAPMDemoUIStyleGuide.h */,
+				D40000000000000000000021 /* EAPMDemoUIComponents.h */,
+				D40000000000000000000022 /* EAPMDemoUIComponents.m */,
+				D40000000000000000000010 /* EAPMDemoOverlayPresenter.h */,
+				D40000000000000000000011 /* EAPMDemoOverlayPresenter.m */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +281,6 @@
 			files = (
 				330B627D23505592004ABFDA /* LaunchScreen.storyboard in Resources */,
 				330B627A23505592004ABFDA /* Assets.xcassets in Resources */,
-				330B627823505591004ABFDA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,9 +317,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-apm_ios_demo/Pods-apm_ios_demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -251,15 +337,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				332B38DE23507411009831D0 /* ALC2ViewController.m in Sources */,
-				7EFDB87E2DAFB1800079A3D1 /* SDKConfigViewController.m in Sources */,
-				7EFDB8822DAFB2060079A3D1 /* CommonTools.m in Sources */,
-				7EFDB8BE2DB0E2900079A3D1 /* RemoteLogViewController.m in Sources */,
-				332B38E023507411009831D0 /* ALC3ViewController.m in Sources */,
-				7EAE924B2DB10A5A0047CB67 /* ViewController.m in Sources */,
-				332B38DF23507411009831D0 /* ALC1ViewController.m in Sources */,
-				330B627523505591004ABFDA /* PerformanceViewController.m in Sources */,
-				7EFDB8852DAFBA490079A3D1 /* CrashAnalysisViewController.m in Sources */,
+				B20000000000000000000001 /* EAPMDemoCrashViewController.mm in Sources */,
+				A10000000000000000000002 /* EAPMDemoHomeUI.m in Sources */,
+				A10000000000000000000001 /* EAPMDemoHomeViewController.m in Sources */,
+				A10000000000000000000004 /* EAPMDemoPerformanceScrollViewController.m in Sources */,
+				C30000000000000000000001 /* EAPMDemoNetworkAnalysisViewController.m in Sources */,
+				332B38DF23507411009831D0 /* EAPMDemoMemory.m in Sources */,
+				330B627523505591004ABFDA /* EAPMDemoPerformance.m in Sources */,
+				9A0000000000000000000001 /* EAPMDemoSettingsViewController.m in Sources */,
+				7EFDB8822DAFB2060079A3D1 /* EAPMDemoConfigStore.m in Sources */,
+				D40000000000000000000001 /* EAPMDemoOverlayPresenter.m in Sources */,
+				D40000000000000000000020 /* EAPMDemoUIComponents.m in Sources */,
+				7EFDB8BE2DB0E2900079A3D1 /* EAPMDemoRemoteLog.m in Sources */,
+				7EFDB8852DAFBA490079A3D1 /* EAPMDemoCrashAnalysis.m in Sources */,
 				330B628023505592004ABFDA /* main.m in Sources */,
 				330B627223505591004ABFDA /* AppDelegate.m in Sources */,
 			);
@@ -268,14 +358,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		330B627623505591004ABFDA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				330B627723505591004ABFDA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		330B627B23505592004ABFDA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,19 +486,18 @@
 			baseConfigurationReference = D979A2B91797F489F795B7DB /* Pods-apm_ios_demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VSW2PKYTD7;
 				INFOPLIST_FILE = apm_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.apm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -426,19 +507,18 @@
 			baseConfigurationReference = A416AF6F4BABBE512C7FBD28 /* Pods-apm_ios_demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VSW2PKYTD7;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VSW2PKYTD7;
 				INFOPLIST_FILE = apm_ios_demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliyun.emas.pocdemo.apm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.aliyun.emas.pocdemo.dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,11 +1,26 @@
 #import "CrashHelper.h"
+#import "CrashHandler.hpp"
+#import <signal.h>
 
 @implementation CrashHelper
 
-+ (void)triggerCrash {
-    // 触发EXC_BAD_ACCESS崩溃
++ (void)triggerNSArrayException {
     NSArray *array = @[];
     NSLog(@"Crash element: %@", array[1]);
+}
+
++ (void)triggerCppCrash {
+    triggerCppCrash();
+}
+
++ (void)triggerMachException {
+    __builtin_trap();
+}
+
++ (void)triggerSignalCrash {
+    raise(SIGSEGV);
+    signal(SIGSEGV, SIG_DFL);
+    raise(SIGSEGV);
 }
 
 @end

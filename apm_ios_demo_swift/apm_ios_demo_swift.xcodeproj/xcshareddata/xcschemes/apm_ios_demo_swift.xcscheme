@@ -15,9 +15,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D2DEA3632DA9011B00E01F38"
+               BlueprintIdentifier = "AATG00010000000000000001"
                BuildableName = "apm_ios_demo_swift.app"
                BlueprintName = "apm_ios_demo_swift"
+               ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AATG00020000000000000002"
+               BuildableName = "apm_ios_demo_swiftTests.xctest"
+               BlueprintName = "apm_ios_demo_swiftTests"
+               ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AATG00030000000000000003"
+               BuildableName = "apm_ios_demo_swiftUITests.xctest"
+               BlueprintName = "apm_ios_demo_swiftUITests"
                ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,8 +55,38 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AATG00020000000000000002"
+               BuildableName = "apm_ios_demo_swiftTests.xctest"
+               BlueprintName = "apm_ios_demo_swiftTests"
+               ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AATG00030000000000000003"
+               BuildableName = "apm_ios_demo_swiftUITests.xctest"
+               BlueprintName = "apm_ios_demo_swiftUITests"
+               ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AATG00010000000000000001"
+            BuildableName = "apm_ios_demo_swift.app"
+            BlueprintName = "apm_ios_demo_swift"
+            ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -44,7 +102,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D2DEA3632DA9011B00E01F38"
+            BlueprintIdentifier = "AATG00010000000000000001"
             BuildableName = "apm_ios_demo_swift.app"
             BlueprintName = "apm_ios_demo_swift"
             ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">
@@ -61,7 +119,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D2DEA3632DA9011B00E01F38"
+            BlueprintIdentifier = "AATG00010000000000000001"
             BuildableName = "apm_ios_demo_swift.app"
             BlueprintName = "apm_ios_demo_swift"
             ReferencedContainer = "container:apm_ios_demo_swift.xcodeproj">

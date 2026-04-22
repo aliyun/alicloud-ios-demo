@@ -8,55 +8,109 @@
 
 #import "AppDelegate.h"
 
+#import "EAPMDemoConfigStore.h"
+#import "EAPMDemoHomeViewController.h"
 #import <AlicloudApmCore/AlicloudApmCore.h>
 #import <AlicloudApmCrashAnalysis/AlicloudApmCrashAnalysis.h>
 #import <AlicloudApmPerformance/AlicloudApmPerformance.h>
 #import <AlicloudApmRemoteLog/AlicloudApmRemoteLog.h>
-#import "CommonTools.h"
+#import <AlicloudApmMemAlloc/AlicloudApmMemAlloc.h>
+#import <AlicloudApmMemLeak/AlicloudApmMemLeak.h>
 
-@interface AppDelegate ()
-
-@end
+// 请前往 EMAS 控制台获取应用配置，在此替换。
+static NSString * const EAPMDemoAPMAppKey = @"";
+static NSString * const EAPMDemoAPMAppSecret = @"";
+static NSString * const EAPMDemoAPMAppRsaSecret = @"";
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    [self initSDK];
+    // 打印沙盒路径
+     NSLog(@"App Directory: %@", NSHomeDirectory());
+
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    [self installMainInterface];
+
+    if (![self canStartApmSDK]) {
+        [self configureLaunchBlockingAlertOnHomeInterface];
+        return YES;
+    }
+
+    // 启动 Alicloud APM SDK
+    [self startApmSDK];
 
     return YES;
 }
 
-- (void)initSDK {
-    NSString *appKey = @"请替换您的appKey";
-    NSString *appSecret = @"请替换您的appSecret";
-    NSString *appRsaSecret = @"请替换您的appRsaSecret";
-    
-    // 崩溃分析：EAPMCrashAnalysis 性能分析：EAPMPerformance  远程日志：EAPMRemoteLog
-    NSArray *functions = @[[EAPMCrashAnalysis class], [EAPMPerformance class], [EAPMRemoteLog class]];
+- (void)installMainInterface {
+    EAPMDemoHomeViewController *homeViewController = [[EAPMDemoHomeViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    navigationController.navigationBar.prefersLargeTitles = NO;
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+}
 
-    // 仅用于demo页面配置AppKey场景，非应用接入合理使用场景
-    [CommonTools setUpConfigWithAppKey:&appKey appSecret:&appSecret appRsaSecret:&appRsaSecret functions:&functions];
+- (BOOL)canStartApmSDK {
+    return [self isConfiguredValue:EAPMDemoAPMAppKey] &&
+           [self isConfiguredValue:EAPMDemoAPMAppSecret] &&
+           [self isConfiguredValue:EAPMDemoAPMAppRsaSecret];
+}
 
-    if (!appKey || !appSecret || !appRsaSecret || !functions) {
-        NSLog(@"****初始化失败，请检查所有必需的配置参数****");
-        return;
-    }
-
-    [[EAPMConfiguration sharedInstance] setLoggerLevel:EAPMLoggerLevelDebug];
+- (void)startApmSDK {
+    NSString *appKey = [self normalizedConfigValue:EAPMDemoAPMAppKey];
+    NSString *appSecret = [self normalizedConfigValue:EAPMDemoAPMAppSecret];
+    NSString *appRsaSecret = [self normalizedConfigValue:EAPMDemoAPMAppRsaSecret];
+    NSArray *functions = @[[EAPMCrashAnalysis class],
+                           [EAPMPerformance class],
+                           [EAPMRemoteLog class],
+                           [EAPMMemAlloc class],
+                           [EAPMMemLeak class]];
 
     EAPMOptions *options = [[EAPMOptions alloc] initWithAppKey:appKey
                                                      appSecret:appSecret];
 
-    options.userId = @"test";
-    options.userNick = @"apmAllTest";
+    options.userId = [EAPMDemoConfigStore storedUserId];
+    options.userNick = [EAPMDemoConfigStore storedUserNick];
     options.channel = @"dev";
     options.appRsaSecret = appRsaSecret;
     options.sdkComponents = functions;
 
     [EAPMApm startWithOptions:options];
+}
+
+- (nullable NSString *)normalizedConfigValue:(nullable NSString *)value {
+    NSString *trimmedValue = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return trimmedValue.length > 0 ? trimmedValue : nil;
+}
+
+- (BOOL)isConfiguredValue:(nullable NSString *)value {
+    return [self normalizedConfigValue:value] != nil;
+}
+
+- (void)configureLaunchBlockingAlertOnHomeInterface {
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    if (![navigationController isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
+
+    EAPMDemoHomeViewController *homeViewController = (EAPMDemoHomeViewController *)navigationController.topViewController;
+    if (![homeViewController isKindOfClass:[EAPMDemoHomeViewController class]]) {
+        return;
+    }
+
+    homeViewController.launchBlockingAlertTitle = @"应用配置缺失";
+    homeViewController.launchBlockingAlertMessage = @"当前缺少 appKey 等应用配置。\n\n请前往 EMAS 控制台获取应用配置，并修改 AppDelegate 中的 APM 配置后重新启动应用。";
+    __weak typeof(self) weakSelf = self;
+    homeViewController.launchBlockingAlertActionHandler = ^{
+        [weakSelf terminateApplication];
+    };
+}
+
+- (void)terminateApplication {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        exit(0);
+    });
 }
 
 
